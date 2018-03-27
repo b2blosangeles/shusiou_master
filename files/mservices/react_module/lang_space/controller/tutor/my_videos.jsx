@@ -104,7 +104,7 @@ try {
 		videoDelete:function(vid){
 			var me = this;
 			$.ajax({
-				url:  _master_svr() +  /api/video/myVideo.api?opt=removeUserVideo',
+				url:  _master_svr() +  '/api/video/myVideo.api?opt=removeUserVideo',
 				method: "POST",
 				data: {vid:vid, auth: me.props.route.env.state.auth},
 				dataType: "JSON"
