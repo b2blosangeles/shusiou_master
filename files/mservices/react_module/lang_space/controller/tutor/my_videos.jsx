@@ -54,7 +54,7 @@ try {
 			if (a.space_status) {
 				  var url =  _node_svr() + '/api/video/pipe.api?video_fn='+ a.vid +'&size=320&ss='+t;
 			} else {
-			    var url = _node_svr() + '.service.shusiou.win' +  '/api/video/pipe.api?video_fn='+ a.vid +'&size=320&ss='+t;
+			    var url = _master_svr() +  '/api/video/pipe.api?video_fn='+ a.vid +'&size=320&ss='+t;
 			}
 			return {width:'100%', background:'url('+url+')',
 				'background-size':'cover'}
@@ -63,7 +63,7 @@ try {
 			return {width:'100%', height:'100%', background:'url('+v+')','background-size':'contain'}	
 		},		
 		bgFilmAddStyle:function(t) {
-			var url = '/images/movie_add.png';
+			var url =  _master_svr() +  '/images/movie_add.png';
 			return {width:'100%', background:'url('+url+')',
 				'background-repeat':'no-repeat',
 			       'background-position':'center',
