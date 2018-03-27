@@ -56,7 +56,7 @@ try {
 				var url =  _master_svr()  + '/api/video/play_stream.api?type=image&vid='+ a.vid +'&w=180&s='+t;
 			} else {
 				
-				var url =  _node_svr() +  +  '/api/video/pipe.api?video_fn='+ a.vid +'&size=320&ss='+t;
+				var url =  _node_svr() + '/api/video/pipe.api?video_fn='+ a.vid +'&size=320&ss='+t;
 			}
 			return {width:'100%', background:'url('+url+')',
 				'background-size':'cover'}
