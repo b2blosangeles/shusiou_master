@@ -1,4 +1,6 @@
 var CP = new pkg.crowdProcess(), _f = {};
+res.send(env);
+return true;
 var data_folder = env.site_contents_path + '/data/';
 
 var param_lang = req.body.lang, param_group = req.body.group;
