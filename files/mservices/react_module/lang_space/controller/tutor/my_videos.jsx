@@ -17,7 +17,7 @@ try {
 		pullList:function() {
 			var me = this;
 			$.ajax({
-				url:  '/api/video/myVideo.api?opt=getMyVideos',
+				url:   _master_svr() +  '/api/video/myVideo.api?opt=getMyVideos',
 				method: "POST",
 				data: {auth:me.props.route.env.state.auth},
 				dataType: "JSON"
@@ -53,11 +53,10 @@ try {
 		bgFilmStyle:function(t, a) {
 			if (!a.space_status) {
 				
-				var url = 'http://' + a.server_ip + '/api/video/play_stream.api?type=image&vid='+ a.vid +'&w=180&s='+t;
+				var url =  _master_svr()  + '/api/video/play_stream.api?type=image&vid='+ a.vid +'&w=180&s='+t;
 			} else {
 				
-				var url = 'https://nd'+ (Math.floor(Math.random() * a.dns_matrix) + 1) + 
-				    '.service.shusiou.win' +  '/api/video/pipe.api?video_fn='+ a.vid +'&size=320&ss='+t;
+				var url =  _node_svr() +  +  '/api/video/pipe.api?video_fn='+ a.vid +'&size=320&ss='+t;
 			}
 			return {width:'100%', background:'url('+url+')',
 				'background-size':'cover'}
