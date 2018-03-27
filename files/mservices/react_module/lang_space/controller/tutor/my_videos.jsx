@@ -122,7 +122,7 @@ try {
 						<div className="col-sm-4 col-lg-4 col-md-4"> 
 							<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
 								<a href="JavaScript:void(0)" onClick={me.gotoAdmin.bind(me,'admin')}>
-								<img src={{ _master_svr() + '/images/film_bg.png'}} style={me.bgFilmAddStyle()} />
+								<img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmAddStyle()} />
 								</a>	
 							</div>			
 						</div>
