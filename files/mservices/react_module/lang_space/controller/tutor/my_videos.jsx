@@ -122,7 +122,7 @@ try {
 						<div className="col-sm-4 col-lg-4 col-md-4"> 
 							<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
 								<a href="JavaScript:void(0)" onClick={me.gotoAdmin.bind(me,'admin')}>
-								<img src="/images/film_bg.png" style={me.bgFilmAddStyle()} />
+								<img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmAddStyle()} />
 								</a>	
 							</div>			
 						</div>
@@ -136,7 +136,7 @@ try {
 											<i className="fa fa-play" aria-hidden="true"></i>
 										</button>										
 									</div>
-									<img src="/images/film_bg.png" style={me.bgFilmStyle(6, a)} />
+									<img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmStyle(6, a)} />
 								</div>
 
 							</div>							
@@ -144,7 +144,7 @@ try {
 							else return(
 							<div className="col-sm-4 col-lg-4 col-md-4"> 
 								<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
-									<img src="/images/film_bg.png" style={me.bgFilmThumbnail(a.org_thumbnail)} />	
+									<img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmThumbnail(a.org_thumbnail)} />	
 									<div className="video_thumbnail_text video_thumbnail_text_bg pull-right">
 										<i className="fa fa-info-circle"></i> {(a.message)?a.message:'Pulling ...'}
 									</div>
