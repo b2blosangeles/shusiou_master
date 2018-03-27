@@ -192,7 +192,7 @@ var app = function(auth_data) {
 				config = require(env.config_path + '/config.json'),
 				cfg0 = config.db;
 				let ips = [];
-				var str = 'SELECT `node_ip` from `cloud_node` WHERE `score` < 900 ORDER BY `node_ip` ASC ';
+				var str = 'SELECT `ip` from `cloud_node` WHERE `score` < 900 ORDER BY `ip` ASC ';
 				connection.query(str, function (error, results, fields) {
 					connection.end();
 					if (results.length)  cbk(results.length);
