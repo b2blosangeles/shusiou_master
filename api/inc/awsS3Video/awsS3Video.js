@@ -260,6 +260,7 @@
 				} else {
 					let diff = tracks.filter(x => !space_tracks.includes(x));
 					let CP1 = new pkg.crowdProcess(), _f1 = {};
+					console.log('====diff===' + diff.length);
 					for (var t in diff) {
 						_f1['P_' + t] = (function(t) { 
 							return function(cbk1) {
