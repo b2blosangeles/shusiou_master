@@ -221,10 +221,12 @@ var app = function(auth_data) {
 					var d = [];
 					for (var i = 0; i < CP.data.P0.length; i++) {
 						CP.data.P0[i].status = 'pending';
+						CP.data.P0[i].env = config.environment;
 						d.push(CP.data.P0[i]);
 					}
 					for (var i = 0; i < CP.data.P1.length; i++) {
 						CP.data.P1[i].status = 'ready';
+						CP.data.P1[i].env = config.environment;
 						CP.data.P1[i].dns_matrix = CP.data.dns_matrix;
 						d.push(data.results.P1[i]);
 					}
