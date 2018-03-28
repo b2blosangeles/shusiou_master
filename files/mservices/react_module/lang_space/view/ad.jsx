@@ -53,7 +53,7 @@ try {
 			    r = me.state.adlist[idx],
 			    ss = Math.floor(r.video_length / 25);
 
-			var l = 'https://'+ _node_svr() +  '/api/video/pipe.api?video_fn='+ r.vid + '&ss=' + 
+			var l = 'https://'+ _node_svr() +  '/api/video/pipe.api?env=' + r.env + '&video_fn='+ r.vid + '&ss=' + 
 			     (Math.floor(Math.random() * ss) * 25 + 10)
 			    + '&t=9';			
 					
