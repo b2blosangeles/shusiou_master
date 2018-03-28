@@ -226,7 +226,7 @@ var app = function(auth_data) {
 					}
 					for (var i = 0; i < CP.data.P1.length; i++) {
 						CP.data.P1[i].status = 'ready';
-						CP.data.P0[i].env = config.environment;
+						CP.data.P1[i].env = config.environment;
 						CP.data.P1[i].dns_matrix = CP.data.dns_matrix;
 						d.push(data.results.P1[i]);
 					}
