@@ -34,7 +34,7 @@ try {
 				var url = _master_svr() +  '/api/video/play_stream.api?type=video&vid='+ r.vid;
 			} else {				
 				
-				var url = _node_svr()  +  '/api/video/pipe_stream.api?video_fn='+ r.vid;
+				var url = _node_svr()  +  '/api/video/pipe_stream.api?env=' + r.env + '&video_fn='+ r.vid;
 			}			
 			return url;
 		},			
