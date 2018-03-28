@@ -284,6 +284,7 @@
 											};	
 											me.s3.putObject(params, function(err, data) {
 												if (err) {
+													console.log('err.message==>' + err.message);
 													cbk1({err:err.message});
 												} else {
 													cbk1(diff[t]);
