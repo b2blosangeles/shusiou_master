@@ -38,7 +38,7 @@ CP.serial(
 		let d = [];
 		
 		for (var i = 0; i < CP.data.P1.length; i++) {
-			CP.data.P1[i].env = config.environemnt;
+			CP.data.P1[i].env = config.environment;
 			CP.data.P1[i].dns_matrix = CP.data.dns_matrix;
 			d.push(data.results.P1[i]);
 		}		
