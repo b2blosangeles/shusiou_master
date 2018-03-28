@@ -262,7 +262,7 @@
 					let CP1 = new pkg.crowdProcess(), _f1 = {};
 					console.log('====diff===' + diff.length);
 					console.log('--- tracks--->' +  tracks.length);
-					console.log('---x --->' +  x.length);
+					console.log('---space_tracks --->' + space_tracks.length);
 					
 					for (var t in diff) {
 						_f1['P_' + t] = (function(t) { 
