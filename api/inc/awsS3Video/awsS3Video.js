@@ -267,6 +267,9 @@
 					for (var t in diff) {
 						_f1['P_' + t] = (function(t) { 
 							return function(cbk1) {
+								
+								console.log('t==>' + t);
+								
 								if (new Date().getTime() - tm > 45000) {
 									CP1.exit = 1;
 									cbk1(' -- skip to next time session ---'); return true;
@@ -284,7 +287,7 @@
 											};	
 											me.s3.putObject(params, function(err, data) {
 												if (err) {
-													console.log('err.message==>' + err.message);
+													
 													cbk1({err:err.message});
 												} else {
 													cbk1(diff[t]);
