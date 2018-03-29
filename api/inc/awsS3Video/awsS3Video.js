@@ -214,8 +214,8 @@
 				  Prefix: space_dir
 				}, v = {};
 
-				function listObject(params, callback) {
-					me.s3.listObjects(params, function (err, data) {
+				function listAllObject(params, callback) {
+					me.s3.listAllObjects(params, function (err, data) {
 						if(err) callback(err.message);
 						for (var o in data.Contents) {
 							let key = data.Contents[o].Key.replace(space_dir, '');
@@ -232,18 +232,17 @@
 					})
 
 				}
-				listObject(params, function(v) {
+				listAllObject(params, function(v) {
 					if (typeof v === 'string') {
 						cbk(v);
 					} else {
 						let tracks = CP.data.tracks;
 						let diff = Object.keys(v).filter(x => !tracks.includes(x));
 						if (diff.length) {
-							CP.exit = 1;
 							console.log('me.removeObjects============>');
 							me.removeObjects(space_dir, diff, 
 								function(data) {
-
+									CP.exit = 1;
 									cbk(v);
 								}		
 							);
@@ -279,10 +278,7 @@
 				} else {
 					let diff = tracks.filter(x => !space_tracks.includes(x));
 					let CP1 = new pkg.crowdProcess(), _f1 = {};
-					console.log('====diff===' + diff.length);
-					console.log('--- tracks--->' +  tracks.length);
-					console.log('---space_tracks --->' + space_tracks.length);
-					
+
 					for (var t in diff) {
 						_f1['P_' + t] = (function(t) { 
 							return function(cbk1) {
