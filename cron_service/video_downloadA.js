@@ -113,6 +113,8 @@ _f['downlod_video'] = function(cbk) {  /* downlod video */
 	video.pipe(fs.createWriteStream(CP.data.DIR.video +'video.mp4'));	
 	video.on('data', function(info) {}); 
 
+	// readStream.destroy();
+	
 	video.on('end', function(info) {
 		cbk(CP.data.current.code);
 	});
