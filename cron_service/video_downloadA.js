@@ -132,7 +132,6 @@ _f['DR3'] = function(cbk) { /* create sections path */
 };
 
 _f['D0'] = function(cbk) {  /* downlod video */
-	console.log('===downlod video===');
 	if ((CP.data.P2) && (CP.data.P2.code)) {
 		var url = decodeURIComponent(CP.data.P2.code);
 		var video = ytdl(url, {quality:'highest'}, function(err) { });
@@ -153,7 +152,7 @@ _f['D0'] = function(cbk) {  /* downlod video */
 		CP.exit = 1; cbk(false);
 	}	
 };
-/*
+
 _f['D1'] = function(cbk) {
 	if (!CP.data.D0 || !CP.data.P2.code || CP.data.D0 != CP.data.P2.code) {
 		cbk(false); CP.exit = 1;
@@ -180,7 +179,7 @@ _f['D1'] = function(cbk) {
 			});	
 		});	
 };
-
+/*
 _f['D2'] = function(cbk) {
 	if (!CP.data.D0 || !CP.data.P2.code || CP.data.D0 != CP.data.P2.code) {
 		cbk(false); CP.exit = 1;
