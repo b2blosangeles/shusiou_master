@@ -209,36 +209,10 @@
 				var params = { 
 				  Bucket: me.space_id,
 				  Delimiter: '',
-				  MaxKeys : 1000,
+				  MaxKeys : 10,
 				  Prefix: space_dir
 				}, v = {};
-				
-var allKeys = [];
-listAllKeys();
-function listAllKeys() {
-    me.s3.listObjectsV2(params, function (err, data) {
-        if (err) {
-            console.log(err, err.stack); // an error occurred
-        } else {
-            var contents = data.Contents;
-            contents.forEach(function (content) {
-                allKeys.push(content.Key);
-            });
 
-            if (data.IsTruncated) {
-                params.ContinuationToken = data.NextContinuationToken;
-                console.log("get further list...");
-                listAllKeys();
-            } else {
-	    	 console.log(allKeys.length);
-		    cbk(true);
-		 CP.exit = 1;   
-	    }
-
-        }
-    });
-}
-				return true;
 				
 				me.s3.listObjects(params, function (err, data) {
 					if(err)cbk(err.message);
@@ -246,7 +220,7 @@ function listAllKeys() {
 						
 						console.log('---data.IsTruncated--->');
 						console.log(data.IsTruncated);						
-						
+						console.log(data);
 						
 						for (var o in data.Contents) {
 							let key = data.Contents[o].Key.replace(space_dir, '');
