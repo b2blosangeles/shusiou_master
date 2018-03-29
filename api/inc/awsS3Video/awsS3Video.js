@@ -291,7 +291,7 @@
 													console.log('======A======');
 													cbk1({err:err.message});
 												} else {
-													console.log('======B======');
+													console.log('======B======' + space_dir + diff[t]);
 													cbk1(diff[t]);
 												}	 
 											});
