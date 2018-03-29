@@ -209,11 +209,35 @@
 				var params = { 
 				  Bucket: me.space_id,
 				  Delimiter: '',
-				  MaxKeys : 3,
-				  Marker : 'shusiou_dev/1693590000000003/_t/af',
+				  MaxKeys : 1000,
+				  Marker : '',
 				  Prefix: space_dir
 				}, v = {};
+		let niulist = [];
+		function listObject(params, callback) {
+			me.s3.listObjects(params, function (err, data) {
 
+				for (var o in data.Contents) {
+					let key = data.Contents[o].Key.replace(space_dir, '');
+					niulist.push(key)
+				}
+				
+				if (data.IsTruncated) {
+					params.Marker = data.NextMarker;
+					listObject(params, callback)
+				} esle {
+					callback();
+				}
+				
+			})
+		
+		}
+		listObject(params, function() {
+			console.log(niulist.length);
+			CP.exit = 1;
+			cbk('niu');
+		});
+		return true;		
 				
 				me.s3.listObjects(params, function (err, data) {
 					if(err)cbk(err.message);
