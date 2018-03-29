@@ -211,7 +211,23 @@
 				  Delimiter: '',
 				  Prefix: space_dir
 				}, v = {};
-				
+				/*
+				var allKeys = [];
+				function listAllKeys(marker, cb)
+				{
+				  me.s3.listObjects({Bucket: s3bucket, Marker: marker}, function(err, data){
+				    allKeys.push(data.Contents);
+
+				    if(data.IsTruncated) {
+				      listAllKeys(data.NextMarker, cb);
+				    } else {
+				     	 cb();
+				    	}
+				    });
+				}
+				listAllKeys(marker,  );
+				return true;
+				*/
 				me.s3.listObjects(params, function (err, data) {
 					if(err)cbk(err.message);
 					else {
@@ -226,6 +242,8 @@
 							console.log('me.removeObjects============>');
 							me.removeObjects(space_dir, diff, 
 								function(data) {
+									console.log('---data.IsTruncated--->');
+									console.log(data.IsTruncated);
 									cbk(v);
 								}		
 							);
