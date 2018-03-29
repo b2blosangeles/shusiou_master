@@ -306,10 +306,10 @@
 											};	
 											me.s3.putObject(params, function(err, data) {
 												if (err) {
-													console.log('======A======');
+												//	console.log('======A======');
 													cbk1({err:err.message});
 												} else {
-													console.log('======B======' + space_dir + diff[t]);
+												//	console.log('======B======' + space_dir + diff[t]);
 													cbk1(diff[t]);
 												}	 
 											});
