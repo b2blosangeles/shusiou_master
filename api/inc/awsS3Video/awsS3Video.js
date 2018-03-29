@@ -231,6 +231,11 @@
 				me.s3.listObjects(params, function (err, data) {
 					if(err)cbk(err.message);
 					else {
+						
+						console.log('---data.IsTruncated--->');
+						console.log(data.IsTruncated);						
+						
+						
 						for (var o in data.Contents) {
 							let key = data.Contents[o].Key.replace(space_dir, '');
 							v[key] = data.Contents[o].Size;
@@ -242,8 +247,7 @@
 							console.log('me.removeObjects============>');
 							me.removeObjects(space_dir, diff, 
 								function(data) {
-									console.log('---data.IsTruncated--->');
-									console.log(data.IsTruncated);
+									
 									cbk(v);
 								}		
 							);
