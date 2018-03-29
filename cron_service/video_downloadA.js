@@ -3,8 +3,7 @@ env.site_path = env.root_path + '/sites/master';
 env.config_path = '/var/qalet_config';
 var config = require(env.config_path + '/config.json');
 
-var mnt_folder = '/var/shusiou_video/';
-var video_folder = mnt_folder + 'videos/';
+var video_folder = '/var/shusiou_video/';
 
 var 	ytdl = require(env.site_path + '/api/inc/ytdl-core/node_modules/ytdl-core'),
 	mysql = require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
@@ -33,10 +32,18 @@ _f['IP'] = function(cbk) { /* --- get server IP --- */
     });	 
 };
 
-_f['mnt_folder'] = function(cbk) { /* --- check mnt exist --- */
-	fp.build(mnt_folder, () => {
-		cbk(true);
-	}); 
+_f['DIR'] = function(cbk) { /* create video path */
+	fp.build(video_folder + CP.data.P2.vid + '/video/', () => {
+		fp.build(video_folder + CP.data.P2.vid + '/images/' , () => {
+			fp.build(video_folder + CP.data.P2.vid + '/sections/' , () => {
+				cbk({
+					video : CP.data.P2.vid + '/video/',
+					images : CP.data.P2.vid + '/images/',
+					sections : CP.data.P2.vid + '/sections/'
+				});
+			});
+		});		
+	});
 };
 _f['write_download_failure'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
@@ -214,3 +221,4 @@ CP.serial(
 	},
 	58000
 );
+
