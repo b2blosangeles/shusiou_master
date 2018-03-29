@@ -213,18 +213,22 @@
 				}, v = {};
 				
 				var allKeys = [];
-				function listAllKeys(marker, cb)
+				function listAllKeys(token, cb)
 				{
-				  me.s3.listObjects({Bucket: me.space_id, Marker: marker}, function(err, data){
-				    allKeys.push(data.Contents);
+				  var opts = { Bucket:  me.space_id};
+				  if(token) opts.ContinuationToken = token;
 
-				    if(data.IsTruncated) {
-				      listAllKeys(data.NextMarker, cb);
-				    } else {
-				     	 cb();
-				    	}
-				    });
-				}
+				  me.s3.listObjectsV2(opts, function(err, data){
+				    allKeys = allKeys.concat(data.Contents);
+
+				    if(data.IsTruncated)
+				      listAllKeys(data.NextContinuationToken, cb);
+				    else
+				      cb();
+				  });
+				}			
+				
+
 				listAllKeys(null,  function() {
 					console.log(allKeys.length);
 					CP.exit = 1;
