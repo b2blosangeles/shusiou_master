@@ -215,7 +215,7 @@
 				}, v = {};
 
 				function listAllObject(params, callback) {
-					me.s3.listAllObjects(params, function (err, data) {
+					me.s3.listObjects(params, function (err, data) {
 						if(err) callback(err.message);
 						for (var o in data.Contents) {
 							let key = data.Contents[o].Key.replace(space_dir, '');
