@@ -209,28 +209,46 @@
 				var params = { 
 				  Bucket: me.space_id,
 				  Delimiter: '',
+				  MaxKeys : 1000,
+				  Marker : '',
 				  Prefix: space_dir
 				}, v = {};
-				
-				me.s3.listObjects(params, function (err, data) {
-					if(err)cbk(err.message);
-					else {
+
+				function listAllObject(params, callback) {
+					me.s3.listObjects(params, function (err, data) {
+						if(err) callback(err.message);
 						for (var o in data.Contents) {
 							let key = data.Contents[o].Key.replace(space_dir, '');
 							v[key] = data.Contents[o].Size;
 						}
+
+						if (data.IsTruncated) {
+							params.Marker = data.NextMarker;
+							listAllObject(params, callback)
+						} else {
+							callback(v);
+						}
+
+					})
+
+				}
+				listAllObject(params, function(v) {
+					if (typeof v === 'string') {
+						cbk(v);
+					} else {
 						let tracks = CP.data.tracks;
 						let diff = Object.keys(v).filter(x => !tracks.includes(x));
 						if (diff.length) {
-							CP.exit = 1;
+							console.log('me.removeObjects============>');
 							me.removeObjects(space_dir, diff, 
 								function(data) {
+									CP.exit = 1;
 									cbk(v);
 								}		
 							);
 						} else {
 							cbk(Object.keys(v));
-						}						
+						}
 					}
 				});
 			}
@@ -260,9 +278,13 @@
 				} else {
 					let diff = tracks.filter(x => !space_tracks.includes(x));
 					let CP1 = new pkg.crowdProcess(), _f1 = {};
+
 					for (var t in diff) {
 						_f1['P_' + t] = (function(t) { 
 							return function(cbk1) {
+								
+							//	console.log('t==>' + diff[t]);
+								
 								if (new Date().getTime() - tm > 45000) {
 									CP1.exit = 1;
 									cbk1(' -- skip to next time session ---'); return true;
@@ -280,8 +302,10 @@
 											};	
 											me.s3.putObject(params, function(err, data) {
 												if (err) {
+												//	console.log('======A======');
 													cbk1({err:err.message});
 												} else {
+												//	console.log('======B======' + space_dir + diff[t]);
 													cbk1(diff[t]);
 												}	 
 											});

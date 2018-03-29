@@ -119,6 +119,7 @@ _f['DR1'] = function(cbk) { /* create video path */
 		cbk(video_folder + CP.data.P2.vid + '/video/');
 	});
 };
+
 _f['DR2'] = function(cbk) { /* create miange path */
 	fp.build(video_folder + CP.data.P2.vid + '/images/' , function() {
 		cbk(video_folder + CP.data.P2.vid + '/images/');
@@ -162,7 +163,7 @@ _f['D1'] = function(cbk) {
 	var file_video = CP.data.DR1 +'video.mp4';
 	var AD = {start:30, length:30};
 	var fn = CP.data.DR3 + AD.start + '_' + AD.length + '.mp4';
-	s = 'ffmpeg -i ' + file_video + ' -ss '+ AD.start + '  -t ' + AD.length + ' -c copy ' + fn + ' -y ';
+	let s = 'ffmpeg -i ' + file_video + ' -ss '+ AD.start + '  -t ' + AD.length + ' -c copy ' + fn + ' -y ';
 	var ls = childProcess.exec(s, 
 		function (error, stdout, stderr) {
 			fs.stat(fn, function(err, stat) {
@@ -179,31 +180,6 @@ _f['D1'] = function(cbk) {
 			});	
 		});	
 };
-
-_f['D2'] = function(cbk) {
-	if (!CP.data.D0 || !CP.data.P2.code || CP.data.D0 != CP.data.P2.code) {
-		cbk(false); CP.exit = 1;
-	}
-	
-	var childProcess = require('child_process');
-	var file_video = CP.data.DR1 +'video.mp4';
-	
-	var s = 'ffmpeg ';
-	var I = [1, 10, 30, 60, 90, 180, 300], W = ['', 90, 180, 480];
-	for (var i = 0; i < I.length; i++) {
-		s+= ' -ss ' + I[i] + ' -i ' + file_video;
-		for (j = 0; j < W.length; j++) {
-			if (W[j]) s += ' -vf scale=-1:' +  W[j] + '  -preset ultrafast ' +  CP.data.DR2 + W[j] + '_' + I[i] + '.png ';
-			else s += ' -vframes 1 ' +  CP.data.DR2 +'FULL_' + I[i] + '.png ';
-		}
-	}
-	s += ' -y ;'
-	var ls = childProcess.exec(s, 
-		function (error, stdout, stderr) {
-		  cbk('=niu=');		
-		});	
-};
-
 
 _f['E1'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
