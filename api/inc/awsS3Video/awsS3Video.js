@@ -214,43 +214,28 @@
 				  Prefix: space_dir
 				}, v = {};
 
-		function listObject(params, callback) {
-			me.s3.listObjects(params, function (err, data) {
-
-				for (var o in data.Contents) {
-					let key = data.Contents[o].Key.replace(space_dir, '');
-					v[key] = data.Contents[o].Size;
-				}
-				
-				if (data.IsTruncated) {
-					params.Marker = data.NextMarker;
-					listObject(params, callback)
-				} else {
-					callback(v);
-				}
-				
-			})
-		
-		}
-		listObject(params, function(v) {
-			console.log(Object.keys(v));
-			CP.exit = 1;
-			cbk('niu');
-		});
-		return true;		
-				
-				me.s3.listObjects(params, function (err, data) {
-					if(err)cbk(err.message);
-					else {
-						
-						console.log('---data.IsTruncated--->');
-						console.log(data.IsTruncated);						
-						console.log(data);
-						
+				function listObject(params, callback) {
+					me.s3.listObjects(params, function (err, data) {
+						if(err) callback(err.message);
 						for (var o in data.Contents) {
 							let key = data.Contents[o].Key.replace(space_dir, '');
 							v[key] = data.Contents[o].Size;
 						}
+
+						if (data.IsTruncated) {
+							params.Marker = data.NextMarker;
+							listObject(params, callback)
+						} else {
+							callback(v);
+						}
+
+					})
+
+				}
+				listObject(params, function(v) {
+					if (typeof v === 'string') {
+						cbk(v);
+					} else {
 						let tracks = CP.data.tracks;
 						let diff = Object.keys(v).filter(x => !tracks.includes(x));
 						if (diff.length) {
@@ -258,13 +243,13 @@
 							console.log('me.removeObjects============>');
 							me.removeObjects(space_dir, diff, 
 								function(data) {
-									
+
 									cbk(v);
 								}		
 							);
 						} else {
 							cbk(Object.keys(v));
-						}						
+						}
 					}
 				});
 			}
