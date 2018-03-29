@@ -10,8 +10,8 @@ let ytdl = require(env.site_path + '/api/inc/ytdl-core/node_modules/ytdl-core'),
     fs = require('fs'),
     folderP = require(env.site_path + '/api/inc/folderP/folderP'),
     cfg0 = config.db,
-	
-var CP = new crowdProcess(), _f = {};
+    CP = new crowdProcess(), 
+    _f = {};
 
 _f['IP'] = function(cbk) { /* --- get server IP --- */
 	function getServerIP() {
