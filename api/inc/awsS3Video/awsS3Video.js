@@ -288,9 +288,10 @@
 											};	
 											me.s3.putObject(params, function(err, data) {
 												if (err) {
-													
+													console.log('======A======');
 													cbk1({err:err.message});
 												} else {
+													console.log('======B======');
 													cbk1(diff[t]);
 												}	 
 											});
