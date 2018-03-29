@@ -215,7 +215,7 @@
 				var allKeys = [];
 				function listAllKeys(marker, cb)
 				{
-				  me.s3.listObjects({Bucket: 'me.space_id', Marker: marker}, function(err, data){
+				  me.s3.listObjects({Bucket: me.space_id, Marker: marker}, function(err, data){
 				    allKeys.push(data.Contents);
 
 				    if(data.IsTruncated) {
