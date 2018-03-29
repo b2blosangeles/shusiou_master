@@ -210,7 +210,7 @@
 				  Bucket: me.space_id,
 				  Delimiter: '',
 				  MaxKeys : 3,
-				  Marker : 'shusiou_dev/1693590000000003/_t/ac',
+				  Marker : '1693590000000003/_t/af',
 				  Prefix: space_dir
 				}, v = {};
 
