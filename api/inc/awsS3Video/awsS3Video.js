@@ -210,6 +210,7 @@
 				  Bucket: me.space_id,
 				  Delimiter: '',
 				  MaxKeys : 3,
+				  Marker : 100,
 				  Prefix: space_dir
 				}, v = {};
 
