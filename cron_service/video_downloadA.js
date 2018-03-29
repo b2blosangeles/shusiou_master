@@ -2,18 +2,16 @@ var path = require('path'), env = {root_path:path.join(__dirname, '../../..')};
 env.site_path = env.root_path + '/sites/master';
 env.config_path = '/var/qalet_config';
 var config = require(env.config_path + '/config.json');
-
 var video_folder = '/var/shusiou_video/';
 
-var 	ytdl = require(env.site_path + '/api/inc/ytdl-core/node_modules/ytdl-core'),
+var ytdl = require(env.site_path + '/api/inc/ytdl-core/node_modules/ytdl-core'),
 	mysql = require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
-    	crowdProcess =  require(env.root_path + '/package/crowdProcess/crowdProcess'),
-    	fs = require('fs'),
-    	folderP = require(env.site_path + '/api/inc/folderP/folderP'),
-    	cfg0 = config.db,
-    	fp = new folderP();
-
-
+    crowdProcess =  require(env.root_path + '/package/crowdProcess/crowdProcess'),
+    fs = require('fs'),
+    folderP = require(env.site_path + '/api/inc/folderP/folderP'),
+    cfg0 = config.db,
+    
+	
 var CP = new crowdProcess(), _f = {};
 
 _f['IP'] = function(cbk) { /* --- get server IP --- */
@@ -33,6 +31,7 @@ _f['IP'] = function(cbk) { /* --- get server IP --- */
 };
 
 _f['DIR'] = function(cbk) { /* create video path */
+	fp = new folderP();
 	fp.build(video_folder + CP.data.P2.vid + '/video/', () => {
 		fp.build(video_folder + CP.data.P2.vid + '/images/' , () => {
 			fp.build(video_folder + CP.data.P2.vid + '/sections/' , () => {
@@ -107,20 +106,6 @@ _f['P2'] = function(cbk) { /* --- get the one from queue --- */
 			cbk(false); CP.exit = 1;
 		}
 	});  
-};
-
-_f['DIR'] = function(cbk) { /* create video path */
-	fp.build(video_folder + CP.data.P2.vid + '/video/', function() {
-		fp.build(video_folder + CP.data.P2.vid + '/images/' , function() {
-			fp.build(video_folder + CP.data.P2.vid + '/sections/' , function() {
-				cbk({
-					video : CP.data.P2.vid + '/video/',
-					images : CP.data.P2.vid + '/images/',
-					sections : CP.data.P2.vid + '/sections/'
-				});
-			});
-		});		
-	});
 };
 
 _f['downlod_video'] = function(cbk) {  /* downlod video */
@@ -213,7 +198,6 @@ _f['clean_download_queue'] = function(cbk) {
 		cbk(true);
 	});  
 };
-	
 CP.serial(
 	_f,
 	function(data) {
@@ -221,4 +205,3 @@ CP.serial(
 	},
 	58000
 );
-
