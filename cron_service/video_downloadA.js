@@ -163,7 +163,7 @@ _f['D1'] = function(cbk) {
 	var file_video = CP.data.DR1 +'video.mp4';
 	var AD = {start:30, length:10};
 	var fn = CP.data.DR3 + AD.start + '_' + AD.length + '.mp4';
-	s = 'ffmpeg -i ' + file_video + ' -ss '+ AD.start + '  -t ' + AD.length + ' -c copy ' + fn + ' -y ';
+	let s = 'ffmpeg -i ' + file_video + ' -ss '+ AD.start + '  -t ' + AD.length + ' -c copy ' + fn + ' -y ';
 	var ls = childProcess.exec(s, 
 		function (error, stdout, stderr) {
 			fs.stat(fn, function(err, stat) {
