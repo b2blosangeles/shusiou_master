@@ -30,20 +30,7 @@ _f['IP'] = function(cbk) { /* --- get server IP --- */
     });	 
 };
 
-_f['DIR'] = function(cbk) { /* create video path */
-	fp = new folderP();
-	fp.build(video_folder + CP.data.P2.vid + '/video/', () => {
-		fp.build(video_folder + CP.data.P2.vid + '/images/' , () => {
-			fp.build(video_folder + CP.data.P2.vid + '/sections/' , () => {
-				cbk({
-					video : CP.data.P2.vid + '/video/',
-					images : CP.data.P2.vid + '/images/',
-					sections : CP.data.P2.vid + '/sections/'
-				});
-			});
-		});		
-	});
-};
+
 _f['write_download_failure'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
@@ -94,7 +81,7 @@ _f['start_one_from_download_queue'] = function(cbk) { /* --- pickup one from que
 		}
 	});  
 };
-_f['P2'] = function(cbk) { /* --- get the one from queue --- */
+_f['current'] = function(cbk) { /* --- get the one from queue --- */
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 	var str = 'SELECT * FROM `download_queue` WHERE `holder_ip` = "' + CP.data.IP + '" AND `status` = 1';
@@ -107,43 +94,46 @@ _f['P2'] = function(cbk) { /* --- get the one from queue --- */
 		}
 	});  
 };
-
-_f['downlod_video'] = function(cbk) {  /* downlod video */
-	if ((CP.data.P2) && (CP.data.P2.code)) {
-		var url = decodeURIComponent(CP.data.P2.code);
-		var video = ytdl(url, {quality:'highest'}, function(err) { });
-		video.pipe(fs.createWriteStream(CP.data.DR1 +'video.mp4'));	
-		video.on('data', function(info) {
-		}); 
-
-		video.on('end', function(info) {
-			cbk(CP.data.P2.code);
-		});
-		
-		video.on('error', function(info) {
-			CP.exit = 1;
-			cbk('ERRCP.data.P2.code');
+_f['DIR'] = function(cbk) { /* create video path */
+	fp = new folderP();
+	fp.build(video_folder + CP.data.current.vid + '/video/', () => {
+		fp.build(video_folder + CP.data.current.vid + '/images/' , () => {
+			fp.build(video_folder + CP.data.current.vid + '/sections/' , () => {
+				cbk({
+					video : CP.data.current.vid + '/video/',
+					images : CP.data.current.vid + '/images/',
+					sections : CP.data.current.vid + '/sections/'
+				});
+			});
 		});		
-		
-	} else {
-		CP.exit = 1; cbk(false);
-	}	
+	});
+};
+_f['downlod_video'] = function(cbk) {  /* downlod video */
+	var url = decodeURIComponent(CP.data.current.code);
+	var video = ytdl(url, {quality:'highest'}, function(err) { });
+	video.pipe(fs.createWriteStream(CP.data.DR1 +'video.mp4'));	
+	video.on('data', function(info) {
+	}); 
+
+	video.on('end', function(info) {
+		cbk(CP.data.current.code);
+	});
+	video.on('error', function(info) {
+		CP.exit = 1;
+		cbk('ERR: CP.data.current.code');
+	});	
 };
 
 _f['verifyFormat'] = function(cbk) {
 	var childProcess = require('child_process');
-	var file_video = CP.data.DIR.video +'video.mp4';
+	var f_video = CP.data.DIR.video +'video.mp4';
 	var AD = {start:30, length:30};
 	var fn = CP.data.DIR.sections  + AD.start + '_' + AD.length + '.mp4';
-	let s = 'ffmpeg -i ' + file_video + ' -ss '+ AD.start + '  -t ' + AD.length + ' -c copy ' + fn + ' -y ';
-	var ls = childProcess.exec(s, 
-		function (error, stdout, stderr) {
+	let s = 'ffmpeg -i ' + f_video + ' -ss '+ AD.start + '  -t ' + AD.length + ' -c copy ' + fn + ' -y ';
+	var ls = childProcess.exec(s, function (error, stdout, stderr) {
 			fs.stat(fn, function(err, stat) {
-			  if(err || !stat.size) {
-				cbk(false); 
-			  } else {
-			  	cbk(true); 
-			  }			  
+			  if(err || !stat.size) cbk(false); 
+			  else cbk(true); 		  
 			});	
 		});	
 };
@@ -151,26 +141,26 @@ _f['verifyFormat'] = function(cbk) {
 _f['conclution'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
-	var info = (CP.data.P2.info)?CP.data.P2.info:'';
+	var info = (CP.data.current.info)?CP.data.current.info:'';
 	var json_info = {};
 	try { json_info = JSON.parse(info); } catch (e) {}
 	if (CP.data.verifyFormat) {
 		var str = 'INSERT INTO `video` ' +
 		    '(`source`, `code`, `server_ip`, `video_info`, `vid`, `video_length`, `org_thumbnail`, `uploaded`) VALUES (' +
-		    "'" + CP.data.P2.source + "'," +
-		    "'" + CP.data.P2.code.replace(/\'/g, "\\\'") + "'," +
-		    "'" + CP.data.P2.holder_ip + "'," +
+		    "'" + CP.data.current.source + "'," +
+		    "'" + CP.data.current.code.replace(/\'/g, "\\\'") + "'," +
+		    "'" + CP.data.current.holder_ip + "'," +
 		    "'" + info.replace(/\'/g, "\\\'") + "'," +
-		    "'" + CP.data.P2.vid + "'," +
-		    "'" +  CP.data.P2.video_length + "'," +
-		    "'" +  CP.data.P2.org_thumbnail + "'," +
+		    "'" + CP.data.current.vid + "'," +
+		    "'" +  CP.data.current.video_length + "'," +
+		    "'" +  CP.data.current.org_thumbnail + "'," +
 		    'NOW())';
 	} else {
 		var str = 'INSERT INTO `download_failure` ' +
 		    '(`vid`,`source`, `code`, `video_info`, `message`) VALUES (' +
-		    "'" + CP.data.P2.vid + "'," +
-		    "'" + CP.data.P2.source + "'," +
-		    "'" + CP.data.P2.code.replace(/\'/g, "\\\'") + "'," +
+		    "'" + CP.data.current.vid + "'," +
+		    "'" + CP.data.current.source + "'," +
+		    "'" + CP.data.current.code.replace(/\'/g, "\\\'") + "'," +
 		    "'" + info.replace(/\'/g, "\\\'") + "'," +
 		    "'Wrong video format!')";
 	
@@ -192,14 +182,13 @@ _f['conclution'] = function(cbk) {
 _f['clean_download_queue'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
-	var str = 'DELETE FROM `download_queue`  WHERE `id` = "' + CP.data.P2.id + '"';
+	var str = 'DELETE FROM `download_queue`  WHERE `id` = "' + CP.data.current.id + '"';
 	connection.query(str, function (error, results, fields) {
 		connection.end();
 		cbk(true);
 	});  
 };
-CP.serial(
-	_f,
+CP.serial(_f,
 	function(data) {
 		process.stdout.write(JSON.stringify({_spent_time:data._spent_time, status:data.status, data:data}));
 	},
