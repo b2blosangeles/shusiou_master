@@ -33,17 +33,9 @@ _f['P0'] = function(cbk) { /* --- get server IP --- */
 };
 
 _f['I0'] = function(cbk) { /* --- check mnt exist --- */
-	fs.stat(mnt_folder, function (err, stats){
-		if (err) { 
-			fp.build(mnt_folder, () => {
-				cbk(true);
-			}); 
-		} else if (!stats.isDirectory()) {
-			cbk(false); CP.exit = 1;
-		} else {
-			cbk(true);
-		}
-	});
+	fp.build(mnt_folder, () => {
+		cbk(true);
+	}); 
 };
 _f['CL1'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
@@ -158,7 +150,6 @@ _f['D1'] = function(cbk) {
 	if (!CP.data.D0 || !CP.data.P2.code || CP.data.D0 != CP.data.P2.code) {
 		cbk(false); CP.exit = 1;
 	}
-		
 	var childProcess = require('child_process');
 	var file_video = CP.data.DR1 +'video.mp4';
 	var AD = {start:30, length:30};
@@ -226,7 +217,6 @@ _f['E1'] = function(cbk) {
 	});  
 };
 _f['E2'] = function(cbk) {
-	
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 	var str = 'DELETE FROM `download_queue`  WHERE `id` = "' + CP.data.P2.id + '"';
