@@ -153,7 +153,7 @@ _f['D0'] = function(cbk) {  /* downlod video */
 		CP.exit = 1; cbk(false);
 	}	
 };
-
+/*
 _f['D1'] = function(cbk) {
 	if (!CP.data.D0 || !CP.data.P2.code || CP.data.D0 != CP.data.P2.code) {
 		cbk(false); CP.exit = 1;
@@ -205,7 +205,7 @@ _f['D2'] = function(cbk) {
 		});	
 };
 
-
+*/
 _f['E1'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
