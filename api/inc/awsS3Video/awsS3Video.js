@@ -228,7 +228,11 @@ function listAllKeys() {
                 params.ContinuationToken = data.NextContinuationToken;
                 console.log("get further list...");
                 listAllKeys();
-            } 
+            } else {
+	    	 console.log(allKeys.length);
+		    cbk(true);
+		 CP.exit = 1;   
+	    }
 
         }
     });
