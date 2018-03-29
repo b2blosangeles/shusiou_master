@@ -4,13 +4,12 @@ env.config_path = '/var/qalet_config';
 var config = require(env.config_path + '/config.json');
 var video_folder = '/var/shusiou_video/';
 
-var ytdl = require(env.site_path + '/api/inc/ytdl-core/node_modules/ytdl-core'),
-	mysql = require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
+let ytdl = require(env.site_path + '/api/inc/ytdl-core/node_modules/ytdl-core'),
+    mysql = require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
     crowdProcess =  require(env.root_path + '/package/crowdProcess/crowdProcess'),
     fs = require('fs'),
     folderP = require(env.site_path + '/api/inc/folderP/folderP'),
     cfg0 = config.db,
-    
 	
 var CP = new crowdProcess(), _f = {};
 
