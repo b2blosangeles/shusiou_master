@@ -110,9 +110,8 @@ _f['DIR'] = function(cbk) { /* create video path */
 _f['downlod_video'] = function(cbk) {  /* downlod video */
 	var url = decodeURIComponent(CP.data.current.code);
 	var video = ytdl(url, {quality:'highest'}, function(err) { });
-	video.pipe(fs.createWriteStream(CP.data.DR1 +'video.mp4'));	
-	video.on('data', function(info) {
-	}); 
+	video.pipe(fs.createWriteStream(CP.data.DIR.video +'video.mp4'));	
+	video.on('data', function(info) {}); 
 
 	video.on('end', function(info) {
 		cbk(CP.data.current.code);
