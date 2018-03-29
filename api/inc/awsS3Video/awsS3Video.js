@@ -230,7 +230,7 @@
 								}		
 							);
 						} else {
-							console.log('BBB me.removeObjects============>');
+							console.log('BBB me.removeObjects============>' + Object.keys(v).length);
 							console.log(Object.keys(v));
 							cbk(Object.keys(v));
 						}						
