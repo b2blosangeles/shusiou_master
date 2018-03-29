@@ -58,7 +58,7 @@
 			};
 			_f['get_video_name']  = function(cbk) { 
 				let vid = CP.data.get_vid,
-				    video_folder = _space.mnt_folder + 'videos/',
+				    video_folder = _space.mnt_folder,
 				    _file = video_folder + vid + '/video/' + vid;
 
 				pkg.fs.stat(_file, function(err, stat) {
