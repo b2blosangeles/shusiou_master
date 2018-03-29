@@ -226,7 +226,7 @@
 				    });
 				}
 				listAllKeys(null,  function() {
-					console.log(allKeys);
+					console.log(allKeys.length);
 					CP.exit = 1;
 				});
 				return true;
