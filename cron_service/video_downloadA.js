@@ -132,6 +132,7 @@ _f['DR3'] = function(cbk) { /* create sections path */
 };
 
 _f['D0'] = function(cbk) {  /* downlod video */
+	console.log('===downlod video===');
 	if ((CP.data.P2) && (CP.data.P2.code)) {
 		var url = decodeURIComponent(CP.data.P2.code);
 		var video = ytdl(url, {quality:'highest'}, function(err) { });
