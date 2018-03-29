@@ -212,27 +212,27 @@
 				  Prefix: space_dir
 				}, v = {};
 				
-				var allKeys = [];
-				function listAllKeys(token, cb)
-				{
-				  var opts = { Bucket:  me.space_id};
-				  if(token) opts.ContinuationToken = token;
+var allKeys = [];
+listAllKeys();
+function listAllKeys() {
+    s3.listObjectsV2(params, function (err, data) {
+        if (err) {
+            console.log(err, err.stack); // an error occurred
+        } else {
+            var contents = data.Contents;
+            contents.forEach(function (content) {
+                allKeys.push(content.Key);
+            });
 
-				  me.s3.listObjectsV2(opts, function(err, data){
-				    allKeys = allKeys.concat(data.Contents);
+            if (data.IsTruncated) {
+                params.ContinuationToken = data.NextContinuationToken;
+                console.log("get further list...");
+                listAllKeys();
+            } 
 
-				    if(data.IsTruncated)
-				      listAllKeys(data.NextContinuationToken, cb);
-				    else
-				      cb();
-				  });
-				}			
-				
-
-				listAllKeys(null,  function() {
-					console.log(allKeys.length);
-					CP.exit = 1;
-				});
+        }
+    });
+}
 				return true;
 				
 				me.s3.listObjects(params, function (err, data) {
