@@ -14,30 +14,31 @@ var 	ytdl = require(env.site_path + '/api/inc/ytdl-core/node_modules/ytdl-core')
     	cfg0 = config.db,
     	fp = new folderP();
 
-function getServerIP() {
-    var ifaces = require('os').networkInterfaces(), address=[];
-    for (var dev in ifaces) {
-        var v =  ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false);
-        for (var i=0; i < v.length; i++) address[address.length] = v[i].address;
-    }
-    return address;
-};
-var ips = getServerIP();
+
 var CP = new crowdProcess(), _f = {};
 
-_f['P0'] = function(cbk) { /* --- get server IP --- */
+_f['IP'] = function(cbk) { /* --- get server IP --- */
+	function getServerIP() {
+		var ifaces = require('os').networkInterfaces(), address=[];
+		for (var dev in ifaces) {
+			var v =  ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false);
+			for (var i=0; i < v.length; i++) address[address.length] = v[i].address;
+		}
+		return address;
+	};
+	var ips = getServerIP();
     fs.readFile('/var/.qalet_whoami.data', 'utf8', function(err,data) {
-	if ((data) && ips.indexOf(data) != -1)  cbk(data);
-	else { cbk(false); CP.exit = 1; }
+		if ((data) && ips.indexOf(data) != -1) { cbk(data);
+		} else { cbk(false); CP.exit = 1; }
     });	 
 };
 
-_f['I0'] = function(cbk) { /* --- check mnt exist --- */
+_f['mnt_folder'] = function(cbk) { /* --- check mnt exist --- */
 	fp.build(mnt_folder, () => {
 		cbk(true);
 	}); 
 };
-_f['CL1'] = function(cbk) {
+_f['write_download_failure'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 	var message = '';
@@ -51,16 +52,11 @@ _f['CL1'] = function(cbk) {
 		if (error) {
 			cbk(false);
 		} else {
-			if (results.affectedRows) {
-				cbk(results);
-			} else {
-				cbk(false);
-			}
-
+			cbk(results.affectedRows);
 		}
 	});  
 };	
-_f['CL2'] = function(cbk) { /* --- clean overtime --- */
+_f['DELETE_download_queue'] = function(cbk) { /* --- clean overtime --- */
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 	var str = 'DELETE FROM `download_queue` WHERE `status` = 9';
@@ -68,19 +64,19 @@ _f['CL2'] = function(cbk) { /* --- clean overtime --- */
 		connection.end(); cbk(false);
 	});  
 };
-_f['I1'] = function(cbk) { /* --- mark overtime --- */
+_f['mark_download_queue'] = function(cbk) { /* --- mark overtime --- */
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
-	var str = 'UPDATE `download_queue` SET `status` = 9 WHERE `holder_ip` = "' +  CP.data.P0 + '" AND `status` = 1';
+	var str = 'UPDATE `download_queue` SET `status` = 9 WHERE `holder_ip` = "' +  CP.data.IP + '" AND `status` = 1';
 	connection.query(str, function (error, results, fields) {
 		connection.end(); cbk(false);
 	});  
 };
 
-_f['P1'] = function(cbk) { /* --- pickup one from queue --- */
+_f['start_one_from_download_queue'] = function(cbk) { /* --- pickup one from queue --- */
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
-	var str = 'UPDATE  download_queue SET `holder_ip` = "' + CP.data.P0 + '", `status` = 1 ' + 
+	var str = 'UPDATE  download_queue SET `holder_ip` = "' + CP.data.IP + '", `status` = 1 ' + 
 		' WHERE  `status` = 0 AND (`holder_ip` = "" OR `holder_ip` IS NULL) ORDER BY `created` ASC LIMIT 1';
 	
 	connection.query(str, function (error, results, fields) {
@@ -95,7 +91,7 @@ _f['P1'] = function(cbk) { /* --- pickup one from queue --- */
 _f['P2'] = function(cbk) { /* --- get the one from queue --- */
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
-	var str = 'SELECT * FROM `download_queue` WHERE `holder_ip` = "' + CP.data.P0 + '" AND `status` = 1';
+	var str = 'SELECT * FROM `download_queue` WHERE `holder_ip` = "' + CP.data.IP + '" AND `status` = 1';
 	connection.query(str, function (error, results, fields) {
 		connection.end();
 		if (results.length) {
@@ -106,25 +102,21 @@ _f['P2'] = function(cbk) { /* --- get the one from queue --- */
 	});  
 };
 
-_f['DR1'] = function(cbk) { /* create video path */
+_f['DIR'] = function(cbk) { /* create video path */
 	fp.build(video_folder + CP.data.P2.vid + '/video/', function() {
-		cbk(video_folder + CP.data.P2.vid + '/video/');
+		fp.build(video_folder + CP.data.P2.vid + '/images/' , function() {
+			fp.build(video_folder + CP.data.P2.vid + '/sections/' , function() {
+				cbk({
+					video : CP.data.P2.vid + '/video/',
+					images : CP.data.P2.vid + '/images/',
+					sections : CP.data.P2.vid + '/sections/'
+				});
+			});
+		});		
 	});
 };
 
-_f['DR2'] = function(cbk) { /* create miange path */
-	fp.build(video_folder + CP.data.P2.vid + '/images/' , function() {
-		cbk(video_folder + CP.data.P2.vid + '/images/');
-	});
-};
-
-_f['DR3'] = function(cbk) { /* create sections path */
-	fp.build(video_folder + CP.data.P2.vid + '/sections/' , function() {
-		cbk(video_folder + CP.data.P2.vid + '/sections/');
-	});
-};
-
-_f['D0'] = function(cbk) {  /* downlod video */
+_f['downlod_video'] = function(cbk) {  /* downlod video */
 	if ((CP.data.P2) && (CP.data.P2.code)) {
 		var url = decodeURIComponent(CP.data.P2.code);
 		var video = ytdl(url, {quality:'highest'}, function(err) { });
@@ -146,39 +138,31 @@ _f['D0'] = function(cbk) {  /* downlod video */
 	}	
 };
 
-_f['D1'] = function(cbk) {
-	if (!CP.data.D0 || !CP.data.P2.code || CP.data.D0 != CP.data.P2.code) {
-		cbk(false); CP.exit = 1;
-	}
+_f['verifyFormat'] = function(cbk) {
 	var childProcess = require('child_process');
-	var file_video = CP.data.DR1 +'video.mp4';
+	var file_video = CP.data.DIR.video +'video.mp4';
 	var AD = {start:30, length:30};
-	var fn = CP.data.DR3 + AD.start + '_' + AD.length + '.mp4';
+	var fn = CP.data.DIR.sections  + AD.start + '_' + AD.length + '.mp4';
 	let s = 'ffmpeg -i ' + file_video + ' -ss '+ AD.start + '  -t ' + AD.length + ' -c copy ' + fn + ' -y ';
 	var ls = childProcess.exec(s, 
 		function (error, stdout, stderr) {
 			fs.stat(fn, function(err, stat) {
-			  if(err) {
+			  if(err || !stat.size) {
 				cbk(false); 
-				  
 			  } else {
-				  if (!stat.size) {
-					 cbk(false); 
-				  } else {
-			  		cbk(stat.size);
-				  }	  
+			  	cbk(true); 
 			  }			  
 			});	
 		});	
 };
 
-_f['E1'] = function(cbk) {
+_f['conclution'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 	var info = (CP.data.P2.info)?CP.data.P2.info:'';
 	var json_info = {};
 	try { json_info = JSON.parse(info); } catch (e) {}
-	if (CP.data.D1) {
+	if (CP.data.verifyFormat) {
 		var str = 'INSERT INTO `video` ' +
 		    '(`source`, `code`, `server_ip`, `video_info`, `vid`, `video_length`, `org_thumbnail`, `uploaded`) VALUES (' +
 		    "'" + CP.data.P2.source + "'," +
@@ -190,16 +174,13 @@ _f['E1'] = function(cbk) {
 		    "'" +  CP.data.P2.org_thumbnail + "'," +
 		    'NOW())';
 	} else {
-		var message = '';
-		if (!CP.data.D1) message = 'Wrong video format!'
-
 		var str = 'INSERT INTO `download_failure` ' +
 		    '(`vid`,`source`, `code`, `video_info`, `message`) VALUES (' +
 		    "'" + CP.data.P2.vid + "'," +
 		    "'" + CP.data.P2.source + "'," +
 		    "'" + CP.data.P2.code.replace(/\'/g, "\\\'") + "'," +
 		    "'" + info.replace(/\'/g, "\\\'") + "'," +
-		    "'" + message.replace(/\'/g, "\\\'") + "')";
+		    "'Wrong video format!')";
 	
 	}
 	connection.query(str, function (error, results, fields) {
@@ -216,7 +197,7 @@ _f['E1'] = function(cbk) {
 		}
 	});  
 };
-_f['E2'] = function(cbk) {
+_f['clean_download_queue'] = function(cbk) {
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
 	var str = 'DELETE FROM `download_queue`  WHERE `id` = "' + CP.data.P2.id + '"';
