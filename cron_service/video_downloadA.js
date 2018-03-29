@@ -99,9 +99,9 @@ _f['DIR'] = function(cbk) { /* create video path */
 		fp.build(video_folder + CP.data.current.vid + '/images/' , () => {
 			fp.build(video_folder + CP.data.current.vid + '/sections/' , () => {
 				cbk({
-					video : CP.data.current.vid + '/video/',
-					images : CP.data.current.vid + '/images/',
-					sections : CP.data.current.vid + '/sections/'
+					video : video_folder + CP.data.current.vid + '/video/',
+					images : video_folder + CP.data.current.vid + '/images/',
+					sections : video_folder + CP.data.current.vid + '/sections/'
 				});
 			});
 		});		
@@ -130,8 +130,8 @@ _f['verifyFormat'] = function(cbk) {
 	let s = 'ffmpeg -i ' + f_video + ' -ss '+ AD.start + '  -t ' + AD.length + ' -c copy ' + fn + ' -y ';
 	var ls = childProcess.exec(s, function (error, stdout, stderr) {
 			fs.stat(fn, function(err, stat) {
-			  if(err || !stat.size) cbk(false); 
-			  else cbk(true); 		  
+			  if(!err && (stat.size)) cbk(true); 
+			  else cbk(false); 		  
 			});	
 		});	
 };
