@@ -226,14 +226,14 @@
 					params.Marker = data.NextMarker;
 					listObject(params, callback)
 				} else {
-					callback(Object.keys(v));
+					callback(v);
 				}
 				
 			})
 		
 		}
-		listObject(params, function() {
-			console.log(niulist.length);
+		listObject(params, function(v) {
+			console.log(Object.keys(v));
 			CP.exit = 1;
 			cbk('niu');
 		});
