@@ -213,20 +213,20 @@
 				  Marker : '',
 				  Prefix: space_dir
 				}, v = {};
-		let niulist = [];
+
 		function listObject(params, callback) {
 			me.s3.listObjects(params, function (err, data) {
 
 				for (var o in data.Contents) {
 					let key = data.Contents[o].Key.replace(space_dir, '');
-					niulist.push(key)
+					v[key] = data.Contents[o].Size;
 				}
 				
 				if (data.IsTruncated) {
 					params.Marker = data.NextMarker;
 					listObject(params, callback)
 				} else {
-					callback();
+					callback(Object.keys(v));
 				}
 				
 			})
