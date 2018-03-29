@@ -223,6 +223,7 @@
 						let diff = Object.keys(v).filter(x => !tracks.includes(x));
 						if (diff.length) {
 							CP.exit = 1;
+							console.log('me.removeObjects');
 							me.removeObjects(space_dir, diff, 
 								function(data) {
 									cbk(v);
