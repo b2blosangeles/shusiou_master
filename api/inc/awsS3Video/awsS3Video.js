@@ -225,7 +225,7 @@
 				if (data.IsTruncated) {
 					params.Marker = data.NextMarker;
 					listObject(params, callback)
-				} esle {
+				} else {
 					callback();
 				}
 				
