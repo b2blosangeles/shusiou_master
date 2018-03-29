@@ -224,7 +224,7 @@
 
 						if (data.IsTruncated) {
 							params.Marker = data.NextMarker;
-							listObject(params, callback)
+							listAllObject(params, callback)
 						} else {
 							callback(v);
 						}
