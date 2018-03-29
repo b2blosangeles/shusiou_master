@@ -269,7 +269,7 @@
 						_f1['P_' + t] = (function(t) { 
 							return function(cbk1) {
 								
-								console.log('t==>' + diff[t]);
+							//	console.log('t==>' + diff[t]);
 								
 								if (new Date().getTime() - tm > 45000) {
 									CP1.exit = 1;
