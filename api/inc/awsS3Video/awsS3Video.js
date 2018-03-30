@@ -63,7 +63,7 @@
 
 				pkg.fs.stat(_file, function(err, stat) {
 					if (err) {
-						pkg.exec('cp -f ' + video_folder + vid + '/video/video.mp4 ' +  _file, 					 
+						pkg.exec('mv -f ' + video_folder + vid + '/video/video.mp4 ' +  _file, 					 
 							function(err, stdout, stderr) {
 								cbk(_file);
 							});
