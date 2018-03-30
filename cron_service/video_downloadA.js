@@ -111,6 +111,7 @@ _f['downlod_video'] = function(cbk) {  /* downlod video */
 	var url = decodeURIComponent(CP.data.current.code);
 	var video = ytdl(url, {quality:'highest'}, function(err) { });
 	video.pipe(fs.createWriteStream(CP.data.DIR.video +'video.mp4'));	
+	
 	setTimeout(function() {
 		video.destroy();
 		console.log('---- video.destroy()');
