@@ -190,5 +190,5 @@ CP.serial(_f,
 	function(data) {
 		process.stdout.write(JSON.stringify({_spent_time:data._spent_time, status:data.status, data:data}));
 	},
-	58000
+	50000
 );
