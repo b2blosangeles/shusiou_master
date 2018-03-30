@@ -114,12 +114,13 @@ _f['downlod_video'] = function(cbk) {  /* downlod video */
 	video.on('data', function(info) {
 		video.destroy();
 		console.log('---- video.destroy()');
+		cbk(false);
 	}); 
 
 	// readStream.destroy();
 	
 	video.on('end', function(info) {
-		console.log('---- ended ---');
+	//	console.log('---- ended ---');
 		cbk(CP.data.current.code);
 	});
 	video.on('error', function(info) {
