@@ -111,16 +111,15 @@ _f['downlod_video'] = function(cbk) {  /* downlod video */
 	var url = decodeURIComponent(CP.data.current.code);
 	var video = ytdl(url, {quality:'highest'}, function(err) { });
 	video.pipe(fs.createWriteStream(CP.data.DIR.video +'video.mp4'));	
-	video.on('data', function(info) {
+	setTimeout(function() {
 		video.destroy();
 		console.log('---- video.destroy()');
+		CP.exit = 1;
 		cbk(false);
-	}); 
-
-	// readStream.destroy();
+	}, 40000);
 	
+	video.on('data', function(info) {}); 
 	video.on('end', function(info) {
-	//	console.log('---- ended ---');
 		cbk(CP.data.current.code);
 	});
 	video.on('error', function(info) {
