@@ -24,4 +24,4 @@ var splitVideo = new awsS3Video(config, env, pkg, tm);
 splitVideo.load(function(data) {
 	console.log('----load_callback----');
 	console.log(data);
-);
+});
