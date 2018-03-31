@@ -286,7 +286,7 @@
 								
 							//	console.log('t==>' + diff[t]);
 								
-								if (new Date().getTime() - tm > 45000) {
+								if (new Date().getTime() - tm > 50000) {
 									CP1.exit = 1;
 									cbk1(' -- skip to next time session ---'); return true;
 								}
