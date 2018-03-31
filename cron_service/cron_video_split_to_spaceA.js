@@ -25,7 +25,7 @@ function s() {
 	splitVideo.load(function(data) {
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
-		if (delta_time < 50000) {
+		if (delta_time < 50000 && data !== 'No new id at all') {
 			s();
 		}		
 		
