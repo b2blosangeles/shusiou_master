@@ -23,7 +23,10 @@ let tm = new Date().getTime(),
 var splitVideo = new awsS3Video(config, env, pkg, tm);		
 splitVideo.load(function(data) {
 	let delta_time = new Date().getTime() - tm;
-	console.log(delta_time);
 	console.log('----load_callback----');
-	console.log(data);
+	console.log(data)
+	if (delta_time < 51000) {
+		console.log('----load_more time----');
+	}
+;
 });
