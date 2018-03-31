@@ -1,6 +1,6 @@
 let tm = new Date().getTime();
 
-function s(download_callback) {
+function s() {
 	let delta_time0 = new Date().getTime() - tm;
 	console.log('---- load at ----> ' +  delta_time0);	
 	
@@ -203,5 +203,5 @@ function s(download_callback) {
 		53000
 	);
 }
-
+s();
 
