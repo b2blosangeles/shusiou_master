@@ -196,7 +196,7 @@ function s() {
 		function(data) {
 			let delta_time = new Date().getTime() - tm;
 			console.log(data);
-			if (delta_time < 50000) {
+			if (delta_time < 50000 && (CP.data.current)) {
 				s();
 			}
 		},
