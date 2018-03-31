@@ -30,7 +30,7 @@ splitVideo.load(function(data) {
 		splitVideoE.load(function(data) {
 			console.log('----Done additional check----');
 			console.log(data);
-		}
+		});
 	}
 ;
 });
