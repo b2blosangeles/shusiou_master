@@ -8,7 +8,7 @@
 		};
 
 		// find next need processed vid from table video_space
-		this.load = function() {
+		this.load = function(load_callback) {
 			let me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};	
@@ -76,16 +76,16 @@
 				_f,
 				function(result) {
 					if (CP.data.db_video === true) {
-						console.log('No new id at all');
+						load_callback('No new id at all');
 					} else {
 						if ((CP.data.get_vid) && (CP.data.get_video_name)) {
 							me.loadvid(
 								_space,
 								CP.data.get_vid, CP.data.get_video_name, function(data) {
-								console.log(data);
+								load_callback(data);
 							});
 						} else {
-							console.log(result.results);
+							load_callback(result.results);
 						}
 					}
 				},
