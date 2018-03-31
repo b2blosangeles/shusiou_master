@@ -16,18 +16,32 @@ let pkg = {
 }; 
 
 let awsS3Video = require(env.site_path + '/api/inc/awsS3Video/awsS3Video.js');
-let tm = new Date().getTime();
+let tm = new Date().getTime(),
+    CP_0 = new pkg.crowdProcess(), 
+    _f0 = {};
 
-var splitVideo = new awsS3Video(config, env, pkg, tm);		
-splitVideo.load(function(data) {
-	let delta_time = new Date().getTime() - tm;
-	console.log('----load_callback----');
-	console.log(data)
-	if (delta_time < 50000) {
-		var splitVideoE = new awsS3Video(config, env, pkg, tm);	
-		splitVideoE.load(function(data) {
-			console.log('----Done additional check----');
-			console.log(data);
-		});
-	}
-});
+_f0['S1'] = function(load_callback) {
+	var splitVideo = new awsS3Video(config, env, pkg, tm);	
+	splitVideo.load(function(data) {
+		let delta_time = new Date().getTime() - tm;
+		console.log('----load_callback----');
+		if (delta_time > 50000) {
+			CP_0.exit = 1;
+		}		
+		load_callback(data)
+	});
+}
+_f0['S2'] = function(load_callback) {
+	var splitVideo = new awsS3Video(config, env, pkg, tm);	
+	splitVideo.load(function(data) {
+		console.log('----second call----');		
+		load_callback(data)
+	});
+}
+
+CP_0.serial(
+	_f0,
+	function(results1) {
+		console.log(results1.results);
+	},
+59000);
