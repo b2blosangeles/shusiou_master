@@ -129,7 +129,9 @@
 						me.doneDBVideoStatus(v, function(d) {
 							if (d) {
 								let tmp_root = '/var/shusiou_cache/tmpvideo/' + me.source_file + '/';
-								pkg.exec('rm -fr ' + tmp_root + ' && rm -fr ' + video_name, 
+								pkg.exec('rm -fr ' + tmp_root + ' && rm -fr ' + 
+									_space.mnt_folder + me.vid,
+								//	 video_name, 
 									function(err, stdout, stderr) {
 										cbk('This video already been processed.' + me.vid);
 									me.load();
