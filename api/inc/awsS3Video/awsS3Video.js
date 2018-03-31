@@ -132,7 +132,7 @@
 								pkg.exec('rm -fr ' + tmp_root + ' && rm -fr ' + video_name, 
 									function(err, stdout, stderr) {
 										cbk('This video already been processed.' + me.vid);
-									me.load();
+								//	me.load();
 								});								 
 							}
 						});
