@@ -21,4 +21,7 @@ let tm = new Date().getTime(),
     _f0 = {};
 
 var splitVideo = new awsS3Video(config, env, pkg, tm);		
-splitVideo.load();
+splitVideo.load(function(data) {
+	console.log('----load_callback----');
+	console.log(data);
+);
