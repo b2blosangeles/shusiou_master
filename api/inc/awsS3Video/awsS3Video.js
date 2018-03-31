@@ -63,7 +63,7 @@
 
 				pkg.fs.stat(_file, function(err, stat) {
 					if (err) {
-						pkg.exec('cp -f ' + video_folder + vid + '/video/video.mp4 ' +  _file, 					 
+						pkg.exec('mv -f ' + video_folder + vid + '/video/video.mp4 ' +  _file, 					 
 							function(err, stdout, stderr) {
 								cbk(_file);
 							});
@@ -129,8 +129,9 @@
 						me.doneDBVideoStatus(v, function(d) {
 							if (d) {
 								let tmp_root = '/var/shusiou_cache/tmpvideo/' + me.source_file + '/';
-								pkg.exec('rm -fr ' + tmp_root + ' && rm -fr ' + video_name, function(err, stdout, stderr) {
-									cbk('This video already been processed.' + me.vid);
+								pkg.exec('rm -fr ' + tmp_root + ' && rm -fr ' + video_name, 
+									function(err, stdout, stderr) {
+										cbk('This video already been processed.' + me.vid);
 									me.load();
 								});								 
 							}

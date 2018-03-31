@@ -111,8 +111,8 @@ _f['downlod_video'] = function(cbk) {  /* downlod video */
 	var url = decodeURIComponent(CP.data.current.code);
 	var video = ytdl(url, {quality:'highest'}, function(err) { });
 	video.pipe(fs.createWriteStream(CP.data.DIR.video +'video.mp4'));	
+	
 	video.on('data', function(info) {}); 
-
 	video.on('end', function(info) {
 		cbk(CP.data.current.code);
 	});
@@ -190,5 +190,5 @@ CP.serial(_f,
 	function(data) {
 		process.stdout.write(JSON.stringify({_spent_time:data._spent_time, status:data.status, data:data}));
 	},
-	58000
+	50000
 );
