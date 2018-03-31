@@ -1,5 +1,5 @@
 (function () { 
-	var obj =  function (config, env, pkg) {
+	var obj =  function (config, env, pkg, tm) {
 		
 		let _space = { 
 			space_id : 'shusiou-d-01',
@@ -162,7 +162,7 @@
 			let me = this;
 			let tmp_folder = '/var/shusiou_cache/tmpvideo/' + me.source_file + '/' + _type + '/';
 			let space_dir = 'shusiou_' + config.environment  + '/' + me.source_file + '/' + _type + '/';
-			let tm = new Date().getTime();
+			
 			
 			var CP = new pkg.crowdProcess();
 			var _f = {}; 
