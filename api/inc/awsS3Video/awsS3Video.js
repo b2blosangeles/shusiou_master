@@ -285,7 +285,7 @@
 						for(var i=0;i < arr.length;i = i+size) res.push(arr.slice(i,i+size));
 						return res;
 					}
-					var t_arr =  F2D(diff, 10)
+					var t_arr =  F2D(diff, 12)
 					for (var t in t_arr) {
 						_f1['P_' + t] = (function(t) { 
 							return function(cbk1) {
@@ -313,7 +313,6 @@
 															ContentType: 'video/mp4',
 															ACL: 'public-read'
 														};
-														console.log('== parallel ====>' + i);
 														me.s3.putObject(params, function(err, data) {
 															if (err) {
 																cbk2({err:err.message});
