@@ -300,8 +300,8 @@
 								    _f2 = {};
 								
 								cbk1(ta);
-								retrn true;
-								
+								return true;
+								/*
 								for (var i = 0; i < ta.length; i++) {
 									_f2['PA_' + i] = (function (i) {
 										return function(cbk2) {
@@ -335,7 +335,8 @@
 										cbk1(results2.results);
 									},
 									10000
-								);	
+								);
+								*/
 							}
 						})(t);			
 					}
