@@ -283,9 +283,6 @@
 					for (var t in diff) {
 						_f1['P_' + t] = (function(t) { 
 							return function(cbk1) {
-								
-							//	console.log('t==>' + diff[t]);
-								
 								if (new Date().getTime() - tm > 50000) {
 									CP1.exit = 1;
 									cbk1(' -- skip to next time session ---'); return true;
