@@ -291,11 +291,16 @@
 							return function(cbk1) {
 								if (new Date().getTime() - tm > 50000) {
 									CP1.exit = 1;
-									cbk1(' -- skip to next time session ---'); return true;
+									cbk1(' -- skip to next time session ---'); 
+									return true;
 								}
+							
 								let ta = t_arr[t],
 								    CP2 = new pkg.crowdProcess(), 
 								    _f2 = {};
+								
+								cbk1(ta);
+								retrn true;
 								
 								for (var i = 0; i < ta.length; i++) {
 									_f2['PA_' + i] = (function (i) {
