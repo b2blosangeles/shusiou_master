@@ -258,7 +258,7 @@
 				let tracks = CP.data.tracks,
 				    space_tracks = CP.data.space_tracks;
 				
-
+				
 				if (tracks.length == space_tracks.length) {
 					me.getInfo(me.space_url +  me.space_info, me.source_path + me.source_file,
 						function(v) {
@@ -279,7 +279,9 @@
 				} else {
 					let diff = tracks.filter(x => !space_tracks.includes(x));
 					let CP1 = new pkg.crowdProcess(), _f1 = {};
-					
+					cbk(diff);
+					return true;
+					/*
 					function F2D(arr, size) {
 						var res = []; 
 						for(var i=0;i < arr.length;i = i+size) res.push(arr.slice(i,i+size));
@@ -301,7 +303,7 @@
 								
 								cbk1(ta);
 								return true;
-								/*
+					
 								for (var i = 0; i < ta.length; i++) {
 									_f2['PA_' + i] = (function (i) {
 										return function(cbk2) {
@@ -336,10 +338,11 @@
 									},
 									10000
 								);
-								*/
+								
 							}
 						})(t);			
 					}
+					*/
 					CP1.serial(
 						_f1,
 						function(results1) {
