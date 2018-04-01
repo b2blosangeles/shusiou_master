@@ -280,12 +280,12 @@
 					let diff = tracks.filter(x => !space_tracks.includes(x));
 					let CP1 = new pkg.crowdProcess(), _f1 = {};
 					
-					function 2D(arr, size) {
+					function F2D(arr, size) {
 						var res = []; 
 						for(var i=0;i < arr.length;i = i+size) res.push(arr.slice(i,i+size));
 						return res;
 					}
-					var t_arr =  2D(diff, 2)
+					var t_arr =  F2D(diff, 2)
 					for (var t in t_arr) {
 						_f1['P_' + t] = (function(t) { 
 							return function(cbk1) {
