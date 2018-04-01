@@ -364,7 +364,7 @@
 			
 		};			
 			
-		
+		/*
 			CP.serial(
 				_f,
 				function(results2) {
@@ -374,6 +374,7 @@
 			);			
 			
 		};
+		*/
 		this.init = function() {
 			let me = this;
 			const AWS = require(env.site_path + '/api/inc/aws-sdk/node_modules/aws-sdk')
