@@ -299,9 +299,6 @@
 								    CP2 = new pkg.crowdProcess(), 
 								    _f2 = {};
 								
-								cbk1(ta);
-								return true;
-					
 								for (var i = 0; i < ta.length; i++) {
 									_f2['PA_' + i] = (function (i) {
 										return function(cbk2) {
@@ -362,17 +359,6 @@
 			
 		};			
 			
-		/*
-			CP.serial(
-				_f,
-				function(results2) {
-					_cbk(JSON.stringify(results2.results));
-				},
-				55000
-			);			
-			
-		};
-		*/
 		this.init = function() {
 			let me = this;
 			const AWS = require(env.site_path + '/api/inc/aws-sdk/node_modules/aws-sdk')
