@@ -312,7 +312,8 @@
 															Key: space_dir + ta[i],
 															ContentType: 'video/mp4',
 															ACL: 'public-read'
-														};	
+														};
+														console.log('== parallel ====>' + i);
 														me.s3.putObject(params, function(err, data) {
 															if (err) {
 																cbk2({err:err.message});
