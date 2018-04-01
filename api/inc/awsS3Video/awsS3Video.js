@@ -253,7 +253,7 @@
 					}
 				});
 			}
-			
+
 			_f['upload'] = function(cbk) { 
 				let tracks = CP.data.tracks,
 				    space_tracks = CP.data.space_tracks;
@@ -279,37 +279,57 @@
 				} else {
 					let diff = tracks.filter(x => !space_tracks.includes(x));
 					let CP1 = new pkg.crowdProcess(), _f1 = {};
-
-					for (var t in diff) {
+					
+					function 2D(arr, size) {
+						var res = []; 
+						for(var i=0;i < arr.length;i = i+size) res.push(arr.slice(i,i+size));
+						return res;
+					}
+					var t_arr =  2D(diff, 2)
+					for (var t in t_arr) {
 						_f1['P_' + t] = (function(t) { 
 							return function(cbk1) {
 								if (new Date().getTime() - tm > 50000) {
 									CP1.exit = 1;
 									cbk1(' -- skip to next time session ---'); return true;
 								}
-								pkg.fs.stat( tmp_folder + diff[t], function (err, stat) {
-									pkg.fs.readFile( tmp_folder + diff[t], function (err, data0) {
-										if (err) { cbk1({err:err.message}); }
-										else {		
-											var params = {
-												Body: new Buffer(data0, 'binary'),
-												Bucket: me.space_id,
-												Key: space_dir + diff[t],
-												ContentType: 'video/mp4',
-												ACL: 'public-read'
-											};	
-											me.s3.putObject(params, function(err, data) {
-												if (err) {
-												//	console.log('======A======');
-													cbk1({err:err.message});
-												} else {
-												//	console.log('======B======' + space_dir + diff[t]);
-													cbk1(diff[t]);
-												}	 
+								let ta = in t_arr[t]
+								let CP2 = new pkg.crowdProcess(), _f2 = {};
+								
+								for (var i = 0; i < ta; i++) {
+									_f2['PA_' + i] = (function (i) {
+										return function(cbk2) {
+											pkg.fs.stat( tmp_folder + ta[i], function (err, stat) {
+												pkg.fs.readFile( tmp_folder + ta[i], function (err, data0) {
+													if (err) { cbk2({err:err.message}); }
+													else {		
+														var params = {
+															Body: new Buffer(data0, 'binary'),
+															Bucket: me.space_id,
+															Key: space_dir + ta[i],
+															ContentType: 'video/mp4',
+															ACL: 'public-read'
+														};	
+														me.s3.putObject(params, function(err, data) {
+															if (err) {
+																cbk2({err:err.message});
+															} else {
+																cbk2(ta[i]);
+															}	 
+														});
+													}
+												});
 											});
-										}
-									});
-								});
+										}								
+									})(i);
+								}		
+								CP2.parallel(
+									_f2,
+									function(results2) {
+										cbk1(results2.results);
+									},
+									10000
+								);	
 							}
 						})(t);			
 					}
@@ -322,6 +342,17 @@
 					);					
 				}
 			}
+		
+			CP.serial(
+				_f,
+				function(results2) {
+					_cbk(JSON.stringify(results2.results));
+				},
+				55000
+			);			
+			
+		};			
+			
 		
 			CP.serial(
 				_f,
