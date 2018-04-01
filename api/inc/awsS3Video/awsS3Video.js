@@ -293,7 +293,7 @@
 									CP1.exit = 1;
 									cbk1(' -- skip to next time session ---'); return true;
 								}
-								let ta = in t_arr[t]
+								let ta = t_arr[t]
 								let CP2 = new pkg.crowdProcess(), _f2 = {};
 								
 								for (var i = 0; i < ta; i++) {
