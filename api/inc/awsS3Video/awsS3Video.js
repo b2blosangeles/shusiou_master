@@ -279,9 +279,7 @@
 				} else {
 					let diff = tracks.filter(x => !space_tracks.includes(x));
 					let CP1 = new pkg.crowdProcess(), _f1 = {};
-					cbk(diff);
-					return true;
-					/*
+
 					function F2D(arr, size) {
 						var res = []; 
 						for(var i=0;i < arr.length;i = i+size) res.push(arr.slice(i,i+size));
@@ -350,7 +348,7 @@
 						},
 						50000
 					);
-					*/
+					
 				}
 			}
 		
