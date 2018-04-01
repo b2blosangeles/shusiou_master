@@ -188,7 +188,7 @@
 										me.splitVideo(_type, tmp_folder, function(data) { 	
 											if (data.err) {
 												CP.exit = 1;
-												cbk(data);
+												cbk('---data--->');
 											} else {
 												cbk(data.list); 
 											}
