@@ -296,7 +296,7 @@
 								let ta = t_arr[t]
 								let CP2 = new pkg.crowdProcess(), _f2 = {};
 								
-								for (var i = 0; i < ta; i++) {
+								for (var i = 0; i < ta.length; i++) {
 									_f2['PA_' + i] = (function (i) {
 										return function(cbk2) {
 											pkg.fs.stat( tmp_folder + ta[i], function (err, stat) {
