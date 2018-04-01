@@ -286,18 +286,16 @@
 						return res;
 					}
 					var t_arr =  F2D(diff, 2)
-					cbk(diff);
-					return true;
 					for (var t in t_arr) {
-						/*
 						_f1['P_' + t] = (function(t) { 
 							return function(cbk1) {
 								if (new Date().getTime() - tm > 50000) {
 									CP1.exit = 1;
 									cbk1(' -- skip to next time session ---'); return true;
 								}
-								let ta = t_arr[t]
-								let CP2 = new pkg.crowdProcess(), _f2 = {};
+								let ta = t_arr[t],
+								    CP2 = new pkg.crowdProcess(), 
+								    _f2 = {};
 								
 								for (var i = 0; i < ta.length; i++) {
 									_f2['PA_' + i] = (function (i) {
@@ -343,7 +341,7 @@
 						},
 						50000
 					);
-					*/
+					
 				}
 			}
 		
