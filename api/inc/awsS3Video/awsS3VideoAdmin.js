@@ -34,6 +34,9 @@ CP.serial(
 		
 */		
 		this.delete = function(load_callback) {
+			cbk(true);
+			return true;
+			
 			let me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};	
