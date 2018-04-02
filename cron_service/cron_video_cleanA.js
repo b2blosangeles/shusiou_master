@@ -19,7 +19,7 @@ console.log(environment);
 _f['need_remove']  = function(cbk_s) { 
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
-	var str = 'SELECT * FROM `video_user` WHERE 1';
+	var str = 'SELECT * FROM `video` WHERE `vid` IS NOT IN (SELECT `vis` FROM FROM `video_user` WHERE 1)';
 	
 	connection.query(str, function (error, results, fields) {
 		connection.end();
