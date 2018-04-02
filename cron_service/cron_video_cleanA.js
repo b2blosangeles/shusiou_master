@@ -11,7 +11,11 @@ let mysql = require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
     cfg0 = config.db,
     CP = new crowdProcess(), 
     _f = {};
-		
+
+let environment = config.environment;
+
+console.log(environment); 
+
 _f['need_remove']  = function(cbk_s) { 
 	var connection = mysql.createConnection(cfg0);
 	connection.connect();
