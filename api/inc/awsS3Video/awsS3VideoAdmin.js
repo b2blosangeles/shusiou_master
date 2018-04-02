@@ -22,8 +22,37 @@
 			});			
 			return true;
 		}	
-		this.removeVidFromSpace = function(space, cbk) {
-			cbk(space);
+		this.removeVidFromSpace = function(rec, cbk) {
+			let space_dir = 'shusiou_' + config.environment  + '/';
+			var params = { 
+				Bucket: me.space_id,
+				Delimiter: '',
+				MaxKeys : 1000,
+				Marker : '',
+				Prefix: space_dir
+			}, v = {};
+
+			function listAllObject(params, callback) {
+				me.s3.listObjects(params, function (err, data) {
+					if(err) callback(err.message);
+					for (var o in data.Contents) {
+						let key = data.Contents[o].Key.replace(space_dir, '');
+						v[key] = data.Contents[o].Size;
+					}
+
+					if (data.IsTruncated) {
+						params.Marker = data.NextMarker;
+						listAllObject(params, callback)
+					} else {
+						callback(v);
+					}
+
+				})
+
+			}		
+			listAllObject(params, function(v) {
+				cbk(v.length)
+			});
 			return true;
 		}
 		this.doneDBVideoStatus = function(v, cbk) {
@@ -53,6 +82,7 @@
 			});
 			
 		}
+		/*
 		this.removeObjects = function(folder, list, callback) {
 			let me = this;
 			var params = {
@@ -67,6 +97,7 @@
 				else callback(d);
 			});
 		}
+		*/
 		this.init();
 	};
 	module.exports = obj;
