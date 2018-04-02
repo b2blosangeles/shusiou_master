@@ -33,8 +33,8 @@ CP.serial(
 );		
 		
 */		
-		this.delete = function(load_callback) {
-			cbk(true);
+		this.delete = function(delete_callback) {
+			cbk(delete_callback);
 			return true;
 			
 			let me = this;
