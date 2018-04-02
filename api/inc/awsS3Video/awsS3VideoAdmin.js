@@ -1,5 +1,5 @@
 (function () { 
-	var obj =  function (config, env, pkg) {
+	var obj =  function (config, env, pkg, tm) {
 		
 		let _space = { 
 			space_id : 'shusiou-d-01',
@@ -8,7 +8,32 @@
 		};
 
 		// find next need processed vid from table video_space
-		this.load = function() {
+/*		
+_f['need_remove']  = function(cbk_s) { 
+	var connection = mysql.createConnection(cfg0);
+	connection.connect();
+	var str = 'SELECT * FRom `video_space` WHERE `vid` NOT IN (SELECT `vid` FROM `video_user` WHERE 1)';
+	
+	connection.query(str, function (error, results, fields) {
+		connection.end();
+		if (error || !results.length) {
+			cbk_s(false);
+		} else {
+			cbk_s(results);
+		}	
+	});
+};
+
+CP.serial(
+	_f,
+	function(data_s) {
+		console.log(JSON.stringify(data_s));
+	},
+	10000
+);		
+		
+*/		
+		this.delete = function(load_callback) {
 			let me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};	
@@ -76,16 +101,16 @@
 				_f,
 				function(result) {
 					if (CP.data.db_video === true) {
-						console.log('No new id at all');
+						load_callback('No new id at all');
 					} else {
 						if ((CP.data.get_vid) && (CP.data.get_video_name)) {
 							me.loadvid(
 								_space,
 								CP.data.get_vid, CP.data.get_video_name, function(data) {
-								console.log(data);
+								load_callback(data);
 							});
 						} else {
-							console.log(result.results);
+							load_callback(result.results);
 						}
 					}
 				},
@@ -132,7 +157,7 @@
 								pkg.exec('rm -fr ' + tmp_root + ' && rm -fr ' + video_name, 
 									function(err, stdout, stderr) {
 										cbk('This video already been processed.' + me.vid);
-									me.load();
+								//	me.load();
 								});								 
 							}
 						});
@@ -162,7 +187,7 @@
 			let me = this;
 			let tmp_folder = '/var/shusiou_cache/tmpvideo/' + me.source_file + '/' + _type + '/';
 			let space_dir = 'shusiou_' + config.environment  + '/' + me.source_file + '/' + _type + '/';
-			let tm = new Date().getTime();
+			
 			
 			var CP = new pkg.crowdProcess();
 			var _f = {}; 
@@ -253,12 +278,12 @@
 					}
 				});
 			}
-			
+
 			_f['upload'] = function(cbk) { 
 				let tracks = CP.data.tracks,
 				    space_tracks = CP.data.space_tracks;
 				
-
+				
 				if (tracks.length == space_tracks.length) {
 					me.getInfo(me.space_url +  me.space_info, me.source_path + me.source_file,
 						function(v) {
@@ -280,49 +305,72 @@
 					let diff = tracks.filter(x => !space_tracks.includes(x));
 					let CP1 = new pkg.crowdProcess(), _f1 = {};
 
-					for (var t in diff) {
+					function F2D(arr, size) {
+						var res = []; 
+						for(var i=0;i < arr.length;i = i+size) res.push(arr.slice(i,i+size));
+						return res;
+					}
+					var t_arr =  F2D(diff, 12)
+					for (var t in t_arr) {
 						_f1['P_' + t] = (function(t) { 
 							return function(cbk1) {
-								
-							//	console.log('t==>' + diff[t]);
-								
-								if (new Date().getTime() - tm > 45000) {
+								if (new Date().getTime() - tm > 50000) {
 									CP1.exit = 1;
-									cbk1(' -- skip to next time session ---'); return true;
+									cbk1(' -- skip to next time session ---'); 
+									return true;
 								}
-								pkg.fs.stat( tmp_folder + diff[t], function (err, stat) {
-									pkg.fs.readFile( tmp_folder + diff[t], function (err, data0) {
-										if (err) { cbk1({err:err.message}); }
-										else {		
-											var params = {
-												Body: new Buffer(data0, 'binary'),
-												Bucket: me.space_id,
-												Key: space_dir + diff[t],
-												ContentType: 'video/mp4',
-												ACL: 'public-read'
-											};	
-											me.s3.putObject(params, function(err, data) {
-												if (err) {
-												//	console.log('======A======');
-													cbk1({err:err.message});
-												} else {
-												//	console.log('======B======' + space_dir + diff[t]);
-													cbk1(diff[t]);
-												}	 
+							
+								let ta = t_arr[t],
+								    CP2 = new pkg.crowdProcess(), 
+								    _f2 = {};
+								
+								for (var i = 0; i < ta.length; i++) {
+									_f2['PA_' + i] = (function (i) {
+										return function(cbk2) {
+											pkg.fs.stat( tmp_folder + ta[i], function (err, stat) {
+												pkg.fs.readFile( tmp_folder + ta[i], function (err, data0) {
+													if (err) { cbk2({err:err.message}); }
+													else {		
+														var params = {
+															Body: new Buffer(data0, 'binary'),
+															Bucket: me.space_id,
+															Key: space_dir + ta[i],
+															ContentType: 'video/mp4',
+															ACL: 'public-read'
+														};
+														me.s3.putObject(params, function(err, data) {
+															if (err) {
+																cbk2({err:err.message});
+															} else {
+																cbk2(ta[i]);
+															}	 
+														});
+													}
+												});
 											});
-										}
-									});
-								});
+										}								
+									})(i);
+								}		
+								CP2.parallel(
+									_f2,
+									function(results2) {
+										cbk1(results2.results);
+									},
+									10000
+								);
+								
 							}
 						})(t);			
 					}
+					
 					CP1.serial(
 						_f1,
 						function(results1) {
 							cbk(results1.results);
 						},
-						48000
-					);					
+						50000
+					);
+					
 				}
 			}
 		
@@ -334,7 +382,8 @@
 				55000
 			);			
 			
-		};
+		};			
+			
 		this.init = function() {
 			let me = this;
 			const AWS = require(env.site_path + '/api/inc/aws-sdk/node_modules/aws-sdk')
@@ -420,7 +469,8 @@
 				case '_t':
 					pkg.exec('rm -f ' + tmp_folder + '* ' + ' && rm -f ' + tmp_folder + '*.* ' +
 						 '&& split -b ' + me.trunkSize + ' ' + me.source_path +  me.source_file +  ' ' + tmp_folder + '', 					 
-						function(err, stdout, stderr) {
+						{maxBuffer: 1024 * 500}, 
+						 function(err, stdout, stderr) {
 							if (err) {
 								cbk({err:err.message});
 							} else {
@@ -433,7 +483,8 @@
 				case '_s':
 					pkg.exec('rm -f ' + tmp_folder + '* ' + ' && rm -f ' + tmp_folder + '*.* ' +
 						 '&& ffmpeg -i ' + me.source_path +  me.source_file + 
-						 ' -c copy -map 0 -segment_time 5 -reset_timestamps 1 -f segment ' + tmp_folder + 's_%d.mp4', 					 
+						 ' -c copy -map 0 -segment_time 5 -reset_timestamps 1 -f segment ' + tmp_folder + 's_%d.mp4', 
+						 {maxBuffer: 1024 * 500}, 
 						function(err, stdout, stderr) {
 							if (err) {
 								cbk({err:err.message});
