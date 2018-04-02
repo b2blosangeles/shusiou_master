@@ -23,8 +23,7 @@
 			return true;
 		}	
 		this.removeVidFromSpace = function(space, cbk) {
-			console.log(space);
-			cbk(false);
+			cbk(space);
 			return true;
 			let me = this,
 			    _p = video_name.match(/(.+)\/([^\/]+)$/);
