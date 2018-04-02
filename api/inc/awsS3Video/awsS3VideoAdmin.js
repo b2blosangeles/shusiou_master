@@ -23,7 +23,7 @@
 			});			
 			return true;
 		}	
-		this.removeVidFromSpace = function(space, vid, cbk) {
+		this.removeVidFromSpace = function(space, cbk) {
 			console.log(space);
 			cbk(false);
 			return true;
