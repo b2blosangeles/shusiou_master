@@ -5,35 +5,9 @@
 			space_id : 'shusiou-d-01',
 			space_url :'https://shusiou-d-01.nyc3.digitaloceanspaces.com/',
 			mnt_folder : '/var/shusiou_video/'
-		};
-
-		// find next need processed vid from table video_space
-/*		
-_f['need_remove']  = function(cbk_s) { 
-	var connection = mysql.createConnection(cfg0);
-	connection.connect();
-	var str = 'SELECT * FRom `video_space` WHERE `vid` NOT IN (SELECT `vid` FROM `video_user` WHERE 1)';
-	
-	connection.query(str, function (error, results, fields) {
-		connection.end();
-		if (error || !results.length) {
-			cbk_s(false);
-		} else {
-			cbk_s(results);
-		}	
-	});
-};
-
-CP.serial(
-	_f,
-	function(data_s) {
-		console.log(JSON.stringify(data_s));
-	},
-	10000
-);		
-		
-*/		
+		};	
 		this.delete = function(delete_callback) {
+			let me = this;
 			var connection = pkg.mysql.createConnection(config.db);
 			connection.connect();
 			var str = 'SELECT * FRom `video_space` WHERE `vid` NOT IN (SELECT `vid` FROM `video_user` WHERE 1)';
@@ -43,13 +17,16 @@ CP.serial(
 				if (error || !results.length) {
 					delete_callback(false);
 				} else {
+					me.removeVidFromSpace(results[0], delete_callback); 
 					delete_callback(results[0]);
 				}	
 			});			
 			return true;
 		}	
-		this.loadvid = function(space, vid, video_name, cbk) {
-			console.log('process vid ' + vid + ' ... ');
+		this.removeVidFromSpace = function(space, vid, cbk) {
+			console.log(space);
+			cbk(false);
+			return true;
 			let me = this,
 			    _p = video_name.match(/(.+)\/([^\/]+)$/);
 				
