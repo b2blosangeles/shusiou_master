@@ -34,92 +34,19 @@ CP.serial(
 		
 */		
 		this.delete = function(delete_callback) {
-			delete_callback(false);
+			var connection = pkg.mysql.createConnection(config.db);
+			connection.connect();
+			var str = 'SELECT * FRom `video_space` WHERE `vid` NOT IN (SELECT `vid` FROM `video_user` WHERE 1)';
+
+			connection.query(str, function (error, results, fields) {
+				connection.end();
+				if (error || !results.length) {
+					delete_callback(false);
+				} else {
+					delete_callback(results[0]);
+				}	
+			});			
 			return true;
-			
-			let me = this;
-			var CP = new pkg.crowdProcess();
-			var _f = {};	
-
-			_f['ip']  = function(cbk) {
-			    pkg.fs.readFile('/var/.qalet_whoami.data', 'utf8', function(err,data) {
-				if ((err) || !data) {
-					cbk({err:'Missing ip'}); CP.exit = 1;		
-				} else {
-					cbk(data.replace(/(?:(?:^|\n)\s+|\s+(?:$|\n))/g,'').replace(/\s+/g,' '));
-				}
-			    });
-			};
-			_f['db_video']  = function(cbk) { /* get database catched local videos */
-				var connection = pkg.mysql.createConnection(config.db);
-				connection.connect();
-				var str = "SELECT A.*, B.`status` FROM `video` A LEFT JOIN `video_space` B ON A.`vid` = B.`vid`" +
-					" WHERE A.`server_ip` = '" + CP.data.ip + "' AND B.`status` < 1 OR B.`status` IS NULL " +
-					" ORDER BY `status` DESC LIMIT 3";
-
-				connection.query(str, function (err, results, fields) {
-					connection.end();
-					if (err) {
-						cbk({err:err.message}); CP.exit = 1;
-					} else if (!results.length) {
-						cbk(true); CP.exit = 1;
-					} else {
-						cbk(results[0]);
-					}
-				});
-			};
-			_f['get_vid']  = function(cbk) { 
-				let vid = CP.data.db_video.vid, status = CP.data.db_video.status;
-				if (status === null || status === '') {
-					var connection = pkg.mysql.createConnection(config.db);
-					connection.connect();
-					var str = "INSERT INTO `video_space` (`vid`, `space`, `status`, `added`) VALUES " +
-						" ('" + vid + "', '" + _space.space_url + "', 0, NOW()) ON DUPLICATE KEY UPDATE `status` = `status` ";
-				
-					connection.query(str, function (error, results, fields) {
-						connection.end();
-						cbk(vid);
-					});
-				} else {
-					cbk(vid);
-				}
-			};
-			_f['get_video_name']  = function(cbk) { 
-				let vid = CP.data.get_vid,
-				    video_folder = _space.mnt_folder,
-				    _file = video_folder + vid + '/video/' + vid;
-
-				pkg.fs.stat(_file, function(err, stat) {
-					if (err) {
-						pkg.exec('mv -f ' + video_folder + vid + '/video/video.mp4 ' +  _file, 					 
-							function(err, stdout, stderr) {
-								cbk(_file);
-							});
-					} else {
-						cbk(_file);
-					}
-				});
-			};
-			CP.serial(
-				_f,
-				function(result) {
-					if (CP.data.db_video === true) {
-						load_callback('No new id at all');
-					} else {
-						if ((CP.data.get_vid) && (CP.data.get_video_name)) {
-							me.loadvid(
-								_space,
-								CP.data.get_vid, CP.data.get_video_name, function(data) {
-								load_callback(data);
-							});
-						} else {
-							load_callback(result.results);
-						}
-					}
-				},
-				58000
-			);		
-		
 		}	
 		this.loadvid = function(space, vid, video_name, cbk) {
 			console.log('process vid ' + vid + ' ... ');
