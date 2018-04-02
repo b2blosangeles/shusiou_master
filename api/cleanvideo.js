@@ -1,11 +1,6 @@
 
 // pkg.mysql	=  require(env.site_path + '/api/inc/mysql/node_modules/mysql'); 
-env.site_path = env.root_path + '/master';
-
-res.send(env.site_path + '/api/inc/awsS3Video/awsS3VideoAdmin.js');
-return true;
-
-let awsS3VideoAdmin = require(env.site_path + '/api/inc/awsS3Video/awsS3VideoAdmin.js');
+let awsS3VideoAdmin = require(env.sites_path + '/master/api/inc/awsS3Video/awsS3VideoAdmin.js');
 
 
 	 
