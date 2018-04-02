@@ -101,6 +101,8 @@ try {
 		},			
 		videoDelete:function(vid){
 			var me = this;
+			alert('---' + vid);
+			retyrn false;
 			$.ajax({
 				url:  _master_svr() +  '/api/video/myVideo.api?opt=removeUserVideo',
 				method: "POST",
