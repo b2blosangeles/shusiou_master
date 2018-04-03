@@ -85,8 +85,8 @@
 				Delete: {Objects:list}
 			};
 			me.s3.deleteObjects(params, function(err, d) {
-				if (err) callback({err:'unable to remove ' + vid + ' Objects'});
-				else callback(d);
+				if (err) callback({status:'error', message:'unable to remove ' + vid + ' Objects'});
+				else callback({status:'success', message:'removed ' +d.Deleted.length + ' Objects'} );
 			});
 		}
 		
