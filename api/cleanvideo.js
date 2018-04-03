@@ -6,10 +6,6 @@ var mysql = require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
 
 pkg.mysql = mysql;
 
-res.send('env');
-return true;
-
-
 
 delete require.cache[env.sites_path + '/master/api/inc/awsS3Video/awsS3VideoAdmin.js'];
 let awsS3VideoAdmin = require(env.sites_path + '/master/api/inc/awsS3Video/awsS3VideoAdmin.js');
