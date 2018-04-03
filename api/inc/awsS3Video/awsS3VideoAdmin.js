@@ -94,9 +94,13 @@
 			var params = {
 				Bucket: _space.space_id,
 				Delete: {Objects:[]}
-			};		
+			};
+			
 			for (var k in list) {
 				params.Delete.Objects.push({Key: folder + k});
+				if (params.Delete.Objects.length === 100) {
+					break;
+				}
 			};
 		//	callback(params.Delete.Objects);
 		//	return true;
