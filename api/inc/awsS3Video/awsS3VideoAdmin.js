@@ -45,24 +45,25 @@
 					v[key] = data.Contents[o].Size;
 				}
 				if (!v.length) {
-					cbk({err:'niu--err.message'});
-				//	me.cleanVideoSpaceRec(rec, cbk);
+					// cbk({err:'niu--err.message'});
+					me.cleanVideoRec(rec.vid, cbk);
 				} else {
 					me.removeObjects(space_dir, v, cbk);
 				}
 			});	
 			return true;
 		}
-		this.cleanVideoSpaceRec = function(v, cbk) {
+		this.cleanVideoRec = function(vid, cbk) {
 			let me = this;
-			if ((v) && (v.status) && (v.status._t) && (v.status._s)) {
-				var connection = pkg.mysql.createConnection(config.db);
+			if (vid) {
+				let cfgmdb = JSON.parse(JSON.stringify(config.db));
+				cfgmdb.multipleStatements = true;
+				var connection = pkg.mysql.createConnection(cfgmdb);
 				connection.connect();
-				var str = "DELETE FROM  `video_space`  WHERE `vid` = '" + me.vid + "'";
-
+				var str = "DELETE FROM  `video`  WHERE `vid` = '" + vid + "'; DELETE FROM  `video_space`  WHERE `vid` = '" + vid + "'";
 				connection.query(str, function (error, results, fields) {
 					connection.end();
-					cbk('This video has been processed.' + me.vid) 
+					cbk(results) 
 				});
 			} else {
 				cbk(false);
