@@ -28,7 +28,7 @@
 			var params = { 
 				Bucket: _space.space_id,
 				Delimiter: '',
-				MaxKeys : 100,
+				MaxKeys : 300,
 				Marker : '',
 				Prefix: space_dir
 			}, v = [];
@@ -42,6 +42,8 @@
 						let key = data.Contents[o].Key.replace(space_dir, '');
 						v.push({key: space_dir + key});
 					}
+					cbk(data);
+					return true;
 					if (!v.length) {
 						// cbk({err:'niu--err.message'});
 						me.cleanVideoRec(rec.vid, cbk);
