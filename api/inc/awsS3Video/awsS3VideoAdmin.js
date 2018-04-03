@@ -34,24 +34,20 @@
 			}, v = {};
 
 			me.s3.listObjects(params, function (err, data) {
-				
-				cbk(data);
-				return true;			
-				
 				if(err) {
-					CP.exit = 1;
 					cbk({err:err.message});
 					return true;
-				}	
-				for (var o in data.Contents) {
-					let key = data.Contents[o].Key.replace(space_dir, '');
-					v[key] = data.Contents[o].Size;
-				}
-				if (!v.length) {
-					// cbk({err:'niu--err.message'});
-					me.cleanVideoRec(rec.vid, cbk);
-				} else {
-					me.removeObjects(space_dir, v, cbk);
+				} else {	
+					for (var o in data.Contents) {
+						let key = data.Contents[o].Key.replace(space_dir, '');
+						v[key] = data.Contents[o].Size;
+					}
+					if (!v.length) {
+						// cbk({err:'niu--err.message'});
+						me.cleanVideoRec(rec.vid, cbk);
+					} else {
+						me.removeObjects(space_dir, v, cbk);
+					}
 				}
 			});	
 			return true;
