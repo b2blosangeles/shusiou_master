@@ -8,7 +8,6 @@
 		this.getBuckets = function(getBuckets_callback) {
 			let me = this;
 			var params = {};
-
 			me.s3.listBuckets(params, function(err, data) {
 				if(err) {
 					getBuckets_callback({err:err.message});
