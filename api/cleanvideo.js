@@ -1,5 +1,5 @@
 
-pkg.mysql	=  require(env.site_path + '/api/inc/mysql/node_modules/mysql'); 
+pkg.mysql	=  require(env.sites_path + '/admin/api/inc/mysql/node_modules/mysql'); 
 var config = require(env.config_path + '/config.json'),
     cfg0 = config.db;
 
