@@ -17,7 +17,7 @@
 					delete_ca();llback(false);
 				} else {
 					delete_callback(results[0]);
-					me.removeVidFromSpace(results[0], delete_callback); 
+					// me.removeVidFromSpace(results[0], delete_callback); 
 				}	
 			});			
 			return true;
