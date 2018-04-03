@@ -32,9 +32,12 @@
 				Marker : '',
 				Prefix: space_dir
 			}, v = {};
-			cbk(params);
-			return true;
+
 			me.s3.listObjects(params, function (err, data) {
+				
+				cbk(data);
+				return true;			
+				
 				if(err) {
 					CP.exit = 1;
 					cbk({err:err.message});
