@@ -20,14 +20,14 @@ let tm = new Date().getTime();
 
 function s() {
 	let delta_time0 = new Date().getTime() - tm;
-	console.log('---- load start ----> ' +  delta_time0);	
+	console.log('---- task start ----> ' +  delta_time0);	
 	var videoAdmin = new awsS3VideoAdmin(config, env, pkg, tm);	
 	 videoAdmin.delete(function(data) {
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
 		if (delta_time < 40000 && data !== 'finished') {
 			let delta_time0 = new Date().getTime() - tm;
-			console.log('---- load end ----> ' +  delta_time0);			
+			console.log('---- task end ----> ' +  delta_time0);			
 			s();
 		}		
 		
