@@ -14,7 +14,7 @@
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				if (error || !results.length) {
-					delete_callback(false);
+					delete_callback('finished');
 				} else {
 					me.removeVidFromSpace(results[0], delete_callback); 
 				}	
