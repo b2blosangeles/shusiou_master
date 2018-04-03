@@ -98,7 +98,7 @@
 			
 			for (var k in list) {
 				params.Delete.Objects.push({Key: folder + k});
-				if (params.Delete.Objects.length === 999) {
+				if (params.Delete.Objects.length === 333) {
 					break;
 				}
 			};
