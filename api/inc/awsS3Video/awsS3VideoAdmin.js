@@ -16,14 +16,18 @@
 				if (error || !results.length) {
 					delete_callback(false);
 				} else {
-					delete_callback(results[0]);
-					// me.removeVidFromSpace(results[0], delete_callback); 
+					//delete_callback(results[0]);
+					me.removeVidFromSpace(results[0], delete_callback); 
 				}	
 			});			
 			return true;
 		}	
 		this.removeVidFromSpace = function(rec, cbk) {
 			let space_dir = 'shusiou_' + config.environment  + '/';
+			
+			cbk( space_dir);
+			return true;
+			
 			var params = { 
 				Bucket: me.space_id,
 				Delimiter: '',
@@ -31,8 +35,7 @@
 				Marker : '',
 				Prefix: space_dir
 			}, v = {};
-			cbk( params);
-			return true;
+			
 			function listAllObject(params, callback) {
 				me.s3.listObjects(params, function (err, data) {
 					if(err) callback(err.message);
