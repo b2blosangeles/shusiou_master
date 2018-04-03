@@ -40,7 +40,7 @@
 				} else {	
 					for (var o in data.Contents) {
 						let key = data.Contents[o].Key.replace(space_dir, '');
-						v.push({key:key});
+						v.push({key: space_dir + key});
 					}
 					cbk(v);
 					return true;
