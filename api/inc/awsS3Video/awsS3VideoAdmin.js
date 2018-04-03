@@ -22,7 +22,7 @@
 			return true;
 		}	
 		this.removeVidFromSpace = function(rec, cbk) {
-			let space_dir = 'shusiou_' + config.environment  + '/';
+			let space_dir = 'shusiou_' + config.environment  + '/' + rec.vid;
 			
 			let me = this;
 			var params = { 
