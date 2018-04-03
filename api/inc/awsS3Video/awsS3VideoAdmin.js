@@ -38,17 +38,13 @@
 					cbk({err:err.message});
 					return true;
 				} else {	
-					for (var o in data.Contents) {
-						let key = data.Contents[o].Key.replace(space_dir, '');
-						v.push({key: space_dir + key});
-					}
-					cbk(data);
+					cbk(data.Contents);
 					return true;
-					if (!v.length) {
+					if (!data.Contents.length) {
 						// cbk({err:'niu--err.message'});
 						me.cleanVideoRec(rec.vid, cbk);
 					} else {
-						me.removeObjects(v, cbk);
+						me.removeObjects(data.Contents, cbk);
 					}
 				}
 			});	
