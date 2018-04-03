@@ -25,11 +25,11 @@ function s() {
 	 videoAdmin.delete(function(data) {
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
-		 let delta_time0 = new Date().getTime() - tm;
+		 et delta_time0 = new Date().getTime() - tm;
 		 console.log('---- load end ----> ' +  delta_time0);
-		// if (delta_time < 50000 && data !== 'No new id at all' && data !== false) {
-		//	s();
-		//}		
+		if (delta_time < 50000 && data !== 'finished') {
+			s();
+		}		
 		
 	});
 }
