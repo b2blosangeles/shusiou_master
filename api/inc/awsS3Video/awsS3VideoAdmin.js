@@ -53,7 +53,7 @@
 
 			}		
 			listAllObject(params, function(v) {
-				cbk(v.length)
+				cbk('v.length')
 			});
 			return true;
 		}
