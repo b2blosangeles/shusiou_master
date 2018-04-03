@@ -38,10 +38,7 @@
 					cbk({err:err.message});
 					return true;
 				} else {	
-					cbk(data.Contents);
-					return true;
 					if (!data.Contents.length) {
-						// cbk({err:'niu--err.message'});
 						me.cleanVideoRec(rec.vid, cbk);
 					} else {
 						me.removeObjects(data.Contents, cbk);
@@ -87,7 +84,7 @@
 				Bucket: _space.space_id,
 				Delete: {Objects:list}
 			};
-			callback(params.Delete.Objects);
+			callback('params.Delete.Objects');
 			return true;
 			me.s3.deleteObjects(params, function(err, d) {
 				if (err) return callback(err);
