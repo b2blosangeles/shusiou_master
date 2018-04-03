@@ -81,13 +81,11 @@
 		this.removeObjects = function(list, callback) {
 			let me = this;
 			var params = {
-				Bucket: _space.space_id,
+				Bucket: _space.space_id + 123,
 				Delete: {Objects:list}
 			};
-			callback('params.Delete.Objects');
-			return true;
 			me.s3.deleteObjects(params, function(err, d) {
-				if (err) return callback(err);
+				if (err) return callback({err:err.message});
 				else callback(d);
 			});
 		}
