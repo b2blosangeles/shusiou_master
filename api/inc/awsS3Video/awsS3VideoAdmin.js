@@ -41,7 +41,7 @@
 					if (!data.Contents.length) {
 						me.cleanVideoRec(rec.vid, cbk);
 					} else {
-						me.removeObjects(data.Contents, cbk);
+						me.removeObjects(rec.vid, data.Contents, cbk);
 					}
 				}
 			});	
@@ -78,14 +78,14 @@
 			
 		}
 		
-		this.removeObjects = function(list, callback) {
+		this.removeObjects = function(vid, list, callback) {
 			let me = this;
 			var params = {
-				Bucket: _space.space_id + 123,
+				Bucket: _space.space_id,
 				Delete: {Objects:list}
 			};
 			me.s3.deleteObjects(params, function(err, d) {
-				if (err) return callback({err:'unable to remove Objects'});
+				if (err) return callback({err:'unable to remove ' + vid + ' Objects'});
 				else callback(d);
 			});
 		}
