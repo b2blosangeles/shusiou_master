@@ -45,14 +45,15 @@
 						let key = data.Contents[o].Key.replace(space_dir, '');
 						v[key] = data.Contents[o].Size;
 					}
-
+					callback(v);
+					/*
 					if (data.IsTruncated) {
 						params.Marker = data.NextMarker;
 						listAllObject(params, callback)
 					} else {
 						callback(v);
 					}
-
+					*/
 				})
 
 			}		
