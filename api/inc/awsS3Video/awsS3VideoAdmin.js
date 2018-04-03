@@ -95,7 +95,7 @@
 				Delete: {Objects:[]}
 			};		
 			for (var k in list) {
-				params.Delete.Objects.push({Key: folder + list[k]});
+				params.Delete.Objects.push({Key: folder + k});
 			};
 			callback(params.Delete.Objects);
 			return true;
