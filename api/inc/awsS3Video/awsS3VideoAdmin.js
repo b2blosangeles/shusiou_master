@@ -25,7 +25,7 @@
 		this.removeVidFromSpace = function(rec, cbk) {
 			let space_dir = 'shusiou_' + config.environment  + '/';
 			
-
+			let me = this;
 			var params = { 
 				Bucket: _space.space_id,
 				Delimiter: '',
@@ -33,9 +33,7 @@
 				Marker : '',
 				Prefix: space_dir
 			}, v = {};
-			cbk(params);
-			return true;
-						
+			
 			function listAllObject(params, callback) {
 				me.s3.listObjects(params, function (err, data) {
 					if(err) callback(err.message);
