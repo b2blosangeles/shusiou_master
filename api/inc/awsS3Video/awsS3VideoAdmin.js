@@ -84,6 +84,8 @@
 				Bucket: _space.space_id,
 				Delete: {Objects:list}
 			};
+			callback(list);
+			return true;
 			me.s3.deleteObjects(params, function(err, d) {
 				if (err) callback({err:'unable to remove ' + vid + ' Objects'});
 				else callback(d);
