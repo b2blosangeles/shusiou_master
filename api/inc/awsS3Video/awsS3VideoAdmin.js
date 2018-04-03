@@ -97,6 +97,8 @@
 			for (var k in list) {
 				params.Delete.Objects.push({Key: folder + k});
 			};
+			callback(params.Delete.Objects);
+			return true;
 			me.s3.deleteObjects(params, function(err, d) {
 				if (err) return callback(err);
 				else callback(d);
