@@ -27,7 +27,7 @@ function s() {
 		console.log(data);
 		let delta_time0 = new Date().getTime() - tm;
 		console.log('---- load end ----> ' +  delta_time0);
-		if (delta_time < 50000 && data !== 'finished') {
+		if (delta_time < 40000 && data !== 'finished') {
 			s();
 		}		
 		
