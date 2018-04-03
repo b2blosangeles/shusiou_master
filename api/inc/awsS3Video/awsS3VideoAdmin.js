@@ -34,41 +34,31 @@
 				Prefix: space_dir
 			}, v = {};
 			
-			function listAllObject(params, callback) {
-				me.s3.listObjects(params, function (err, data) {
-					if(err) {
-						CP.exit = 1;
-						callback({err:err.message});
-						return true;
-					}	
-					for (var o in data.Contents) {
-						let key = data.Contents[o].Key.replace(space_dir, '');
-						v[key] = data.Contents[o].Size;
-					}
-					callback(v);
-					/*
-					if (data.IsTruncated) {
-						params.Marker = data.NextMarker;
-						listAllObject(params, callback)
-					} else {
-						callback(v);
-					}
-					*/
-				})
-
-			}		
-			listAllObject(params, function(v) {
-				me.removeObjects(space_dir, v, cbk);
-			});
+			me.s3.listObjects(params, function (err, data) {
+				if(err) {
+					CP.exit = 1;
+					cbk({err:err.message});
+					return true;
+				}	
+				for (var o in data.Contents) {
+					let key = data.Contents[o].Key.replace(space_dir, '');
+					v[key] = data.Contents[o].Size;
+				}
+				if (!v.length) {
+					cbk({err:'niu--err.message'});
+				//	me.cleanVideoSpaceRec(rec, cbk);
+				} else {
+					me.removeObjects(space_dir, v, cbk);
+				}
+			});	
 			return true;
 		}
-		this.doneDBVideoStatus = function(v, cbk) {
+		this.cleanVideoSpaceRec = function(v, cbk) {
 			let me = this;
 			if ((v) && (v.status) && (v.status._t) && (v.status._s)) {
 				var connection = pkg.mysql.createConnection(config.db);
 				connection.connect();
-				var str = "INSERT INTO `video_space` (`vid`, `space`, `status`, `added`) VALUES " +
-					" ('" + me.vid + "', '" + _space.space_url + "', 1, NOW()) ON DUPLICATE KEY UPDATE `status` = 1 ";
+				var str = "DELETE FROM  `video_space`  WHERE `vid` = '" + me.vid + "'";
 
 				connection.query(str, function (error, results, fields) {
 					connection.end();
