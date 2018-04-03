@@ -16,7 +16,6 @@
 				if (error || !results.length) {
 					delete_callback(false);
 				} else {
-					//delete_callback(results[0]);
 					me.removeVidFromSpace(results[0], delete_callback); 
 				}	
 			});			
@@ -36,7 +35,11 @@
 			
 			function listAllObject(params, callback) {
 				me.s3.listObjects(params, function (err, data) {
-					if(err) callback(err.message);
+					if(err) {
+						CP.exit = 1;
+						callback({err:err.message});
+						return true;
+					}	
 					for (var o in data.Contents) {
 						let key = data.Contents[o].Key.replace(space_dir, '');
 						v[key] = data.Contents[o].Size;
@@ -53,7 +56,7 @@
 
 			}		
 			listAllObject(params, function(v) {
-				cbk(v)
+				me.removeObjects = function(space_dir, v, cbk) 
 			});
 			return true;
 		}
@@ -84,22 +87,24 @@
 			});
 			
 		}
-		/*
+		
 		this.removeObjects = function(folder, list, callback) {
 			let me = this;
 			var params = {
-				Bucket: me.space_id,
+				Bucket: _space.space_id,
 				Delete: {Objects:[]}
 			};		
-			for (var i = 0; i < Math.min(list.length,100); i++) {
-				params.Delete.Objects.push({Key: folder + list[i]});
+			for (var k in list) {
+				params.Delete.Objects.push({Key: folder + list[k]});
 			};
+			callback(params.Delete.Objects);
+			return true;
 			me.s3.deleteObjects(params, function(err, d) {
 				if (err) return callback(err);
 				else callback(d);
 			});
 		}
-		*/
+		
 		this.init();
 	};
 	module.exports = obj;
