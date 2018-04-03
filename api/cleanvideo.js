@@ -14,7 +14,7 @@ let tm = new Date().getTime();
 var videoAdmin = new awsS3VideoAdmin(config, env, pkg, tm);	
  videoAdmin.delete(function(data) {
 	//let delta_time = new Date().getTime() - tm;
-	res.send('data');
+	res.send(data);
 
 });
 
