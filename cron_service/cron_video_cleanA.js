@@ -20,14 +20,14 @@ let tm = new Date().getTime();
 
 function s() {
 	let delta_time0 = new Date().getTime() - tm;
-	console.log('---- load at ----> ' +  delta_time0);
+	console.log('---- load at ----> ' +  delta_time0);	
 	var videoAdmin = new awsS3VideoAdmin(config, env, pkg, tm);	
 	 videoAdmin.delete(function(data) {
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
-		if (delta_time < 50000 && data !== 'No new id at all' && data !== false) {
-			s();
-		}		
+		// if (delta_time < 50000 && data !== 'No new id at all' && data !== false) {
+		//	s();
+		//}		
 		
 	});
 }
