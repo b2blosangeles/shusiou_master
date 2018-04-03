@@ -42,14 +42,11 @@
 						let key = data.Contents[o].Key.replace(space_dir, '');
 						v.push({key: space_dir + key});
 					}
-					cbk(v);
-					return true;
-					
 					if (!v.length) {
 						// cbk({err:'niu--err.message'});
 						me.cleanVideoRec(rec.vid, cbk);
 					} else {
-						me.removeObjects(space_dir, v, cbk);
+						me.removeObjects(v, cbk);
 					}
 				}
 			});	
@@ -86,21 +83,14 @@
 			
 		}
 		
-		this.removeObjects = function(folder, list, callback) {
+		this.removeObjects = function(list, callback) {
 			let me = this;
 			var params = {
 				Bucket: _space.space_id,
-				Delete: {Objects:[]}
+				Delete: {Objects:list}
 			};
-			
-			for (var k in list) {
-				params.Delete.Objects.push({Key: folder + k});
-				if (params.Delete.Objects.length === 333) {
-					break;
-				}
-			};
-		//	callback(params.Delete.Objects);
-		//	return true;
+			callback(params.Delete.Objects);
+			return true;
 			me.s3.deleteObjects(params, function(err, d) {
 				if (err) return callback(err);
 				else callback(d);
