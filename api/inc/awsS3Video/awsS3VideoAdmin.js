@@ -41,7 +41,10 @@
 					if (!data.Contents.length) {
 						me.cleanVideoRec(rec.vid, cbk);
 					} else {
-						me.removeObjects(rec.vid, data.Contents, cbk);
+						for (var i = 0; i < data.Contents.length; i++) {
+							v.push({Key :  data.Contents[i].Key})
+						}
+						me.removeObjects(rec.vid, v, cbk);
 					}
 				}
 			});	
