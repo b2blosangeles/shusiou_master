@@ -31,6 +31,9 @@
 				Prefix: space_dir
 			}, v = {};
 
+			cbk(params);
+			return true;
+			
 			function listAllObject(params, callback) {
 				me.s3.listObjects(params, function (err, data) {
 					if(err) callback(err.message);
