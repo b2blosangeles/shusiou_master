@@ -5,6 +5,22 @@
 			space_id : 'shusiou-d-01',
 			space_url :'https://shusiou-d-01.nyc3.digitaloceanspaces.com/'
 		};	
+		this.getBuckets = function(getBuckets_callback) {
+			let me = this;
+			var params = {};
+
+			me.s3.listBuckets(params, function(err, data) {
+				if(err) {
+					getBuckets_callback({err:err.message});
+					return true;
+				} else {	
+					getBuckets_callback(data);
+				}
+			});	
+			return true;		
+		
+		};
+		
 		this.delete = function(delete_callback) {
 			let me = this;
 			var connection = pkg.mysql.createConnection(config.db);
