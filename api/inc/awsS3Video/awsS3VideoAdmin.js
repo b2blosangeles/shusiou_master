@@ -16,7 +16,6 @@
 				if (error || !results.length) {
 					delete_callback(false);
 				} else {
-					// delete_callback(results);
 					me.removeVidFromSpace(results[0], delete_callback); 
 				}	
 			});			
