@@ -31,7 +31,7 @@
 				MaxKeys : 100,
 				Marker : '',
 				Prefix: space_dir
-			}, v = {};
+			}, v = [];
 
 			me.s3.listObjects(params, function (err, data) {
 				if(err) {
@@ -40,8 +40,11 @@
 				} else {	
 					for (var o in data.Contents) {
 						let key = data.Contents[o].Key.replace(space_dir, '');
-						v[key] = data.Contents[o].Size;
+						v.push({key:key});
 					}
+					cbk(v);
+					return true;
+					
 					if (!v.length) {
 						// cbk({err:'niu--err.message'});
 						me.cleanVideoRec(rec.vid, cbk);
