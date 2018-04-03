@@ -56,7 +56,7 @@
 
 			}		
 			listAllObject(params, function(v) {
-				me.removeObjects = function(space_dir, v, cbk) 
+				me.removeObjects(space_dir, v, cbk);
 			});
 			return true;
 		}
