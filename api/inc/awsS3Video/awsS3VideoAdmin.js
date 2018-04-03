@@ -16,16 +16,13 @@
 				if (error || !results.length) {
 					delete_callback(false);
 				} else {
-					delete_callback(results);
-					// me.removeVidFromSpace(results[0], delete_callback); 
+					// delete_callback(results);
+					me.removeVidFromSpace(results[0], delete_callback); 
 				}	
 			});			
 			return true;
 		}	
 		this.removeVidFromSpace = function(rec, cbk) {
-			
-			
-			
 			let space_dir = 'shusiou_' + config.environment  + '/' + rec.vid;
 			
 			let me = this;
