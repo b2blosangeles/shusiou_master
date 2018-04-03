@@ -16,7 +16,8 @@
 				if (error || !results.length) {
 					delete_callback(false);
 				} else {
-					me.removeVidFromSpace(results[0], delete_callback); 
+					 delete_callback('niu');
+					// me.removeVidFromSpace(results[0], delete_callback); 
 				}	
 			});			
 			return true;
