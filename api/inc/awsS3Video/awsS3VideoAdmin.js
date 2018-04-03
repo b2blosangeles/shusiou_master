@@ -54,6 +54,9 @@
 			return true;
 		}
 		this.cleanVideoRec = function(vid, cbk) {
+			cbk('Cao niu ' + vid);
+			return true;
+			
 			let me = this;
 			if (vid) {
 				let cfgmdb = JSON.parse(JSON.stringify(config.db));
