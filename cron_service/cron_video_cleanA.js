@@ -25,8 +25,8 @@ function s() {
 	 videoAdmin.delete(function(data) {
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
-		 et delta_time0 = new Date().getTime() - tm;
-		 console.log('---- load end ----> ' +  delta_time0);
+		let delta_time0 = new Date().getTime() - tm;
+		console.log('---- load end ----> ' +  delta_time0);
 		if (delta_time < 50000 && data !== 'finished') {
 			s();
 		}		
