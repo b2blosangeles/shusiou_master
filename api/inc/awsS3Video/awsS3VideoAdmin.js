@@ -14,10 +14,10 @@
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				if (error || !results.length) {
-					delete_ca();llback(false);
+					delete_callback(false);
 				} else {
-					delete_callback(results[0]);
-					// me.removeVidFromSpace(results[0], delete_callback); 
+					// delete_callback(results[0]);
+					me.removeVidFromSpace(results[0], delete_callback); 
 				}	
 			});			
 			return true;
