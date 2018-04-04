@@ -21,8 +21,7 @@
 							MaxKeys : 1000,
 							Marker : Marker,
 							Delimiter: '/',
-							Prefix: ["shusiou_dev/1804030000000006/",
-								 "shusiou_dev/1804030000000007/"]
+							Prefix: "shusiou_dev/1804030000000006/"
 							// Prefix: 'shusiou_dev/'
 						};
 						
