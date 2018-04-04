@@ -20,8 +20,8 @@
 							Delimiter: '',
 							MaxKeys : 1000,
 							Marker : Marker,
-							Delimiter: '/',
-							Prefix: 'shusiou_dev/1804030000000006/'
+							Delimiter: 'shusiou_dev/1804030000000006/',
+							Prefix: ''
 						};
 						
 						me.s3.listObjects(params1, function (err, data) {
