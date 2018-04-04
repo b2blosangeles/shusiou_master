@@ -15,7 +15,7 @@
 				} else {	
 					// getBuckets_callback(data.Buckets[0].Name);
 					
-					let me = this;
+					// let me = this;
 					var params = { 
 						Bucket: data.Buckets[0].Name,
 						Delimiter: '',
