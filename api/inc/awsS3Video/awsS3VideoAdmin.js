@@ -17,7 +17,6 @@
 					let recursive_f = function(Marker, cbk) {
 						var params1 = { 
 							Bucket: data.Buckets[0].Name,
-							Delimiter: '',
 							MaxKeys : 1000,
 							Marker : Marker,
 							Delimiter: '/',
