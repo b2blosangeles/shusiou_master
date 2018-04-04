@@ -30,11 +30,14 @@
 								cbk({err:err.message});
 								return true;
 							} else {
+								v = data;
+								/*
 								for (var i = 0; i < data.Contents; i++) {
 									v.push(data.Contents[i]);
 									// total_size +=  data.Contents[i].Size;
 									// file_cnt ++;
 								}
+								*/
 								if (data.IsTruncated) {
 									_f(data.NextMarker, cbk)
 									
