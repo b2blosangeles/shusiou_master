@@ -22,17 +22,14 @@
 						MaxKeys : 300,
 						Marker : '',
 						Prefix: ''
-					}, v = [];
+					};
 
 					me.s3.listObjects(params1, function (err, data) {
 						if(err) {
 							getBuckets_callback({err:err.message});
 							return true;
 						} else {	
-							for (var i = 0; i < data.Contents.length; i++) {
-								v.push({Key :  data.Contents[i].Key})
-							}
-							getBuckets_callback(v);
+							getBuckets_callback(data.Contents);
 						}
 					});						
 					
