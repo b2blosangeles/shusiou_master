@@ -13,7 +13,7 @@
 					getBuckets_callback({err:err.message});
 					return true;
 				} else {	
-					let total_size = 0, v = [];
+					let total_size = 0, file_cnt = 0, v = [];
 					let _f = function(Marker, cbk) {
 						var params1 = { 
 							Bucket: data.Buckets[0].Name,
@@ -31,15 +31,16 @@
 							//	v.push(data);
 								
 								for (var i = 0; i < data.Contents.length; i++) {
-									v.push(data.Contents[i]);
+								//	v.push(data.Contents[i]);
 									total_size +=  data.Contents[i].Size;
+									file_cnt ++;
 								}
 								
 								if (data.IsTruncated) {
 									_f(data.NextMarker, cbk)
 									
 								} else {
-									cbk({total_size : total_size});
+									cbk({file_cnt:file_cnt, total_size : total_size});
 								}
 							}
 						});						
