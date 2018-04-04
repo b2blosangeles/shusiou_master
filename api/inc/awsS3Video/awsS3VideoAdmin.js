@@ -14,7 +14,7 @@
 					return true;
 				} else {	
 					let total_size = 0, file_cnt = 0, v = [];
-					let _f = function(Marker, cbk) {
+					let recursive_f = function(Marker, cbk) {
 						var params1 = { 
 							Bucket: data.Buckets[0].Name,
 							Delimiter: '',
@@ -38,7 +38,7 @@
 								}
 								*/
 								if (data.IsTruncated) {
-									_f(data.NextMarker, cbk)
+									recursive_f(data.NextMarker, cbk)
 									
 								} else {
 									cbk(v);
