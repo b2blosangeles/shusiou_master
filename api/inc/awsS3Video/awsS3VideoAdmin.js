@@ -14,7 +14,7 @@
 					return true;
 				} else {	
 					let total_size = 0;
-					_f = function(cbk) {
+					let _f = function(cbk) {
 						var params1 = { 
 							Bucket: data.Buckets[0].Name,
 							Delimiter: '',
