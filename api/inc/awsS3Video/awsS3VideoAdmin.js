@@ -13,8 +13,7 @@
 					getBuckets_callback({err:err.message});
 					return true;
 				} else {	
-					// getBuckets_callback(data.Buckets[0].Name);
-					
+					let total_size = 0;
 					_f = function(cbk) {
 						var params1 = { 
 							Bucket: data.Buckets[0].Name,
@@ -27,8 +26,11 @@
 							if(err) {
 								cbk{err:err.message});
 								return true;
-							} else {	
-								cbk(data.Contents);
+							} else {
+								for (var i = 0; i < data.Contents.length; i++) {
+									total_size +=  data.Contents[i].size;
+								}
+								cbk('===>' + total_size);
 							}
 						});						
 					}
