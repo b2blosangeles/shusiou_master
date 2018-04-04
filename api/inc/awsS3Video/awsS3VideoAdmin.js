@@ -30,8 +30,8 @@
 								cbk({err:err.message});
 								return true;
 							} else {
-								for (var i = 0; i < data.CommonPrefixes; i++) {
-									v.push(data.CommonPrefixes[i]);
+								for (var i = 0; i < data.Contents; i++) {
+									v.push(data.Contents[i]);
 									// total_size +=  data.Contents[i].Size;
 									// file_cnt ++;
 								}
