@@ -19,8 +19,8 @@
 							Bucket: data.Buckets[0].Name,
 							MaxKeys : 1000,
 							Marker : Marker,
-							Delimiter: '/',
-							Prefix: 'shusiou_dev/'
+							Delimiter: '',
+							Prefix: ''
 						};
 						
 						me.s3.listObjects(params1, function (err, data) {
@@ -28,7 +28,6 @@
 								cbk({err:'err.message'});
 								return true;
 							} else {
-						
 								for (var i = 0; i < data.Contents.length; i++) {
 									v.push(data.Contents[i]);
 								//	total_size +=  data.Contents[i].Size;
