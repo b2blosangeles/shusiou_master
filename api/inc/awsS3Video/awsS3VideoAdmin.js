@@ -28,9 +28,9 @@
 								return true;
 							} else {
 								for (var i = 0; i < data.Contents.length; i++) {
-									total_size +=  data.Contents[i].size;
+									//total_size +=  data.Contents[i].size;
 								}
-								cbk('===>' + total_size);
+								cbk(data.Contents);
 							}
 						});						
 					}
