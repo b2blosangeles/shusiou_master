@@ -29,14 +29,13 @@
 								cbk({err:'err.message'});
 								return true;
 							} else {
-								v.push(data);
-								/*
+						
 								for (var i = 0; i < data.Contents.length; i++) {
-								//	v.push(data.Contents[i]);
-									total_size +=  data.Contents[i].Size;
-									file_cnt ++;
+									v.push(data.Contents[i]);
+								//	total_size +=  data.Contents[i].Size;
+								//	file_cnt ++;
 								}
-								*/
+								
 								if (data.IsTruncated) {
 									recursive_f(data.NextMarker, cbk)
 									
