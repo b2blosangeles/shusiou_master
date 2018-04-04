@@ -30,7 +30,8 @@
 								for (var i = 0; i < data.Contents.length; i++) {
 									total_size +=  data.Contents[i].Size;
 								}
-								cbk('-->' + total_size);
+								cbk(data);
+								// cbk('-->' + total_size);
 							}
 						});						
 					}
