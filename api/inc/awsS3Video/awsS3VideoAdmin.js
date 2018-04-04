@@ -20,7 +20,7 @@
 							Delimiter: '',
 							MaxKeys : 1000,
 							Marker : Marker,
-							Delimiter: '/',
+							Delimiter: '',
 							Prefix: 'shusiou_dev/1804030000000006/'
 						};
 						
