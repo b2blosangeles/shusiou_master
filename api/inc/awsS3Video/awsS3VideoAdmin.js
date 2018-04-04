@@ -32,7 +32,7 @@
 							} else {
 								
 								for (var i = 0; i < data.CommonPrefixes.length; i++) {
-									v.push(data.CommonPrefixes[i]);
+									v.push(data.CommonPrefixes[i].Prefix);
 									// total_size +=  data.Contents[i].Size;
 									// file_cnt ++;
 								}
