@@ -26,7 +26,7 @@
 						
 						me.s3.listObjects(params1, function (err, data) {
 							if(err) {
-								cbk({err:err.message});
+								cbk({err:'err.message'});
 								return true;
 							} else {
 								v.push(data);
