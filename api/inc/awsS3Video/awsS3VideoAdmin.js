@@ -13,7 +13,7 @@
 					getBuckets_callback({err:err.message});
 					return true;
 				} else {	
-					getBuckets_callback(data);
+					getBuckets_callback(data.Buckets[0].Name);
 				}
 			});	
 			return true;		
