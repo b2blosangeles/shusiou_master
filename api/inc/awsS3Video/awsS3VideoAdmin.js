@@ -21,7 +21,7 @@
 							MaxKeys : 1000,
 							Marker : Marker,
 							Delimiter: '/',
-							Prefix: 'shusiou_dev/1804030000000006/'
+							Prefix: 'shusiou_dev'
 						};
 						
 						me.s3.listObjects(params1, function (err, data) {
@@ -29,7 +29,7 @@
 								cbk({err:err.message});
 								return true;
 							} else {
-								v.push(data);
+								v.push(data.CommonPrefixes);
 								/*
 								for (var i = 0; i < data.Contents.length; i++) {
 								//	v.push(data.Contents[i]);
