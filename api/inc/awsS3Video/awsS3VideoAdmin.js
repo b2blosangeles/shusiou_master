@@ -23,17 +23,15 @@
 							Prefix: ''
 						};
 						me.s3.listObjects(params1, function (err, data) {
-							cbk(data.Contents);
-							/*
 							if(err) {
 								cbk{err:err.message});
 								return true;
 							} else {
 								for (var i = 0; i < data.Contents.length; i++) {
-									//total_size +=  data.Contents[i].size;
+									//total_size +=  data.Contents[i].Size;
 								}
-								
-							}*/
+								cbk(data.Contents);
+							}
 						});						
 					}
 					_f(getBuckets_callback);
