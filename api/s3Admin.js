@@ -12,7 +12,6 @@ let tm = new Date().getTime();
 
 var videoAdmin = new awsS3VideoAdmin(config, env, pkg, tm);	
  videoAdmin.getBuckets(function(data) {
-	 
-	res.send({tm : new Date().getTime - tm, data:data});
+	res.send(data);
 
 });
