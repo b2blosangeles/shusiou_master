@@ -13,7 +13,39 @@
 					getBuckets_callback({err:err.message});
 					return true;
 				} else {	
-					getBuckets_callback(data.Buckets[0].Name);
+					let total_size = 0, v = [];
+					let _f = function(Marker, cbk) {
+						var params1 = { 
+							Bucket: data.Buckets[0].Name,
+							Delimiter: '',
+							MaxKeys : 300,
+							Marker : Marker,
+							Prefix: ''
+						};
+						
+						me.s3.listObjects(params1, function (err, data) {
+							if(err) {
+								cbk({err:err.message});
+								return true;
+							} else {
+							//	v.push(data);
+								
+								for (var i = 0; i < data.Contents.length; i++) {
+									v.push(data.Contents[i]);
+									total_size +=  data.Contents[i].Size;
+								}
+								
+								if (data.IsTruncated) {
+									_f(data.NextMarker, cbk)
+									
+								} else {
+									cbk({total_size : total_size});
+								}
+							}
+						});						
+					}
+					_f('', getBuckets_callback);
+					
 				}
 			});	
 			return true;		
