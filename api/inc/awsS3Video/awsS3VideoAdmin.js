@@ -16,7 +16,7 @@
 					// getBuckets_callback(data.Buckets[0].Name);
 					
 					// let me = this;
-					var params = { 
+					var params1 = { 
 						Bucket: data.Buckets[0].Name,
 						Delimiter: '',
 						MaxKeys : 300,
@@ -24,7 +24,7 @@
 						Prefix: ''
 					}, v = [];
 
-					me.s3.listObjects(params, function (err, data) {
+					me.s3.listObjects(params1, function (err, data) {
 						if(err) {
 							getBuckets_callback({err:err.message});
 							return true;
