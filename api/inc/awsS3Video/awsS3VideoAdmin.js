@@ -21,7 +21,15 @@
 							MaxKeys : 1000,
 							Marker : Marker,
 							Delimiter: '/',
-							Prefix: 'shusiou_dev/'
+							CommonPrefixes : [{"Prefix":"shusiou_dev/1804030000000006/"},
+									  {"Prefix":"shusiou_dev/1804030000000007/"},
+									  {"Prefix":"shusiou_dev/1804030000000008/"},
+									  {"Prefix":"shusiou_dev/1804030000000010/"},
+									  {"Prefix":"shusiou_dev/1804030000000011/"},
+									  {"Prefix":"shusiou_dev/1804030000000012/"},
+									  {"Prefix":"shusiou_dev/1804030000000013/"},
+									  {"Prefix":"shusiou_dev/1804030000000014/"}]
+							// Prefix: 'shusiou_dev/'
 						};
 						
 						me.s3.listObjects(params1, function (err, data) {
