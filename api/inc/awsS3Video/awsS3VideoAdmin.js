@@ -21,14 +21,8 @@
 							MaxKeys : 1000,
 							Marker : Marker,
 							Delimiter: '/',
-							CommonPrefixes : [{"Prefix":"shusiou_dev/1804030000000006/"},
-									  {"Prefix":"shusiou_dev/1804030000000007/"},
-									  {"Prefix":"shusiou_dev/1804030000000008/"},
-									  {"Prefix":"shusiou_dev/1804030000000010/"},
-									  {"Prefix":"shusiou_dev/1804030000000011/"},
-									  {"Prefix":"shusiou_dev/1804030000000012/"},
-									  {"Prefix":"shusiou_dev/1804030000000013/"},
-									  {"Prefix":"shusiou_dev/1804030000000014/"}]
+							Prefix: ["shusiou_dev/1804030000000006/",
+								 "shusiou_dev/1804030000000007/"]
 							// Prefix: 'shusiou_dev/'
 						};
 						
