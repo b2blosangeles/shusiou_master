@@ -28,7 +28,7 @@
 								cbk({err:err.message});
 								return true;
 							} else {
-								v.push(data.Contents);
+								v.push(data);
 								/*
 								for (var i = 0; i < data.Contents.length; i++) {
 									v.push(data.Contents[i]);
