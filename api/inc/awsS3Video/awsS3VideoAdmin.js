@@ -13,7 +13,30 @@
 					getBuckets_callback({err:err.message});
 					return true;
 				} else {	
-					getBuckets_callback(data.Buckets[0].Name);
+					// getBuckets_callback(data.Buckets[0].Name);
+					
+					let me = this;
+					var params = { 
+						Bucket: data.Buckets[0].Name,
+						Delimiter: '',
+						MaxKeys : 300,
+						Marker : '',
+						Prefix: ''
+					}, v = [];
+
+					me.s3.listObjects(params, function (err, data) {
+						if(err) {
+							getBuckets_callback({err:err.message});
+							return true;
+						} else {	
+							for (var i = 0; i < data.Contents.length; i++) {
+								v.push({Key :  data.Contents[i].Key})
+							}
+							getBuckets_callback(v);
+						}
+					});						
+					
+					
 				}
 			});	
 			return true;		
