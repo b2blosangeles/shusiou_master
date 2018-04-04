@@ -20,6 +20,7 @@
 							Delimiter: '',
 							MaxKeys : 1000,
 							Marker : Marker,
+							Delimiter: '/',
 							Prefix: ''
 						};
 						
@@ -28,19 +29,20 @@
 								cbk({err:err.message});
 								return true;
 							} else {
-							//	v.push(data);
-								
+								v.push(data);
+								/*
 								for (var i = 0; i < data.Contents.length; i++) {
 								//	v.push(data.Contents[i]);
 									total_size +=  data.Contents[i].Size;
 									file_cnt ++;
 								}
-								
+								*/
 								if (data.IsTruncated) {
 									_f(data.NextMarker, cbk)
 									
 								} else {
-									cbk({file_cnt:file_cnt, total_size : total_size});
+									cbk(v);
+									// cbk({file_cnt:file_cnt, total_size : total_size});
 								}
 							}
 						});						
