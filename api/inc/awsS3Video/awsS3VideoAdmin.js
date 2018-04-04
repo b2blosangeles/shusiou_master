@@ -21,7 +21,7 @@
 							MaxKeys : 1000,
 							Marker : Marker,
 							Delimiter: '/',
-							Prefix: '*/'
+							Prefix: 'shusiou_dev/1804030000000006/'
 						};
 						
 						me.s3.listObjects(params1, function (err, data) {
