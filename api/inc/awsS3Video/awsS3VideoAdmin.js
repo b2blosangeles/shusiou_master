@@ -24,13 +24,13 @@
 						};
 						me.s3.listObjects(params1, function (err, data) {
 							if(err) {
-								cbk{err:err.message});
+								cbk({err:err.message});
 								return true;
 							} else {
 								for (var i = 0; i < data.Contents.length; i++) {
-									//total_size +=  data.Contents[i].Size;
+									total_size +=  data.Contents[i].Size;
 								}
-								cbk(data.Contents);
+								cbk('-->' + total_size);
 							}
 						});						
 					}
