@@ -13,7 +13,7 @@
 					getBuckets_callback({err:err.message});
 					return true;
 				} else {	
-					let total_size = 0 v = [];
+					let total_size = 0, v = [];
 					let _f = function(Marker, cbk) {
 						var params1 = { 
 							Bucket: data.Buckets[0].Name,
@@ -28,10 +28,10 @@
 								cbk({err:err.message});
 								return true;
 							} else {
-									for (var i = 0; i < data.Contents.length; i++) {
-										v.push(data.Contents[i]);
-										//  total_size +=  data.Contents[i].Size;
-									}									
+								for (var i = 0; i < data.Contents.length; i++) {
+									v.push(data.Contents[i]);
+									//  total_size +=  data.Contents[i].Size;
+								}									
 								if (data.IsTruncated) {
 									_f(data.NextMarker, cbk)
 									
