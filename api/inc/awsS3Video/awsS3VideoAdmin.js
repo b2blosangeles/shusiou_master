@@ -18,7 +18,7 @@
 						var params1 = { 
 							Bucket: data.Buckets[0].Name,
 							Delimiter: '',
-							MaxKeys : 300,
+							MaxKeys : 1000,
 							Marker : Marker,
 							Prefix: ''
 						};
