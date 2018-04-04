@@ -39,7 +39,7 @@
 									_f(data.NextMarker, cbk)
 									
 								} else {
-									cbk(total_size);
+									cbk({total_size : total_size});
 								}
 							}
 						});						
