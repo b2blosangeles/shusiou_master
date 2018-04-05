@@ -1,10 +1,10 @@
 (function () { 
 	var obj =  function (s3) {	
-		this.getBuckets = function(getBuckets_callback) {
+		this.getBucketsVids = function(getBucketsVids_callback) {
 			var params = {};
 			s3.listBuckets(params, function(err, data) {
 				if(err) {
-					getBuckets_callback({err:err.message});
+					getBucketsVids_callback({err:err.message});
 					return true;
 				} else {	
 					let total_size = 0, file_cnt = 0, v = [];
@@ -20,7 +20,7 @@
 
 						s3.listObjects(params1, function (err, data) {
 							if(err) {
-								getBuckets_callback({err:err.message});
+								getBucketsVids_callback({err:err.message});
 								return true;
 							} else {
 
@@ -40,7 +40,7 @@
 							}
 						});						
 					}
-					recursive_f('', getBuckets_callback);
+					recursive_f('', getBucketsVids_callback);
 
 				}
 			});
