@@ -82,8 +82,8 @@
 										return true;
 									} else {
 
-										for (var i = 0; i < data.CommonPrefixes.length; i++) {
-											v.push(data.CommonPrefixes[i].Prefix);
+										for (var i = 0; i < data.Contents.length; i++) {
+											v.push(data.Contents[i]);
 											// total_size +=  data.Contents[i].Size;
 											// file_cnt ++;
 										}
