@@ -67,7 +67,7 @@
 						}
 					})(i);
 				}
-				CP1.serial(
+				CP1.Parallel(
 					_f1,
 					function(data) {				
 						cbk0({vids : data})
