@@ -71,7 +71,7 @@
 								var params1 = { 
 									Bucket: 'shusiou-d-01',
 									Delimiter: '',
-									MaxKeys : 100,
+									MaxKeys : 10,
 									Marker : Marker,
 									Delimiter: '',
 									Prefix: vids[i]
