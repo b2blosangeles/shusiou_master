@@ -57,6 +57,9 @@
 					}
 				});				
 			}
+			_f['scanVids'] = function(cbk0) {
+				cbk0(CP.data.scanVids);
+			}
 			CP.serial(
 				_f,
 				function(data) {				
