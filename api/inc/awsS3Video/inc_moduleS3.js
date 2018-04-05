@@ -1,23 +1,26 @@
 (function () { 
 	var obj =  function (s3, config, env, pkg) {	
 		this.getBuckets = function(getBuckets_callback) {	
-			var params = {};
+			var me = this, params = {};
 			s3.listBuckets(params, function(err, data) {
 				if(err) {
 					getBuckets_callback({err:err.message});
 					return true;
 				} else {
-					getBuckets_callback(data);
+					getBuckets_callback(data.Buckets);
 				}
 			});	
 		}
 		this.getBucketsVids = function(getBucketsVids_callback) {	
-			var params = {};
-	
+			var  me = this;
+			var CP = new pkg.crowdProcess();
+			var _f = {};
+			me.getBuckets(
+				function(Buckets) {
 					let total_size = 0, file_cnt = 0, v = [];
 					let recursive_f = function(Marker, cbk) {
 						var params1 = { 
-							Bucket: data.Buckets[0].Name,
+							Bucket: Buckets[0].Name,
 							Delimiter: '',
 							MaxKeys : 1000,
 							Marker : Marker,
@@ -47,8 +50,9 @@
 							}
 						});						
 					}
-					recursive_f('', getBucketsVids_callback);
-			
+					recursive_f('', getBucketsVids_callback);				
+				}
+			});
 		};
 		
 	};
