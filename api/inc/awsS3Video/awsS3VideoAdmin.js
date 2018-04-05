@@ -60,10 +60,17 @@
 				var vids = CP.data.getVids;
 				var CP1 = new pkg.crowdProcess();
 				var _f1 = {};
+				for (var i = 0; i < vids.length; i++) {
+					_f1['p_' + i] = (function(i) {
+						return function(cbk1) {
+							cbk1(vids[i]);
+						}
+					})(i);
+				}
 				CP1.serial(
 					_f1,
 					function(data) {				
-						cbk0({vids : vids.length})
+						cbk0({vids : data})
 					},
 					30000
 				);
