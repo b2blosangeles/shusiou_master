@@ -15,7 +15,7 @@
 				var params = {};
 				delete require.cache[__dirname + '/inc_getBucketsVids.js'];
 				var getBuckets = require(__dirname + '/inc_getBucketsVids.js');
-				cbk0('getBuckets');
+				getBuckets.getBucketsVids(cbk0);
 				CP.exit = 1;
 				return true;
 				
