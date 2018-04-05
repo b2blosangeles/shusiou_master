@@ -60,7 +60,7 @@
 				var vids = CP.data.getVids;
 				var CP1 = new pkg.crowdProcess();
 				var _f1 = {};
-				for (var j = 0; j <2; j++) {
+				for (var j = 0; j <10; j++) {
 				for (var i = 0; i < vids.length; i++) {
 					_f1['p_' + i + (j * 10)] = (function(i) {
 						return function(cbk1) {
@@ -84,17 +84,17 @@
 									} else {
 
 										for (var i = 0; i < data.Contents.length; i++) {
-											v.push(data.Contents[i]);
-											// total_size +=  data.Contents[i].Size;
-											// file_cnt ++;
+										//	v.push(data.Contents[i]);
+											 total_size +=  data.Contents[i].Size;
+											 file_cnt ++;
 										}
 
 										if (data.IsTruncated) {
 											recursive_f(data.NextMarker, cbk)
 
 										} else {
-											cbk(v);
-											// cbk({file_cnt:file_cnt, total_size : total_size});
+											// cbk(v);
+											 cbk({file_cnt:file_cnt, total_size : total_size});
 										}
 									}
 								});						
