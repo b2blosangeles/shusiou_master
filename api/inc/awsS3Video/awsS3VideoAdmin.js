@@ -13,6 +13,10 @@
 			
 			_f['getVids'] = function(cbk0) {
 				var params = {};
+				cbk0('inc_getBucketsVids.js');
+				CP.exit = 1;
+				return true;
+				
 				me.s3.listBuckets(params, function(err, data) {
 					if(err) {
 						getBuckets_callback({err:err.message});
