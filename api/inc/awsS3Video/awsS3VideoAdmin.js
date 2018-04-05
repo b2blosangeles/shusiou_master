@@ -14,9 +14,8 @@
 			_f['getVids'] = function(cbk0) {
 				var params = {};
 				delete require.cache[__dirname + '/inc_moduleS3.js'];
-			//	var moduleS3 = require(__dirname + '/inc_moduleS3.js');
-			//	var objS3 = new moduleS3(me.s3);
-				var objS3 = new require(__dirname + '/inc_moduleS3.js')(me.s3);
+				var moduleS3 = require(__dirname + '/inc_moduleS3.js');
+				var objS3 = new moduleS3(me.s3);
 				objS3.getBucketsVids(cbk0);
 				CP.exit = 1;
 				return true;
