@@ -60,7 +60,7 @@
 				var vids = CP.data.getVids;
 				var CP1 = new pkg.crowdProcess();
 				var _f1 = {};
-				for (var j = 0; j < 1000; j+=10) {
+				for (var j = 0; j < 100; j+=10) {
 				for (var i = 0; i < vids.length; i++) {
 					_f1['p_' + i + j] = (function(i) {
 						return function(cbk1) {
