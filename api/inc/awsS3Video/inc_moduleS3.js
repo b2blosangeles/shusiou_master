@@ -1,5 +1,5 @@
-(function (config, env, pkg) { 
-	var obj =  function (s3) {	
+(function () { 
+	var obj =  function (s3, config, env, pkg) {	
 		this.getBucketsVids = function(getBucketsVids_callback) {			
 			var params = {};
 			s3.listBuckets(params, function(err, data) {
@@ -50,4 +50,4 @@
 		
 	};
 	module.exports = obj;
-})(config, env, pkg;
+})();
