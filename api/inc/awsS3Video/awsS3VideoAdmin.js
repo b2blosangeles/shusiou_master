@@ -61,7 +61,7 @@
 				var CP1 = new pkg.crowdProcess();
 				var _f1 = {};
 				for (var i = 0; i < vids.length; i++) {
-					_f1['p_' + i + (j * 10)] = (function(i) {
+					_f1['p_' + i] = (function(i) {
 						return function(cbk1) {
 							
 //-----
