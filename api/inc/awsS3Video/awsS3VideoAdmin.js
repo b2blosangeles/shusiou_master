@@ -16,52 +16,7 @@
 				delete require.cache[__dirname + '/inc_moduleS3.js'];
 				var moduleS3 = require(__dirname + '/inc_moduleS3.js');
 				var objS3 = new moduleS3(me.s3);
-				objS3.getBucketsVids(cbk0);
-				CP.exit = 1;
-				return true;
-				
-				me.s3.listBuckets(params, function(err, data) {
-					if(err) {
-						getBuckets_callback({err:err.message});
-						return true;
-					} else {	
-						let total_size = 0, file_cnt = 0, v = [];
-						let recursive_f = function(Marker, cbk) {
-							var params1 = { 
-								Bucket: data.Buckets[0].Name,
-								Delimiter: '',
-								MaxKeys : 1000,
-								Marker : Marker,
-								Delimiter: '/',
-								Prefix: "shusiou_dev/"
-							};
-
-							me.s3.listObjects(params1, function (err, data) {
-								if(err) {
-									cbk({err:err.message});
-									return true;
-								} else {
-
-									for (var i = 0; i < data.CommonPrefixes.length; i++) {
-										v.push(data.CommonPrefixes[i].Prefix);
-										// total_size +=  data.Contents[i].Size;
-										// file_cnt ++;
-									}
-
-									if (data.IsTruncated) {
-										recursive_f(data.NextMarker, cbk)
-
-									} else {
-										cbk(v);
-										// cbk({file_cnt:file_cnt, total_size : total_size});
-									}
-								}
-							});						
-						}
-						recursive_f('',cbk0);
-
-					}
-				});				
+				objS3.getBucketsVids(cbk0);				
 			}
 			_f['scanVids'] = function(cbk0) {
 				var vids = CP.data.getVids;
