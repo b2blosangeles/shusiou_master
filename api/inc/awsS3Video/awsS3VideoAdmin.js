@@ -13,7 +13,7 @@
 			
 			_f['getVids'] = function(cbk0) {
 				var params = {};
-				cbk0(__dirname + 'inc_getBucketsVids.js');
+				cbk0(__dirname + '/inc_getBucketsVids.js');
 				CP.exit = 1;
 				return true;
 				
