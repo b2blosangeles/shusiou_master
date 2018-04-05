@@ -19,6 +19,7 @@
 				function(Buckets) {
 					getBucketsVids_callback(Buckets);
 					return true;
+					/*
 					let total_size = 0, file_cnt = 0, v = [];
 					let recursive_f = function(Marker, cbk) {
 						var params1 = { 
@@ -52,9 +53,10 @@
 							}
 						});						
 					}
-					recursive_f('', getBucketsVids_callback);				
+					recursive_f('', getBucketsVids_callback);
+					*/
 				}
-			});
+			);
 		};
 		
 	};
