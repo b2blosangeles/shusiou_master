@@ -57,7 +57,8 @@
 				});				
 			}
 			_f['scanVids'] = function(cbk0) {
-				cbk0(CP.data.getVids);
+				var vids = CP.data.getVids;
+				cbk0({vids : vids});
 			}
 			CP.serial(
 				_f,
