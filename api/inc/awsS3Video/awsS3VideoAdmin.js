@@ -7,15 +7,18 @@
 		};	
 		this.getBuckets = function(getBuckets_callback) {
 			let me = this;
+			delete require.cache[__dirname + '/inc_moduleS3.js'];
+			var moduleS3 = require(__dirname + '/inc_moduleS3.js');
+			var objS3 = new moduleS3(me.s3, config, env, pkg);
 			
 			var CP = new pkg.crowdProcess();
 			var _f = {};
-			
+			_f['getBuckets'] = function(cbk0) {
+				var params = {};
+				objS3.getBuckets(cbk0);				
+			}			
 			_f['getVids'] = function(cbk0) {
 				var params = {};
-				delete require.cache[__dirname + '/inc_moduleS3.js'];
-				var moduleS3 = require(__dirname + '/inc_moduleS3.js');
-				var objS3 = new moduleS3(me.s3);
 				objS3.getBucketsVids(cbk0);				
 			}
 			_f['scanVids'] = function(cbk0) {
