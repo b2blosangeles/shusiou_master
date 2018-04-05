@@ -58,7 +58,15 @@
 			}
 			_f['scanVids'] = function(cbk0) {
 				var vids = CP.data.getVids;
-				cbk0({vids : vids});
+				var CP1 = new pkg.crowdProcess();
+				var _f1 = {};
+				CP1.serial(
+					_f1,
+					function(data) {				
+						cbk0({vids : vids})
+					},
+					30000
+				);
 			}
 			CP.serial(
 				_f,
