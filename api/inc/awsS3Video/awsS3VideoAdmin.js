@@ -16,7 +16,7 @@
 				delete require.cache[__dirname + '/inc_moduleS3.js'];
 				var moduleS3 = require(__dirname + '/inc_moduleS3.js');
 				var objS3 = new moduleS3(me.s3);
-				objS3.getB ucketsVids(cbk0);
+				objS3.getBucketsVids(cbk0);
 				CP.exit = 1;
 				return true;
 				
