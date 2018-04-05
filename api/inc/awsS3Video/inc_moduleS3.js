@@ -13,11 +13,7 @@
 		}
 		this.getBucketsVids = function(getBucketsVids_callback) {	
 			var params = {};
-			s3.listBuckets(params, function(err, data) {
-				if(err) {
-					getBucketsVids_callback({err:err.message});
-					return true;
-				} else {	
+	
 					let total_size = 0, file_cnt = 0, v = [];
 					let recursive_f = function(Marker, cbk) {
 						var params1 = { 
@@ -52,10 +48,6 @@
 						});						
 					}
 					recursive_f('', getBucketsVids_callback);
-
-				}
-				
-			});
 			
 		};
 		
