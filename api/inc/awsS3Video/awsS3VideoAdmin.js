@@ -63,7 +63,7 @@
 				CP1.serial(
 					_f1,
 					function(data) {				
-						cbk0({vids : vids})
+						cbk0({vids : vids.length})
 					},
 					30000
 				);
