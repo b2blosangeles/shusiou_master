@@ -13,10 +13,10 @@
 			
 			_f['getVids'] = function(cbk0) {
 				var params = {};
-				delete require.cache[__dirname + '/inc_getBucketsVids.js'];
-				var o = new require(__dirname + '/inc_getBucketsVids.js')(me.s3);
+				delete require.cache[__dirname + '/inc_moduleS3.js'];
+				var objS3 = new require(__dirname + '/inc_moduleS3.js')(me.s3);
 				// var o = new getBuckets(me.s3);
-				o.getBucketsVids(cbk0);
+				objS3.getBucketsVids(cbk0);
 				CP.exit = 1;
 				return true;
 				
