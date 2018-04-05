@@ -1,9 +1,6 @@
-(function () { 
+(function (config, env, pkg) { 
 	var obj =  function (s3) {	
-		this.getBucketsVids = function(getBucketsVids_callback) {
-			//getBucketsVids_callback('getBucketsVids_callback');
-			//return true;
-		
+		this.getBucketsVids = function(getBucketsVids_callback) {			
 			var params = {};
 			s3.listBuckets(params, function(err, data) {
 				if(err) {
@@ -53,4 +50,4 @@
 		
 	};
 	module.exports = obj;
-})();
+})(config, env, pkg;
