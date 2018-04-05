@@ -68,7 +68,7 @@
 							let total_size = 0, file_cnt = 0, v = [];
 							let recursive_f = function(Marker, cbk) {
 								var params1 = { 
-									Bucket: data.Buckets[0].Name,
+									Bucket: 'shusiou-d-01',
 									Delimiter: '',
 									MaxKeys : 1000,
 									Marker : Marker,
