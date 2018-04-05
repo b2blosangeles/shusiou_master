@@ -1,6 +1,17 @@
 (function () { 
 	var obj =  function (s3, config, env, pkg) {	
-		this.getBucketsVids = function(getBucketsVids_callback) {			
+		this.getBuckets = function(getBuckets_callback) {	
+			var params = {};
+			s3.listBuckets(params, function(err, data) {
+				if(err) {
+					getBuckets_callback({err:err.message});
+					return true;
+				} else {
+					getBuckets_callback(data);
+				}
+			});	
+		}
+		this.getBucketsVids = function(getBucketsVids_callback) {	
 			var params = {};
 			s3.listBuckets(params, function(err, data) {
 				if(err) {
