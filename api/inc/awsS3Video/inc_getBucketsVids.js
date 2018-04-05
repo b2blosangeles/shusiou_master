@@ -1,6 +1,8 @@
 (function () { 
 	var obj =  function (s3) {	
 		this.getBucketsVids = function(getBucketsVids_callback) {
+			getBucketsVids_callback('getBucketsVids_callback');
+			return true;
 			var params = {};
 			s3.listBuckets(params, function(err, data) {
 				if(err) {
