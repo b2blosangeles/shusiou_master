@@ -2,7 +2,7 @@
 	var obj =  function (config, env, pkg, tm) {
 		
 		let _space = { 
-			space_id : 'shusiou-d-01',
+			space_id : 'shusiou-dev-01',
 			space_url :'https://shusiou-d-01.nyc3.digitaloceanspaces.com/'
 		};	
 		this.getBuckets = function(getBuckets_callback) {
@@ -107,7 +107,7 @@
 							MaxKeys : 1000,
 							Marker : Marker,
 							Delimiter: '/',
-							Prefix: "shusiou_dev/"
+							Prefix: "videos/"
 							// Prefix: 'shusiou_dev/'
 						};
 						
@@ -158,7 +158,7 @@
 			return true;
 		}	
 		this.removeVidFromSpace = function(rec, cbk) {
-			let space_dir = 'shusiou_' + config.environment  + '/' + rec.vid;
+			let space_dir = 'videos/' + rec.vid;
 			
 			let me = this;
 			var params = { 
