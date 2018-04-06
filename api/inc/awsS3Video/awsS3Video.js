@@ -2,7 +2,7 @@
 	var obj =  function (config, env, pkg, tm) {
 		
 		let _space = { 
-			space_id : 'shusiou-d-01',
+			space_id : 'shusiou-dev-01',
 			space_url :'https://shusiou-d-01.nyc3.digitaloceanspaces.com/',
 			mnt_folder : '/var/shusiou_video/'
 		};
