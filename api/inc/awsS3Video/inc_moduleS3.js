@@ -30,7 +30,7 @@
 				}
 			});	
 		}
-		this.getBucketsVids = function(bucket_name, cbk) {	
+		this.getBucketsVids = function(bucket_name, cbk0) {	
 			var  me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};
@@ -68,7 +68,7 @@
 					}
 				});						
 			}
-			recursive_f('', getBucketsVids_callback);
+			recursive_f('', cbk0);
 		};
 		
 	};
