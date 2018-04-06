@@ -16,11 +16,13 @@
 			_f['getBuckets'] = function(cbk0) {
 				var params = {};
 				objS3.getBuckets(cbk0);				
-			}			
+			}	
+			/*
 			_f['getVids'] = function(cbk0) {
 				var params = {};
 				objS3.getBucketsVids(cbk0);				
 			}
+			*/
 			_f['scanVids'] = function(cbk0) {
 				var vids = CP.data.getVids;
 				var CP1 = new pkg.crowdProcess();
