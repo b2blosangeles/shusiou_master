@@ -2,10 +2,96 @@
 	var obj =  function (config, env, pkg, tm) {
 		
 		let _space = { 
-			space_id : 'shusiou-d-01',
-			space_url :'https://shusiou-d-01.nyc3.digitaloceanspaces.com/'
+			space_id : 'shusiou-dev-1',
+			space_url :'https://shusiou-dev-1.nyc3.digitaloceanspaces.com/'
 		};	
 		this.getBuckets = function(getBuckets_callback) {
+			let me = this;
+			delete require.cache[__dirname + '/inc_moduleS3.js'];
+			var moduleS3 = require(__dirname + '/inc_moduleS3.js');
+			var objS3 = new moduleS3(me.s3, config, env, pkg);
+			
+			var CP = new pkg.crowdProcess();
+			var _f = {};
+			_f['getBuckets'] = function(cbk0) {
+				var params = {};
+				objS3.getBuckets(cbk0);				
+			}	
+			/*
+			_f['getVids'] = function(cbk0) {
+				var params = {};
+				objS3.getBucketsVids(cbk0);				
+			}
+			
+			_f['scanVids'] = function(cbk0) {
+				var vids = CP.data.getVids;
+				var CP1 = new pkg.crowdProcess();
+				var _f1 = {};
+				for (var i = 0; i < vids.length; i++) {
+					_f1['p_' + vids[i]] = (function(i) {
+						return function(cbk1) {
+							
+//-----
+							let total_size = 0, file_cnt = 0, v = [];
+							let recursive_f = function(Marker, cbk) {
+								var params1 = { 
+									Bucket: 'shusiou-d-01',
+									Delimiter: '',
+									MaxKeys : 1000,
+									Marker : Marker,
+									Delimiter: '',
+									Prefix: vids[i]
+								};
+
+								me.s3.listObjects(params1, function (err, data) {
+									if(err) {
+										cbk({err:err.message});
+										return true;
+									} else {
+
+										for (var i = 0; i < data.Contents.length; i++) {
+										//	v.push(data.Contents[i]);
+											 total_size +=  data.Contents[i].Size;
+											 file_cnt ++;
+										}
+
+										if (data.IsTruncated) {
+											recursive_f(data.NextMarker, cbk)
+
+										} else {
+											cbk(total_size);
+											// cbk({file_cnt:file_cnt, total_size : total_size});
+										}
+									}
+								});						
+							}
+							recursive_f('',cbk1);
+//-----
+							
+							
+						}
+					})(i);
+				}
+				CP1.parallel(
+					_f1,
+					function(data) {				
+						cbk0({vids : data})
+					},
+					30000
+				);
+			}
+			*/
+			CP.serial(
+				_f,
+				function(data) {				
+					getBuckets_callback(data);
+				},
+				30000
+			);	
+			return true;		
+		
+		};
+		this.getBucketsBK = function(getBuckets_callback) {
 			let me = this;
 			var params = {};
 			me.s3.listBuckets(params, function(err, data) {
@@ -13,14 +99,16 @@
 					getBuckets_callback({err:err.message});
 					return true;
 				} else {	
-					let total_size = 0, v = [];
+					let total_size = 0, file_cnt = 0, v = [];
 					let _f = function(Marker, cbk) {
 						var params1 = { 
 							Bucket: data.Buckets[0].Name,
 							Delimiter: '',
-							MaxKeys : 300,
+							MaxKeys : 1000,
 							Marker : Marker,
-							Prefix: ''
+							Delimiter: '/',
+							Prefix: "videos/"
+							// Prefix: 'shusiou_dev/'
 						};
 						
 						me.s3.listObjects(params1, function (err, data) {
@@ -28,18 +116,20 @@
 								cbk({err:err.message});
 								return true;
 							} else {
-							//	v.push(data);
-								
+								v.push(data.CommonPrefixes);
+								/*
 								for (var i = 0; i < data.Contents.length; i++) {
-									v.push(data.Contents[i]);
+								//	v.push(data.Contents[i]);
 									total_size +=  data.Contents[i].Size;
+									file_cnt ++;
 								}
-								
+								*/
 								if (data.IsTruncated) {
 									_f(data.NextMarker, cbk)
 									
 								} else {
-									cbk({total_size : total_size});
+									cbk(v);
+									// cbk({file_cnt:file_cnt, total_size : total_size});
 								}
 							}
 						});						
@@ -50,8 +140,7 @@
 			});	
 			return true;		
 		
-		};
-		
+		};		
 		this.delete = function(delete_callback) {
 			let me = this;
 			var connection = pkg.mysql.createConnection(config.db);
@@ -69,7 +158,7 @@
 			return true;
 		}	
 		this.removeVidFromSpace = function(rec, cbk) {
-			let space_dir = 'shusiou_' + config.environment  + '/' + rec.vid;
+			let space_dir = 'videos/' + rec.vid;
 			
 			let me = this;
 			var params = { 

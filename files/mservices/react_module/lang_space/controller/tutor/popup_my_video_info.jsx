@@ -28,13 +28,7 @@ try {
 		videoLink:function(){
 			let me = this,
 			    r = me.props.rec;
-			if (!r.space_status) {
-				var url = _master_svr() +  '/api/video/play_stream.api?type=video&vid='+ r.vid;
-			} else {				
-				
-				var url = _node_svr()  +  '/api/video/pipe_stream.api?env=' + r.env + '&video_fn='+ r.vid;
-			}			
-			return url;
+			return  _master_svr() +  '/api/video/play_stream.api?type=video&space=' + r.space + '&vid='+ r.vid;			
 		},			
 		render:function() {
 			var me = this;

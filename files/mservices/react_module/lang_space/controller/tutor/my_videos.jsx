@@ -51,11 +51,8 @@ try {
 			}
 		},		
 		bgFilmStyle:function(t, a) {
-			if (a.space_status) {
-				  var url =  _node_svr() + '/api/video/pipe.api?env=' + a.env + '&video_fn='+ a.vid +'&size=320&ss='+t;
-			} else {
-			    var url = _master_svr() +  '/api/video/pipe.api?env=' + a.env + '&video_fn='+ a.vid +'&size=320&ss='+t;
-			}
+			var url =  _node_svr() + '/api/video/pipe.api?env=' + a.env + '&space=' + a.space + '&video_fn='+ a.vid +
+				      '&size=320&ss='+t;
 			return {width:'100%', background:'url('+url+')',
 				'background-size':'cover'}
 		},
