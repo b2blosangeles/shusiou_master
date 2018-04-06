@@ -22,7 +22,7 @@
 				var params = {};
 				objS3.getBucketsVids(cbk0);				
 			}
-			*/
+			
 			_f['scanVids'] = function(cbk0) {
 				var vids = CP.data.getVids;
 				var CP1 = new pkg.crowdProcess();
@@ -80,6 +80,7 @@
 					30000
 				);
 			}
+			*/
 			CP.serial(
 				_f,
 				function(data) {				
