@@ -7,11 +7,23 @@
 					getBuckets_callback({err:err.message});
 					return true;
 				} else {
-					let Buckets = [];
+					let Buckets = [],
+					    CP = new pkg.crowdProcess(),
+					    _f = {};
 					for (var i = 0; i < data.Buckets.length; i++) {
-						Buckets.push(data.Buckets[i].Name)
+						_f[data.Buckets[i].Name] = (function(i) {
+							return function(cbk) {
+								cbk(data.Buckets[i].Name);
+							}
+						})(i)
 					}
-					getBuckets_callback(Buckets);
+					CP.serial(
+						_f,
+						function(cpresult) {				
+							getBuckets_callback(cpresult);
+						},
+						30000
+					);
 				}
 			});	
 		}
