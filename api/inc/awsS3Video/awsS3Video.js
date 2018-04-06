@@ -102,7 +102,7 @@
 			me.source_file = _p[2];
 			me.space_id = space.space_id;
 			me.space_url = space.space_url;
-			me.space_info = 'shusiou_' +  config.environment + '/' + me.source_file + '/_info.txt';
+			me.space_info = 'videos/' + me.source_file + '/_info.txt';
 			me.trunkSize = 512 * 1024;
 			me.vid = vid;
 			
@@ -161,7 +161,7 @@
 		this.split = function(_type, _file, _cbk) {
 			let me = this;
 			let tmp_folder = '/var/shusiou_cache/tmpvideo/' + me.source_file + '/' + _type + '/';
-			let space_dir = 'shusiou_' + config.environment  + '/' + me.source_file + '/' + _type + '/';
+			let space_dir = 'videos/' + me.source_file + '/' + _type + '/';
 			
 			
 			var CP = new pkg.crowdProcess();
