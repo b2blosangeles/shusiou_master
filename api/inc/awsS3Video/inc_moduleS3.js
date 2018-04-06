@@ -13,21 +13,19 @@
 						_f[data.Buckets[i].Name] = (function(i) {
 							return function(cbk) {
 								Buckets[data.Buckets[i].Name] = {};
-								/*
 								let total_size = 0, file_cnt = 0, v = [];
-								let recursive_f = function(Marker, cbk) {
+								let recursive_f = function(Marker, cbk1) {
 									var params1 = { 
-										Bucket: Buckets[0].Name,
+										Bucket: data.Buckets[i].Name,
 										Delimiter: '',
 										MaxKeys : 1000,
 										Marker : Marker,
 										Delimiter: '/',
 										Prefix: "shusiou_dev/"
 									};
-
 									s3.listObjects(params1, function (err, data) {
 										if(err) {
-											getBucketsVids_callback({err:err.message});
+											cbk1({err:err.message});
 											return true;
 										} else {
 
@@ -38,25 +36,23 @@
 											}
 
 											if (data.IsTruncated) {
-												recursive_f(data.NextMarker, cbk)
+												recursive_f(data.NextMarker, cbk1)
 
 											} else {
-												cbk(v);
+												Buckets[data.Buckets[i].Name] = v;
+												cbk1(v);
 												// cbk({file_cnt:file_cnt, total_size : total_size});
 											}
 										}
 									});						
 								}
-								recursive_f('', getBucketsVids_callback);								
-								*/
-								cbk(true);
+								recursive_f('', cbk);								
 							}
 						})(i)
 					}
 					CP.serial(
 						_f,
 						function(cpresult) {	
-							
 							getBuckets_callback(Buckets);
 						},
 						30000
