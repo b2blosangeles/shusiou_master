@@ -28,7 +28,7 @@ try {
 		videoLink:function(){
 			let me = this,
 			    r = me.props.rec;
-			return  _node_svr() +  '/pipe_stream.api?env=' + r.env + '&space=' + r.space + '&video_fn='+ r.vid;			
+			return  _node_svr() +  '/api/video/pipe_stream.api?env=' + r.env + '&space=' + r.space + '&video_fn='+ r.vid;			
 		},			
 		render:function() {
 			var me = this;
