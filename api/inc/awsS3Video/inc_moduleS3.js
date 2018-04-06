@@ -7,7 +7,11 @@
 					getBuckets_callback({err:err.message});
 					return true;
 				} else {
-					getBuckets_callback(data.Buckets);
+					let Buckets = [];
+					for (var i = 0; i < data.Buckets.length; i++) {
+						Buckets.push(data.Buckets[i].Name)
+					}
+					getBuckets_callback(Buckets);
 				}
 			});	
 		}
