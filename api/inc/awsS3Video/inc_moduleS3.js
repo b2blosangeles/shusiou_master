@@ -23,7 +23,7 @@
 					CP.serial(
 						_f,
 						function(cpresult) {	
-							getBuckets_callback(Buckets);
+							getBuckets_callback(cpresult);
 						},
 						30000
 					);
