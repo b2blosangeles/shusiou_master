@@ -48,7 +48,7 @@
 
 				s3.listObjects(params1, function (err, data) {
 					if(err) {
-						getBucketsVids_callback({err:err.message});
+						cbk({err:err.message});
 						return true;
 					} else {
 
