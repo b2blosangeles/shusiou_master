@@ -2,8 +2,8 @@
 	var obj =  function (config, env, pkg, tm) {
 		
 		let _space = { 
-			space_id : 'shusiou-dev-01',
-			space_url :'https://shusiou-d-01.nyc3.digitaloceanspaces.com/'
+			space_id : 'shusiou-dev-1',
+			space_url :'https://shusiou-dev-1.nyc3.digitaloceanspaces.com/'
 		};	
 		this.getBuckets = function(getBuckets_callback) {
 			let me = this;
