@@ -28,7 +28,7 @@
 						function(cpresult) {	
 							getBuckets_callback(cpresult.results);
 						},
-						60000
+						600000
 					);
 				}
 			});	
@@ -60,7 +60,7 @@
 				Bucket: bucket,
 				Delete: {Objects:[]}
 			};
-			for (var i = 0; i <Math.min(list.length, 200); i++) {
+			for (var i = 0; i <Math.min(list.length, 1000); i++) {
 				params.Delete.Objects.push({Key: list[i].Key});
 			};
 			s3.deleteObjects(params, function(err, d) {
