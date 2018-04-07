@@ -73,15 +73,15 @@
 			var CP = new pkg.crowdProcess();
 			var _f = {};
 
-			let total_size = 0, file_cnt = 0, v = [];
-			let recursive_f = function(Marker, cbk) {
+			let v = [];
+			let recursive_f = function(Marker, recursive_cbk) {
 				var params1 = { 
 					Bucket: bucket_name,
 					Delimiter: '',
 					MaxKeys : 1000,
 					Marker : Marker,
 					Delimiter: '/',
-					Prefix: "shusiou"
+					Prefix: "videos"
 				};
 				s3.listObjects(params1, function (err, data) {
 					if(err) {
@@ -91,16 +91,13 @@
 
 						for (var i = 0; i < data.CommonPrefixes.length; i++) {
 							v.push(data.CommonPrefixes[i].Prefix);
-							// total_size +=  data.Contents[i].Size;
-							// file_cnt ++;
 						}
 
 						if (data.IsTruncated) {
-							recursive_f(data.NextMarker, cbk)
+							recursive_f(data.NextMarker, recursive_cbk)
 
 						} else {
-							cbk(v);
-							// cbk({file_cnt:file_cnt, total_size : total_size});
+							recursive_cbk(v);
 						}
 					}
 				});						
