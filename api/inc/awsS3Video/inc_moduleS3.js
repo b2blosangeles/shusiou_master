@@ -51,40 +51,12 @@
 				if (err) {
 					getBucketVid_cbk({err:err.message}); 
 				} else {
-					me.getVids(results[0].bucket ,getBucketVid_cbk);
+					me.getVids(results[0].bucket, function(size_info) {
+						getBucketVid_cbk({size_info:size_info});
+					});
 				}
 			});			
 			return true;
-			
-			/*
-			me.s3.listBuckets(params, function(err, data) {
-				if(err) {
-					getBuckets_cbk({err:err.message});
-					return true;
-				} else {
-					let CP = new pkg.crowdProcess(),
-					    _f = {};
-					for (var i = 0; i < data.Buckets.length; i++) {
-						_f[data.Buckets[i].Name] = (function(i) {
-							return function(cbk){
-								me.getBucketsVids(data.Buckets[i].Name,
-									function(data) {
-										cbk(data)
-									}
-								);
-							}
-						})(i)
-					}
-					CP.serial(
-						_f,
-						function(cpresult) {	
-							getBuckets_cbk(cpresult.results);
-						},
-						30000
-					);
-				}
-			});
-			*/
 		}
 		this.deleteBucket = function(bucket, deleteBucket_cbk) {	
 			var me = this, params = {Bucket: bucket};
