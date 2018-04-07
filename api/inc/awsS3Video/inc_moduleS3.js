@@ -30,7 +30,7 @@
 							}
 						})(i)
 					}
-					CP.parallel(
+					CP.serial(
 						_f,
 						function(cpresult) {	
 							getBuckets_cbk(cpresult.results);
