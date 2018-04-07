@@ -19,16 +19,12 @@
 				} else {
 					let astr = [], 
 					    patt = new RegExp(config.environment);
-					for (var i = 0; i <  data.Buckets.length; i++) {
-						list.push(data.Buckets[i].Name);
-					}
 					var connection = pkg.mysql.createConnection(config.db);
 					connection.connect();
-					let astr = [];
 					for (var i = 0; i < data.Buckets.length; i++) {
-						
-						astr.push("('" + data.Buckets.[i].Name+ "', NOW())");
-
+						if (patt.test( data.Buckets.[i].Name)) {
+							astr.push("('" + data.Buckets.[i].Name+ "', NOW())");
+						}	
 					}
 					var str = "INSERT INTO `cloud_spaces` (`bucket`, `updated`) VALUES " + astr.join(',');
 					connection.query(str, function (err, results, fields) {
@@ -38,11 +34,7 @@
 						} else {
 							getBuckets_cbk({tm : new Date().getTime() - tm, data:data});
 						}
-					});					
-					
-				//	var reg = new RegExp(config.environment);
-					// getBuckets_cbk(list.filter(item => reg.test(item)));
-				//	getBuckets_cbk(list);
+					});
 				}
 			});	
 		}		
