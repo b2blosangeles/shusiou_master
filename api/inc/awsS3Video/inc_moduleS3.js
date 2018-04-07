@@ -50,7 +50,7 @@
 					 cleanBucket_cbk({err:err});
 				} else {
 					var items = data.Contents;
-					me.cleanBucket(items);
+					cleanBucket_cbk(items);
 				}
 			});	
 		}		
