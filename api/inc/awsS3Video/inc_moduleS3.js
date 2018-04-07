@@ -7,15 +7,12 @@
 					getBuckets_cbk({err:err.message});
 					return true;
 				} else {
-					getBuckets_cbk(data);
-					return true;
-					
 					let CP = new pkg.crowdProcess(),
 					    _f = {};
 					for (var i = 0; i < data.Buckets.length; i++) {
 						_f[data.Buckets[i].Name] = (function(i) {
 							return function(cbk){
-								me.getBucketsVids(data.Buckets[i].Bucket,
+								me.getBucketsVids(data.Buckets[i].Name,
 									function(data) {
 										cbk(data)
 									}
