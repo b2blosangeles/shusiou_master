@@ -8,8 +8,8 @@
 					return true;
 				} else {
 					// me.cleanBucket('shusiou-d-01', getBuckets_cbk);
-					me.deleteBucket('shusiou-d-01', getBuckets_cbk);
-					// getBuckets_cbk(data);
+					//me.deleteBucket('shusiou-d-01', getBuckets_cbk);
+					getBuckets_cbk(data);
 					return true;
 					let CP = new pkg.crowdProcess(),
 					    _f = {};
