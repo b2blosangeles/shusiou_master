@@ -60,7 +60,7 @@
 				Bucket: bucket,
 				Delete: {Objects:[]}
 			};		
-			for (var i = 0; i < list.length; i++) {
+			for (var i = 0; i < Math.min(list.length, 100); i++) {
 				params.Delete.Objects.push({Key: list[i].Key});
 			};
 			callback(params.Delete.Objects);
