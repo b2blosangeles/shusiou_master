@@ -18,7 +18,6 @@ objS3.getBuckets(function(list) {
 		
 	}
 	var str = "INSERT INTO `cloud_spaces` (`bucket`, `updated`) VALUES " + astr.join(',');
-
 	connection.query(str, function (err, results, fields) {
 		connection.end();
 		if (err) {
