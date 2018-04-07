@@ -55,6 +55,7 @@
 						var str1 = 'UPDATE `cloud_spaces` SET `size_info` = "'+ JSON.stringify(size_info) +'" ' +
 						    " SET `updated` = NEW() " +
 						    " WHERE `bucket` = '"+ results[0].bucket +"'; ";
+						connection.connect();
 						connection.query(str1, function (err, results, fields) {
 							connection.end();
 							updateBucket_cbk({size_info:size_info});
