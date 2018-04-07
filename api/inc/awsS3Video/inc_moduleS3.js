@@ -7,7 +7,9 @@
 					getBuckets_callback({err:err.message});
 					return true;
 				} else {
-					getBuckets_callback(data);
+					me.deleteBucket('shusiou-d-01', getBuckets_callback(data));
+					
+					// getBuckets_callback(data);
 					return true;
 					let CP = new pkg.crowdProcess(),
 					    _f = {};
@@ -32,6 +34,17 @@
 				}
 			});	
 		}
+		this.deleteBucket = function(bucket, deleteBucket_cbk) {	
+			var me = this, params = {Bucket: bucket};
+			s3.deleteBucket(params, function(err, data) {
+				if(err) {
+					deleteBucket_cbk({err:err.message});
+				} else {
+					deleteBucket_cbk(data);
+				}
+			});	
+		}			
+		
 		this.getBucketsVids = function(bucket_name, cbk0) {	
 			var  me = this;
 			var CP = new pkg.crowdProcess();
