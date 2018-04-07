@@ -35,7 +35,7 @@
 						function(cpresult) {	
 							getBuckets_cbk(cpresult.results);
 						},
-						10000
+						30000
 					);
 				}
 			});	
