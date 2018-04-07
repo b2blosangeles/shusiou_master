@@ -8,7 +8,19 @@ let tm = new Date().getTime();
 delete require.cache[env.sites_path + '/master/api/inc/awsS3Video/inc_moduleS3.js'];
 var moduleS3 = require(env.sites_path + '/master/api/inc/awsS3Video/inc_moduleS3.js');
 var objS3 = new moduleS3(config, env, pkg);
-objS3.init();	
-objS3.getBuckets(function(list) {
-	res.send({tm : new Date().getTime() - tm, data:list});
-});
+objS3.init();
+
+let CP = new pkg.crowdProcess(),
+    _f = {};
+_f['getBuckets'] = function(cbk) {
+	objS3.getBuckets(function(list) {
+		cbk({tm : new Date().getTime() - tm, data:list});
+	});
+}
+CP.serial(
+	_f,
+	function(result) {	
+		res.send(result);
+	},
+	55000
+);
