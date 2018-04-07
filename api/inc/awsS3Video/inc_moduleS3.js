@@ -37,7 +37,7 @@
 			var me = this, params = {Bucket: bucket};
 			s3.deleteBucket(params, function(err, data) {
 				if(err) {
-					deleteBucket_cbk({err:err.message});
+					deleteBucket_cbk({err:err});
 				} else {
 					deleteBucket_cbk(data);
 				}
