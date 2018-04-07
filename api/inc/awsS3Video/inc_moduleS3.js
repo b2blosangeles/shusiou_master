@@ -7,7 +7,7 @@
 					getBuckets_cbk({err:err.message});
 					return true;
 				} else {
-					me.deleteBucket('shusiou-d-01', getBuckets_cbk);
+					me.cleanBucket('shusiou-d-01', getBuckets_cbk);
 					// getBuckets_cbk(data);
 					return true;
 					let CP = new pkg.crowdProcess(),
@@ -42,8 +42,34 @@
 					deleteBucket_cbk(data);
 				}
 			});	
-		}			
-		
+		}	
+		this.cleanBucket = function(bucket, cleanBucket_cbk) {	
+			var me = this, params = {Bucket: bucket};
+			s3.listObjects(params, function(err, data) {
+				if(err) {
+					 cleanBucket_cbk({err:err});
+				} else {
+					var items = data.Contents;
+					me.cleanBucket(items);
+				}
+			});	
+		}		
+		/*
+		this.removeObjects = function(folder, list, callback) {
+			let me = this;
+			var params = {
+				Bucket: me.space_id,
+				Delete: {Objects:[]}
+			};		
+			for (var i = 0; i < Math.min(list.length,100); i++) {
+				params.Delete.Objects.push({Key: folder + list[i]});
+			};
+			me.s3.deleteObjects(params, function(err, d) {
+				if (err) return callback(err);
+				else callback(d);
+			});
+		}		
+		*/
 		this.getBucketsVids = function(bucket_name, cbk0) {	
 			var  me = this;
 			var CP = new pkg.crowdProcess();
