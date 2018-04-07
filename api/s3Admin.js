@@ -17,17 +17,13 @@ objS3.getBuckets(function(list) {
 		astr.push("('" + list[i]+ "', NOW())");
 		
 	}
-	var str = "INSERT INTO `cloud_spaces` (`bucket`, `updated`) VALUES " + astr.join(',') + 
-	    " ON DUPLICATE KEY UPDATE  `bucket` = `bucket`";
-	res.send({err:str}); 
-	/*
+	var str = "INSERT INTO `cloud_spaces` (`bucket`, `updated`) VALUES " + astr.join(',');
 	connection.query(str, function (err, results, fields) {
 		connection.end();
 		if (err) {
-			res.send({err:str}); 
+			res.send({err:str, tm : new Date().getTime() - tm, data:data}); 
 		} else {
 			res.send({tm : new Date().getTime() - tm, data:data});
 		}
 	});
-	*/
 });
