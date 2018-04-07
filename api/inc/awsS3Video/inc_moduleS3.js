@@ -12,6 +12,8 @@
 					for (var i = 0; i < data.Buckets.length; i++) {
 						_f[data.Buckets[i].Name] = (function(i) {
 							return function(cbk){
+								cbk(data.Buckets[i].Name);
+								return true;
 								me.getBucketsVids(data.Buckets[i].Name,
 									function(data) {
 										cbk(data)
