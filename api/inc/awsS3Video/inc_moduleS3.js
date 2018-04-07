@@ -28,8 +28,8 @@
 							astr.push("('" + data.Buckets[i].Name+ "', NOW())");
 						}	
 					}
-					var str = "INSERT INTO `cloud_spaces` (`bucket`, `updated`) VALUES " + astr.join(',') +
-					    ' ON DUPLICATE KEY UPDATE `updated` = NOW(); ';
+					var str = "INSERT INTO `cloud_spaces` (`bucket`, `updated`) VALUES " + astr.join(',') + '';
+					  //  ' ON DUPLICATE KEY UPDATE `updated` = NOW(); ';
 					connection.query(str, function (err, results, fields) {
 						connection.end();
 						if (err) {
@@ -52,7 +52,13 @@
 					getBucketVid_cbk({err:err.message}); 
 				} else {
 					me.getVids(results[0].bucket, function(size_info) {
-						getBucketVid_cbk({size_info:size_info});
+						var str1 = "UPDATE `cloud_spaces` SET `size_info` = '"+ size_info.toString() +"' " +
+						    " SET `updated` = NEW() " +
+						    " WHERE `bucket` = '"+ results[0].bucket +"'; ";
+						connection.query(str1, function (err, results, fields) {
+							connection.end();
+							getBucketVid_cbk({size_info:size_info});
+						});	
 					});
 				}
 			});			
