@@ -9,7 +9,23 @@ delete require.cache[env.sites_path + '/master/api/inc/awsS3Video/inc_moduleS3.j
 var moduleS3 = require(env.sites_path + '/master/api/inc/awsS3Video/inc_moduleS3.js');
 var objS3 = new moduleS3(config, env, pkg);
 objS3.init();	
-objS3.getBuckets(function(data) {
-	res.send({tm : new Date().getTime() - tm, data:data});
+objS3.getBuckets(function(list) {
+	var connection = pkg.mysql.createConnection(config.db);
+	connection.connect();
+	let astr = [];
+	for (var i = 0; i < list.length; i++) {
+		astr.push("('" + list[i]+ "'" + ", NOW())");
+		
+	}
+	var str = "INSERT INTO `cloud_spaces` (`bucket`, `updated`) VALUES " + astr.join(',');
+
+	connection.query(str, function (err, results, fields) {
+		connection.end();
+		if (err) {
+			res.send({err:err.message}); 
+		} else {
+			res.send({tm : new Date().getTime() - tm, data:data});
+		}
+	});
 
 });
