@@ -63,8 +63,8 @@
 			for (var i = 0; i < Math.min(list.length, 100); i++) {
 				params.Delete.Objects.push({Key: list[i].Key});
 			};
-			callback(params.Delete.Objects);
-			return true;
+		//	callback(params.Delete.Objects);
+		//	return true;
 			me.s3.deleteObjects(params, function(err, d) {
 				if (err) return callback(err);
 				else callback(d);
