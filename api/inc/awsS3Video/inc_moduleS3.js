@@ -17,7 +17,11 @@
 					getBuckets_cbk({err:err.message});
 					return true;
 				} else {
-					getBuckets_cbk(data);
+					let list = [];
+					for (var i = 0; i <  data.Buckets.length; i++) {
+						list.push(data.Buckets[i].Name);
+					}
+					getBuckets_cbk(list);
 				}
 			});	
 		}		
