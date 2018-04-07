@@ -17,8 +17,8 @@ _f['getBuckets'] = function(cbk) {
 		cbk({tm : new Date().getTime() - tm, data:list});
 	});
 }
-_f['getBucketVid'] = function(cbk) {
-	objS3.getBucketVid(function(list) {
+_f['updateBucket'] = function(cbk) {
+	objS3.updateBucket(function(list) {
 		cbk(list);
 	});
 }
