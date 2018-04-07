@@ -30,12 +30,12 @@
 							}
 						})(i)
 					}
-					CP.serial(
+					CP.parallel(
 						_f,
 						function(cpresult) {	
 							getBuckets_cbk(cpresult.results);
 						},
-						30000
+						10000
 					);
 				}
 			});	
