@@ -42,13 +42,10 @@
 			});	
 		}		
 		this.getBucketVid = function(getBucketVid_cbk) {
-			getBucketVid_cbk('results');
-			return true;
-			/*
 			var me = this, params = {};
 			var connection = pkg.mysql.createConnection(config.db);
 			connection.connect();
-			var str = "SELECT * FROM `cloud_spaces` WHERE 1 ORDER BY `updated` DESC LIMIT 1; ';
+			var str = "SELECT * FROM `cloud_spaces` WHERE 1 ORDER BY `updated` DESC LIMIT 1; ";
 			connection.query(str, function (err, results, fields) {
 				connection.end();
 				if (err) {
@@ -58,7 +55,7 @@
 				}
 			});			
 			return true;
-			*/
+			
 			/*
 			me.s3.listBuckets(params, function(err, data) {
 				if(err) {
