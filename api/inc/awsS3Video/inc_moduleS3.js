@@ -58,16 +58,16 @@
 			let me = this;
 			var params = {
 				Bucket: bucket,
-				Delete: {Objects:[]}
-			};		
-			for (var i = 0; i < Math.min(list.length, 100); i++) {
+				Delete: {Objects:list}
+			};
+			/*
+			for (var i = 0; i <list.length; i++) {
 				params.Delete.Objects.push({Key: list[i].Key});
 			};
-		//	callback(params.Delete.Objects);
-		//	return true;
+			*/
 			s3.deleteObjects(params, function(err, d) {
-				if (err) return callback('err');
-				else callback('d');
+				if (err) return callback(err);
+				else callback(d);
 			});
 		}		
 	
