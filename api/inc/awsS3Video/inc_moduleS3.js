@@ -43,7 +43,9 @@
 		}		
 		this.updateBucket = function(updateBucket_cbk) {
 			var me = this, params = {};
-			var connection = pkg.mysql.createConnection(config.db);
+			let connection = pkg.mysql.createConnection(config.db),
+			    connection1 = pkg.mysql.createConnection(config.db);
+			
 			connection.connect();
 			var str = "SELECT * FROM `cloud_spaces` WHERE 1 ORDER BY `updated` DESC LIMIT 1; ";
 			connection.query(str, function (err, results, fields) {
@@ -57,9 +59,9 @@
 						    JSON.stringify(size_info) + "'" + 
 						    ", `updated` = NOW()  WHERE `bucket` = '"+ bucket +"'; ";
 						
-						connection.connect();
-						connection.query(str1, function (err, results, fields) {
-							connection.end();
+						connection1.connect();
+						connection1.query(str1, function (err, results, fields) {
+							connection1.end();
 							updateBucket_cbk({size_info:size_info});
 						});
 					});
