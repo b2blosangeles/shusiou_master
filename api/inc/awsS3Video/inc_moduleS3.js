@@ -52,7 +52,7 @@
 					updateBucket_cbk({err:err.message}); 
 				} else {
 					me.getVids(results[0].bucket, function(size_info) {
-						var str1 = 'UPDATE `cloud_spaces` SET `size_info` = "'+ JSON.stringify(size_info) + '" ' +
+						var str1 = 'UPDATE `cloud_spaces` SET `size_info` = "' + JSON.stringify(size_info) + '" ' +  +
 						    ' SET `updated` = NEW() ' +
 						    ' WHERE `bucket` = "'+ results[0].bucket +'"; ';
 						updateBucket_cbk(str1);
