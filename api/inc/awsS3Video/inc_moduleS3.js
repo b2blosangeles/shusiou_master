@@ -12,7 +12,7 @@
 					for (var i = 0; i < data.Buckets.length; i++) {
 						_f[data.Buckets[i].Name] = (function(i) {
 							return function(cbk){
-								me.getBucketsVids(data.Buckets[i],
+								me.getBucketsVids(data.Buckets[i].Bucket,
 									function(data) {
 										cbk(data)
 									}
@@ -25,7 +25,7 @@
 						function(cpresult) {	
 							getBuckets_callback(cpresult.results);
 						},
-						600000
+						30000
 					);
 				}
 			});	
