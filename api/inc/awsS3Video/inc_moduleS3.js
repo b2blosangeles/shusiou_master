@@ -7,6 +7,8 @@
 					getBuckets_callback({err:err.message});
 					return true;
 				} else {
+					getBuckets_callback(data);
+					return true;
 					let CP = new pkg.crowdProcess(),
 					    _f = {};
 					for (var i = 0; i < data.Buckets.length; i++) {
