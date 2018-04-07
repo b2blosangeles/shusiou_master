@@ -7,9 +7,8 @@
 					getBuckets_cbk({err:err.message});
 					return true;
 				} else {
-					me.deleteBucket('shusiou-d-01', getBuckets_cbk);
-					
-					// getBuckets_callback(data);
+					// me.deleteBucket('shusiou-d-01', getBuckets_cbk);
+					getBuckets_cbk(data);
 					return true;
 					let CP = new pkg.crowdProcess(),
 					    _f = {};
