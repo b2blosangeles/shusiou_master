@@ -9,8 +9,19 @@
 			    secretAccessKey: config.objectSpaceDigitalOcean.secretAccessKey
 			});
 			
-		}		
+		}
 		this.getBuckets = function(getBuckets_cbk) {	
+			var me = this, params = {}, Buckets = {};
+			me.s3.listBuckets(params, function(err, data) {
+				if(err) {
+					getBuckets_cbk({err:err.message});
+					return true;
+				} else {
+					getBuckets_cbk(data);
+				}
+			});	
+		}		
+		this.getBucketsVid = function(getBuckets_cbk) {	
 			var me = this, params = {}, Buckets = {};
 			me.s3.listBuckets(params, function(err, data) {
 				if(err) {
@@ -76,7 +87,7 @@
 			});
 		}		
 	
-		this.getBucketsVids = function(bucket_name, cbk0) {	
+		this.getBucketVids = function(bucket_name, cbk0) {	
 			var  me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};
