@@ -86,7 +86,7 @@
 				function(data) {				
 					getBuckets_callback(data);
 				},
-				60000
+				600000
 			);	
 			return true;		
 		
