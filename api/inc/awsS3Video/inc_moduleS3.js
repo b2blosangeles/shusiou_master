@@ -17,12 +17,14 @@
 					getBuckets_cbk({err:err.message});
 					return true;
 				} else {
-					let astr = [], 
+					let astr = [],
+					    list = [],
 					    patt = new RegExp(config.environment);
 					var connection = pkg.mysql.createConnection(config.db);
 					connection.connect();
 					for (var i = 0; i < data.Buckets.length; i++) {
 						if (patt.test( data.Buckets[i].Name)) {
+							list.push(data.Buckets[i].Name);
 							astr.push("('" + data.Buckets[i].Name+ "', NOW())");
 						}	
 					}
@@ -30,9 +32,9 @@
 					connection.query(str, function (err, results, fields) {
 						connection.end();
 						if (err) {
-							getBuckets_cbk({err:err.message, data:data}); 
+							getBuckets_cbk(list); 
 						} else {
-							getBuckets_cbk(data);
+							getBuckets_cbk(list);
 						}
 					});
 				}
