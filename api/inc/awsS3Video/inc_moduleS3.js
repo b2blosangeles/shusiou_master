@@ -23,7 +23,7 @@
 					connection.connect();
 					for (var i = 0; i < data.Buckets.length; i++) {
 						if (patt.test( data.Buckets[i].Name)) {
-							astr.push("('" + data.Buckets.[i].Name+ "', NOW())");
+							astr.push("('" + data.Buckets[i].Name+ "', NOW())");
 						}	
 					}
 					var str = "INSERT INTO `cloud_spaces` (`bucket`, `updated`) VALUES " + astr.join(',');
