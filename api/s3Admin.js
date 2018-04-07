@@ -4,14 +4,12 @@ var mysql = require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
 
 pkg.mysql = mysql;
 
-
-delete require.cache[env.sites_path + '/master/api/inc/awsS3Video/awsS3VideoAdmin.js'];
-let awsS3VideoAdmin = require(env.sites_path + '/master/api/inc/awsS3Video/awsS3VideoAdmin.js');
- 
 let tm = new Date().getTime();
-
-var videoAdmin = new awsS3VideoAdmin(config, env, pkg, tm);	
- videoAdmin.getBuckets(function(data) {
+delete require.cache[env.sites_path + '/master/api/inc/awsS3Video/inc_moduleS3.js'];
+var moduleS3 = require(env.sites_path + '/master/api/inc/awsS3Video/inc_moduleS3.js');
+var objS3 = new moduleS3(config, env, pkg);
+objS3.init();	
+objS3.getBuckets(function(data) {
 	res.send({tm : new Date().getTime() - tm, data:data});
 
 });
