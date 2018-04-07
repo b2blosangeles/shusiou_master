@@ -7,6 +7,9 @@
 					getBuckets_cbk({err:err.message});
 					return true;
 				} else {
+					getBuckets_cbk(data);
+					return true;
+					
 					let CP = new pkg.crowdProcess(),
 					    _f = {};
 					for (var i = 0; i < data.Buckets.length; i++) {
