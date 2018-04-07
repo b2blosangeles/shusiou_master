@@ -41,7 +41,7 @@
 				}
 			});	
 		}		
-		this.getBucketVid = function(getBucketVid_cbk) {
+		this.updateBucket = function(updateBucket_cbk) {
 			var me = this, params = {};
 			var connection = pkg.mysql.createConnection(config.db);
 			connection.connect();
@@ -49,7 +49,7 @@
 			connection.query(str, function (err, results, fields) {
 				connection.end();
 				if (err) {
-					getBucketVid_cbk({err:err.message}); 
+					updateBucket_cbk({err:err.message}); 
 				} else {
 					me.getVids(results[0].bucket, function(size_info) {
 						var str1 = "UPDATE `cloud_spaces` SET `size_info` = '"+ size_info.toString() +"' " +
@@ -57,7 +57,7 @@
 						    " WHERE `bucket` = '"+ results[0].bucket +"'; ";
 						connection.query(str1, function (err, results, fields) {
 							connection.end();
-							getBucketVid_cbk({size_info:size_info});
+							updateBucket_cbk({size_info:size_info});
 						});	
 					});
 				}
