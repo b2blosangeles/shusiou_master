@@ -55,6 +55,9 @@
 					me.getVids(results[0].bucket, function(size_info) {
 						var str1 = "UPDATE `cloud_spaces` SET `size_info`='"+JSON.stringify(size_info) + "'" + 
 						    ", `updated` = NOW()  WHERE `bucket` = '"+ bucket +"'; ";
+						
+						updateBucket_cbk(str1);
+						return true;
 						connection.connect();
 						connection.query(str1, function (err, results, fields) {
 							connection.end();
