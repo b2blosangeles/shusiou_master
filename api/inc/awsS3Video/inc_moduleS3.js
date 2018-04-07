@@ -51,7 +51,7 @@
 				if (err) {
 					getBucketVid_cbk({err:err.message}); 
 				} else {
-					getBucketVid_cbk(results);
+					me.getVids(results[0].bucket ,getBucketVid_cbk);
 				}
 			});			
 			return true;
@@ -122,7 +122,7 @@
 			});
 		}		
 	
-		this.getBucketVidsBK = function(bucket_name, cbk0) {	
+		this.getVids = function(bucket_name, cbk) {	
 			var  me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};
@@ -155,7 +155,7 @@
 					}
 				});						
 			}
-			recursive_f('', cbk0);
+			recursive_f('', cbk);
 		};
 		
 	};
