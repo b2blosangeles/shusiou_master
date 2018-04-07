@@ -42,10 +42,10 @@
 			});	
 		}		
 		this.getBucketVid = function(getBucketVid_cbk) {	
-			var me = this, params = {}, Buckets = {};
+			var me = this, params = {};
 			var connection = pkg.mysql.createConnection(config.db);
 			connection.connect();
-			var str = "SELECT * FROM `cloud_spaces` WHERE 1 ORDER BY `updated` LIMIT 1; ';
+			var str = "SELECT * FROM `cloud_spaces` WHERE 1 ORDER BY `updated` DESC LIMIT 1; ';
 			connection.query(str, function (err, results, fields) {
 				connection.end();
 				if (err) {
