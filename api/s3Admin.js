@@ -19,6 +19,8 @@ objS3.getBuckets(function(list) {
 	}
 	var str = "INSERT INTO `cloud_spaces` (`bucket`, `updated`) VALUES " + astr.join(',') + 
 	    " ON DUPLICATE KEY UPDATE  `bucket` = `bucket`";
+	res.send({err:str}); 
+	/*
 	connection.query(str, function (err, results, fields) {
 		connection.end();
 		if (err) {
@@ -27,5 +29,5 @@ objS3.getBuckets(function(list) {
 			res.send({tm : new Date().getTime() - tm, data:data});
 		}
 	});
-
+	*/
 });
