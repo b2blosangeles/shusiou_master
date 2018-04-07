@@ -66,8 +66,8 @@
 		//	callback(params.Delete.Objects);
 		//	return true;
 			me.s3.deleteObjects(params, function(err, d) {
-				if (err) return callback(err);
-				else callback(d);
+				if (err) return callback('err');
+				else callback('d');
 			});
 		}		
 	
