@@ -41,8 +41,20 @@
 				}
 			});	
 		}		
-		this.getBucketsVid = function(getBuckets_cbk) {	
+		this.getBucketVid = function(getBucketVid_cbk) {	
 			var me = this, params = {}, Buckets = {};
+			var connection = pkg.mysql.createConnection(config.db);
+			connection.connect();
+			var str = "SELECT * FROM `cloud_spaces` WHERE 1 ORDER BY `updated` LIMIT 1; ';
+			connection.query(str, function (err, results, fields) {
+				connection.end();
+				if (err) {
+					getBucketVid_cbk({err:err.message}); 
+				} else {
+					getBucketVid_cbk(results);
+				}
+			});			
+			return true;
 			me.s3.listBuckets(params, function(err, data) {
 				if(err) {
 					getBuckets_cbk({err:err.message});
@@ -107,7 +119,7 @@
 			});
 		}		
 	
-		this.getBucketVids = function(bucket_name, cbk0) {	
+		this.getBucketVidsBK = function(bucket_name, cbk0) {	
 			var  me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};
