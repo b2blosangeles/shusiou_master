@@ -41,7 +41,10 @@
 				}
 			});	
 		}		
-		this.getBucketVid = function(getBucketVid_cbk) {	
+		this.getBucketVid = function(getBucketVid_cbk) {
+			getBucketVid_cbk('results');
+			return true;
+			/*
 			var me = this, params = {};
 			var connection = pkg.mysql.createConnection(config.db);
 			connection.connect();
@@ -55,6 +58,7 @@
 				}
 			});			
 			return true;
+			*/
 			/*
 			me.s3.listBuckets(params, function(err, data) {
 				if(err) {
