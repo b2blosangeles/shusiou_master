@@ -17,7 +17,7 @@ objS3.getBuckets(function(list) {
 		astr.push("('" + list[i]+ "'" + ", NOW())");
 		
 	}
-	var str = "INSERT INTO `cloud_spaces` (`bucket`, `updated`) VALUES " + astr.join(',') + " ON DUPLICATE KEY ";
+	var str = "INSERT INTO `cloud_spaces` (`bucket`, `updated`) VALUES " + astr.join(',') + " ON DUPLICATE KEY SELECT 1 ";
 	connection.query(str, function (err, results, fields) {
 		connection.end();
 		if (err) {
