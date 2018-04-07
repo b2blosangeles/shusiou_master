@@ -1,8 +1,18 @@
 (function () { 
-	var obj =  function (s3, config, env, pkg) {	
+	var obj =  function (config, env, pkg) {
+		this.init = function() {
+			let me = this;
+			const AWS = require(env.site_path + '/api/inc/aws-sdk/node_modules/aws-sdk')
+			me.s3 = new AWS.S3({
+			    endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
+			    accessKeyId: config.objectSpaceDigitalOcean.accessKeyId,
+			    secretAccessKey: config.objectSpaceDigitalOcean.secretAccessKey
+			});
+			
+		}		
 		this.getBuckets = function(getBuckets_cbk) {	
 			var me = this, params = {}, Buckets = {};
-			s3.listBuckets(params, function(err, data) {
+			me.s3.listBuckets(params, function(err, data) {
 				if(err) {
 					getBuckets_cbk({err:err.message});
 					return true;
@@ -32,7 +42,7 @@
 		}
 		this.deleteBucket = function(bucket, deleteBucket_cbk) {	
 			var me = this, params = {Bucket: bucket};
-			s3.deleteBucket(params, function(err, data) {
+			me.s3.deleteBucket(params, function(err, data) {
 				if(err) {
 					deleteBucket_cbk({err:err});
 				} else {
@@ -42,7 +52,7 @@
 		}	
 		this.cleanBucket = function(bucket, cleanBucket_cbk) {	
 			var me = this, params = {Bucket: bucket};
-			s3.listObjects(params, function(err, data) {
+			me.s3.listObjects(params, function(err, data) {
 				if(err) {
 					 cleanBucket_cbk({err:err});
 				} else {
@@ -60,7 +70,7 @@
 			for (var i = 0; i <Math.min(list.length, 1000); i++) {
 				params.Delete.Objects.push({Key: list[i].Key});
 			};
-			s3.deleteObjects(params, function(err, d) {
+			me.s3.deleteObjects(params, function(err, d) {
 				if (err) return callback(err);
 				else callback(d);
 			});
@@ -80,7 +90,7 @@
 					Delimiter: '/',
 					Prefix: "videos/"
 				};
-				s3.listObjects(params1, function (err, data) {
+				me.s3.listObjects(params1, function (err, data) {
 					if(err) {
 						cbk({err:err.message});
 						return true;
