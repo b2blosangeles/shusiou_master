@@ -50,15 +50,14 @@
 					 cleanBucket_cbk({err:err});
 				} else {
 					var items = data.Contents;
-					cleanBucket_cbk(items);
+					me.removeObjects(bucket, items, cleanBucket_cbk);
 				}
 			});	
 		}		
-		/*
-		this.removeObjects = function(folder, list, callback) {
+		this.removeObjects = function(bucket, list, callback) {
 			let me = this;
 			var params = {
-				Bucket: me.space_id,
+				Bucket: bucket,
 				Delete: {Objects:[]}
 			};		
 			for (var i = 0; i < Math.min(list.length,100); i++) {
@@ -69,7 +68,7 @@
 				else callback(d);
 			});
 		}		
-		*/
+	
 		this.getBucketsVids = function(bucket_name, cbk0) {	
 			var  me = this;
 			var CP = new pkg.crowdProcess();
