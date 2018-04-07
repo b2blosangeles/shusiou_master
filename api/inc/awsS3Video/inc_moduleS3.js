@@ -55,6 +55,7 @@
 				}
 			});			
 			return true;
+			/*
 			me.s3.listBuckets(params, function(err, data) {
 				if(err) {
 					getBuckets_cbk({err:err.message});
@@ -81,7 +82,8 @@
 						30000
 					);
 				}
-			});	
+			});
+			*/
 		}
 		this.deleteBucket = function(bucket, deleteBucket_cbk) {	
 			var me = this, params = {Bucket: bucket};
