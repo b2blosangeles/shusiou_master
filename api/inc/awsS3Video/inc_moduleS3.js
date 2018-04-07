@@ -1,13 +1,13 @@
 (function () { 
 	var obj =  function (s3, config, env, pkg) {	
-		this.getBuckets = function(getBuckets_callback) {	
+		this.getBuckets = function(getBuckets_cbk) {	
 			var me = this, params = {}, Buckets = {};
 			s3.listBuckets(params, function(err, data) {
 				if(err) {
-					getBuckets_callback({err:err.message});
+					getBuckets_cbk({err:err.message});
 					return true;
 				} else {
-					me.deleteBucket('shusiou-d-01', getBuckets_callback(data));
+					me.deleteBucket('shusiou-d-01', getBuckets_cbk);
 					
 					// getBuckets_callback(data);
 					return true;
