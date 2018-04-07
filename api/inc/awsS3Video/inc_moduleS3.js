@@ -22,7 +22,7 @@
 					var connection = pkg.mysql.createConnection(config.db);
 					connection.connect();
 					for (var i = 0; i < data.Buckets.length; i++) {
-						if (patt.test( data.Buckets.[i].Name)) {
+						if (patt.test( data.Buckets[i].Name)) {
 							astr.push("('" + data.Buckets.[i].Name+ "', NOW())");
 						}	
 					}
