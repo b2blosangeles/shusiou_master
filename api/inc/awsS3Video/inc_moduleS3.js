@@ -22,7 +22,8 @@
 						list.push(data.Buckets[i].Name);
 					}
 					var reg = new RegExp(config.environment);
-					getBuckets_cbk(list.filter(item => reg.test(item)));
+					// getBuckets_cbk(list.filter(item => reg.test(item)));
+					getBuckets_cbk(list);
 				}
 			});	
 		}		
