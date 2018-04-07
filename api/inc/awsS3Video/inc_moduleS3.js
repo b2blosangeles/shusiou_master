@@ -30,9 +30,9 @@
 					connection.query(str, function (err, results, fields) {
 						connection.end();
 						if (err) {
-							getBuckets_cbk({err:err.message, tm : new Date().getTime() - tm, data:data}); 
+							getBuckets_cbk({err:err.message, data:data}); 
 						} else {
-							getBuckets_cbk({tm : new Date().getTime() - tm, data:data});
+							getBuckets_cbk(data);
 						}
 					});
 				}
