@@ -21,9 +21,9 @@ objS3.getBuckets(function(list) {
 	connection.query(str, function (err, results, fields) {
 		connection.end();
 		if (err) {
-			res.send({err:str, tm : new Date().getTime() - tm, data:data}); 
+			res.send({err:str, tm : new Date().getTime() - tm, data:list}); 
 		} else {
-			res.send({tm : new Date().getTime() - tm, data:data});
+			res.send({tm : new Date().getTime() - tm, data:list});
 		}
 	});
 });
