@@ -183,11 +183,11 @@
 			me.s3.getObject(params, function(err, data){
 				let info = {};
 				try  { info = JSON.parse(data.Body.toString('utf-8')); } catch (e) {}
-				cbk(info.status);
+				cbk(info.filesize * 2.2);
 			}); 			
 			return true;
 			
-			
+			/*
 			let total_size = 0;
 			let recursive_f = function(Marker, recursive_cbk) {
 				var params1 = { 
@@ -218,6 +218,7 @@
 				});						
 			}
 			recursive_f('', cbk);
+			*/
 		};		
 	};
 	module.exports = obj;
