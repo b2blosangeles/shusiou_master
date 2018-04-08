@@ -134,7 +134,7 @@
 				};
 				me.s3.listObjects(params1, function (err, data) {
 					if(err) {
-						recursive_cbk({err:err.message});
+						recursive_cbk({err:'err.message'});
 						return true;
 					} else {
 
