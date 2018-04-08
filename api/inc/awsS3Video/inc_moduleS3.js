@@ -208,7 +208,7 @@
 				try  { info = JSON.parse(data.Body.toString('utf-8')); } catch (e) {}
 				let video_size; 
 				if (!err && (info.filesize) && !isNaN(info.filesize)) {
-					video_size = Math.ceil(info.filesize * 2.05);
+					video_size = Math.ceil(info.filesize * 2.1);
 				} else {
 					video_size = null;
 				}
