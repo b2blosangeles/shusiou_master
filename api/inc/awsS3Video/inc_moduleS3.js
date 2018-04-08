@@ -172,9 +172,10 @@
 						recursive_cbk({err:'err.message'});
 						return true;
 					} else {
-
+						v.push(data);
 						for (var i = 0; i < data.Contents.length; i++) {
-							v[data.Contents[i].Name] = null;
+							
+							//v[data.Contents[i].Name] = null;
 						}
 
 						if (data.IsTruncated) {
