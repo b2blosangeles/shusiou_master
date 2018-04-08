@@ -69,14 +69,18 @@
 						}
 						me.getVidListSize(bucket, qlist, 
 							function(new_list) {
-							
+								let all_size = 0;
 								for (key in new_list) {
 									size_info[key] = new_list[key];
 								}
-								
+								for (key in size_info1) {
+									if (size_info[key]) {
+										all_size += size_info[key];
+									}
+								}
 								let str1 = "UPDATE `cloud_spaces` SET `size_info`='"+
-								    JSON.stringify(size_info) + "'" + 
-								    ", `updated` = NOW()  WHERE `bucket` = '"+ bucket +"'; ";
+								    JSON.stringify(size_info) + "', " + "`size` = '" + all_size + "', " +
+								    "`updated` = NOW()  WHERE `bucket` = '"+ bucket +"'; ";
 
 								connection1.connect();
 								connection1.query(str1, function (err, results, fields) {
