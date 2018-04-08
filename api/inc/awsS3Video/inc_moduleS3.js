@@ -189,42 +189,11 @@
 				try  { info = JSON.parse(data.Body.toString('utf-8')); } catch (e) {}
 				let video_size; 
 				if (!err && (info.filesize) && !isNaN(info.filesize)) {
-					video_size = Math.ceil(info.filesize * 2.0);
+					video_size = Math.ceil(info.filesize * 2.1);
 				} else {
 					video_size = null;
 				}
-				let total_size = 0;
-				let recursive_f = function(Marker, recursive_cbk) {
-					var params1 = { 
-						Bucket: bucket_name,
-						MaxKeys : 1000,
-						Marker : Marker,
-						Delimiter: '',
-						Prefix: prefix
-					};
-					me.s3.listObjects(params1, function (err, data) {
-						if(err) {
-							recursive_cbk({err:'err.message'});
-							return true;
-						} else {
-
-
-							for (var i = 0; i < data.Contents.length; i++) {
-								total_size += data.Contents[i].Size;
-							}
-
-							if (data.IsTruncated) {
-								recursive_f(data.NextMarker, recursive_cbk)
-
-							} else {
-								recursive_cbk({status:'success', total_size : total_size });
-							}
-						}
-					});						
-				}
-				recursive_f('', function() {
-					cbk({total_size : total_size, video_size:video_size});
-				});				
+				cbk(video_size);
 			});
 		};		
 	};
