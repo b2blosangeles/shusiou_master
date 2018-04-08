@@ -66,17 +66,30 @@
 							if (!size_info[key]) {
 								qlist.push(key);
 							}
-						}						
-						let str1 = "UPDATE `cloud_spaces` SET `size_info`='"+
-						    JSON.stringify(size_info) + "'" + 
-						    ", `updated` = NOW()  WHERE `bucket` = '"+ bucket +"'; ";
+						}
+						me.getVidListSize(bucket, qlist, 
+							function(new_list) {
+							
+								for (key in new_list) {
+									size_info[key] = new_list[key];
+								}
+								
+								let str1 = "UPDATE `cloud_spaces` SET `size_info`='"+
+								    JSON.stringify(size_info) + "'" + 
+								    ", `updated` = NOW()  WHERE `bucket` = '"+ bucket +"'; ";
 
-						connection1.connect();
-						connection1.query(str1, function (err, results, fields) {
-							connection1.end();
-							// updateBucket_cbk({size_info:size_info, size_info1:size_info1, qlist:qlist});
-							me.getVidListSize(bucket, qlist, updateBucket_cbk);
-						});
+								connection1.connect();
+								connection1.query(str1, function (err, results, fields) {
+									connection1.end();
+									// updateBucket_cbk({size_info:size_info, size_info1:size_info1, qlist:qlist});
+									updateBucket_cbk(new_lis);
+									// me.getVidListSize(bucket, qlist, updateBucket_cbk);
+								});							
+							}	 
+						);
+						
+						
+
 					});
 				}
 			});			
