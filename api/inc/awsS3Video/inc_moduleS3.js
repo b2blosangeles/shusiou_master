@@ -55,7 +55,7 @@
 				} else {
 					let bucket = results[0].bucket, size_info = {};
 					try { size_info = (!results[0].size_info) ? {} : JSON.parse(results[0].size_info); } catch (e) {}
-					me.getVids(results[0].bucket, function(size_info1) {
+					me.getVids(bucket, function(size_info1) {
 						for (key in size_info1) {
 							if (!size_info[key]) {
 								size_info[key] = size_info1[key];
@@ -74,7 +74,8 @@
 						connection1.connect();
 						connection1.query(str1, function (err, results, fields) {
 							connection1.end();
-							updateBucket_cbk({size_info:size_info, size_info1:size_info1, qlist:qlist});
+							// updateBucket_cbk({size_info:size_info, size_info1:size_info1, qlist:qlist});
+							me.getVids(bucket, qlist[0], updateBucket_cbk);
 						});
 					});
 				}
@@ -117,7 +118,7 @@
 			});
 		}		
 	
-		this.getVids = function(bucket_name, cbk) {	
+		this.getVids = function(bucket_name, prefix, cbk) {	
 			var  me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};
@@ -129,7 +130,7 @@
 					MaxKeys : 1000,
 					Marker : Marker,
 					Delimiter: '/',
-					Prefix: "videos/"
+					Prefix: prefix
 				};
 				me.s3.listObjects(params1, function (err, data) {
 					if(err) {
