@@ -1,12 +1,5 @@
 (function () { 
 	var obj =  function (config, env, pkg, tm) {
-		
-		let _space = { 
-			space_id : 'shusiou-dev-2',
-			space_url :'https://shusiou-dev-2.nyc3.digitaloceanspaces.com/',
-			mnt_folder : '/var/shusiou_video/'
-		};
-
 		// find next need processed vid from table video_space
 		this.load = function(load_callback) {
 			let me = this;
@@ -46,7 +39,7 @@
 					var connection = pkg.mysql.createConnection(config.db);
 					connection.connect();
 					var str = "INSERT INTO `video_space` (`vid`, `space`, `status`, `added`) VALUES " +
-						" ('" + vid + "', '" + _space.space_url + "', 0, NOW()) ON DUPLICATE KEY UPDATE `status` = `status` ";
+						" ('" + vid + "', '" + me.space.space_url + "', 0, NOW()) ON DUPLICATE KEY UPDATE `status` = `status` ";
 				
 					connection.query(str, function (error, results, fields) {
 						connection.end();
@@ -58,7 +51,7 @@
 			};
 			_f['get_video_name']  = function(cbk) { 
 				let vid = CP.data.get_vid,
-				    video_folder = _space.mnt_folder,
+				    video_folder = me.space.mnt_folder,
 				    _file = video_folder + vid + '/video/' + vid;
 
 				pkg.fs.stat(_file, function(err, stat) {
@@ -80,7 +73,7 @@
 					} else {
 						if ((CP.data.get_vid) && (CP.data.get_video_name)) {
 							me.loadvid(
-								_space,
+								me.space,
 								CP.data.get_vid, CP.data.get_video_name, function(data) {
 								load_callback(data);
 							});
@@ -148,7 +141,7 @@
 				var connection = pkg.mysql.createConnection(config.db);
 				connection.connect();
 				var str = "INSERT INTO `video_space` (`vid`, `space`, `status`, `added`) VALUES " +
-					" ('" + me.vid + "', '" + _space.space_url + "', 1, NOW()) ON DUPLICATE KEY UPDATE `status` = 1 ";
+					" ('" + me.vid + "', '" + me.space.space_url + "', 1, NOW()) ON DUPLICATE KEY UPDATE `status` = 1 ";
 
 				connection.query(str, function (error, results, fields) {
 					connection.end();
@@ -361,13 +354,36 @@
 			
 		this.init = function() {
 			let me = this;
+			me.space = { 
+				space_id : 'shusiou-dev-2',
+				space_url :'https://shusiou-dev-2.nyc3.digitaloceanspaces.com/',
+				mnt_folder : '/var/shusiou_video/'
+			};	
+
+			
 			const AWS = require(env.site_path + '/api/inc/aws-sdk/node_modules/aws-sdk')
 			me.s3 = new AWS.S3({
 			    endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
 			    accessKeyId: config.objectSpaceDigitalOcean.accessKeyId,
 			    secretAccessKey: config.objectSpaceDigitalOcean.secretAccessKey
 			});
-			
+			var patt = new RegExp(config.environment);
+			var connection = pkg.mysql.createConnection(config.db);
+			connection.connect();
+			var str = "SELECT * FROM `cloud_spaces` WHERE 1 ORDER BY `size` ASC LIMIT 1;";
+
+			connection.query(str, function (err, results, fields) {
+				for (var i = 0; i < results.length; i++) {
+					if (patt.test( results[i].Name)) {
+						me.space = { 
+							space_id : results[i].Name,
+							space_url :'https://'+results[i].Name+'.nyc3.digitaloceanspaces.com/',
+							mnt_folder : '/var/shusiou_video/'
+						};
+						bresk;
+					}	
+				}
+			});			
 		}
 		this.getInfo = function(space_infoname, south_name, cbk) {
 			let me = this;
