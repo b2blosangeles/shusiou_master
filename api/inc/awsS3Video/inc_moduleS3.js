@@ -181,7 +181,7 @@
               			Key: prefix + '_info.txt'
 			};
 			me.s3.getObject(params, function(err, data){
-				cbk(data); 
+				cbk(data.Body.toString('utf-8')); 
 			}); 			
 			return true;
 			
