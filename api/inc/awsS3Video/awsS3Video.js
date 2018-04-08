@@ -3,7 +3,7 @@
 		
 		let _space = { 
 			space_id : 'shusiou-dev-2',
-			space_url :'https://shusiou-dev-1.nyc3.digitaloceanspaces.com/',
+			space_url :'https://shusiou-dev-2.nyc3.digitaloceanspaces.com/',
 			mnt_folder : '/var/shusiou_video/'
 		};
 
