@@ -39,7 +39,7 @@ _f['updateBucket'] = function(cbk) {
 CP.serial(
 	_f,
 	function(result) {	
-		config.log(result);
+		console.log(result);
 	},
 	55000
 );
