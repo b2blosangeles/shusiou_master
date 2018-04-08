@@ -370,7 +370,7 @@
 			var patt = new RegExp(config.environment);
 			var connection = pkg.mysql.createConnection(config.db);
 			connection.connect();
-			var str = "SELECT * FROM `cloud_spaces` WHERE 1 ORDER BY `size` ASC LIMIT 1;";
+			var str = "SELECT * FROM `cloud_spaces` WHERE 1 ORDER BY `size` ASC;";
 
 			connection.query(str, function (err, results, fields) {
 				for (var i = 0; i < results.length; i++) {
