@@ -75,7 +75,7 @@
 						connection1.query(str1, function (err, results, fields) {
 							connection1.end();
 							// updateBucket_cbk({size_info:size_info, size_info1:size_info1, qlist:qlist});
-							me.getVidSize(bucket, qlist[0], updateBucket_cbk);
+							me.getVidListSize(bucket, qlist, updateBucket_cbk);
 						});
 					});
 				}
@@ -153,11 +153,29 @@
 			}
 			recursive_f('', cbk);
 		};
-		this.getVidSize = function(bucket_name, prefix, cbk) {	
+		this.getVidListSize = function(bucket_name, list, cbk) {
 			var  me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};
-
+			for (var i = 0 ; i < list.length; i++) {
+				_f['S_' + i] = (function(i) {
+					return function(cbk1) {
+						me.getVidSize(bucket_name, list[i], cbk1);	
+					}
+				})(i);
+			}
+			CP.serial(
+				_f,
+				function(result) {	
+					cbk(result);
+				},
+				55000
+			);
+			
+		}
+			
+		this.getVidSize = function(bucket_name, prefix, cbk) {	
+			var  me = this;
 			let total_size = 0;
 			let recursive_f = function(Marker, recursive_cbk) {
 				var params1 = { 
