@@ -75,7 +75,7 @@
 						connection1.query(str1, function (err, results, fields) {
 							connection1.end();
 							// updateBucket_cbk({size_info:size_info, size_info1:size_info1, qlist:qlist});
-							me.getVid(bucket, qlist[0], updateBucket_cbk);
+							me.getVidSize(bucket, qlist[0], updateBucket_cbk);
 						});
 					});
 				}
@@ -153,7 +153,7 @@
 			}
 			recursive_f('', cbk);
 		};
-		this.getVid = function(bucket_name, prefix, cbk) {	
+		this.getVidSize = function(bucket_name, prefix, cbk) {	
 			var  me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};
@@ -182,7 +182,7 @@
 							recursive_f(data.NextMarker, recursive_cbk)
 
 						} else {
-							recursive_cbk(total_size);
+							recursive_cbk({status:'success', total_size : total_size });
 						}
 					}
 				});						
