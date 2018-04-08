@@ -158,7 +158,7 @@
 			var CP = new pkg.crowdProcess();
 			var _f = {};
 
-			let v = {};
+			let v = [];
 			let recursive_f = function(Marker, recursive_cbk) {
 				var params1 = { 
 					Bucket: bucket_name,
@@ -173,11 +173,12 @@
 						return true;
 					} else {
 						v.push(data);
+						/*
 						for (var i = 0; i < data.Contents.length; i++) {
 							
 							//v[data.Contents[i].Name] = null;
 						}
-
+						*/
 						if (data.IsTruncated) {
 							recursive_f(data.NextMarker, recursive_cbk)
 
