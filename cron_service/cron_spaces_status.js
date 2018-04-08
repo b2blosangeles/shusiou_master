@@ -2,6 +2,7 @@
 
 var path = require('path');
 var env = {root_path:path.join(__dirname, '../../..')};
+env.sites_path = env.root_path + '/sites';
 env.site_path = env.root_path + '/sites/master';
 env.config_path = '/var/qalet_config';
 
