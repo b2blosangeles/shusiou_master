@@ -33,9 +33,9 @@
 					connection.query(str, function (err, results, fields) {
 						connection.end();
 						if (err) {
-							getBuckets_cbk(list); 
+							getBuckets_cbk(str); 
 						} else {
-							getBuckets_cbk(list);
+							getBuckets_cbk(str);
 						}
 					});
 				}
