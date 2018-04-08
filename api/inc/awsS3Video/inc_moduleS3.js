@@ -61,6 +61,12 @@
 								size_info[key] = size_info1[key];
 							}
 						}
+						var qlist= [];
+						for (key in size_info1) {
+							if (!size_info[key]) {
+								qlist.push(key);
+							}
+						}						
 						let str1 = "UPDATE `cloud_spaces` SET `size_info`='"+
 						    JSON.stringify(size_info) + "'" + 
 						    ", `updated` = NOW()  WHERE `bucket` = '"+ bucket +"'; ";
@@ -68,7 +74,7 @@
 						connection1.connect();
 						connection1.query(str1, function (err, results, fields) {
 							connection1.end();
-							updateBucket_cbk({size_info:size_info, size_info1:size_info1});
+							updateBucket_cbk({size_info:size_info, size_info1:size_info1, qlist:qlist});
 						});
 					});
 				}
