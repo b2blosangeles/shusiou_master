@@ -179,6 +179,7 @@
 		}
 			
 		this.getVidSize = function(bucket_name, prefix, cbk) {	
+			// inacurate size but close to. recursive is really expensive.
 			var  me = this;
 			var params = {
               			Bucket: bucket_name, 
