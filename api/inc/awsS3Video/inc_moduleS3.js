@@ -157,17 +157,21 @@
 			var  me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};
+			var ret_data = {};
 			for (var i = 0 ; i < list.length; i++) {
 				_f['S_' + i] = (function(i) {
 					return function(cbk1) {
-						me.getVidSize(bucket_name, list[i], cbk1);	
+						me.getVidSize(bucket_name, list[i], function(d) {
+							ret_data[list[i]] = d;
+							cbk1(true);
+						});	
 					}
 				})(i);
 			}
 			CP.serial(
 				_f,
 				function(result) {	
-					cbk(result);
+					cbk(ret_data);
 				},
 				55000
 			);
