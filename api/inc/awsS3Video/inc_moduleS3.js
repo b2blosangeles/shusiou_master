@@ -53,14 +53,16 @@
 				if (err) {
 					updateBucket_cbk({err:err.message}); 
 				} else {
-					let bucket = results[0].bucket, size_info0 = {};
-					try { size_info0 = JSON.parse(results[0].size_info); } catch (e) {}
+					let bucket = results[0].bucket, size_info = {};
+					try { size_info = JSON.parse(results[0].size_info); } catch (e) {}
 
-					me.getVids(results[0].bucket, function(size_info) {
+					me.getVids(results[0].bucket, function(size_info1) {
 						
-						updateBucket_cbk({size_info:size_info, size_info0:size_info0});
-						
-						return true;
+						for (var key in size_info1) {
+							if (!size_info[key]) {
+								size_info[key] = size_info1[key];
+							}
+						}
 						
 						let str1 = "UPDATE `cloud_spaces` SET `size_info`='"+
 						    JSON.stringify(size_info) + "'" + 
@@ -69,7 +71,7 @@
 						connection1.connect();
 						connection1.query(str1, function (err, results, fields) {
 							connection1.end();
-							updateBucket_cbk({size_info:size_info, size_info0:size_info0});
+							updateBucket_cbk({size_info:size_info, size_info:size_info});
 						});
 					});
 				}
