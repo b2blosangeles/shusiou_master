@@ -53,23 +53,25 @@
 				if (err) {
 					updateBucket_cbk({err:err.message}); 
 				} else {
-					let bucket = results[0].bucket, size_info = {};
-					try { size_info = JSON.parse(results[0].size_info); } catch (e) {}
-					if (!Object.keys(size_info).length) {
-						me.getVids(results[0].bucket, function(size_info) {
-							let str1 = "UPDATE `cloud_spaces` SET `size_info`='"+
-							    JSON.stringify(size_info) + "'" + 
-							    ", `updated` = NOW()  WHERE `bucket` = '"+ bucket +"'; ";
+					let bucket = results[0].bucket, size_info0 = {};
+					try { size_info0 = JSON.parse(results[0].size_info); } catch (e) {}
 
-							connection1.connect();
-							connection1.query(str1, function (err, results, fields) {
-								connection1.end();
-								updateBucket_cbk({size_info:size_info});
-							});
+					me.getVids(results[0].bucket, function(size_info) {
+						
+						updateBucket_cbk({size_info:size_info, size_info0:size_info0});
+						
+						return true;
+						
+						let str1 = "UPDATE `cloud_spaces` SET `size_info`='"+
+						    JSON.stringify(size_info) + "'" + 
+						    ", `updated` = NOW()  WHERE `bucket` = '"+ bucket +"'; ";
+
+						connection1.connect();
+						connection1.query(str1, function (err, results, fields) {
+							connection1.end();
+							updateBucket_cbk({size_info:size_info, size_info0:size_info0});
 						});
-					} else {
-						updateBucket_cbk({size_info:size_info});
-					}
+					});
 				}
 			});			
 			return true;
