@@ -173,8 +173,8 @@
 						return true;
 					} else {
 
-						for (var i = 0; i < data.CommonPrefixes.length; i++) {
-							v[data.CommonPrefixes[i].Prefix] = null;
+						for (var i = 0; i < data.Contents.length; i++) {
+							v[data.Contents[i].Name] = null;
 						}
 
 						if (data.IsTruncated) {
