@@ -58,7 +58,7 @@
 
 					me.getVids(results[0].bucket, function(size_info1) {
 						
-						for (var key in size_info1) {
+						for (key in size_info1) {
 							if (!size_info[key]) {
 								size_info[key] = size_info1[key];
 							}
@@ -71,7 +71,7 @@
 						connection1.connect();
 						connection1.query(str1, function (err, results, fields) {
 							connection1.end();
-							updateBucket_cbk({size_info:size_info, size_info:size_info});
+							updateBucket_cbk({size_info:size_info, size_info1:size_info1});
 						});
 					});
 				}
