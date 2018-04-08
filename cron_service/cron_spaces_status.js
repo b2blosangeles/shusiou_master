@@ -42,4 +42,3 @@ CP.serial(
 	},
 	55000
 );
-© 2018 GitHub, Inc.
