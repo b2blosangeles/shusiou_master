@@ -54,7 +54,7 @@
 					updateBucket_cbk({err:err.message}); 
 				} else {
 					let bucket = results[0].bucket, size_info = {};
-					try { size_info = JSON.parse(results[0].size_info); } catch (e) {}
+					try { size_info = (!results[0].size_info) ? {} : JSON.parse(results[0].size_info); } catch (e) {}
 						updateBucket_cbk(size_info);
 						return true;
 					me.getVids(results[0].bucket, function(size_info1) {
