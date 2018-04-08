@@ -164,6 +164,9 @@
 						me.getVidSize(bucket_name, list[i], function(d) {
 							ret_data[list[i]] = d;
 							cbk1(true);
+							if ((new Date().getTime() - tm) > 50000) {
+								CP.exit = 1;
+							}
 						});	
 					}
 				})(i);
@@ -173,7 +176,7 @@
 				function(result) {	
 					cbk(ret_data);
 				},
-				55000
+				40000
 			);
 			
 		}
