@@ -57,7 +57,8 @@
 					try { size_info = JSON.parse(results[0].size_info); } catch (e) {}
 
 					me.getVids(results[0].bucket, function(size_info1) {
-						
+						updateBucket_cbk(size_info1);
+						return true;
 						for (key in size_info1) {
 							if (!size_info[key]) {
 								size_info[key] = size_info1[key];
