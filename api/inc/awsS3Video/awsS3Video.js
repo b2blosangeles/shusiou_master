@@ -380,7 +380,7 @@
 							space_url :'https://'+results[i].Name+'.nyc3.digitaloceanspaces.com/',
 							mnt_folder : '/var/shusiou_video/'
 						};
-						bresk;
+						break;
 					}	
 				}
 			});			
