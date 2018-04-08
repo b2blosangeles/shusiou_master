@@ -55,7 +55,7 @@
 				} else {
 					let bucket = results[0].bucket, size_info = {};
 					try { size_info = (!results[0].size_info) ? {} : JSON.parse(results[0].size_info); } catch (e) {}
-					me.getVids(bucket, function(size_info1) {
+					me.getBucketVids(bucket, function(size_info1) {
 						for (key in size_info1) {
 							if (!size_info[key]) {
 								size_info[key] = size_info1[key];
@@ -118,7 +118,7 @@
 			});
 		}		
 	
-		this.getVids = function(bucket_name, cbk) {	
+		this.getBucketVids = function(bucket_name, cbk) {	
 			var  me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};
@@ -130,7 +130,7 @@
 					MaxKeys : 1000,
 					Marker : Marker,
 					Delimiter: '/',
-					Prefix: prefix
+					Prefix: 'videos/'
 				};
 				me.s3.listObjects(params1, function (err, data) {
 					if(err) {
