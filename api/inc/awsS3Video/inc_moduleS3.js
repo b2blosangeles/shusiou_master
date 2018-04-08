@@ -75,7 +75,7 @@
 						connection1.query(str1, function (err, results, fields) {
 							connection1.end();
 							// updateBucket_cbk({size_info:size_info, size_info1:size_info1, qlist:qlist});
-							me.getVids(bucket, qlist[0], updateBucket_cbk);
+							me.getVid(bucket, qlist[0], updateBucket_cbk);
 						});
 					});
 				}
@@ -118,7 +118,42 @@
 			});
 		}		
 	
-		this.getVids = function(bucket_name, prefix, cbk) {	
+		this.getVids = function(bucket_name, cbk) {	
+			var  me = this;
+			var CP = new pkg.crowdProcess();
+			var _f = {};
+
+			let v = {};
+			let recursive_f = function(Marker, recursive_cbk) {
+				var params1 = { 
+					Bucket: bucket_name,
+					MaxKeys : 1000,
+					Marker : Marker,
+					Delimiter: '/',
+					Prefix: prefix
+				};
+				me.s3.listObjects(params1, function (err, data) {
+					if(err) {
+						recursive_cbk({err:'err.message'});
+						return true;
+					} else {
+
+						for (var i = 0; i < data.CommonPrefixes.length; i++) {
+							v[data.CommonPrefixes[i].Prefix] = null;
+						}
+
+						if (data.IsTruncated) {
+							recursive_f(data.NextMarker, recursive_cbk)
+
+						} else {
+							recursive_cbk(v);
+						}
+					}
+				});						
+			}
+			recursive_f('', cbk);
+		};
+		this.getVid = function(bucket_name, prefix, cbk) {	
 			cbk('niu==');
 			return true;
 			/*
@@ -156,8 +191,7 @@
 			}
 			recursive_f('', cbk);
 			*/
-		};
-		
+		};		
 	};
 	module.exports = obj;
 })();
