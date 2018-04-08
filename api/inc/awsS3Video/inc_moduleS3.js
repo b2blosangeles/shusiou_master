@@ -176,6 +176,16 @@
 			
 		this.getVidSize = function(bucket_name, prefix, cbk) {	
 			var  me = this;
+			var params = {
+              			Bucket: bucket_name, 
+              			Key: prefix + '/_info.txt'
+			};
+			aws.getObject(params, function(err, data){
+				cbk(prefix + '/_info.txt'); 
+			}); 			
+			return true;
+			
+			
 			let total_size = 0;
 			let recursive_f = function(Marker, recursive_cbk) {
 				var params1 = { 
