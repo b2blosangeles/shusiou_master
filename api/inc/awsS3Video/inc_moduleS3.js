@@ -119,6 +119,8 @@
 		}		
 	
 		this.getVids = function(bucket_name, prefix, cbk) {	
+			cbk('niu==');
+			return true;
 			var  me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};
