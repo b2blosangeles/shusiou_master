@@ -81,9 +81,7 @@
 								connection1.connect();
 								connection1.query(str1, function (err, results, fields) {
 									connection1.end();
-									// updateBucket_cbk({size_info:size_info, size_info1:size_info1, qlist:qlist});
 									updateBucket_cbk(new_list);
-									// me.getVidListSize(bucket, qlist, updateBucket_cbk);
 								});							
 							}	 
 						);
