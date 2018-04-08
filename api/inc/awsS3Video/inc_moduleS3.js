@@ -172,7 +172,7 @@
 						recursive_cbk({err:'err.message'});
 						return true;
 					} else {
-						v.push(data);
+						v.push(data.Contents);
 						/*
 						for (var i = 0; i < data.Contents.length; i++) {
 							
