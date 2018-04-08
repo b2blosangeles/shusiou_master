@@ -5,7 +5,27 @@
 			let me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};	
+			_f['loadspace']  = function(cbk) {
+				var patt = new RegExp(config.environment);
+				var connection = pkg.mysql.createConnection(config.db);
+				connection.connect();
+				var str = "SELECT * FROM `cloud_spaces` WHERE 1 ORDER BY `size` ASC;";
 
+				connection.query(str, function (err, results, fields) {
+					for (var i = 0; i < results.length; i++) {
+						if (patt.test( results[i].bucket)) {
+							me.space = { 
+								space_id : results[i].bucket,
+								space_url :'https://'+results[i].bucket+'.nyc3.digitaloceanspaces.com/',
+								mnt_folder : '/var/shusiou_video/'
+							};
+							break;
+						}	
+					}
+					cbk(true);
+				});
+			};
+			
 			_f['ip']  = function(cbk) {
 			    pkg.fs.readFile('/var/.qalet_whoami.data', 'utf8', function(err,data) {
 				if ((err) || !data) {
@@ -354,36 +374,12 @@
 			
 		this.init = function() {
 			let me = this;
-			me.space = { 
-				space_id : 'shusiou-dev-2',
-				space_url :'https://shusiou-dev-2.nyc3.digitaloceanspaces.com/',
-				mnt_folder : '/var/shusiou_video/'
-			};	
-
-			
 			const AWS = require(env.site_path + '/api/inc/aws-sdk/node_modules/aws-sdk')
 			me.s3 = new AWS.S3({
 			    endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
 			    accessKeyId: config.objectSpaceDigitalOcean.accessKeyId,
 			    secretAccessKey: config.objectSpaceDigitalOcean.secretAccessKey
 			});
-			var patt = new RegExp(config.environment);
-			var connection = pkg.mysql.createConnection(config.db);
-			connection.connect();
-			var str = "SELECT * FROM `cloud_spaces` WHERE 1 ORDER BY `size` ASC;";
-
-			connection.query(str, function (err, results, fields) {
-				for (var i = 0; i < results.length; i++) {
-					if (patt.test( results[i].Name)) {
-						me.space = { 
-							space_id : results[i].Name,
-							space_url :'https://'+results[i].Name+'.nyc3.digitaloceanspaces.com/',
-							mnt_folder : '/var/shusiou_video/'
-						};
-						break;
-					}	
-				}
-			});			
 		}
 		this.getInfo = function(space_infoname, south_name, cbk) {
 			let me = this;
