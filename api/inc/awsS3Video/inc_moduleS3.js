@@ -183,7 +183,7 @@
 			me.s3.getObject(params, function(err, data){
 				let info = {};
 				try  { info = JSON.parse(data.Body.toString('utf-8')); } catch (e) {}
-				if !isNaN(info.filesize) {
+				if (!isNaN(info.filesize)) {
 					cbk(Math.ceil(info.filesize * 2.2));
 				} else {
 					cbk(null);
