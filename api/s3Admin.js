@@ -17,13 +17,11 @@ _f['getBuckets'] = function(cbk) {
 		cbk({tm : new Date().getTime() - tm, data:list});
 	});
 }
-/*
 _f['updateBucket'] = function(cbk) {
 	objS3.updateBucket(function(list) {
 		cbk(list);
 	});
 }
-*/
 CP.serial(
 	_f,
 	function(result) {	
