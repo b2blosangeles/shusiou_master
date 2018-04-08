@@ -180,7 +180,7 @@
               			Bucket: bucket_name, 
               			Key: prefix + '/_info.txt'
 			};
-			aws.getObject(params, function(err, data){
+			me.s3.getObject(params, function(err, data){
 				cbk(prefix + '/_info.txt'); 
 			}); 			
 			return true;
