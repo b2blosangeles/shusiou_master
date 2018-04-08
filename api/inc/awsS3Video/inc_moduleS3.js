@@ -178,10 +178,10 @@
 			var  me = this;
 			var params = {
               			Bucket: bucket_name, 
-              			Key: prefix + '/_info.txt'
+              			Key: prefix + '_info.txt'
 			};
 			me.s3.getObject(params, function(err, data){
-				cbk(prefix + '/_info.txt'); 
+				cbk(data); 
 			}); 			
 			return true;
 			
