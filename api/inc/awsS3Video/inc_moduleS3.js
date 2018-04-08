@@ -47,7 +47,7 @@
 			    connection1 = pkg.mysql.createConnection(config.db);
 			
 			connection.connect();
-			var str = "SELECT * FROM `cloud_spaces` WHERE 1 ORDER BY `updated` DESC LIMIT 1; ";
+			var str = "SELECT * FROM `cloud_spaces` WHERE 1 ORDER BY `updated` ASC LIMIT 1; ";
 			connection.query(str, function (err, results, fields) {
 				connection.end();
 				if (err) {
