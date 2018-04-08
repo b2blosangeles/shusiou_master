@@ -7,7 +7,7 @@ pkg.mysql = mysql;
 let tm = new Date().getTime();
 delete require.cache[env.sites_path + '/master/api/inc/awsS3Video/inc_moduleS3.js'];
 var moduleS3 = require(env.sites_path + '/master/api/inc/awsS3Video/inc_moduleS3.js');
-var objS3 = new moduleS3(config, env, pkg);
+var objS3 = new moduleS3(config, env, pkg, tm);
 objS3.init();
 
 let CP = new pkg.crowdProcess(),
