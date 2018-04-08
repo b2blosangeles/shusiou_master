@@ -29,13 +29,13 @@
 						}	
 					}
 					var str = "INSERT INTO `cloud_spaces` (`bucket`, `updated`) VALUES " + astr.join(',') + '';
-					  //  ' ON DUPLICATE KEY UPDATE `updated` = NOW(); ';
+					    ' ON DUPLICATE KEY UPDATE `size` = `size`; ';
 					connection.query(str, function (err, results, fields) {
 						connection.end();
 						if (err) {
-							getBuckets_cbk(str); 
+							getBuckets_cbk(list); 
 						} else {
-							getBuckets_cbk(str);
+							getBuckets_cbk(list);
 						}
 					});
 				}
