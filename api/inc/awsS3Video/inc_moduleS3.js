@@ -28,7 +28,7 @@
 							astr.push("('" + data.Buckets[i].Name+ "', NOW())");
 						}	
 					}
-					var str = "INSERT INTO `cloud_spaces` (`bucket`, `updated`) VALUES " + astr.join(',') + '';
+					var str = "INSERT INTO `cloud_spaces` (`bucket`, `updated`) VALUES " + astr.join(',') + 
 					    ' ON DUPLICATE KEY UPDATE `size` = `size`; ';
 					connection.query(str, function (err, results, fields) {
 						connection.end();
