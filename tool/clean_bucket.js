@@ -35,7 +35,7 @@ function s(Marker) {
 			console.log({err:'err.message'});
 			return true;
 		} else {
-			console.log(data);
+			console.log(data.Contents.length);
 		}
 	});
 }
