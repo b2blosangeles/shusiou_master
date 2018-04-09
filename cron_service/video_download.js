@@ -198,7 +198,9 @@ function s() {
 			console.log(data);
 			if (delta_time < 50000 && (CP.data.current)) {
 				s();
-			}
+			} else {
+				process.exit(-1);
+			}	
 		},
 		53000
 	);

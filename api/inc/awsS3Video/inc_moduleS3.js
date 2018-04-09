@@ -25,11 +25,11 @@
 					for (var i = 0; i < data.Buckets.length; i++) {
 						if (patt.test( data.Buckets[i].Name)) {
 							list.push(data.Buckets[i].Name);
-							astr.push("('" + data.Buckets[i].Name+ "', NOW())");
+							astr.push("('" + data.Buckets[i].Name+ "', 0, NOW())");
 						}	
 					}
-					var str = "INSERT INTO `cloud_spaces` (`bucket`, `updated`) VALUES " + astr.join(',') + 
-					    ' ON DUPLICATE KEY UPDATE `size` = `size`; ';
+					var str = "INSERT INTO `cloud_spaces` (`bucket`, `status`, `updated`) VALUES " + astr.join(',') + 
+					    ' ON DUPLICATE KEY UPDATE `status` = `status`; ';
 					connection.query(str, function (err, results, fields) {
 						connection.end();
 						if (err) {

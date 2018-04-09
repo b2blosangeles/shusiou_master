@@ -27,7 +27,11 @@ function s() {
 		console.log(data);
 		if (delta_time < 50000 && data !== 'No new id at all') {
 			s();
-		}		
+		} else {
+			console.log('---- stopped ----> ');
+			process.exit(-1);
+			return true;
+		}
 		
 	});
 }

@@ -9,7 +9,7 @@
 				var patt = new RegExp(config.environment);
 				var connection = pkg.mysql.createConnection(config.db);
 				connection.connect();
-				var str = "SELECT * FROM `cloud_spaces` WHERE 1 ORDER BY `size` ASC;";
+				var str = "SELECT * FROM `cloud_spaces` WHERE `status` = 0 ORDER BY `size` ASC;";
 
 				connection.query(str, function (err, results, fields) {
 					for (var i = 0; i < results.length; i++) {
@@ -59,7 +59,8 @@
 					var connection = pkg.mysql.createConnection(config.db);
 					connection.connect();
 					var str = "INSERT INTO `video_space` (`vid`, `space`, `status`, `added`) VALUES " +
-						" ('" + vid + "', '" + me.space.space_url + "', 0, NOW()) ON DUPLICATE KEY UPDATE `status` = `status` ";
+						" ('" + vid + "', '" + me.space.space_url + "', 0, NOW()) " +
+					    	" ON DUPLICATE KEY UPDATE `space` = '" + me.space.space_url + "' ";
 				
 					connection.query(str, function (error, results, fields) {
 						connection.end();
@@ -471,7 +472,6 @@
 					pkg.exec('rm -f ' + tmp_folder + '* ' + ' && rm -f ' + tmp_folder + '*.* ' +
 						 '&& ffmpeg -i ' + me.source_path +  me.source_file + 
 						 ' -c copy -map 0 -segment_time 5 -reset_timestamps 1 -f segment ' + tmp_folder + 's_%d.mp4', 
-						 {maxBuffer: 1024 * 500}, 
 						function(err, stdout, stderr) {
 							if (err) {
 								cbk({err:err.message});
