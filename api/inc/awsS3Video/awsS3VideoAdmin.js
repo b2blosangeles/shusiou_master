@@ -1,10 +1,10 @@
 (function () { 
 	var obj =  function (config, env, pkg, tm) {
-		
-		let _space = { 
-			space_id : 'shusiou-dev-1',
-			space_url :'https://shusiou-dev-1.nyc3.digitaloceanspaces.com/'
-		};		
+		this.getSpaceId = function(space) {
+			let patt = /https\:\/\/([^.]+)\./ig;
+			let r = patt.exec(space);
+			return r[1];
+		}
 		this.delete = function(delete_callback) {
 			let me = this;
 			var connection = pkg.mysql.createConnection(config.db);
@@ -22,11 +22,10 @@
 			return true;
 		}	
 		this.removeVidFromSpace = function(rec, cbk) {
-			let space_dir = 'videos/' + rec.vid;
-			
 			let me = this;
+			let space_dir = 'videos/' + rec.vid;
 			var params = { 
-				Bucket: _space.space_id,
+				Bucket: me.getSpaceId(rec.space),
 				Delimiter: '',
 				MaxKeys : 300,
 				Marker : '',
@@ -44,7 +43,7 @@
 						for (var i = 0; i < data.Contents.length; i++) {
 							v.push({Key :  data.Contents[i].Key})
 						}
-						me.removeObjects(rec.vid, v, cbk);
+						me.removeObjects(rec.space, rec.vid, v, cbk);
 					}
 				}
 			});	
@@ -78,10 +77,10 @@
 			
 		}
 		
-		this.removeObjects = function(vid, list, callback) {
+		this.removeObjects = function(space, vid, list, callback) {
 			let me = this;
 			var params = {
-				Bucket: _space.space_id,
+				Bucket:  me.getSpaceId(rec.space),
 				Delete: {Objects:list}
 			};
 			me.s3.deleteObjects(params, function(err, d) {
