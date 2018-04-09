@@ -21,11 +21,11 @@ var s3 = new AWS.S3({
     accessKeyId: config.objectSpaceDigitalOcean.accessKeyId,
     secretAccessKey: config.objectSpaceDigitalOcean.secretAccessKey
 });
-var bucket_name = 'shusiou-dev-2';
+var bucket_name = 'shusiou-dev-1';
 function s(Marker) {
 	var params1 = { 
 		Bucket: bucket_name,
-		MaxKeys : 300,
+		MaxKeys : 100,
 		Marker : Marker,
 		Delimiter: '',
 		Prefix: 'videos/'
