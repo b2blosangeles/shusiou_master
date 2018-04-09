@@ -30,7 +30,7 @@ function s(Marker) {
 		Delimiter: '',
 		Prefix: '/'
 	};
-	me.s3.listObjects(params1, function (err, data) {
+	s3.listObjects(params1, function (err, data) {
 		if(err) {
 			console.log({err:'err.message'});
 			return true;
