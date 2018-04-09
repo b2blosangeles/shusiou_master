@@ -44,7 +44,7 @@ function s(Marker) {
 				Bucket: bucket_name,
 				Delete: {Objects:list}
 			};
-			me.s3.deleteObjects(params, function(err, d) {
+			s3.deleteObjects(params, function(err, d) {
 				if (err) console.log(err);
 				else s('');
 			});			
