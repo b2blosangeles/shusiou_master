@@ -29,6 +29,7 @@ function s() {
 			s();
 		} else {
 			console.log('---- stopped ----> ');
+			process.exit(-1);
 			return true;
 		}
 		
