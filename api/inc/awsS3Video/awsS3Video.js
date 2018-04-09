@@ -59,7 +59,8 @@
 					var connection = pkg.mysql.createConnection(config.db);
 					connection.connect();
 					var str = "INSERT INTO `video_space` (`vid`, `space`, `status`, `added`) VALUES " +
-						" ('" + vid + "', '" + me.space.space_url + "', 0, NOW()) ON DUPLICATE KEY UPDATE `status` = `status` ";
+						" ('" + vid + "', '" + me.space.space_url + "', 0, NOW()) " +
+					    	" ON DUPLICATE KEY UPDATE `space` =  '" + me.space.space_url + "' ";
 				
 					connection.query(str, function (error, results, fields) {
 						connection.end();
