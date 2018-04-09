@@ -14,6 +14,7 @@ let pkg = {
 	exec		: require('child_process').exec,
 	fs 		: require('fs')
 }; 
+const AWS = require(env.site_path + '/api/inc/aws-sdk/node_modules/aws-sdk');
 
 var s3 = new AWS.S3({
     endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
