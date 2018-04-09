@@ -36,7 +36,19 @@ function s(Marker) {
 			return true;
 		} else {
 			console.log(data.Contents.length);
+			let list = [];
+			for(var i = 0; i < data.Contents.length; i++) {
+				list.push({Key : data.Contents[i].Key})
+			}
+			var params = {
+				Bucket: bucket_name,
+				Delete: {Objects:list}
+			};
+			me.s3.deleteObjects(params, function(err, d) {
+				if (err) console.log(err);
+				else s('');
+			});			
 		}
 	});
 }
-s();
+s('');
