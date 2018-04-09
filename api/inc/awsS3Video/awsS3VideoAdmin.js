@@ -80,7 +80,7 @@
 		this.removeObjects = function(space, vid, list, callback) {
 			let me = this;
 			var params = {
-				Bucket:  me.getSpaceId(rec.space),
+				Bucket:  me.getSpaceId(space),
 				Delete: {Objects:list}
 			};
 			me.s3.deleteObjects(params, function(err, d) {
