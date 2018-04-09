@@ -15,22 +15,27 @@ let pkg = {
 	fs 		: require('fs')
 }; 
 
-let awsS3VideoAdmin = require(env.site_path + '/api/inc/awsS3Video/awsS3VideoAdmin.js');
-let tm = new Date().getTime();
-
-function s() {
-	let delta_time0 = new Date().getTime() - tm;
-	console.log('---- task start ----> ' +  delta_time0);	
-	var videoAdmin = new awsS3VideoAdmin(config, env, pkg, tm);	
-	 videoAdmin.delete(function(data) {
-		let delta_time = new Date().getTime() - tm;
-		console.log(data);
-		if (delta_time < 30000 && data !== 'finished') {
-			let delta_time0 = new Date().getTime() - tm;
-			console.log('---- task end ----> ' +  delta_time0);			
-			s();
-		}		
-		
+var s3 = new AWS.S3({
+    endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
+    accessKeyId: config.objectSpaceDigitalOcean.accessKeyId,
+    secretAccessKey: config.objectSpaceDigitalOcean.secretAccessKey
+});
+var bucket_name = 'shusiou-dev-2';
+function s(Marker) {
+	var params1 = { 
+		Bucket: bucket_name,
+		MaxKeys : 1000,
+		Marker : Marker,
+		Delimiter: '',
+		Prefix: '/'
+	};
+	me.s3.listObjects(params1, function (err, data) {
+		if(err) {
+			console.log({err:'err.message'});
+			return true;
+		} else {
+			console.log(data);
+		}
 	});
 }
 s();
