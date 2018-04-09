@@ -9,7 +9,7 @@
 				var patt = new RegExp(config.environment);
 				var connection = pkg.mysql.createConnection(config.db);
 				connection.connect();
-				var str = "SELECT * FROM `cloud_spaces` WHERE 1 ORDER BY `size` ASC;";
+				var str = "SELECT * FROM `cloud_spaces` WHERE `status` = 0 ORDER BY `size` ASC;";
 
 				connection.query(str, function (err, results, fields) {
 					for (var i = 0; i < results.length; i++) {
