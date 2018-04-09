@@ -25,7 +25,7 @@ var bucket_name = 'shusiou-dev-2';
 function s(Marker) {
 	var params1 = { 
 		Bucket: bucket_name,
-		MaxKeys : 1000,
+		MaxKeys : 300,
 		Marker : Marker,
 		Delimiter: '',
 		Prefix: 'videos/'
