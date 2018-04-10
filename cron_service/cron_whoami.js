@@ -95,7 +95,8 @@ var diskspace = require(env.root_path + '/package/diskspace/node_modules/diskspa
             },
             form:{}
           }, function (error, resp, body) { 
-		  console.log('delay call: ' + delay + ' ==> ' + body);
+		  console.log('delay call: ' + delay + ' ==> ');
+		  console.log(JSON.parse(body));
           });
       }, delay
     );
