@@ -52,7 +52,7 @@ s();
       } else {
         var watch = {};
         try { watch = JSON.parse(data);} catch (e) {}
-	  watch.[tp + '_'+ __filename] = {scheduled:scheduled, mark:new Date()};		
+	  watch[tp + '_'+ __filename] = {scheduled:scheduled, mark:new Date()};		
           fs.writeFile(watch_file, JSON.stringify(watch), function (err) {
               console.log(watch);
           });
