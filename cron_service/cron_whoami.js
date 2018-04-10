@@ -55,6 +55,7 @@ var diskspace = require(env.root_path + '/package/diskspace/node_modules/diskspa
         if (watch.mark)  {
           delete watch.start;
           watch.mark = new Date();
+	  watch.master_whoami = {scheduled:60, mark:new Date()};		
           fs.writeFile('/var/.qalet_cron_watch.data', JSON.stringify(watch), function (err) {
               console.log(watch);
           });
