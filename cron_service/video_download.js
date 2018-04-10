@@ -206,9 +206,9 @@ function s() {
 	);
 }
 s();
-
-let watch_cron_inc = require(__dirname + '/watch_cron.inc.js');
-let watchCron = new watch_cron_inc(__filename);
+delete require.cache[__dirname + '/watch_cron.inc.js'];
+let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
+    watchCron = new watch_cron_inc(__filename);
 watchCron.load('master', 60);
 
 /* --- code for cron watch ---*/
