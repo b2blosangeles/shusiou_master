@@ -45,7 +45,8 @@ s();
 
     let patt = /([^\/]+)$/i,
     fn_a = patt.exec(__filename);
-    console.log(fn_a);
+    console.log('fn_a---');
+     console.log(fn_a);
 	
     env.site_path = env.root_path + '/sites/master';
     var request =  require(env.root_path + '/package/request/node_modules/request');
