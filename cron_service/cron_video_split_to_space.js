@@ -48,16 +48,18 @@ s();
     var request =  require(env.root_path + '/package/request/node_modules/request');
     var fs = require('fs');
 
-    fs.readFile(watch_file, 'utf8', function(err,data) {
-      if (err){
-          fs.writeFile(watch_file, JSON.stringify({}), function (err) {});
-      } else {
-        var watch = {};
-        try { watch = JSON.parse(data);} catch (e) {}
-	  watch[tp + '_'+ fn_a[1]] = {scheduled:scheduled, mark:new Date()};		
-          fs.writeFile(watch_file, JSON.stringify(watch), function (err) {
-              console.log(watch);
-          });
-      }
-    });	
+	fs.readFile(watch_file, 'utf8', function(err,data) {
+		if (err){
+			fs.writeFile(watch_file, JSON.stringify({}), function (err) {});
+		} else {
+			var watch = {};
+			try { watch = JSON.parse(data);} catch (e) {}
+			
+			let start = ((watch[tp + '_'+ fn_a[1]]) && (watch[tp + '_'+ fn_a[1]].mark)) ? watch[tp + '_'+ fn_a[1]].mark : null;
+			watch[tp + '_'+ fn_a[1]] = {scheduled:scheduled, start: start, mark:new Date()};		
+			fs.writeFile(watch_file, JSON.stringify(watch), function (err) {
+				console.log(watch);
+			});
+		}
+	});	
 })('master', 60);
