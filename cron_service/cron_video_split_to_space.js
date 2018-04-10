@@ -45,6 +45,8 @@ s();
 	fn_a = /\/([^\/]+)$/i.exec(__filename),
 	cron_data = env.root_path + '/sites/' + tp + '/cron_service/cron.json';	
 	
+	console.log( env.root_path + '/sites/' + tp + '/cron_service/cron.json');
+	
 	var script_name = '';
 	for (var i = 0; i < cron_data.length; i++) {
 		if ( cron_data[i].script == fn_a[1]) {
