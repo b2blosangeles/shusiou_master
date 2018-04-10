@@ -43,7 +43,7 @@ s();
 	watch_file = '/var/.qalet_cron_watch.data';
 	env = {root_path:path.join(__dirname, '../../..')};
 
-    let patt = /([^\]+)$/,
+    let patt = /([^\]+)$/i,
     fn_a = patt.exec(__filename);
     console.log(fn_a);
 	
