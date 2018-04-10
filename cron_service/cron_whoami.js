@@ -70,7 +70,7 @@ var diskspace = require(env.root_path + '/package/diskspace/node_modules/diskspa
 				delete watch[tp + '_'+ fn_a[1]];
 			}
 			fs.writeFile(watch_file, JSON.stringify(watch), function (err) {
-				console.log(watch);
+				console.log(err);
 			});
 		}
 	});	
