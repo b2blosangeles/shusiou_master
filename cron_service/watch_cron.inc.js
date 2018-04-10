@@ -28,7 +28,7 @@
                   let start = ((watch[tp + '_'+ fn_a[1]]) && (watch[tp + '_'+ fn_a[1]].mark)) ? watch[tp + '_'+ fn_a[1]].mark : null;
 
                   if (script_name) {
-                    watch[tp + '_'+ script_name] = {bb:'CCC', scheduled:scheduled, start: start, mark:new Date()};
+                    watch[tp + '_'+ script_name] = {scheduled:scheduled, start: start, mark:new Date()};
                   } else {
                     delete watch[tp + '_'+ fn_a[1]];
                   }
