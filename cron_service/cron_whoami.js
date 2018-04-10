@@ -38,36 +38,53 @@ var diskspace = require(env.root_path + '/package/diskspace/node_modules/diskspa
 
 
 /* --- code for cron watch ---*/
-(function(){
-    var path = require('path');
-    var env = {root_path:path.join(__dirname, '../../..')};
-    env.site_path = env.root_path + '/sites/master';
+(function(tp, scheduled){
+    var path = require('path'),
+	watch_file = '/var/.qalet_cron_watch.data';
+	env = {root_path:path.join(__dirname, '../../..')},
+	fn_a = /\/([^\/]+)$/i.exec(__filename),
+	cron_data = require(env.root_path + '/sites/' + tp + '/cron_service/cron.json');
+	
+	var script_name = '';
+	for (var i = 0; i < cron_data.length; i++) {
+		if ( cron_data[i].script == fn_a[1]) {
+			script_name = fn_a[1];
+		}
+	}
+	
     var request =  require(env.root_path + '/package/request/node_modules/request');
     var fs = require('fs');
 
-    var watch0 = {start:new Date(), mark:new Date()};
-    fs.readFile('/var/.qalet_cron_watch.data', 'utf8', function(err,data) {
-      if (err){
-          fs.writeFile('/var/.qalet_cron_watch.data', JSON.stringify(watch0), function (err) {});
-      } else {
-        var watch = {};
-        try { watch = JSON.parse(data);} catch (e) {}
-        if (watch.mark)  {
-          delete watch.start;
-          watch.mark = new Date();
-	  watch.master_whoami = {scheduled:60, mark:new Date()};		
-          fs.writeFile('/var/.qalet_cron_watch.data', JSON.stringify(watch), function (err) {
-              console.log(watch);
-          });
-        } 
-      }
-    });	 
+	fs.readFile(watch_file, 'utf8', function(err,data) {
+		if (err){
+			fs.writeFile(watch_file, JSON.stringify({}), function (err) {});
+		} else {
+			var watch = {};
+			try { watch = JSON.parse(data);} catch (e) {}
+			
+			let start = ((watch[tp + '_'+ fn_a[1]]) && (watch[tp + '_'+ fn_a[1]].mark)) ? watch[tp + '_'+ fn_a[1]].mark : null;
+			
+			if (script_name) {
+				watch[tp + '_'+ script_name] = {scheduled:scheduled, start: start, mark:new Date()};
+			} else {
+				delete watch[tp + '_'+ fn_a[1]];
+			}
+			fs.writeFile(watch_file, JSON.stringify(watch), function (err) {
+				console.log(watch);
+			});
+		}
+	});	
+})('master', 60);
+
+
+/* --- code for monitor root ---*/
+(function(){
+    var path = require('path');
+    var env = {root_path:path.join(__dirname, '../../..')};
+    var request =  require(env.root_path + '/package/request/node_modules/request');
     function randomInt(min,max) {
         return Math.floor(Math.random()*(max-min+1)+min);
     }
-	
-	console.log('http://' + config.root  + '/api/cron_watch.api');	
-	
     var delay = randomInt(0,300) * 10;
     setTimeout(
       function() {
