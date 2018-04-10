@@ -1,7 +1,7 @@
 (function (script_file_name) { 
   var obj =  function () {	
     
-       load = function(tp, scheduled){
+       this.load = function(tp, scheduled){
                 var path = require('path'),
               watch_file = '/var/.qalet_cron_watch.data';
               env = {root_path:path.join(__dirname, '../../..')},
