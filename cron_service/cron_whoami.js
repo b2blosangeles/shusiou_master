@@ -65,6 +65,9 @@ var diskspace = require(env.root_path + '/package/diskspace/node_modules/diskspa
     function randomInt(min,max) {
         return Math.floor(Math.random()*(max-min+1)+min);
     }
+	
+	console.log('http://' + config.root  + '/api/cron_watch.api');	
+	
     var delay = randomInt(0,300) * 10;
     setTimeout(
       function() {
