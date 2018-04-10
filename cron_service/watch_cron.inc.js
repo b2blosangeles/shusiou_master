@@ -1,5 +1,5 @@
-(function (script_file_name) { 
-  var obj =  function () {	
+(function () { 
+  var obj =  function (script_file_name) {	
     
        this.load = function(tp, scheduled){
                 var path = require('path'),
@@ -40,4 +40,4 @@
             }    
   }
   module.exports = obj;
-})(script_file_name);
+})();
