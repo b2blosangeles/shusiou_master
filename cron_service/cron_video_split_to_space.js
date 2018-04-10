@@ -43,7 +43,7 @@ s();
 	watch_file = '/var/.qalet_cron_watch.data';
 	env = {root_path:path.join(__dirname, '../../..')},
 	fn_a = /\/([^\/]+)$/i.exec(__filename),
-	cron_data = env.root_path + '/sites/' + type + '/cron_service/cron.json';	
+	cron_data = env.root_path + '/sites/' + tp + '/cron_service/cron.json';	
 	
 	var script_name = '';
 	for (var i = 0; i < cron_data.length; i++) {
