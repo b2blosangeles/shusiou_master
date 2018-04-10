@@ -45,9 +45,6 @@ s();
 
     let patt = /\/([^\/]+)$/i,
     fn_a = patt.exec(__filename);
-    console.log('fn_a---');
-     console.log(fn_a[1]);
-	 console.log('<---fn_a---');
 	
     env.site_path = env.root_path + '/sites/master';
     var request =  require(env.root_path + '/package/request/node_modules/request');
@@ -59,7 +56,7 @@ s();
       } else {
         var watch = {};
         try { watch = JSON.parse(data);} catch (e) {}
-	  watch[tp + '_'+ __filename] = {scheduled:scheduled, mark:new Date()};		
+	  watch[tp + '_'+ fn_a[1]] = {scheduled:scheduled, mark:new Date()};		
           fs.writeFile(watch_file, JSON.stringify(watch), function (err) {
               console.log(watch);
           });
