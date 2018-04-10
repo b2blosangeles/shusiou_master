@@ -46,7 +46,7 @@ s();
     let patt = /\/([^\/]+)$/i,
     fn_a = patt.exec(__filename);
     console.log('fn_a---');
-     console.log(fn_a);
+     console.log(fn_a[1]);
 	 console.log('<---fn_a---');
 	
     env.site_path = env.root_path + '/sites/master';
