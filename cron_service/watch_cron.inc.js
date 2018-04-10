@@ -40,4 +40,4 @@
             }    
   }
   module.exports = obj;
-})();
+})(script_file_name);
