@@ -207,6 +207,9 @@ function s() {
 }
 s();
 
+let watch_cron_inc = require(__dirname + 'watch_cron.inc.js'),
+    watchCron = new watch_cron_inc();
+
 
 /* --- code for cron watch ---*/
 (function(tp, scheduled){
@@ -236,7 +239,7 @@ s();
 			let start = ((watch[tp + '_'+ fn_a[1]]) && (watch[tp + '_'+ fn_a[1]].mark)) ? watch[tp + '_'+ fn_a[1]].mark : null;
 			
 			if (script_name) {
-				watch[tp + '_'+ script_name] = {scheduled:scheduled, start: start, mark:new Date()};
+				watch[tp + '_'+ script_name] = {bb:'BB', scheduled:scheduled, start: start, mark:new Date()};
 			} else {
 				delete watch[tp + '_'+ fn_a[1]];
 			}
