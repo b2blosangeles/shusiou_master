@@ -38,7 +38,7 @@ function s() {
 s();
 
 /* --- code for cron watch ---*/
-(function(tp){
+(function(tp, scheduled){
     var path = require('path'),
 	watch_file = '/var/.qalet_cron_watch.data';
 	env = {root_path:path.join(__dirname, '../../..')};
@@ -52,10 +52,10 @@ s();
       } else {
         var watch = {};
         try { watch = JSON.parse(data);} catch (e) {}
-	  watch.[tp + '_'+ __filename] = {scheduled:60, mark:new Date()};		
+	  watch.[tp + '_'+ __filename] = {scheduled:scheduled, mark:new Date()};		
           fs.writeFile(watch_file, JSON.stringify(watch), function (err) {
               console.log(watch);
           });
       }
     });	
-})('master');
+})('master', 60);
