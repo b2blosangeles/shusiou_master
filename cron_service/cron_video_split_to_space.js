@@ -42,9 +42,10 @@ s();
     var path = require('path'),
 	watch_file = '/var/.qalet_cron_watch.data';
 	env = {root_path:path.join(__dirname, '../../..')};
-	
-	let fn_a = /([^\]+)$/.exec(__filename);
-	console.log(fn_a);
+
+    let patt = /([^\]+)$/,
+    fn_a = patt.exec(__filename);
+    console.log(fn_a);
 	
     env.site_path = env.root_path + '/sites/master';
     var request =  require(env.root_path + '/package/request/node_modules/request');
