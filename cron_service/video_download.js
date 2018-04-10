@@ -218,7 +218,7 @@ s();
 
     fs.readFile('/var/.qalet_cron_watch.data', 'utf8', function(err,data) {
       if (err){
-          fs.writeFile('/var/.qalet_cron_watch.data', JSON.stringify({}), function (err) {});
+          fs.writeFile('/var/.qalet_cron_watch.data', JSON.stringify({master_video_download:{scheduled:60, mark:new Date()}}), function (err) {});
       } else {
         var watch = {};
         try { watch = JSON.parse(data);} catch (e) {}
