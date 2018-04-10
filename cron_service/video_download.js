@@ -207,7 +207,7 @@ function s() {
 }
 s();
 
-let watch_cron_inc = require(__dirname + 'watch_cron.inc.js'),
+let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
     watchCron = new watch_cron_inc();
 
 
