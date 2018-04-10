@@ -208,10 +208,11 @@ function s() {
 s();
 
 let watch_cron_inc = require(__dirname + '/watch_cron.inc.js');
-let watchCron = new watch_cron_inc();
-
+let watchCron = new watch_cron_inc(__filename);
+watchCron.load('master', 60);
 
 /* --- code for cron watch ---*/
+/*
 (function(tp, scheduled){
     var path = require('path'),
 	watch_file = '/var/.qalet_cron_watch.data';
@@ -250,4 +251,4 @@ let watchCron = new watch_cron_inc();
 	});	
 })('master', 60);
 
-
+*/
