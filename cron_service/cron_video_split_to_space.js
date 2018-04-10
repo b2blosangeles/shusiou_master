@@ -42,7 +42,15 @@ s();
     var path = require('path'),
 	watch_file = '/var/.qalet_cron_watch.data';
 	env = {root_path:path.join(__dirname, '../../..')},
-	fn_a = /\/([^\/]+)$/i.exec(__filename);
+	fn_a = /\/([^\/]+)$/i.exec(__filename),
+	cron_data = env.root_path + '/sites/' + type + '/cron_service/cron.json';	
+	
+	var script_name = '';
+	for (var i = 0; i < cron_data.length; i++) {
+		if ( cron_data[i].script == fn_a[1]) {
+			script_name = fn_a[1];
+		}
+	}
 	
     env.site_path = env.root_path + '/sites/master';
     var request =  require(env.root_path + '/package/request/node_modules/request');
@@ -56,7 +64,12 @@ s();
 			try { watch = JSON.parse(data);} catch (e) {}
 			
 			let start = ((watch[tp + '_'+ fn_a[1]]) && (watch[tp + '_'+ fn_a[1]].mark)) ? watch[tp + '_'+ fn_a[1]].mark : null;
-			watch[tp + '_'+ fn_a[1]] = {scheduled:scheduled, start: start, mark:new Date()};		
+			
+			if (script_name) {
+				watch[tp + '_'+ script_name] = {scheduled:scheduled, start: start, mark:new Date()};
+			} else {
+				delete watch[tp + '_'+ fn_a[1]];
+			}
 			fs.writeFile(watch_file, JSON.stringify(watch), function (err) {
 				console.log(watch);
 			});
