@@ -15,13 +15,12 @@ let pkg = {
 	fs 		: require('fs')
 }; 
 const AWS = require(env.site_path + '/api/inc/aws-sdk/node_modules/aws-sdk');
-AWS.Config.httpOptions = {timeout: 50};
 var s3 = new AWS.S3({
     endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
     accessKeyId: config.objectSpaceDigitalOcean.accessKeyId,
     secretAccessKey: config.objectSpaceDigitalOcean.secretAccessKey
 });
-var bucket_name = 'shusiou-dev-1';
+var bucket_name = 'shusiou-qa-1';
 function s(Marker) {
 	console.log('start-->');
 	var params1 = { 
