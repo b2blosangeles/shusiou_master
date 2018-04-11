@@ -37,8 +37,6 @@
 			    });
 			};
 			_f['db_video']  = function(cbk) { /* get database catched local videos */
-				
-				console.log('==A1==');
 				var connection = pkg.mysql.createConnection(config.db);
 				connection.connect();
 				var str = "SELECT A.*, B.`status` FROM `video` A LEFT JOIN `video_space` B ON A.`vid` = B.`vid`" +
@@ -78,6 +76,8 @@
 				    video_folder = me.space.mnt_folder,
 				    _file = video_folder + vid + '/video/' + vid;
 
+				console.log('==A2==');
+				
 				pkg.fs.stat(_file, function(err, stat) {
 					if (err) {
 						pkg.exec('mv -f ' + video_folder + vid + '/video/video.mp4 ' +  _file, 					 
