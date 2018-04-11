@@ -25,13 +25,13 @@ function s(Marker) {
 	console.log('start-->');
 	var params1 = { 
 		Bucket: bucket_name,
-		MaxKeys : 10,
+		max-items : 10,
 		Marker : Marker,
 		Delimiter: '/',
 		Prefix: '/'
 		
 	};
-	s3.listObjectsV2(params1, function (err, data) {
+	s3.listObjects(params1, function (err, data) {
 		if(err) {
 			console.log({err:err});
 			return true;
