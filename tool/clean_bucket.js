@@ -28,7 +28,7 @@ function s(Marker) {
 		MaxKeys : 10,
 		Marker : Marker,
 		Delimiter: '/',
-		Prefix: '/'
+		Prefix: 'videos/'
 		
 	};
 	s3.listObjects(params1, function (err, data) {
