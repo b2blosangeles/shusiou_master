@@ -23,6 +23,7 @@ var s3 = new AWS.S3({
 });
 var bucket_name = 'shusiou-dev-1';
 function s(Marker) {
+	console.log('start-->');
 	var params1 = { 
 		Bucket: bucket_name,
 		MaxKeys : 100,
