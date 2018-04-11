@@ -31,7 +31,7 @@ function s(Marker) {
 		Prefix: '/'
 		
 	};
-	s3.listObjects(params1, function (err, data) {
+	s3.listObjectsV2(params1, function (err, data) {
 		if(err) {
 			console.log({err:err});
 			return true;
