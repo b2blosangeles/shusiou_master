@@ -46,10 +46,11 @@ function s(Marker) {
 				Bucket: bucket_name,
 				Delete: {Objects:list}
 			};
+			/*
 			s3.deleteObjects(params, function(err, d) {
 				if (err) console.log(err);
 				else s('');
-			});			
+			});*/			
 		}
 	});
 }
