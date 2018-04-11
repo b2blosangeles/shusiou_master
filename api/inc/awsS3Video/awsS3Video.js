@@ -76,8 +76,6 @@
 				    video_folder = me.space.mnt_folder,
 				    _file = video_folder + vid + '/video/' + vid;
 
-				console.log('==A2==');
-				
 				pkg.fs.stat(_file, function(err, stat) {
 					if (err) {
 						pkg.exec('mv -f ' + video_folder + vid + '/video/video.mp4 ' +  _file, 					 
