@@ -20,7 +20,7 @@ var s3 = new AWS.S3({
     accessKeyId: config.objectSpaceDigitalOcean.accessKeyId,
     secretAccessKey: config.objectSpaceDigitalOcean.secretAccessKey
 });
-var bucket_name = 'shusiou-qa-1';
+var bucket_name = 'shusiou-prod-1';
 function s(Marker) {
 	console.log('start-->');
 	var params1 = { 
