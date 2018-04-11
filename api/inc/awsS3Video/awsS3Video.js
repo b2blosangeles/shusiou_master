@@ -457,7 +457,7 @@
 				case '_t':
 					pkg.exec('rm -f ' + tmp_folder + '* ' + ' && rm -f ' + tmp_folder + '*.* ' +
 						 '&& split -b ' + me.trunkSize + ' ' + me.source_path +  me.source_file +  ' ' + tmp_folder + '', 					 
-						{maxBuffer: 1024 * 500}, 
+						{maxBuffer: 1024 * 1024}, 
 						 function(err, stdout, stderr) {
 							if (err) {
 								cbk({err:err.message});
@@ -472,7 +472,8 @@
 					pkg.exec('rm -f ' + tmp_folder + '* ' + ' && rm -f ' + tmp_folder + '*.* ' +
 						 '&& ffmpeg -i ' + me.source_path +  me.source_file + 
 						 ' -c copy -map 0 -segment_time 5 -reset_timestamps 1 -f segment ' + tmp_folder + 's_%d.mp4', 
-						function(err, stdout, stderr) {
+						{maxBuffer: 1024 * 1024}, 
+						 function(err, stdout, stderr) {
 							if (err) {
 								cbk({err:err.message});
 							} else {

@@ -43,3 +43,9 @@ CP.serial(
 	},
 	55000
 );
+
+/* --- code for cron watch ---*/
+delete require.cache[__dirname + '/watch_cron.inc.js'];
+let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
+    watchCron = new watch_cron_inc(__filename);
+watchCron.load('master', 60);

@@ -36,31 +36,18 @@ whoami.getIP(
 var request =  require(env.root_path + '/package/request/node_modules/request');
 var diskspace = require(env.root_path + '/package/diskspace/node_modules/diskspace');
 
-
 /* --- code for cron watch ---*/
+delete require.cache[__dirname + '/watch_cron.inc.js'];
+let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
+    watchCron = new watch_cron_inc(__filename);
+watchCron.load('master', 60);
+
+
+/* --- code for monitor root ---*/
 (function(){
     var path = require('path');
     var env = {root_path:path.join(__dirname, '../../..')};
-    env.site_path = env.root_path + '/sites/master';
     var request =  require(env.root_path + '/package/request/node_modules/request');
-    var fs = require('fs');
-
-    var watch0 = {start:new Date(), mark:new Date()};
-    fs.readFile('/var/.qalet_cron_watch.data', 'utf8', function(err,data) {
-      if (err){
-          fs.writeFile('/var/.qalet_cron_watch.data', JSON.stringify(watch0), function (err) {});
-      } else {
-        var watch = {};
-        try { watch = JSON.parse(data);} catch (e) {}
-        if (watch.mark)  {
-          delete watch.start;
-          watch.mark = new Date();
-          fs.writeFile('/var/.qalet_cron_watch.data', JSON.stringify(watch), function (err) {
-              console.log(watch);
-          });
-        } 
-      }
-    });	 
     function randomInt(min,max) {
         return Math.floor(Math.random()*(max-min+1)+min);
     }
@@ -74,7 +61,8 @@ var diskspace = require(env.root_path + '/package/diskspace/node_modules/diskspa
             },
             form:{}
           }, function (error, resp, body) { 
-            console.log(delay + '--' + body);
+		  console.log('delay call: ' + delay + ' ==> ');
+		  console.log(body);
           });
       }, delay
     );
