@@ -19,7 +19,8 @@ const AWS = require(env.site_path + '/api/inc/aws-sdk/node_modules/aws-sdk');
 var s3 = new AWS.S3({
     endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
     accessKeyId: config.objectSpaceDigitalOcean.accessKeyId,
-    secretAccessKey: config.objectSpaceDigitalOcean.secretAccessKey
+    secretAccessKey: config.objectSpaceDigitalOcean.secretAccessKey,
+    timeout: 5000
 });
 var bucket_name = 'shusiou-dev-1';
 function s(Marker) {
@@ -29,8 +30,8 @@ function s(Marker) {
 		MaxKeys : 100,
 		Marker : Marker,
 		Delimiter: '',
-		Prefix: 'videos/',
-		timeout: 5000
+		Prefix: 'videos/'
+		
 	};
 	s3.listObjects(params1, function (err, data) {
 		if(err) {
