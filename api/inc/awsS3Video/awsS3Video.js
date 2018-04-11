@@ -5,7 +5,7 @@
 			let me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};	
-			console.log('==A==');
+			
 			_f['loadspace']  = function(cbk) {
 				var patt = new RegExp(config.environment);
 				var connection = pkg.mysql.createConnection(config.db);
@@ -37,6 +37,8 @@
 			    });
 			};
 			_f['db_video']  = function(cbk) { /* get database catched local videos */
+				
+				console.log('==A1==');
 				var connection = pkg.mysql.createConnection(config.db);
 				connection.connect();
 				var str = "SELECT A.*, B.`status` FROM `video` A LEFT JOIN `video_space` B ON A.`vid` = B.`vid`" +
