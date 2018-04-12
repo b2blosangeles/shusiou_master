@@ -32,6 +32,7 @@ function s(Marker) {
 		
 	};
 	s3.listObjects(params1, function (err, data) {
+		console.log('data.Contents.length--->');
 		if(err) {
 			console.log({err:err});
 			return true;
