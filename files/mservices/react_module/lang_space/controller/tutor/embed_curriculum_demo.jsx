@@ -16,7 +16,7 @@ try {
 		},	
 		videoImage:function(t, a) {
 			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
-				      '&size=320&ss='+t;
+				      '&size=480&ss='+t;
 			return url;
 		},		
 		render: function() {
