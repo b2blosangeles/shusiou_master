@@ -11,7 +11,7 @@ try {
 		pullList:function() {
 			var me = this;
 			me.props.route.env.engine({
-				url: '/api/curriculum/myCurriculum.api',
+				url:  _master_svr() +  '/api/curriculum/myCurriculum.api',
 				method: "POST",
 				data: {cmd:'getList', auth:me.props.route.env.state.auth},
 				dataType: "JSON"
