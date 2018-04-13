@@ -236,8 +236,9 @@ var app = function(auth_data) {
 						if (CP.data.P1[i].space_status !== 1) {
 							CP.data.P1[i].message = 'Spacing ...';
 						}
+						CP.data.P1[i].info = {};
 						try {
-							CP.data.P1[i].info = JSON.parse(CP.data.P1[i].videoinfo);
+							CP.data.P1[i].info = JSON.parse(CP.data.P1[i].video_info);
 						} catch (e) {}
 						
 						d.push(data.results.P1[i]);
