@@ -150,38 +150,13 @@ var app = function(auth_data) {
 						cbk(results);
 					}
 				});  
-			};
-			_f['S2'] = function(cbk) {
-				var vstr = '0';
-				for (var i = 0; i < CP.data.S1.length; i++) {
-					vstr += ',' +  CP.data.S1[i].vid; 
-				}
-
-				var connection = mysql.createConnection(cfg0);
-				connection.connect();
-
-				var str = 'SELECT * FROM  `video_node` WHERE `vid` IN (' + vstr + ')';
-
-				connection.query(str, function (error, results, fields) {
-					connection.end();
-					var v = {};
-					if (results.length) {
-						
-						for (var i = 0; i < results.length; i++) {
-							if (!v[results[i].vid]) v[results[i].vid] = [];
-							v[results[i].vid][v[results[i].vid].length] = results[i].node_ip;
-						}
-						cbk(v);
-					} else cbk({});
-				});  
 			};			
 			CP.serial(
 				_f,
 				function(data) {
 					var d = [];
 					for (var i=0; i <  CP.data.S1.length; i++) {
-						CP.data.S1[i].node_ip = CP.data.S2[CP.data.S1[i].vid];
-						d[d.length] =  CP.data.S1[i];
+						d.push(CP.data.S1[i);
 					}
 					res.send({_spent_time:data._spent_time, status:data.status, data:d});
 				},
