@@ -25,7 +25,7 @@ function s(Marker) {
 	console.log('start-->');
 	var params1 = { 
 		Bucket: bucket_name,
-		MaxKeys : 10,
+		MaxKeys : 10000,
 		Marker : Marker,
 		Delimiter: '',
 		Prefix: 'videos/'
