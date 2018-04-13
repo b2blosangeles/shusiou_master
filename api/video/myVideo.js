@@ -233,6 +233,9 @@ var app = function(auth_data) {
 						CP.data.P1[i].status = 'ready';
 						CP.data.P1[i].env = config.environment;
 						CP.data.P1[i].dns_matrix = CP.data.dns_matrix;
+						if (CP.data.P1[i].space_status !== 1) {
+							CP.data.P1[i].message = 'spacing ...';
+						}
 						d.push(data.results.P1[i]);
 					}
 					res.send({status:data.status, _spent_time:data._spent_time, 
