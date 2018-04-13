@@ -143,7 +143,7 @@ try {
 								<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
 									<img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmThumbnail(a.org_thumbnail)} />	
 									<div className="video_thumbnail_text video_thumbnail_text_bg pull-right">
-										<i className="fa fa-info-circle"></i> =={(a.message)?a.message:'Processing ...'}
+										<i className="fa fa-info-circle"></i> {(a.message)?a.message:'Processing ...'}
 									</div>
 								</div>
 
