@@ -378,7 +378,7 @@
 		this.init = function() {
 			let me = this;
 			const AWS = require(env.site_path + '/api/inc/aws-sdk/node_modules/aws-sdk')
-			var s3 = new AWS.S3({
+			me.s3 = new AWS.S3({
 			    httpOptions: {timeout: 50000},		
 			    endpoint: new AWS.Endpoint(config.objectSpace.endpoint),
 			    accessKeyId: config.objectSpace.accessKeyId,
