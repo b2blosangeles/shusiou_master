@@ -87,7 +87,7 @@ try {
 								<table className="container-fluid">
 									<tr>
 										<td width="90" valign="top">
-											<img src="/images/film_bg.png" style={me.bgFilmStyle(me.props.parent.state.video)} width="90"/>
+											<img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmStyle(me.props.parent.state.video)} width="90"/>
 										</td>
 										<td  width="6"></td>
 										<td style={{'text-align':'left',whiteSpace: 'normal',wordWrap: 'break-word', 
