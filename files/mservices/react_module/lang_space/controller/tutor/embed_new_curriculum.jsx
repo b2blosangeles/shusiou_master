@@ -34,7 +34,7 @@ try {
 			});			
 		},
 		bgFilmStyle:function(a) {
-			var url =  _node_svr() + '/api/video/pipe.api?env=' + a.env + '&space=' + a.space + '&video_fn='+ a.vid +
+			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
 				      '&size=90&ss='+61;
 			return {width:'100%', background:'url('+url+')',
 				'background-size':'cover'}
