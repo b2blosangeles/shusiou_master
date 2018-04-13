@@ -34,7 +34,7 @@ function s(Marker) {
 	console.log('start-->');
 	var params1 = { 
 		Bucket: bucket_name,
-		MaxKeys : 100,
+		MaxKeys : 1000,
 		Marker : Marker,
 		Delimiter: '',
 		Prefix: ''
