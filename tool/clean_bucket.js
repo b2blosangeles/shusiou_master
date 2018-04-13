@@ -37,8 +37,8 @@ function s(Marker) {
 			console.log({err:err});
 			return true;
 		} else {
-			console.log(data);
-			return true;
+			console.log(data.Contents.length + '====');
+		//	return true;
 			let list = [];
 			for(var i = 0; i < data.Contents.length; i++) {
 				list.push({Key : data.Contents[i].Key})
