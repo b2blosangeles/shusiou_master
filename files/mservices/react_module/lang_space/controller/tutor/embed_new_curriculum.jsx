@@ -98,7 +98,7 @@ try {
 										<td  width="12"><span className="caret"></span></td>			
 									</tr>		
 								</table>)
-								else return (<span>Select video <span className="caret">===</span></span>)	  
+								else return (<span>Select video <span className="caret"></span></span>)	  
 								  })()}		  
 							  	</button>
 							  <ul className="dropdown-menu" style={{'min-width':'480px', 'max-height': '360px', 'overflow':'auto'}}>
@@ -108,7 +108,8 @@ try {
 									<table width="100%" style={{'margin-bottom':'6px'}}>
 										<tr>
 											<td width="100" valign="top">
-												<img src="/images/film_bg.png" style={me.bgFilmStyle(a)}  width="90"/>
+												<img src={ _master_svr() + '/images/film_bg.png'} 
+												style={me.bgFilmStyle(a)}  width="90"/>
 											</td>
 											<td  width="6"></td>
 											<td  style={{'text-align':'left',whiteSpace: 'normal',wordWrap: 'break-word',
