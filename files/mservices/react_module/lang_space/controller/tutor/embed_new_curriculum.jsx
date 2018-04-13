@@ -33,11 +33,12 @@ try {
 				console.log('error');
 			});			
 		},
-		bgFilmStyle:function(rec) {	
-			var url = 'http://' + rec.server_ip + '/api/video/play_stream.api?type=image&vid=' + rec.vid + '&s=20&w=90';
-			return {width:'90px', background:'url('+url+')',
+		bgFilmStyle:function(a) {
+			var url =  _node_svr() + '/api/video/pipe.api?env=' + a.env + '&space=' + a.space + '&video_fn='+ a.vid +
+				      '&size=90&ss='+61;
+			return {width:'100%', background:'url('+url+')',
 				'background-size':'cover'}
-		},		
+		},				
 		save:function(e) {
 			var me = this;
 			me.props.parent.setState({curriculum:me.state.curriculum}, function() {
