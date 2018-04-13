@@ -55,8 +55,7 @@ try {
 		videoImageFilm:function(t, a) {
 			var url =  _node_svr() + '/api/video/pipe.api?env=' + a.env + '&space=' + a.space + '&video_fn='+ a.vid +
 				      '&size=320&ss='+t;
-			return {width:'100%', background:'url('+url+')',
-				'background-size':'cover'}
+			return url;
 		},		
 		videoImageFilmA:function(t, a) {
 			var svr = a.server_ip;
