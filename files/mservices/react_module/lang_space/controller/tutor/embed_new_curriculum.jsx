@@ -98,7 +98,7 @@ try {
 										<td  width="12"><span className="caret"></span></td>			
 									</tr>		
 								</table>)
-								else return (<span>Select video <span className="caret"></span></span>)	  
+								else return (<span>Select video <span className="caret">===</span></span>)	  
 								  })()}		  
 							  	</button>
 							  <ul className="dropdown-menu" style={{'min-width':'480px', 'max-height': '360px', 'overflow':'auto'}}>
