@@ -37,7 +37,7 @@ function s(Marker) {
 		MaxKeys : 100,
 		Marker : Marker,
 		Delimiter: '',
-		Prefix: '/'
+		Prefix: ''
 		
 	};
 	s3.listObjects(params1, function (err, data) {
