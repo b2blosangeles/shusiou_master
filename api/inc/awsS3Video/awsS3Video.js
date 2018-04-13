@@ -15,9 +15,10 @@
 				connection.query(str, function (err, results, fields) {
 					for (var i = 0; i < results.length; i++) {
 						if (patt.test( results[i].bucket)) {
+							// space_url :'https://'+results[i].bucket+'.nyc3.digitaloceanspaces.com/',
 							me.space = { 
 								space_id : results[i].bucket,
-								space_url :'https://'+results[i].bucket+'.nyc3.digitaloceanspaces.com/',
+								space_url :'https://'+results[i].bucket+'.s3.wasabisys.com/',
 								mnt_folder : '/var/shusiou_video/'
 							};
 							break;
