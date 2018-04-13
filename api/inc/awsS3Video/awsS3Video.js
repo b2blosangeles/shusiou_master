@@ -5,6 +5,7 @@
 			let me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};	
+			
 			_f['loadspace']  = function(cbk) {
 				var patt = new RegExp(config.environment);
 				var connection = pkg.mysql.createConnection(config.db);
@@ -16,7 +17,7 @@
 						if (patt.test( results[i].bucket)) {
 							me.space = { 
 								space_id : results[i].bucket,
-								space_url :'https://'+results[i].bucket+'.nyc3.digitaloceanspaces.com/',
+								space_url :'https://'+results[i].bucket+'.' + config.objectSpace.endpoint + '/',
 								mnt_folder : '/var/shusiou_video/'
 							};
 							break;
@@ -377,9 +378,10 @@
 			let me = this;
 			const AWS = require(env.site_path + '/api/inc/aws-sdk/node_modules/aws-sdk')
 			me.s3 = new AWS.S3({
-			    endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
-			    accessKeyId: config.objectSpaceDigitalOcean.accessKeyId,
-			    secretAccessKey: config.objectSpaceDigitalOcean.secretAccessKey
+			    httpOptions: {timeout: 50000},		
+			    endpoint: new AWS.Endpoint(config.objectSpace.endpoint),
+			    accessKeyId: config.objectSpace.accessKeyId,
+			    secretAccessKey: config.objectSpace.secretAccessKey
 			});
 		}
 		this.getInfo = function(space_infoname, south_name, cbk) {

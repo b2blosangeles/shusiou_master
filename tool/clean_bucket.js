@@ -17,26 +17,32 @@ let pkg = {
 const AWS = require(env.site_path + '/api/inc/aws-sdk/node_modules/aws-sdk');
 
 var s3 = new AWS.S3({
-    httpOptions: {timeout: 5000},
-    endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
-    accessKeyId: config.objectSpaceDigitalOcean.accessKeyId,
-    secretAccessKey: config.objectSpaceDigitalOcean.secretAccessKey
+    httpOptions: {timeout: 50000},		
+    endpoint: new AWS.Endpoint(config.objectSpace.endpoint),
+    accessKeyId: config.objectSpace.accessKeyId,
+    secretAccessKey: config.objectSpace.secretAccessKey
 });
+
 var bucket_name = 'shusiou-dev-1';
 function s(Marker) {
+	console.log('start-->');
 	var params1 = { 
 		Bucket: bucket_name,
-		MaxKeys : 100,
+		MaxKeys : 200,
 		Marker : Marker,
 		Delimiter: '',
-		Prefix: 'videos/'
+		Prefix: ''
+		
 	};
 	s3.listObjects(params1, function (err, data) {
+		console.log('data.Contents.length--->');
 		if(err) {
-			console.log({err:'err.message'});
+			console.log({err:err});
 			return true;
 		} else {
-			console.log(data.Contents.length);
+			console.log(data.Contents.length + '====');
+			//console.log(data.Contents);
+			return true;
 			let list = [];
 			for(var i = 0; i < data.Contents.length; i++) {
 				list.push({Key : data.Contents[i].Key})
