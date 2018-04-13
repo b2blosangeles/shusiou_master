@@ -35,7 +35,7 @@ try {
 						<div>{me.props.params.opt}
 							<h4>{me.props.parent.state.video.title}</h4>	
 							<p><b>Video ID</b>:{me.props.parent.state.curriculum.vid}</p>  
-							<p><b>Video Length</b>:({me.props.parent.state.video.length} Secs)</p>
+							<p><b>Video Length</b>:({me.props.parent.state.video.video_length} Secs)</p>
 							<img src={me.videoImage(61, props.parent.state.curriculum)}/>
 						</div>	
 					
