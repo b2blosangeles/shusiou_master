@@ -14,6 +14,11 @@ try {
 				);
 			}
 		},	
+		videoImage:function(t, a) {
+			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
+				      '&size=320&ss='+t;
+			return url;
+		},		
 		render: function() {
 			var me = this;
 			if ((me.props.params.id) && (me.props.parent.state.curriculum)) {
@@ -22,9 +27,7 @@ try {
 							<h4>{me.props.parent.state.video.title}</h4>	
 							<p><b>Video ID</b>:{me.props.parent.state.curriculum.vid}</p>  
 							<p><b>Video Length</b>:({me.props.parent.state.video.length} Secs)</p>
-							<img src={shusiou_config.api_server + 
-							'/api/video/play_stream.api?type=image&vid='+me.props.parent.state.curriculum.vid+
-							'&w=180&s=10'}/></div>	
+							<img src={me.videoImage(61, props.parent.state.curriculum)}/></div>	
 					
 					</div>)
 			} else {
