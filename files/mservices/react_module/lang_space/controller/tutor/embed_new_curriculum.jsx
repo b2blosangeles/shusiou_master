@@ -20,7 +20,7 @@ try {
 		getVideos:function() {
 			var me = this;
 			$.ajax({
-				url: shusiou_config.api_server + '/api/video/myVideo.api?opt=getMyActiveVideos',
+				url: _master_svr() + '/api/video/myVideo.api?opt=getMyActiveVideos',
 				method: "POST",
 				data: {auth:me.props.parent.props.route.env.state.auth},
 				dataType: "JSON"
