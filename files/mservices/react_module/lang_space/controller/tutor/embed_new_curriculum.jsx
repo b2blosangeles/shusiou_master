@@ -110,7 +110,7 @@ try {
 											<td  width="6"></td>
 											<td  style={{'text-align':'left',whiteSpace: 'normal',wordWrap: 'break-word',
 													'line-height':'1.2em'}}>
-												{a.title}<br/>
+												{a.info.title}<br/>
 												<b>Length</b>:{a.length} (secs)<b>Streaming size</b>:{a.size}												
 											</td>
 										</tr>		
