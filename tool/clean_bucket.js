@@ -15,11 +15,19 @@ let pkg = {
 	fs 		: require('fs')
 }; 
 const AWS = require(env.site_path + '/api/inc/aws-sdk/node_modules/aws-sdk');
+/*
 var s3 = new AWS.S3({
     httpOptions: {timeout: 50000},		
     endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
     accessKeyId: config.objectSpaceDigitalOcean.accessKeyId,
     secretAccessKey: config.objectSpaceDigitalOcean.secretAccessKey
+});
+*/
+var s3 = new AWS.S3({
+    httpOptions: {timeout: 50000},		
+    endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
+    accessKeyId: 'COSEX5U9PJ2Z18X1CS0Y',
+    secretAccessKey: 'LhomgBzkr3O3UQzcM6eyqJ0knWHoeolaOZHCE61f'
 });
 var bucket_name = 'shusiou-dev-1';
 function s(Marker) {
@@ -39,7 +47,7 @@ function s(Marker) {
 			return true;
 		} else {
 			console.log(data.Contents.length + '====');
-		//	return true;
+			return true;
 			let list = [];
 			for(var i = 0; i < data.Contents.length; i++) {
 				list.push({Key : data.Contents[i].Key})
