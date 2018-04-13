@@ -5,9 +5,14 @@
 			const AWS = require(env.site_path + '/api/inc/aws-sdk/node_modules/aws-sdk')
 			me.s3 = new AWS.S3({
 			    httpOptions: {timeout: 5000},
+			/*	
 			    endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
 			    accessKeyId: config.objectSpaceDigitalOcean.accessKeyId,
 			    secretAccessKey: config.objectSpaceDigitalOcean.secretAccessKey
+			*/
+			    endpoint: new AWS.Endpoint('s3.wasabisys.com'),
+			    accessKeyId: 'COSEX5U9PJ2Z18X1CS0Y',
+			    secretAccessKey: 'LhomgBzkr3O3UQzcM6eyqJ0knWHoeolaOZHCE61f'	
 			});
 			
 		}
