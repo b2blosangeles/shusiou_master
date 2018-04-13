@@ -112,7 +112,7 @@ try {
 											<td  style={{'text-align':'left',whiteSpace: 'normal',wordWrap: 'break-word',
 													'line-height':'1.2em'}}>
 												{a.info.title}<br/>
-												<b>Length</b>:{a.info.video_length} (secs)												
+												<b>Length</b>:{a.video_length} (secs)												
 											</td>
 										</tr>		
 									</table>
