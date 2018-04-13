@@ -25,7 +25,7 @@ var s3 = new AWS.S3({
 */
 var s3 = new AWS.S3({
     httpOptions: {timeout: 50000},		
-    endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
+    endpoint: new AWS.Endpoint('s3.wasabisys.com'),
     accessKeyId: 'COSEX5U9PJ2Z18X1CS0Y',
     secretAccessKey: 'LhomgBzkr3O3UQzcM6eyqJ0knWHoeolaOZHCE61f'
 });
