@@ -16,7 +16,7 @@ let pkg = {
 }; 
 const AWS = require(env.site_path + '/api/inc/aws-sdk/node_modules/aws-sdk');
 var s3 = new AWS.S3({
-    httpOptions: {timeout: 5000},		
+    httpOptions: {timeout: 50000},		
     endpoint: new AWS.Endpoint('nyc3.digitaloceanspaces.com'),
     accessKeyId: config.objectSpaceDigitalOcean.accessKeyId,
     secretAccessKey: config.objectSpaceDigitalOcean.secretAccessKey
