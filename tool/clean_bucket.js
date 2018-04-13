@@ -47,6 +47,7 @@ function s(Marker) {
 			return true;
 		} else {
 			console.log(data.Contents.length + '====');
+			console.log(data.Contents);
 			return true;
 			let list = [];
 			for(var i = 0; i < data.Contents.length; i++) {
