@@ -27,7 +27,7 @@ function s(Marker) {
 		Bucket: bucket_name,
 		MaxKeys : 10,
 		Marker : Marker,
-		Delimiter: '/',
+		Delimiter: '',
 		Prefix: 'videos/'
 		
 	};
