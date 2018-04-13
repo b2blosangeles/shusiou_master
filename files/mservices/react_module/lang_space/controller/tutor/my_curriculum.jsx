@@ -204,7 +204,7 @@ try {
 		getCurriculumById: function(curriculum_id, cbk) {
 			var me = this;
 			me.props.route.env.engine({
-				url: '/api/curriculum/myCurriculum.api',
+				url: _master_svr() + '/api/curriculum/myCurriculum.api',
 				method: "POST",
 				data: { cmd:'getCurriculumById',
 				       curriculum_id:curriculum_id,
