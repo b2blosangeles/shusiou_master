@@ -68,7 +68,7 @@ try {
 		*/
 		newAddThumbnail:function(t) {
 			 var idx = Math.floor(Math.random() * (6 - 1) ) + 1;
-			var url = '/images/teacher_' + idx + '.jpg';
+			var url = _master_svr() + '/images/teacher_' + idx + '.jpg';
 			return url;
 		},		
 		closeAdmin:function() {
