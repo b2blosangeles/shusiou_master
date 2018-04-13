@@ -84,6 +84,7 @@ try {
 									<tr>
 										<td width="90" valign="top">
 											<img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmStyle(me.props.parent.state.video)} width="90"/>
+											{me.props.parent.state.video.title}
 										</td>
 										<td  width="6"></td>
 										<td style={{'text-align':'left',whiteSpace: 'normal',wordWrap: 'break-word', 
@@ -111,7 +112,8 @@ try {
 											<td  style={{'text-align':'left',whiteSpace: 'normal',wordWrap: 'break-word',
 													'line-height':'1.2em'}}>
 												{a.info.title}<br/>
-												<b>Length</b>:{a.length} (secs)<b>Streaming size</b>:{a.size}												
+												<b>Length</b>:{a.info.length} (secs)
+												<b>Streaming size</b>:{a.info.size}												
 											</td>
 										</tr>		
 									</table>
