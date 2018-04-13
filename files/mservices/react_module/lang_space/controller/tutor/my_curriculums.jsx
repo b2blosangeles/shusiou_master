@@ -51,7 +51,14 @@ try {
 			return {width:'100%', background:'url('+url+')',
 				'background-size':'cover'}
 		},*/
+		
 		videoImageFilm:function(t, a) {
+			var url =  _node_svr() + '/api/video/pipe.api?env=' + a.env + '&space=' + a.space + '&video_fn='+ a.vid +
+				      '&size=320&ss='+t;
+			return {width:'100%', background:'url('+url+')',
+				'background-size':'cover'}
+		},		
+		videoImageFilmA:function(t, a) {
 			var svr = a.server_ip;
 			if ((a.node_ip) && (a.node_ip.length)) {
 				var idx = Math.floor(Math.random()*a.node_ip.length);
