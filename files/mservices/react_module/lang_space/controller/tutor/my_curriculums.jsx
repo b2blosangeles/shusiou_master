@@ -53,25 +53,10 @@ try {
 		},*/
 		
 		videoImageFilm:function(t, a) {
-			var url =  _node_svr() + '/api/video/pipe.api?env=' + a.env + '&space=' + a.space + '&video_fn='+ a.vid +
+			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
 				      '&size=320&ss='+t;
 			return url;
 		},		
-		videoImageFilmA:function(t, a) {
-			var svr = a.server_ip;
-			if ((a.node_ip) && (a.node_ip.length)) {
-				var idx = Math.floor(Math.random()*a.node_ip.length);
-				svr = a.node_ip[idx];
-			}
-			var url = 'http://' +svr + '/api/video/play_stream.api?type=image&vid='+ a.vid +
-			    '&w=180&s='+t+'&server='+a.server_ip;
-			return url;
-		},
-		/*
-		bgFilmThumbnail:function(v) {
-			return {width:'100%', height:'100%', background:'url('+v+')','background-size':'contain'}	
-		},
-		*/
 		newAddThumbnail:function(t) {
 			 var idx = Math.floor(Math.random() * (6 - 1) ) + 1;
 			var url = _master_svr() + '/images/teacher_' + idx + '.jpg';
