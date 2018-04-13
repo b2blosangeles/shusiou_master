@@ -156,7 +156,7 @@ var app = function(auth_data) {
 				function(data) {
 					var d = [];
 					for (var i=0; i <  CP.data.S1.length; i++) {
-						d.push(CP.data.S1[i);
+						d.push(CP.data.S1[i]);
 					}
 					res.send({_spent_time:data._spent_time, status:data.status, data:d});
 				},
