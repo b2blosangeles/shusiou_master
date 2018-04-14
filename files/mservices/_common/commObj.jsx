@@ -6,7 +6,12 @@ try {
 			console.log(me.props.data);
 			console.log(me.props.code);
 			return {};
-		},		
+		},
+		componentDidUpdate:function(prePropos, preState) {
+			var me = this;
+			$('.pop_preview')[0].src = me.videoLink();
+			$('.pop_preview')[0].play();			
+		},			
 		videoImage : function() {
 			var me = this;
 			let a = me.props.data.rec, 
@@ -26,8 +31,12 @@ try {
 			if (!a.space) return '';
 			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
 				      '&ss=' + ss + '&t=30';
-			return (<video width={size} autoplay>
-					<source src={url} type="video/mp4"/>
+			//setTimeout(
+				
+			//);
+	
+			return (<video id="niu" width={size} control>
+					<source src="" type="video/mp4"/>
 			</video>);
 		},		
 		render: function() {
