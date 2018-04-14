@@ -23,7 +23,8 @@ try {
 			var me = this;
 			if ((me.props.params.id) && (me.props.parent.state.curriculum)) {
 				return (<div>Embed_curriculum_demo : 
-						 <_commObj code={'videoImage'} data={{rec:me.props.parent.state.curriculum, t:177, size:320}}/>
+						<_commObj code={'videoImage'} data={{rec:me.props.parent.state.curriculum, t:177, size:320}}/>
+						<br/>
 						<_commObj code={'videoImageB'}  data={{rec:me.props.parent.state.curriculum, t:77, size:480}}/>
 						<div>
 							<h4>{me.props.parent.state.video.title}</h4>	
