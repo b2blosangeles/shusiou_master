@@ -1,8 +1,9 @@
 try {
 	var _commonLib = React.createClass({
 		getInitialState: function() {
-			console.log(me.props.data);
+			
 			var me = this;
+			console.log(me.props.data);
 			return {};
 		},		
 		videoImageUrl : function(a, t) {
