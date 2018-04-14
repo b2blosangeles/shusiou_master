@@ -342,6 +342,7 @@ var app = function(auth_data) {
 			CP.serial(
 				_f,
 				function(data) {
+					/*
 					try {
 						CP.data.S1.sections =queryStringToJSON(CP.data.S1.script, []);
 						let v = CP.data.S1.sections;
@@ -356,6 +357,7 @@ var app = function(auth_data) {
 					} catch (err) {
 					};	
 					delete CP.data.S1.script;
+					*/
 					res.send({_spent_time:data._spent_time, status:data.status, data:CP.data.S1});
 				},
 				3000
