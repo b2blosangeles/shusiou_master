@@ -19,7 +19,7 @@ try {
 			let me = this, code = (me.props.data) ? me.props.data.code : '';
 			// return me[code]();
 			if (me[code]) {
-				return (me[code])
+				return me[code]
 			} else {
 				return 'inorrect code! ' + code
 			}	
