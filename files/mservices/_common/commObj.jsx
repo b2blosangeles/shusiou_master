@@ -30,7 +30,7 @@ try {
 				
 			//);
 	
-			return (<video id="niu"  control>
+			return (<video id="niu"  controls>
 					<source src={url} type="video/mp4"/>
 			</video>);
 		},		
