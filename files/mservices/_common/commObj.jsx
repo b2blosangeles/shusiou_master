@@ -2,17 +2,19 @@ try {
 	var _commObj = React.createClass({
 		getInitialState: function() {
 			var me = this;
+			console.log('--->');
 			console.log(me.props.data);
+			console.log(me.props.code);
 			return {};
 		},		
 		videoImage : function() {
 			var me = this;
 			let a = me.props.data.rec, 
-			    t =  me.props.data.t, 
+			    ss =  me.props.data.ss, 
 			    size =  (me.props.data.size) ?  me.props.data.size : 480;
 			
 			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
-				      '&size=' + size + '&ss=' + t;
+				      '&size=' + size + '&ss=' + ss;
 			if (!a.space) return '';
 			return (<img src={url}/>);
 		},
