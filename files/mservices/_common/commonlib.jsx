@@ -1,9 +1,5 @@
 try {
 	var _commonLib =  React.createClass({
-		getInitialState: function() {
-			var me = this;
-			return {};
-		},
 		videoImageUrl : function() {
 			return 'aaa';
 		}
