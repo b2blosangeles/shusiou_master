@@ -23,7 +23,7 @@ try {
 			
 			var url =  _node_svr() + '/api/video/pipe_stream.api?space=' + a.space + '&video_fn='+ a.vid +
 				      '&ss=' + ss + '&t=30';
-			return (<video src={url} poster="movie.jpg" controls>
+			return (<video src={url} controls>
 				This is fallback content to display for user agents that do not support the video tag.
 			</video>);
 		},		
