@@ -14,7 +14,7 @@
 			"/mservices/_common/modal-backdrop.js",
 			"/mservices/_common/modal.jsx",
 			"/mservices/_common/breakpoints.jsx",
-			"/mservices/_common/commonlib.jsx",
+			"/mservices/_common/commObj.jsx",
 
 			"/mservices/react_module/lang_space/controller/shusiou_config.js",			
 			
