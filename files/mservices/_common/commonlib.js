@@ -4,6 +4,9 @@ try {
 			var me = this;
 			return {};
 		}
+		videoImageUrl = function() {
+			return 'aaa';
+		}
 	});	
 } catch (err) {
 	console.log(err.message);
