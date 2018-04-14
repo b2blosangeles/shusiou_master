@@ -16,7 +16,7 @@ try {
 			return (<img src={url}/>);
 		},		
 		render: function() {
-			let me = this, code = (me.props.data) ? me.props.data.code : '';
+			let me = this, code = (me.props.data) ? me.props.code : '';
 			if (typeof me[code] === 'function') {
 				return (<span>{me[code]()}</span>)
 			} else {
