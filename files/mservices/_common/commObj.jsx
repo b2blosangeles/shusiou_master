@@ -31,7 +31,7 @@ try {
 			//);
 	
 			return (<video id="niu" width={size} control>
-					<source src="" type="video/mp4"/>
+					<source src={url} type="video/mp4"/>
 			</video>);
 		},		
 		render: function() {
