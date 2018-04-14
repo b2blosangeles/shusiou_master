@@ -26,8 +26,8 @@ try {
 			if (!a.space) return '';
 			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
 				      '&ss=' + ss + '&t=30';
-			return (<video src={url} width={size} autoplay>
-				This is fallback content to display for user agents that do not support the video tag.
+			return (<video width={size} autoplay>
+					<source src={url} type="video/mp4"/>
 			</video>);
 		},		
 		render: function() {
