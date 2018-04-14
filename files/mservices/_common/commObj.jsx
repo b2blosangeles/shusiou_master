@@ -29,10 +29,10 @@ try {
 			setTimeout(
 				function() {
 					$('#niu')[0].play();
-				}, 1000	
+				}
 			);
 	
-			return (<video id="niu" width={size} controls  autoplay>
+			return (<video id="niu" width={size}>
 					<source src={url} type="video/mp4"/>
 			</video>);
 		},		
