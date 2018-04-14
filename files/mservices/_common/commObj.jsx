@@ -26,9 +26,11 @@ try {
 			if (!a.space) return '';
 			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
 				      '&ss=' + ss + '&t=30';
-			//setTimeout(
-				
-			//);
+			setTimeout(
+				function() {
+					$('#niu').[0].play();
+				}, 1000	
+			);
 	
 			return (<video id="niu" width={size} controls  autoplay>
 					<source src={url} type="video/mp4"/>
