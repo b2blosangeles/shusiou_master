@@ -22,9 +22,9 @@ try {
 		render: function() {
 			var me = this;
 			if ((me.props.params.id) && (me.props.parent.state.curriculum)) {
-				return (<div>Embed_curriculum_demo 1 =--=>
-						 <commobj data={{rec:me.props.parent.state.curriculum, t:177, size:320}}/>
-						<commobj data={{rec:me.props.parent.state.curriculum, t:77, size:480}}/>
+				return (<div>Embed_curriculum_demo 1 =-*-=>
+						 <_commobj data={{rec:me.props.parent.state.curriculum, t:177, size:320}}/>
+						<_commobj data={{rec:me.props.parent.state.curriculum, t:77, size:480}}/>
 						<div>
 							<h4>{me.props.parent.state.video.title}</h4>	
 							<p><b>Video ID</b>:{me.props.parent.state.curriculum.vid}</p>  
