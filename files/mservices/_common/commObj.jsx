@@ -21,9 +21,9 @@ try {
 			    ss =  me.props.data.ss, 
 			    size =  (me.props.data.size) ?  me.props.data.size : 480;
 			
-			var url =  _node_svr() + '/api/video/pipe_stream.api?space=' + a.space + '&video_fn='+ a.vid +
+			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
 				      '&ss=' + ss + '&t=30';
-			return (<video src={url} controls>
+			return (<video src={url} width={size} autoplay>
 				This is fallback content to display for user agents that do not support the video tag.
 			</video>);
 		},		
