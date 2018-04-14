@@ -22,7 +22,7 @@ try {
 		render: function() {
 			var me = this;
 			if ((me.props.params.id) && (me.props.parent.state.curriculum)) {
-				return (<div>Embed_curriculum_demo =>
+				return (<div>Embed_curriculum_demo : 
 						 <_commObj data={{rec:me.props.parent.state.curriculum, t:177, size:320}}/>
 						<_commObj data={{rec:me.props.parent.state.curriculum, t:77, size:480}}/>
 						<div>
