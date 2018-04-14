@@ -27,7 +27,8 @@ try {
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.data.code : '';
-			return (typeOf me[code] === 'function') ? me[code]() : ('inorrect code! ' + code);
+			return me[code]();
+			// return (typeof me[code] === 'function') ? me[code]() : ('inorrect code! ' + code);
 		}
 	});	
 } catch (err) {
