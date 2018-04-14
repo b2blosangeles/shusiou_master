@@ -22,6 +22,7 @@ try {
 			}
 			var ips = me.video.node_ip;
 			var IP = ips[Math.floor(Math.random() * ips.length)];
+			alert(123);
 		//	var vurl =  shusiou_config.api_server + '/api/video/play_stream.api?type=video&vid='+me.props.parent.state.curriculum.vid;
 			var vurl = 'http://' + IP + '/api/video/play_stream.api?type=video&vid=' +
 			    me.video.vid + '&server=' +  me.video.server_ip;
