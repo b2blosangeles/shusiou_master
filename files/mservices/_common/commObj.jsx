@@ -18,7 +18,11 @@ try {
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.data.code : '';
 			// return me[code]();
-			return (me[code]) ? me[code]() : ('inorrect code! ' + code);
+			if (me[code]) {
+				return (me[code])
+			} else {
+				return 'inorrect code! ' + code
+			}	
 		}
 	});	
 } catch (err) {
