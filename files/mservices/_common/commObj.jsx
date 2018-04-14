@@ -6,11 +6,6 @@ try {
 			console.log(me.props.data);
 			console.log(me.props.code);
 			return {};
-		},
-		componentDidUpdate:function(prePropos, preState) {
-			var me = this;
-			$('.pop_preview')[0].src = me.videoLink();
-			$('.pop_preview')[0].play();			
 		},			
 		videoImage : function() {
 			var me = this;
