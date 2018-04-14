@@ -1,5 +1,5 @@
 try {
-	var _commonLib = React.createClass({
+	var commObj = React.createClass({
 		getInitialState: function() {
 			var me = this;
 			console.log(me.props.data);
