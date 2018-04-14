@@ -5,16 +5,16 @@ try {
 			console.log(me.props.data);
 			return {};
 		},		
-		videoImageUrl : function() {
+		videoImage : function() {
 			var me = this;
-			let a = me.props.data.rec, t =  me.props.data.t;
+			let a = me.props.data.rec, t =  me.props.data.t, size =  (me.props.data.size) ?  (me.props.data.size) ? 480;
 			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
-				      '&size=480&ss='+t;
+				      '&size=' + size + '&ss='+t;
 			return (<img src={url}/>);
 		},
 		render: function() {
 			var me = this;
-			return (<span>{me.videoImageUrl()}</span>)
+			return (<span>{me.videoImage()}</span>)
 		}
 	});	
 } catch (err) {
