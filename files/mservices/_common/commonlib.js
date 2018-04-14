@@ -3,7 +3,7 @@ try {
 		getInitialState: function() {
 			var me = this;
 			return {};
-		}
+		},
 		videoImageUrl : function() {
 			return 'aaa';
 		}
