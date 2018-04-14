@@ -6,6 +6,7 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
+			alert(_commonLib.videoImageUrl());
 			if (me.props.params.opt == 'new') {
 				me.props.parent.getVideoInfo(me.props.params.id,
 					function(data) {
