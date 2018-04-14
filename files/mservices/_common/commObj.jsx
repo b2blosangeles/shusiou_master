@@ -28,7 +28,7 @@ try {
 				      '&ss=' + ss + '&t=30';
 			setTimeout(
 				function() {
-					$('#niu').[0].play();
+					$('#niu')[0].play();
 				}, 1000	
 			);
 	
