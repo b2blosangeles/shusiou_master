@@ -1,10 +1,10 @@
 try {
-	var _common =  React.createClass({
+	var _commonLib =  React.createClass({
 		getInitialState: function() {
 			var me = this;
 			return {};
 		}
-		videoImageUrl = function() {
+		videoImageUrl : function() {
 			return 'aaa';
 		}
 	});	
