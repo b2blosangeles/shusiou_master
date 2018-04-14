@@ -5,7 +5,7 @@ try {
 		},
 		render: function() {
 			var me = this;
-			return (<div>niu</div>)
+			return (<span>niu</span>)
 		}
 	});	
 } catch (err) {
