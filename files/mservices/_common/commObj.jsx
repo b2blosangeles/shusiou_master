@@ -1,5 +1,5 @@
 try {
-	var commObj = React.createClass({
+	var commobj = React.createClass({
 		getInitialState: function() {
 			var me = this;
 			console.log(me.props.data);
