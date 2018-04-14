@@ -13,7 +13,7 @@ try {
 			
 			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
 				      '&size=' + size + '&ss=' + t;
-			if (!a) return '';
+			if (!a.space) return '';
 			return (<img src={url}/>);
 		},
 		video : function() {
@@ -21,7 +21,7 @@ try {
 			let a = me.props.data.rec, 
 			    ss =  me.props.data.ss, 
 			    size =  (me.props.data.size) ?  me.props.data.size : 480;
-			if (!a) return '';
+			if (!a.space) return '';
 			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
 				      '&ss=' + ss + '&t=30';
 			return (<video src={url} width={size} autoplay>
