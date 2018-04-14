@@ -17,12 +17,11 @@ try {
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.data.code : '';
-			// return me[code]();
-			//if (me[code]) {
-				return (<span>{code}</span>)
-			//} else {
-			//	return 'inorrect code! ' + code
-			//}	
+			if (typeof me[code] === 'function') {
+				return (<span>{me[code]{}}</span>)
+			} else {
+				return  (<span>{'inorrect code! ' + code}</span>)
+			} 
 		}
 	});	
 } catch (err) {
