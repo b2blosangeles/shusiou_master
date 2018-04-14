@@ -18,7 +18,7 @@ try {
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.data.code : '';
 			if (typeof me[code] === 'function') {
-				return (<span>{me[code]{}}</span>)
+				return (<span>{me[code]()}</span>)
 			} else {
 				return  (<span>{'inorrect code! ' + code}</span>)
 			} 
