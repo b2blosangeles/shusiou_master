@@ -17,7 +17,7 @@ try {
 		},
 		render: function() {
 			var me = this;
-			return (<span>{me.videoImage()}===</span>)
+			return (<span>{me.videoImage()}---</span>)
 		}
 	});	
 } catch (err) {
