@@ -6,13 +6,15 @@ try {
 			return {};
 		},
 		componentDidMount:function() {
-			var me = this;	
+			var me = this;
 			console.log('--------componentDidMount--------');
+			console.log(me.props.rec);
 		},	
 		componentDidUpdate:function(prePropos, preState) {
 			
 			var me = this;
 			console.log('---------componentDidUpdate--------');
+			console.log(me.props.rec);
 		},			
 		close_admin:function(){
 			var me = this;  // $('video').attr('src', ''); 
