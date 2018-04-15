@@ -36,20 +36,24 @@ try {
 			if (!a.space) return '';
 			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
 				      '&ss=' + ss + '&t=30';
+			var video_domid = '#video_' + _commObj.unicode; 
 			setTimeout(
-				function() {
-					$('#video_' + _commObj.unicode)[0].play();
-					$('#video_' + _commObj.unicode).click(function(){
-						if (this.paused) {
-							this.play();
-						} else {
-							this.pause();
-						}
-					    
-					});
-				}
+				(function(video_domid) {
+					var video = $(video_domid); 
+					return function() {
+						$(video_domid)[0].play();
+						$(video_domid).click(function(){
+							if (this.paused) {
+								this.play();
+							} else {
+								this.pause();
+							}
+
+						});
+					}
+				})(video_domid);
 			);
-			return (<video id={'#video_' + _commObj.unicode} width={size} loop={true} autoplay={true}>
+			return (<video id={video_domid} width={size} loop={true} autoplay={true}>
 					<source src={url} type="video/mp4"/>
 			</video>);
 		},		
