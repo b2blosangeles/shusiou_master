@@ -22,7 +22,9 @@ try {
 			var me = this, 
 			    url = me.videoImageUrl(), width = (me.props.data.width) ? me.props.data.width : '';
 			if (!url) return (<span/>);
-			else return (width) ? (<img src={url} width={width} click={me.props.data.click()} />) :  (<img src={url} click={me.props.data.click()} />);
+			else return (width) ? (<img src={url} width={width} 
+				click={ (me.props.data.click) ? me.props.data.click() : ''} />) : 
+					(<img src={url} click={ (me.props.data.click) ? me.props.data.click() : ''} />);
 		},
 		videoBgImage : function() {
 			let me = this, img = me.props.data.img, url =  me.videoImageUrl();
