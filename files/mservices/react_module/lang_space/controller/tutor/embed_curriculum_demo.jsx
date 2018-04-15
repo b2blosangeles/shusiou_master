@@ -24,7 +24,8 @@ try {
 						<br/>
 						<_commObj code={'video'} data={{rec:me.props.parent.state.curriculum, ss:77, size:320}}/>
 						<br/>
-						<_commObj code={'videoImage'}  data={{rec:me.props.parent.state.curriculum, ss:577, size:180}}/>
+						<_commObj code={'videoImage'}  data={{rec:me.props.parent.state.curriculum, 
+							width:'100%', ss:90, size:180}}/>
 					
 					</div>)
 			} else {
