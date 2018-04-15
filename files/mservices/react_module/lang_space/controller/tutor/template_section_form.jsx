@@ -77,7 +77,7 @@ try {
 				space:me.props.parent.state.curriculum.space,
 				video_length:me.props.parent.state.curriculum.video_length
 			};
-			alert(JSON.stringify(video));
+			//alert(JSON.stringify(video));
 			let sections = (me.props.parent.state.curriculum.script)?me.props.parent.state.curriculum.script:[];
 			
 			me.setState({ModalPlus:{type:'popup',  hold:0,
