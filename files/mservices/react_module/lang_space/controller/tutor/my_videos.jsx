@@ -137,8 +137,6 @@ try {
 											<i className="fa fa-play" aria-hidden="true"></i>
 										</button>										
 									</div>
-									<!--img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmStyle(6, a)} 
-									/-->
 									<_commObj code={'videoBgImage'}  data={{rec:me.props.parent.state.curriculum, ss:577, size:180}}/>
 								</div>
 
