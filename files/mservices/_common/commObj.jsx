@@ -43,8 +43,9 @@ try {
 			
 			var video_domid = 'video_' + _commObj.unicode; 
 			setTimeout(
-				(function(video_domid) {
-					return function() {
+				//(function(video_domid) {
+				//	return 
+					function() {
 						let video = $('#' + video_domid);
 						video[0].play();
 						video.click(function(){
@@ -52,7 +53,7 @@ try {
 							else this.pause();
 						});
 					}
-				})(video_domid)
+				//})(video_domid)
 			);
 			return (<video id={video_domid} src={url} width={size} loop={true} autoplay={true}>
 			</video>);
