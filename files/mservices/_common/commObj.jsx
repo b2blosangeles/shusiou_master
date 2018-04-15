@@ -42,7 +42,7 @@ try {
 				      '&size=' + size + '&ss=' + ss;
 			if (!a.space) return '';
 			return (<img src={ _master_svr() + '/images/film_bg.png'} 
-					style={width:'100%', background:'url('+url+')', 'background-size':'cover'} />);
+				style={{width:'100%', background:'url('+url+')', 'background-size':'cover'}} />);
 		},		
 		video : function() {
 			var me = this;
