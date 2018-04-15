@@ -41,6 +41,7 @@ try {
 				(function(video_domid) {
 					return function() {
 						// $(video_domid)[0].play();
+						console.log(video_domid);
 						$(video_domid).click(function(){
 							if (this.paused) {
 								this.play();
