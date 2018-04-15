@@ -39,9 +39,8 @@ try {
 			var video_domid = '#video_' + _commObj.unicode; 
 			setTimeout(
 				(function(video_domid) {
-					var video = $(video_domid); 
 					return function() {
-						$(video_domid)[0].play();
+						// $(video_domid)[0].play();
 						$(video_domid).click(function(){
 							if (this.paused) {
 								this.play();
