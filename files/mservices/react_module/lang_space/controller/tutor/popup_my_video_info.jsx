@@ -7,14 +7,16 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
-
+/*
 			$('.pop_preview')[0].src = me.videoLink();
 			$('.pop_preview')[0].play();
+*/			
 		},
 		componentDidUpdate:function(prePropos, preState) {
 			var me = this;
+			/*
 			$('.pop_preview')[0].src = me.videoLink();
-			$('.pop_preview')[0].play();			
+			$('.pop_preview')[0].play();*/			
 		},		
 		close_admin:function(){
 			var me = this;  $('video').attr('src', ''); me.props.parent.closeAdmin();
