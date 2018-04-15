@@ -84,7 +84,7 @@ try {
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
 			if (typeof me[code] === 'function') {
-				return (<span>{me.props.data.rec.vid}=={me[code](me.props)}</span>)
+				return (<span>{me.props.data.rec.vid}==<br/>{me[code](me.props)}</span>)
 			} else {
 				return  (<span>{'inorrect code! ' + code}</span>)
 			} 
