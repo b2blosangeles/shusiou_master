@@ -131,9 +131,7 @@ try {
 				    me.video.vid +'&w=90&s=' + a + '&server=' + 
 				    me.video.server_ip;
 				*/
-				if (idx < 8 || idx > A.length - 8) return (
-					return (<span>{idx}</span>)
-				)
+				if (idx < 8 || idx > A.length - 8)  return (<span>{idx}</span>)
 				else return (<span></span>)
 			});
 		},
