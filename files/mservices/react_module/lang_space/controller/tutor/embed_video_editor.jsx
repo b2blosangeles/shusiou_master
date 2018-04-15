@@ -258,12 +258,12 @@ try {
 									 <button type="button" className="btn btn-sm btn-success btn_margin3"
 										  style={me.disbleAdjustSection(-0.5, 0)}
 										 onClick={me.adjustSection.bind(this, -0.5, 0)}> 									
-										 <i className="fa fa-step-backward" aria-hidden="true"></i> -&#189;</button>							
+										  -&#189;</button>							
 
 									<button type="button" className="btn btn-sm btn-success btn_margin3"
 										style={me.disbleAdjustSection(0.5, 0)}
 										 onClick={me.adjustSection.bind(this, 0.5, 0)}> 
-										<i className="fa fa-step-backward" aria-hidden="true"></i> +&#189;</button>
+										 +&#189;</button>
 									{/*
 									<button type="button" className="btn btn-sm btn-success btn_margin3"
 										style={me.disbleAdjustSection(0,0.5)}
@@ -281,8 +281,17 @@ try {
 								style={(me.state.track.s !== null)?{display:''}:{display:'none'}}		     
 								dangerouslySetInnerHTML={{__html: (me.state.track.t)?(me.toHHMMSS(me.state.track.s) + 
 								' - ' + me.toHHMMSS(me.state.track.s + me.state.track.t)):''}} />
-
 									
+									 <button type="button" className="btn btn-sm btn-success btn_margin3"
+										  style={me.disbleAdjustSection(-0.5, 0)}
+										 onClick={me.adjustSection.bind(this, -0.5, 0)}> 									
+										 -&#189; </button>									
+									
+									<button type="button" className="btn btn-sm btn-success btn_margin3"
+										  style={me.disbleAdjustSection(-0.5, 0)}
+										 onClick={me.adjustSection.bind(this, -0.5, 0)}> 									
+										 +&#189; </button>
+									{/*
 									 <button type="button" className="btn btn-sm btn-success btn_margin3"
 										  style={me.disbleAdjustSection(-0.5, 0)}
 										 onClick={me.adjustSection.bind(this, -0.5, 0)}> 									
@@ -292,7 +301,7 @@ try {
 										  style={me.disbleAdjustSection(-0.5, 0)}
 										 onClick={me.adjustSection.bind(this, -0.5, 0)}> 									
 										 +&#189; <i className="fa fa-step-forward" aria-hidden="true"></i></button>
-									
+									*/}
 								</span>							
 
 							</td>
