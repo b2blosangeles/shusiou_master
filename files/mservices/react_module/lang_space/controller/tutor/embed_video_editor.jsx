@@ -58,8 +58,9 @@ try {
 			if (isNaN(v)) return v;
 		  	var h = Math.floor(v / 3600),m = ("00" + Math.floor((v % 3600) / 60)).slice(-2), 
 		     		s = ("00" + (Math.floor(v) % 3600) % 60).slice(-2), ms = 1000 * (v - Math.floor(v));
-		     	if (!noms) { ms = (ms)?'&#189;':''; }
-		     	else ms = '';			
+		     	// if (!noms) { ms = (ms)?'&#189;':''; }
+		     	if (!noms) { ms = (ms)?'.5':''; }
+			else ms = '';			
 		  	return h + ':' + m + ':' + s + ' ' + ms;
 		},		
 		videoBar:function() {
