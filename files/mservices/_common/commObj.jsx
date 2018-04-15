@@ -42,10 +42,10 @@ try {
 		},		
 		video : function(props) {
 			var me = this;
-			let a = props.data.rec, 
-			    ss =  props.data.ss, 
-			    t = props.data.t,
-			    size =  (props.data.size) ?  props.data.size : 480,
+			let a = me.props.data.rec, 
+			    ss =  me.props.data.ss, 
+			    t = me.props.data.t,
+			    size =  (me.props.data.size) ?  me.props.data.size : 480,
 			    url;			
 			
 			if (!a.space) return '';
@@ -57,9 +57,6 @@ try {
 				(function(video_domid) {
 					return function() {
 						let video = $('#' + video_domid);
-						
-						alert($('video').length);
-						
 						video[0].play();
 						video.click(function(){
 							if (this.paused)  this.play();
@@ -68,15 +65,6 @@ try {
 					}
 				})(video_domid)
 			);
-			/*
-			return (<span>
-				{url}
-			</span>);
-			
-					<source src={url} type="video/mp4"/>
-			
-			*/
-			
 			return (<video id={video_domid} src={url} width={size} loop={true} autoplay={true}>
 			</video>);
 			
