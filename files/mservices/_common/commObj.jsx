@@ -28,10 +28,11 @@ try {
 				      '&ss=' + ss + '&t=30';
 			setTimeout(
 				function() {
-					$('#niu')[0].play();
+					$('#niu').click(function(){
+					    this.play();
+					});
 				}
 			);
-	
 			return (<video id="niu" width={size}>
 					<source src={url} type="video/mp4"/>
 			</video>);
