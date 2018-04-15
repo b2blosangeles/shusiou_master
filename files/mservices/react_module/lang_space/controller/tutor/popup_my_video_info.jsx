@@ -18,8 +18,8 @@ try {
 			console.log('---------componentDidUpdate--------');
 			console.log('me.props.rec->');
 			console.log(me.props.rec.vid);
-			console.log('prePropos.rec->');
-			console.log(prePropos.rec.vid);
+			console.log('me.state.rec.vid->');
+			console.log(me.state.rec.vid);
 		},			
 		close_admin:function(){
 			var me = this;  // $('video').attr('src', ''); 
