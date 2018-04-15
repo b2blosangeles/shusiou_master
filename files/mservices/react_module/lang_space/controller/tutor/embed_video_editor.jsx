@@ -20,7 +20,6 @@ try {
 					me.setState({preview_time:v})
 				};
 			}
-			alert(1237);
 			return true;
 			var ips = me.video.node_ip;
 			var IP = ips[Math.floor(Math.random() * ips.length)];
