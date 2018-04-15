@@ -50,7 +50,7 @@ try {
 						</div>	
 					</div>	
 					<div className="row">
-						<_commObj code={'video'} data={{rec:me.stat.rec, 
+						<_commObj code={'video'} data={{rec:me.state.rec, 
 							size:800}}/>
 					</div>							
 				</div>	
