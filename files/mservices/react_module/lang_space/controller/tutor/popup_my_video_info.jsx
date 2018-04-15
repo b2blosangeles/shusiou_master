@@ -28,7 +28,12 @@ try {
 			me.props.parent.videoDelete(me.props.rec.vid);
 			me.close_admin();
 			
-		},					
+		},
+		loadVideo:function() {
+			var me = this; 
+			return (<_commObj code={'video'} data={{rec:me.state.rec, 
+							size:800}}/>);
+		},
 		render:function() {
 			var me = this;
 			return (
@@ -50,8 +55,7 @@ try {
 						</div>	
 					</div>	
 					<div className="row">
-						<_commObj code={'video'} data={{rec:me.state.rec, 
-							size:800}}/>
+						{me.loadVideo()}
 					</div>							
 				</div>	
 			)	
