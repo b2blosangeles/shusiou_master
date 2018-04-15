@@ -17,7 +17,7 @@ try {
 			$('.pop_preview')[0].play();			
 		},		
 		close_admin:function(){
-			var me = this;  $('video')[0].src = ''; me.props.parent.closeAdmin();
+			var me = this;  $('video').attr('src', ''); me.props.parent.closeAdmin();
 		},
 		delete_video:function(){
 			var me = this;  
