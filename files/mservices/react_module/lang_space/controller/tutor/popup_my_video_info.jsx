@@ -40,7 +40,6 @@ try {
 					<div className="row">
 						<_commObj code={'video'} data={{rec:me.props.rec, 
 							size:800}}/>
-
 					</div>							
 				</div>	
 			)	
