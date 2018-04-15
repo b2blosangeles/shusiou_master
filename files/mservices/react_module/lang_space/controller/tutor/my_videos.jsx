@@ -50,14 +50,6 @@ try {
 				return {'font-size':'1em'}	
 			}
 		},
-		/*
-		bgFilmStyle:function(t, a) {
-			var url =  _node_svr() + '/api/video/pipe.api?env=' + a.env + '&space=' + a.space + '&video_fn='+ a.vid +
-				      '&size=320&ss='+t;
-			return {width:'100%', background:'url('+url+')',
-				'background-size':'cover'}
-		},
-		*/
 		bgFilmThumbnail:function(v) {
 			return {width:'100%', height:'100%', background:'url('+v+')','background-size':'contain'}	
 		},		
