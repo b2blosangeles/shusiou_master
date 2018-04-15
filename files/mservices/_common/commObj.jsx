@@ -40,7 +40,7 @@ try {
 			setTimeout(
 				(function(video) {
 					return function() {
-						video[0].play();
+						video.play();
 						video.click(function(){
 							if (this.paused)  this.play();
 							else this.pause();
