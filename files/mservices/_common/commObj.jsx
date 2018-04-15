@@ -24,10 +24,7 @@ try {
 			return (url) ? (<img src={url} width="100%"/>) : (<span/>);
 		},
 		videoBgImage : function() {
-			var me = this;
-			let img = me.props.data.img,
-			    url =  me.videoImageUrl();
-			if (!a.space) return '';
+			let me = this, img = me.props.data.img, url =  me.videoImageUrl();
 			return (url) ? (<img src={img} 
 				style={{width:'100%', background:'url('+url+')', 'background-size':'cover'}} />) :  (<span/>);
 		},		
