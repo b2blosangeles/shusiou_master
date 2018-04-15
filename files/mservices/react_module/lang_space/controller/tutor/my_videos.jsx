@@ -49,13 +49,15 @@ try {
 			} else {
 				return {'font-size':'1em'}	
 			}
-		},		
+		},
+		/*
 		bgFilmStyle:function(t, a) {
 			var url =  _node_svr() + '/api/video/pipe.api?env=' + a.env + '&space=' + a.space + '&video_fn='+ a.vid +
 				      '&size=320&ss='+t;
 			return {width:'100%', background:'url('+url+')',
 				'background-size':'cover'}
 		},
+		*/
 		bgFilmThumbnail:function(v) {
 			return {width:'100%', height:'100%', background:'url('+v+')','background-size':'contain'}	
 		},		
@@ -137,7 +139,7 @@ try {
 											<i className="fa fa-play" aria-hidden="true"></i>
 										</button>										
 									</div>
-									<_commObj code={'videoBgImage'}  data={{rec:a, ss:577, size:180}}/>
+									<_commObj code={'videoBgImage'}  data={{rec:a, ss:90, size:180}}/>
 								</div>
 
 							</div>							
