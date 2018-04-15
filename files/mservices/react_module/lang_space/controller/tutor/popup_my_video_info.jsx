@@ -7,13 +7,16 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
+			/*
 			if (me.props) me.setState({rec:me.props.rec});
 			console.log('--------componentDidMount--------');
 			console.log(me.props.rec);
+			*/
 		},	
 		componentDidUpdate:function(prePropos, preState) {
 			
 			var me = this;
+			/*
 			// if (me.props.rec.vid !==me.state.rec.vid) 
 			// me.setState({rec:me.props.rec});
 			console.log('---------componentDidUpdate--------');
@@ -21,6 +24,7 @@ try {
 			console.log(me.props.rec.vid);
 			console.log('me.state.rec.vid->');
 			console.log(me.state.rec.vid);
+			*/
 		},			
 		close_admin:function(){
 			var me = this;  // $('video').attr('src', ''); 
