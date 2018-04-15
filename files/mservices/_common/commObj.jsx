@@ -51,7 +51,7 @@ try {
 
 						});
 					}
-				})(video_domid);
+				})(video_domid)
 			);
 			return (<video id={video_domid} width={size} loop={true} autoplay={true}>
 					<source src={url} type="video/mp4"/>
