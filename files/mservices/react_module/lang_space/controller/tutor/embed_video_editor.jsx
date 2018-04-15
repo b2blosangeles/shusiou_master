@@ -201,6 +201,7 @@ try {
 					<tr>
 							<td width="48%">
 								Original Movie:
+								=={me.video.vid}==
 
 							</td>
 							<td width="1%" style={{'border-right':'2px solid #ccc'}}></td>
