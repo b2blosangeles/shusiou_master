@@ -23,14 +23,6 @@ try {
 			 
 			var vurl = _node_svr() + '/api/video/pipe_stream.api?space=' + me.video.space + '&video_fn='+ me.video.vid;
 			
-			
-		//	return true;
-		//	var ips = me.video.node_ip;
-		//	var IP = ips[Math.floor(Math.random() * ips.length)];
-			
-		//	var vurl =  shusiou_config.api_server + '/api/video/play_stream.api?type=video&vid='+me.props.parent.state.curriculum.vid;
-		//	var vurl = 'http://' + IP + '/api/video/play_stream.api?type=video&vid=' +
-		//	    me.video.vid + '&server=' +  me.video.server_ip;
 			var _itv = setInterval(
 				function() {
 					if (me.video.vid) {
@@ -123,6 +115,8 @@ try {
 		},
 		showSectionImages: function() {
 			var me = this, A = [];
+			alert(36);
+			return true;
 			if (!me.state.track) return false;
 			for (var i = 0; i < 2 * me.state.track.t; i++) {
 				A[A.length] = me.state.track.s + i * 0.5;
