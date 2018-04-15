@@ -15,7 +15,7 @@ try {
 			
 			var me = this;
 			// if (me.props.rec.vid !==me.state.rec.vid) 
-			me.setState({rec:me.props.rec});
+			// me.setState({rec:me.props.rec});
 			console.log('---------componentDidUpdate--------');
 			console.log('me.props.rec->');
 			console.log(me.props.rec.vid);
@@ -35,7 +35,7 @@ try {
 		},
 		loadVideo:function() {
 			var me = this; 
-			return (<_commObj code={'video'} data={{rec:me.state.rec, 
+			return (<_commObj code={'video'} data={{rec:me.props.rec, 
 							size:800}}/>);
 		},
 		render:function() {
