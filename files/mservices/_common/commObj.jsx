@@ -41,7 +41,7 @@ try {
 				(function(video_domid) {
 					return function() {
 						let video = $('#' + video_domid);
-						video.play();
+						video[0].play();
 						video.click(function(){
 							if (this.paused)  this.play();
 							else this.pause();
