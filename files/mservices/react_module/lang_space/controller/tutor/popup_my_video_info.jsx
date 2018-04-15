@@ -40,9 +40,9 @@ try {
 		loadVideo:function() {
 			var me = this; 
 			let rec = JSON.parse(JSON.stringify(me.props.rec));
-			return (<span>{rec.vid}=={me.state.rec.vid}</span>)
-			//return (<_commObj code={'video'} data={{rec : rec, 
-			//				size:800}}/>);
+			//return (<span>{rec.vid}=={me.state.rec.vid}</span>)
+			return (<_commObj code={'video'} data={{rec : rec, 
+							size:800}}/>);
 		},
 		render:function() {
 			var me = this;
