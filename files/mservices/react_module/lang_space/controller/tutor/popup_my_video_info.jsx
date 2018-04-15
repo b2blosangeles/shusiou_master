@@ -26,7 +26,7 @@ try {
 		},
 		loadVideo:function() {
 			var me = this; 
-			let rec = me.props.rec);
+			let rec = me.props.rec;
 			return (<span>{rec.vid}=={me.state.rec.vid}</span>)
 			/*
 			return (function(rec) {
