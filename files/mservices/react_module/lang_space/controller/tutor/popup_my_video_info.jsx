@@ -13,7 +13,6 @@ try {
 		},			
 		close_admin:function(){
 			var me = this;  
-			alert($('video').length);
 			$('video').attr('src', ''); 
 			// if ($('video')[0]) $('video')[0].pause();
 			me.props.parent.closeAdmin();
