@@ -9,30 +9,28 @@ try {
 			}	
 			console.log(_commObj.unicode);
 			return {};
-		},			
-		videoImage : function() {
-			var me = this;
-			let a = me.props.data.rec, 
-			    ss =  me.props.data.ss, 
+		},
+		videoImageUrl : function() {
+			let me = this, a = me.props.data.rec, ss =  me.props.data.ss, 
 			    size =  (me.props.data.size) ?  me.props.data.size : 480;
 			
 			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
 				      '&size=' + size + '&ss=' + ss;
 			if (!a.space) return '';
-			return (<img src={url} width="100%"/>);
+			return url;
+		},
+		videoImage : function() {
+			var me = this,
+			    url = me.videoImageUrl();
+			return (url) ? (<img src={url} width="100%"/>) : (<span/>);
 		},
 		videoBgImage : function() {
 			var me = this;
-			let a = me.props.data.rec, 
-			    img = me.props.data.img, 
-			    ss =  me.props.data.ss, 
-			    size =  (me.props.data.size) ?  me.props.data.size : 480;
-			
-			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
-				      '&size=' + size + '&ss=' + ss;
+			let img = me.props.data.img,
+			    url =  me.videoImageUrl();
 			if (!a.space) return '';
-			return (<img src={img} 
-				style={{width:'100%', background:'url('+url+')', 'background-size':'cover'}} />);
+			return (url) ? (<img src={img} 
+				style={{width:'100%', background:'url('+url+')', 'background-size':'cover'}} />) :  (<span/>);
 		},		
 		video : function() {
 			var me = this;
