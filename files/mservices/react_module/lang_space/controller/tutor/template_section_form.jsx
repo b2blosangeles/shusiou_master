@@ -14,7 +14,7 @@ try {
 		componentDidMount:function() {
 			var me = this;
 			me.props.parent.props.route.env.engine({
-				url: '/api/content_data/getScripts.api',
+				url: _master_svr() +  '/api/content_data/getScripts.api',
 				method: "POST",
 				data: {cmd:'getAll', auth:me.props.parent.props.route.env.state.auth},
 				dataType: "JSON"
@@ -38,7 +38,7 @@ try {
 		loadScriptById:function(id) {
 			var me = this;
 			me.props.parent.props.route.env.engine({
-				url: '/api/content_data/getScripts.api',
+				url:  _master_svr() +  '/api/content_data/getScripts.api',
 				method: "POST",
 				data: {cmd:'getScriptById', id: id, auth:me.props.parent.props.route.env.state.auth},
 				dataType: "JSON"
@@ -126,7 +126,7 @@ try {
 			let me = this, 
 			    data = {section_id:me.props.section_id, tpl:me.state.c_tpl, data:me.state.data, c_section:me.state.c_section};
 			me.props.env.engine({
-				url: '/api/curriculum/myCurriculum.api',
+				url: _master_svr() + '/api/curriculum/myCurriculum.api',
 				method: "POST",
 				data: { cmd:opt,
 				       data: {

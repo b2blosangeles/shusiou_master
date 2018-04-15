@@ -11,7 +11,7 @@ try {
 		pullList:function() {
 			var me = this;
 			me.props.route.env.engine({
-				url: '/api/curriculum/myCurriculum.api',
+				url:  _master_svr() +  '/api/curriculum/myCurriculum.api',
 				method: "POST",
 				data: {cmd:'getList', auth:me.props.route.env.state.auth},
 				dataType: "JSON"
@@ -41,34 +41,10 @@ try {
 			} else {
 				return {'font-size':'1em'}	
 			}
-		},
-		/*
-		bgFilmStyle:function(t, a) {
-						console.log('---url-A--');
-			console.log(url);
-			return '';
-			var url = 'http://' + a.server_ip + '/api/video/play_stream.api?type=image&vid='+ a.vid +'&w=180&s='+t;
-			return {width:'100%', background:'url('+url+')',
-				'background-size':'cover'}
-		},*/
-		videoImageFilm:function(t, a) {
-			var svr = a.server_ip;
-			if ((a.node_ip) && (a.node_ip.length)) {
-				var idx = Math.floor(Math.random()*a.node_ip.length);
-				svr = a.node_ip[idx];
-			}
-			var url = 'http://' +svr + '/api/video/play_stream.api?type=image&vid='+ a.vid +
-			    '&w=180&s='+t+'&server='+a.server_ip;
-			return url;
-		},
-		/*
-		bgFilmThumbnail:function(v) {
-			return {width:'100%', height:'100%', background:'url('+v+')','background-size':'contain'}	
-		},
-		*/
+		},		
 		newAddThumbnail:function(t) {
 			 var idx = Math.floor(Math.random() * (6 - 1) ) + 1;
-			var url = '/images/teacher_' + idx + '.jpg';
+			var url = _master_svr() + '/images/teacher_' + idx + '.jpg';
 			return url;
 		},		
 		closeAdmin:function() {
@@ -103,7 +79,8 @@ try {
 										<div className="video_thumbnail_text_top">
 											{a.name}	
 										</div>
-										<img src={me.videoImageFilm(77,a)} style={{width:'100%'}}/>
+										<_commObj code={'videoImage'}  
+											data={{rec:a, width:'100%', ss:90, size:320}}/>
 										<div className="video_thumbnail_text">
 											<a href={'#/tutor/my_curriculum/edit/' + a.curriculum_id}>
 												<button type="button" 

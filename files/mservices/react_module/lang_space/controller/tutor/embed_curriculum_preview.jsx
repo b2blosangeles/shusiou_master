@@ -15,21 +15,10 @@ try {
 				);
 			}
 		},
-		getVideos:function() {
-			var me = this;
-			/*
-			$.ajax({
-				url: shusiou_config.api_server + '/api/shusiou_get_videos.js',
-				method: "POST",
-				data: {uid:1, token:'xxxxx'},
-				dataType: "JSON"
-			}).done(function( data) {
-				me.setState({list:data.data});
-				console.log(data);
-			}).fail(function( jqXHR, textStatus ) {
-				console.log('error');
-			});
-			*/
+		videoImage:function(t, a) {
+			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
+				      '&size=320&ss='+t;
+			return url;
 		},
 		checkVideo:function(id) {
 			var me = this;
@@ -46,10 +35,8 @@ try {
 						<div>{me.props.params.opt}
 							<h4>{me.props.parent.state.video.title}</h4>	
 							<p><b>Video ID</b>:{me.props.parent.state.curriculum.vid}</p>  
-							<p><b>Video Length</b>:({me.props.parent.state.video.length} Secs)</p>
-							<img src={shusiou_config.api_server + 
-							'/api/video/play_stream?type:=image&vid='+me.props.parent.state.curriculum.vid+
-							'&w=180&s=10'}/>
+							<p><b>Video Length</b>:({me.props.parent.state.curriculum.video_length} Secs)</p>
+							<img src={me.videoImage(61, props.parent.state.curriculum)}/>
 						</div>	
 					
 					</div>)

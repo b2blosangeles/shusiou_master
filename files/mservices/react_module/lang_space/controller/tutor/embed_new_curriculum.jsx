@@ -20,7 +20,7 @@ try {
 		getVideos:function() {
 			var me = this;
 			$.ajax({
-				url: shusiou_config.api_server + '/api/video/myVideo.api?opt=getMyActiveVideos',
+				url: _master_svr() + '/api/video/myVideo.api?opt=getMyActiveVideos',
 				method: "POST",
 				data: {auth:me.props.parent.props.route.env.state.auth},
 				dataType: "JSON"
@@ -33,16 +33,12 @@ try {
 				console.log('error');
 			});			
 		},
-		bgFilmStyle:function(rec) {
-			if (rec.node_ip.length) {
-				var idx = Math.floor(Math.random()*rec.node_ip.length);
-				var url = 'http://' + rec.node_ip[idx] + '/api/video/play_stream.api?type=image&vid=' + rec.vid + '&s=20&w=90&server=' + rec.server_ip;
-			} else {	
-				var url = 'http://' + rec.server_ip + '/api/video/play_stream.api?type=image&vid=' + rec.vid + '&s=20&w=90';
-			}
-			return {width:'90px', background:'url('+url+')',
+		bgFilmStyle:function(a) {
+			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
+				      '&size=90&ss='+61;
+			return {width:'100%', background:'url('+url+')',
 				'background-size':'cover'}
-		},		
+		},				
 		save:function(e) {
 			var me = this;
 			me.props.parent.setState({curriculum:me.state.curriculum}, function() {
@@ -87,12 +83,12 @@ try {
 								<table className="container-fluid">
 									<tr>
 										<td width="90" valign="top">
-											<img src="/images/film_bg.png" style={me.bgFilmStyle(me.props.parent.state.video)} width="90"/>
+											<img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmStyle(me.props.parent.state.video)} width="90"/>
 										</td>
 										<td  width="6"></td>
 										<td style={{'text-align':'left',whiteSpace: 'normal',wordWrap: 'break-word', 
 												'line-height':'1.2em'}}>
-											{me.props.parent.state.video.title}
+											{me.props.parent.state.video.info.title}
 										</td>
 										<td  width="6"></td>
 										<td  width="12"><span className="caret"></span></td>			
@@ -108,13 +104,14 @@ try {
 									<table width="100%" style={{'margin-bottom':'6px'}}>
 										<tr>
 											<td width="100" valign="top">
-												<img src="/images/film_bg.png" style={me.bgFilmStyle(a)}  width="90"/>
+												<img src={ _master_svr() + '/images/film_bg.png'} 
+												style={me.bgFilmStyle(a)}  width="90"/>
 											</td>
 											<td  width="6"></td>
 											<td  style={{'text-align':'left',whiteSpace: 'normal',wordWrap: 'break-word',
 													'line-height':'1.2em'}}>
-												{a.title}<br/>
-												<b>Length</b>:{a.length} (secs)<b>Streaming size</b>:{a.size}												
+												{a.info.title}<br/>
+												{a.video_length} (secs)												
 											</td>
 										</tr>		
 									</table>

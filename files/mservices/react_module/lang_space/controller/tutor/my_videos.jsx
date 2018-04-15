@@ -49,12 +49,6 @@ try {
 			} else {
 				return {'font-size':'1em'}	
 			}
-		},		
-		bgFilmStyle:function(t, a) {
-			var url =  _node_svr() + '/api/video/pipe.api?env=' + a.env + '&space=' + a.space + '&video_fn='+ a.vid +
-				      '&size=320&ss='+t;
-			return {width:'100%', background:'url('+url+')',
-				'background-size':'cover'}
 		},
 		bgFilmThumbnail:function(v) {
 			return {width:'100%', height:'100%', background:'url('+v+')','background-size':'contain'}	
@@ -126,6 +120,10 @@ try {
 						{me.state.list.map(function(a){ 
 							if (a.space_status === 1) return(
 							<div className="col-sm-4 col-lg-4 col-md-4"> 
+									
+									
+									
+									
 								<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
 									<div className="video_thumbnail_icon_group">
 										<button type="button" className="btn btn-danger"
@@ -133,7 +131,9 @@ try {
 											<i className="fa fa-play" aria-hidden="true"></i>
 										</button>										
 									</div>
-									<img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmStyle(6, a)} />
+									<_commObj code={'videoBgImage'}  
+										data={{img: _master_svr() + '/images/film_bg.png', 
+										rec:a, ss:90, size:320}}/>
 								</div>
 
 							</div>							

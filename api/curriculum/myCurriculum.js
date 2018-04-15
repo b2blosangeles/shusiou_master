@@ -138,7 +138,7 @@ var app = function(auth_data) {
 			_f['S1'] = function(cbk) {
 				var connection = mysql.createConnection(cfg0);
 				connection.connect();
-				var str = 'SELECT A.curriculum_id, A.`name`, B.* FROM `curriculums` A LEFT JOIN  `video` B  ON A.vid = B.vid '+
+				var str = 'SELECT A.curriculum_id, A.`name`, B.* FROM `curriculums` A LEFT JOIN  `video_space` B  ON A.vid = B.vid '+
 				    ' WHERE A.uid = "' + uid + '";';
 
 				connection.query(str, function (error, results, fields) {
@@ -150,38 +150,13 @@ var app = function(auth_data) {
 						cbk(results);
 					}
 				});  
-			};
-			_f['S2'] = function(cbk) {
-				var vstr = '0';
-				for (var i = 0; i < CP.data.S1.length; i++) {
-					vstr += ',' +  CP.data.S1[i].vid; 
-				}
-
-				var connection = mysql.createConnection(cfg0);
-				connection.connect();
-
-				var str = 'SELECT * FROM  `video_node` WHERE `vid` IN (' + vstr + ')';
-
-				connection.query(str, function (error, results, fields) {
-					connection.end();
-					var v = {};
-					if (results.length) {
-						
-						for (var i = 0; i < results.length; i++) {
-							if (!v[results[i].vid]) v[results[i].vid] = [];
-							v[results[i].vid][v[results[i].vid].length] = results[i].node_ip;
-						}
-						cbk(v);
-					} else cbk({});
-				});  
 			};			
 			CP.serial(
 				_f,
 				function(data) {
 					var d = [];
 					for (var i=0; i <  CP.data.S1.length; i++) {
-						CP.data.S1[i].node_ip = CP.data.S2[CP.data.S1[i].vid];
-						d[d.length] =  CP.data.S1[i];
+						d.push(CP.data.S1[i]);
 					}
 					res.send({_spent_time:data._spent_time, status:data.status, data:d});
 				},
@@ -350,8 +325,8 @@ var app = function(auth_data) {
 			_f['S1'] = function(cbk) {
 				var connection = mysql.createConnection(cfg0);
 				connection.connect();
-				var str = 'SELECT A.*, B.*, C.`script` FROM `curriculums` A LEFT JOIN  `video` B  ON A.vid = B.vid '+
-				    ' LEFT JOIN `curriculum_sections` C ON A.curriculum_id = C.curriculum_id ' +
+				var str = 'SELECT A.*, B.*, C.`script`, S.`space` FROM `curriculums` A LEFT JOIN  `video` B  ON A.vid = B.vid '+
+				    ' LEFT JOIN  `video_space` S  ON A.vid = S.vid  LEFT JOIN `curriculum_sections` C ON A.curriculum_id = C.curriculum_id ' +
 				    ' WHERE A.curriculum_id = "' + curriculum_id + '" AND  A.uid = "' + uid + '";';
 
 				connection.query(str, function (error, results, fields) {
@@ -363,27 +338,11 @@ var app = function(auth_data) {
 						cbk(results[0]);
 					}
 				});  
-			};
-			_f['S2'] = function(cbk) {
-				var connection = mysql.createConnection(cfg0);
-				connection.connect();
-
-				var str = 'SELECT * FROM  `video_node` WHERE `vid` = "' + CP.data.S1.vid + '"';
-
-				connection.query(str, function (error, results, fields) {
-					connection.end();
-					var v = [];
-					if (results.length) {
-						for (var i = 0; i < results.length; i++) {
-							v[v.length] = results[i].node_ip;
-						}	
-					} 
-					cbk(v);
-				});  
-			};			
+			};		
 			CP.serial(
 				_f,
 				function(data) {
+					/*
 					try {
 						CP.data.S1.sections =queryStringToJSON(CP.data.S1.script, []);
 						let v = CP.data.S1.sections;
@@ -397,8 +356,8 @@ var app = function(auth_data) {
 						}
 					} catch (err) {
 					};	
-					CP.data.S1.node_ip = CP.data.S2;
 					delete CP.data.S1.script;
+					*/
 					res.send({_spent_time:data._spent_time, status:data.status, data:CP.data.S1});
 				},
 				3000
