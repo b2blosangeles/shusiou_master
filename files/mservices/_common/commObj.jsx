@@ -38,8 +38,7 @@ try {
 			    url;
 			if (!a.space) return '';
 			if (!ss || !t) url =  _node_svr() + '/api/video/pipe_stream.api?space=' + a.space + '&video_fn='+ a.vid;
-			else url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
-				      (!ss || !t) ? '&ss=' + ss + '&t=' + t;
+			else url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid + '&ss=' + ss + '&t=' + t;
 			var video_domid = 'video_' + _commObj.unicode; 
 			setTimeout(
 				(function(video_domid) {
