@@ -17,9 +17,9 @@ try {
 			if (me.props.rec.vid !== prePropos.rec.vid) me.setState({rec:me.props.rec});
 			console.log('---------componentDidUpdate--------');
 			console.log('me.props.rec->');
-			console.log(me.props.rec);
+			console.log(me.props.rec.vid);
 			console.log('prePropos.rec->');
-			console.log(prePropos.rec);
+			console.log(prePropos.rec.vid);
 		},			
 		close_admin:function(){
 			var me = this;  // $('video').attr('src', ''); 
