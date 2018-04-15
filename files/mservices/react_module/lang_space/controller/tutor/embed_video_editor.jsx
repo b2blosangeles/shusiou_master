@@ -118,20 +118,12 @@ try {
 			for (var i = 0; i < 2 * me.state.track.t; i++) {
 				A[A.length] = me.state.track.s + i * 0.5;
 			}
-			/*
-			var v = _node_svr() + '/api/video/pipe.api?space=' + me.video.space + '&video_fn='+ me.video.vid +
-			    '&w=90&ss=' + a ;
-			*/
 			return A.map(function(a,idx){
-				/*
-				var IP = ips[Math.floor(Math.random() * ips.length)];
-				var v = 'http://' + IP + '/api/video/play_stream.api?type=image&vid=' + 
-				    me.video.vid +'&w=90&s=' + a + '&server=' + 
-				    me.video.server_ip;
-				*/
 				if (idx < 8 || idx > A.length - 8)  return (<span>
 					<_commObj code={'videoImage'}  
-					data={{ rec:me.video, ss:A[idx], size:90}}/>
+					data={{ rec:me.video, ss:A[idx], size:90, click:function() {
+								alert('niu');
+							}}}/>
 				</span>)
 				else return (<span></span>)
 			});
