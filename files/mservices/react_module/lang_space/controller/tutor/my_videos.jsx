@@ -132,8 +132,8 @@ try {
 										</button>										
 									</div>
 									<_commObj code={'videoBgImage'}  
-										data={{img: _master_svr() + '/images/film_bg.png',
-											rec:a, ss:90, size:180}}/>
+										data={{img: _master_svr() + '/images/film_bg.png', 
+										rec:a, ss:90, size:180}}/>
 								</div>
 
 							</div>							
