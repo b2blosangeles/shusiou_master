@@ -7,12 +7,14 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
+			me.setState({rec:me.props.rec});
 			console.log('--------componentDidMount--------');
 			console.log(me.props.rec);
 		},	
 		componentDidUpdate:function(prePropos, preState) {
 			
 			var me = this;
+			me.setState({rec:me.props.rec});
 			console.log('---------componentDidUpdate--------');
 			console.log(me.props.rec);
 		},			
@@ -48,7 +50,7 @@ try {
 						</div>	
 					</div>	
 					<div className="row">
-						<_commObj code={'video'} data={{rec:me.props.rec, 
+						<_commObj code={'video'} data={{rec:me.stat.rec, 
 							size:800}}/>
 					</div>							
 				</div>	
