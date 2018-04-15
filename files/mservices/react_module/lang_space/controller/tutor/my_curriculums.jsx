@@ -94,7 +94,7 @@ try {
 										<div className="video_thumbnail_text_top">
 											{a.name}	
 										</div>
-										<img src={me.videoImageFilm(77,a)} style={{width:'100%'}}/>
+										<_commObj code={'videoImage'}  data={{rec:a, ss:90, size:180}}/>
 										<div className="video_thumbnail_text">
 											<a href={'#/tutor/my_curriculum/edit/' + a.curriculum_id}>
 												<button type="button" 
