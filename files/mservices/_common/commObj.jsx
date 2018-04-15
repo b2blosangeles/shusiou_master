@@ -40,18 +40,13 @@ try {
 			return (url) ? (<img src={img} 
 				style={{width:'100%', background:'url('+url+')', 'background-size':'cover'}} />) :  (<span/>);
 		},		
-		video : function() {
+		video : function(props) {
 			var me = this;
-			let a = me.props.data.rec, 
-			    ss =  me.props.data.ss, 
-			    t = me.props.data.t,
-			    size =  (me.props.data.size) ?  me.props.data.size : 480,
-			    url;
-			
-			if (me.props.code == 'video') {
-			console.log('me.props.data====>');
-			console.log(me.props.data.rec.vid);
-			}			
+			let a = props.data.rec, 
+			    ss =  props.data.ss, 
+			    t = props.data.t,
+			    size =  (props.data.size) ?  props.data.size : 480,
+			    url;			
 			
 			if (!a.space) return '';
 			if (!ss || !t) url =  _node_svr() + '/api/video/pipe_stream.api?space=' + a.space + '&video_fn='+ a.vid;
@@ -76,7 +71,7 @@ try {
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
 			if (typeof me[code] === 'function') {
-				return (<span>{me.props.data.rec.vid}=={me[code]()}</span>)
+				return (<span>{me.props.data.rec.vid}=={me[code](me.props)}</span>)
 			} else {
 				return  (<span>{'inorrect code! ' + code}</span>)
 			} 
