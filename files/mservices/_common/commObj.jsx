@@ -19,9 +19,10 @@ try {
 			return url;
 		},
 		videoImage : function() {
-			var me = this,
-			    url = me.videoImageUrl(), attr = (me.props.data.attr) ? me.props.data.attr : ''
-			return (url) ? (<img src={url} {attr} />) : (<span/>);
+			var me = this, 
+			    url = me.videoImageUrl(), width = (me.props.data.width) ? me.props.data.width : '';
+			if (!url) return (<span/>);
+			else (width) ? (<img src={url} width={width} />) :  (<img src={url} />);
 		},
 		videoBgImage : function() {
 			let me = this, img = me.props.data.img, url =  me.videoImageUrl();
