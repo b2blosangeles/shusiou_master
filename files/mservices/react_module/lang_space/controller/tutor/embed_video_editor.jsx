@@ -277,6 +277,12 @@ try {
 										<i className="fa fa-minus-square-o" aria-hidden="true"></i>
 									</button>
 									
+									<span 
+								style={(me.state.track.s !== null)?{display:''}:{display:'none'}}		     
+								dangerouslySetInnerHTML={{__html: (me.state.track.t)?(me.toHHMMSS(me.state.track.s) + 
+								' - ' + me.toHHMMSS(me.state.track.s + me.state.track.t)):''}} />
+
+									
 									 <button type="button" className="btn btn-sm btn-success btn_margin3"
 										  style={me.disbleAdjustSection(-0.5, 0)}
 										 onClick={me.adjustSection.bind(this, -0.5, 0)}> 									
