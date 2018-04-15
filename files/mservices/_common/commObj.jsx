@@ -17,7 +17,7 @@ try {
 		componentDidUpdate:function(prePropos, preState) {
 			var me = this;
 			console.log('me.props.data--->');
-			console.log(me.props.data);			
+			console.log(me.props.data.rec.vid);			
 		},		
 		videoImageUrl : function() {
 			let me = this, a = me.props.data.rec, ss =  me.props.data.ss, 
