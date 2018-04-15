@@ -61,7 +61,7 @@ try {
 		     	// if (!noms) { ms = (ms)?'&#189;':''; }
 		     	if (!noms) { ms = (ms)?'.5':''; }
 			else ms = '';			
-		  	return h + ':' + m + ':' + s + ' ' + ms;
+		  	return h + ':' + m + ':' + s + ms;
 		},		
 		videoBar:function() {
 			var me = this;
