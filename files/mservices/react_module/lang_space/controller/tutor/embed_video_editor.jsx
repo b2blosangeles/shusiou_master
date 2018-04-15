@@ -115,7 +115,7 @@ try {
 		},
 		showSectionImages: function() {
 			var me = this, A = [];
-			alert(36);
+			//alert(36);
 			return true;
 			if (!me.state.track) return false;
 			for (var i = 0; i < 2 * me.state.track.t; i++) {
