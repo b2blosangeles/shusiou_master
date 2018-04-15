@@ -46,8 +46,8 @@ try {
 			n = (n > MAX)?MAX:n;	
 			var p_video = $('#preview_video')[0];
 			var c_video = $('#preview_clip_video')[0];
-			var ips = me.video.node_ip;
-			var IP = ips[Math.floor(Math.random() * ips.length)];
+			//var ips = me.video.node_ip;
+			//var IP = ips[Math.floor(Math.random() * ips.length)];
 			p_video.currentTime = Math.round(me.video.video_length * v / n);
 			me.setState({track:{s:p_video.currentTime, t:10}}, function() {
 				p_video.pause();
