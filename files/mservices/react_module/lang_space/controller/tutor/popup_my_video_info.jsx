@@ -56,7 +56,9 @@ try {
 								</button>
 							</div>	
 						</div>	
-						<div className="row">			
+						<div className="row">
+							<_commObj code={'video'} data={{rec:me.props.rec, 
+								size:800}}/>							
 							<video className="pop_preview" width="800" height="450" controls autoplay>
 							  <source src="" type="video/mp4"/>
 							</video>
