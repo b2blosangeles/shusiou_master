@@ -255,12 +255,12 @@ try {
 							<td width="1%" style={{'border-left':'2px solid transparent'}}></td>						
 							<td width="50%">
 								<span style={me.hideNullSection()}>
-									 <button type="button" className="btn btn-sm btn-success btn_margin3"
+									 <button type="button" className="btn btn-sm btn-warning btn_margin3"
 										  style={me.disbleAdjustSection(-0.5, 0)}
 										 onClick={me.adjustSection.bind(this, -0.5, 0)}> 									
 										  -&#189;</button>							
 
-									<button type="button" className="btn btn-sm btn-success btn_margin3"
+									<button type="button" className="btn btn-sm btn-warning btn_margin3"
 										style={me.disbleAdjustSection(0.5, 0)}
 										 onClick={me.adjustSection.bind(this, 0.5, 0)}> 
 										 +&#189;</button>
