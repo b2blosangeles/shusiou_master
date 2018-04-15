@@ -3,7 +3,7 @@ try {
 	var Popup_my_video_info =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			return {};
+			return {rec:{}};
 		},
 		componentDidMount:function() {
 			var me = this;
