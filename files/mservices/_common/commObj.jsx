@@ -68,14 +68,16 @@ try {
 					}
 				})(video_domid)
 			);
+			/*
 			return (<span>
 				{url}
 			</span>);
-			/*
+			*/
+			
 			return (<video id={video_domid} width={size} loop={true} autoplay={true}>
 					<source src={url} type="video/mp4"/>
 			</video>);
-			*/
+			
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
