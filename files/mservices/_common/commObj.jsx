@@ -38,7 +38,8 @@ try {
 				      '&ss=' + ss + '&t=30';
 			setTimeout(
 				function() {
-					$('#niu').click(function(){
+					$('#video_' + _commObj.unicode)[0].play();
+					$('#video_' + _commObj.unicode).click(function(){
 						if (this.paused) {
 							this.play();
 						} else {
@@ -48,7 +49,7 @@ try {
 					});
 				}
 			);
-			return (<video id="niu" width={size} loop={true} autoplay={true}>
+			return (<video id={'#video_' + _commObj.unicode} width={size} loop={true} autoplay={true}>
 					<source src={url} type="video/mp4"/>
 			</video>);
 		},		
