@@ -13,7 +13,6 @@ try {
 		videoImageUrl : function() {
 			let me = this, a = me.props.data.rec, ss =  me.props.data.ss, 
 			    size =  (me.props.data.size) ?  me.props.data.size : 480;
-			
 			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
 				      '&size=' + size + '&ss=' + ss;
 			if (!a.space) return '';
