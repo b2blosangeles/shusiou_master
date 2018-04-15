@@ -27,6 +27,10 @@ try {
 						<br/>
 						<_commObj code={'videoImage'}  data={{rec:me.props.parent.state.curriculum, 
 							ss:90, size:180}}/>
+						<_commObj code={'videoImage'}  data={{rec:me.props.parent.state.curriculum, 
+							ss:190, size:180}}/>
+						<_commObj code={'videoImage'}  data={{rec:me.props.parent.state.curriculum, 
+							ss:290, size:180}}/>
 					
 					</div>)
 			} else {
