@@ -38,15 +38,16 @@ try {
 				      '&ss=' + ss + '&t=30';
 			var video_domid = 'video_' + _commObj.unicode; 
 			setTimeout(
-				(function(video) {
+				(function(video_domid) {
 					return function() {
+						let video = $('#' + video_domid);
 						video.play();
 						video.click(function(){
 							if (this.paused)  this.play();
 							else this.pause();
 						});
 					}
-				})($('#' + video_domid))
+				})(video_domid)
 			);
 			return (<video id={video_domid} width={size} loop={true} autoplay={true}>
 					<source src={url} type="video/mp4"/>
