@@ -72,10 +72,12 @@ try {
 			return (<span>
 				{url}
 			</span>);
+			
+					<source src={url} type="video/mp4"/>
+			
 			*/
 			
-			return (<video id={video_domid} width={size} loop={true} autoplay={true}>
-					<source src={url} type="video/mp4"/>
+			return (<video id={video_domid} src={url} width={size} loop={true} autoplay={true}>
 			</video>);
 			
 		},		
