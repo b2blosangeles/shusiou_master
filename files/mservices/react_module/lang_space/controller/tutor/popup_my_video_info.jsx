@@ -25,16 +25,9 @@ try {
 		},
 		loadVideo:function() {
 			var me = this; 
-			let rec = me.props.rec;
-			return (<span>{rec.vid}=={me.state.rec.vid}</span>)
-			/*
-			return (function(rec) {
-				//return function() {
-					return (<_commObj code={'video'} data={{rec : rec, 
+			// return (<span>{rec.vid}=={me.state.rec.vid}</span>)
+			return (<_commObj code={'video'} data={{rec : me.props.rec, 
 							size:800}}/>);
-				//}	
-			})(rec);
-			*/
 		},
 		render:function() {
 			var me = this;
