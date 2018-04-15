@@ -20,13 +20,17 @@ try {
 					me.setState({preview_time:v})
 				};
 			}
+			 
+			var vurl = _node_svr() + '/api/video/pipe.api?space=' + me.video.space + '&video_fn='+ me.video.vid;
+			alert(vurl);
+			
 			return true;
-			var ips = me.video.node_ip;
-			var IP = ips[Math.floor(Math.random() * ips.length)];
+		//	var ips = me.video.node_ip;
+		//	var IP = ips[Math.floor(Math.random() * ips.length)];
 			
 		//	var vurl =  shusiou_config.api_server + '/api/video/play_stream.api?type=video&vid='+me.props.parent.state.curriculum.vid;
-			var vurl = 'http://' + IP + '/api/video/play_stream.api?type=video&vid=' +
-			    me.video.vid + '&server=' +  me.video.server_ip;
+		//	var vurl = 'http://' + IP + '/api/video/play_stream.api?type=video&vid=' +
+		//	    me.video.vid + '&server=' +  me.video.server_ip;
 			var _itv = setInterval(
 				function() {
 					if (me.video.vid) {
