@@ -2,8 +2,8 @@ try {
 	var _commObj = React.createClass({
 		getInitialState: function() {
 			var me = this;
-			if (!_commObj.unicode) {
-				_commObj.unicode = 0;
+			if (!_commObj.unicode || _commObj.unicode > 1000000) {
+				_commObj.unicode = 1;
 			} else {
 				_commObj.unicode++;
 			}	
