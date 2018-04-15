@@ -2,7 +2,7 @@ try {
 	var _commObj = React.createClass({
 		getInitialState: function() {
 			var me = this;
-			if (!_commObj.unicode || _commObj.unicode > 10000) {
+			if (!_commObj.unicode) {
 				_commObj.unicode = 0;
 			} else {
 				_commObj.unicode++;
