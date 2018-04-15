@@ -31,7 +31,7 @@ try {
 		},
 		loadVideo:function() {
 			var me = this; 
-			return (<_commObj code={'video'} data={{rec:me.state.rec, 
+			return (<_commObj code={'video'} data={{rec:me.props.rec, 
 							size:800}}/>);
 		},
 		render:function() {
