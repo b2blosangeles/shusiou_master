@@ -26,7 +26,7 @@ try {
 		},
 		videoBgImage : function() {
 			let me = this, img = me.props.data.img, url =  me.videoImageUrl();
-			return (url) ? (<img src={img} 
+			return (url) ? (<img src={img} click={me.props.data.click()}
 				style={{width:'100%', background:'url('+url+')', 'background-size':'cover'}} />) :  (<span/>);
 		},		
 		video : function() {
