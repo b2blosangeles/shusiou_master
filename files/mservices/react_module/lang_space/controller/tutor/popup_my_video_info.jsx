@@ -27,8 +27,9 @@ try {
 			
 		},			
 		close_admin:function(){
-			var me = this;  // $('video').attr('src', ''); 
-			if ($('video')[0]) $('video')[0].pause();
+			var me = this;  
+			$('video').attr('src', ''); 
+			// if ($('video')[0]) $('video')[0].pause();
 			me.props.parent.closeAdmin();
 		},
 		delete_video:function(){
