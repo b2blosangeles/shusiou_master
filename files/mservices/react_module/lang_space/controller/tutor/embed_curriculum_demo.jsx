@@ -22,7 +22,8 @@ try {
 						<p><b>Video ID</b>:{me.props.parent.state.curriculum.vid}</p>  
 						<p><b>Video Length</b>:({me.props.parent.state.curriculum.video_length} Secs)</p>
 						<br/>
-						<_commObj code={'video'} data={{rec:me.props.parent.state.curriculum, ss:77, size:320}}/>
+						<_commObj code={'video'} data={{rec:me.props.parent.state.curriculum, 
+								ss:90, t:10, size:320}}/>
 						<br/>
 						<_commObj code={'videoImage'}  data={{rec:me.props.parent.state.curriculum, 
 							ss:90, size:180}}/>
