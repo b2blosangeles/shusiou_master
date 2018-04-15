@@ -40,7 +40,7 @@ try {
 			return (url) ? (<img src={img} 
 				style={{width:'100%', background:'url('+url+')', 'background-size':'cover'}} />) :  (<span/>);
 		},		
-		video : function(props) {
+		video : function() {
 			var me = this;
 			let a = me.props.data.rec, 
 			    ss =  me.props.data.ss, 
@@ -72,7 +72,7 @@ try {
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
 			if (typeof me[code] === 'function') {
-				return (<span>{me.props.data.rec.vid}==<br/>{me[code](me.props)}</span>)
+				return (<span>{me[code]()}</span>)
 			} else {
 				return  (<span>{'inorrect code! ' + code}</span>)
 			} 
