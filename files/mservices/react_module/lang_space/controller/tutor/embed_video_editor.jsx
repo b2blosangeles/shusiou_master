@@ -280,7 +280,7 @@ try {
 									 <button type="button" className="btn btn-sm btn-success btn_margin3"
 										  style={me.disbleAdjustSection(-0.5, 0)}
 										 onClick={me.adjustSection.bind(this, -0.5, 0)}> 									
-										 <i className="fa fa-step-backward" aria-hidden="true"></i> -&#189;</button>									
+										 -&#189; <i className="fa fa-step-forward" aria-hidden="true"></i></button>									
 									
 								</span>							
 
