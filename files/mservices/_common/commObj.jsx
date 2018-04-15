@@ -22,11 +22,11 @@ try {
 			var me = this, 
 			    url = me.videoImageUrl(), width = (me.props.data.width) ? me.props.data.width : '';
 			if (!url) return (<span/>);
-			else return (width) ? (<img src={url} width={width} />) :  (<img src={url} />);
+			else return (width) ? (<img src={url} width={width} click={me.props.data.click()} />) :  (<img src={url} click={me.props.data.click()} />);
 		},
 		videoBgImage : function() {
 			let me = this, img = me.props.data.img, url =  me.videoImageUrl();
-			return (url) ? (<img src={img} click={me.props.data.click()}
+			return (url) ? (<img src={img} 
 				style={{width:'100%', background:'url('+url+')', 'background-size':'cover'}} />) :  (<span/>);
 		},		
 		video : function() {
