@@ -47,6 +47,12 @@ try {
 			    t = me.props.data.t,
 			    size =  (me.props.data.size) ?  me.props.data.size : 480,
 			    url;
+			
+			if (me.props.code == 'video') {
+			console.log('me.props.data====>');
+			console.log(me.props.data.rec.vid);
+			}			
+			
 			if (!a.space) return '';
 			if (!ss || !t) url =  _node_svr() + '/api/video/pipe_stream.api?space=' + a.space + '&video_fn='+ a.vid;
 			else url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid + '&ss=' + ss + '&t=' + t;
