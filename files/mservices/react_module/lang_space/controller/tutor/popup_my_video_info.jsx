@@ -37,7 +37,7 @@ try {
 			var me = this; 
 			return (<span>{me.props.rec.vid}=={me.state.rec.vid}</span>)
 			// return (<_commObj code={'video'} data={{rec:me.props.rec, 
-							size:800}}/>);
+						//	size:800}}/>);
 		},
 		render:function() {
 			var me = this;
