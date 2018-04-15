@@ -33,10 +33,11 @@ try {
 			var me = this;
 			let a = me.props.data.rec, 
 			    ss =  me.props.data.ss, 
+			    t = me.props.data.t,
 			    size =  (me.props.data.size) ?  me.props.data.size : 480;
 			if (!a.space) return '';
 			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
-				      '&ss=' + ss + '&t=30';
+				      '&ss=' + ss + '&t=' + t;
 			var video_domid = 'video_' + _commObj.unicode; 
 			setTimeout(
 				(function(video_domid) {
