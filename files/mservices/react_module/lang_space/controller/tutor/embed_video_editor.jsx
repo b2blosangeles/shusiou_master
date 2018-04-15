@@ -202,7 +202,7 @@ try {
 							<td width="48%">
 								Original Movie:
 								<_commObj code={'video'} data={{rec : me.video, 
-									size:800}}/>
+									size1:800}}/>
 								=={me.video.vid}==
 
 							</td>
