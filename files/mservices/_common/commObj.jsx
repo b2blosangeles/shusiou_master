@@ -2,6 +2,9 @@ try {
 	var _commObj = React.createClass({
 		getInitialState: function() {
 			var me = this;
+			if (!_commObj.unicode) _commObj.unicode = 0;
+			_commObj.unicode++;
+			console.log(_commObj.unicode);
 		//	console.log('--->');
 		//	console.log(me.props.data);
 		//	console.log(me.props.code);
