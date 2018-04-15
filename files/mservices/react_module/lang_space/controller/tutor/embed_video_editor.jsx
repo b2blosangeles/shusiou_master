@@ -24,7 +24,7 @@ try {
 			var vurl = _node_svr() + '/api/video/pipe.api?space=' + me.video.space + '&video_fn='+ me.video.vid;
 			alert(vurl);
 			
-			return true;
+		//	return true;
 		//	var ips = me.video.node_ip;
 		//	var IP = ips[Math.floor(Math.random() * ips.length)];
 			
@@ -204,8 +204,10 @@ try {
 					<tr>
 							<td width="48%">
 								Original Movie:
+								{/*
 								<_commObj code={'video'} data={{rec : me.video, 
 									size1:800}}/>
+								*/}	
 								=={me.video.vid}==
 
 							</td>
