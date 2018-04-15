@@ -19,7 +19,7 @@ try {
 			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
 				      '&size=' + size + '&ss=' + ss;
 			if (!a.space) return '';
-			return (<img src={url}/>);
+			return (<img src={url} width="100%"/>);
 		},
 		videoBgImage : function() {
 			var me = this;
