@@ -194,12 +194,6 @@ try {
 					<tr>
 							<td width="48%">
 								Original Movie:
-								{/*
-								<_commObj code={'video'} data={{rec : me.video, 
-									size1:800}}/>
-								*/}	
-								=={me.video.vid}=>>=
-
 							</td>
 							<td width="1%" style={{'border-right':'2px solid #ccc'}}></td>
 							<td width="1%" style={{'border-left':'2px solid #ccc'}}></td>
@@ -282,6 +276,12 @@ try {
 										 onClick={me.adjustSection.bind(this, 0, -0.5)}> 
 										<i className="fa fa-minus-square-o" aria-hidden="true"></i>
 									</button>
+									
+									 <button type="button" className="btn btn-sm btn-success btn_margin3"
+										  style={me.disbleAdjustSection(-0.5, 0)}
+										 onClick={me.adjustSection.bind(this, -0.5, 0)}> 									
+										 <i className="fa fa-step-backward" aria-hidden="true"></i> -&#189;</button>									
+									
 								</span>							
 
 							</td>
