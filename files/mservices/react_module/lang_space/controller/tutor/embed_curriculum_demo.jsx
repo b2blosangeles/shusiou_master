@@ -18,12 +18,10 @@ try {
 			var me = this;
 			if ((me.props.params.id) && (me.props.parent.state.curriculum)) {
 				return (<div>Embed_curriculum_demo : 
-						
-						<div>
-							<h4>{me.props.parent.state.video.title}</h4>	
-							<p><b>Video ID</b>:{me.props.parent.state.curriculum.vid}</p>  
-							<p><b>Video Length</b>:({me.props.parent.state.curriculum.video_length} Secs)</p>
-							<br/>
+						<h4>{me.props.parent.state.video.title}</h4>	
+						<p><b>Video ID</b>:{me.props.parent.state.curriculum.vid}</p>  
+						<p><b>Video Length</b>:({me.props.parent.state.curriculum.video_length} Secs)</p>
+						<br/>
 						<_commObj code={'video'} data={{rec:me.props.parent.state.curriculum, ss:77, size:320}}/>
 						<br/>
 						<_commObj code={'videoImage'}  data={{rec:me.props.parent.state.curriculum, ss:577, size:180}}/>
