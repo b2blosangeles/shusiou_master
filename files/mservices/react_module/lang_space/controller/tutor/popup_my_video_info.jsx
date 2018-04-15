@@ -43,10 +43,10 @@ try {
 			let rec = JSON.parse(JSON.stringify(me.props.rec));
 			//return (<span>{rec.vid}=={me.state.rec.vid}</span>)
 			(function(rec) {
-				return function() {
+				//return function() {
 					return (<_commObj code={'video'} data={{rec : rec, 
 							size:800}}/>);
-				}	
+				//}	
 			})(rec);
 		},
 		render:function() {
