@@ -21,7 +21,7 @@ try {
 				};
 			}
 			 
-			var vurl = _node_svr() + '/api/video/pipe.api?space=' + me.video.space + '&video_fn='+ me.video.vid;
+			var vurl = _node_svr() + '/api/video/pipe_stream.api?space=' + me.video.space + '&video_fn='+ me.video.vid;
 			
 			
 		//	return true;
