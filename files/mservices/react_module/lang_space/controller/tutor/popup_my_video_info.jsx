@@ -35,7 +35,8 @@ try {
 		},
 		loadVideo:function() {
 			var me = this; 
-			return (<_commObj code={'video'} data={{rec:me.props.rec, 
+			return (<span>{me.props.rec.vid}=={me.state.rec.vid}</span>)
+			// return (<_commObj code={'video'} data={{rec:me.props.rec, 
 							size:800}}/>);
 		},
 		render:function() {
