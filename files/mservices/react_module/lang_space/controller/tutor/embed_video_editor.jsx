@@ -22,7 +22,7 @@ try {
 			}
 			 
 			var vurl = _node_svr() + '/api/video/pipe.api?space=' + me.video.space + '&video_fn='+ me.video.vid;
-			alert(vurl);
+			
 			
 		//	return true;
 		//	var ips = me.video.node_ip;
@@ -208,7 +208,7 @@ try {
 								<_commObj code={'video'} data={{rec : me.video, 
 									size1:800}}/>
 								*/}	
-								=={me.video.vid}==
+								=={me.video.vid}=>>=
 
 							</td>
 							<td width="1%" style={{'border-right':'2px solid #ccc'}}></td>
