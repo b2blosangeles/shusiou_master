@@ -9,18 +9,7 @@ try {
 			}	
 			console.log(_commObj.unicode);
 			return {};
-		},
-		componentDidMount:function() {
-			var me = this;
-
 		},	
-		componentDidUpdate:function(prePropos, preState) {
-			var me = this;
-			if (me.props.code == 'video') {
-			console.log('me.props.data--->');
-			console.log(me.props.data.rec.vid);
-			}
-		},		
 		videoImageUrl : function() {
 			let me = this, a = me.props.data.rec, ss =  me.props.data.ss, 
 			    size =  (me.props.data.size) ?  me.props.data.size : 480;
