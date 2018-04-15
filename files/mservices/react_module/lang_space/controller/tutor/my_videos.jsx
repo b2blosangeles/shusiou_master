@@ -126,6 +126,10 @@ try {
 						{me.state.list.map(function(a){ 
 							if (a.space_status === 1) return(
 							<div className="col-sm-4 col-lg-4 col-md-4"> 
+									
+									
+									
+									
 								<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
 									<div className="video_thumbnail_icon_group">
 										<button type="button" className="btn btn-danger"
@@ -133,7 +137,9 @@ try {
 											<i className="fa fa-play" aria-hidden="true"></i>
 										</button>										
 									</div>
-									<img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmStyle(6, a)} />
+									<!--img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmStyle(6, a)} 
+									/-->
+									<_commObj code={'videoBgImage'}  data={{rec:me.props.parent.state.curriculum, ss:577, size:180}}/>
 								</div>
 
 							</div>							
