@@ -2,9 +2,9 @@ try {
 	var _commObj = React.createClass({
 		getInitialState: function() {
 			var me = this;
-			console.log('--->');
-			console.log(me.props.data);
-			console.log(me.props.code);
+		//	console.log('--->');
+		//	console.log(me.props.data);
+		//	console.log(me.props.code);
 			return {};
 		},			
 		videoImage : function() {
@@ -18,20 +18,6 @@ try {
 			if (!a.space) return '';
 			return (<img src={url}/>);
 		},
-		
-		bgFilmStyle:function() {
-			var me = this;
-			let a = me.props.data.rec, 
-			    ss =  me.props.data.ss, 
-			    size =  (me.props.data.size) ?  me.props.data.size : 480;
-			
-			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
-				      '&size=' + size + '&ss=' + ss;			
-			return {width:'100%', background:'url('+url+')',
-				'background-size':'cover'}
-		},		
-		
-		
 		videoBgImage : function() {
 			var me = this;
 			let a = me.props.data.rec, 
