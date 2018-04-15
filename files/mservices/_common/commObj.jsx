@@ -7,7 +7,7 @@ try {
 			} else {
 				_commObj.unicode++;
 			}	
-			console.log(_commObj.unicode);
+		//	console.log(_commObj.unicode);
 			return {};
 		},	
 		videoImageUrl : function() {
