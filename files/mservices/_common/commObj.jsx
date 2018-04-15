@@ -38,7 +38,7 @@ try {
 					});
 				}
 			);
-			return (<video id="niu" width={size} loop="1" autoplay="1">
+			return (<video id="niu" width={size} loop={true} autoplay={true}>
 					<source src={url} type="video/mp4"/>
 			</video>);
 		},		
