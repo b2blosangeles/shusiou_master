@@ -115,20 +115,25 @@ try {
 		},
 		showSectionImages: function() {
 			var me = this, A = [];
-			//alert(36);
-			return true;
+
 			if (!me.state.track) return false;
 			for (var i = 0; i < 2 * me.state.track.t; i++) {
 				A[A.length] = me.state.track.s + i * 0.5;
 			}
-			var ips = me.video.node_ip;
+			/*
+			var v = _node_svr() + '/api/video/pipe.api?space=' + me.video.space + '&video_fn='+ me.video.vid +
+			    '&w=90&ss=' + a ;
+			*/
 			return A.map(function(a,idx){
+				/*
 				var IP = ips[Math.floor(Math.random() * ips.length)];
 				var v = 'http://' + IP + '/api/video/play_stream.api?type=image&vid=' + 
 				    me.video.vid +'&w=90&s=' + a + '&server=' + 
 				    me.video.server_ip;
-				
-				if (idx < 8 || idx > A.length - 8) return (<img src={v} width="90" style={{border:'1px solid red'}} />)
+				*/
+				if (idx < 8 || idx > A.length - 8) return (
+					return (<span>{idx}</span>)
+				)
 				else return (<span></span>)
 			});
 		},
