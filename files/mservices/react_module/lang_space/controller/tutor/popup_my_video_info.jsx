@@ -23,12 +23,6 @@ try {
 			me.close_admin();
 			
 		},
-		loadVideo:function() {
-			var me = this; 
-			// return (<span>{rec.vid}=={me.state.rec.vid}</span>)
-			return (<_commObj code={'video'} data={{rec : me.props.rec, 
-							size:800}}/>);
-		},
 		render:function() {
 			var me = this;
 			return (
@@ -50,7 +44,8 @@ try {
 						</div>	
 					</div>	
 					<div className="row">
-						{me.loadVideo()}
+						<_commObj code={'video'} data={{rec : me.props.rec, 
+							size:800}}/>
 					</div>							
 				</div>	
 			)	
