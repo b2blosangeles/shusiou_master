@@ -139,7 +139,9 @@ try {
 											<i className="fa fa-play" aria-hidden="true"></i>
 										</button>										
 									</div>
-									<_commObj code={'videoBgImage'}  data={{rec:a, ss:90, size:180}}/>
+									<_commObj code={'videoBgImage'}  
+										data={{img: _master_svr() + '/images/film_bg.png',
+											rec:a, ss:90, size:180}}/>
 								</div>
 
 							</div>							
