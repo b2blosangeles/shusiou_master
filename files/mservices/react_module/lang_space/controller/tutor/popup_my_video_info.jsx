@@ -14,7 +14,8 @@ try {
 		componentDidUpdate:function(prePropos, preState) {
 			
 			var me = this;
-			if (me.props.rec.vid !==me.state.rec.vid) me.setState({rec:me.props.rec});
+			// if (me.props.rec.vid !==me.state.rec.vid) 
+			me.setState({rec:me.props.rec});
 			console.log('---------componentDidUpdate--------');
 			console.log('me.props.rec->');
 			console.log(me.props.rec.vid);
