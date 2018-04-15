@@ -29,10 +29,10 @@ try {
 			setTimeout(
 				function() {
 					$('#niu').click(function(){
-						if (this.playing) {
-							this.pause();
-						} else {
+						if (this.paused) {
 							this.play();
+						} else {
+							this.pause();
 						}
 					    
 					});
