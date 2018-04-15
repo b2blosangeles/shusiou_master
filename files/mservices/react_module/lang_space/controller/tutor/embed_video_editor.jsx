@@ -131,7 +131,7 @@ try {
 				*/
 				if (idx < 8 || idx > A.length - 8)  return (<span>
 					<_commObj code={'videoImage'}  
-					data={{ rec:me.video, ss:90, size:90}}/>
+					data={{ rec:me.video, ss:A[idx], size:90}}/>
 				</span>)
 				else return (<span></span>)
 			});
