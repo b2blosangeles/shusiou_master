@@ -6,8 +6,14 @@ try {
 			return {};
 		},
 		componentDidMount:function() {
-			var me = this;		
-		},		
+			var me = this;	
+			console.log('--------componentDidMount--------');
+		},	
+		componentDidUpdate:function(prePropos, preState) {
+			
+			var me = this;
+			console.log('---------componentDidUpdate--------');
+		},			
 		close_admin:function(){
 			var me = this;  // $('video').attr('src', ''); 
 			$('video')[0].pause();
