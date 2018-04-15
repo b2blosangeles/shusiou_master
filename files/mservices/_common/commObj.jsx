@@ -20,8 +20,8 @@ try {
 		},
 		videoImage : function() {
 			var me = this,
-			    url = me.videoImageUrl();
-			return (url) ? (<img src={url} width="100%"/>) : (<span/>);
+			    url = me.videoImageUrl(), attr = (me.props.data.attr) ? me.props.data.attr : ''
+			return (url) ? (<img src={url} {attr} />) : (<span/>);
 		},
 		videoBgImage : function() {
 			let me = this, img = me.props.data.img, url =  me.videoImageUrl();
