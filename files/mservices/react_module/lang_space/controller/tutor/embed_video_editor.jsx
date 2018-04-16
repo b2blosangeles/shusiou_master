@@ -4,6 +4,7 @@ try {
 			var me = this;
 			me.video = me.props.video;
 			me.sections = me.props.sections;
+			alert(JSON.stringify(me.props.track));
 			return {
 				preview_time:0,
 				track:me.props.track,
