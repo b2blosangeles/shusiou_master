@@ -163,21 +163,12 @@ try {
 		},		
 		
 		adjustSection:function(po, dt) {
-			var me = this;
-
-			if (po === 'left') {
-				var s = parseFloat(me.state.track.s) + dt; 
-				if (s<0) s=0;
-			} else if (po === 'right') {
-				var t = parseFloat(me.state.track.t) + dt; 
-				if (t>20) t=20; if (t<2) t=2;
-			}
-
-			alert(po + '--->' + me.state.track.s);
-			alert(t);
-			return true;
-						
-			
+			let me = this,
+			    s = parseFloat(me.state.track.s),
+			    t = parseFloat(me.state.track.t);
+			if (po === 'left') s += parseFloat(dt); 
+			else if (po === 'right')  t += parseFloat(dt); 
+			if (s<0) s=0; if (t>20) t=20; if (t<2) t=2;
 			me.setState({track:{s:s, t:t}}, function(){
 				me.playSection();	
 			});
