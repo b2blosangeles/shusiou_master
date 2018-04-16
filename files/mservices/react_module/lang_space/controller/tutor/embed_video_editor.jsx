@@ -59,7 +59,7 @@ try {
 		  	var h = Math.floor(v / 3600),m = ("00" + Math.floor((v % 3600) / 60)).slice(-2), 
 		     		s = ("00" + (Math.floor(v) % 3600) % 60).slice(-2), ms = 1000 * (v - Math.floor(v));
 		     	// if (!noms) { ms = (ms)?'&#189;':''; }
-		     	if (!noms) { ms = (ms)?'.5':''; }
+		     	if (!noms) { ms = (ms)?'.5':'.0'; }
 			else ms = '';			
 		  	return h + ':' + m + ':' + s + ms;
 		},		
