@@ -164,10 +164,10 @@ try {
 		
 		adjustSection:function(po, dt) {
 			var me = this;
-			if (op === 'left') {
+			if (po === 'left') {
 				var s = parseFloat(me.state.track.s) + parseFloat(dt); 
 				if (s<0) s=0;
-			} else if (op === 'right') {
+			} else if (po === 'right') {
 				var t = parseFloat(me.state.track.t) + parseFloat(dt); if (t>20) t=20; if (t<2) t=2;
 			}	
 			me.setState({track:{s:s, t:t}}, function(){
