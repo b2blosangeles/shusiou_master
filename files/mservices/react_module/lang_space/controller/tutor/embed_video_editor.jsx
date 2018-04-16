@@ -291,7 +291,7 @@ try {
 									</button>
 									*/}
 									<span 
-								style={(me.state.track.s !== null)?{display:''}:{display:'none'}}		     
+								style={(me.state.track.s !== null)?{display:'', width:'80px'}:{display:'none'}}		     
 								dangerouslySetInnerHTML={{__html: (me.state.track.t)?(me.toHHMMSS(me.state.track.s) + 
 								' - ' + me.toHHMMSS(me.state.track.s + me.state.track.t)):''}} />
 									
