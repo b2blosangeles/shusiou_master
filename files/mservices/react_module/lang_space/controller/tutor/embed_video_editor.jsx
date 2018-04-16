@@ -162,9 +162,10 @@ try {
 			return true;
 		},		
 		
-		adjustSection:function(ds, dt) {
+		adjustSection:function(po, dt) {
 			var me = this;
-			alert(ds + '--' + dt);
+			alert(po + '--' + dt);
+			return true;
 			if (!me.changeAble(ds, dt)) return true;
 			var s = parseFloat(me.state.track.s) + parseFloat(ds); if (s<0) s=0;
 			var t = parseFloat(me.state.track.t) + parseFloat(dt); if (t>20) t=20; if (t<2) t=2;
@@ -269,12 +270,12 @@ try {
 								<span style={me.hideNullSection()}>
 									 <button type="button" className="btn btn-sm btn-warning btn_margin3"
 										  style={me.disbleAdjustSection(-0.5, 0)}
-										 onClick={me.adjustSection.bind(this, -0.5, 0)}> 									
+										 onClick={me.adjustSection.bind(this, 'left', -0.5)}> 									
 										  -&#189;</button>							
 
 									<button type="button" className="btn btn-sm btn-warning btn_margin3"
 										style={me.disbleAdjustSection(0.5, 0)}
-										 onClick={me.adjustSection.bind(this, 0.5, 0)}> 
+										 onClick={me.adjustSection.bind(this, 'left', 0.5)}> 
 										 +&#189;</button>
 									{/*
 									<button type="button" className="btn btn-sm btn-success btn_margin3"
@@ -296,12 +297,12 @@ try {
 									
 									 <button type="button" className="btn btn-sm btn-success btn_margin3"
 										  style={me.disbleAdjustSection(-0.5, 0)}
-										 onClick={me.adjustSection.bind(this, -0.5, 0)}> 									
+										 onClick={me.adjustSection.bind(this, 'right', -0.5)}> 									
 										 -&#189; </button>									
 									
 									<button type="button" className="btn btn-sm btn-success btn_margin3"
 										  style={me.disbleAdjustSection(-0.5, 0)}
-										 onClick={me.adjustSection.bind(this, -0.5, 0)}> 									
+										 onClick={me.adjustSection.bind(this, 'right', 0.5)}> 									
 										 +&#189; </button>
 									{/*
 									 <button type="button" className="btn btn-sm btn-success btn_margin3"
