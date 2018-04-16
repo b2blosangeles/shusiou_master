@@ -277,23 +277,10 @@ try {
 										style={me.disbleAdjustSection(0.5, 0)}
 										 onClick={me.adjustSection.bind(this, 'left', 0.5)}> 
 										 +&#189;</button>
-									{/*
-									<button type="button" className="btn btn-sm btn-success btn_margin3"
-										style={me.disbleAdjustSection(0,0.5)}
-										 onClick={me.adjustSection.bind(this, 0, 0.5)}> 
-										<i className="fa fa-plus-square-o" aria-hidden="true"></i>
-									</button>	
-
-									<button type="button" className="btn btn-sm btn-success btn_margin3"
-										style={me.disbleAdjustSection(0,-0.5)}
-										 onClick={me.adjustSection.bind(this, 0, -0.5)}> 
-										<i className="fa fa-minus-square-o" aria-hidden="true"></i>
-									</button>
-									*/}
 									<span 
-								style={(me.state.track.s !== null)?{display:'', width:'80px'}:{display:'none'}}		     
-								dangerouslySetInnerHTML={{__html: (me.state.track.t)?(me.toHHMMSS(me.state.track.s) + 
-								' - ' + me.toHHMMSS(me.state.track.s + me.state.track.t)):''}} />
+										style={(me.state.track.s !== null)?{display:''}:{display:'none'}}		     
+										dangerouslySetInnerHTML={{__html: (me.state.track.t)?(me.toHHMMSS(me.state.track.s) + 
+										' - ' + me.toHHMMSS(me.state.track.s + me.state.track.t)):''}} />
 									
 									 <button type="button" className="btn btn-sm btn-success btn_margin3"
 										  style={me.disbleAdjustSection(-0.5, 0)}
@@ -304,17 +291,6 @@ try {
 										  style={me.disbleAdjustSection(-0.5, 0)}
 										 onClick={me.adjustSection.bind(this, 'right', 0.5)}> 									
 										 +&#189; </button>
-									{/*
-									 <button type="button" className="btn btn-sm btn-success btn_margin3"
-										  style={me.disbleAdjustSection(-0.5, 0)}
-										 onClick={me.adjustSection.bind(this, -0.5, 0)}> 									
-										 -&#189; <i className="fa fa-step-forward" aria-hidden="true"></i></button>									
-									
-									<button type="button" className="btn btn-sm btn-success btn_margin3"
-										  style={me.disbleAdjustSection(-0.5, 0)}
-										 onClick={me.adjustSection.bind(this, -0.5, 0)}> 									
-										 +&#189; <i className="fa fa-step-forward" aria-hidden="true"></i></button>
-									*/}
 								</span>							
 
 							</td>
