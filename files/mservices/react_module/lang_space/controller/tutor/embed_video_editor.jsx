@@ -4,7 +4,6 @@ try {
 			var me = this;
 			me.video = me.props.video;
 			me.sections = me.props.sections;
-			alert(JSON.stringify(me.props.track));
 			return {
 				preview_time:0,
 				track:me.props.track,
@@ -165,17 +164,20 @@ try {
 		
 		adjustSection:function(po, dt) {
 			var me = this;
-			alert(po + '---' + dt);
-			alert(me.state.track.s);
-			return true;
-			
+
 			if (po === 'left') {
 				var s = parseFloat(me.state.track.s) + parseFloat(dt); 
 				if (s<0) s=0;
 			} else if (po === 'right') {
 				var t = parseFloat(me.state.track.t) + parseFloat(dt); 
 				if (t>20) t=20; if (t<2) t=2;
-			}	
+			}
+
+			alert(po + '---' + s);
+			alert(t);
+			return true;
+						
+			
 			me.setState({track:{s:s, t:t}}, function(){
 				me.playSection();	
 			});
