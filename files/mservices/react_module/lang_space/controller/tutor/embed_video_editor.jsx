@@ -166,6 +166,7 @@ try {
 		adjustSection:function(po, dt) {
 			var me = this;
 			alert(po + '---' + dt);
+			alert(me.state.track.s);
 			return true;
 			
 			if (po === 'left') {
