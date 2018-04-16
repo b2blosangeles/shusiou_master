@@ -173,7 +173,7 @@ try {
 				if (t>20) t=20; if (t<2) t=2;
 			}
 
-			alert(po + '---' + s);
+			alert(po + '--->' + me.state.track.s);
 			alert(t);
 			return true;
 						
