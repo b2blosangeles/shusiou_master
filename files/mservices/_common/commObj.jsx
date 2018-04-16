@@ -22,7 +22,7 @@ try {
 			var me = this, 
 			    url = me.videoImageUrl(), width = (me.props.data.width) ? me.props.data.width : '';
 			if (!url) return (<span/>);
-			else return (width) ? (<img src={url} width={width} />) :  (<img src={url} />);
+			else return (width) ? (<img src={url} width={width}  />) :  (<img src={url} width={width} />);
 		},
 		videoBgImage : function() {
 			let me = this, img = me.props.data.img, url =  me.videoImageUrl();

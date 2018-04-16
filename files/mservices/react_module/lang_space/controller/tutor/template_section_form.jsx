@@ -74,10 +74,10 @@ try {
 			let curriculum = me.props.parent.state.curriculum;
 			let video = {
 				vid:me.props.parent.state.curriculum.vid,
-				node_ip:me.props.parent.state.curriculum.node_ip,
-				server_ip:me.props.parent.state.curriculum.server_ip,
+				space:me.props.parent.state.curriculum.space,
 				video_length:me.props.parent.state.curriculum.video_length
 			};
+			//alert(JSON.stringify(video));
 			let sections = (me.props.parent.state.curriculum.script)?me.props.parent.state.curriculum.script:[];
 			
 			me.setState({ModalPlus:{type:'popup',  hold:0,

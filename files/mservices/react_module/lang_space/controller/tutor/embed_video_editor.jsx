@@ -20,14 +20,9 @@ try {
 					me.setState({preview_time:v})
 				};
 			}
-			alert(1236);
-			return true;
-			var ips = me.video.node_ip;
-			var IP = ips[Math.floor(Math.random() * ips.length)];
+			 
+			var vurl = _node_svr() + '/api/video/pipe_stream.api?space=' + me.video.space + '&video_fn='+ me.video.vid;
 			
-		//	var vurl =  shusiou_config.api_server + '/api/video/play_stream.api?type=video&vid='+me.props.parent.state.curriculum.vid;
-			var vurl = 'http://' + IP + '/api/video/play_stream.api?type=video&vid=' +
-			    me.video.vid + '&server=' +  me.video.server_ip;
 			var _itv = setInterval(
 				function() {
 					if (me.video.vid) {
@@ -51,8 +46,6 @@ try {
 			n = (n > MAX)?MAX:n;	
 			var p_video = $('#preview_video')[0];
 			var c_video = $('#preview_clip_video')[0];
-			var ips = me.video.node_ip;
-			var IP = ips[Math.floor(Math.random() * ips.length)];
 			p_video.currentTime = Math.round(me.video.video_length * v / n);
 			me.setState({track:{s:p_video.currentTime, t:10}}, function() {
 				p_video.pause();
@@ -65,9 +58,10 @@ try {
 			if (isNaN(v)) return v;
 		  	var h = Math.floor(v / 3600),m = ("00" + Math.floor((v % 3600) / 60)).slice(-2), 
 		     		s = ("00" + (Math.floor(v) % 3600) % 60).slice(-2), ms = 1000 * (v - Math.floor(v));
-		     	if (!noms) { ms = (ms)?'&#189;':''; }
-		     	else ms = '';			
-		  	return h + ':' + m + ':' + s + ' ' + ms;
+		     	// if (!noms) { ms = (ms)?'&#189;':''; }
+		     	if (!noms) { ms = (ms)?'.5':'.0'; }
+			else ms = '';			
+		  	return h + ':' + m + ':' + s + ms;
 		},		
 		videoBar:function() {
 			var me = this;
@@ -120,18 +114,18 @@ try {
 		},
 		showSectionImages: function() {
 			var me = this, A = [];
+
 			if (!me.state.track) return false;
 			for (var i = 0; i < 2 * me.state.track.t; i++) {
 				A[A.length] = me.state.track.s + i * 0.5;
 			}
-			var ips = me.video.node_ip;
 			return A.map(function(a,idx){
-				var IP = ips[Math.floor(Math.random() * ips.length)];
-				var v = 'http://' + IP + '/api/video/play_stream.api?type=image&vid=' + 
-				    me.video.vid +'&w=90&s=' + a + '&server=' + 
-				    me.video.server_ip;
-				
-				if (idx < 8 || idx > A.length - 8) return (<img src={v} width="90" style={{border:'1px solid red'}} />)
+				if (idx < 8 || idx > A.length - 8)  return (<span>
+					<_commObj code={'videoImage'}  
+					data={{ rec:me.video, ss:A[idx], size:90, click:function() {
+								alert('niu');
+							}}}/>
+				</span>)
 				else return (<span></span>)
 			});
 		},
@@ -139,8 +133,8 @@ try {
 		
 		playSection:function() {
 			let me = this;
-			let v =  shusiou_config.api_server + '/api/video/play_stream.api?type=section&vid='+
-			    me.video.vid + '&s=' + me.state.track.s + '&l=' + me.state.track.t;
+			let v = _node_svr() + '/api/video/pipe.api?space=' + me.video.space + '&video_fn='+ me.video.vid + 
+			    '&ss=' + me.state.track.s + '&t=' + me.state.track.t;
 			$('#preview_clip_video')[0].src = v;
 			$('#preview_clip_video')[0].play();		
 		},
@@ -168,7 +162,19 @@ try {
 			return true;
 		},		
 		
-		adjustSection:function(ds, dt) {
+		adjustSection:function(po, dt) {
+			let me = this,
+			    s = parseFloat(me.state.track.s),
+			    t = parseFloat(me.state.track.t);
+			if (po === 'left') s += parseFloat(dt); 
+			else if (po === 'right')  t += parseFloat(dt); 
+			if (s<0) s=0; if (t>20) t=20; if (t<2) t=2;
+			me.setState({track:{s:s, t:t}}, function(){
+				me.playSection();	
+			});
+			
+		},
+		adjustSection_bk:function(ds, dt) {
 			var me = this;
 			if (!me.changeAble(ds, dt)) return true;
 			var s = parseFloat(me.state.track.s) + parseFloat(ds); if (s<0) s=0;
@@ -177,7 +183,7 @@ try {
 				me.playSection();	
 			});
 			
-		},
+		},		
 		bytesToSize:function (bytes) {
 		   var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
 		   if (bytes == 0) return '0 Byte';
@@ -201,7 +207,6 @@ try {
 					<tr>
 							<td width="48%">
 								Original Movie:
-
 							</td>
 							<td width="1%" style={{'border-right':'2px solid #ccc'}}></td>
 							<td width="1%" style={{'border-left':'2px solid #ccc'}}></td>
@@ -263,27 +268,29 @@ try {
 							<td width="1%" style={{'border-left':'2px solid transparent'}}></td>						
 							<td width="50%">
 								<span style={me.hideNullSection()}>
+									 <button type="button" className="btn btn-sm btn-warning btn_margin3"
+										  style={me.disbleAdjustSection(-0.5, 0)}
+										 onClick={me.adjustSection.bind(this, 'left', -0.5)}> 									
+										  -&#189;</button>							
+
+									<button type="button" className="btn btn-sm btn-warning btn_margin3"
+										style={me.disbleAdjustSection(0.5, 0)}
+										 onClick={me.adjustSection.bind(this, 'left', 0.5)}> 
+										 +&#189;</button>
+									<span 
+										style={(me.state.track.s !== null)?{display:''}:{display:'none'}}		     
+										dangerouslySetInnerHTML={{__html: (me.state.track.t)?(me.toHHMMSS(me.state.track.s) + 
+										' - ' + me.toHHMMSS(me.state.track.s + me.state.track.t)):''}} />
+									
 									 <button type="button" className="btn btn-sm btn-success btn_margin3"
 										  style={me.disbleAdjustSection(-0.5, 0)}
-										 onClick={me.adjustSection.bind(this, -0.5, 0)}> 									
-										 <i className="fa fa-step-backward" aria-hidden="true"></i> -&#189;</button>							
-
+										 onClick={me.adjustSection.bind(this, 'right', -0.5)}> 									
+										 -&#189; </button>									
+									
 									<button type="button" className="btn btn-sm btn-success btn_margin3"
-										style={me.disbleAdjustSection(0.5, 0)}
-										 onClick={me.adjustSection.bind(this, 0.5, 0)}> 
-										<i className="fa fa-step-backward" aria-hidden="true"></i> +&#189;</button>
-
-									<button type="button" className="btn btn-sm btn-success btn_margin3"
-										style={me.disbleAdjustSection(0,0.5)}
-										 onClick={me.adjustSection.bind(this, 0, 0.5)}> 
-										<i className="fa fa-plus-square-o" aria-hidden="true"></i>
-									</button>	
-
-									<button type="button" className="btn btn-sm btn-success btn_margin3"
-										style={me.disbleAdjustSection(0,-0.5)}
-										 onClick={me.adjustSection.bind(this, 0, -0.5)}> 
-										<i className="fa fa-minus-square-o" aria-hidden="true"></i>
-									</button>
+										  style={me.disbleAdjustSection(-0.5, 0)}
+										 onClick={me.adjustSection.bind(this, 'right', 0.5)}> 									
+										 +&#189; </button>
 								</span>							
 
 							</td>
