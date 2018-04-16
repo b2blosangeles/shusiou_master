@@ -166,10 +166,10 @@ try {
 			var me = this;
 
 			if (po === 'left') {
-				var s = parseFloat(me.state.track.s) + parseFloat(dt); 
+				var s = parseFloat(me.state.track.s) + dt; 
 				if (s<0) s=0;
 			} else if (po === 'right') {
-				var t = parseFloat(me.state.track.t) + parseFloat(dt); 
+				var t = parseFloat(me.state.track.t) + dt; 
 				if (t>20) t=20; if (t<2) t=2;
 			}
 
