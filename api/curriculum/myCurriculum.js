@@ -23,6 +23,9 @@ var app = function(auth_data) {
 			var CP = new pkg.crowdProcess();
 			var _f = {};
 			_f['S0'] = function(cbk) {
+				cbk(false);
+				return true;
+				
 				var str = 'SELECT * FROM  `curriculum_sections` WHERE `curriculum_id` = "' + 
 				    curriculum_id + '"; ';
 				var connection = mysql.createConnection(cfg0);
