@@ -125,10 +125,7 @@ try {
 		saveSection:function(opt){
 			let me = this, 
 			    data = {section_id:me.props.section_id, tpl:me.state.c_tpl, data:me.state.data, c_section:me.state.c_section};
-			alert(JSON.stringify({
-						curriculum_id : me.props.parent.state.curriculum.curriculum_id,
-						section:data,
-				       }));
+			alert(JSON.stringify(data));
 			
 			me.props.env.engine({
 				url: _master_svr() + '/api/curriculum/myCurriculum.api',
