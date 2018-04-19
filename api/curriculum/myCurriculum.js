@@ -26,11 +26,7 @@ var app = function(auth_data) {
 	
 				var str = 'SELECT * FROM  `curriculum_sections` WHERE `curriculum_id` = "' + 
 				    curriculum_id + '"; ';
-				
-			cbk(str);
-				return true;
-								
-				
+
 				var connection = mysql.createConnection(cfg0);
 				connection.connect();
 				connection.query(str, function (error, results, fields) {
@@ -40,6 +36,13 @@ var app = function(auth_data) {
 						return true;
 					} else {
 						if (results) {
+							
+										
+			cbk(results);
+				return true;
+								
+					
+							
 							cbk(queryStringToJSON(results[0].script, []));
 						} else {
 							cbk(false);
