@@ -36,13 +36,6 @@ var app = function(auth_data) {
 						return true;
 					} else {
 						if (results) {
-							
-										
-			cbk(results);
-				return true;
-								
-					
-							
 							cbk(queryStringToJSON(results[0].script, []));
 						} else {
 							cbk(false);
