@@ -48,7 +48,8 @@ var app = function(auth_data) {
 			};
 			_f['P0'] = function(cbk) {
 				let v = CP.data.S0;
-
+				cbk(v);
+				return true;
 				if (opt === 'saveSection' && req.body.data.section.section_id === 'new') {
 					v[v.length] = req.body.data.section;
 				} else if (opt === 'saveSection') {
