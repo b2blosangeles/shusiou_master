@@ -2,7 +2,6 @@ function jsonToQueryString(o) {
 	return JSON.stringify(o).replace(/'/g, "\\'");
 };
 function queryStringToJSON(s, o) {
-	return s;
 	try { o = JSON.parse(s.replace(/\\\'/g, "'")); } catch (e) {}
 	return o;
 };
