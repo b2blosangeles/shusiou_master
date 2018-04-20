@@ -66,6 +66,8 @@ var app = function(auth_data) {
 					}					
 					
 				} else if (opt === 'deleteSection')  {
+					cbk('--lv---');
+					return true;
 					var lv = v.filter(function(a) {
 						return a.section_id != req.body.data.section.section_id;
 					});
