@@ -49,10 +49,6 @@ var app = function(auth_data) {
 			
 			_f['P0'] = function(cbk) {
 				let v = (CP.data.S0) ? CP.data.S0 : [];
-				
-					cbk('--lv---' + opt);
-					return true;				
-				
 				if (opt === 'saveSection' && req.body.data.section.section_id === 'new') {
 					v[v.length] = req.body.data.section;
 				} else if (opt === 'saveSection') {
@@ -70,7 +66,8 @@ var app = function(auth_data) {
 					}					
 					
 				} else if (opt === 'deleteSection')  {
-
+					cbk('--lv-2--' + opt);
+					return true;	
 					var lv = v.filter(function(a) {
 						return a.section_id != req.body.data.section.section_id;
 					});
