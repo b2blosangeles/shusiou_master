@@ -66,7 +66,7 @@ var app = function(auth_data) {
 					}					
 					
 				} else if (opt === 'deleteSection')  {
-					cbk('--lv-3--' + v);
+					cbk('--lv-3--' + typeof v);
 					return true;
 					
 					var lv = v.filter(function(a) {
