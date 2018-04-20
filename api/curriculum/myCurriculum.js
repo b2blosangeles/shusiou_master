@@ -66,14 +66,15 @@ var app = function(auth_data) {
 					}					
 					
 				} else if (opt === 'deleteSection')  {
-
+					cbk('--lv-3--' + v);
+					return true;
+					
 					var lv = v.filter(function(a) {
 						return a.section_id != req.body.data.section.section_id;
 					});
 					v = lv;
 					
-					cbk('--lv-2--' + v);
-					return true;						
+											
 					
 				}
 				
