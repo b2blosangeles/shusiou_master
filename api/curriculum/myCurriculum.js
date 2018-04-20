@@ -46,7 +46,6 @@ var app = function(auth_data) {
 					
 				});  
 			};
-			/*
 			_f['P0'] = function(cbk) {
 				let v = CP.data.S0;
 
@@ -127,7 +126,6 @@ var app = function(auth_data) {
 					
 				});  
 			};
-			*/
 			CP.serial(
 				_f,
 				function(data) {
