@@ -125,8 +125,6 @@ try {
 		saveSection:function(opt){
 			let me = this, 
 			    data = {section_id:me.props.section_id, tpl:me.state.c_tpl, data:me.state.data, c_section:me.state.c_section};
-			alert( _master_svr() + '/api/curriculum/myCurriculum.api');
-			
 			me.props.env.engine({
 				url: _master_svr() + '/api/curriculum/myCurriculum.api',
 				method: "POST",
