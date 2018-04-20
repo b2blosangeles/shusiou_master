@@ -46,6 +46,7 @@ var app = function(auth_data) {
 					
 				});  
 			};
+			/*
 			_f['P0'] = function(cbk) {
 				let v = (CP.data.S0) ? CP.data.S0 : [];
 				if (opt === 'saveSection' && req.body.data.section.section_id === 'new') {
@@ -104,7 +105,7 @@ var app = function(auth_data) {
 					}
 				}); 
 			};
-			/*
+			
 			_f['S1'] = function(cbk) {
 				var str = 'SELECT * FROM  `curriculum_sections` WHERE `curriculum_id` = "' + 
 				    curriculum_id + '"; ';
