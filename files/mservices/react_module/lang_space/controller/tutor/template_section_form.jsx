@@ -140,7 +140,7 @@ try {
 				//me.props.parent.refreshSections();
 				
 			},function( jqXHR, textStatus ) {
-				alert(JSON.stringify('error'));
+				alert(JSON.stringify(data));
 				console.log('error');
 			});			
 		},		
