@@ -104,12 +104,12 @@ try {
 				var cid = me.props.params['id'];
 				me.getCurriculumById(cid, function(data) {
 				
-					console.log('===data===>');
+					console.log('---=data--->');
 					console.log(data);				
 									
 					if (data.data.curriculum_id) {
 						me.setState({curriculum:data.data, 
-						    sections:(data.data.sections)?data.data.sections:[]});
+						    sections:(data.data.sections)? JSON.parse(data.data.sections):[]});
 					} 
 					me.leftBox(me.props.params);
 					me.rightBox(me.props.params);
