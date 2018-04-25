@@ -50,8 +50,7 @@ var app = function(auth_data) {
 				let v = (CP.data.S0) ? CP.data.S0 : [];
 				if (opt === 'saveSection' && req.body.data.section.section_id === 'new') {
 					v[v.length] = req.body.data.section;
-					cbk(v);
-					return true;
+					
 				} else if (opt === 'saveSection') {
 					cbk(v);
 					return true;
@@ -84,7 +83,8 @@ var app = function(auth_data) {
 					let s1 = (a1.data.track)?a1.data.track.s:0, s2 = (a1.data.track)?a2.data.track.s:0
 					return (s1 > s2)
 				});
-				
+				cbk(v);
+					return true;
 				for (var i = 0; i < v.length; i++) {
 					v[i].section_id = i + 1;
 				}
