@@ -102,11 +102,7 @@ try {
 				);
 			} else if (me.props.params['opt'] == 'edit') {
 				var cid = me.props.params['id'];
-				me.getCurriculumById(cid, function(data) {
-				
-					console.log('>>==data--->');
-					console.log(data);				
-									
+				me.getCurriculumById(cid, function(data) {		
 					if (data.data.curriculum_id) {
 						me.setState({curriculum:data.data, 
 						    sections:(data.data.script)? JSON.parse(data.data.script):[]});
@@ -121,6 +117,8 @@ try {
 		},
 		deleteCurriculum: function(params, track) {
 			var me = this;
+			me.sendDeleteCurriculum();
+			return true;
 			me.setState({ModalPlus:{type:'popup',  hold:0,
 				box_style:{top:'28px'},
 				header: (<span/>),		
@@ -139,7 +137,7 @@ try {
 			var me = this, curriculum_id = me.state.curriculum.curriculum_id;
 			if (curriculum_id) {
 				me.props.route.env.engine({
-					url:'/api/curriculum/myCurriculum.api',
+					url: _master_svr() + '/api/curriculum/myCurriculum.api',
 					method: "POST",
 					data: {cmd:'delete', curriculum_id:curriculum_id},
 					dataType: "JSON"
