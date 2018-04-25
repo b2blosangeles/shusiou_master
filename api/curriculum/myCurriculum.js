@@ -47,10 +47,10 @@ var app = function(auth_data) {
 			};
 			
 			_f['P0'] = function(cbk) {
-				let v = (CP.data.S0) ? CP.data.S0 : [];
+				let v = (CP.data.S0) ? 'CP.data.S0' : [];
 				if (opt === 'saveSection' && req.body.data.section.section_id === 'new') {
-					v[v.length] = req.body.data.section;
-					cbk('v');
+					//v[v.length] = req.body.data.section;
+					cbk(v);
 					return true;
 					
 				} else if (opt === 'saveSection') {
