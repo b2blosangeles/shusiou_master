@@ -77,7 +77,6 @@ try {
 		},
 		deleteSection:function(id) {
 			var me = this;
-			alert(id);
 			var o = me.state.sections, v = [];	
 			for (var i = 0; i < o.length; i++) {
 				if (o[i].id == id) continue;
@@ -122,6 +121,9 @@ try {
 		},
 		deleteCurriculum: function(params, track) {
 			var me = this;
+			alert('id');
+			return true;
+			
 			me.setState({ModalPlus:{type:'popup',  hold:0,
 				box_style:{top:'28px'},
 				header: (<span/>),		
