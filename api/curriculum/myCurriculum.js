@@ -50,9 +50,6 @@ var app = function(auth_data) {
 				let v = (CP.data.S0) ? CP.data.S0 : [];
 				if (opt === 'saveSection' && req.body.data.section.section_id === 'new') {
 					v[v.length] = req.body.data.section;
-					cbk(v);
-					return true;
-					
 				} else if (opt === 'saveSection') {
 					
 					for (var i = 0; i < v.length; i++) {
