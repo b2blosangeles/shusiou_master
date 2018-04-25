@@ -77,6 +77,7 @@ try {
 		},
 		deleteSection:function(id) {
 			var me = this;
+			alert(id);
 			var o = me.state.sections, v = [];	
 			for (var i = 0; i < o.length; i++) {
 				if (o[i].id == id) continue;
