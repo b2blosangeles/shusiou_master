@@ -179,8 +179,7 @@ try {
 				} 
 				var cid = me.props.params['id'];
 				me.getCurriculumById(cid, function(data) {
-					console.log('---data--->');
-					console.log(data);
+
 					if (data.data.curriculum_id) {
 						me.setState({curriculum:data.data,
 						    sections:(data.data.script)?data.data.script:[]});
@@ -213,6 +212,10 @@ try {
 				      auth:me.props.route.env.state.auth},
 				dataType: "JSON"
 			}, function( data) {
+				
+					console.log('===data--->');
+					console.log(data);				
+				
 				if (typeof cbk == 'function') {
 					cbk(data);
 				}
