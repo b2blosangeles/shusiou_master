@@ -33,8 +33,9 @@ try {
 						<div className="overlayer_box editor_box">
 							{me.rightBox(me.props.params)}			
 						</div>	
-					</div>						
-			</div>);
+					</div>	
+					<ModalPlus parent={me} />
+				</div>);
 		},
 		leftBox:function(params) {
 			var me = this;
@@ -117,8 +118,8 @@ try {
 		},
 		deleteCurriculum: function(params, track) {
 			var me = this;
-			me.sendDeleteCurriculum();
-			return true;
+			// me.sendDeleteCurriculum();
+			//return true;
 			me.setState({ModalPlus:{type:'popup',  hold:0,
 				box_style:{top:'28px'},
 				header: (<span/>),		
