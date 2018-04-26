@@ -143,7 +143,7 @@ try {
 					data: {cmd:'delete', curriculum_id:curriculum_id},
 					dataType: "JSON"
 				}, function( data) {
-					// me.closePopup();
+					me.closePopup();
 					me.props.router.push('/tutor/my_curriculums');
 				},function( jqXHR, textStatus ) {
 					me.closePopup();
