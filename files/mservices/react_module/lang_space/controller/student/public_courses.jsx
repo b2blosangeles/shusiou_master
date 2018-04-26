@@ -13,7 +13,7 @@ try {
 		getDataApi: function(opt) {
 			var me = this, A = me.state.list;
 			$.ajax({
-				url: 'https://www.qalet.com/api/curriculum/curriculums.api',
+				url:  _master_svr() + '/api/curriculum/curriculums.api',
 				method: "POST",
 				data: {cmd:'getPublicList'},
 				dataType: "JSON"
