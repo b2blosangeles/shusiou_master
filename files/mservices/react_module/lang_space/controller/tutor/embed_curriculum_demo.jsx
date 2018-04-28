@@ -16,14 +16,7 @@ try {
 		},
 		callEng:function() {
 			var me = this;
-			me.setState({"eng":[
-				{
-					"bb": "BBB"
-				}, 
-				{
-					"bb": "CCC"
-				}
-			]});
+			me.setState({"eng":[ "BBB",  "CCC"]});
 		},		
 		render: function() {
 			var me = this;
