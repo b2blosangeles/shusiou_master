@@ -6,7 +6,7 @@ try {
 		},	
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
-			return (<span>test</span>)
+			return (<span> -- test --</span>)
 		}
 	});	
 } catch (err) {
