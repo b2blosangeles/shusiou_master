@@ -18,10 +18,10 @@ try {
 			var me = this;
 			me.setState({eng:[
 				{
-					bb: 'BBB' + new Date()
+					bb: 'BBB'
 				}, 
 				{
-					bb: 'CCC' + new Date()
+					bb: 'CCC'
 				}
 			]});
 		},		
