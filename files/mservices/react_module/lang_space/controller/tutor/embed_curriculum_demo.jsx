@@ -16,10 +16,19 @@ try {
 		},
 		callEng:function() {
 			var me = this;
-			me.setState({"eng":{p:[
-				{"url":"BBB", method:'get', data:{vid:1}}, 
-				{"url":'ccc', method:'post', data:{vid:2}}
-			]}});
+			me.setState({"eng":{
+				p:[
+					{"url":"BBB", method:'get', data:{vid:1}}, 
+					{"url":'CCC', method:'post', data:{vid:2}},
+					{"url":'DDD', method:'post', data:{vid:3}}
+				],
+				s:[
+					{"url":"BBBS", method:'get', data:{vid:1}}, 
+					{"url":'CCCS', method:'post', data:{vid:2}},
+					{"url":'DDDS', method:'post', data:{vid:3}}
+				]					   
+					   
+			}});
 		},		
 		render: function() {
 			var me = this;
