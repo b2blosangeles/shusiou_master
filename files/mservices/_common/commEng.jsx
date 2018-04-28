@@ -22,7 +22,7 @@ try {
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
-			return (<span> -- test {me.props.parent.state.eng} --</span>)
+			return (<span> -- test  --</span>)
 		}
 	});	
 } catch (err) {
