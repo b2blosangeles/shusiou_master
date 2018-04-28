@@ -6,8 +6,8 @@ try {
 		},
 		postData: function() {
 			var me = this;
-			alert(me.props.parent.state.eng);
-			me.props.parent.setState({eng:null});
+			alert(me.props.parent.state.eng.shift());
+			me.props.parent.setState({eng:me.props.parent.state.eng});
 			return true;
 		},
 		componentDidMount:function() {
@@ -16,7 +16,7 @@ try {
 		},		
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
-			if (me.props.parent.state.eng) {
+			if (me.props.parent.state.eng && me.props.parent.state.eng.length) {
 				me.postData();
 			}
 		},		
