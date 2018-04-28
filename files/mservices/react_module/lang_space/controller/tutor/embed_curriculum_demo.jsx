@@ -2,7 +2,7 @@ try {
 	var Embed_curriculum_demo =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			return {};
+			return {niu:1};
 		},	
 		componentDidMount:function() {
 			var me = this;
