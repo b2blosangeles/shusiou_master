@@ -5,8 +5,8 @@ try {
 			return {};
 		},
 		cp: function() {
-			let me = this, v = me.props.parent.state.eng.p.shift();
-			alert(JSON.stringify(v));
+			let me = this, p = me.props.parent.state.eng.p.shift();
+			alert(JSON.stringify(p));
 			me.props.parent.setState({eng:me.props.parent.state.eng});
 			return true;
 		},
