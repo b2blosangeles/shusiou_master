@@ -20,8 +20,8 @@ try {
 				console.log('me.props.parent.state.niu ===>');
 				console.log(me.props.parent.state.niu);
 		//	}
-			console.log(me.State);
-			console.log(prevStat);
+		//	console.log(me.State);
+		//	console.log(prevStat);
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
