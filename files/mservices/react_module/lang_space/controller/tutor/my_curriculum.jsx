@@ -33,8 +33,9 @@ try {
 						<div className="overlayer_box editor_box">
 							{me.rightBox(me.props.params)}			
 						</div>	
-					</div>						
-			</div>);
+					</div>	
+					<ModalPlus parent={me} />
+				</div>);
 		},
 		leftBox:function(params) {
 			var me = this;
@@ -102,10 +103,10 @@ try {
 				);
 			} else if (me.props.params['opt'] == 'edit') {
 				var cid = me.props.params['id'];
-				me.getCurriculumById(cid, function(data) {
+				me.getCurriculumById(cid, function(data) {		
 					if (data.data.curriculum_id) {
 						me.setState({curriculum:data.data, 
-						    sections:(data.data.sections)?data.data.sections:[]});
+						    sections:(data.data.script)? JSON.parse(data.data.script):[]});
 					} 
 					me.leftBox(me.props.params);
 					me.rightBox(me.props.params);
@@ -115,6 +116,11 @@ try {
 		componentDidUpdate:function() {
 			var me = this;
 		},
+		closePopup:function() {
+			var me = this;
+			me.setState({ModalPlus:'cancel'});			
+			return true;
+		},			
 		deleteCurriculum: function(params, track) {
 			var me = this;
 			me.setState({ModalPlus:{type:'popup',  hold:0,
@@ -133,7 +139,7 @@ try {
 			var me = this, curriculum_id = me.state.curriculum.curriculum_id;
 			if (curriculum_id) {
 				me.props.route.env.engine({
-					url:'/api/curriculum/myCurriculum.api',
+					url: _master_svr() + '/api/curriculum/myCurriculum.api',
 					method: "POST",
 					data: {cmd:'delete', curriculum_id:curriculum_id},
 					dataType: "JSON"
@@ -179,6 +185,7 @@ try {
 				} 
 				var cid = me.props.params['id'];
 				me.getCurriculumById(cid, function(data) {
+
 					if (data.data.curriculum_id) {
 						me.setState({curriculum:data.data,
 						    sections:(data.data.script)?data.data.script:[]});

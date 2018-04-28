@@ -253,16 +253,7 @@ try {
 					{me.videoBar()}	
 					<table width="100%" className="section_template_frame">		
 						<tr>
-							<td width="48%">
-								{/*
-								<button type="button" className="btn btn-sm btn-success btn_margin3 pull-left" 
-									onClick={me.pickVideo.bind(this, true)}>
-									<i className="fa fa-scissors" aria-hidden="true"></i>
-								</button>							
-								<button type="button" className="btn btn-sm btn-info btn_margin3"
-									onClick={me.setHelp.bind(me, 'Help with Curriculum','/help/curriculum.html')}>
-									<i className="fa fa-question" aria-hidden="true"></i> Help
-								</button>*/}						
+							<td width="48%">						
 							</td>
 							<td width="1%" style={{'border-right':'2px solid transparent'}}></td>
 							<td width="1%" style={{'border-left':'2px solid transparent'}}></td>						

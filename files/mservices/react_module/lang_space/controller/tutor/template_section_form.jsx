@@ -136,7 +136,8 @@ try {
 					auth:me.props.env.state.auth},
 					dataType: "JSON"
 			}, function( result) {
-				me.props.parent.refreshSections();
+				alert(JSON.stringify(result));
+				//me.props.parent.refreshSections();
 				
 			},function( jqXHR, textStatus ) {
 				alert(JSON.stringify('error'));

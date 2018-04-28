@@ -23,8 +23,10 @@ var app = function(auth_data) {
 			var CP = new pkg.crowdProcess();
 			var _f = {};
 			_f['S0'] = function(cbk) {
+	
 				var str = 'SELECT * FROM  `curriculum_sections` WHERE `curriculum_id` = "' + 
 				    curriculum_id + '"; ';
+
 				var connection = mysql.createConnection(cfg0);
 				connection.connect();
 				connection.query(str, function (error, results, fields) {
@@ -33,7 +35,7 @@ var app = function(auth_data) {
 						cbk(error.message);
 						return true;
 					} else {
-						if (results) {
+						if ((results) && (results[0])) {
 							cbk(queryStringToJSON(results[0].script, []));
 						} else {
 							cbk(false);
@@ -43,9 +45,9 @@ var app = function(auth_data) {
 					
 				});  
 			};
+			
 			_f['P0'] = function(cbk) {
-				let v = CP.data.S0;
-
+				let v = (CP.data.S0) ? CP.data.S0 : [];
 				if (opt === 'saveSection' && req.body.data.section.section_id === 'new') {
 					v[v.length] = req.body.data.section;
 				} else if (opt === 'saveSection') {
@@ -63,24 +65,32 @@ var app = function(auth_data) {
 					}					
 					
 				} else if (opt === 'deleteSection')  {
+					cbk('--lv-3--' + typeof v);
+					return true;
+					
 					var lv = v.filter(function(a) {
 						return a.section_id != req.body.data.section.section_id;
 					});
 					v = lv;
+					
+											
+					
 				}
 				
 				v.sort(function(a1, a2) {
 					let s1 = (a1.data.track)?a1.data.track.s:0, s2 = (a1.data.track)?a2.data.track.s:0
 					return (s1 > s2)
 				});
-				
+
 				for (var i = 0; i < v.length; i++) {
 					v[i].section_id = i + 1;
 				}
+			//	cbk(v);
+			//		return true;				
 				var str = 'INSERT INTO  `curriculum_sections` (`curriculum_id`,`type`,`script`, `created`) VALUES ("' +
 				curriculum_id + '",' +
 				'"niuA",' +
-				"'" + jsonToQueryString(req.body.data.section) + "'," +
+				"'" + jsonToQueryString(v) + "'," +
 				'NOW()' +	
 				') ON DUPLICATE KEY UPDATE `script` = ' + 
 				"'" + jsonToQueryString(v) + "'"  + 
@@ -102,6 +112,7 @@ var app = function(auth_data) {
 					}
 				}); 
 			};
+			/*
 			_f['S1'] = function(cbk) {
 				var str = 'SELECT * FROM  `curriculum_sections` WHERE `curriculum_id` = "' + 
 				    curriculum_id + '"; ';
@@ -122,11 +133,12 @@ var app = function(auth_data) {
 					}
 					
 				});  
-			};			
+			};
+			*/
 			CP.serial(
 				_f,
 				function(data) {
-					res.send({_spent_time:data._spent_time, status:'success', data:data.results.P0});
+					res.send({_spent_time:data._spent_time, status:'success', v:CP.data.P0});
 				},
 				30000
 			);
@@ -225,7 +237,7 @@ var app = function(auth_data) {
 					}
 				});  
 			};
-			
+			/*
 			_f['S2'] = function(cbk) {
 				var str = 'DELETE FROM  `curriculum_sections` WHERE `curriculum_id` = "' + req.body.curriculum_id + '"; ';
 				var connection = mysql.createConnection(cfg0);
@@ -284,7 +296,7 @@ var app = function(auth_data) {
 					}
 				});  
 			};
-			
+			*/
 			CP.serial(
 				_f,
 				function(data) {

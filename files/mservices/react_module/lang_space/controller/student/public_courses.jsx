@@ -13,7 +13,7 @@ try {
 		getDataApi: function(opt) {
 			var me = this, A = me.state.list;
 			$.ajax({
-				url: 'https://www.qalet.com/api/curriculum/curriculums.api',
+				url:  _master_svr() + '/api/curriculum/curriculums.api',
 				method: "POST",
 				data: {cmd:'getPublicList'},
 				dataType: "JSON"
@@ -69,7 +69,8 @@ try {
 										<div className="video_thumbnail_text_top">
 											{a.name}	
 										</div>
-										<img src={me.videoImageFilm(a, 10)} style={{width:'100%'}}/>
+										<_commObj code={'videoImage'}  
+											data={{rec:a, width:'100%', ss:90, size:320}}/>
 										<div className="video_thumbnail_text">
 											<a href={'#/student/my_course/' + a.curriculum_id}>
 												<button type="button" 

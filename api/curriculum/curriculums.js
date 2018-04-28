@@ -9,7 +9,11 @@ switch(req.body.cmd) {
 		var _f = {};
 		_f['S1'] = function(cbk) {
 			var connection = mysql.createConnection(cfg0);
-			var str = 'SELECT A.*, B.vid, B.server_ip FROM `curriculums` A LEFT JOIN `video` B  ON A.vid = B.vid WHERE A.published = 1;';
+			// var str = 'SELECT A.*, B.vid, B.server_ip FROM `curriculums` A LEFT JOIN `video` B  ON A.vid = B.vid WHERE A.published = 1;';
+			var str = 'SELECT A.curriculum_id, A.`name`, B.* FROM `curriculums` A LEFT JOIN  `video_space` B  ON A.vid = B.vid '+
+				    ' WHERE A.published = 1;';
+
+			
 			connection.query(str, function (error, results, fields) {
 				if (error) {
 					cbk(error.message);
