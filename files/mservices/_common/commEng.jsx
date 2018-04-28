@@ -15,14 +15,9 @@ try {
 		},		
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
-			me.postData();
-		//	me.setState({niu:'BBB'});
-		//	if (me.state.niu != prevStat.niu) {
-		//		console.log('me.props.parent.state.niu===>');
-		//		console.log(me.props.parent.state.niu);
-		//	}
-		//	console.log(me.State);
-		//	console.log(prevStat);
+			if (me.props.parent.state.eng) {
+				me.postData();
+			}
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
