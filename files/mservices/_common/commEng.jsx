@@ -15,7 +15,7 @@ try {
 		},		
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
-			me.postData();
+			// me.postData();
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
