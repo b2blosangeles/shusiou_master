@@ -17,8 +17,8 @@ try {
 			var me = this;
 		//	me.setState({niu:'BBB'});
 		//	if (me.props.parent.state.niu != me.props.parent.state.niu) {
-				console.log('me.props.parent.state.niu ===>');
-				console.log(me.props.parent.state.niu);
+				console.log('me.props.comm ===>');
+				console.log(me.props.comm);
 		//	}
 		//	console.log(me.State);
 		//	console.log(prevStat);
