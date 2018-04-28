@@ -6,7 +6,7 @@ try {
 		},
 		postData: function() {
 			var me = this;
-			alert(12356);
+			alert(me.props.parent.state.eng);
 			me.props.parent.setState({eng:null});
 			return true;
 		},
