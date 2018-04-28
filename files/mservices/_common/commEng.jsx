@@ -19,7 +19,7 @@ try {
 				console.log('me.props.parent.state.niu ===>');
 				console.log(me.props.parent.state.niu);
 		//	}
-			console.log(prePropos);
+			console.log(prevStat);
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
