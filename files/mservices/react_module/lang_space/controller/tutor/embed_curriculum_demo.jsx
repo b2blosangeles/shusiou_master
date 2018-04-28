@@ -18,10 +18,10 @@ try {
 			var me = this;
 			me.setState({eng:[
 				{
-					bb: 'BBB'
+					"bb": "BBB"
 				}, 
 				{
-					bb: 'CCC'
+					"bb": "CCC"
 				}
 			]});
 		},		
