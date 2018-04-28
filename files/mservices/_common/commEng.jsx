@@ -6,7 +6,7 @@ try {
 		},
 		postData: function() {
 			var me = this;
-			alert('me.props.parent.state.eng.shift()');
+			alert(me.props.parent.state.eng.shift());
 			me.props.parent.setState({eng:me.props.parent.state.eng});
 			return true;
 		},
