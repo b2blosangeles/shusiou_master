@@ -5,8 +5,8 @@ try {
 			return {};
 		},
 		postData: function() {
-			var me = this;
-			alert(me.props.parent.state.eng.shift());
+			let me = this, v = me.props.parent.state.eng.shift();
+			alert(JSON.stringify(v));
 			me.props.parent.setState({eng:me.props.parent.state.eng});
 			return true;
 		},
