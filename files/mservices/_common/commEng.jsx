@@ -15,7 +15,7 @@ try {
 		},		
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
-			me.setState({niu:'BBB'});
+		//	me.setState({niu:'BBB'});
 		//	if (me.props.parent.state.niu != me.props.parent.state.niu) {
 				console.log('me.props.parent.state.niu ===>');
 				console.log(me.props.parent.state.niu);
