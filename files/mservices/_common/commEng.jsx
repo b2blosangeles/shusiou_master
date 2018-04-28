@@ -16,10 +16,10 @@ try {
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
 		//	me.setState({niu:'BBB'});
-			if (me.state.niu != prevStat.niu) {
-				console.log('me.props.comm ===>');
-				console.log(me.props.comm);
-			}
+		//	if (me.state.niu != prevStat.niu) {
+				console.log('me.props.parent.state.niu===>');
+				console.log(me.props.parent.state.niu);
+		//	}
 		//	console.log(me.State);
 		//	console.log(prevStat);
 		},		
