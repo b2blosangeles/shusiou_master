@@ -16,7 +16,14 @@ try {
 		},
 		callEng:function() {
 			var me = this;
-			me.setState({eng:['BBB' + new Date(), 'CCC' + new Date()]});
+			me.setState({eng:[
+				{
+					bb: 'BBB' + new Date()
+				}, 
+				{
+					bb: 'CCC' + new Date()
+				}
+			]});
 		},		
 		render: function() {
 			var me = this;
