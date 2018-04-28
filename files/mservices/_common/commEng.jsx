@@ -11,10 +11,11 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
-			me.postData();
+			
 		},		
-		componentDidUpdate:function() {
+		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
+			me.postData();
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
