@@ -7,7 +7,7 @@ try {
 		postData: function() {
 			var me = this;
 			alert(12356);
-			me.props.parent.setState({eng:'BBBc'});
+			me.props.parent.setState({eng:null});
 			return true;
 		},
 		componentDidMount:function() {
