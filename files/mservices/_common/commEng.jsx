@@ -7,7 +7,7 @@ try {
 		cp: function() {
 			let me = this, v = me.props.parent.state.eng.p.shift();
 			alert(JSON.stringify(v));
-			me.props.parent.setState({eng:me.props.parent.state.eng.p});
+			me.props.parent.setState({eng:me.props.parent.state.eng});
 			return true;
 		},
 		componentDidMount:function() {
