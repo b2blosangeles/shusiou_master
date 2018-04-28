@@ -5,13 +5,7 @@ try {
 			return {};
 		},	
 		componentDidMount:function() {
-			var me = this;
-			setTimeout(
-				function() {
-					me.setState({eng:'BBB' + new Date()});
-					
-				}, 10000
-			);			
+			var me = this;			
 			if (me.props.params.opt == 'new') {
 				me.props.parent.getVideoInfo(me.props.params.id,
 					function(data) {
@@ -19,12 +13,17 @@ try {
 					}
 				);
 			}
+		},
+		callEng:function() {
+			var me = this;
+			me.setState({eng:'BBB' + new Date()});
 		},		
 		render: function() {
 			var me = this;
 
 			if ((me.props.params.id) && (me.props.parent.state.curriculum)) {
 				return (<div>Embed_curriculum_demo : 
+						<a onClick={me.callEng.bind(me)}></a>
 						<_commEng parent={me} />
 						<h4>{me.props.parent.state.video.title}</h4>	
 						<p><b>Video ID</b>:{me.props.parent.state.curriculum.vid}</p>  
