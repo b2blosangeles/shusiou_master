@@ -15,7 +15,8 @@ try {
 		},		
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
-			// me.postData();
+			console.log('me.props.parent.state.niu--->');
+			console.log(me.props.parent.state.niu);
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
