@@ -14,6 +14,7 @@
 			"/mservices/_common/modal.jsx",
 			"/mservices/_common/breakpoints.jsx",
 			"/mservices/_common/commonlib.jsx",
+			"/mservices/_common/commoneng.jsx",
 			
 			"/mservices/react_module/lang_space/controller/shusiou_config.js",			
 			
