@@ -16,7 +16,10 @@ try {
 		},
 		callEng:function() {
 			var me = this;
-			me.setState({"eng":[{"kk":"BBB"}, {"kk":"CCC"}]});
+			me.setState({"eng":[
+				{"url":"BBB", method:'get', data:{vid:1}}, 
+				{"url":'ccc', method:'post', data:{vid:2}}
+			]});
 		},		
 		render: function() {
 			var me = this;
