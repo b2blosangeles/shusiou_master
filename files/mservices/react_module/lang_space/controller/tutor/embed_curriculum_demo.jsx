@@ -16,7 +16,7 @@ try {
 		},
 		callEng:function() {
 			var me = this;
-			me.setState({eng:[
+			me.setState({"eng":[
 				{
 					"bb": "BBB"
 				}, 
