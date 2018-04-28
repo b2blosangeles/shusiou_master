@@ -6,7 +6,7 @@ try {
 		},
 		postData: function() {
 			var me = this;
-			alert(123);
+			alert(12356);
 			return true;
 		},
 		componentDidMount:function() {
@@ -19,7 +19,7 @@ try {
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
-			return (<span> -- test --</span>)
+			return (<span> -- test 1 --</span>)
 		}
 	});	
 } catch (err) {
