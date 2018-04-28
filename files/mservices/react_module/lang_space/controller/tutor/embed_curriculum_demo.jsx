@@ -16,6 +16,12 @@ try {
 		},		
 		render: function() {
 			var me = this;
+			setTimeout(
+				function() {
+					me.setState({niu:'BBB'});
+					
+				}, 10000
+			);
 			if ((me.props.params.id) && (me.props.parent.state.curriculum)) {
 				return (<div>Embed_curriculum_demo : 
 						<_commEng parent={me} />
