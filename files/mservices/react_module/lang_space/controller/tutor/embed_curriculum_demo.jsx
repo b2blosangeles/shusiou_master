@@ -16,7 +16,7 @@ try {
 		},
 		callEng:function() {
 			var me = this;
-			me.setState({"eng":[ "BBB",  "CCC"]});
+			me.setState({"eng":[{kk:'BBB'},  {kk:'CCC'}]});
 		},		
 		render: function() {
 			var me = this;
