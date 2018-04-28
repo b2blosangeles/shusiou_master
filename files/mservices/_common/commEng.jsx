@@ -4,7 +4,7 @@ try {
 			var me = this;
 			return {};
 		},
-		postData: function() {
+		cp: function() {
 			let me = this, v = me.props.parent.state.eng.shift();
 			alert(JSON.stringify(v));
 			me.props.parent.setState({eng:me.props.parent.state.eng});
@@ -17,7 +17,7 @@ try {
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
 			if (me.props.parent.state.eng && me.props.parent.state.eng.length) {
-				me.postData();
+				me.cp();
 			}
 		},		
 		render: function() {
