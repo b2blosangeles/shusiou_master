@@ -15,8 +15,10 @@ try {
 		},		
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
-			console.log('me.props.parent.state.niu--->');
-			console.log(me.props.parent.state.niu);
+			if (prePropos.parent.state.niu !== me.props.parent.state.niu) {
+				console.log('me.props.parent.state.niu ===>');
+				console.log(me.props.parent.state.niu);
+			}
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
