@@ -19,7 +19,7 @@ try {
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
-			return (<span> -- test 1 --</span>)
+			return (<span> -- test {me.props.parent.state.niu} --</span>)
 		}
 	});	
 } catch (err) {
