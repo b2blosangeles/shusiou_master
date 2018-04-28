@@ -2,13 +2,13 @@ try {
 	var Embed_curriculum_demo =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			return {niu:'AA'};
+			return {};
 		},	
 		componentDidMount:function() {
 			var me = this;
 			setTimeout(
 				function() {
-					me.setState({niu:'BBB' + new Date()});
+					me.setState({eng:'BBB' + new Date()});
 					
 				}, 10000
 			);			
