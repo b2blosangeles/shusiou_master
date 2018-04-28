@@ -18,7 +18,7 @@ try {
 			var me = this;
 			setTimeout(
 				function() {
-					me.setState({niu:'BBB'});
+					me.setState({niu:'BBB' + new Date()});
 					
 				}, 10000
 			);
