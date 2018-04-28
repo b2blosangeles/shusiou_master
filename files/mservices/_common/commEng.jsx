@@ -7,7 +7,7 @@ try {
 		postData: function() {
 			var me = this;
 			alert(12356);
-			me.props.parent.setState({eng:'BBBc' + new Date()});
+			me.props.parent.setState({eng:'BBBc'});
 			return true;
 		},
 		componentDidMount:function() {
