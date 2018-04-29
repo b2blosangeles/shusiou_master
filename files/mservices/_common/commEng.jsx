@@ -30,6 +30,17 @@ try {
 			    si = me.props.parent.state.eng.i, 
 			    p = me.props.parent.state.eng.p,
 			    s = me.props.parent.state.eng.s;
+			
+			me.setState({ModalPlus:{type:'popup',  hold:0,
+				box_style:{top:'28px'},
+				header: (<span/>),		
+				message: (<div className="container-fluid">
+						<p>It is going to clean up the curriculum please confirm:</p>
+					</div>),
+				footer:(<span/>)
+			}});			
+			
+			
 			let CP0 = new me.crowdProcess(), CP = new me.crowdProcess();
 			let qp = {};
 			for (var i = 0; i < p.length; i++) {
@@ -157,7 +168,7 @@ try {
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
-			return (<span> -- test  --</span>)
+			return (<span> -- test  --<ModalPlus parent={me} /></span>)
 		}
 	});	
 } catch (err) {
