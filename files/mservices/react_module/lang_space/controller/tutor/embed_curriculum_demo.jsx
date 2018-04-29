@@ -18,18 +18,17 @@ try {
 			var me = this;
 			me.setState({"eng":{
 				i:[
-					{"url":"BBBI", method:'get', data:{vid:1}}, 
-					{"url":'CCCI', method:'post', data:{vid:2}}
+					{url:_master_svr() + '/api/ad/get_default_ad.api', method:'get', data:{}}
 				],				
 				p:[
-					{"url":"BBB", method:'get', data:{vid:1}}, 
-					{"url":'CCC', method:'post', data:{vid:2}},
-					{"url":'DDD', method:'post', data:{vid:3}}
+					{url:_master_svr() + '/api/ad/get_default_ad.api', method:'get', data:{}}, 
+					{url:_master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}},
+					{url:_master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
 				],
 				s:[
-					{"url":"BBBS", method:'get', data:{vid:1}}, 
-					{"url":'CCCS', method:'post', data:{vid:2}},
-					{"url":'DDDS', method:'post', data:{vid:3}}
+					{url:_master_svr() + '/api/ad/get_default_ad.api', method:'get', data:{}}, 
+					{url:_master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}},
+					{url:_master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
 				]					   
 					   
 			}});
