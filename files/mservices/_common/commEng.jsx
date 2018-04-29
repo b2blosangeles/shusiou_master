@@ -4,6 +4,25 @@ try {
 			var me = this;
 			return {};
 		},
+		ajax: function(rec, done, error) {
+			var me = this;
+			let p = {
+				url:rec.rec,
+				method: "POST",
+				data: {/*cmd:'getAll', auth:me.props.parent.props.route.env.state.auth*/},
+				dataType: "JSON"
+			}			
+			// p.data.auth = me.state.auth;
+			$.ajax(p).done(function( data) {
+				if (typeof done == 'function') {
+					done(data);
+				}
+			}).fail(function( jqXHR, textStatus ) {
+				if (typeof error == 'function') {
+					error(jqXHR, textStatus);
+				}				
+			});			
+		},
 		cp: function() {
 			let me = this, 
 			    si = me.props.parent.state.eng.i, 
@@ -14,7 +33,7 @@ try {
 			for (var j = 0; j < p.length; j++) {
 				qp['P_'+j] = (function(j) {
 					return function(cbk) {
-						cbk(p[j]);
+						me.ajax(p[j], cbk, cbk);
 					}
 				})(j);
 			}
@@ -23,7 +42,7 @@ try {
 			for (var i = 0; i < si.length; i++) {
 				qs['SA_'+i] = (function(i) {
 					return function(cbk) {
-						cbk(si[i]);
+						me.ajax(si[i], cbk, cbk);
 					}
 				})(i);
 			}			
@@ -37,13 +56,14 @@ try {
 			for (var i = 0; i < s.length; i++) {
 				qs['SC_'+i] = (function(i) {
 					return function(cbk) {
-						cbk(s[i]);
+						me.ajax(s[i], cbk, cbk);
 					}
 				})(i);
 			}
 			CP.serial(qs, 
 				function(data) {
 					console.log(data);
+					
 					me.props.parent.setState({eng:null});
 				},
 				30000);
