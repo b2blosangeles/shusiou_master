@@ -43,39 +43,38 @@ try {
 			, 1); 
 		},
 		parallel : function(q, cbk, timeout) {
-				var me = this;
-				var tm = new Date().getTime(), vtime = (isNaN(timeout) || timeout == 0)?6000:timeout;
-				
-				me.data = {};	
-				var count_q = 0, count_r = 0;
-				for (var o in q) {
-					count_q++;	
-					var _f = function(o) {
-						return function(res) {
-							count_r++;
-							me.data[o] = res;
-						}
+			var me = this;
+			var tm = new Date().getTime(), vtime = (isNaN(timeout) || timeout == 0)?6000:timeout;
+
+			me.data = {};	
+			var count_q = 0, count_r = 0;
+			for (var o in q) {
+				count_q++;	
+				var _f = function(o) {
+					return function(res) {
+						count_r++;
+						me.data[o] = res;
 					}
-					if ((q[o]) && typeof q[o] == 'function') {
-						q[o](_f(o));
-					} 						
 				}
-				var _itv = setInterval(
-					function(){			
-						if (count_q == count_r) {
-							clearInterval(_itv);
-							cbk({_spent_time:new Date().getTime() - tm, status:'success', results:me.data});
-							console.log(new Date());
-						}
-						if (new Date().getTime() - tm > vtime) {
-							clearInterval(_itv);
-							cbk({_spent_time:new Date().getTime() - tm, status:'timeout', results:me.data});
-							console.log(new Date());
-						}				
-						return true;
+				if ((q[o]) && typeof q[o] == 'function') {
+					q[o](_f(o));
+				} 						
+			}
+			var _itv = setInterval(
+				function(){			
+					if (count_q == count_r) {
+						clearInterval(_itv);
+						cbk({_spent_time:new Date().getTime() - tm, status:'success', results:me.data});
+						console.log(new Date());
 					}
-				, 1); 		
-			};
+					if (new Date().getTime() - tm > vtime) {
+						clearInterval(_itv);
+						cbk({_spent_time:new Date().getTime() - tm, status:'timeout', results:me.data});
+						console.log(new Date());
+					}				
+					return true;
+				}
+			, 1); 
 		},
 		cp: function() {
 			let me = this, p = me.props.parent.state.eng.p.shift();
