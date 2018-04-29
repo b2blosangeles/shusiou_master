@@ -78,8 +78,23 @@ try {
 		},
 		cp: function() {
 			let me = this, p = me.props.parent.state.eng.p.shift();
-			alert(JSON.stringify(p));
-			me.props.parent.setState({eng:me.props.parent.state.eng});
+			let q = {};
+			for (var i = 0; i < p.length; p++) {
+				q['S_0'] = (function(i) {
+					return function(cbk) {
+						cbk(p);
+					}
+				})(i);
+			}
+			me.serial(q, 
+				function(data) {
+					console.log(data);
+					me.props.parent.setState({eng:null});
+				},
+				10000
+			}, 1000);
+		//	alert(JSON.stringify(p));
+		//	me.props.parent.setState({eng:me.props.parent.state.eng});
 			return true;
 		},
 		componentDidMount:function() {
