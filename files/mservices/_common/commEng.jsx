@@ -12,9 +12,9 @@ try {
 				data: rec.data,
 				dataType: "JSON"
 			}			
-			p.data.auth =  me.props.parent.state.auth;
-			console.log('---me.props.parent.state.auth--->');
-			console.log(me.props.parent.state.auth);
+			p.data.auth =  me.props.auth;
+			console.log('---me.props.auth--->');
+			console.log(me.props.auth);
 			$.ajax(p).done(function( data) {
 				if (typeof done == 'function') {
 					done(data);
