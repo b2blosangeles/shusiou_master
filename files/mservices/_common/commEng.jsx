@@ -23,7 +23,7 @@ try {
 				}				
 			});			
 		},
-		cp: function() {
+		cpCall: function() {
 			let me = this, 
 			    si = me.props.parent.state.eng.i, 
 			    p = me.props.parent.state.eng.p,
@@ -150,7 +150,7 @@ try {
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
 			if (me.props.parent.state.eng && me.props.parent.state.eng.p && me.props.parent.state.eng.p.length) {
-				me.cp();
+				me.cpCall();
 			}
 		},		
 		render: function() {
