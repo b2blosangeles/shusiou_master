@@ -13,6 +13,8 @@ try {
 				dataType: "JSON"
 			}			
 			p.data.auth =  me.props.parent.state.auth;
+			console.log('---me.props.parent.state.auth--->');
+			console.log(me.props.parent.state.auth);
 			$.ajax(p).done(function( data) {
 				if (typeof done == 'function') {
 					done(data);
