@@ -91,8 +91,8 @@ try {
 			
 			qs['S_P'] = function(cbk) {
 				me.parallel(qp, 
-					function(data) {
-						cbk(data);
+					function(data1) {
+						cbk(data1);
 					},
 					6000);	
 			};			
