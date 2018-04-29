@@ -217,14 +217,15 @@ try {
 				
 				//if (prevState.ModalLoading !== me.state.ModalLoading || (me.props.parent.state.ModalLoading.hold)) {
 				//	 me.render();
-					viewpoint.find('.ModalLoading_'+ mapping_data.id).modal({backdrop:'static'});
+					viewpoint.find('.ModalLoading_'+ me.props.parent.state.ModalLoading.id).modal({backdrop:'static'});
 				me.props.parent.setState({ModalLoading: ''});
 				//} 				
 			}
 
 		},
 		ModalLoadingClass: function() {
-			return 'modal fade ModalLoading ModalLoading_'+ mapping_data.id;
+			let me = this;
+			return 'modal fade ModalLoading ModalLoading_'+ me.props.parent.state.ModalLoading.id;
 		},		
 		render: function() {
 			var me = this, err_msg = '';
