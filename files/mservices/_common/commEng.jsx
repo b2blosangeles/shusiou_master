@@ -21,13 +21,13 @@ try {
 			
 			let qs = {};
 			for (var i = 0; i < si.length; i++) {
-				qs['Si_'+i] = (function(i) {
+				qs['SA_'+i] = (function(i) {
 					return function(cbk) {
 						cbk(si[i]);
 					}
 				})(i);
 			}			
-			qs['S_P'] = function(cbk) {
+			qs['SB_P'] = function(cbk) {
 				CP0.parallel(qp, 
 					function(data1) {
 						cbk(data1);
@@ -35,7 +35,7 @@ try {
 					6000);	
 			};			
 			for (var i = 0; i < s.length; i++) {
-				qs['S_'+i] = (function(i) {
+				qs['SC_'+i] = (function(i) {
 					return function(cbk) {
 						cbk(s[i]);
 					}
