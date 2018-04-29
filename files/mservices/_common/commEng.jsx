@@ -151,11 +151,6 @@ try {
 		},		
 		componentDidMount:function() {
 			var me = this;
-			
-		},		
-		componentDidUpdate:function(prePropos, prevStat) {
-			var me = this;
-			me.props.parent.setState({eng:null});
 			me.setState({ModalPlus:{type:'popup',  hold:0,
 				box_style:{top:'28px'},
 				header: (<span/>),		
@@ -164,7 +159,12 @@ try {
 					</div>),
 				footer:(<span/>)
 			}});
-			
+						
+		},		
+		componentDidUpdate:function(prePropos, prevStat) {
+			var me = this;
+			me.props.parent.setState({eng:null});
+
 			return true;
 			if (me.props.parent.state.eng && me.props.parent.state.eng.p && me.props.parent.state.eng.p.length) {
 				me.cpCall();
