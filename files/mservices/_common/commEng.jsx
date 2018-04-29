@@ -175,7 +175,7 @@ try {
 				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24">'}});
 			setTimeout(
 				function() {
-					me.setState({ModalLoading: 'cancel'});	
+				//	me.setState({ModalLoading: 'cancel'});	
 				}, 5000
 			)
 		},		
