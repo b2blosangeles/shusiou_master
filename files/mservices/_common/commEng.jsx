@@ -171,7 +171,7 @@ try {
 		},
 		loading:function() {
 			var me = this;
-			me.setState({ModalLoading: {color:'#000000', hold:1000, 
+			me.setState({ModalLoading: {box_style:{color:'#000000'}, hold:1000, 
 				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24">'}});
 			setTimeout(
 				function() {
