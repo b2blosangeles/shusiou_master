@@ -12,9 +12,9 @@ try {
 				data: rec.data,
 				dataType: "JSON"
 			}			
-			p.data.auth =  me.props.auth;
+			p.data.auth = (reactCookie.load('auth'))?reactCookie.load('auth'):{};
 			console.log('---me.props.auth--->');
-			console.log(me.props.auth);
+			console.log((reactCookie.load('auth'))?reactCookie.load('auth'):{});
 			$.ajax(p).done(function( data) {
 				if (typeof done == 'function') {
 					done(data);
