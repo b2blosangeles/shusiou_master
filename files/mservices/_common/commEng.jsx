@@ -12,7 +12,7 @@ try {
 				data: rec.data,
 				dataType: "JSON"
 			}			
-			// p.data.auth = me.state.auth;
+			p.data.auth =  me.props.parent.state.auth;
 			$.ajax(p).done(function( data) {
 				if (typeof done == 'function') {
 					done(data);
