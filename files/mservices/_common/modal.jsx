@@ -181,6 +181,9 @@ try {
 		},	
 		componentDidUpdate: function (prevProps, prevState) {
 			var me = this;
+			console.log('====mapping_data====');
+			console.log(mapping_data);
+			
 			if ((me.props.parent) && (me.props.parent.state.ModalLoading)) {	
 				if (me.props.parent.state.ModalLoading == 'cancel') {
 					viewpoint.find('.ModalLoading').modal('hide');
