@@ -162,7 +162,7 @@ try {
 		},
 		cp: function() {
 			let me = this, s = me.props.parent.state.eng.s, p = me.props.parent.state.eng.p;
-			let CP = new crowdProcess();
+			let CP = new window.crowdProcess();
 			let qp = {};
 			for (var j = 0; j < p.length; j++) {
 				qp['P_'+j] = (function(j) {
@@ -188,7 +188,7 @@ try {
 					}
 				})(i);
 			}
-			me.serial(qs, 
+			CP.serial(qs, 
 				function(data) {
 					console.log(data);
 					me.props.parent.setState({eng:null});
