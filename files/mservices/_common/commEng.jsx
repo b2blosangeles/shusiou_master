@@ -77,22 +77,38 @@ try {
 			, 1); 
 		},
 		cp: function() {
-			let me = this, s = me.props.parent.state.eng.s;
-			    //p = me.props.parent.state.eng.p.shift();
-			let q = {};
-			for (var i = 0; i < s.length; i++) {
-				q['S_'+i] = (function(i) {
+			let me = this, s = me.props.parent.state.eng.s, p = me.props.parent.state.eng.p;
+			let qp = {};
+			for (var i = 0; i < p.length; i++) {
+				qp['P_'+i] = (function(i) {
 					return function(cbk) {
 						cbk(s[i]);
 					}
 				})(i);
 			}
-			me.serial(q, 
+			
+			let qs = {};
+			
+			qs['S_P'] = function(cbk) {
+				me.parallel(qp, 
+					function(data) {
+						cbk(data);
+					},
+					6000);	
+			};			
+			for (var i = 0; i < s.length; i++) {
+				qs['S_'+i] = (function(i) {
+					return function(cbk) {
+						cbk(s[i]);
+					}
+				})(i);
+			}
+			me.serial(qs, 
 				function(data) {
 					console.log(data);
 					me.props.parent.setState({eng:null});
 				},
-				6000);
+				30000);
 			return true;
 		},
 		componentDidMount:function() {
