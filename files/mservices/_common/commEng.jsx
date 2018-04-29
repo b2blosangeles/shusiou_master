@@ -31,14 +31,7 @@ try {
 			    p = me.props.parent.state.eng.p,
 			    s = me.props.parent.state.eng.s;
 			
-			me.setState({ModalPlus:{type:'popup',  hold:0,
-				box_style:{top:'28px'},
-				header: (<span/>),		
-				message: (<div className="container-fluid">
-						<p>It is going to clean up the curriculum please confirm:</p>
-					</div>),
-				footer:(<span/>)
-			}});			
+		
 			
 			
 			let CP0 = new me.crowdProcess(), CP = new me.crowdProcess();
@@ -162,6 +155,15 @@ try {
 		},		
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
+			me.setState({ModalPlus:{type:'popup',  hold:0,
+				box_style:{top:'28px'},
+				header: (<span/>),		
+				message: (<div className="container-fluid">
+						<p>It is going to clean up the curriculum please confirm:</p>
+					</div>),
+				footer:(<span/>)
+			}});	
+			return true;
 			if (me.props.parent.state.eng && me.props.parent.state.eng.p && me.props.parent.state.eng.p.length) {
 				me.cpCall();
 			}
