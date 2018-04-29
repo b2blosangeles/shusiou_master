@@ -93,14 +93,14 @@ try {
 			
 			let qs = {};
 			
-			qs['S_P'] = function(cbk) {
+			qs['A_P'] = function(cbk) {
 				CP0.parallel(qp, 
 					function(data1) {
 						cbk(data1);
 					},
 					6000);	
 			};			
-			for (var i = 1; i <= s.length; i++) {
+			for (var i = 0; i < s.length; i++) {
 				qs['S_'+i] = (function(i) {
 					return function(cbk) {
 						cbk(s[i]);
