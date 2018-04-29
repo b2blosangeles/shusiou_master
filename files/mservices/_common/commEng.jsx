@@ -30,12 +30,12 @@ try {
 			    s = me.props.parent.state.eng.s;
 			let CP0 = new me.crowdProcess(), CP = new me.crowdProcess();
 			let qp = {};
-			for (var j = 0; j < p.length; j++) {
-				qp['P_'+j] = (function(j) {
+			for (var i = 0; i < p.length; i++) {
+				qp['P_'+i] = (function(i) {
 					return function(cbk) {
-						me.ajax(p[j], cbk, cbk);
+						me.ajax(p[i], cbk, cbk);
 					}
-				})(j);
+				})(i);
 			}
 			
 			let qs = {};
