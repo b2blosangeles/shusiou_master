@@ -181,7 +181,7 @@ try {
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
-			return (<span> -- test  --</span>)
+			return (<span> -- testB  --<ModalLoading parent={me} /></span>)
 		}
 	});	
 } catch (err) {
