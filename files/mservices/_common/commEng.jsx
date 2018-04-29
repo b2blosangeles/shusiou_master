@@ -91,8 +91,7 @@ try {
 					console.log(data);
 					me.props.parent.setState({eng:null});
 				},
-				10000
-			}, 1000);
+				3000);
 		//	alert(JSON.stringify(p));
 		//	me.props.parent.setState({eng:me.props.parent.state.eng});
 			return true;
