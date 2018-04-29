@@ -81,7 +81,7 @@ try {
 		cp: function() {
 			let me = this, s = me.props.parent.state.eng.s, p = me.props.parent.state.eng.p;
 		//	(function () { 
-				var obj =  function () {
+				let crowdProcess =  function () {
 					this.serial = function(q, cbk, timeout) {
 						var me = this;
 						var idx = '', tm = new Date().getTime();
@@ -155,9 +155,9 @@ try {
 						, 1); 		
 					};
 				};
-				let crowdProcess = function() {
+			//	let crowdProcess = function() {
 					return obj; 
-				}
+			//	}
 
 		//	})();			
 			let CP = new crowdProcess();
