@@ -80,9 +80,9 @@ try {
 			let me = this, p = me.props.parent.state.eng.p.shift();
 			let q = {};
 			for (var i = 0; i < p.length; p++) {
-				q['S_0'] = (function(i) {
+				q['S_'+i] = (function(i) {
 					return function(cbk) {
-						cbk(p);
+						cbk(p[i]);
 					}
 				})(i);
 			}
