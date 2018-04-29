@@ -181,10 +181,10 @@ try {
 		},	
 		componentDidUpdate: function (prevProps, prevState) {
 			var me = this;
-			let data = (me.props.parent.state.ModalLoading) ? me.props.parent.state.ModalLoading : {};
-			let mapping_data = JSON.stringify(JSON.parse(data));
-			console.log('====mapping_data====');
-			console.log(mapping_data);
+			let M = (me.props.parent.state.ModalLoading) ? me.props.parent.state.ModalLoading : {};
+	
+			console.log('====M====');
+			console.log(M);
 			
 			if ((me.props.parent) && (me.props.parent.state.ModalLoading)) {	
 				if (me.props.parent.state.ModalLoading == 'cancel') {
@@ -222,7 +222,7 @@ try {
 				
 				//if (prevState.ModalLoading !== me.state.ModalLoading || (me.props.parent.state.ModalLoading.hold)) {
 				//	 me.render();
-					viewpoint.find('.ModalLoading_'+ mapping_data.id).modal({backdrop:'static'});
+					viewpoint.find('.ModalLoading_'+ M.id).modal({backdrop:'static'});
 				me.props.parent.setState({ModalLoading: ''});
 				//} 				
 			}
@@ -230,7 +230,11 @@ try {
 		},
 		ModalLoadingClass: function() {
 			let me = this;
-			return 'modal fade ModalLoading ModalLoading_'+ mapping_data.id;
+			let M = (me.props.parent.state.ModalLoading) ? me.props.parent.state.ModalLoading : {};
+	
+			console.log('====M====>>');
+			console.log(M);			
+			return 'modal fade ModalLoading ModalLoading_'+ M.id;
 		},		
 		render: function() {
 			var me = this, err_msg = '';
