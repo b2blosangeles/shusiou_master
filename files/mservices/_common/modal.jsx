@@ -222,7 +222,7 @@ try {
 				
 				//if (prevState.ModalLoading !== me.state.ModalLoading || (me.props.parent.state.ModalLoading.hold)) {
 				//	 me.render();
-					viewpoint.find('.ModalLoading_'+ M.id).modal({backdrop:'static'});
+					viewpoint.find('.ModalLoading_'+ 'M.id').modal({backdrop:'static'});
 				me.props.parent.setState({ModalLoading: ''});
 				//} 				
 			}
@@ -234,7 +234,7 @@ try {
 	
 			console.log('====M====>>');
 			console.log(M);			
-			return 'modal fade ModalLoading ModalLoading_'+ M.id;
+			return 'modal fade ModalLoading ModalLoading_'+ 'M.id';
 		},		
 		render: function() {
 			var me = this, err_msg = '';
