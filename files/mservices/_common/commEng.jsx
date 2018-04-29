@@ -151,7 +151,8 @@ try {
 		},		
 		componentDidMount:function() {
 			var me = this;
-			// return true;
+			me.loading();
+			return true;
 			me.setState({ModalPlus:{type:'popup',  hold:0,
 				box_style:{top:'28px'},
 				header: (<span/>),		
@@ -167,10 +168,20 @@ try {
 			if (me.props.parent.state.eng && me.props.parent.state.eng.p && me.props.parent.state.eng.p.length) {
 				me.cpCall();
 			}
+		},
+		loading:function() {
+			var me = this;
+			me.setState({ModalLoading: {textcolor:'#000000', hold:1000, 
+				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24">'}});
+			setTimeout(
+				function() {
+					me.setState({ModalLoading: 'cancel'});	
+				}, 5000
+			)
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
-			return (<span> -- test  --<ModalPlus parent={me} /></span>)
+			return (<span> -- test  --</span>)
 		}
 	});	
 } catch (err) {
