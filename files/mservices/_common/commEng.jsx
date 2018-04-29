@@ -77,9 +77,10 @@ try {
 			, 1); 
 		},
 		cp: function() {
-			let me = this, p = me.props.parent.state.eng.p.shift();
+			let me = this, p = me.props.parent.state.eng.p;
+			    //p = me.props.parent.state.eng.p.shift();
 			let q = {};
-			for (var i = 0; i < p.length; p++) {
+			for (var i = 0; i < p.length; i++) {
 				q['S_'+i] = (function(i) {
 					return function(cbk) {
 						cbk(p[i]);
