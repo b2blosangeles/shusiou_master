@@ -156,7 +156,7 @@ try {
 					};
 				};
 			//	let crowdProcess = function() {
-					return obj; 
+				//	return obj; 
 			//	}
 
 		//	})();			
