@@ -81,7 +81,7 @@ try {
 				};
 			};
 			
-			let CP = new crowdProcess();
+			let CP0 = new crowdProcess(), CP = new crowdProcess();
 			let qp = {};
 			for (var j = 0; j < p.length; j++) {
 				qp['P_'+j] = (function(j) {
@@ -94,7 +94,7 @@ try {
 			let qs = {};
 			
 			qs['S_P'] = function(cbk) {
-				CP.parallel(qp, 
+				CP0.parallel(qp, 
 					function(data1) {
 						cbk(data1);
 					},
