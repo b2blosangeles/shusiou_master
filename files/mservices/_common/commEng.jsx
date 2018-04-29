@@ -163,9 +163,6 @@ try {
 		},		
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
-			me.props.parent.setState({eng:null});
-
-			return true;
 			if (me.props.parent.state.eng && me.props.parent.state.eng.p && me.props.parent.state.eng.p.length) {
 				me.cpCall();
 			}
