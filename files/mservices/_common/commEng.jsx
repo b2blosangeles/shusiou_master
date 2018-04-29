@@ -93,7 +93,7 @@ try {
 			
 			let qs = {};
 			
-			qs['A_P'] = function(cbk) {
+			qs['S_A'] = function(cbk) {
 				CP0.parallel(qp, 
 					function(data1) {
 						cbk(data1);
