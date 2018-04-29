@@ -181,7 +181,7 @@ try {
 		},	
 		componentDidUpdate: function (prevProps, prevState) {
 			var me = this;
-			let mapping_data = (me.props.parent.state.ModalLoading) ? me.props.parent.state.ModalLoading : {};
+			let mapping_data = (me.props.parent.state.ModalLoading) ? JSON.stringify(JSON.parse(me.props.parent.state.ModalLoading)) : {};
 			console.log('====mapping_data====');
 			console.log(mapping_data);
 			
