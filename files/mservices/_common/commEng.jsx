@@ -162,7 +162,8 @@ try {
 						<p>It is going to clean up the curriculum please confirm:</p>
 					</div>),
 				footer:(<span/>)
-			}});	
+			}});
+			me.props.parent.setState({eng:null});
 			return true;
 			if (me.props.parent.state.eng && me.props.parent.state.eng.p && me.props.parent.state.eng.p.length) {
 				me.cpCall();
