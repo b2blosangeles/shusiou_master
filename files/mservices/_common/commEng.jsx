@@ -7,9 +7,9 @@ try {
 		ajax: function(rec, done, error) {
 			var me = this;
 			let p = {
-				url:rec.rec,
-				method: "POST",
-				data: {/*cmd:'getAll', auth:me.props.parent.props.route.env.state.auth*/},
+				url:rec.url,
+				method: rec.method,
+				data: rec.data,
 				dataType: "JSON"
 			}			
 			// p.data.auth = me.state.auth;
