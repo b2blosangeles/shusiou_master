@@ -162,6 +162,7 @@ try {
 		},
 		cp: function() {
 			let me = this, s = me.props.parent.state.eng.s, p = me.props.parent.state.eng.p;
+			let CP = new crowdProcess();
 			let qp = {};
 			for (var j = 0; j < p.length; j++) {
 				qp['P_'+j] = (function(j) {
@@ -174,7 +175,7 @@ try {
 			let qs = {};
 			
 			qs['S_P'] = function(cbk) {
-				me.parallel(qp, 
+				CP.parallel(qp, 
 					function(data1) {
 						cbk(data1);
 					},
