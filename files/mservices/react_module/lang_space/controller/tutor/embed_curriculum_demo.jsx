@@ -17,7 +17,7 @@ try {
 		callEng:function() {
 			var me = this;
 			me.setState({"eng":{
-				I:[
+				i:[
 					{"url":"BBBI", method:'get', data:{vid:1}}, 
 					{"url":'CCCI', method:'post', data:{vid:2}}
 				],				
