@@ -234,7 +234,7 @@ try {
 			}
 			var message = '', box_style={};
 			var message = (me.state.ModalLoading.message)?(me.state.ModalLoading.message):'Loading ...';
-			box_style = (me.state.ModalLoading.box_style)?me.state.ModalLoading.box_style:{color:'#ff0000'};
+			box_style = (me.state.ModalLoading.boxstyle)?me.state.ModalLoading.boxstyle:{color:'#ff0000'};
 
 			return (			
 				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
