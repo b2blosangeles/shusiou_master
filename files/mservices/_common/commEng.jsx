@@ -77,25 +77,22 @@ try {
 			, 1); 
 		},
 		cp: function() {
-			let me = this, p = me.props.parent.state.eng.p;
+			let me = this, s = me.props.parent.state.eng.s;
 			    //p = me.props.parent.state.eng.p.shift();
 			let q = {};
-			for (var i = 0; i < p.length; i++) {
+			for (var i = 0; i < s.length; i++) {
 				q['S_'+i] = (function(i) {
 					return function(cbk) {
-						cbk(p[i]);
+						cbk(s[i]);
 					}
 				})(i);
 			}
-			console.log(p.length);
 			me.serial(q, 
 				function(data) {
 					console.log(data);
 					me.props.parent.setState({eng:null});
 				},
-				3000);
-		//	alert(JSON.stringify(p));
-		//	me.props.parent.setState({eng:me.props.parent.state.eng});
+				6000);
 			return true;
 		},
 		componentDidMount:function() {
