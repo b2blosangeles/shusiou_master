@@ -86,6 +86,7 @@ try {
 					}
 				})(i);
 			}
+			console.log(p.length);
 			me.serial(q, 
 				function(data) {
 					console.log(data);
