@@ -151,7 +151,7 @@ try {
 		},		
 		componentDidMount:function() {
 			var me = this;
-			return true;
+			// return true;
 			me.setState({ModalPlus:{type:'popup',  hold:0,
 				box_style:{top:'28px'},
 				header: (<span/>),		
