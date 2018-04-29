@@ -82,7 +82,7 @@ try {
 			for (var i = 0; i < p.length; i++) {
 				qp['P_'+i] = (function(i) {
 					return function(cbk) {
-						cbk(p[i]);
+						cbk('p[i]---');
 					}
 				})(i);
 			}
