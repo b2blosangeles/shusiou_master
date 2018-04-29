@@ -79,17 +79,17 @@ try {
 		cp: function() {
 			let me = this, s = me.props.parent.state.eng.s, p = me.props.parent.state.eng.p;
 			let qp = {};
-			for (var i = 0; i < p.length; i++) {
-				qp['P_'+i] = (function(i) {
+			for (var j = 0; j < p.length; j++) {
+				qp['P_'+j] = (function(j) {
 					return function(cbk) {
-						cbk('p[i]---');
+						cbk('p[j]---');
 					}
-				})(i);
+				})(j);
 			}
 			
 			let qs = {};
 			
-			qs['S_0'] = function(cbk) {
+			qs['S_P'] = function(cbk) {
 				me.parallel(qp, 
 					function(data) {
 						cbk(data);
