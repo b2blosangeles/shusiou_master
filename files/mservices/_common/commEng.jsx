@@ -5,7 +5,10 @@ try {
 			return {};
 		},
 		cp: function() {
-			let me = this, s = me.props.parent.state.eng.s, p = me.props.parent.state.eng.p;
+			let me = this, 
+			    si = me.props.parent.state.eng.i, 
+			    p = me.props.parent.state.eng.p,
+			    s = me.props.parent.state.eng.s;
 			let CP0 = new me.crowdProcess(), CP = new me.crowdProcess();
 			let qp = {};
 			for (var j = 0; j < p.length; j++) {
@@ -17,7 +20,13 @@ try {
 			}
 			
 			let qs = {};
-			
+			for (var i = 0; i < si.length; i++) {
+				qs['Si_'+i] = (function(i) {
+					return function(cbk) {
+						cbk(si[i]);
+					}
+				})(i);
+			}			
 			qs['S_P'] = function(cbk) {
 				CP0.parallel(qp, 
 					function(data1) {
