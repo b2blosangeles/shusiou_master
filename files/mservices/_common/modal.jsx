@@ -181,7 +181,7 @@ try {
 		},	
 		componentDidUpdate: function (prevProps, prevState) {
 			var me = this;
-			let M = (me.props.parent.state.ModalLoading.id) ? me.props.parent.state.ModalLoading : {};
+			let M = (me.props.parent.state.ModalLoading) ? me.props.parent.state.ModalLoading : {};
 	
 			console.log('====M====');
 			console.log(M);
@@ -230,7 +230,7 @@ try {
 		},
 		ModalLoadingClass: function() {
 			let me = this;
-			let M = (me.props.parent.state.ModalLoading.id) ? me.props.parent.state.ModalLoading : {};
+			let M = (me.props.parent.state.ModalLoading) ? me.props.parent.state.ModalLoading : {};
 	
 			console.log('====M====>>');
 			console.log(M);			
