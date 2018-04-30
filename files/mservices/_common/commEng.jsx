@@ -158,6 +158,8 @@ try {
 				console.log('==XX==');
 				console.log(JSON.stringify(prePropos.parent.state.eng));
 				return true;
+			}  else {
+				console.log('==ZZ==');
 			}
 			if (me.props.parent.state.eng && me.props.parent.state.eng.p && me.props.parent.state.eng.p.length) {
 				// if (!me.state.ModalLoading || !me.state.ModalLoading.id) {
