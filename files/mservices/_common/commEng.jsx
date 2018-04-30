@@ -171,10 +171,10 @@ try {
 		},
 		loading:function() {
 			var me = this;
-			if (!me.idx || me.idx > 10000) me.idx = 1;
-			me.idx++;
-			me.setState({ModalLoading: {id : me.idx, boxstyle : {color:'#ffffff'}, hold:1000, 
-				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24"> Loading'}});
+			if (!me._idx || me._idx > 10000) me._idx = 1;
+			me._idx++;
+			me.setState({ModalLoading: {id : me._idx, boxstyle : {color:'#ffffff'}, hold:1000, 
+				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24"> Loading --> ' + me._idx}});
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
