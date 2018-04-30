@@ -67,11 +67,7 @@ try {
 				function(data) {
 					console.log(data);
 					me.props.parent.setState({eng:null}, function()  {
-						setTimeout (
-							function() {
-								me.setState({ModalLoading: 'cancel'});
-							}, 10000
-						)	
+						me.setState({ModalLoading: 'cancel'});	
 					});
 				},
 				30000);
