@@ -172,6 +172,7 @@ try {
 			var me = this;
 			me.setState({ModalLoading: {id : '123', boxstyle : {color:'#ffffff'}, hold:1000, 
 				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24"> Loading'}});
+			return true;
 			setTimeout(
 				function() {
 					me.setState({ModalLoading: 'cancel'});	
