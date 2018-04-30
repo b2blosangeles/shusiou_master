@@ -31,6 +31,8 @@ try {
 			    p = me.props.parent.state.eng.p,
 			    s = me.props.parent.state.eng.s;
 			
+			me.loading();
+			
 			let CP0 = new me.crowdProcess(), CP = new me.crowdProcess();
 			let qp = {};
 			for (var i = 0; i < p.length; i++) {
@@ -66,7 +68,7 @@ try {
 			CP.serial(qs, 
 				function(data) {
 					console.log(data);
-					
+					me.setState({ModalLoading: 'cancel'});
 					me.props.parent.setState({eng:null});
 				},
 				30000);
@@ -148,7 +150,7 @@ try {
 		},		
 		componentDidMount:function() {
 			var me = this;
-			me.loading();
+			// me.loading();
 			return true;
 			me.setState({ModalPlus:{type:'popup',  hold:0,
 				box_style:{top:'28px'},
