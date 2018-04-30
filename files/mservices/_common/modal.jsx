@@ -181,7 +181,7 @@ try {
 		},	
 		componentDidUpdate: function (prevProps, prevState) {
 			var me = this;
-			if (me.M) me.M = {};
+			if (!me.M) me.M = {};
 			if (me.props.parent.state.ModalLoading.id) {
 				me.M = me.props.parent.state.ModalLoading
 			}
@@ -232,7 +232,7 @@ try {
 		},
 		ModalLoadingClass: function() {
 			let me = this;	
-			if (me.M) me.M = {};
+			if (!me.M) me.M = {};
 			return 'modal fade ModalLoading ModalLoading_'+ me.M.id;
 		},		
 		render: function() {
