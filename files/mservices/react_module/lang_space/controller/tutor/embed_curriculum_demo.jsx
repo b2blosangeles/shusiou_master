@@ -5,7 +5,7 @@ try {
 			return {};
 		},	
 		componentDidMount:function() {
-			var me = this;
+			var me = this;			
 			if (me.props.params.opt == 'new') {
 				me.props.parent.getVideoInfo(me.props.params.id,
 					function(data) {
@@ -13,11 +13,29 @@ try {
 					}
 				);
 			}
+		},
+		callEng:function() {
+			var me = this;
+			me.setState({"eng":{
+				i:[
+					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'get', data:{}}
+				],				
+				p:[
+					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
+				],
+				s:[
+					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
+				]					   
+					   
+			}});
 		},		
 		render: function() {
 			var me = this;
+
 			if ((me.props.params.id) && (me.props.parent.state.curriculum)) {
 				return (<div>Embed_curriculum_demo : 
+						<a onClick={me.callEng.bind(me)}>click</a>
+						<_commEng parent={me} auth={me.props.parent.state.auth} />
 						<h4>{me.props.parent.state.video.title}</h4>	
 						<p><b>Video ID</b>:{me.props.parent.state.curriculum.vid}</p>  
 						<p><b>Video Length</b>:({me.props.parent.state.curriculum.video_length} Secs)</p>
