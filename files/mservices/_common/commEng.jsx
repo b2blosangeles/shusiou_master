@@ -13,8 +13,6 @@ try {
 				dataType: "JSON"
 			}			
 			p.data.auth = (reactCookie.load('auth'))?reactCookie.load('auth'):{};
-			console.log('---me.props.auth--->');
-			console.log((reactCookie.load('auth'))?reactCookie.load('auth'):{});
 			$.ajax(p).done(function( data) {
 				if (typeof done == 'function') {
 					done(data);
@@ -173,14 +171,9 @@ try {
 		},
 		loading:function() {
 			var me = this;
-			me.setState({ModalLoading: {id : '123', boxstyle : {color:'#ffffff'}, hold:1000, 
+			let id = nre Date().getTime();
+			me.setState({ModalLoading: {id : id, boxstyle : {color:'#ffffff'}, hold:1000, 
 				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24"> Loading'}});
-			return true;
-			setTimeout(
-				function() {
-					me.setState({ModalLoading: 'cancel'});	
-				}, 5000
-			)
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
