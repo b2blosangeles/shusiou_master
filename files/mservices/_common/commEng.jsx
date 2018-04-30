@@ -154,7 +154,8 @@ try {
 			var me = this;
 			if (me.props.parent.state.eng && me.props.parent.state.eng.p && me.props.parent.state.eng.p.length) {
 				// if (!me.state.ModalLoading || !me.state.ModalLoading.id) {
-				if (!me.state.ModalLoading || me.state.ModalLoading.id !== prevStat.ModalLoading.id) {
+				// if (!me.state.ModalLoading || me.state.ModalLoading.id !== prevStat.ModalLoading.id) {
+				if (!me.state.ModalLoading) {
 					me.cpCall();
 				}
 			}
