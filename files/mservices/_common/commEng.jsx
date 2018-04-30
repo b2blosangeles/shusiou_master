@@ -152,7 +152,7 @@ try {
 		},		
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
-			
+			/*
 			if (!me.state.ModalLoading) {
 				console.log('==A1==');
 				console.log(JSON.stringify(me.state.ModalLoading));
@@ -169,17 +169,17 @@ try {
 			}  else {
 				console.log('==ZZ==');
 			}
+			*/
 			
-			/*
 			if (me.props.parent.state.eng && me.props.parent.state.eng.p && me.props.parent.state.eng.p.length) {
 				// if (!me.state.ModalLoading || !me.state.ModalLoading.id) {
 				// if (!me.state.ModalLoading || me.state.ModalLoading.id !== prevStat.ModalLoading.id) {
-				if (!me.state.ModalLoading) {
+				if (!me.state.ModalLoading || !me.state.ModalLoading.id) {
 					
 					me.cpCall();
 				}
 			}
-			*/
+			
 		},
 		loading:function() {
 			var me = this;
