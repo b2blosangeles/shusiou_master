@@ -177,6 +177,7 @@ try {
 				if (!me.state.ModalLoading || !me.state.ModalLoading.id) {
 					
 					me.cpCall();
+					console.log(me.state.ModalLoading);
 				}
 			}
 			
