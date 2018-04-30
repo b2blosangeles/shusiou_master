@@ -155,6 +155,8 @@ try {
 			if (JSON.stringify(me.props.parent.state.eng) == JSON.stringify(prePropos.parent.state.eng)) {
 				console.log('==YY==');
 				console.log(JSON.stringify(me.props.parent.state.eng));
+				console.log('==XX==');
+				console.log(JSON.stringify(prePropos.parent.state.eng));
 				return true;
 			}
 			if (me.props.parent.state.eng && me.props.parent.state.eng.p && me.props.parent.state.eng.p.length) {
