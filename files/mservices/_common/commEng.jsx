@@ -165,6 +165,9 @@ try {
 					console.log('===me.state.ModalLoading===>');
 					console.log(me.state.ModalLoading);
 				}
+			} else {
+					console.log('*** me.state.ModalLoading ***>');
+					console.log(me.state.ModalLoading);
 			}
 			
 		},
