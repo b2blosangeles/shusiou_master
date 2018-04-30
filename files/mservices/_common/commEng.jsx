@@ -68,7 +68,7 @@ try {
 			CP.serial(qs, 
 				function(data) {
 					console.log(data);
-					me.setState({ModalLoading: 'cancel'});
+					// me.setState({ModalLoading: 'cancel'});
 					me.props.parent.setState({eng:null});
 				},
 				30000);
