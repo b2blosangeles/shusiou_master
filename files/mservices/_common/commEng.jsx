@@ -152,18 +152,7 @@ try {
 			};
 		},		
 		componentDidMount:function() {
-			var me = this;
-			// me.loading();
-			return true;
-			me.setState({ModalPlus:{type:'popup',  hold:0,
-				box_style:{top:'28px'},
-				header: (<span/>),		
-				message: (<div className="container-fluid">
-						<p>It is going to clean up the curriculum please confirm:</p>
-					</div>),
-				footer:(<span/>)
-			}});
-						
+			var me = this;				
 		},		
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
@@ -176,7 +165,7 @@ try {
 		loading:function() {
 			var me = this;
 			if (!me._idx || me._idx > 10000) me._idx = 1;
-			me._idx++;
+			else me._idx++;
 			me.setState({ModalLoading: {id : me._idx, boxstyle : {color:'#ffffff'}, hold:1000, 
 				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24"> Loading --> ' + me._idx}});
 		},		
