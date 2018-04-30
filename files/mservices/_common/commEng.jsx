@@ -153,24 +153,6 @@ try {
 		},		
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
-			/*
-			if (!me.state.ModalLoading) {
-				console.log('==A1==');
-				console.log(JSON.stringify(me.state.ModalLoading));
-			} else {
-				console.log('==A2==');
-				console.log(JSON.stringify(me.state.ModalLoading));
-			}
-			if (JSON.stringify(me.props.parent.state.eng) == JSON.stringify(prePropos.parent.state.eng)) {
-				console.log('==YY==');
-				console.log(JSON.stringify(me.props.parent.state.eng));
-				console.log('==XX==');
-				console.log(JSON.stringify(prePropos.parent.state.eng));
-				me.cpCall();
-			}  else {
-				console.log('==ZZ==');
-			}
-			*/
 			
 			if (me.props.parent.state.eng && me.props.parent.state.eng.p && me.props.parent.state.eng.p.length) {
 				// if (!me.state.ModalLoading || !me.state.ModalLoading.id) {
@@ -179,6 +161,9 @@ try {
 					console.log('--me.state.ModalLoading--->');
 					console.log(me.state.ModalLoading);
 					me.cpCall();
+				} else {
+					console.log('===me.state.ModalLoading===>');
+					console.log(me.state.ModalLoading);
 				}
 			}
 			
