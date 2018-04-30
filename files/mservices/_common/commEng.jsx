@@ -175,7 +175,7 @@ try {
 				// if (!me.state.ModalLoading || !me.state.ModalLoading.id) {
 				// if (!me.state.ModalLoading || me.state.ModalLoading.id !== prevStat.ModalLoading.id) {
 				if (!me.state.ModalLoading) {
-					console.log('===me.state.ModalLoading===>');
+					console.log('--me.state.ModalLoading--->');
 					console.log(me.state.ModalLoading);
 					me.cpCall();
 				}
