@@ -172,7 +172,7 @@ try {
 		loading:function() {
 			var me = this;
 			me.setState({ModalLoading: {id : '123', boxstyle : {color:'#ff0000'}, hold:1000, 
-				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24">'}});
+				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24">1212'}});
 			setTimeout(
 				function() {
 				//	me.setState({ModalLoading: 'cancel'});	
