@@ -152,6 +152,14 @@ try {
 		},		
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
+			
+			if (!me.state.ModalLoading) {
+				console.log('==A1==');
+				console.log(JSON.stringify(me.state.ModalLoading));
+			} else {
+				console.log('==A2==');
+				console.log(JSON.stringify(me.state.ModalLoading));
+			}
 			if (JSON.stringify(me.props.parent.state.eng) == JSON.stringify(prePropos.parent.state.eng)) {
 				console.log('==YY==');
 				console.log(JSON.stringify(me.props.parent.state.eng));
