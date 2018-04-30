@@ -185,9 +185,7 @@ try {
 			if (me.props.parent.state.ModalLoading.id) {
 				me.M = me.props.parent.state.ModalLoading
 			}
-			console.log('====M====');
-			console.log(me.M);
-			
+
 			if ((me.props.parent) && (me.props.parent.state.ModalLoading)) {	
 				if (me.props.parent.state.ModalLoading == 'cancel') {
 					viewpoint.find('.ModalLoading').modal('hide');
