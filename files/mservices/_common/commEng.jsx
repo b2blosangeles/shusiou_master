@@ -31,9 +31,6 @@ try {
 			    p = me.props.parent.state.eng.p,
 			    s = me.props.parent.state.eng.s;
 			
-		
-			
-			
 			let CP0 = new me.crowdProcess(), CP = new me.crowdProcess();
 			let qp = {};
 			for (var i = 0; i < p.length; i++) {
