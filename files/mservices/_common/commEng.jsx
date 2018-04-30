@@ -171,8 +171,9 @@ try {
 		},
 		loading:function() {
 			var me = this;
-			let id = nre Date().getTime();
-			me.setState({ModalLoading: {id : id, boxstyle : {color:'#ffffff'}, hold:1000, 
+			if (!me.idx || me.idx > 10000) me.idx = 1;
+			me.idx++;
+			me.setState({ModalLoading: {id : me.idx, boxstyle : {color:'#ffffff'}, hold:1000, 
 				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24"> Loading'}});
 		},		
 		render: function() {
