@@ -160,7 +160,7 @@ try {
 		loading:function() {
 			var me = this;
 			me._idx = (!me._idx || me._idx > 10000) ? 1 : (me._idx + 1);
-			me.setState({ModalLoading: {id : me._idx, box_style : {color:'#ffffff'}, hold:10, 
+			me.setState({ModalLoading: {id : me._idx, box_style : {color:'#ffffff'}, hold:1000, 
 				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24">'}});
 		},		
 		render: function() {
