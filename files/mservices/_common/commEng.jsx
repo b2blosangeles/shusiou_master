@@ -27,8 +27,8 @@ try {
 			let me = this, eng =  JSON.parse(JSON.stringify(me.props.parent.state.eng));			
 			me.props.parent.setState({eng:null}, function()  {});
 			
-			let time_out = ((end.setting) && (end.setting.timeout)) ? end.setting.timeout : 6000;
-			let callbackfn = end.setting.callbackfn;
+			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
+			let callbackfn = eng.setting.callbackfn;
 			    
 			me.loading();
 			
