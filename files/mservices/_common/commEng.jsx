@@ -29,6 +29,8 @@ try {
 			    p = JSON.parse(JSON.stringify(me.props.parent.state.eng.p)),
 			    s = JSON.parse(JSON.stringify(me.props.parent.state.eng.s));
 			
+			me.props.parent.setState({eng:null}, function()  {});
+			
 			me.loading();
 			
 			let CP0 = new me.crowdProcess(), CP = new me.crowdProcess();
