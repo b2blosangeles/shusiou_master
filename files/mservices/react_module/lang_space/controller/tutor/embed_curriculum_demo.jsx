@@ -22,7 +22,7 @@ try {
 		},
 		callEng:function() {
 			var me = this;
-			me.setState({"eng":{
+			me.setState({ModalPopup:1, eng:{
 				i:[
 					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'get', data:{}}
 				],				
