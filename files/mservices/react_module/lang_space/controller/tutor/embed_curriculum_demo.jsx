@@ -34,6 +34,10 @@ try {
 				callbackfn: 'callEngCbk'
 				
 			}});
+		},
+		callWin:function() {
+			var me = this;
+			alert('test');
 		},		
 		render: function() {
 			var me = this;
@@ -41,6 +45,9 @@ try {
 			if ((me.props.params.id) && (me.props.parent.state.curriculum)) {
 				return (<div>Embed_curriculum_demo : 
 						<a onClick={me.callEng.bind(me)}>click</a>
+						&nbsp;-&nbsp;
+						<a onClick={me.callWin.bind(me)}>popup</a>
+						
 						<_commEng parent={me} />
 						<h4>{me.props.parent.state.video.title}</h4>	
 						<p><b>Video ID</b>:{me.props.parent.state.curriculum.vid}</p>  
