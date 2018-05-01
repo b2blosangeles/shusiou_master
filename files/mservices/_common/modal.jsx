@@ -192,7 +192,10 @@ try {
 		ModalLoadingClass: function() {
 			let me = this;	
 			return 'modal fade ModalPopup';
-		},	
+		},
+		closePopup : function() {
+			me.props.parent.setState({ModalPopup:null});
+		},
 		render: function() {
 			var me = this, err_msg = '';
 			var box_class = 'danger', message = '123', box_style={}, close_icon = '';
@@ -202,7 +205,9 @@ try {
 					  <div className="modal-dialog modal-lg" role="document">
 						<div className={'alert alert-' + box_class} style={box_style} role="alert">
 							<span dangerouslySetInnerHTML={{__html: message}}></span>
-							<button type="button" className="close" style={{display:close_icon}}>
+							<button type="button" className="close" 
+								click={me.closePopup.bind(me)}
+								style={{display:close_icon}}>
 								&times;
 							</button>
 						</div>
