@@ -68,7 +68,7 @@ try {
 					console.log(data);
 					
 					me.props.parent.setState({eng:null}, function()  {
-						alert('call end');
+					//	alert('call end');
 						me.setState({ModalLoading: 'cancel'},function(){});
 					});							
 				},
@@ -166,7 +166,7 @@ try {
 			var me = this;
 			if (!me._idx || me._idx > 10000) me._idx = 1;
 			else me._idx++;
-			alert('loading');
+			// alert('loading');
 			me.setState({ModalLoading: {id : me._idx, box_style : {color:'#ffffff'}, hold:1000, 
 				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24"> Loading --> ' + me._idx}});
 		},		
