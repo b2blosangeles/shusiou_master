@@ -157,13 +157,12 @@ try {
 		loading:function() {
 			var me = this;
 			me._idx = (!me._idx || me._idx > 10000) ? 1 : (me._idx + 1);
-			// else me._idx++;
 			me.setState({ModalLoading: {id : me._idx, box_style : {color:'#ffffff'}, hold:10, 
 				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24"> Loading --> ' + me._idx}});
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
-			return (<span> -- testB  --<ModalLoading parent={me} /></span>)
+			return (<ModalLoading parent={me} />)
 		}
 	});	
 } catch (err) {
