@@ -7,9 +7,10 @@ try {
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
 			if (me.props.parent.state.ModalPopup) {
-				if (!me.state.ModalPopup) {
-					alert('me.cpCall()');
-				} 
+				alert('me.props.parent.state.ModalPopup');
+				//if (!me.state.ModalPopup) {
+				//	alert('me.cpCall()');
+				//} 
 			} 
 		},		
 		render: function() {
