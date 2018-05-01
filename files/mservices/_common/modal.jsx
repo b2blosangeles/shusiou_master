@@ -195,7 +195,7 @@ try {
 		},	
 		render: function() {
 			var me = this, err_msg = '';
-			var box_class = '', message = '', box_style={}, close_icon = '';
+			var box_class = '', message = '123', box_style={}, close_icon = '';
 			// close_icon = (me.state.ModalPlus.close_icon === false)?'none':'';
 			return (			
 				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
