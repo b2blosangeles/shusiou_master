@@ -202,7 +202,7 @@ try {
 					  <div className="modal-dialog modal-lg" role="document">
 						<div className={'alert alert-' + box_class} style={box_style} role="alert">
 							<span dangerouslySetInnerHTML={{__html: message}}></span>
-							<button type="button" className="close" data-dismiss="modal" style={{display:close_icon}}>
+							<button type="button" className="close" style={{display:close_icon}}>
 								&times;
 							</button>
 						</div>
