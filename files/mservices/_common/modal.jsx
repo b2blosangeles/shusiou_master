@@ -195,7 +195,7 @@ try {
 		},
 		closePopup : function() {
 			var me = this;
-			me.props.parent.setState({ModalPopup:null});
+			me.props.parent.setState({ModalPopup:'cancel'});
 		},
 		render: function() {
 			var me = this, err_msg = '';
