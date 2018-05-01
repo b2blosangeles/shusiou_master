@@ -43,7 +43,7 @@ try {
 			for (var i = 0; i < eng.i.length; i++) {
 				qs['SA_'+i] = (function(i) {
 					return function(cbk) {
-						me.ajax(eng.i, cbk, cbk);
+						me.ajax(eng.i[i], cbk, cbk);
 					}
 				})(i);
 			}			
@@ -64,11 +64,7 @@ try {
 			CP.serial(qs, 
 				function(data) {
 					console.log(data);
-					
-					me.props.parent.setState({eng:null}, function()  {
-					//	alert('call end');
-						me.setState({ModalLoading: 'cancel'},function(){});
-					});							
+					me.setState({ModalLoading: 'cancel'},function(){});							
 				},
 				30000);
 			return true;
