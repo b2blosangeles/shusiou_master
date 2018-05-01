@@ -15,7 +15,8 @@ try {
 			}
 		},
 		callEngCbk : function(data) {
-			alert('callEngCbk');
+			console.log('====callEngCbk===>');
+			console.log(data);
 		},
 		callEng:function() {
 			var me = this;
