@@ -194,6 +194,7 @@ try {
 			return 'modal fade ModalPopup';
 		},
 		closePopup : function() {
+			var me = this;
 			me.props.parent.setState({ModalPopup:null});
 		},
 		render: function() {
