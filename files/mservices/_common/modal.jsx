@@ -198,11 +198,14 @@ try {
 			var message = '', box_style={};
 			return (			
 				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
-				  <div className="modal-dialog" role="document">
-					<div style={box_style}>
-						<span dangerouslySetInnerHTML={{__html: message}}></span>
-					</div>
-				  </div>
+					  <div className="modal-dialog modal-lg" role="document">
+						<div className={'alert alert-' + box_class} style={box_style} role="alert">
+							<span dangerouslySetInnerHTML={{__html: message}}></span>
+							<button type="button" className="close" data-dismiss="modal" style={{display:close_icon}}>
+								&times;
+							</button>
+						</div>
+					  </div>
 				</div>	
 			);
 		}	
