@@ -181,13 +181,12 @@ try {
 		componentDidMount: function (prevProps, prevState) {
 			var me = this;
 			me.render();
-			alert(121);
-			viewpoint.find('.ModalNiu').modal({backdrop:'static'});
+			viewpoint.find('.ModalPopup').modal({backdrop:'static'});
 
 		},
 		ModalLoadingClass: function() {
 			let me = this;	
-			return 'modal fade ModalNiu';
+			return 'modal fade ModalPopup';
 		},	
 		render: function() {
 			var me = this, err_msg = '';
