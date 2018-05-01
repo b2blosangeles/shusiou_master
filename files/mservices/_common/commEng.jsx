@@ -150,17 +150,14 @@ try {
 			var me = this;
 			if (me.props.parent.state.eng && me.props.parent.state.eng.p && me.props.parent.state.eng.p.length) {
 				if (!me.state.ModalLoading) {
-					console.log('--me.state.ModalLoading--->');
-					console.log(me.state.ModalLoading);
 					me.cpCall();
 				} 
 			} 
 		},
 		loading:function() {
 			var me = this;
-			if (!me._idx || me._idx > 10000) me._idx = 1;
-			else me._idx++;
-			// alert('loading');
+			me._idx = (!me._idx || me._idx > 10000) ? 1 : (me._idx +);
+			// else me._idx++;
 			me.setState({ModalLoading: {id : me._idx, box_style : {color:'#ffffff'}, hold:10, 
 				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24"> Loading --> ' + me._idx}});
 		},		
