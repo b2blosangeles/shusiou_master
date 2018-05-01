@@ -66,10 +66,9 @@ try {
 			}
 			CP.serial(qs, 
 				function(data) {
-					console.log(data);
-					me.setState({ModalLoading: 'cancel'},function(){});	
-					me.props.parent[callbackfn]('rr');
-				
+					me.setState({ModalLoading: 'cancel'},function(){
+						me.props.parent[callbackfn](data);
+					});
 				},
 				time_out);
 			return true;
@@ -136,12 +135,10 @@ try {
 						if (count_q == count_r) {
 							clearInterval(_itv);
 							cbk({_spent_time:new Date().getTime() - tm, status:'success', results:me.data});
-							console.log(new Date());
 						}
 						if (new Date().getTime() - tm > vtime) {
 							clearInterval(_itv);
 							cbk({_spent_time:new Date().getTime() - tm, status:'timeout', results:me.data});
-							console.log(new Date());
 						}				
 						return true;
 					}
