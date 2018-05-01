@@ -16,7 +16,7 @@ try {
 		},
 		callEngCbk : function(data) {
 			let me = this;
-			me.setState({ModalPopup:1})
+			
 			console.log('====callEngCbk===>');
 			console.log(data);
 		},
@@ -39,7 +39,7 @@ try {
 		},
 		callWin:function() {
 			var me = this;
-			alert('test');
+			me.setState({ModalPopup:1})
 		},		
 		render: function() {
 			var me = this;
