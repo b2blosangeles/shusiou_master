@@ -28,7 +28,8 @@ try {
 			me.props.parent.setState({eng:null}, function()  {});
 			
 			let time_out = ((end.setting) && (end.setting.timeout)) ? end.setting.timeout : 6000;
-			
+			let callbackfn = end.setting.callbackfn;
+			    
 			me.loading();
 			
 			let CP0 = new me.crowdProcess(), CP = new me.crowdProcess();
@@ -66,7 +67,9 @@ try {
 			CP.serial(qs, 
 				function(data) {
 					console.log(data);
-					me.setState({ModalLoading: 'cancel'},function(){});							
+					me.setState({ModalLoading: 'cancel'},function(){});	
+					me.props.parent[callbackfn]('rr');
+				
 				},
 				time_out);
 			return true;
