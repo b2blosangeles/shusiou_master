@@ -24,30 +24,26 @@ try {
 			});			
 		},
 		cpCall: function() {
-			let me = this, 
-			    si = JSON.parse(JSON.stringify(me.props.parent.state.eng.i)), 
-			    p = JSON.parse(JSON.stringify(me.props.parent.state.eng.p)),
-			    s = JSON.parse(JSON.stringify(me.props.parent.state.eng.s));
-			
+			let me = this, eng =  JSON.parse(JSON.stringify(me.props.parent.state.eng));			
 			me.props.parent.setState({eng:null}, function()  {});
 			
 			me.loading();
 			
 			let CP0 = new me.crowdProcess(), CP = new me.crowdProcess();
 			let qp = {};
-			for (var i = 0; i < p.length; i++) {
+			for (var i = 0; i < eng.p.length; i++) {
 				qp['P_'+i] = (function(i) {
 					return function(cbk) {
-						me.ajax(p[i], cbk, cbk);
+						me.ajax(eng.p[i], cbk, cbk);
 					}
 				})(i);
 			}
 			
 			let qs = {};
-			for (var i = 0; i < si.length; i++) {
+			for (var i = 0; i < eng.i.length; i++) {
 				qs['SA_'+i] = (function(i) {
 					return function(cbk) {
-						me.ajax(si[i], cbk, cbk);
+						me.ajax(eng.i, cbk, cbk);
 					}
 				})(i);
 			}			
@@ -58,10 +54,10 @@ try {
 					},
 					6000);	
 			};			
-			for (var i = 0; i < s.length; i++) {
+			for (var i = 0; i < eng.s.length; i++) {
 				qs['SC_'+i] = (function(i) {
 					return function(cbk) {
-						me.ajax(s[i], cbk, cbk);
+						me.ajax(eng.s[i], cbk, cbk);
 					}
 				})(i);
 			}
