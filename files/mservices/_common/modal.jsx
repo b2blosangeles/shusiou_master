@@ -42,7 +42,7 @@ try {
 				// if (prevState.ModalPlus.TM !== me.state.ModalPlus.TM) {
 				me.render();
 				viewpoint.find('.ModalPlus_'+ mapping_data.id).modal({backdrop:'static'});
-				me.props.parent.setState({ModalPlus: ''});
+				//===me.props.parent.setState({ModalPlus: ''});
 			//	} 
 			}
 			return true;
@@ -186,13 +186,14 @@ try {
 					viewpoint.find('.ModalLoading').modal('hide');
 					me.props.parent.state.ModalLoading = null;
 					return true
-				}				
+				}
+				/*
 				if (!me.props.parent.state.ModalLoading._id) {
 					me.props.parent.state.ModalLoading._id = true;
 				//	return true;
 				}
 
-				
+				*/
 				if ((me.props.parent.state.ModalLoading) && me.props.parent.state.ModalLoading.id !== me.state.ModalLoading.id) {
 					me.setState({ModalLoading: me.props.parent.state.ModalLoading });
 					return true;
@@ -225,7 +226,6 @@ try {
 		},
 		ModalLoadingClass: function() {
 			let me = this;	
-			// if (!me.M) me.M = {};
 			return 'modal fade ModalLoading ModalLoading_'+ me.state.ModalLoading.id;
 		},		
 		render: function() {
@@ -236,7 +236,7 @@ try {
 			}
 			var message = '', box_style={};
 			var message = (me.state.ModalLoading.message)?(me.state.ModalLoading.message):'Loading ...';
-			box_style = (me.state.ModalLoading.boxstyle)?me.state.ModalLoading.boxstyle:{color:'#ffffff'};
+			box_style = (me.state.ModalLoading.box_style)?me.state.ModalLoading.box_style:{color:'#ffffff'};
 
 			return (			
 				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">

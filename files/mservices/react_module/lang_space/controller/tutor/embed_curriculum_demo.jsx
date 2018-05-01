@@ -14,6 +14,10 @@ try {
 				);
 			}
 		},
+		callEngCbk : function(data) {
+			console.log('====callEngCbk===>');
+			console.log(data);
+		},
 		callEng:function() {
 			var me = this;
 			me.setState({"eng":{
@@ -25,8 +29,10 @@ try {
 				],
 				s:[
 					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
-				]					   
-					   
+				],
+				setting: {timeout:60},
+				callbackfn: 'callEngCbk'
+				
 			}});
 		},		
 		render: function() {
@@ -35,7 +41,7 @@ try {
 			if ((me.props.params.id) && (me.props.parent.state.curriculum)) {
 				return (<div>Embed_curriculum_demo : 
 						<a onClick={me.callEng.bind(me)}>click</a>
-						<_commEng parent={me} auth={me.props.parent.state.auth} />
+						<_commEng parent={me} />
 						<h4>{me.props.parent.state.video.title}</h4>	
 						<p><b>Video ID</b>:{me.props.parent.state.curriculum.vid}</p>  
 						<p><b>Video Length</b>:({me.props.parent.state.curriculum.video_length} Secs)</p>

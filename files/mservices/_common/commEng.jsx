@@ -24,28 +24,30 @@ try {
 			});			
 		},
 		cpCall: function() {
-			let me = this, 
-			    si = me.props.parent.state.eng.i, 
-			    p = me.props.parent.state.eng.p,
-			    s = me.props.parent.state.eng.s;
+			let me = this, eng =  JSON.parse(JSON.stringify(me.props.parent.state.eng));			
+			me.props.parent.setState({eng:null}, function()  {});
 			
+			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
+			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
+			    me.props.parent[eng.callbackfn] : function() { };
+			    
 			me.loading();
 			
 			let CP0 = new me.crowdProcess(), CP = new me.crowdProcess();
 			let qp = {};
-			for (var i = 0; i < p.length; i++) {
+			for (var i = 0; i < eng.p.length; i++) {
 				qp['P_'+i] = (function(i) {
 					return function(cbk) {
-						me.ajax(p[i], cbk, cbk);
+						me.ajax(eng.p[i], cbk, cbk);
 					}
 				})(i);
 			}
 			
 			let qs = {};
-			for (var i = 0; i < si.length; i++) {
+			for (var i = 0; i < eng.i.length; i++) {
 				qs['SA_'+i] = (function(i) {
 					return function(cbk) {
-						me.ajax(si[i], cbk, cbk);
+						me.ajax(eng.i[i], cbk, cbk);
 					}
 				})(i);
 			}			
@@ -54,23 +56,22 @@ try {
 					function(data1) {
 						cbk(data1);
 					},
-					6000);	
+					time_out);	
 			};			
-			for (var i = 0; i < s.length; i++) {
+			for (var i = 0; i < eng.s.length; i++) {
 				qs['SC_'+i] = (function(i) {
 					return function(cbk) {
-						me.ajax(s[i], cbk, cbk);
+						me.ajax(eng.s[i], cbk, cbk);
 					}
 				})(i);
 			}
 			CP.serial(qs, 
 				function(data) {
-					console.log(data);
-					me.props.parent.setState({eng:null}, function()  {
-						me.setState({ModalLoading: 'cancel'});	
+					me.setState({ModalLoading: 'cancel'},function(){
+						callbackfn(data);
 					});
 				},
-				30000);
+				time_out);
 			return true;
 		},
 		crowdProcess :  function () {
@@ -135,12 +136,10 @@ try {
 						if (count_q == count_r) {
 							clearInterval(_itv);
 							cbk({_spent_time:new Date().getTime() - tm, status:'success', results:me.data});
-							console.log(new Date());
 						}
 						if (new Date().getTime() - tm > vtime) {
 							clearInterval(_itv);
 							cbk({_spent_time:new Date().getTime() - tm, status:'timeout', results:me.data});
-							console.log(new Date());
 						}				
 						return true;
 					}
@@ -153,21 +152,20 @@ try {
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
 			if (me.props.parent.state.eng && me.props.parent.state.eng.p && me.props.parent.state.eng.p.length) {
-				if (!me.state.ModalLoading || !me.state.ModalLoading.id) {
+				if (!me.state.ModalLoading) {
 					me.cpCall();
-				}
-			}
+				} 
+			} 
 		},
 		loading:function() {
 			var me = this;
-			if (!me._idx || me._idx > 10000) me._idx = 1;
-			else me._idx++;
-			me.setState({ModalLoading: {id : me._idx, boxstyle : {color:'#ffffff'}, hold:1000, 
-				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24"> Loading --> ' + me._idx}});
+			me._idx = (!me._idx || me._idx > 10000) ? 1 : (me._idx + 1);
+			me.setState({ModalLoading: {id : me._idx, box_style : {color:'#ffffff'}, hold:1000, 
+				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24">'}});
 		},		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
-			return (<span> -- testB  --<ModalLoading parent={me} /></span>)
+			return (<ModalLoading parent={me} />)
 		}
 	});	
 } catch (err) {
