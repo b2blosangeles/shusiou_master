@@ -28,7 +28,8 @@ try {
 			me.props.parent.setState({eng:null}, function()  {});
 			
 			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
-			let callbackfn = eng.callbackfn;
+			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
+			    me.props.parent[eng.callbackfn] : function() { };
 			    
 			me.loading();
 			
@@ -67,7 +68,7 @@ try {
 			CP.serial(qs, 
 				function(data) {
 					me.setState({ModalLoading: 'cancel'},function(){
-						me.props.parent[callbackfn](data);
+						callbackfn(data);
 					});
 				},
 				time_out);
