@@ -7,6 +7,7 @@ try {
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
 			if (me.props.parent.state.ModalPopup) {
+				me.setState({ModalPopup:me.props.parent.state.ModalPopup})
 				alert('me.props.parent.state.ModalPopup');
 				//if (!me.state.ModalPopup) {
 				//	alert('me.cpCall()');
