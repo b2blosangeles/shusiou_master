@@ -1,0 +1,14 @@
+try {
+	var _commWin = React.createClass({		
+		getInitialState: function() {
+			var me = this;
+			return {};
+		},
+		render: function() {
+			let me = this, code = (me.props.data) ? me.props.code : '';
+			return (<ModalLoading parent={me} />)
+		}
+	});	
+} catch (err) {
+	console.log(err.message);
+}
