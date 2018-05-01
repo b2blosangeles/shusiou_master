@@ -15,6 +15,8 @@ try {
 			}
 		},
 		callEngCbk : function(data) {
+			let me = this;
+			me.setState({ModalPopup:1})
 			console.log('====callEngCbk===>');
 			console.log(data);
 		},
