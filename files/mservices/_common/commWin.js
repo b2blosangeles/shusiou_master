@@ -6,7 +6,7 @@ try {
 		},
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
-			return (<ModalPopup parent={me} />)
+			return (<span>niu<ModalPopup parent={me} /></span>)
 		}
 	});	
 } catch (err) {
