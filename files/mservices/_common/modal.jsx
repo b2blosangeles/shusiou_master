@@ -178,11 +178,10 @@ try {
 			var me = this;
 			return {ModalPopup: ''};
 		},	
-		componentDidMount: function (prevProps, prevState) {
+		componentDidUpdate: function (prevProps, prevState) {
 			var me = this;
-		//	me.render();
-		//	viewpoint.find('.ModalPopup').modal({backdrop:'static'});
-
+			me.render();
+			viewpoint.find('.ModalPopup').modal({backdrop:'static'});
 		},
 		ModalLoadingClass: function() {
 			let me = this;	
