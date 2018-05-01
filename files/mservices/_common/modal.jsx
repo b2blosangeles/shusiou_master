@@ -180,8 +180,10 @@ try {
 		},	
 		componentDidUpdate: function (prevProps, prevState) {
 			var me = this;
-			me.render();
-			viewpoint.find('.ModalPopup').modal({backdrop:'static'});
+			if ((me.props.parent.state.ModalPopup)
+				me.render();
+				viewpoint.find('.ModalPopup').modal({backdrop:'static'});
+			}
 		},
 		ModalLoadingClass: function() {
 			let me = this;	
