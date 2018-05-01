@@ -10,7 +10,7 @@ try {
 				url:rec.url,
 				method: rec.method,
 				data: rec.data,
-				dataType: "JSON"
+				dataType: (rec.dataType) ? rec.dataType : 'JSON'
 			}			
 			p.data.auth = (reactCookie.load('auth'))?reactCookie.load('auth'):{};
 			$.ajax(p).done(function( data) {
