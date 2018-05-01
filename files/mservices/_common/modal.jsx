@@ -182,12 +182,12 @@ try {
 			var me = this;
 			me.render();
 			alert(121);
-			viewpoint.find('.ModalPlus_'+ mapping_data.id).modal({backdrop:'static'});
+			viewpoint.find('.ModalNiu').modal({backdrop:'static'});
 
 		},
 		ModalLoadingClass: function() {
 			let me = this;	
-			return 'modal fade';
+			return 'modal fade ModalNiu';
 		},	
 		render: function() {
 			var me = this, err_msg = '';
