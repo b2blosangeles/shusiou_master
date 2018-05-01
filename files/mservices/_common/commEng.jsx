@@ -28,7 +28,7 @@ try {
 			me.props.parent.setState({eng:null}, function()  {});
 			
 			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
-			let callbackfn = eng.setting.callbackfn;
+			let callbackfn = eng.callbackfn;
 			    
 			me.loading();
 			
