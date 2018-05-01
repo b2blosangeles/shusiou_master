@@ -180,7 +180,8 @@ try {
 		},	
 		componentDidUpdate: function (prevProps, prevState) {
 			var me = this;
-
+			me.render();
+			viewpoint.find('.ModalPlus_'+ mapping_data.id).modal({backdrop:'static'});
 
 		},
 		ModalLoadingClass: function() {
