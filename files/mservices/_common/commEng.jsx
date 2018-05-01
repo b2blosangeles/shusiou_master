@@ -65,7 +65,8 @@ try {
 			}
 			CP.serial(qs, 
 				function(data) {
-					console.log(data);	
+					console.log(data);
+					alert('call end');
 					me.props.parent.setState({eng:null}, function()  {
 						me.setState({ModalLoading: 'cancel'},function(){});
 					});							
