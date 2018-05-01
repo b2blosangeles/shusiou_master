@@ -14,6 +14,9 @@ try {
 				);
 			}
 		},
+		callEngCbk : function(data) {
+			alert('callEngCbk');
+		},
 		callEng:function() {
 			var me = this;
 			me.setState({"eng":{
@@ -26,7 +29,9 @@ try {
 				s:[
 					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
 				],
-				setting: {timeout:6000}
+				setting: {timeout:6000},
+				callbackfn: 'callEngCbk'
+				
 			}});
 		},		
 		render: function() {
