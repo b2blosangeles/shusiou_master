@@ -206,7 +206,7 @@ try {
 						<div className={'alert alert-' + box_class} style={box_style} role="alert">
 							<span dangerouslySetInnerHTML={{__html: message}}></span>
 							<button type="button" className="close" 
-								click={me.closePopup.bind(me)}
+								onClick={me.closePopup.bind(me)}
 								style={{display:close_icon}}>
 								&times;
 							</button>
