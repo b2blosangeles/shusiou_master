@@ -27,6 +27,8 @@ try {
 			let me = this, eng =  JSON.parse(JSON.stringify(me.props.parent.state.eng));			
 			me.props.parent.setState({eng:null}, function()  {});
 			
+			let time_out = ((end.setting) && (end.setting.timeout)) ? end.setting.timeout : 6000;
+			
 			me.loading();
 			
 			let CP0 = new me.crowdProcess(), CP = new me.crowdProcess();
@@ -52,7 +54,7 @@ try {
 					function(data1) {
 						cbk(data1);
 					},
-					6000);	
+					time_out);	
 			};			
 			for (var i = 0; i < eng.s.length; i++) {
 				qs['SC_'+i] = (function(i) {
@@ -66,7 +68,7 @@ try {
 					console.log(data);
 					me.setState({ModalLoading: 'cancel'},function(){});							
 				},
-				30000);
+				time_out);
 			return true;
 		},
 		crowdProcess :  function () {
