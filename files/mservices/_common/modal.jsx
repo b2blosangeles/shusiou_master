@@ -42,7 +42,7 @@ try {
 				// if (prevState.ModalPlus.TM !== me.state.ModalPlus.TM) {
 				me.render();
 				viewpoint.find('.ModalPlus_'+ mapping_data.id).modal({backdrop:'static'});
-				me.props.parent.setState({ModalPlus: ''});
+				//===me.props.parent.setState({ModalPlus: ''});
 			//	} 
 			}
 			return true;
