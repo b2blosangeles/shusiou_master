@@ -189,6 +189,7 @@ try {
 		},	
 		render: function() {
 			var me = this, err_msg = '';
+			var message = '', box_style={};
 			return (			
 				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
 				  <div className="modal-dialog" role="document">
