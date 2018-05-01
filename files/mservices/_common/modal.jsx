@@ -183,11 +183,20 @@ try {
 
 
 		},
-	
+		ModalLoadingClass: function() {
+			let me = this;	
+			return 'modal fade';
+		},	
 		render: function() {
 			var me = this, err_msg = '';
 			return (			
-				<span>	niu </span>
+				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
+				  <div className="modal-dialog" role="document">
+					<div style={box_style}>
+						<span dangerouslySetInnerHTML={{__html: message}}></span>
+					</div>
+				  </div>
+				</div>	
 			);
 		}	
 	});	
