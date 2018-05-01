@@ -25,9 +25,9 @@ try {
 		},
 		cpCall: function() {
 			let me = this, 
-			    si = me.props.parent.state.eng.i, 
-			    p = me.props.parent.state.eng.p,
-			    s = me.props.parent.state.eng.s;
+			    si = JSON.parse(JSON.stringify(me.props.parent.state.eng.i)), 
+			    p = JSON.parse(JSON.stringify(me.props.parent.state.eng.p)),
+			    s = JSON.parse(JSON.stringify(me.props.parent.state.eng.s));
 			
 			me.loading();
 			
