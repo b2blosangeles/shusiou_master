@@ -178,9 +178,10 @@ try {
 			var me = this;
 			return {ModalPopup: ''};
 		},	
-		componentDidUpdate: function (prevProps, prevState) {
+		componentDidMount: function (prevProps, prevState) {
 			var me = this;
 			me.render();
+			alert(121);
 			viewpoint.find('.ModalPlus_'+ mapping_data.id).modal({backdrop:'static'});
 
 		},
