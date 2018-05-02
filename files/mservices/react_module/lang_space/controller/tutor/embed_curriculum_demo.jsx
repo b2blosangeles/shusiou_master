@@ -12,11 +12,7 @@ try {
 						me.props.parent.setState({video:data.data[0]});
 					}
 				);
-			}
-			Embed_curriculum_demo['niu'] = function() {
-				alert(7788);
 			}			
-			
 		},
 		callEngCbk : function(data) {
 			let me = this;
@@ -54,9 +50,7 @@ try {
 			}};
 			
 			let lib = new _commLib();
-			alert(lib.messageFn());
-			Embed_curriculum_demo['niu']();
-			
+			lib.messageFn(me, arguments.callee.name + 'message');
 			alert(arguments.callee.name); 
 			if (typeof data.message == 'function') {
 				alert(data.message.name)
