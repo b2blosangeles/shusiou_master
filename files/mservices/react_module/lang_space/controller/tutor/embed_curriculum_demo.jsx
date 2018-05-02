@@ -13,6 +13,10 @@ try {
 					}
 				);
 			}
+			Embed_curriculum_demo['niu'] = function() {
+				alert(7788);
+			}			
+			
 		},
 		callEngCbk : function(data) {
 			let me = this;
@@ -48,6 +52,9 @@ try {
 			var me = this;
 			let data = {message: function() {
 			}};
+
+			Embed_curriculum_demo['niu']();
+			
 			alert(arguments.callee.name); 
 			if (typeof data.message == 'function') {
 				alert(data.message.name)
