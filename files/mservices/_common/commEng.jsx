@@ -24,7 +24,7 @@ try {
 			});			
 		},
 		cpCall: function() {
-			let me = this, eng =  JSON.parse(JSON.stringify(me.props.parent.state.eng));			
+			let me = this, eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));			
 			me.props.parent.setState({eng:null}, function()  {});
 			
 			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
@@ -151,17 +151,17 @@ try {
 		},	
 		componentDidUpdate: function (prevProps, prevState) {
 			var me = this;
-			if ((me.props.parent) && (me.props.parent.state.ModalLoading)) {	
-				if (me.props.parent.state.ModalLoading === 'cancel') {
+			if ((me.props.parent) && (me.props.parent.state._eng)) {	
+				if (me.props.parent.state._eng === 'cancel') {
 					viewpoint.find('.ModalLoading').modal('hide');
-					me.props.parent.setState({ModalLoading:null});
+					me.props.parent.setState({_eng:null});
 					// me.props.parent.state.ModalLoading = null;
 					return true
 				}
 				alert(121);
 				viewpoint.find('.ModalLoading').modal({backdrop:'static'});
 				me.cpCall();
-				me.props.parent.setState({ModalLoading: null});
+				// me.props.parent.setState({_eng: null});
 				return true;
 				
 				if ((me.props.parent.state.ModalLoading) && me.props.parent.state.ModalLoading.id !== me.state.ModalLoading.id) {
