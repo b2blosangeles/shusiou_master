@@ -161,7 +161,7 @@ try {
 				alert(121);
 				viewpoint.find('.ModalLoading').modal({backdrop:'static'});
 				me.cpCall();
-				// me.props.parent.setState({_eng: null});
+				me.props.parent.setState({_eng: null});
 				return true;
 				
 				if ((me.props.parent.state.ModalLoading) && me.props.parent.state.ModalLoading.id !== me.state.ModalLoading.id) {
