@@ -20,7 +20,9 @@ try {
 		},
 		closePopup : function() {
 			var me = this;
-			me.props.parent.setState({ModalPopup:'cancel'});
+			me.props.parent.setState({ModalPopup:'cancel'}, function() {
+				viewpoint.find('.ModalPopup').modal('hide');
+			});
 		},		
 		ModalLoadingClass: function() {
 			let me = this;	
