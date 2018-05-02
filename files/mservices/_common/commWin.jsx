@@ -26,9 +26,9 @@ try {
 			return 'modal fade ModalPopup';
 		},		
 		render: function() {
-			var me = this, err_msg = '';
+			let me = this, ModalPopup = (me.props.parent.state.ModalPopup) ? me.props.parent.state.ModalPopup : {};
 			var box_class = 'danger', 
-			    message = (me.props.parent.state.ModalPopup) ? me.props.parent.state.ModalPopup.message : '', 
+			    message = ModalPopup.message, 
 			    box_style={}, close_icon = '';
 			// close_icon = (me.state.ModalPlus.close_icon === false)?'none':'';
 			return (			
