@@ -28,7 +28,7 @@ try {
 			    message = ModalPopup.message, 
 			    box_style={}, close_icon = '';
 			var _f = me.props.parent[ModalPopup.messageFn];
-			console.log(_f());
+			console.log(_f);
 			// close_icon = (me.state.ModalPlus.close_icon === false)?'none':''; me.props.parent[ModalPopup.messageFn]()
 			return (			
 				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
