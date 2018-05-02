@@ -171,7 +171,7 @@ try {
 } catch (err) {
 	console.log(err.message);
 }
-
+/*
 try {
 	var ModalLoading =  React.createClass({
 		getInitialState: function() {
@@ -244,7 +244,7 @@ try {
 } catch (err) {
 	console.log(err.message);
 }
-
+*/
 
 try {
 	var ModalPlus =  React.createClass({
