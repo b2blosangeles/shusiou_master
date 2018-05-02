@@ -173,7 +173,7 @@ try {
 }
 
 try {
-	var ModalLoading =  React.createClass({
+	var ModalLoadingA =  React.createClass({
 		getInitialState: function() {
 			var me = this;
 			return {ModalLoading: ''};
