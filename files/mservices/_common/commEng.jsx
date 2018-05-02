@@ -23,11 +23,9 @@ try {
 				}				
 			});			
 		},
-		cpCall: function(eng) {
-			let me = this;	
-			return true;
-			
-		//	me.props.parent.setState({eng:null}, function()  {});
+		cpCall: function() {
+			let me = this, eng =  JSON.parse(JSON.stringify(me.props.parent.state.eng));			
+			me.props.parent.setState({eng:null}, function()  {});
 			
 			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
 			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
@@ -161,9 +159,8 @@ try {
 					return true
 				}
 				viewpoint.find('.ModalLoading_'+ me.state.ModalLoading.id).modal({backdrop:'static'});
-				let eng =  JSON.parse(JSON.stringify(me.props.parent.state.eng))
-				me.cpCall(eng);
-				// me.props.parent.setState({ModalLoading: null});
+				me.cpCall();
+				me.props.parent.setState({ModalLoading: null});
 				return true;
 				
 				if ((me.props.parent.state.ModalLoading) && me.props.parent.state.ModalLoading.id !== me.state.ModalLoading.id) {
@@ -220,12 +217,10 @@ try {
 		*/
 		render: function() {
 			var me = this, err_msg = '';
-			/*
 			if (_modal_backdrop_) {
 				if (me.state.ModalLoading.backdrop)  _modal_backdrop_.set(me.state.ModalLoading.backdrop);	
 				else  _modal_backdrop_.resetDefault();
 			}
-			*/
 			var message = '', box_style={};
 			var message = (me.state.ModalLoading.message)?(me.state.ModalLoading.message):'Loading ...';
 			box_style = (me.state.ModalLoading.box_style)?me.state.ModalLoading.box_style:{color:'#ffffff'};
