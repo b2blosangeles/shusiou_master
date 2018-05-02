@@ -17,7 +17,12 @@ try {
 		closePopup : function() {
 			var me = this;
 			me.props.parent.setState({ModalPopup:'cancel'});
-		},		
+		},
+		callMessage : function() {
+			var me = this;
+			var _f = me.props.parent[ModalPopup.messageFn];
+			_f();
+		},
 		ModalLoadingClass: function() {
 			let me = this;	
 			return 'modal fade ModalPopup';
@@ -27,8 +32,7 @@ try {
 			var box_class = 'danger', 
 			    message = ModalPopup.message, 
 			    box_style={}, close_icon = '';
-			var _f = me.props.parent[ModalPopup.messageFn];
-			console.log(_f);
+			console.log(me.callMessage());
 			// close_icon = (me.state.ModalPlus.close_icon === false)?'none':''; me.props.parent[ModalPopup.messageFn]()
 			return (			
 				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
