@@ -8,7 +8,7 @@ try {
 		componentDidUpdate:function(prevProps, prevState) {
 			var me = this;
 			if ((me.props.parent) && (me.props.parent.state.ModalPlus)) {	
-				if (me.props.parent.state.ModalPlus == 'cancel') {
+				if (me.props.parent.state.ModalPlus === 'cancel') {
 					viewpoint.find('.ModalPlus').modal('hide');
 					me.props.parent.state.ModalPlus = null;
 					return true
@@ -230,18 +230,11 @@ try {
 		componentDidUpdate: function (prevProps, prevState) {
 			var me = this;
 			if ((me.props.parent) && (me.props.parent.state.ModalLoading)) {	
-				if (me.props.parent.state.ModalLoading == 'cancel') {
+				if (me.props.parent.state.ModalLoading === 'cancel') {
 					viewpoint.find('.ModalLoading').modal('hide');
 					me.props.parent.state.ModalLoading = null;
 					return true
 				}
-				/*
-				if (!me.props.parent.state.ModalLoading._id) {
-					me.props.parent.state.ModalLoading._id = true;
-				//	return true;
-				}
-
-				*/
 				if ((me.props.parent.state.ModalLoading) && me.props.parent.state.ModalLoading.id !== me.state.ModalLoading.id) {
 					me.setState({ModalLoading: me.props.parent.state.ModalLoading });
 					return true;
