@@ -26,8 +26,6 @@ try {
 					<div className="col-sm-6 col-lg-5 col-md-6"> 
 						
 						<a onClick={me.callEng.bind(me)}>click</a>
-						&nbsp;-&nbsp;
-						<a onClick={me.callWin.bind(me)}>popup</a>
 						<_commWin parent={me} />
 						<_commEng parent={me} />						
 						<div className="overlayer_box editor_box">
