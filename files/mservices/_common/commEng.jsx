@@ -195,7 +195,6 @@ try {
 			me.setState({ModalLoading: {id : _EngIndex, box_style : {color:'#ffffff'}, hold:10, 
 				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}},
 				function() {
-					console.log('_EngIndex_' + _EngIndex);
 					viewpoint.find('.ModalLoading_' + me.state.ModalLoading.id).modal({backdrop:'static'});				    
 				    }	   
 			);
