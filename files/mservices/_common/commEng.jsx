@@ -157,6 +157,9 @@ try {
 				if (me.props.parent.state._eng === 'cancel') {
 					me.props.parent.setState({_eng:null});
 					return true
+				} else if (me.props.parent.state._eng === 'cancel') {
+						me.props.parent.setState({_eng:null});
+						return true
 				} else {
 					let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
 					me.props.parent.setState({_eng:'cancel'}, function() {
