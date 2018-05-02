@@ -80,7 +80,7 @@ try {
 								callbackfn(data);
 							});							
 						},
-						4000
+						2000
 					)
 
 					
