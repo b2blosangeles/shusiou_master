@@ -38,14 +38,14 @@ try {
 				
 			}});
 		},
-		winMessage : function() {
+		mssageFn : function() {
 			return (
 				<div>niu</div>
 			);
 		},
 		callWin:function() {
 			var me = this;
-			me.setState({ModalPopup:{message:me.winMessage()}})
+			me.setState({ModalPopup:{messageFn:'mssageFn')}})
 		},		
 		render: function() {
 			var me = this;
