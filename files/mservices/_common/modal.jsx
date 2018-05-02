@@ -182,10 +182,10 @@ try {
 			var me = this;
 			if (me.props.parent.state.ModalPopup === 'cancel') {
 				me.props.parent.setState({ModalPopup:null});
-				me.render();
+				//me.render();
 				viewpoint.find('.ModalPopup').modal('hide');
 			} else if (me.props.parent.state.ModalPopup) {
-				me.render();
+				//me.render();
 				viewpoint.find('.ModalPopup').modal({backdrop:'static'});
 			}
 		},
