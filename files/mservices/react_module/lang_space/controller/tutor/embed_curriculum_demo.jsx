@@ -38,14 +38,17 @@ try {
 				
 			}});
 		},
-		mssageFn : function() {
+		messageFn : function() {
+			alert(121);
+			/*
 			return (
 				<div>niu</div>
 			);
+			*/
 		},
 		callWin:function() {
 			var me = this;
-			me.setState({ModalPopup:{messageFn: 'mssageFn'}})
+			me.setState({ModalPopup:{messageFn: 'messageFn'}})
 		},		
 		render: function() {
 			var me = this;
