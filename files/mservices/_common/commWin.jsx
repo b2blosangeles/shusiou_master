@@ -1,12 +1,10 @@
 try {
 	var _commWin = React.createClass({		
 		getInitialState: function() {
-			var me = this;
 			return {};
 		},
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
-			
 			if (me.props.parent.state.ModalPopup === 'cancel') {
 				me.props.parent.setState({ModalPopup:null});
 				//me.render();
@@ -19,7 +17,6 @@ try {
 		closePopup : function() {
 			var me = this;
 			me.props.parent.setState({ModalPopup:'cancel'});
-		//	alert(123);
 		},		
 		ModalLoadingClass: function() {
 			let me = this;	
