@@ -25,7 +25,7 @@ try {
 		},
 		cpCall: function() {
 			let me = this, eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));			
-			
+			me.props.parent.setState({_eng: 'cancel'}, function()  {});			
 			
 			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
 			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
@@ -67,9 +67,13 @@ try {
 			}
 			CP.serial(qs, 
 				function(data) {
+					viewpoint.find('.ModalLoading').modal('hide');
+					callbackfn(data);
+					/*
 					me.props.parent.setState({_eng: 'cancel'}, function()  {
 						callbackfn(data);
 					});
+					*/
 					/*
 					me.setState({ModalLoading: 'cancel'},function(){
 						callbackfn(data);
@@ -158,7 +162,7 @@ try {
 			var me = this;
 			if ((me.props.parent) && (me.props.parent.state._eng)) {	
 				if (me.props.parent.state._eng === 'cancel') {
-					viewpoint.find('.ModalLoading').modal('hide');
+					
 					me.props.parent.setState({_eng:null});
 					// me.props.parent.state.ModalLoading = null;
 					return true
