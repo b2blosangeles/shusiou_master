@@ -157,11 +157,14 @@ try {
 				if (me.props.parent.state._eng === 'cancel') {
 					me.props.parent.setState({_eng:null});
 					return true
-				} else if (me.props.parent.state._eng === 'cancel') {
-						me.props.parent.setState({_eng:null});
+				} else if (!me.props.parent.state._eng.tm) {
+					let eng = me.props.parent.state._eng;
+					eng.tm = new Date().getTime();
+						me.props.parent.setState({_eng:eng});
 						return true
 				} else {
 					let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
+					console.log(eng);
 					me.props.parent.setState({_eng:'cancel'}, function() {
 						
 						me.cpCall(eng);			
