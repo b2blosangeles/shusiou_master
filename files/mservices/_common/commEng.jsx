@@ -164,19 +164,24 @@ try {
 						return true
 				} else {
 					let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
-					console.log(eng);
+					if (eng.hold) {
+						console.log(eng.tm + '---' + eng.hold);
+					}
+					
 					me.props.parent.setState({_eng:'cancel'}, function() {
 						
 						me.cpCall(eng);			
 					});
 				}
 				return true;
-				
+				/*
 				if ((me.props.parent.state.ModalLoading) && me.props.parent.state.ModalLoading.id !== me.state.ModalLoading.id) {
 					me.setState({ModalLoading: me.props.parent.state.ModalLoading });
 					return true;
 				}
-				if (me.props.parent.state.ModalLoading.hold) {
+				*/
+				if (eng.hold) {
+					
 					if (!me._ModalLoading_startTime) {
 						me._ModalLoading_startTime = new Date().getTime();
 						me.setState({ModalLoading_TM: new Date().getTime() });
