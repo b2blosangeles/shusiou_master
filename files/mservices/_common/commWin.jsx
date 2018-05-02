@@ -15,20 +15,7 @@ try {
 				//me.render();
 				viewpoint.find('.ModalPopup').modal({backdrop:'static'});
 			}			
-			/*
-			if (me.props.parent.state.ModalPopup) {
-				me.setState({ModalPopup:me.props.parent.state.ModalPopup});
-				me.props.parent.setState({ModalPopup:null});
-				viewpoint.find('.ModalPopup').modal({backdrop:'static'});
-			} 
-			*/
 		},
-		/*
-		render: function() {
-			let me = this, code = (me.props.data) ? me.props.code : '';
-			return (<ModalPopup parent={me} />)
-		}
-		*/
 		closePopup : function() {
 			var me = this;
 			me.props.parent.setState({ModalPopup:'cancel'});
