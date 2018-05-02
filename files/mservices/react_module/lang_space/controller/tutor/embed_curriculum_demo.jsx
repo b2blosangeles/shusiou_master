@@ -38,9 +38,14 @@ try {
 				
 			}});
 		},
+		winMessage : function() {
+			return (
+				<div>niu</div>
+			);
+		},
 		callWin:function() {
 			var me = this;
-			me.setState({ModalPopup:{message:'test message'}})
+			me.setState({ModalPopup:{message:me.winMessage()}})
 		},		
 		render: function() {
 			var me = this;
