@@ -164,8 +164,11 @@ try {
 					return true
 				}
 				let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
+				me.props.parent.setState({_eng:'cancel'}, function() {
+			
+				});
 				me.setState({ModalLoading:eng}, function() {
-					me.props.parent.setState({_eng:'cancel'});
+					
 					viewpoint.find('.ModalLoading').modal({backdrop:'static'});
 					me.cpCall(eng);
 				});
