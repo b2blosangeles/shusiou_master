@@ -20,7 +20,7 @@ try {
 		},
 		callMessage : function() {
 			var me = this;
-			if (me.props.parent.state.ModalPopup.messageFn) {
+			if ((me.props.parent) && (me.props.parent.state.ModalPopup) && (me.props.parent.state.ModalPopup.messageFn)) {
 				var _f = me.props.parent[me.props.parent.state.ModalPopup.messageFn];
 				_f();
 			}
