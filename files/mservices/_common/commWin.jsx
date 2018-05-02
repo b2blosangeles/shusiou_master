@@ -1,7 +1,8 @@
 try {
+	var _WinIndex = 0;
 	var _commWin = React.createClass({		
 		getInitialState: function() {
-			return {};
+			return {id : _WinIndex};
 		},
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
