@@ -30,7 +30,7 @@ try {
 		},		
 		render: function() {
 			let me = this, ModalPopup = (me.props.parent.state.ModalPopup) ? me.props.parent.state.ModalPopup : null;
-			if (!ModalPopup || ModalPopup === 'cancel') return (<span/>);
+			if (!ModalPopup || ModalPopup === 'cancel') return (<span className={me.ModalLoadingClass()}/>);
 			else {
 				var box_class = 'danger', 
 				    message = ModalPopup.message, 
