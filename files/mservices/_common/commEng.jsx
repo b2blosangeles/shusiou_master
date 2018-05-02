@@ -214,7 +214,10 @@ try {
 			let me = this, code = (me.props.data) ? me.props.code : '';
 			return (<ModalLoading parent={me} />)
 		},
-		
+		ModalLoadingClass: function() {
+			let me = this;	
+			return 'modal fade ModalLoading ModalLoading_'+ me.state.ModalLoading.id;
+		},			
 		render: function() {
 			var me = this, err_msg = '';
 			/*
