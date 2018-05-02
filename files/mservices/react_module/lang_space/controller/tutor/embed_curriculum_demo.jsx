@@ -46,11 +46,7 @@ try {
 		},
 		callWin:function() {
 			var me = this;
-			let data = {message: function() {
-				var ta = me;
-				return (<span>{ta.state.niu}===nnnn</span>)
-			}};
-			
+			let data = {message: me.messageFn};
 			let lib = new _commLib();
 			lib.transferFunction(me, data, arguments.callee.name);
 			me[arguments.callee.name + '_message']();
