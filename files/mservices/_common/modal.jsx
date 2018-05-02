@@ -227,7 +227,7 @@ try {
 				else  _modal_backdrop_.resetDefault();
 			}
 			var message = '', box_style={};
-			var message = (me.state.ModalLoading.message)?(me.state.ModalLoading.message):'Loading ...';
+			var message = (me.state.ModalLoading.message)?(me.state.ModalLoading.message):'Loading .kkkk..';
 			box_style = (me.state.ModalLoading.box_style)?me.state.ModalLoading.box_style:{color:'#ffffff'};
 
 			return (			
