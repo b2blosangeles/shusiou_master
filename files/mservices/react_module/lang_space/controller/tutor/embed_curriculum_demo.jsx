@@ -52,7 +52,7 @@ try {
 			
 			let lib = new _commLib();
 			
-			lib.transferFunction(me, arguments.callee.name + '_message', data);
+			lib.transferFunction(me, arguments.callee, data);
 			me[arguments.callee.name + '_message']();
 			
 			me.setState({ModalPopup:{messageFn: 'messageFn'}})
