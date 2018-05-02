@@ -47,7 +47,7 @@ try {
 		callWin:function() {
 			var me = this;
 			let data = {message: function() {
-				alert(6666);
+				return (<span>nnnn</span>)
 			}};
 			
 			let lib = new _commLib();
