@@ -25,7 +25,7 @@ try {
 		},
 		cpCall: function() {
 			let me = this, eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));			
-			me.props.parent.setState({eng:null}, function()  {});
+			me.props.parent.setState({_eng: 'cancel'}, function()  {});
 			
 			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
 			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
@@ -158,10 +158,10 @@ try {
 					// me.props.parent.state.ModalLoading = null;
 					return true
 				}
-				alert(121);
 				viewpoint.find('.ModalLoading').modal({backdrop:'static'});
+				let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
 				me.cpCall();
-				me.props.parent.setState({_eng: 'cancel'});
+				
 				return true;
 				
 				if ((me.props.parent.state.ModalLoading) && me.props.parent.state.ModalLoading.id !== me.state.ModalLoading.id) {
