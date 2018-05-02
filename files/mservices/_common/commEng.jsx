@@ -215,8 +215,9 @@ try {
 			return (<ModalLoading parent={me} />)
 		},
 		ModalLoadingClass: function() {
-			let me = this;	
-			return 'modal fade ModalLoading ModalLoading_'+ me.state.ModalLoading.id;
+			let me = this;
+			return 'modal fade ModalLoading';
+			//return 'modal fade ModalLoading ModalLoading_'+ me.state.ModalLoading.id;
 		},			
 		render: function() {
 			var me = this, err_msg = '';
