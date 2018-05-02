@@ -12,7 +12,7 @@ try {
 				method: rec.method,
 				data: rec.data,
 				dataType: (rec.dataType) ? rec.dataType : 'JSON'
-			}			
+			}
 			p.data.auth = (reactCookie.load('auth'))?reactCookie.load('auth'):{};
 			$.ajax(p).done(function( data) {
 				if (typeof done == 'function') {
@@ -30,8 +30,6 @@ try {
 			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
 			me.props.parent[eng.callbackfn] : function() { };
 			    
-			
-			
 			let CP0 = new me.crowdProcess(), CP = new me.crowdProcess();
 			let qp = {};
 			for (var i = 0; i < eng.p.length; i++) {
@@ -188,9 +186,7 @@ try {
 					viewpoint.find('.ModalLoading_' + me.state.id).modal({backdrop:'static'});				    
 				    }	   
 			);
-
 		},
-		
 		ModalLoadingClass: function() {
 			let me = this;
 			return 'modal fade ModalLoading_'+ me.state.id;
