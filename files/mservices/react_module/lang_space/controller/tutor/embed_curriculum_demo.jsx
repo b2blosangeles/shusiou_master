@@ -40,7 +40,7 @@ try {
 		},
 		messageFn : function() {
 			return (
-				<span>niu</span>
+				<div>niu</div>
 			);
 		},
 		callWin:function() {
