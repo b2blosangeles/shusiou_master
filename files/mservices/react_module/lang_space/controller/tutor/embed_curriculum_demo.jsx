@@ -2,7 +2,7 @@ try {
 	var Embed_curriculum_demo =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			return {};
+			return {niu:23456};
 		},	
 		componentDidMount:function() {
 			var me = this;			
@@ -39,8 +39,9 @@ try {
 			}});
 		},
 		messageFn : function() {
+			var me = this;
 			return (
-				<div>niu</div>
+				<div>---{me.state.niu}--</div>
 			);
 		},
 		callWin:function() {
