@@ -41,7 +41,7 @@ try {
 			// console.log(me.callMessage()); --=={me.callMessage()}==--
 			// close_icon = (me.state.ModalPlus.close_icon === false)?'none':''; me.props.parent[ModalPopup.messageFn]()
 			return (
-				<span>niu123</span>
+				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true"/>
 				);
 			return (			
 				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
