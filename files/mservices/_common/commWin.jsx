@@ -22,7 +22,9 @@ try {
 			var me = this;
 			if ((me.props.parent) && (me.props.parent.state.ModalPopup) && (me.props.parent.state.ModalPopup.messageFn)) {
 				var _f = me.props.parent[me.props.parent.state.ModalPopup.messageFn];
-				_f();
+				return _f();
+			} else {
+				return 'bbb'
 			}
 		},
 		ModalLoadingClass: function() {
@@ -34,13 +36,13 @@ try {
 			var box_class = 'danger', 
 			    message = ModalPopup.message, 
 			    box_style={}, close_icon = '';
-			console.log(me.callMessage());
+			// console.log(me.callMessage());
 			// close_icon = (me.state.ModalPlus.close_icon === false)?'none':''; me.props.parent[ModalPopup.messageFn]()
 			return (			
 				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
 					  <div className="modal-dialog modal-lg" role="document">
 						<div className={'alert alert-' + box_class} style={box_style} role="alert">
-							--=={ModalPopup.messageFn}==--
+							--=={me.callMessage()}==--
 							<span dangerouslySetInnerHTML={{__html: message}}></span>
 							<button type="button" className="close" 
 								onClick={me.closePopup.bind(me)}
