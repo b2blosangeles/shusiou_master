@@ -39,12 +39,9 @@ try {
 			}});
 		},
 		messageFn : function() {
-			alert(121);
-			/*
 			return (
 				<div>niu</div>
 			);
-			*/
 		},
 		callWin:function() {
 			var me = this;
