@@ -11,6 +11,7 @@
 	],
 	"mservice": {	
 		"lang_space":[
+			"/mservices/common/lib.js",
 			"/mservices/_common/modal-backdrop.js",
 			"/mservices/_common/modal.jsx",
 			"/mservices/_common/breakpoints.jsx",
