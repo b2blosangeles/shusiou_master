@@ -167,7 +167,7 @@ try {
 					console.log('---------->');
 					me.props.parent.setState({_eng:'cancel'}, function() {
 						me.setState({ModalLoading:eng}, function() {
-							viewpoint.find('.ModalLoading').modal({backdrop:'static'});
+							viewpoint.find('.ModalLoadingA').modal({backdrop:'static'});
 							me.cpCall(eng);
 						});			
 					});
@@ -227,7 +227,7 @@ try {
 		
 		ModalLoadingClass: function() {
 			let me = this;
-			return 'modal fade ModalLoading';
+			return 'modal fade ModalLoadingA';
 			//return 'modal fade ModalLoading ModalLoading_'+ me.state.ModalLoading.id;
 		},			
 		render: function() {
