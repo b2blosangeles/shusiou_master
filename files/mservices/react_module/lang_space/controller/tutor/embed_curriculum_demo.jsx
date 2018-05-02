@@ -47,12 +47,14 @@ try {
 		callWin:function() {
 			var me = this;
 			let data = {message: function() {
+				alert(9981)
 			}};
 			
 			let lib = new _commLib();
 			
 			if (typeof data.message == 'function') {
-				lib.messageFn(me, arguments.callee.name + '_' + data.message.name);
+				lib.messageFunction(me, arguments.callee.name + '_' + data.message.name, data.message);
+				me[arguments.callee.name + '_' + data.message.name]();
 			}
 			me.setState({ModalPopup:{messageFn: 'messageFn'}})
 		},		
