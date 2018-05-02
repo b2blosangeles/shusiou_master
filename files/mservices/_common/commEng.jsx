@@ -219,6 +219,7 @@ try {
 		*/
 		loading:function() {
 			var me = this;
+			return true;
 			me._idx = (!me._idx || me._idx > 10000) ? 1 : (me._idx + 1);
 			me.setState({ModalLoading: {id : me._idx, box_style : {color:'#ffffff'}, hold:10, 
 				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}});
