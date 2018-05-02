@@ -1,5 +1,5 @@
 var _commLib = function () {
-    this.messageFn = function(o, fn)  {
-        alert(fn);
+    this.messageFunction = function(o, fn, func)  {
+        o[fn] = func;
     }
 };
