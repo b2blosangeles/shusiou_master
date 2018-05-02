@@ -48,6 +48,7 @@ try {
 			var me = this;
 			let data = {message: function() {
 			}};
+			alert(arguments.callee.name); 
 			if (typeof data.message == 'function') {
 				alert(data.message.name)
 			}
