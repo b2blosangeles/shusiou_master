@@ -164,19 +164,11 @@ try {
 					return true
 				} else {
 					let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
-					console.log('---------->');
 					me.props.parent.setState({_eng:'cancel'}, function() {
-						
-						// me.setState({ModalLoading:eng}, function() {
-							viewpoint.find('.ModalLoading_' + me.state.ModalLoading.id).modal({backdrop:'static'});
-							me.cpCall(eng);
-						//});			
+						viewpoint.find('.ModalLoading_' + me.state.ModalLoading.id).modal({backdrop:'static'});
+						me.cpCall(eng);			
 					});
 				}
-				
-				
-				
-				
 				return true;
 				
 				if ((me.props.parent.state.ModalLoading) && me.props.parent.state.ModalLoading.id !== me.state.ModalLoading.id) {
