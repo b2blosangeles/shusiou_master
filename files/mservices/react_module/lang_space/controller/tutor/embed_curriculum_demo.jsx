@@ -45,7 +45,7 @@ try {
 		},
 		callWin:function() {
 			var me = this;
-			me.setState({ModalPopup:{messageFn: me.mssageFn}})
+			me.setState({ModalPopup:{messageFn: 'mssageFn'}})
 		},		
 		render: function() {
 			var me = this;
