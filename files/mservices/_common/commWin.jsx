@@ -28,7 +28,7 @@ try {
 		render: function() {
 			var me = this, err_msg = '';
 			var box_class = 'danger', 
-			    message = (me.props.parent.state.ModalPopup) ? me.props.parent.state.ModalPopup.message : 'test 122', 
+			    message = (me.props.parent.state.ModalPopup) ? me.props.parent.state.ModalPopup.message : '', 
 			    box_style={}, close_icon = '';
 			// close_icon = (me.state.ModalPlus.close_icon === false)?'none':'';
 			return (			
