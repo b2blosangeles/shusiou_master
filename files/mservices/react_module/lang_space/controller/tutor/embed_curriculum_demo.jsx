@@ -41,7 +41,7 @@ try {
 		messageFn : function() {
 			var me = this;
 			return (
-				<div>---{me.state.niu}--</div>
+				<div>---{me.state.niu + ' --- ' + new Date()}--</div>
 			);
 		},
 		callWin:function() {
