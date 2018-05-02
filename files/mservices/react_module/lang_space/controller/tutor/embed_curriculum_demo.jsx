@@ -52,7 +52,9 @@ try {
 			var me = this;
 			let data = {message: function() {
 			}};
-
+			
+			let lib = new _commLib();
+			alert(lib.messageFn());
 			Embed_curriculum_demo['niu']();
 			
 			alert(arguments.callee.name); 
