@@ -27,25 +27,28 @@ try {
 			return 'modal fade ModalPopup';
 		},		
 		render: function() {
-			let me = this, ModalPopup = (me.props.parent.state.ModalPopup) ? me.props.parent.state.ModalPopup : {};
-			var box_class = 'danger', 
-			    message = ModalPopup.message, 
-			    box_style={}, close_icon = '';
-			// close_icon = (me.state.ModalPlus.close_icon === false)?'none':'';
-			return (			
-				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
-					  <div className="modal-dialog modal-lg" role="document">
-						<div className={'alert alert-' + box_class} style={box_style} role="alert">
-							<span dangerouslySetInnerHTML={{__html: message}}></span>
-							<button type="button" className="close" 
-								onClick={me.closePopup.bind(me)}
-								style={{display:close_icon}}>
-								&times;
-							</button>
-						</div>
-					  </div>
-				</div>	
-			);
+			let me = this, ModalPopup = (me.props.parent.state.ModalPopup) ? me.props.parent.state.ModalPopup : null;
+			if (!ModalPopup) return (<span/>);
+			else {
+				var box_class = 'danger', 
+				    message = ModalPopup.message, 
+				    box_style={}, close_icon = '';
+				// close_icon = (me.state.ModalPlus.close_icon === false)?'none':'';
+				return (			
+					<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
+						  <div className="modal-dialog modal-lg" role="document">
+							<div className={'alert alert-' + box_class} style={box_style} role="alert">
+								<span dangerouslySetInnerHTML={{__html: message}}></span>
+								<button type="button" className="close" 
+									onClick={me.closePopup.bind(me)}
+									style={{display:close_icon}}>
+									&times;
+								</button>
+							</div>
+						  </div>
+					</div>	
+				);
+			}
 		}		
 		
 	});	
