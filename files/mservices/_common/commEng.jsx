@@ -30,7 +30,7 @@ try {
 			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
 			me.props.parent[eng.callbackfn] : function() { };
 			    
-			me.loading();
+			
 			
 			let CP0 = new me.crowdProcess(), CP = new me.crowdProcess();
 			let qp = {};
@@ -67,6 +67,7 @@ try {
 			CP.serial(qs, 
 				function(data) {
 				//	viewpoint.find('.ModalLoading').modal('hide');
+					clearInterval(me._itvEng);
 					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 					me.setState({ModalLoading: {}},function(){
 						callbackfn(data);
@@ -161,10 +162,17 @@ try {
 					let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
 					if (!eng.tm) eng.tm = new Date().getTime();
 					let hold = (eng.hold !== null) ? eng.hold : 1000;
-					console.log(eng.tm + '-===-' + eng.hold);
-					
+					console.log(eng.tm + '-===->' + eng.hold);
+					me._itvEng = setInterval(
+						function() {
+							if (new Date().getTime() - eng.tm > eng.hold) {
+								me.loading();
+								clearInterval(me._itvEng);
+							}
+						},
+						50
+					);
 					me.props.parent.setState({_eng:'cancel'}, function() {
-						
 						me.cpCall(eng);			
 					});
 				}
