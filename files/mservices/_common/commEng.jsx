@@ -65,25 +65,17 @@ try {
 				})(i);
 			}
 			CP.serial(qs, 
-				function(data) {
-				//	viewpoint.find('.ModalLoading').modal('hide');
-					setTimeout(
-						function() {					
-							clearInterval(me._itvEng);
-							viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
-							me.setState({ModalLoading: {}},function(){
-								callbackfn(data);
-							});
-							clearInterval(me._itvEng);
-							viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
-							me.setState({ModalLoading: {}},function(){
-								callbackfn(data);
-							});							
-						},
-						2000
-					)
-
-					
+				function(data) {	
+					clearInterval(me._itvEng);
+					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
+					me.setState({ModalLoading: {}},function(){
+						callbackfn(data);
+					});
+					clearInterval(me._itvEng);
+					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
+					me.setState({ModalLoading: {}},function(){
+						callbackfn(data);
+					});	
 				},
 				time_out);
 			return true;
