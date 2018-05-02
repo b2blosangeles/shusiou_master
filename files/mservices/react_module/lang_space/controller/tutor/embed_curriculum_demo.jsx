@@ -48,7 +48,7 @@ try {
 			var me = this;
 			let data = {message: function() {
 				var me = me;
-				return (<span>yyyyynnnn</span>)
+				return (<span>{me.state.niu}===nnnn</span>)
 			}};
 			
 			let lib = new _commLib();
