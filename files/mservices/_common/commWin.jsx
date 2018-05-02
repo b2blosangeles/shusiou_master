@@ -1,9 +1,9 @@
 try {
-	var _WinIDX = 0;
+	//var _WinIDX = 0;
 	var _commWin = React.createClass({		
 		getInitialState: function() {
-			_WinIndex = (!_WinIDX || _WinIDX > 10000) ? 1 : (_WinIDX + 1);
-			return {id: _WinIDX};
+		//	_WinIndex = (!_WinIDX || _WinIDX > 10000) ? 1 : (_WinIDX + 1);
+			return {};
 		},
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
