@@ -20,8 +20,10 @@ try {
 		},
 		callMessage : function() {
 			var me = this;
-			var _f = me.props.parent[ModalPopup.messageFn];
-			_f();
+			if (me.props.parent.state.ModalPopup.messageFn) {
+				var _f = me.props.parent[me.props.parent.state.ModalPopup.messageFn];
+				_f();
+			}
 		},
 		ModalLoadingClass: function() {
 			let me = this;	
