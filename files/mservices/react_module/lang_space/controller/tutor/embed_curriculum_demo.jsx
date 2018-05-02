@@ -46,6 +46,11 @@ try {
 		},
 		callWin:function() {
 			var me = this;
+			let data = {message: function() {
+			}};
+			if (typeof data.message == 'function') {
+				alert(data.message.name)
+			}
 			me.setState({ModalPopup:{messageFn: 'messageFn'}})
 		},		
 		render: function() {
