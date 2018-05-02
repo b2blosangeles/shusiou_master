@@ -65,8 +65,8 @@ try {
 			}
 			CP.serial(qs, 
 				function(data) {
-					viewpoint.find('.ModalLoadingA_' + me.state.ModalLoading.id).modal('hide');
-					console.log('.ModalLoadingA_' + me.state.ModalLoading.id);
+					viewpoint.find('.ModalLoading_' + me.state.ModalLoading.id).modal('hide');
+					console.log('.ModalLoading_' + me.state.ModalLoading.id);
 					me.setState({ModalLoading: {}},function(){
 						callbackfn(data);
 					});
@@ -212,13 +212,13 @@ try {
 				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}},
 				   
 				   );
-			viewpoint.find('.ModalLoadingA_' + me.state.ModalLoading.id).modal({backdrop:'static'});
+			viewpoint.find('.ModalLoading_' + me.state.ModalLoading.id).modal({backdrop:'static'});
 		},
 		
 		ModalLoadingClass: function() {
 			let me = this;
 			// return 'modal fade ModalLoadingA';
-			return 'modal fade ModalLoading ModalLoadingA_'+ me.state.ModalLoading.id;
+			return 'modal fade ModalLoading ModalLoading_'+ me.state.ModalLoading.id;
 		},			
 		render: function() {
 			var me = this, err_msg = '';
