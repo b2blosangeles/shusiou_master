@@ -23,9 +23,9 @@ try {
 				}				
 			});			
 		},
-		cpCall: function() {
-			let me = this, eng =  JSON.parse(JSON.stringify(me.props.parent.state.eng));			
-			me.props.parent.setState({eng:null}, function()  {});
+		cpCall: function(eng) {
+			let me = this;			
+		//	me.props.parent.setState({eng:null}, function()  {});
 			
 			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
 			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
@@ -159,7 +159,8 @@ try {
 					return true
 				}
 				viewpoint.find('.ModalLoading_'+ me.state.ModalLoading.id).modal({backdrop:'static'});
-				me.cpCall();
+				let eng =  JSON.parse(JSON.stringify(me.props.parent.state.eng))
+				me.cpCall(eng);
 				me.props.parent.setState({ModalLoading: null});
 				return true;
 				
