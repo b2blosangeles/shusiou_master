@@ -196,6 +196,7 @@ try {
 				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}},
 				   
 				   );
+			console.log('_EngIndex_' + _EngIndex);
 			viewpoint.find('.ModalLoading_' + me.state.ModalLoading.id).modal({backdrop:'static'});
 		},
 		
