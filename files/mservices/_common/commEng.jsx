@@ -162,15 +162,15 @@ try {
 				if (me.props.parent.state._eng === 'cancel') {
 					me.props.parent.setState({_eng:null});
 					return true
+				} else {
+					let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
+					me.props.parent.setState({_eng:'cancel'}, function() {
+						me.setState({ModalLoading:eng}, function() {
+							viewpoint.find('.ModalLoading').modal({backdrop:'static'});
+							me.cpCall(eng);
+						});			
+					});
 				}
-				let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
-				me.props.parent.setState({_eng:'cancel'}, function() {
-					me.setState({ModalLoading:eng}, function() {
-						viewpoint.find('.ModalLoading').modal({backdrop:'static'});
-						me.cpCall(eng);
-					});			
-				});
-				
 				
 				
 				
