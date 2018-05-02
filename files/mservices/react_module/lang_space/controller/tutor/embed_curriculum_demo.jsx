@@ -47,8 +47,8 @@ try {
 		callWin:function() {
 			var me = this;
 			let data = {message: function() {
-				var me = me;
-				return (<span>{me.state.niu}===nnnn</span>)
+				var ta = me;
+				return (<span>{ta.state.niu}===nnnn</span>)
 			}};
 			
 			let lib = new _commLib();
