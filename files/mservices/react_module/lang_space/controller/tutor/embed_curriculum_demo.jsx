@@ -38,19 +38,13 @@ try {
 				
 			}});
 		},
-		messageFn : function() {
-			var me = this;
-			return (
-				<div>---{me.state.niu + ' --- ' + new Date()}--</div>
-			);
-		},
 		callWin:function() {
 			var me = this;
 			let data = {message: 
 				function() {
-					var me = this;
+					var ta = me;
 					return (
-						<div>-===>{me.state.niu + ' --- ' + new Date()}--</div>
+						<div>-===>{ta.state.niu + ' --- ' + new Date()}--</div>
 					);
 				}
 			};
