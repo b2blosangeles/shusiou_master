@@ -11,14 +11,14 @@ try {
 			if (me.props.parent.state.ModalPopup === 'cancel') {
 				me.props.parent.setState({ModalPopup:null},
 					function() {
-						viewpoint.find('.ModalPopup_' + me.state.id).modal('hide');
+						viewpoint.find('.ModalPopup').modal('hide');
 					}
 				);
 				//me.render();
 				
 			} else if (me.props.parent.state.ModalPopup) {
 				//me.render();
-				viewpoint.find('.ModalPopup_' + me.state.id).modal({backdrop:'static'});
+				viewpoint.find('.ModalPopup').modal({backdrop:'static'});
 			}			
 		},
 		closePopup : function() {
@@ -29,7 +29,7 @@ try {
 		},		
 		ModalLoadingClass: function() {
 			let me = this;	
-			return 'modal fade ModalPopup_' + me.state.id;
+			return 'modal fade ModalPopup';
 		},		
 		render: function() {
 			let me = this, ModalPopup = (me.props.parent.state.ModalPopup) ? me.props.parent.state.ModalPopup : null;
