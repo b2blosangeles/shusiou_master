@@ -157,16 +157,11 @@ try {
 				if (me.props.parent.state._eng === 'cancel') {
 					me.props.parent.setState({_eng:null});
 					return true
-				} else if (!me.props.parent.state._eng.tm) {
-					let eng = me.props.parent.state._eng;
-					eng.tm = new Date().getTime();
-						me.props.parent.setState({_eng:eng});
-						return true
 				} else {
 					let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
-					if (eng.hold) {
-						console.log(eng.tm + '---' + eng.hold);
-					}
+					if (!eng.tm) eng.tm = new Date().getTime();
+					let hold = (eng.hold !== null) ? eng.hold : 1000;
+					console.log(eng.tm + '-===-' + eng.hold);
 					
 					me.props.parent.setState({_eng:'cancel'}, function() {
 						
