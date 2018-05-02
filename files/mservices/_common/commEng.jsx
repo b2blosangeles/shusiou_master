@@ -158,7 +158,7 @@ try {
 					// me.props.parent.state.ModalLoading = null;
 					return true
 				}
-				viewpoint.find('.ModalLoading_'+ me.state.ModalLoading.id).modal({backdrop:'static'});
+				viewpoint.find('.ModalLoading').modal({backdrop:'static'});
 				me.cpCall();
 				me.props.parent.setState({ModalLoading: null});
 				return true;
