@@ -200,7 +200,6 @@ try {
 		
 		ModalLoadingClass: function() {
 			let me = this;
-			// return 'modal fade ModalLoadingA';
 			return 'modal fade ModalLoading ModalLoading_'+ me.state.ModalLoading.id;
 		},			
 		render: function() {
