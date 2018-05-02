@@ -2,8 +2,8 @@ try {
 	var _EngIndex = 0;
 	var _commEng = React.createClass({		
 		getInitialState: function() {
-			var me = this;
-			return {ModalLoading:{}};
+			_EngIndex = (!_EngIndex || _EngIndex > 10000) ? 1 : (_EngIndex + 1);
+			return {id:_EngIndex, ModalLoading:{}};
 		},
 		ajax: function(rec, done, error) {
 			var me = this;
@@ -67,7 +67,7 @@ try {
 			CP.serial(qs, 
 				function(data) {
 				//	viewpoint.find('.ModalLoading').modal('hide');
-					viewpoint.find('.ModalLoading_' + me.state.ModalLoading.id).modal('hide');
+					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 					me.setState({ModalLoading: {}},function(){
 						callbackfn(data);
 					});
@@ -191,11 +191,10 @@ try {
 		},
 		loading:function() {
 			var me = this;
-			_EngIndex = (!_EngIndex || _EngIndex > 10000) ? 1 : (_EngIndex + 1);
-			me.setState({ModalLoading: {id : _EngIndex, box_style : {color:'#ffffff'}, hold:10, 
+			me.setState({ModalLoading: {box_style : {color:'#ffffff'}, hold:10, 
 				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}},
 				function() {
-					viewpoint.find('.ModalLoading_' + me.state.ModalLoading.id).modal({backdrop:'static'});				    
+					viewpoint.find('.ModalLoading_' + me.state.id).modal({backdrop:'static'});				    
 				    }	   
 			);
 
@@ -203,7 +202,7 @@ try {
 		
 		ModalLoadingClass: function() {
 			let me = this;
-			return 'modal fade ModalLoading ModalLoading_'+ me.state.ModalLoading.id;
+			return 'modal fade ModalLoading_'+ me.state.id;
 		},			
 		render: function() {
 			var me = this, err_msg = '';
