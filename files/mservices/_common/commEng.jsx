@@ -1,4 +1,5 @@
 try {
+	var _EngIndex = 0;
 	var _commEng = React.createClass({		
 		getInitialState: function() {
 			var me = this;
@@ -190,8 +191,8 @@ try {
 		},
 		loading:function() {
 			var me = this;
-			me._idx = (!me._idx || me._idx > 10000) ? 1 : (me._idx + 1);
-			me.setState({ModalLoading: {id : me._idx, box_style : {color:'#ffffff'}, hold:10, 
+			_EngIndex = (!_EngIndex || _EngIndex > 10000) ? 1 : (_EngIndex + 1);
+			me.setState({ModalLoading: {id : _EngIndex, box_style : {color:'#ffffff'}, hold:10, 
 				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}},
 				   
 				   );
