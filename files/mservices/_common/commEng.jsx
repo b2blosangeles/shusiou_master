@@ -165,12 +165,10 @@ try {
 				}
 				let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
 				me.props.parent.setState({_eng:'cancel'}, function() {
-			
-				});
-				me.setState({ModalLoading:eng}, function() {
-					
-					viewpoint.find('.ModalLoading').modal({backdrop:'static'});
-					me.cpCall(eng);
+					me.setState({ModalLoading:eng}, function() {
+						viewpoint.find('.ModalLoading').modal({backdrop:'static'});
+						me.cpCall(eng);
+					});			
 				});
 				
 				
