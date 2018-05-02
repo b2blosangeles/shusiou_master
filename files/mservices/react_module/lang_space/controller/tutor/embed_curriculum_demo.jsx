@@ -22,7 +22,7 @@ try {
 		},
 		callEng:function() {
 			var me = this;
-			me.setState({ModalLoading:{eng:{
+			me.setState({_eng:{
 				i:[
 					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'get', data:{}}
 				],				
@@ -35,7 +35,7 @@ try {
 				setting: {timeout:30000},
 				callbackfn: 'callEngCbk'
 				
-			}}});
+			}});
 		},
 		callWin:function() {
 			var me = this;
