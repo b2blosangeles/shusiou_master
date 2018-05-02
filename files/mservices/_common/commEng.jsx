@@ -65,7 +65,7 @@ try {
 			}
 			CP.serial(qs, 
 				function(data) {
-					viewpoint.find('.ModalLoading').modal('hide');
+					viewpoint.find('.ModalLoading_' + me.state.ModalLoading.id).modal('hide');
 					
 					/*
 					me.props.parent.setState({_eng: 'cancel'}, function()  {
@@ -195,7 +195,7 @@ try {
 				
 				//if (prevState.ModalLoading !== me.state.ModalLoading || (me.props.parent.state.ModalLoading.hold)) {
 				//	 me.render();
-				viewpoint.find('.ModalLoading_'+ me.state.ModalLoading.id).modal({backdrop:'static'});
+				viewpoint.find('.ModalLoading_' + me.state.ModalLoading.id).modal({backdrop:'static'});
 				me.props.parent.setState({ModalLoading: ''});
 				//} 				
 			}		
