@@ -92,7 +92,7 @@ try {
 			this.serial = function(q, cbk, timeout) {
 				var me = this;
 				var idx = '', tm = new Date().getTime();
-				var vtime = (isNaN(timeout) || timeout == 0)?6000:timeout
+				var vtime = (isNaN(timeout) || timeout == 0) ? 6000 : timeout
 				me.data = {};	
 				var _f = function(o) {
 					return function(res) {
@@ -173,7 +173,7 @@ try {
 					let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
 					if (!eng.tm) eng.tm = new Date().getTime();
 					let hold = (eng.hold === null) ? 1000 : eng.hold;
-					console.log(eng.tm + '- SSS-->' + hold);
+					console.log(eng.tm + '- ttt-->' + hold);
 					me._itvEng = setInterval(
 						function() {
 							if (new Date().getTime() - eng.tm > eng.hold) {
