@@ -50,9 +50,10 @@ try {
 						&nbsp;-&nbsp;
 						<a onClick={me.callWin.bind(me)}>popup</a>
 						
-						<_commEng parent={me} />
+						
 						
 						<_commWin parent={me} />
+						<_commEng parent={me} />
 						
 						<h4>{me.props.parent.state.video.title}</h4>	
 						<p><b>Video ID</b>:{me.props.parent.state.curriculum.vid}</p>  
