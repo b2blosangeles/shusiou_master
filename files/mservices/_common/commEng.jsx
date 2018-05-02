@@ -204,9 +204,9 @@ try {
 		},			
 		render: function() {
 			var me = this, err_msg = '';
-			var message = '', box_style={};
-			message = (me.state.ModalLoading.message) ? me.state.ModalLoading.message : 'Loading .>.';
-			box_style = (me.state.ModalLoading.box_style) ? me.state.ModalLoading.box_style:{color:'#ffffff'};
+			var message = (me.state.ModalLoading.message) ? me.state.ModalLoading.message : '', 
+			    box_style = (me.state.ModalLoading.box_style) ? me.state.ModalLoading.box_style:{color:'#ffffff'};
+
 			return (			
 				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
 				  <div className="modal-dialog" role="document">
