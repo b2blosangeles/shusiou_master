@@ -11,14 +11,14 @@ try {
 			if (me.props.parent.state.ModalPopup === 'cancel') {
 				me.props.parent.setState({ModalPopup:null},
 					function() {
-						viewpoint.find('.ModalPopup').modal('hide');
+						viewpoint.find('.ModalPopup_' + me.state.id).modal('hide');
 					}
 				);
 				//me.render();
 				
 			} else if (me.props.parent.state.ModalPopup) {
 				//me.render();
-				viewpoint.find('.ModalPopup').modal({backdrop:'static'});
+				viewpoint.find('.ModalPopup_' + me.state.id).modal({backdrop:'static'});
 			}			
 		},
 		closePopup : function() {
@@ -29,11 +29,11 @@ try {
 		},		
 		ModalLoadingClass: function() {
 			let me = this;	
-			return 'modal fade ModalPopup';
+			return 'modal fade ModalPopup_' + me.state.id;
 		},		
 		render: function() {
 			let me = this, ModalPopup = (me.props.parent.state.ModalPopup) ? me.props.parent.state.ModalPopup : null;
-			if (!ModalPopup || ModalPopup === 'cancel') return (<span className={me.ModalLoadingClass()}/>);
+			if (!ModalPopup || ModalPopup === 'cancel') return (<span/>);
 			else {
 				var box_class = 'danger', 
 				    message = ModalPopup.message, 
