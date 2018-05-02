@@ -148,25 +148,93 @@ try {
 		},		
 		componentDidMount:function() {
 			var me = this;				
-		},		
+		},	
+		componentDidUpdate: function (prevProps, prevState) {
+			var me = this;
+			if ((me.props.parent) && (me.props.parent.state.ModalLoading)) {	
+				if (me.props.parent.state.ModalLoading === 'cancel') {
+					viewpoint.find('.ModalLoading').modal('hide');
+					me.props.parent.setState({ModalLoading:null});
+					// me.props.parent.state.ModalLoading = null;
+					return true
+				}
+				viewpoint.find('.ModalLoading_'+ me.state.ModalLoading.id).modal({backdrop:'static'});
+				me.cpCall();
+				me.props.parent.setState({ModalLoading: null});
+				return true;
+				
+				if ((me.props.parent.state.ModalLoading) && me.props.parent.state.ModalLoading.id !== me.state.ModalLoading.id) {
+					me.setState({ModalLoading: me.props.parent.state.ModalLoading });
+					return true;
+				}
+				if (me.props.parent.state.ModalLoading.hold) {
+					if (!me._ModalLoading_startTime) {
+						me._ModalLoading_startTime = new Date().getTime();
+						me.setState({ModalLoading_TM: new Date().getTime() });
+						return true;
+					}
+					if  (new Date().getTime() <= (me.props.parent.state.ModalLoading.hold + me._ModalLoading_startTime)) {
+						setTimeout(
+							function() {
+								me.setState({ModalLoading_TM: new Date().getTime() });
+							}, 50
+						);
+						return true;
+					} else {
+						delete me._ModalLoading_startTime;
+					}
+				}				
+				
+				//if (prevState.ModalLoading !== me.state.ModalLoading || (me.props.parent.state.ModalLoading.hold)) {
+				//	 me.render();
+				viewpoint.find('.ModalLoading_'+ me.state.ModalLoading.id).modal({backdrop:'static'});
+				me.props.parent.setState({ModalLoading: ''});
+				//} 				
+			}		
+		},
+		/*
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
+			
 			if (me.props.parent.state.eng && me.props.parent.state.eng.p && me.props.parent.state.eng.p.length) {
 				if (!me.state.ModalLoading) {
 					me.cpCall();
 				} 
 			} 
 		},
+		*/
 		loading:function() {
 			var me = this;
 			me._idx = (!me._idx || me._idx > 10000) ? 1 : (me._idx + 1);
 			me.setState({ModalLoading: {id : me._idx, box_style : {color:'#ffffff'}, hold:10, 
 				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}});
-		},		
+		},
+		/*
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
 			return (<ModalLoading parent={me} />)
 		}
+		*/
+		render: function() {
+			var me = this, err_msg = '';
+			if (_modal_backdrop_) {
+				if (me.state.ModalLoading.backdrop)  _modal_backdrop_.set(me.state.ModalLoading.backdrop);	
+				else  _modal_backdrop_.resetDefault();
+			}
+			var message = '', box_style={};
+			var message = (me.state.ModalLoading.message)?(me.state.ModalLoading.message):'Loading ...';
+			box_style = (me.state.ModalLoading.box_style)?me.state.ModalLoading.box_style:{color:'#ffffff'};
+
+			return (			
+				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
+				  <div className="modal-dialog" role="document">
+					<div style={box_style}>
+						<span dangerouslySetInnerHTML={{__html: message}}></span>
+					</div>
+				  </div>
+				</div>	
+			);
+		}		
 	});	
 } catch (err) {
 	console.log(err.message);
