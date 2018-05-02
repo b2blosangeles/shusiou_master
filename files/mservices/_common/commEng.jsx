@@ -67,11 +67,22 @@ try {
 			CP.serial(qs, 
 				function(data) {
 				//	viewpoint.find('.ModalLoading').modal('hide');
-					clearInterval(me._itvEng);
-					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
-					me.setState({ModalLoading: {}},function(){
-						callbackfn(data);
-					});
+					setTimeout(
+						function() {					
+							clearInterval(me._itvEng);
+							viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
+							me.setState({ModalLoading: {}},function(){
+								callbackfn(data);
+							});
+							clearInterval(me._itvEng);
+							viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
+							me.setState({ModalLoading: {}},function(){
+								callbackfn(data);
+							});							
+						},
+						4000
+					)
+
 					
 				},
 				time_out);
