@@ -257,7 +257,7 @@ try {
 			return (			
 				<span>
 					<ModalWin parent={(!me.props.parent)?me:me.props.parent} />
-					<ModalLoading parent={(!me.props.parent)?me:me.props.parent} />
+					{/*<ModalLoading parent={(!me.props.parent)?me:me.props.parent} />*/}
 				</span>	
 			);
 		}	
