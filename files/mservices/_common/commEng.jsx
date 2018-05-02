@@ -66,17 +66,17 @@ try {
 			CP.serial(qs, 
 				function(data) {
 					viewpoint.find('.ModalLoading').modal('hide');
-					callbackfn(data);
+					
 					/*
 					me.props.parent.setState({_eng: 'cancel'}, function()  {
 						callbackfn(data);
 					});
 					*/
-					/*
-					me.setState({ModalLoading: 'cancel'},function(){
+					
+					me.setState({ModalLoading: null},function(){
 						callbackfn(data);
 					});
-					*/
+					
 				},
 				time_out);
 			return true;
