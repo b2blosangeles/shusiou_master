@@ -18,8 +18,7 @@ try {
 			} else if (me.props.parent.state.ModalPopup) {
 				//me.render();
 				viewpoint.find('.ModalPopup_' + me.state.id).modal({backdrop:'static'});
-			}	
-			console.log( me.state.id + '====')
+			}
 		},
 		closePopup : function() {
 			var me = this;
