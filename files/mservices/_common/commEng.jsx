@@ -210,12 +210,12 @@ try {
 				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}});
 		},
 		
-		render: function() {
+		renderA: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
 			return (<ModalLoading parent={me} />)
 		},
 		
-		renderA: function() {
+		render: function() {
 			var me = this, err_msg = '';
 			/*
 			if (_modal_backdrop_) {
