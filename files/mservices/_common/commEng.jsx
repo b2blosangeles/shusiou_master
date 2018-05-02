@@ -173,7 +173,7 @@ try {
 					let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
 					if (!eng.tm) eng.tm = new Date().getTime();
 					eng.hold = (!eng.hold) ? 1000 : eng.hold;
-					console.log(eng.tm + '------>' + hold);
+					console.log(eng.tm + '------>' +  eng.hold);
 					me._itvEng = setInterval(
 						function() {
 							if (new Date().getTime() - eng.tm > eng.hold) {
