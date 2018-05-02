@@ -32,7 +32,7 @@ try {
 				s:[
 					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
 				],
-				// hold: 3000,
+				hold: 3000,
 				setting: {timeout:30000},
 				callbackfn: 'callEngCbk'
 				
