@@ -22,7 +22,7 @@ try {
 		},
 		callEng:function() {
 			var me = this;
-			me.setState({ModalPopup:1, eng:{
+			me.setState({eng:{
 				i:[
 					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'get', data:{}}
 				],				
@@ -49,9 +49,6 @@ try {
 						<a onClick={me.callEng.bind(me)}>click</a>
 						&nbsp;-&nbsp;
 						<a onClick={me.callWin.bind(me)}>popup</a>
-						
-						
-						
 						<_commWin parent={me} />
 						<_commEng parent={me} />
 						
