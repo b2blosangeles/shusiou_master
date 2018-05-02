@@ -24,7 +24,9 @@ try {
 			});			
 		},
 		cpCall: function(eng) {
-			let me = this;			
+			let me = this;	
+			return true;
+			
 		//	me.props.parent.setState({eng:null}, function()  {});
 			
 			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
