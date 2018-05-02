@@ -47,7 +47,8 @@ try {
 		callWin:function() {
 			var me = this;
 			let data = {message: function() {
-				return (<span>nnnn</span>)
+				var me = me;
+				return (<span>yyyyynnnn</span>)
 			}};
 			
 			let lib = new _commLib();
