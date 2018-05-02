@@ -1,5 +1,5 @@
 var _commLib = function () {
     this.messageFn = function()  {
-        alert('7788')
+        alert('8899')
     }
 };
