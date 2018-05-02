@@ -19,7 +19,7 @@ try {
 		closePopup : function() {
 			var me = this;
 			me.props.parent.setState({ModalPopup:'cancel'});
-			alert(123);
+		//	alert(123);
 		},		
 		ModalLoadingClass: function() {
 			let me = this;	
