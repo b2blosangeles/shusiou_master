@@ -1,1 +1,1 @@
-var _lib = {};
+var _commLib = {};
