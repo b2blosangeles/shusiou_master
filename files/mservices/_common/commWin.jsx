@@ -33,8 +33,8 @@ try {
 		},		
 		render: function() {
 			let me = this, ModalPopup = (me.props.parent.state.ModalPopup) ? me.props.parent.state.ModalPopup : null;
-			if (!ModalPopup || ModalPopup === 'cancel') return (<span/>);
-			else {
+			//if (!ModalPopup || ModalPopup === 'cancel') return (<span/>);
+			//else {
 				var box_class = 'danger', 
 				    message = ModalPopup.message, 
 				    box_style={}, close_icon = '';
@@ -53,7 +53,7 @@ try {
 						  </div>
 					</div>	
 				);
-			}
+			//}
 		}		
 		
 	});	
