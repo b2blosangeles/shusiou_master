@@ -50,10 +50,9 @@ try {
 			}};
 			
 			let lib = new _commLib();
-			lib.messageFn(me, arguments.callee.name + 'message');
-			alert(arguments.callee.name); 
+			
 			if (typeof data.message == 'function') {
-				alert(data.message.name)
+				lib.messageFn(me, arguments.callee.name + '_' + data.message.name);
 			}
 			me.setState({ModalPopup:{messageFn: 'messageFn'}})
 		},		
