@@ -173,7 +173,6 @@ try {
 					let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
 					if (!eng.tm) eng.tm = new Date().getTime();
 					eng.hold = (!eng.hold && eng.hold !== 0) ? 1000 : eng.hold;
-					console.log(eng.tm + '--ppp--->' +  eng.hold);
 					me._itvEng = setInterval(
 						function() {
 							if (new Date().getTime() - eng.tm > eng.hold) {
@@ -186,31 +185,6 @@ try {
 					me.props.parent.setState({_eng:'cancel'}, function() {
 						me.cpCall(eng);			
 					});
-				}
-				return true;
-				/*
-				if ((me.props.parent.state.ModalLoading) && me.props.parent.state.ModalLoading.id !== me.state.ModalLoading.id) {
-					me.setState({ModalLoading: me.props.parent.state.ModalLoading });
-					return true;
-				}
-				*/
-				if (eng.hold) {
-					
-					if (!me._ModalLoading_startTime) {
-						me._ModalLoading_startTime = new Date().getTime();
-						me.setState({ModalLoading_TM: new Date().getTime() });
-						return true;
-					}
-					if  (new Date().getTime() <= (me.props.parent.state.ModalLoading.hold + me._ModalLoading_startTime)) {
-						setTimeout(
-							function() {
-								me.setState({ModalLoading_TM: new Date().getTime() });
-							}, 50
-						);
-						return true;
-					} else {
-						delete me._ModalLoading_startTime;
-					}
 				}			
 			}		
 		},
