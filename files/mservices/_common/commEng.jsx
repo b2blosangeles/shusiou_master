@@ -161,7 +161,7 @@ try {
 				viewpoint.find('.ModalLoading_'+ me.state.ModalLoading.id).modal({backdrop:'static'});
 				let eng =  JSON.parse(JSON.stringify(me.props.parent.state.eng))
 				me.cpCall(eng);
-				me.props.parent.setState({ModalLoading: null});
+				// me.props.parent.setState({ModalLoading: null});
 				return true;
 				
 				if ((me.props.parent.state.ModalLoading) && me.props.parent.state.ModalLoading.id !== me.state.ModalLoading.id) {
