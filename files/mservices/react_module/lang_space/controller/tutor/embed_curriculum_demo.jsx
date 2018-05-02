@@ -39,7 +39,7 @@ try {
 		},
 		callWin:function() {
 			var me = this;
-			me.setState({ModalPopup:1})
+			me.setState({ModalPopup:{message:'test message'}})
 		},		
 		render: function() {
 			var me = this;
