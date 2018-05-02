@@ -185,26 +185,9 @@ try {
 					} else {
 						delete me._ModalLoading_startTime;
 					}
-				}				
-				
-				//if (prevState.ModalLoading !== me.state.ModalLoading || (me.props.parent.state.ModalLoading.hold)) {
-				//	 me.render();
-				//viewpoint.find('.ModalLoading_' + me.state.ModalLoading.id).modal({backdrop:'static'});
-				//me.props.parent.setState({ModalLoading: ''});
-				//} 				
+				}			
 			}		
 		},
-		/*
-		componentDidUpdate:function(prePropos, prevStat) {
-			var me = this;
-			
-			if (me.props.parent.state.eng && me.props.parent.state.eng.p && me.props.parent.state.eng.p.length) {
-				if (!me.state.ModalLoading) {
-					me.cpCall();
-				} 
-			} 
-		},
-		*/
 		loading:function() {
 			var me = this;
 			me._idx = (!me._idx || me._idx > 10000) ? 1 : (me._idx + 1);
