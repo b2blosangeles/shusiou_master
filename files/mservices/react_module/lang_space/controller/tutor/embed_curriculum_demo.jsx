@@ -47,10 +47,7 @@ try {
 		callWin:function() {
 			var me = this;
 			let data = {message: function() {
-				var me = this;
-				return (
-					<div>---{me.state.niu + ' --- ' + new Date()}--</div>
-				)
+				alert(6666);
 			}};
 			
 			let lib = new _commLib();
