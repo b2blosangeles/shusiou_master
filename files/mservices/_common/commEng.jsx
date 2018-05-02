@@ -65,7 +65,7 @@ try {
 			}
 			CP.serial(qs, 
 				function(data) {
-					viewpoint.find('.ModalLoading').modal('hide');
+					viewpoint.find('.ModalLoading_' + me.state.ModalLoading.id).modal('hide');
 					console.log('.ModalLoading_' + me.state.ModalLoading.id);
 					me.setState({ModalLoading: {}},function(){
 						callbackfn(data);
@@ -159,7 +159,7 @@ try {
 				} else {
 					let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
 					me.props.parent.setState({_eng:'cancel'}, function() {
-						viewpoint.find('.ModalLoading_' + me.state.ModalLoading.id).modal({backdrop:'static'});
+						
 						me.cpCall(eng);			
 					});
 				}
@@ -209,7 +209,10 @@ try {
 			var me = this;
 			me._idx = (!me._idx || me._idx > 10000) ? 1 : (me._idx + 1);
 			me.setState({ModalLoading: {id : me._idx, box_style : {color:'#ffffff'}, hold:10, 
-				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}});
+				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}},
+				   
+				   );
+			viewpoint.find('.ModalLoading_' + me.state.ModalLoading.id).modal({backdrop:'static'});
 		},
 		
 		ModalLoadingClass: function() {
