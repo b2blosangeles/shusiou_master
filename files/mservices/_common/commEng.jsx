@@ -166,10 +166,11 @@ try {
 					let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
 					console.log('---------->');
 					me.props.parent.setState({_eng:'cancel'}, function() {
-						me.setState({ModalLoading:eng}, function() {
-							viewpoint.find('.ModalLoading_' + eng.id).modal({backdrop:'static'});
+						
+						// me.setState({ModalLoading:eng}, function() {
+							viewpoint.find('.ModalLoading_' + me.state.ModalLoading.id).modal({backdrop:'static'});
 							me.cpCall(eng);
-						});			
+						//});			
 					});
 				}
 				
