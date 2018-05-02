@@ -217,10 +217,12 @@ try {
 		*/
 		render: function() {
 			var me = this, err_msg = '';
+			/*
 			if (_modal_backdrop_) {
 				if (me.state.ModalLoading.backdrop)  _modal_backdrop_.set(me.state.ModalLoading.backdrop);	
 				else  _modal_backdrop_.resetDefault();
 			}
+			*/
 			var message = '', box_style={};
 			var message = (me.state.ModalLoading.message)?(me.state.ModalLoading.message):'Loading ...';
 			box_style = (me.state.ModalLoading.box_style)?me.state.ModalLoading.box_style:{color:'#ffffff'};
