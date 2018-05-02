@@ -164,6 +164,7 @@ try {
 					return true
 				} else {
 					let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
+					console.log('---------->');
 					me.props.parent.setState({_eng:'cancel'}, function() {
 						me.setState({ModalLoading:eng}, function() {
 							viewpoint.find('.ModalLoading').modal({backdrop:'static'});
