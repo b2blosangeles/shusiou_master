@@ -40,6 +40,7 @@ try {
 				    message = ModalPopup.message, 
 				    box_style={}, close_icon = '';
 				// close_icon = (me.state.ModalPlus.close_icon === false)?'none':'';
+				return(
 				  <div className="modal-dialog modal-lg" role="document">
 					<div className={'alert alert-' + box_class} style={box_style} role="alert">
 						<span dangerouslySetInnerHTML={{__html: message}}></span>
@@ -50,6 +51,7 @@ try {
 						</button>
 					</div>
 				  </div>
+				);	
 			}
 		}		
 		
