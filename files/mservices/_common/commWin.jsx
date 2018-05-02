@@ -27,12 +27,12 @@ try {
 			var box_class = 'danger', 
 			    message = ModalPopup.message, 
 			    box_style={}, close_icon = '';
-			// close_icon = (me.state.ModalPlus.close_icon === false)?'none':'';
+			// close_icon = (me.state.ModalPlus.close_icon === false)?'none':''; me.props.parent[ModalPopup.messageFn]()
 			return (			
 				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
 					  <div className="modal-dialog modal-lg" role="document">
 						<div className={'alert alert-' + box_class} style={box_style} role="alert">
-							--=={me.props.parent[ModalPopup.messageFn]()}==--
+							--=={ModalPopup.messageFn}==--
 							<span dangerouslySetInnerHTML={{__html: message}}></span>
 							<button type="button" className="close" 
 								onClick={me.closePopup.bind(me)}
