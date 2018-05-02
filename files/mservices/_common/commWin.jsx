@@ -1,13 +1,10 @@
 try {
-	//var _WinIDX = 0;
 	var _commWin = React.createClass({		
 		getInitialState: function() {
-		//	_WinIndex = (!_WinIDX || _WinIDX > 10000) ? 1 : (_WinIDX + 1);
 			return {};
 		},
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
-			console.log(me.state.id);
 			if (me.props.parent.state.ModalPopup === 'cancel') {
 				me.props.parent.setState({ModalPopup:null},
 					function() {
@@ -24,7 +21,7 @@ try {
 		closePopup : function() {
 			var me = this;
 			me.props.parent.setState({ModalPopup:'cancel'}, function() {
-				
+				viewpoint.find('.ModalPopup').modal('hide');
 			});
 		},		
 		ModalLoadingClass: function() {
@@ -33,8 +30,8 @@ try {
 		},		
 		render: function() {
 			let me = this, ModalPopup = (me.props.parent.state.ModalPopup) ? me.props.parent.state.ModalPopup : null;
-			//if (!ModalPopup || ModalPopup === 'cancel') return (<span/>);
-			//else {
+			if (!ModalPopup || ModalPopup === 'cancel') return (<span/>);
+			else {
 				var box_class = 'danger', 
 				    message = ModalPopup.message, 
 				    box_style={}, close_icon = '';
@@ -53,7 +50,7 @@ try {
 						  </div>
 					</div>	
 				);
-			//}
+			}
 		}		
 		
 	});	
