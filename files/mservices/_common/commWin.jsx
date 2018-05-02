@@ -40,6 +40,9 @@ try {
 			    box_style={}, close_icon = '';
 			// console.log(me.callMessage()); --=={me.callMessage()}==--
 			// close_icon = (me.state.ModalPlus.close_icon === false)?'none':''; me.props.parent[ModalPopup.messageFn]()
+			return (
+				<span>niu123</span>
+				);
 			return (			
 				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
 					  <div className="modal-dialog modal-lg" role="document">
