@@ -224,10 +224,6 @@ try {
 				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}});
 		},
 		
-		renderA: function() {
-			let me = this, code = (me.props.data) ? me.props.code : '';
-			return (<ModalLoading parent={me} />)
-		},
 		ModalLoadingClass: function() {
 			let me = this;
 			return 'modal fade ModalLoading';
