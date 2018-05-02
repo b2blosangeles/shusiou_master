@@ -73,7 +73,7 @@ try {
 					});
 					*/
 					
-					me.setState({ModalLoading: null},function(){
+					me.setState({ModalLoading: {}},function(){
 						callbackfn(data);
 					});
 					
