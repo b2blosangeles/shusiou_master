@@ -25,7 +25,7 @@ try {
 		},
 		cpCall: function() {
 			let me = this, eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));			
-			me.props.parent.setState({_eng: 'cancel'}, function()  {});
+			
 			
 			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
 			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
@@ -67,9 +67,14 @@ try {
 			}
 			CP.serial(qs, 
 				function(data) {
+					me.props.parent.setState({_eng: 'cancel'}, function()  {
+						callbackfn(data);
+					});
+					/*
 					me.setState({ModalLoading: 'cancel'},function(){
 						callbackfn(data);
 					});
+					*/
 				},
 				time_out);
 			return true;
