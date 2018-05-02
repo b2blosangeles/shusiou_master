@@ -9,6 +9,7 @@ try {
 			if (me.props.parent.state.ModalPopup) {
 				me.setState({ModalPopup:me.props.parent.state.ModalPopup});
 				me.props.parent.setState({ModalPopup:null});
+				viewpoint.find('.ModalPopup').modal({backdrop:'static'});
 			} 
 		},
 		/*
