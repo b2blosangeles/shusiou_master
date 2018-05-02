@@ -24,6 +24,12 @@ try {
 			return (
 				<div className="container">
 					<div className="col-sm-6 col-lg-5 col-md-6"> 
+						
+						<a onClick={me.callEng.bind(me)}>click</a>
+						&nbsp;-&nbsp;
+						<a onClick={me.callWin.bind(me)}>popup</a>
+						<_commWin parent={me} />
+						<_commEng parent={me} />						
 						<div className="overlayer_box editor_box">
 							{me.leftBox(me.props.params)}
 						</div>	
@@ -37,6 +43,29 @@ try {
 					<ModalPlus parent={me} />
 				</div>);
 		},
+		callEngCbk : function(data) {
+			let me = this;
+			
+			console.log('====callEngCbk=kkk==>');
+			console.log(data);
+		},
+		callEng:function() {
+			var me = this;
+			me.setState({_eng:{
+				i:[
+					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'get', data:{}}
+				],				
+				p:[
+					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
+				],
+				s:[
+					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
+				],
+				setting: {timeout:30000},
+				callbackfn: 'callEngCbk'
+				
+			}});
+		},		
 		leftBox:function(params) {
 			var me = this;
 			if (params.opt == 'new') {
