@@ -6,11 +6,22 @@ try {
 		},
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
+			
+			if (me.props.parent.state.ModalPopup === 'cancel') {
+				me.props.parent.setState({ModalPopup:null});
+				//me.render();
+				viewpoint.find('.ModalPopup').modal('hide');
+			} else if (me.props.parent.state.ModalPopup) {
+				//me.render();
+				viewpoint.find('.ModalPopup').modal({backdrop:'static'});
+			}			
+			/*
 			if (me.props.parent.state.ModalPopup) {
 				me.setState({ModalPopup:me.props.parent.state.ModalPopup});
 				me.props.parent.setState({ModalPopup:null});
 				viewpoint.find('.ModalPopup').modal({backdrop:'static'});
 			} 
+			*/
 		},
 		/*
 		render: function() {
@@ -21,6 +32,7 @@ try {
 		closePopup : function() {
 			var me = this;
 			me.props.parent.setState({ModalPopup:'cancel'});
+			alert(123);
 		},		
 		ModalLoadingClass: function() {
 			let me = this;	
