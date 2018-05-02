@@ -209,13 +209,13 @@ try {
 			me.setState({ModalLoading: {id : me._idx, box_style : {color:'#ffffff'}, hold:10, 
 				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}});
 		},
-		/*
+		
 		render: function() {
 			let me = this, code = (me.props.data) ? me.props.code : '';
 			return (<ModalLoading parent={me} />)
-		}
-		*/
-		render: function() {
+		},
+		
+		renderA: function() {
 			var me = this, err_msg = '';
 			/*
 			if (_modal_backdrop_) {
