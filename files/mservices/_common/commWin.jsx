@@ -7,6 +7,7 @@ try {
 		},
 		componentDidUpdate:function(prePropos, prevStat) {
 			var me = this;
+			console.log(me.state.id);
 			if (me.props.parent.state.ModalPopup === 'cancel') {
 				me.props.parent.setState({ModalPopup:null},
 					function() {
@@ -23,7 +24,7 @@ try {
 		closePopup : function() {
 			var me = this;
 			me.props.parent.setState({ModalPopup:'cancel'}, function() {
-				viewpoint.find('.ModalPopup').modal('hide');
+				
 			});
 		},		
 		ModalLoadingClass: function() {
