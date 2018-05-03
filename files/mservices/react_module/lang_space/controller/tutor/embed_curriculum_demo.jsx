@@ -43,7 +43,7 @@ try {
 				function() {
 					var ta = me;
 					return (
-						<div>{ta.state.niu}<br/><br/><br/><br/></div>
+						<div className="modal-content">{ta.state.niu}<br/><br/><br/><br/></div>
 					);
 				}
 			};
