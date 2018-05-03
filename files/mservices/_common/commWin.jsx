@@ -34,7 +34,7 @@ try {
 		},		
 		render: function() {
 			let me = this, ModalPopup = (me.props.parent.state.ModalPopup) ? me.props.parent.state.ModalPopup : {};
-			let box_class = ModalPopup.boxClass,
+			let box_class = ModalPopup.box_class,
 			//    'alert alert-danger',  
 			    box_style={}, close_icon = '';
 			// console.log(me.callMessage()); --=={me.callMessage()}==--
