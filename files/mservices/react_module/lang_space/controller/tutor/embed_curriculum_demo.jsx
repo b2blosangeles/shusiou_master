@@ -75,6 +75,7 @@ try {
 					messageFn : arguments.callee.name + '_message',
 					box_class : 'alert alert-success',
 					popup_type : 'alert',
+					close_icon : true,
 					message : 'niu bi'
 				}
 			});
