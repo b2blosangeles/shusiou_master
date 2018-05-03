@@ -65,7 +65,7 @@ try {
 				function() {
 					var ta = me;
 					return (
-						<span>{ta.state.ModalPopup.message}</span>
+						<div style={{padding:'0.5em'}}>{ta.state.ModalPopup.message}</div>
 					);
 				}
 			};
