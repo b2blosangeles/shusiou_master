@@ -142,7 +142,8 @@ try {
 		},
 		closePopup:function() {
 			var me = this;
-			me.setState({ModalPlus:'cancel'});			
+		//	me.setState({ModalPlus:'cancel'});
+			me.setState({ModalPopup:'cancel'});
 			return true;
 		},			
 		deleteCurriculum: function(params, track) {
@@ -164,7 +165,7 @@ try {
 			let data = {message: 
 				function() {
 					var ta = me;
-					return (<div className="container-fluid">
+					return (<div className="container-fluid" style={{padding:'0.5em'}}>
 						<p>It is going to clean up the curriculum please confirm:--></p>
 						<button className="btn btn-danger btn_margin6 pull-right" onClick={ta.sendDeleteCurriculum.bind(ta)}>Confirm</button>
 						<button className="btn btn-warning btn_margin6 pull-right" onClick={ta.closePopup.bind(ta)}>Cancel</button>
