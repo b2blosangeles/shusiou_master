@@ -68,7 +68,7 @@ try {
 									style={{display:close_icon}}>
 									&times;
 								</button>
-								=={me.callMessage()}
+								{me.callMessage()}
 							</div>
 						  </div>
 					</div>	
