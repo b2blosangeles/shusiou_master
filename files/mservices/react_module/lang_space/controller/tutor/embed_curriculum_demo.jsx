@@ -50,7 +50,11 @@ try {
 			};
 			let lib = new _commLib();
 			lib.transferFunction(me, data, arguments.callee.name);
-			me.setState({ModalPopup:{messageFn: arguments.callee.name + '_message'}})
+			me.setState({
+				ModalPopup:{
+					messageFn: arguments.callee.name + '_message'
+				}
+			})
 		},		
 		render: function() {
 			var me = this;
