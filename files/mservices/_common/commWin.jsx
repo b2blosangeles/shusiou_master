@@ -36,21 +36,46 @@ try {
 			let me = this, ModalPopup = (me.props.parent.state.ModalPopup) ? me.props.parent.state.ModalPopup : {};
 			let box_class = ModalPopup.box_class,
 			    box_style=ModalPopup.box_style, 
-			    close_icon = (ModalPopup.close_icon) ? '' : 'none';
-			return (			
-				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
-					  <div className="modal-dialog modal-lg" role="document">
-						<div className={box_class} style={box_style} role="alert">
-							<button type="button" className="close" 
-								onClick={me.closePopup.bind(me)}
-								style={{display:close_icon}}>
-								&times;
-							</button>
-							{me.callMessage()}
-						</div>
-					  </div>
-				</div>	
-			);
+			    close_icon = (ModalPopup.close_icon) ? '' : 'none',
+			    popup_type = ModalPopup.popup_type;
+			
+			switch(popup_type) {
+			    case 'alert':
+				return (			
+					<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
+						  <div className="modal-dialog modal-lg" role="document">
+							<div className={box_class} style={box_style} role="alert">
+								<button type="button" className="close" 
+									onClick={me.closePopup.bind(me)}
+									style={{display:close_icon}}>
+									&times;
+								</button>
+								{me.callMessage()}
+							</div>
+						  </div>
+					</div>	
+				);
+				break;
+			    case 'window':
+				return (			
+					<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
+						  <div className="modal-dialog modal-lg" role="document">
+							<div className={box_class} style={box_style} role="alert">
+								<button type="button" className="close" 
+									onClick={me.closePopup.bind(me)}
+									style={{display:close_icon}}>
+									&times;
+								</button>
+								{me.callMessage()}
+							</div>
+						  </div>
+					</div>	
+				);
+				break;
+			    default:
+				return (<span/>)
+			}
+
 		}		
 		
 	});	
