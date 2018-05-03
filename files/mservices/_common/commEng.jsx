@@ -63,16 +63,12 @@ try {
 				})(i);
 			}
 			CP.serial(qs, 
-				function(data) {	
+				function(data) {
+					let rst = [];
 					clearInterval(me._itvEng);
 					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 					me.setState({ModalLoading: {}},function(){
-						callbackfn(data);
-					});
-					clearInterval(me._itvEng);
-					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
-					me.setState({ModalLoading: {}},function(){
-						callbackfn(data);
+						callbackfn(data.results);
 					});	
 				},
 				time_out);
