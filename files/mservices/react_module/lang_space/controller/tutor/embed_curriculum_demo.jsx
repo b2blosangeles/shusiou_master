@@ -23,6 +23,8 @@ try {
 			var me = this;
 			me.setState({_eng:{
 				i:[
+					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'get', data:{}},
+					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'get', data:{}},
 					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'get', data:{}}
 				],				
 				p:[
