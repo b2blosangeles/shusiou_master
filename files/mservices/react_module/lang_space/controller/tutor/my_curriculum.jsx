@@ -23,14 +23,7 @@ try {
 			var me = this;
 			return (
 				<div className="container">
-					<div className="col-sm-6 col-lg-5 col-md-6"> 
-						
-						<a onClick={me.callEng.bind(me)}>click 2</a>
-						
-						<_commWin parent={me} />
-						
-						<_commEng parent={me} />	
-						
+					<div className="col-sm-6 col-lg-5 col-md-6"> 							
 						<div className="overlayer_box editor_box">
 							{me.leftBox(me.props.params)}
 						</div>	
