@@ -77,14 +77,6 @@ try {
 				return (<TemplateSectionForm env={me.props.route.env} parent={me} params={params} section_id={me.state.section.section_id} section={me.state.section} />);		
 			}
 		},
-		toHHMMSS:function(v, noms) {
-			if (isNaN(v)) return v;
-		  	var h = Math.floor(v / 3600),m = ("00" + Math.floor((v % 3600) / 60)).slice(-2), 
-		     		s = ("00" + (Math.floor(v) % 3600) % 60).slice(-2), ms = 1000 * (v - Math.floor(v));
-		     	if (!noms) { ms = (ms)?'&#189;':''; }
-		     	else ms = '';			
-		  	return h + ':' + m + ':' + s + ' ' + ms;
-		},
 		createSection:function() {
 			var me = this;
 			me.setState({section:{section_id:'new', section:{}}}, function() {});
