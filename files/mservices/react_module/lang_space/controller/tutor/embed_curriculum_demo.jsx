@@ -43,7 +43,7 @@ try {
 				function() {
 					var ta = me;
 					return (
-						<div className="modal-content">{ta.state.niu}<br/><br/><br/><br/></div>
+						<div>{ta.state.niu}<br/><br/><br/><br/></div>
 					);
 				}
 			};
@@ -52,7 +52,7 @@ try {
 			me.setState({
 				ModalPopup:{
 					messageFn : arguments.callee.name + '_message',
-					box_class : 'modal-dialog modal-lg '
+					box_class : 'modal-dialog modal-lg modal-content'
 					// box_class : 'alert alert-success'
 				}
 			});
