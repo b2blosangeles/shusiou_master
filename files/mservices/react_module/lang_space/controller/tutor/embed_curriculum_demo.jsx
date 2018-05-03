@@ -65,7 +65,7 @@ try {
 				function() {
 					var ta = me;
 					return (
-						<div className="container-fluid" style={{padding:'1em'}}>{ta.state.ModalPopup.message}</div>
+						<div className="container-fluid" style={{padding:'0.5em'}}>{ta.state.ModalPopup.message}</div>
 					);
 				}
 			};
