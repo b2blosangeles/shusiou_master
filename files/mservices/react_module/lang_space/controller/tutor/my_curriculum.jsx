@@ -152,7 +152,7 @@ try {
 				function() {
 					var ta = me;
 					return (
-					<div className="container-fluid" >
+					<div className="container-fluid" style={{padding:'2em'}}>
 						<p>It is going to clean up the curriculum please confirm:</p>
 						<button className="btn btn-danger btn_margin6 pull-right" onClick={ta.sendDeleteCurriculum.bind(ta)}>Confirm</button>
 						<button className="btn btn-warning btn_margin6 pull-right" onClick={ta.closePopup.bind(ta)}>Cancel</button>
