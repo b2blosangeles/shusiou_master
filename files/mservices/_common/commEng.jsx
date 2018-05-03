@@ -51,7 +51,7 @@ try {
 			qs['SB_P'] = function(cbk) {
 				CP0.parallel(qp, 
 					function(data1) {
-						cbk(data1);
+						cbk(data1.results);
 					},
 					time_out);	
 			};			
