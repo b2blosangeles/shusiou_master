@@ -43,7 +43,7 @@ try {
 			    case 'alert':
 				return (			
 					<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">  
-						<div className="modal-dialog" role="document">
+						<div className="modal-dialog modal-lg" role="document">
 							<div className={box_class} style={box_style} role="alert">
 								<button type="button" className="close" 
 									onClick={me.closePopup.bind(me)}
