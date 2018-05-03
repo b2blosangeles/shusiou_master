@@ -147,20 +147,6 @@ try {
 			return true;
 		},			
 		deleteCurriculum: function(params, track) {
-			/*
-			var me = this;
-			me.setState({ModalPlus:{type:'popup',  hold:0,
-				box_style:{top:'28px'},
-				header: (<span/>),		
-				message: (<div className="container-fluid">
-						<p>It is going to clean up the curriculum please confirm:</p>
-						<button className="btn btn-danger btn_margin6 pull-right" onClick={me.sendDeleteCurriculum.bind(me)}>Confirm</button>
-						<button className="btn btn-warning btn_margin6 pull-right" onClick={me.closePopup.bind(me)}>Cancel</button>
-					</div>),
-				footer:(<span/>)
-			}});			
-			return true;
-			*/
 			var me = this;
 			let data = {message: 
 				function() {
