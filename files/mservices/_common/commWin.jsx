@@ -63,7 +63,7 @@ try {
 					<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
 						  <div className="modal-dialog modal-lg" role="document">
 							<div className="container-fluid" style={{padding:'1em'}}>
-								<div className={box_class} style={{padding:'0em'}}>
+								<div className={box_class} style={{padding:'0.5em'}}>
 									<button type="button" className="close" 
 										onClick={me.closePopup.bind(me)}
 										style={{display:close_icon}}>
