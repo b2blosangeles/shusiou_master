@@ -152,7 +152,7 @@ try {
 				function() {
 					var ta = me;
 					return (
-					<div className="container-fluid">
+					<div className="container-fluid" >
 						<p>It is going to clean up the curriculum please confirm:</p>
 						<button className="btn btn-danger btn_margin6 pull-right" onClick={ta.sendDeleteCurriculum.bind(ta)}>Confirm</button>
 						<button className="btn btn-warning btn_margin6 pull-right" onClick={ta.closePopup.bind(ta)}>Cancel</button>
@@ -166,7 +166,6 @@ try {
 				ModalPopup:{
 					messageFn : arguments.callee.name + '_message',
 					box_class : 'modal-content',
-					box_style : {padding:'1em'},
 					popup_type : 'window',
 					close_icon : true
 				}
