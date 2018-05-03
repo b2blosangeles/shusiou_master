@@ -43,7 +43,7 @@ try {
 				function() {
 					var ta = me;
 					return (
-						<div>{ta.state.ModalPopup.message}<br/><br/><br/><br/></div>
+						<div>{ta.state.ModalPopup.message}</div>
 					);
 				}
 			};
@@ -65,7 +65,7 @@ try {
 				function() {
 					var ta = me;
 					return (
-						<div>{ta.state.ModalPopup.message}<br/><br/><br/><br/></div>
+						<div className="container-fluid" style={{padding:'1em'}}>{ta.state.ModalPopup.message}</div>
 					);
 				}
 			};
