@@ -44,7 +44,7 @@ try {
 				function() {
 					var ta = me;
 					return (
-						<div>{ta.state.niu + ' --- ' + new Date()}</div>
+						<div>{ta.state.niu + ' --- ' + new Date()}<br/><br/><br/><br/></div>
 					);
 				}
 			};
