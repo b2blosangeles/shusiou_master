@@ -53,8 +53,8 @@ try {
 				ModalPopup:{
 					messageFn : arguments.callee.name + '_message',
 					box_class : 'modal-dialog modal-lg modal-content',
-					popup_type : 'alert',
-					message : 'niu'
+					popup_type : 'window',
+					message : 'niu window'
 				}
 			});
 		},
