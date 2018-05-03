@@ -53,7 +53,7 @@ try {
 			me.setState({
 				ModalPopup:{
 					messageFn : arguments.callee.name + '_message',
-					boxClass : 'alert alert-danger'
+					box_class : 'alert alert-success'
 				}
 			})
 		},		
