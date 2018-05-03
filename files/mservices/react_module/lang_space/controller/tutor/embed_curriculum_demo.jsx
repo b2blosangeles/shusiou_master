@@ -52,7 +52,7 @@ try {
 			me.setState({
 				ModalPopup:{
 					messageFn : arguments.callee.name + '_message',
-					box_class : 'modal-content '
+					box_class : 'modal-dialog modal-lg '
 					// box_class : 'alert alert-success'
 				}
 			});
