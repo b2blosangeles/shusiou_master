@@ -63,7 +63,7 @@ try {
 							<div className={box_class} style={box_style} role="alert">
 								<button type="button" className="close" 
 									onClick={me.closePopup.bind(me)}
-									style={{display:close_icon, padding:'1em'}}>
+									style={{display:close_icon, padding:'0.5em'}}>
 									&times;
 								</button>
 								{me.callMessage()}
