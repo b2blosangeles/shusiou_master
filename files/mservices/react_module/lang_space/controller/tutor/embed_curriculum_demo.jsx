@@ -2,7 +2,7 @@ try {
 	var Embed_curriculum_demo =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			return {niu:23456};
+			return {};
 		},	
 		componentDidMount:function() {
 			var me = this;			
@@ -54,6 +54,7 @@ try {
 					messageFn : arguments.callee.name + '_message',
 					box_class : 'modal-dialog modal-lg modal-content',
 					popup_type : 'window',
+					close_icon : true,
 					message : 'niu window'
 				}
 			});
