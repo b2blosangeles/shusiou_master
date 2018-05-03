@@ -52,7 +52,8 @@ try {
 			lib.transferFunction(me, data, arguments.callee.name);
 			me.setState({
 				ModalPopup:{
-					messageFn: arguments.callee.name + '_message'
+					messageFn : arguments.callee.name + '_message',
+					box_class : 'alert alert-success'
 				}
 			})
 		},		
