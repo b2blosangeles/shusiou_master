@@ -1,8 +1,9 @@
 try {
+	var _EngIndex = 0;
 	var _commEng = React.createClass({		
 		getInitialState: function() {
-			var me = this;
-			return {};
+			_EngIndex = (!_EngIndex || _EngIndex > 10000) ? 1 : (_EngIndex + 1);
+			return {id:_EngIndex, ModalLoading:{}};
 		},
 		ajax: function(rec, done, error) {
 			var me = this;
@@ -10,8 +11,8 @@ try {
 				url:rec.url,
 				method: rec.method,
 				data: rec.data,
-				dataType: "JSON"
-			}			
+				dataType: (rec.dataType) ? rec.dataType : 'JSON'
+			}
 			p.data.auth = (reactCookie.load('auth'))?reactCookie.load('auth'):{};
 			$.ajax(p).done(function( data) {
 				if (typeof done == 'function') {
@@ -23,16 +24,12 @@ try {
 				}				
 			});			
 		},
-		cpCall: function() {
-			let me = this, eng =  JSON.parse(JSON.stringify(me.props.parent.state.eng));			
-			me.props.parent.setState({eng:null}, function()  {});
-			
+		cpCall: function(eng) {
+			let me = this;			
 			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
 			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
-			    me.props.parent[eng.callbackfn] : function() { };
+			me.props.parent[eng.callbackfn] : function() { };
 			    
-			me.loading();
-			
 			let CP0 = new me.crowdProcess(), CP = new me.crowdProcess();
 			let qp = {};
 			for (var i = 0; i < eng.p.length; i++) {
@@ -54,7 +51,7 @@ try {
 			qs['SB_P'] = function(cbk) {
 				CP0.parallel(qp, 
 					function(data1) {
-						cbk(data1);
+						cbk(data1.results);
 					},
 					time_out);	
 			};			
@@ -67,9 +64,12 @@ try {
 			}
 			CP.serial(qs, 
 				function(data) {
-					me.setState({ModalLoading: 'cancel'},function(){
-						callbackfn(data);
-					});
+					let rst = [];
+					clearInterval(me._itvEng);
+					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
+					me.setState({ModalLoading: {}},function(){
+						callbackfn(data.results);
+					});	
 				},
 				time_out);
 			return true;
@@ -78,7 +78,7 @@ try {
 			this.serial = function(q, cbk, timeout) {
 				var me = this;
 				var idx = '', tm = new Date().getTime();
-				var vtime = (isNaN(timeout) || timeout == 0)?6000:timeout
+				var vtime = (isNaN(timeout) || timeout == 0) ? 6000 : timeout
 				me.data = {};	
 				var _f = function(o) {
 					return function(res) {
@@ -148,25 +148,60 @@ try {
 		},		
 		componentDidMount:function() {
 			var me = this;				
-		},		
-		componentDidUpdate:function(prePropos, prevStat) {
+		},	
+		componentDidUpdate: function (prevProps, prevState) {
 			var me = this;
-			if (me.props.parent.state.eng && me.props.parent.state.eng.p && me.props.parent.state.eng.p.length) {
-				if (!me.state.ModalLoading) {
-					me.cpCall();
-				} 
-			} 
+			if ((me.props.parent) && (me.props.parent.state._eng)) {	
+				if (me.props.parent.state._eng === 'cancel') {
+					me.props.parent.setState({_eng:null});
+					return true
+				} else {
+					let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
+					if (!eng.tm) eng.tm = new Date().getTime();
+					eng.hold = (!eng.hold && eng.hold !== 0) ? 1000 : eng.hold;
+					me._itvEng = setInterval(
+						function() {
+							if (new Date().getTime() - eng.tm > eng.hold) {
+								me.loading();
+								clearInterval(me._itvEng);
+							}
+						},
+						50
+					);
+					me.props.parent.setState({_eng:'cancel'}, function() {
+						me.cpCall(eng);			
+					});
+				}			
+			}		
 		},
 		loading:function() {
 			var me = this;
-			me._idx = (!me._idx || me._idx > 10000) ? 1 : (me._idx + 1);
-			me.setState({ModalLoading: {id : me._idx, box_style : {color:'#ffffff'}, hold:10, 
-				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}});
-		},		
+			me.setState({ModalLoading: {box_style : {color:'#ffffff'}, hold:10, 
+				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}},
+				function() {
+					viewpoint.find('.ModalLoading_' + me.state.id).modal({backdrop:'static'});				    
+				    }	   
+			);
+		},
+		ModalLoadingClass: function() {
+			let me = this;
+			return 'modal fade ModalLoading_'+ me.state.id;
+		},			
 		render: function() {
-			let me = this, code = (me.props.data) ? me.props.code : '';
-			return (<ModalLoading parent={me} />)
-		}
+			var me = this, err_msg = '';
+			var message = (me.state.ModalLoading.message) ? me.state.ModalLoading.message : '', 
+			    box_style = (me.state.ModalLoading.box_style) ? me.state.ModalLoading.box_style:{color:'#ffffff'};
+
+			return (			
+				<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
+				  <div className="modal-dialog" role="document">
+					<div style={box_style}>
+						<span dangerouslySetInnerHTML={{__html: message}}></span>
+					</div>
+				  </div>
+				</div>	
+			);
+		}		
 	});	
 } catch (err) {
 	console.log(err.message);

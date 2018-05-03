@@ -23,7 +23,7 @@ try {
 			var me = this;
 			return (
 				<div className="container">
-					<div className="col-sm-6 col-lg-5 col-md-6"> 
+					<div className="col-sm-6 col-lg-5 col-md-6"> 							
 						<div className="overlayer_box editor_box">
 							{me.leftBox(me.props.params)}
 						</div>	
@@ -37,6 +37,30 @@ try {
 					<ModalPlus parent={me} />
 				</div>);
 		},
+		callEngCbk : function(data) {
+			let me = this;
+			
+			console.log('====callEngCbk=kkk==>');
+			console.log(data);
+		},
+		callEng:function() {
+			var me = this;
+			me.setState({_eng:{
+				i:[
+					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'get', data:{}}
+				],				
+				p:[
+					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
+				],
+				s:[
+					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
+				],
+				hold:0,
+				setting: {timeout:30000},
+				callbackfn: 'callEngCbk'
+				
+			}});
+		},		
 		leftBox:function(params) {
 			var me = this;
 			if (params.opt == 'new') {
@@ -118,22 +142,35 @@ try {
 		},
 		closePopup:function() {
 			var me = this;
-			me.setState({ModalPlus:'cancel'});			
+		//	me.setState({ModalPlus:'cancel'});
+			me.setState({ModalPopup:'cancel'});
 			return true;
 		},			
 		deleteCurriculum: function(params, track) {
 			var me = this;
-			me.setState({ModalPlus:{type:'popup',  hold:0,
-				box_style:{top:'28px'},
-				header: (<span/>),		
-				message: (<div className="container-fluid">
+			let data = {message: 
+				function() {
+					var ta = me;
+					return (
+					<div className="container-fluid">
 						<p>It is going to clean up the curriculum please confirm:</p>
-						<button className="btn btn-danger btn_margin6 pull-right" onClick={me.sendDeleteCurriculum.bind(me)}>Confirm</button>
-						<button className="btn btn-warning btn_margin6 pull-right" onClick={me.closePopup.bind(me)}>Cancel</button>
-					</div>),
-				footer:(<span/>)
-			}});			
-			return true;
+						<button className="btn btn-danger btn_margin6 pull-right" onClick={ta.sendDeleteCurriculum.bind(ta)}>Confirm</button>
+						<button className="btn btn-warning btn_margin6 pull-right" onClick={ta.closePopup.bind(ta)}>Cancel</button>
+					</div>
+					);
+				}
+			};
+			let lib = new _commLib();
+			lib.transferFunction(me, data, arguments.callee.name);
+			me.setState({
+				ModalPopup:{
+					messageFn : arguments.callee.name + '_message',
+					box_class : 'modal-content',
+					box_style : {padding:'1em'},
+					popup_type : 'window',
+					close_icon : true
+				}
+			});
 		},		
 		sendDeleteCurriculum:function() {
 			var me = this, curriculum_id = me.state.curriculum.curriculum_id;
@@ -255,6 +292,7 @@ try {
 					<div className="content_bg opacity_bg">
 						<video id="video_ad" className="video_ad"  src="" muted></video>
 					</div>
+					<_commWin parent={me} />
 				</div>
 			)
 		}
