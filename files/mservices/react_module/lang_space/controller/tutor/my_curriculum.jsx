@@ -144,7 +144,7 @@ try {
 				function() {
 					var ta = me;
 					return (
-					<div style={{padding:'0.5em'}}>
+					<div style={{padding:'1em'}}>
 						<p>It is going to clean up the curriculum please confirm:</p>
 						<button className="btn btn-danger btn_margin6 pull-right" onClick={ta.sendDeleteCurriculum.bind(ta)}>Confirm</button>
 						<button className="btn btn-warning btn_margin6 pull-right" onClick={ta.closePopup.bind(ta)}>Cancel</button>
