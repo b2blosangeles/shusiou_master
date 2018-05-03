@@ -146,6 +146,7 @@ try {
 			return true;
 		},			
 		deleteCurriculum: function(params, track) {
+			/*
 			var me = this;
 			me.setState({ModalPlus:{type:'popup',  hold:0,
 				box_style:{top:'28px'},
@@ -158,6 +159,29 @@ try {
 				footer:(<span/>)
 			}});			
 			return true;
+			*/
+			var me = this;
+			let data = {message: 
+				function() {
+					var ta = me;
+					return (<div className="container-fluid">
+						<p>It is going to clean up the curriculum please confirm:</p>
+						<button className="btn btn-danger btn_margin6 pull-right" onClick={ta.sendDeleteCurriculum.bind(ta)}>Confirm</button>
+						<button className="btn btn-warning btn_margin6 pull-right" onClick={ta.closePopup.bind(ta)}>Cancel</button>
+					</div>);
+				}
+			};
+			let lib = new _commLib();
+			lib.transferFunction(me, data, arguments.callee.name);
+			me.setState({
+				ModalPopup:{
+					messageFn : arguments.callee.name + '_message',
+					box_class : 'modal-dialog modal-lg modal-content',
+					popup_type : 'window',
+					close_icon : true,
+					message : 'niu window'
+				}
+			});
 		},		
 		sendDeleteCurriculum:function() {
 			var me = this, curriculum_id = me.state.curriculum.curriculum_id;
@@ -279,6 +303,7 @@ try {
 					<div className="content_bg opacity_bg">
 						<video id="video_ad" className="video_ad"  src="" muted></video>
 					</div>
+					<_commWin parent={me} />
 				</div>
 			)
 		}
