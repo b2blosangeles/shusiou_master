@@ -41,6 +41,7 @@ try {
 			
 			switch(popup_type) {
 			    case 'alert':
+					/*
 				return (			
 					<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">  
 						<div className="modal-dialog modal-lg" role="document">
@@ -56,6 +57,7 @@ try {
 					</div>	
 				);
 				break;
+				*/
 			    case 'window':
 				return (			
 					<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
