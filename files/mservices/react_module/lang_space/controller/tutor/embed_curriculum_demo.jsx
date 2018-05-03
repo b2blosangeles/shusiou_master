@@ -16,7 +16,6 @@ try {
 		},
 		callEngCbk : function(data) {
 			let me = this;
-			
 			console.log('====callEngCbk===>');
 			console.log(data);
 		},
@@ -44,7 +43,7 @@ try {
 				function() {
 					var ta = me;
 					return (
-						<div>{ta.state.niu + ' --- ' + new Date()}<br/><br/><br/><br/></div>
+						<div>{ta.state.niu}<br/><br/><br/><br/></div>
 					);
 				}
 			};
