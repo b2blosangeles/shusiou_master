@@ -52,9 +52,10 @@ try {
 			me.setState({
 				ModalPopup:{
 					messageFn : arguments.callee.name + '_message',
-					box_class : 'alert alert-success'
+					box_class : 'modal-content '
+					// box_class : 'alert alert-success'
 				}
-			})
+			});
 		},		
 		render: function() {
 			var me = this;
