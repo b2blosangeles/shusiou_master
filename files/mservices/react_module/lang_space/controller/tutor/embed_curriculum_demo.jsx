@@ -85,9 +85,11 @@ try {
 
 			if ((me.props.params.id) && (me.props.parent.state.curriculum)) {
 				return (<div>Embed_curriculum_demo : 
-						<a onClick={me.callEng.bind(me)}>click</a>
+						[<a onClick={me.callEng.bind(me)}>Load Data</a>]
 						&nbsp;-&nbsp;
-						<a onClick={me.callAlert.bind(me)}>popup Alert</a>
+						[<a onClick={me.callAlert.bind(me)}>popup Alert</a>]
+						&nbsp;-&nbsp;
+						[<a onClick={me.callWin.bind(me)}>popup Window</a>]
 						<_commWin parent={me} />
 						<_commEng parent={me} />
 						
