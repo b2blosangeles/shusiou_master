@@ -165,10 +165,13 @@ try {
 			let data = {message: 
 				function() {
 					var ta = me;
-					return (<div className="modal-content container-fluid">
-						<p>It is going to clean up the curriculum please confirm:</p>
-						<button className="btn btn-danger btn_margin6 pull-right" onClick={ta.sendDeleteCurriculum.bind(ta)}>Confirm</button>
-						<button className="btn btn-warning btn_margin6 pull-right" onClick={ta.closePopup.bind(ta)}>Cancel</button>
+					return (
+					<div className="modal-content">
+						<div className="container-fluid">
+							<p>It is going to clean up the curriculum please confirm:</p>
+							<button className="btn btn-danger btn_margin6 pull-right" onClick={ta.sendDeleteCurriculum.bind(ta)}>Confirm</button>
+							<button className="btn btn-warning btn_margin6 pull-right" onClick={ta.closePopup.bind(ta)}>Cancel</button>
+						</div>
 					</div>);
 				}
 			};
