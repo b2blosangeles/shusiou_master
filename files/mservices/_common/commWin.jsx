@@ -73,7 +73,7 @@ try {
 				);
 				break;
 			    default:
-				return (<span/>)
+				return (<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true"/> )
 			}
 
 		}		
