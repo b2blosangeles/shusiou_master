@@ -57,6 +57,27 @@ try {
 					message : 'niu'
 				}
 			});
+		},
+		callAlert:function() {
+			var me = this;
+			let data = {message: 
+				function() {
+					var ta = me;
+					return (
+						<div>{ta.state.ModalPopup.message}<br/><br/><br/><br/></div>
+					);
+				}
+			};
+			let lib = new _commLib();
+			lib.transferFunction(me, data, arguments.callee.name);
+			me.setState({
+				ModalPopup:{
+					messageFn : arguments.callee.name + '_message',
+					box_class : 'alert alert-success',
+					popup_type : 'alert',
+					message : 'niu bi'
+				}
+			});
 		},		
 		render: function() {
 			var me = this;
@@ -65,7 +86,7 @@ try {
 				return (<div>Embed_curriculum_demo : 
 						<a onClick={me.callEng.bind(me)}>click</a>
 						&nbsp;-&nbsp;
-						<a onClick={me.callWin.bind(me)}>popup</a>
+						<a onClick={me.callAlert.bind(me)}>popup Alert</a>
 						<_commWin parent={me} />
 						<_commEng parent={me} />
 						
