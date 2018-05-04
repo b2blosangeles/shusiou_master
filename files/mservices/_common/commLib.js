@@ -17,4 +17,8 @@ var _commLib = function () {
             else ms = '';
         return h + ':' + m + ':' + s + ' ' + ms;
     }
+    
+    this.cpSeeker = function(pint, idx, data) {
+        
+    }
 };
