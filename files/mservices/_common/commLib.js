@@ -7,6 +7,11 @@ var _commLib = function () {
                 delete data[key];
             }
         }
+        o.setState({
+            ModalPopup:{
+                caller : arguments.callee.name
+            }
+        });
     }
     
     this.toHHMMSS = function(v, noms) {
