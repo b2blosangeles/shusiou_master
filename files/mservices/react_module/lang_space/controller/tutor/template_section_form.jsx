@@ -97,7 +97,7 @@ try {
 			});
 			
 			return true;		
-			
+			/*
 			let me = this, id = new Date().getTime();
 			let curriculum = me.props.parent.state.curriculum;
 			let video = {
@@ -116,6 +116,7 @@ try {
 				footer:(<span/>)
 			}});			
 			return true;
+			*/
 		},	
 		setScriptListFilter(p) {
 			let me = this, o = me.state.scriptListFilter;
