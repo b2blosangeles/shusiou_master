@@ -79,13 +79,13 @@ try {
 					let video = {
 						vid: ta.props.parent.state.curriculum.vid,
 						space : ta.props.parent.state.curriculum.space,
-						video_length:ta.props.parent.state.curriculum.video_length
+						video_length : ta.props.parent.state.curriculum.video_length
 					};
-					//alert(JSON.stringify(video));
 					let sections = (ta.props.parent.state.curriculum.script) ? ta.props.parent.state.curriculum.script:[];
 
 					return (
-					<Embed_video_editor parent={ta} video={video} sections={sections} track={track}  popid={new Date().getTime()} />
+					<Embed_video_editor parent={ta} video={video} sections={sections} track={track}  
+						popid={new Date().getTime()} />
 					);
 				}
 			};
@@ -100,28 +100,7 @@ try {
 					message : 'niu window'
 				}
 			});
-			
-			return true;		
-			/*
-			let me = this, id = new Date().getTime();
-			let curriculum = me.props.parent.state.curriculum;
-			let video = {
-				vid:me.props.parent.state.curriculum.vid,
-				space:me.props.parent.state.curriculum.space,
-				video_length:me.props.parent.state.curriculum.video_length
-			};
-			//alert(JSON.stringify(video));
-			let sections = (me.props.parent.state.curriculum.script)?me.props.parent.state.curriculum.script:[];
-			
-			me.setState({ModalPlus:{type:'popup',  hold:0,
-				box_style:{top:'28px'},
-				title: (<span>Video Editor</span>),
-				message: (<Embed_video_editor parent={me} video={video} sections={sections} track={track}  popid={new Date().getTime()} />),
-				header:false,
-				footer:(<span/>)
-			}});			
 			return true;
-			*/
 		},	
 		setScriptListFilter(p) {
 			let me = this, o = me.state.scriptListFilter;
