@@ -72,6 +72,7 @@ try {
 		},
 		closePopup:function() {
 			var me = this;
+			alert(4563);
 			me.setState({ModalPopup:'cancel'});
 			return true;
 		},		
