@@ -69,6 +69,11 @@ try {
 				me.setState({c_tpl:(me.props.section.tpl)?me.props.section.tpl:data, 
 					data:me.props.section.data});
 			}	
+		},	
+		closePopup:function() {
+			var me = this;
+			me.setState({ModalPopup:'cancel'});			
+			return true;
 		},		
 		popupEditVideo: function(track) {
 			var me = this;
@@ -156,13 +161,6 @@ try {
 				alert(JSON.stringify('error'));
 				console.log('error');
 			});			
-		},		
-		closePopup:function() {
-			var me = this;
-			
-			alert(8898);
-			me.props.parent.setState({ModalPlus:'cancel'});			
-			return true;
 		},		
 		templateSelectScript: function() {
 			let me = this, scriptLangs = me.state.scriptLangs, scriptList = me.state.scriptList;
