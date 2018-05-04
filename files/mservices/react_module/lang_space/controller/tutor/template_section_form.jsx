@@ -69,12 +69,6 @@ try {
 				me.setState({c_tpl:(me.props.section.tpl)?me.props.section.tpl:data, 
 					data:me.props.section.data});
 			}	
-		},
-		closePopup:function() {
-			var me = this;
-			alert(4563);
-			me.setState({ModalPopup:'cancel'});
-			return true;
 		},		
 		popupEditVideo: function(track) {
 			var me = this;
@@ -166,8 +160,8 @@ try {
 		closePopup:function() {
 			var me = this;
 			
-			alert(888);
-			me.setState({ModalPlus:'cancel'});			
+			alert(8898);
+			ta.props.parent.setState({ModalPlus:'cancel'});			
 			return true;
 		},		
 		templateSelectScript: function() {
