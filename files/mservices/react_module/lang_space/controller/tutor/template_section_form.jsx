@@ -74,13 +74,18 @@ try {
 			var me = this;
 			let data = {message: 
 				function() {
-					var ta = me;
+					let ta = me, id = new Date().getTime();
+					let curriculum = ta.props.parent.state.curriculum;
+					let video = {
+						vid: ta.props.parent.state.curriculum.vid,
+						space : ta.props.parent.state.curriculum.space,
+						video_length:me.props.parent.state.curriculum.video_length
+					};
+					//alert(JSON.stringify(video));
+					let sections = (ta.props.parent.state.curriculum.script) ? ta.props.parent.state.curriculum.script:[];
+
 					return (
-						<div style={{padding:'1em'}}>
-							<p className="text-dark">
-								{ta.state.ModalPopup.message}
-							</p>
-						</div>
+					<Embed_video_editor parent={ta} video={video} sections={sections} track={track}  popid={new Date().getTime()} />
 					);
 				}
 			};
