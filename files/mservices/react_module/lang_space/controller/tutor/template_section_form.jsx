@@ -13,6 +13,7 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
+			me.lib = new _commLib();
 			me.props.parent.props.route.env.engine({
 				url: _master_svr() +  '/api/content_data/getScripts.api',
 				method: "POST",
@@ -201,8 +202,8 @@ try {
 								<span>
 									{(function() {
 										return (<span dangerouslySetInnerHTML=
-										{{__html: 'Start: ' + me.props.parent.toHHMMSS(me.state.data[v].s) + 
-										' To:' + me.props.parent.toHHMMSS(me.state.data[v].s + me.state.data[v].t)}}
+										{{__html: 'Start: ' + me.lib.toHHMMSS(me.state.data[v].s) + 
+										' To:' + me.lib.toHHMMSS(me.state.data[v].s + me.state.data[v].t)}}
 										/>)
 									})()}
 									<button className="btn btn-info btn-xs" 
