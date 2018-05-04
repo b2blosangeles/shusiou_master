@@ -70,6 +70,11 @@ try {
 					data:me.props.section.data});
 			}	
 		},
+		closePopup:function() {
+			var me = this;
+			me.setState({ModalPopup:'cancel'});
+			return true;
+		},		
 		popupEditVideo: function(track) {
 			var me = this;
 			let data = {message: 
