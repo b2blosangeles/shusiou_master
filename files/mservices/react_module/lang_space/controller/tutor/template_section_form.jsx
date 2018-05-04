@@ -248,6 +248,8 @@ try {
 				{me.tplSection()}
 				{/*JSON.stringify(me.state.c_tpl)*/}
 				<ModalPlus parent={me} />
+				<_commWin parent={me} />
+				<_commEng parent={me} />
 				</span>)
 		}
 	});	
