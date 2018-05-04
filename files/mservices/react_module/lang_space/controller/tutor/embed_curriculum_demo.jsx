@@ -44,7 +44,7 @@ try {
 				function() {
 					var ta = me;
 					return (
-						<div>{ta.state.ModalPopup.text}</div>
+						<div style={{padding:'1em'}}>{ta.state.ModalPopup.message}==</div>
 					);
 				}
 			};
@@ -53,10 +53,10 @@ try {
 			me.setState({
 				ModalPopup:{
 					messageFn : arguments.callee.name + '_message',
-					box_class : 'modal-dialog modal-lg modal-content',
+					box_class : 'modal-content',
 					popup_type : 'window',
 					close_icon : true,
-					text : 'niu window'
+					message : 'niu window'
 				}
 			});
 		},
