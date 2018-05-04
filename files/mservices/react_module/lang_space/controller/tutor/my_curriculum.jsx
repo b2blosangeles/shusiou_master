@@ -134,7 +134,6 @@ try {
 		},
 		closePopup:function() {
 			var me = this;
-		//	me.setState({ModalPlus:'cancel'});
 			me.setState({ModalPopup:'cancel'});
 			return true;
 		},			
