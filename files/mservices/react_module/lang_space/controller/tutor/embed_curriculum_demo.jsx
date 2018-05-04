@@ -5,7 +5,8 @@ try {
 			return {};
 		},	
 		componentDidMount:function() {
-			var me = this;			
+			var me = this;
+			me.lib = new _commLib();
 			if (me.props.params.opt == 'new') {
 				me.props.parent.getVideoInfo(me.props.params.id,
 					function(data) {
@@ -69,8 +70,7 @@ try {
 					);
 				}
 			};
-			let lib = new _commLib();
-			lib.transferFunction(me, data, arguments.callee.name);
+			me.lib.transferFunction(me, data, arguments.callee.name);
 			me.setState({
 				ModalPopup:{
 					messageFn : arguments.callee.name + '_message',
