@@ -44,7 +44,7 @@ try {
 				function() {
 					var ta = me;
 					return (
-						<div>{ta.state.ModalPopup.message}</div>
+						<div>{ta.state.ModalPopup.text}</div>
 					);
 				}
 			};
@@ -56,7 +56,7 @@ try {
 					box_class : 'modal-dialog modal-lg modal-content',
 					popup_type : 'window',
 					close_icon : true,
-					message : 'niu window'
+					text : 'niu window'
 				}
 			});
 		},
