@@ -84,8 +84,8 @@ try {
 					);
 				}
 			};
-			let lib = new _commLib();
-			lib.transferFunction(me, data, arguments.callee.name);
+			me.lib = new _commLib();
+			me.lib.transferFunction(me, data, arguments.callee.name);
 			me.setState({
 				ModalPopup:{
 					messageFn : arguments.callee.name + '_message',
