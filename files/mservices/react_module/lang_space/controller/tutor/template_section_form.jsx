@@ -71,6 +71,29 @@ try {
 			}	
 		},
 		popupEditVideo: function(track) {
+			
+
+			var me = this;
+			let data = {message: 
+				function() {
+					var ta = me;
+					return (
+						<div style={{padding:'0.5em'}}>{ta.state.ModalPopup.message}</div>
+					);
+				}
+			};
+			me.lib.transferFunction(me, data, arguments.callee.name);
+			me.setState({
+				ModalPopup:{
+					messageFn : arguments.callee.name + '_message',
+					box_class : 'alert alert-success',
+					popup_type : 'alert',
+					close_icon : true,
+					message : 'niu bi'
+				}
+			});
+			return true;		
+			
 			let me = this, id = new Date().getTime();
 			let curriculum = me.props.parent.state.curriculum;
 			let video = {
