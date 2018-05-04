@@ -110,6 +110,7 @@ try {
 			if (p_video) p_video.pause();
 			v.s = me.state.track.s;
 			v.t = me.state.track.t;
+			alert(123);
 			me.props.parent.closePopup();		
 		},
 		showSectionImages: function() {
