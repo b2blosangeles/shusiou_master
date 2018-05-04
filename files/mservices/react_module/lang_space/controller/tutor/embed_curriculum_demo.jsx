@@ -44,8 +44,8 @@ try {
 				function() {
 					var ta = me;
 					return (
-						<div className="text-dark" style={{padding:'1em'}}>
-							<p>
+						<div style={{padding:'1em'}}>
+							<p className="text-dark">
 								{ta.state.ModalPopup.message}
 							</p>
 						</div>
