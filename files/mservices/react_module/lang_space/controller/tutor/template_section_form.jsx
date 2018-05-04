@@ -79,7 +79,7 @@ try {
 					let video = {
 						vid: ta.props.parent.state.curriculum.vid,
 						space : ta.props.parent.state.curriculum.space,
-						video_length:me.props.parent.state.curriculum.video_length
+						video_length:ta.props.parent.state.curriculum.video_length
 					};
 					//alert(JSON.stringify(video));
 					let sections = (ta.props.parent.state.curriculum.script) ? ta.props.parent.state.curriculum.script:[];
