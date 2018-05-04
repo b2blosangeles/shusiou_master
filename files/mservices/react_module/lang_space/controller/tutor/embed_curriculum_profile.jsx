@@ -95,7 +95,7 @@ try {
 						    <tbody>
 						{me.props.parent.state.sections.map(function(rec) { return (<tr>
 							<td>
-								<span dangerouslySetInnerHTML={{__html: me.props.parent.toHHMMSS(rec.data.track.s)}} />    
+								<span dangerouslySetInnerHTML={{__html: me.props.parent.lib.toHHMMSS(rec.data.track.s)}} />    
 							</td>
 							<td>	    
 								<span dangerouslySetInnerHTML={{__html:rec.data.track.t}} /> (s)    
