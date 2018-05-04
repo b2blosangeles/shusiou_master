@@ -44,7 +44,11 @@ try {
 				function() {
 					var ta = me;
 					return (
-						<div style={{padding:'1em'}}>{ta.state.ModalPopup.message}==</div>
+						<div style={{padding:'1em'}}>
+							<p>
+								{ta.state.ModalPopup.message}
+							</p>
+						</div>
 					);
 				}
 			};
