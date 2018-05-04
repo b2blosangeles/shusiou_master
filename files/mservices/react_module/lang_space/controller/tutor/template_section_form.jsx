@@ -71,27 +71,31 @@ try {
 			}	
 		},
 		popupEditVideo: function(track) {
-			
-
 			var me = this;
 			let data = {message: 
 				function() {
 					var ta = me;
 					return (
-						<div style={{padding:'0.5em'}}>{ta.state.ModalPopup.message}</div>
+						<div style={{padding:'1em'}}>
+							<p className="text-dark">
+								{ta.state.ModalPopup.message}
+							</p>
+						</div>
 					);
 				}
 			};
-			me.lib.transferFunction(me, data, arguments.callee.name);
+			let lib = new _commLib();
+			lib.transferFunction(me, data, arguments.callee.name);
 			me.setState({
 				ModalPopup:{
 					messageFn : arguments.callee.name + '_message',
-					box_class : 'alert alert-success',
-					popup_type : 'alert',
+					box_class : 'modal-content',
+					popup_type : 'window',
 					close_icon : true,
-					message : 'niu bi'
+					message : 'niu window'
 				}
 			});
+			
 			return true;		
 			
 			let me = this, id = new Date().getTime();
