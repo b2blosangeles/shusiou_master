@@ -161,7 +161,7 @@ try {
 			var me = this;
 			
 			alert(8898);
-			ta.props.parent.setState({ModalPlus:'cancel'});			
+			me.props.parent.setState({ModalPlus:'cancel'});			
 			return true;
 		},		
 		templateSelectScript: function() {
