@@ -165,6 +165,8 @@ try {
 		},		
 		closePopup:function() {
 			var me = this;
+			
+			alert(888);
 			me.setState({ModalPlus:'cancel'});			
 			return true;
 		},		
