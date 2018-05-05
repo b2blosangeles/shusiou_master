@@ -19,15 +19,7 @@ var _commLib = function () {
              }
            
         }
-        o.setState({
-            ModalPopup:{
-                section : f_list,
-                box_class : 'alert alert-success',
-                popup_type : 'alert',
-                close_icon : true,
-                message : 'niu bi'
-            }
-        });        
+        o.setState({ModalPopup : ModalPopup_cfg});        
         
     }
     this.transferFunction = function(o, data, caller)  {
