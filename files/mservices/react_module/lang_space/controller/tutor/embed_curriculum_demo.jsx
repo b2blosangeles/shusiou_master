@@ -71,7 +71,7 @@ try {
 					message : function() {
 						var ta = me;
 						return (
-							<div style={{padding:'0.5em'}}>{ta.state.ModalPopup.message}===</div>
+							<div style={{padding:'0.5em'}}>{ta.state.ModalPopup.function.message}----</div>
 						);
 					}	
 				},
