@@ -22,9 +22,6 @@ try {
 		},
 		callSection : function(code) {
 			var me = this;
-			console.log('me.props.parent.state.ModalPopup.section[code]--->');
-			console.log(me.props.parent.state.ModalPopup.section);
-			
 			if ((me.props.parent) && 
 			    (me.props.parent.state.ModalPopup) && 
 			    (me.props.parent.state.ModalPopup.section) &&
@@ -33,7 +30,7 @@ try {
 			   ) {
 				return me.props.parent[me.props.parent.state.ModalPopup.section[code]]();
 			} else {
-				return '-=-'
+				return ''
 			}
 		},
 		ModalLoadingClass: function() {
