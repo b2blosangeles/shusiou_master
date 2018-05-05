@@ -1,12 +1,12 @@
 var _commLib = function () {
    
-    this.buildPopup = function(o, data)  {
+    this.buildPopup = function(o, setting)  {
         let caller_name = arguments.callee.caller.name;
        alert(caller_name);
-        for (var key in data) {
-            if (typeof data[key] === 'function') {
-                o[ caller_name + '_' + key] = data[key];
-                delete data[key];
+        for (var key in setting) {
+            if (typeof setting[key] === 'function') {
+                o[ caller_name + '_' + key] = setting[key];
+                delete setting[key];
             }
         }
         o.setState({
