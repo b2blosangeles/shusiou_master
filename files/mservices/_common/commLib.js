@@ -24,7 +24,7 @@ var _commLib = function () {
         
     }
     this.transferFunction = function(o, data, caller)  {
-        alert(arguments.callee.name)
+        alert(this.constructor.name)
         for (var key in data) {
             if (typeof data[key] === 'function') {
                 o[ caller + '_' + key] = data[key];
