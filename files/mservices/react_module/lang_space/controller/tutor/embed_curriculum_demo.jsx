@@ -68,10 +68,10 @@ try {
 			var me = this;
 			let cfg = {
 				section: {
-					message : function() {
+					body : function() {
 						var ta = me;
 						return (
-							<div style={{padding:'0.5em'}}>{ta.state.ModalPopup.function.message}----</div>
+							<div style={{padding:'0.5em'}}>ta.state.ModalPopup.function.message----</div>
 						);
 					}	
 				},
