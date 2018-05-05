@@ -20,10 +20,10 @@ try {
 			var me = this;
 			me.props.parent.setState({ModalPopup:'cancel'});
 		},
-		callMessage : function() {
+		callBody : function() {
 			var me = this;
-			if ((me.props.parent) && (me.props.parent.state.ModalPopup) && (me.props.parent.state.ModalPopup.messageFn)) {
-				return me.props.parent[me.props.parent.state.ModalPopup.messageFn]();;
+			if ((me.props.parent) && (me.props.parent.state.ModalPopup) && (me.props.parent.state.ModalPopup.function)) {
+				return me.props.parent[me.props.parent.state.ModalPopup.function.body]();;
 			} else {
 				return ''
 			}
@@ -68,7 +68,7 @@ try {
 									style={{display:close_icon}}>
 									&times;
 								</button>
-								{me.callMessage()}
+								{me.callBody()}
 							</div>
 						  </div>
 					</div>	
