@@ -7,12 +7,12 @@ var _commLib = function () {
        alert(caller_name);
        
         for (var key in setting) {
-            if (key == 'function') {
-                  for (var v in setting.function) {
-                     if (typeof setting.function[v] === 'function') {
-                        o[ caller_name + '_' + v] = setting.function[v];
+            if (key == 'section') {
+                  for (var v in setting.section) {
+                     if (typeof setting.section[v] === 'function') {
+                        o[ caller_name + '_' + v] = setting.section[v];
                         f_list[v] = caller_name + '_' + v;
-                        delete setting.function[v];
+                        delete setting.section[v];
                      }
                   }
              } else {
