@@ -110,7 +110,9 @@ try {
 			if (p_video) p_video.pause();
 			v.s = me.state.track.s;
 			v.t = me.state.track.t;
-			me.props.parent.popupEditVideo_close();		
+			// me.props.parent.popupEditVideo_close();		
+			alert(121);
+			me.props.parent.closePopup();
 		},
 		showSectionImages: function() {
 			var me = this, A = [];
