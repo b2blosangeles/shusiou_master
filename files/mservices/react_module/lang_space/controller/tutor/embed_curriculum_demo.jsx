@@ -70,8 +70,9 @@ try {
 				section: {
 					body : function() {
 						var ta = me;
+						var info = "niu a niu";
 						return (
-							<div style={{padding:'0.5em'}}>ta.state.ModalPopup.function.message----</div>
+							<div style={{padding:'0.5em'}}> - {info} - </div>
 						);
 					}	
 				},
