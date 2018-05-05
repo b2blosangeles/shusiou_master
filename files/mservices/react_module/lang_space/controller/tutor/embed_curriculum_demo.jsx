@@ -47,7 +47,7 @@ try {
 					return (
 						<div style={{padding:'1em'}}>
 							<p className="text-dark">
-								{msg}
+								=={msg}==
 							</p>
 						</div>
 					);
