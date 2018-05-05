@@ -112,7 +112,7 @@ try {
 			v.t = me.state.track.t;
 			// me.props.parent.popupEditVideo_close();		
 			alert(121);
-			me.props.parent.closePopup();
+			me.closePopup();
 		},
 		showSectionImages: function() {
 			var me = this, A = [];
