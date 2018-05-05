@@ -22,7 +22,7 @@ var _commLib = function () {
         }
         o.setState({
             ModalPopup:{
-                function : f_list,
+                section : f_list,
                 box_class : 'alert alert-success',
                 popup_type : 'alert',
                 close_icon : true,
