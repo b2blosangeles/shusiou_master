@@ -22,6 +22,9 @@ try {
 		},
 		callSection : function(code) {
 			var me = this;
+			console.log('me.props.parent.state.ModalPopup.section[code]--->');
+			console.log(me.props.parent.state.ModalPopup.section[code]);
+			
 			if ((me.props.parent) && 
 			    (me.props.parent.state.ModalPopup) && 
 			    (me.props.parent.state.ModalPopup.section) &&
