@@ -1,7 +1,8 @@
 var _commLib = function () {
    
-    this.buildPopup = function(o, data, caller)  {
+    this.buildPopup = function(o, data)  {
         let caller_name = arguments.callee.caller.name;
+       alert(caller_name);
         for (var key in data) {
             if (typeof data[key] === 'function') {
                 o[ caller + '_' + key] = data[key];
@@ -10,7 +11,7 @@ var _commLib = function () {
         }
         o.setState({
             ModalPopup:{
-                messageFn : arguments.callee.name + '_message',
+                messageFn : caller_name + '_message',
                 box_class : 'alert alert-success',
                 popup_type : 'alert',
                 close_icon : true,
