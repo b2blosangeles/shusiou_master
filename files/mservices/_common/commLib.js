@@ -18,21 +18,9 @@ var _commLib = function () {
              } else {
                 ModalPopup_cfg[key] = setting[key];
              }
-           
         }
         o.setState({ModalPopup : ModalPopup_cfg});        
         
-    }
-    this.transferFunction = function(o, data, caller)  {
-        alert('arguments.callee.caller.name--->');
-        alert(arguments.callee.caller.name);
-        alert(this.constructor.name)
-        for (var key in data) {
-            if (typeof data[key] === 'function') {
-                o[ caller + '_' + key] = data[key];
-                delete data[key];
-            }
-        }
     }
     
     this.toHHMMSS = function(v, noms) {
