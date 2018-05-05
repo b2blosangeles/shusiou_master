@@ -66,15 +66,17 @@ try {
 		},
 		callAlert:function() {
 			var me = this;
-			let data = {message: 
-				function() {
-					var ta = me;
-					return (
-						<div style={{padding:'0.5em'}}>{ta.state.ModalPopup.message}</div>
-					);
-				}
+			let cfg = {
+				function: {
+					message : function() {
+						var ta = me;
+						return (
+							<div style={{padding:'0.5em'}}>{ta.state.ModalPopup.message}===</div>
+						);
+					}	
+				}	
 			};
-			me.lib.buildPopup(me, data);
+			me.lib.buildPopup(me, cfg);
 			/*
 			me.setState({
 				ModalPopup:{
