@@ -1,5 +1,5 @@
 var _commLib = function () {
-    alert( arguments.callee.name);
+    alert(this.caller);
     this.buildPopup = function(o, data, caller)  {
         for (var key in data) {
             if (typeof data[key] === 'function') {
