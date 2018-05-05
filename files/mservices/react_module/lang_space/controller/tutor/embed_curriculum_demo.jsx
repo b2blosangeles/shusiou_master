@@ -40,17 +40,19 @@ try {
 		},
 		callWin:function() {
 			var me = this;
-			let cfg = {message: 
-				function() {
-					var ta = me;
-					var msg = 'niu window';
-					return (
-						<div style={{padding:'1em'}}>
-							<p className="text-dark">
-								=={msg}==
-							</p>
-						</div>
-					);
+			let cfg = {
+				section: {
+					body : function() {
+						var ta = me;
+						var msg = 'niu window';
+						return (
+							<div style={{padding:'1em'}}>
+								<p className="text-dark">
+									=={msg}==
+								</p>
+							</div>
+						);
+					}	
 				},
 				box_class : 'modal-content',
 				popup_type : 'window',
