@@ -25,7 +25,7 @@ try {
 			if ((me.props.parent) && (me.props.parent.state.ModalPopup) && (me.props.parent.state.ModalPopup.section)) {
 				return me.props.parent[me.props.parent.state.ModalPopup.section.body]();;
 			} else {
-				return '==='
+				return ''
 			}
 		},
 		ModalLoadingClass: function() {
