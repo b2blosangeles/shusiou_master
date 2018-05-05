@@ -56,7 +56,9 @@ try {
 									style={{display:close_icon}}>
 									&times;
 								</button>
+								{me.callSection('header')}
 								{me.callSection('body')}
+								{me.callSection('footer')}
 							</div>
 						  </div>
 					</div>	
