@@ -9,8 +9,8 @@ var _commLib = function () {
             if (key == 'section') {
                   for (var v in setting.section) {
                      if (typeof setting.section[v] === 'function') {
-                        if (v === 'closePopup') {
-                            o['_' + v] = setting.section[v];
+                        if (v === '_closePopup') {
+                            o[v] = setting.section[v];
                         } else {
                             o[ caller_name + '_' + v] = setting.section[v];
                         }  
