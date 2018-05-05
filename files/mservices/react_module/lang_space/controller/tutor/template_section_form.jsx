@@ -69,12 +69,6 @@ try {
 				me.setState({c_tpl:(me.props.section.tpl)?me.props.section.tpl:data, 
 					data:me.props.section.data});
 			}	
-		},	
-		closePopup:function() {
-			var me = this;
-			alert(77);
-			me.setState({ModalPopup:'cancel'});			
-			return true;
 		},		
 		popupEditVideo: function(track) {
 			var me = this;
