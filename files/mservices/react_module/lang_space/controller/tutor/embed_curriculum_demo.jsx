@@ -67,14 +67,18 @@ try {
 		callAlert:function() {
 			var me = this;
 			let cfg = {
-				function: {
+				section: {
 					message : function() {
 						var ta = me;
 						return (
 							<div style={{padding:'0.5em'}}>{ta.state.ModalPopup.message}===</div>
 						);
 					}	
-				}	
+				},
+				box_class : 'alert alert-success',
+				popup_type : 'alert',
+				close_icon : true,
+				message : 'niu bi'
 			};
 			me.lib.buildPopup(me, cfg);
 			/*
