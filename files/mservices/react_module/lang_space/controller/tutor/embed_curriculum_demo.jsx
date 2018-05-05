@@ -1,7 +1,7 @@
 try {
 	var Embed_curriculum_demo =  React.createClass({
 		getInitialState: function() {
-			var me = this;
+			var me = this; 
 			return {};
 		},	
 		componentDidMount:function() {
@@ -74,7 +74,8 @@ try {
 					);
 				}
 			};
-			me.lib.transferFunction(me, data, arguments.callee.name);
+			me.lib.buildPopup(me, data);
+			/*
 			me.setState({
 				ModalPopup:{
 					messageFn : arguments.callee.name + '_message',
@@ -84,6 +85,7 @@ try {
 					message : 'niu bi'
 				}
 			});
+			*/
 		},		
 		render: function() {
 			var me = this;
