@@ -14,6 +14,7 @@ var _commLib = function () {
                         delete setting.section[v];
                      }
                   }
+                  ModalPopup_cfg['section'] =  f_list;
              } else {
                 ModalPopup_cfg[key] = setting[key];
              }
