@@ -10,7 +10,6 @@ var _commLib = function () {
             if (key == 'function') {
                   for (var v in setting.function) {
                      if (typeof setting.function[v] === 'function') {
-                        if !f_list
                         o[ caller_name + '_' + v] = setting.function[v];
                         f_list[v] = caller_name + '_' + v;
                         delete setting.function[v];
