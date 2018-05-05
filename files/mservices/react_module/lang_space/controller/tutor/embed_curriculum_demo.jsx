@@ -78,21 +78,9 @@ try {
 				},
 				box_class : 'alert alert-success',
 				popup_type : 'alert',
-				close_icon : true,
-				message : 'niu bi'
+				close_icon : true
 			};
 			me.lib.buildPopup(me, cfg);
-			/*
-			me.setState({
-				ModalPopup:{
-					messageFn : arguments.callee.name + '_message',
-					box_class : 'alert alert-success',
-					popup_type : 'alert',
-					close_icon : true,
-					message : 'niu bi'
-				}
-			});
-			*/
 		},		
 		render: function() {
 			var me = this;
