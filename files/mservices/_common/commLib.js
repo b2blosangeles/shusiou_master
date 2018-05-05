@@ -1,5 +1,5 @@
 var _commLib = function () {
-    alert(arguments.callee.caller.name);
+   
     this.buildPopup = function(o, data, caller)  {
         for (var key in data) {
             if (typeof data[key] === 'function') {
@@ -25,6 +25,8 @@ var _commLib = function () {
         
     }
     this.transferFunction = function(o, data, caller)  {
+        alert('arguments.callee.caller.name--->');
+        alert(arguments.callee.caller.name);
         alert(this.constructor.name)
         for (var key in data) {
             if (typeof data[key] === 'function') {
