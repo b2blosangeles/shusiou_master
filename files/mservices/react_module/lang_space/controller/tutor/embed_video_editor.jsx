@@ -111,8 +111,8 @@ try {
 			v.s = me.state.track.s;
 			v.t = me.state.track.t;
 			// me.props.parent.popupEditVideo_close();		
-			alert(121);
-			me.closePopup();
+			alert(122);
+			me.props.parent.props.parent.closePopup();
 		},
 		showSectionImages: function() {
 			var me = this, A = [];
