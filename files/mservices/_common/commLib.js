@@ -1,6 +1,5 @@
 var _commLib = function () {
-
-    this.transferFunction = function(o, data, caller)  {
+    this.buildPopup = function(o, data, caller)  {
         for (var key in data) {
             if (typeof data[key] === 'function') {
                 o[ caller + '_' + key] = data[key];
@@ -12,6 +11,25 @@ var _commLib = function () {
                 caller : arguments.callee.name
             }
         });
+        
+        me.setState({
+            ModalPopup:{
+                messageFn : arguments.callee.name + '_message',
+                box_class : 'alert alert-success',
+                popup_type : 'alert',
+                close_icon : true,
+                message : 'niu bi'
+            }
+        });        
+        
+    }
+    this.transferFunction = function(o, data, caller)  {
+        for (var key in data) {
+            if (typeof data[key] === 'function') {
+                o[ caller + '_' + key] = data[key];
+                delete data[key];
+            }
+        }
     }
     
     this.toHHMMSS = function(v, noms) {
