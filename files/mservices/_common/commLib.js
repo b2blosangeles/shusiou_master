@@ -10,11 +10,13 @@ var _commLib = function () {
                   for (var v in setting.section) {
                      if (typeof setting.section[v] === 'function') {
                         if (v === '_closePopup') {
-                            o[v] = setting.section[v];
+                           alert(88);
+                           o[v] = setting.section[v];
+                           f_list[v] = v;
                         } else {
                             o[ caller_name + '_' + v] = setting.section[v];
+                            f_list[v] = caller_name + '_' + v;
                         }  
-                        f_list[v] = caller_name + '_' + v;
                         delete setting.section[v];
                      }
                   }
