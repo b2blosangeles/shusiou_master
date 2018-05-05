@@ -40,29 +40,23 @@ try {
 		},
 		callWin:function() {
 			var me = this;
-			let data = {message: 
+			let cfg = {message: 
 				function() {
 					var ta = me;
+					var msg = 'niu window';
 					return (
 						<div style={{padding:'1em'}}>
 							<p className="text-dark">
-								{ta.state.ModalPopup.message}
+								{msg}
 							</p>
 						</div>
 					);
-				}
+				},
+				box_class : 'modal-content',
+				popup_type : 'window',
+				close_icon : true
 			};
-			let lib = new _commLib();
-			lib.transferFunction(me, data, arguments.callee.name);
-			me.setState({
-				ModalPopup:{
-					messageFn : arguments.callee.name + '_message',
-					box_class : 'modal-content',
-					popup_type : 'window',
-					close_icon : true,
-					message : 'niu window'
-				}
-			});
+			me.lib.buildPopup(me, cfg);
 		},
 		callAlert:function() {
 			var me = this;
