@@ -1,23 +1,29 @@
 var _commLib = function () {
    
     this.buildPopup = function(o, setting)  {
-        let caller_name = arguments.callee.caller.name;
+       let caller_name = arguments.callee.caller.name,
+           f_list = {},
+           ModalPopup_cfg = {};
        alert(caller_name);
        
         for (var key in setting) {
-            if (setting.function) {
+            if (key == 'function') {
                   for (var v in setting.function) {
-                      if (typeof setting.function[v] === 'function') {
+                     if (typeof setting.function[v] === 'function') {
+                        if !f_list
                         o[ caller_name + '_' + v] = setting.function[v];
+                        f_list[v] = caller_name + '_' + v;
                         delete setting.function[v];
-                      }
+                     }
                   }
-             }              
+             } else {
+                ModalPopup_cfg[key] = setting[key];
+             }
            
         }
         o.setState({
             ModalPopup:{
-                messageFn : caller_name + '_message',
+                function : f_list,
                 box_class : 'alert alert-success',
                 popup_type : 'alert',
                 close_icon : true,
