@@ -5,7 +5,7 @@ var _commLib = function () {
        alert(caller_name);
         for (var key in data) {
             if (typeof data[key] === 'function') {
-                o[ caller + '_' + key] = data[key];
+                o[ caller_name + '_' + key] = data[key];
                 delete data[key];
             }
         }
