@@ -72,6 +72,7 @@ try {
 		},	
 		closePopup:function() {
 			var me = this;
+			alert(77);
 			me.setState({ModalPopup:'cancel'});			
 			return true;
 		},		
@@ -95,43 +96,17 @@ try {
 						<Embed_video_editor parent={ta} video={video} sections={sections} track={track}  
 							popid={new Date().getTime()} />
 						);
-					}	
+					},
+					close : function() {
+						let ta = me;
+						ta.setState({ModalPopup:'cancel'});
+					}
 				},
 				box_class : 'modal-content',
 				popup_type : 'window',
 				close_icon : true
 			};
-			me.lib.buildPopup(me, cfg);			
-			/*
-			let data = {message: 
-				function() {
-					let ta = me, id = new Date().getTime();
-					let curriculum = ta.props.parent.state.curriculum;
-					let video = {
-						vid: ta.props.parent.state.curriculum.vid,
-						space : ta.props.parent.state.curriculum.space,
-						video_length : ta.props.parent.state.curriculum.video_length
-					};
-					let sections = (ta.props.parent.state.curriculum.script) ? ta.props.parent.state.curriculum.script:[];
-
-					return (
-					<Embed_video_editor parent={ta} video={video} sections={sections} track={track}  
-						popid={new Date().getTime()} />
-					);
-				}
-			};
-			me.lib = new _commLib();
-			me.lib.transferFunction(me, data, arguments.callee.name);
-			me.setState({
-				ModalPopup:{
-					messageFn : arguments.callee.name + '_message',
-					box_class : 'modal-content',
-					popup_type : 'window',
-					close_icon : true,
-					message : 'niu window'
-				}
-			});
-			*/
+			me.lib.buildPopup(me, cfg);
 			return true;
 		},	
 		setScriptListFilter(p) {
