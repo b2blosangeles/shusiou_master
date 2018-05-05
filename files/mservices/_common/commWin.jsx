@@ -58,7 +58,7 @@ try {
 									style={{display:close_icon}}>
 									&times;
 								</button>
-								{me.callSection['body']()}
+								{me.callSection('body')}
 							</div>
 						  </div>
 					</div>	
