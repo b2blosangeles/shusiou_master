@@ -23,7 +23,7 @@ try {
 		callSection : function(code) {
 			var me = this;
 			console.log('---me.props.parent[me.props.parent.state.ModalPopup--->');
-			console.log(me.props.parent[me.props.parent.state.ModalPopup);
+			console.log(me.props.parent.state.ModalPopup);
 			if ((me.props.parent) && 
 			    (me.props.parent.state.ModalPopup) && 
 			    (me.props.parent.state.ModalPopup.section) &&
