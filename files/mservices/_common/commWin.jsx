@@ -25,9 +25,10 @@ try {
 			if ((me.props.parent) && 
 			    (me.props.parent.state.ModalPopup) && 
 			    (me.props.parent.state.ModalPopup.section) &&
+			    (me.props.parent.state.ModalPopup.section[code]) &&
 			    (typeof me.props.parent[me.props.parent.state.ModalPopup.section[code]] === 'function')	
 			   ) {
-				return me.props.parent[me.props.parent.state.ModalPopup.section[code]]();;
+				return me.props.parent[me.props.parent.state.ModalPopup.section[code]]();
 			} else {
 				return ''
 			}
