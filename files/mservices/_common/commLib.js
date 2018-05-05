@@ -3,12 +3,14 @@ var _commLib = function () {
     this.buildPopup = function(o, setting)  {
         let caller_name = arguments.callee.caller.name;
        alert(caller_name);
-        for (var key in setting) {
-            if (typeof setting[key] === 'function') {
-                o[ caller_name + '_' + key] = setting[key];
-                delete setting[key];
+       if (setting.function) {
+            for (var key in setting.function) {
+                if (typeof setting.function[key] === 'function') {
+                  o[ caller_name + '_' + key] = setting.function[key];
+                  delete setting.function[key];
+                }
             }
-        }
+       }   
         o.setState({
             ModalPopup:{
                 messageFn : caller_name + '_message',
