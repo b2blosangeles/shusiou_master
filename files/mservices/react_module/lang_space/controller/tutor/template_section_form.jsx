@@ -77,6 +77,32 @@ try {
 		},		
 		popupEditVideo: function(track) {
 			var me = this;
+			
+			var me = this;
+			let cfg = {
+				section: {
+					body : function() {
+						let ta = me, id = new Date().getTime();
+						let curriculum = ta.props.parent.state.curriculum;
+						let video = {
+							vid: ta.props.parent.state.curriculum.vid,
+							space : ta.props.parent.state.curriculum.space,
+							video_length : ta.props.parent.state.curriculum.video_length
+						};
+						let sections = (ta.props.parent.state.curriculum.script) ? ta.props.parent.state.curriculum.script:[];
+
+						return (
+						<Embed_video_editor parent={ta} video={video} sections={sections} track={track}  
+							popid={new Date().getTime()} />
+						);
+					}	
+				},
+				box_class : 'modal-content',
+				popup_type : 'window',
+				close_icon : true
+			};
+			me.lib.buildPopup(me, cfg);			
+			/*
 			let data = {message: 
 				function() {
 					let ta = me, id = new Date().getTime();
@@ -105,6 +131,7 @@ try {
 					message : 'niu window'
 				}
 			});
+			*/
 			return true;
 		},	
 		setScriptListFilter(p) {
