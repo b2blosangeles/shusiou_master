@@ -28,7 +28,9 @@ var _commLib = function () {
         o.setState({ModalPopup : ModalPopup_cfg});        
         
     }
-    
+    this.closePopup = function() {
+      alert('this.closePopup');  
+    }
     this.toHHMMSS = function(v, noms) {
         if (isNaN(v)) return v;
         var h = Math.floor(v / 3600),m = ("00" + Math.floor((v % 3600) / 60)).slice(-2),
