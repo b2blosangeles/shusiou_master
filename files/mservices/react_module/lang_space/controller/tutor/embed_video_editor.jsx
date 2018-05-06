@@ -209,8 +209,8 @@ try {
 								</video>
 								Movie clip :<span 
 								style={(me.state.track.s !== null)?{display:''}:{display:'none'}}		     
-								dangerouslySetInnerHTML={{__html: (me.state.track.t)?(me.toHHMMSS(me.state.track.s) + 
-								' - ' + me.toHHMMSS(me.state.track.s + me.state.track.t)):''}} />
+								dangerouslySetInnerHTML={{__html: (me.state.track.t)?(me.lib.toHHMMSS(me.state.track.s) + 
+								' - ' + me.lib.toHHMMSS(me.state.track.s + me.state.track.t)):''}} />
 
 								<button type="button" className="btn btn-default btn-xs video_editor_button" 
 									style={(me.state.track.t)?{display:''}:{display:'none'}}
