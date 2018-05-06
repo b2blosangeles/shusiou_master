@@ -69,7 +69,10 @@ try {
 				me.setState({c_tpl:(me.props.section.tpl)?me.props.section.tpl:data, 
 					data:me.props.section.data});
 			}	
-		},		
+		},
+		_closePopup : function() {
+			alert('niu');
+		},
 		popupEditVideo: function(track) {
 			var me = this;
 			
