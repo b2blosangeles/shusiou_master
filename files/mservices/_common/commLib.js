@@ -9,14 +9,8 @@ var _commLib = function () {
             if (key == 'section') {
                   for (var v in setting.section) {
                      if (typeof setting.section[v] === 'function') {
-                        if (v === '_closePopup') {
-                           alert(88);
-                           o[v] = setting.section[v];
-                           f_list[v] = v;
-                        } else {
-                            o[ caller_name + '_' + v] = setting.section[v];
-                            f_list[v] = caller_name + '_' + v;
-                        }  
+                        o[ caller_name + '_' + v] = setting.section[v];
+                        f_list[v] = caller_name + '_' + v;
                         delete setting.section[v];
                      }
                   }
