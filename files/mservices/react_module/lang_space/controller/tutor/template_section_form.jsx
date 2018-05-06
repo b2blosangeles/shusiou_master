@@ -90,7 +90,9 @@ try {
 						<Embed_video_editor parent={ta} video={video} sections={sections} track={track}  
 							popid={new Date().getTime()} />
 						);
-					},
+					}
+					/*,
+					
 					_closePopup : function() {
 						let ta = me;
 						ta.setState({ModalPopup:'cancel'});
@@ -98,7 +100,7 @@ try {
 					close : function() {
 						let ta = me;
 						ta.setState({ModalPopup:'cancel'});
-					}
+					}*/
 				},
 				box_class : 'modal-content',
 				popup_type : 'window',
