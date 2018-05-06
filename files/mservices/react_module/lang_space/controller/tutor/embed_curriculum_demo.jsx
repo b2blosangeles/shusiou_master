@@ -2,11 +2,12 @@ try {
 	var Embed_curriculum_demo =  React.createClass({
 		getInitialState: function() {
 			var me = this; 
+			me.lib = new _commLib();
 			return {};
 		},	
 		componentDidMount:function() {
 			var me = this;
-			me.lib = new _commLib();
+			
 			if (me.props.params.opt == 'new') {
 				me.props.parent.getVideoInfo(me.props.params.id,
 					function(data) {
