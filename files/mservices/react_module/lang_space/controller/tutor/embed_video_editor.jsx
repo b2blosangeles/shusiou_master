@@ -2,6 +2,7 @@ try {
 	var Embed_video_editor =  React.createClass({
 		getInitialState: function() {
 			var me = this;
+			me.lib = new _commLib();
 			me.video = me.props.video;
 			me.sections = me.props.sections;
 			return {
@@ -13,7 +14,7 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this, code = '';
-			me.lib = new _commLib();
+			
 			var p_video = $('#preview_video')[0];
 			if (p_video) {
 				p_video.ontimeupdate = function() {
