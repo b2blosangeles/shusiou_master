@@ -2,6 +2,7 @@ try {
 	var MyCurriculumById =  React.createClass({
 		getInitialState: function() {
 			var me = this;
+			me.lib = new _commLib();
 			return {
 				preview_time:0,
 				section:{},
