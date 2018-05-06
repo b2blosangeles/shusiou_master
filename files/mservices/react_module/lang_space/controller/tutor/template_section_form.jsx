@@ -2,6 +2,7 @@ try {
 	var TemplateSectionForm =  React.createClass({
 		getInitialState: function() {
 			var me = this; 
+			me.lib = new _commLib();
 			return {
 				scriptLangs:[],
 				scriptList:[],
@@ -13,7 +14,7 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
-			me.lib = new _commLib();
+			
 			me.props.parent.props.route.env.engine({
 				url: _master_svr() +  '/api/content_data/getScripts.api',
 				method: "POST",
