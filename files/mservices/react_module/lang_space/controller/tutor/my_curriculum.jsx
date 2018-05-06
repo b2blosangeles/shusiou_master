@@ -138,29 +138,27 @@ try {
 			return true;
 		},			
 		deleteCurriculum: function(params, track) {
-			var me = this;
-			let data = {message: 
-				function() {
-					var ta = me;
-					return (
-					<div style={{padding:'1em'}}>
-						<p>It is going to clean up the curriculum please confirm:</p>
-						<button className="btn btn-danger btn_margin6 pull-right" onClick={ta.sendDeleteCurriculum.bind(ta)}>Confirm</button>
-						<button className="btn btn-warning btn_margin6 pull-right" onClick={ta.closePopup.bind(ta)}>Cancel</button>
-					</div>
-					);
-				}
+			var me = this;			
+			let cfg = {
+				section: {
+					body : function() {
+						var ta = me;
+						return (
+							<div style={{padding:'1em'}}>
+								<p>It is going to clean up the curriculum please confirm:</p>
+								<button className="btn btn-danger btn_margin6 pull-right" onClick={ta.sendDeleteCurriculum.bind(ta)}>Confirm</button>
+								<button className="btn btn-warning btn_margin6 pull-right" onClick={ta.closePopup.bind(ta)}>Cancel</button>
+							</div>
+						);
+					}	
+				},
+				box_class : 'modal-content',
+				popup_type : 'window',
+				close_icon :false
 			};
-			let lib = new _commLib();
-			lib.transferFunction(me, data, arguments.callee.name);
-			me.setState({
-				ModalPopup:{
-					messageFn : arguments.callee.name + '_message',
-					box_class : 'modal-content',
-					popup_type : 'window',
-					close_icon : true
-				}
-			});
+			me.lib.buildPopup(me, cfg);			
+			
+			
 		},		
 		sendDeleteCurriculum:function() {
 			var me = this, curriculum_id = me.state.curriculum.curriculum_id;
