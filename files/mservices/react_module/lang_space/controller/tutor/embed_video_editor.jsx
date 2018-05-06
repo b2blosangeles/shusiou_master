@@ -14,7 +14,6 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this, code = '';
-			
 			var p_video = $('#preview_video')[0];
 			if (p_video) {
 				p_video.ontimeupdate = function() {
