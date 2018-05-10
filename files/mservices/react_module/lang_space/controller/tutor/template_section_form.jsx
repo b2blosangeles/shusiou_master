@@ -160,7 +160,7 @@ try {
 					auth:me.props.env.state.auth},
 					dataType: "JSON"
 			}, function( result) {
-				alert(JSON.stringify(result));
+				//alert(JSON.stringify(result));
 				//me.props.parent.refreshSections();
 				
 			},function( jqXHR, textStatus ) {
