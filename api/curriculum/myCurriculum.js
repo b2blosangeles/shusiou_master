@@ -370,6 +370,12 @@ var app = function(auth_data) {
 					};	
 					delete CP.data.S1.script;
 					*/
+					
+					try {
+						CP.data.S1.sections = JSON.parse(CP.data.S1.script);
+					} cache(e) {
+						CP.data.S1.sections = [];
+					}	
 					res.send({_spent_time:data._spent_time, status:data.status, data:CP.data.S1});
 				},
 				3000
