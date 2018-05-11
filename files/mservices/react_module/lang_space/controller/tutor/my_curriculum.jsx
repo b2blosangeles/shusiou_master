@@ -233,7 +233,7 @@ try {
 				
 				if (data.data.curriculum_id) {
 					me.setState({curriculum:data.data,
-					    sections:(data.data.script)?data.data.script:[]});
+					    sections:(data.data.script)?JSON.parse(data.data.script):[]});
 				} 
 				/*
 				if (data.data.curriculum_id) {
