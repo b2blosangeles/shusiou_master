@@ -123,7 +123,7 @@ try {
 				me.getCurriculumById(cid, function(data) {		
 					if (data.data.curriculum_id) {
 						me.setState({curriculum:data.data, 
-						sections: data.data.sections
+						sections: data.data.sections});
 					} 
 					me.leftBox(me.props.params);
 					me.rightBox(me.props.params);
@@ -213,7 +213,7 @@ try {
 				me.getCurriculumById(cid, function(data) {
 					if (data.data.curriculum_id) {
 						me.setState({curriculum:data.data,
-						sections: data.data.sections
+						sections: data.data.sections});
 					} 
 				});
 			},function( jqXHR, textStatus ) {
@@ -229,7 +229,7 @@ try {
 			me.getCurriculumById(me.state.curriculum.curriculum_id, function(data) {
 				if (data.data.curriculum_id) {
 					me.setState({curriculum:data.data,
-					sections: data.data.sections
+					sections: data.data.sections});
 				}
 			});			
 		},
