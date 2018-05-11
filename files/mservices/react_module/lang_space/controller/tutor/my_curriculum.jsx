@@ -230,10 +230,16 @@ try {
 			me.getCurriculumById(me.state.curriculum.curriculum_id, function(data) {
 				console.log('---data--->');
 				console.log(data);
+				
+				if (data.data.curriculum_id) {
+					me.setState({curriculum:data.data,
+					    sections:(data.data.script)?data.data.script:[]});
+				} 
+				/*
 				if (data.data.curriculum_id) {
 					me.setState({curriculum:data.data, section:{section_id:null},
 					sections:(data.data.sections)?data.data.sections:[]});
-				} 
+				} */
 			});			
 		},
 		getCurriculumById: function(curriculum_id, cbk) {
