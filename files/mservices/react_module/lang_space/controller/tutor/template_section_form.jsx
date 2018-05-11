@@ -161,7 +161,7 @@ try {
 					dataType: "JSON"
 			}, function( result) {
 				//alert(JSON.stringify(result));
-				//me.props.parent.refreshSections();
+				me.props.parent.refreshSections();
 				
 			},function( jqXHR, textStatus ) {
 				alert(JSON.stringify('error'));
