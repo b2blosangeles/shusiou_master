@@ -211,10 +211,9 @@ try {
 				} 
 				var cid = me.props.params['id'];
 				me.getCurriculumById(cid, function(data) {
-					alert(cid);
 					if (data.data.curriculum_id) {
 						me.setState({curriculum:data.data,
-						    sections:(data.data.script)?data.data.script:[]});
+						sections:(data.data.script)? JSON.parse(data.data.script):[]});
 					} 
 				});
 			},function( jqXHR, textStatus ) {
@@ -228,18 +227,10 @@ try {
 		refreshSections : function() {
 			let me = this;
 			me.getCurriculumById(me.state.curriculum.curriculum_id, function(data) {
-				console.log('---data--->');
-				console.log(data);
-				
 				if (data.data.curriculum_id) {
 					me.setState({curriculum:data.data,
-					    sections:(data.data.script)?JSON.parse(data.data.script):[]});
-				} 
-				/*
-				if (data.data.curriculum_id) {
-					me.setState({curriculum:data.data, section:{section_id:null},
-					sections:(data.data.sections)?data.data.sections:[]});
-				} */
+					sections:(data.data.script)? JSON.parse(data.data.script):[]});
+				}
 			});			
 		},
 		getCurriculumById: function(curriculum_id, cbk) {
