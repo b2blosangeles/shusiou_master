@@ -211,7 +211,7 @@ try {
 				} 
 				var cid = me.props.params['id'];
 				me.getCurriculumById(cid, function(data) {
-
+					alert(cid);
 					if (data.data.curriculum_id) {
 						me.setState({curriculum:data.data,
 						    sections:(data.data.script)?data.data.script:[]});
