@@ -373,7 +373,7 @@ var app = function(auth_data) {
 					
 					try {
 						CP.data.S1.sections = JSON.parse(CP.data.S1.script);
-					} cache(e) {
+					} catch (err) {
 						CP.data.S1.sections = [];
 					}	
 					res.send({_spent_time:data._spent_time, status:data.status, data:CP.data.S1});
