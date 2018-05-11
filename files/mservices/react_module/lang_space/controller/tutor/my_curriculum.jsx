@@ -228,6 +228,7 @@ try {
 		refreshSections : function() {
 			let me = this;
 			me.getCurriculumById(me.state.curriculum.curriculum_id, function(data) {
+				console.log('---data--->');
 				console.log(data);
 				if (data.data.curriculum_id) {
 					me.setState({curriculum:data.data, section:{section_id:null},
