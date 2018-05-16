@@ -167,16 +167,6 @@ try {
 				me.playSection();	
 			});
 			
-		},
-		adjustSection_bk:function(ds, dt) {
-			var me = this;
-			if (!me.changeAble(ds, dt)) return true;
-			var s = parseFloat(me.state.track.s) + parseFloat(ds); if (s<0) s=0;
-			var t = parseFloat(me.state.track.t) + parseFloat(dt); if (t>20) t=20; if (t<2) t=2;
-			me.setState({track:{s:s, t:t}}, function(){
-				me.playSection();	
-			});
-			
 		},		
 		bytesToSize:function (bytes) {
 		   var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
