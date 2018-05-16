@@ -220,7 +220,7 @@ try {
 									{(function() {
 										return (<span dangerouslySetInnerHTML=
 										{{__html: 'Start: ' + me.lib.toHHMMSS(me.state.data[v].s) + 
-										' To:' + me.lib.toHHMMSS(me.state.data[v].s + me.state.data[v].t)}}
+										' To:' + me.lib.toHHMMSS(parseInt(me.state.data[v].s) + parseInt(me.state.data[v].t))}}
 										/>)
 									})()}
 									<button className="btn btn-info btn-xs" 
