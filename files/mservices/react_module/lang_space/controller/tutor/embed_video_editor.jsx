@@ -114,7 +114,6 @@ try {
 			for (var i = 0; i < 2 * me.state.track.t; i++) {
 				A[A.length] = parseInt(me.state.track.s) + i * 0.5;
 			}
-			console.log(A);
 			return A.map(function(a,idx){
 				if (idx < 8 || idx > A.length - 8)  return (<span>
 					<_commObj code={'videoImage'}  
