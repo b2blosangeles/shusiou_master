@@ -2,6 +2,7 @@ try {
 	var TemplateSectionForm =  React.createClass({
 		getInitialState: function() {
 			var me = this; 
+			me.lib = new _commLib();
 			return {
 				scriptLangs:[],
 				scriptList:[],
@@ -13,6 +14,7 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
+			
 			me.props.parent.props.route.env.engine({
 				url: _master_svr() +  '/api/content_data/getScripts.api',
 				method: "POST",
@@ -69,24 +71,46 @@ try {
 					data:me.props.section.data});
 			}	
 		},
+		_closePopup : function() {
+			alert('niu');
+		},
 		popupEditVideo: function(track) {
-			let me = this, id = new Date().getTime();
-			let curriculum = me.props.parent.state.curriculum;
-			let video = {
-				vid:me.props.parent.state.curriculum.vid,
-				space:me.props.parent.state.curriculum.space,
-				video_length:me.props.parent.state.curriculum.video_length
-			};
-			//alert(JSON.stringify(video));
-			let sections = (me.props.parent.state.curriculum.script)?me.props.parent.state.curriculum.script:[];
+			var me = this;
 			
-			me.setState({ModalPlus:{type:'popup',  hold:0,
-				box_style:{top:'28px'},
-				title: (<span>Video Editor</span>),
-				message: (<Embed_video_editor parent={me} video={video} sections={sections} track={track}  popid={new Date().getTime()} />),
-				header:false,
-				footer:(<span/>)
-			}});			
+			var me = this;
+			let cfg = {
+				section: {
+					body : function() {
+						let ta = me, id = new Date().getTime();
+						let curriculum = ta.props.parent.state.curriculum;
+						let video = {
+							vid: ta.props.parent.state.curriculum.vid,
+							space : ta.props.parent.state.curriculum.space,
+							video_length : ta.props.parent.state.curriculum.video_length
+						};
+						let sections = (ta.props.parent.state.curriculum.script) ? ta.props.parent.state.curriculum.script:[];
+
+						return (
+						<Embed_video_editor parent={ta} video={video} sections={sections} track={track}  
+							popid={new Date().getTime()} />
+						);
+					}
+					/*,
+					
+					_closePopup : function() {
+						let ta = me;
+						ta.setState({ModalPopup:'cancel'});
+					},					
+					close : function() {
+						let ta = me;
+						ta.setState({ModalPopup:'cancel'});
+					}*/
+				},
+				box_class : 'modal-content',
+				popup_type : 'window',
+				close_icon : true
+			};
+			me.lib.buildPopup(me, cfg);
 			return true;
 		},	
 		setScriptListFilter(p) {
@@ -136,18 +160,12 @@ try {
 					auth:me.props.env.state.auth},
 					dataType: "JSON"
 			}, function( result) {
-				alert(JSON.stringify(result));
-				//me.props.parent.refreshSections();
+				me.props.parent.refreshSections();
 				
 			},function( jqXHR, textStatus ) {
 				alert(JSON.stringify('error'));
 				console.log('error');
 			});			
-		},		
-		closePopup:function() {
-			var me = this;
-			me.setState({ModalPlus:'cancel'});			
-			return true;
 		},		
 		templateSelectScript: function() {
 			let me = this, scriptLangs = me.state.scriptLangs, scriptList = me.state.scriptList;
@@ -201,8 +219,8 @@ try {
 								<span>
 									{(function() {
 										return (<span dangerouslySetInnerHTML=
-										{{__html: 'Start: ' + me.props.parent.toHHMMSS(me.state.data[v].s) + 
-										' To:' + me.props.parent.toHHMMSS(parseInt(me.state.data[v].s) + parseInt(me.state.data[v].t))}}
+										{{__html: 'Start: ' + me.lib.toHHMMSS(me.state.data[v].s) + 
+										' To:' + me.lib.toHHMMSS(parseInt(me.state.data[v].s) + parseInt(me.state.data[v].t))}}
 										/>)
 									})()}
 									<button className="btn btn-info btn-xs" 
@@ -225,7 +243,7 @@ try {
 							<div className="container-fluid" style={{padding:'6px', 'text-align':'center'}}>
 								{(function() {
 									if (me.props.parent.state.section.id != 'new') return (<button className="btn btn-danger" 
-									onClick={me.saveSection.bind(me, 'deleteSection')}>--Delete This Section</button>)
+									onClick={me.saveSection.bind(me, 'deleteSection')}>Delete This Section</button>)
 								})()}	
 								<button className="btn btn-default pull-left" onClick={me.props.parent.abortSection.bind(me)}>Abort Change</button>
 								<button className="btn btn-info pull-right" onClick={me.saveSection.bind(me, 'saveSection')}>Save</button>
@@ -247,6 +265,8 @@ try {
 				{me.tplSection()}
 				{/*JSON.stringify(me.state.c_tpl)*/}
 				<ModalPlus parent={me} />
+				<_commWin parent={me} />
+				<_commEng parent={me} />
 				</span>)
 		}
 	});	
