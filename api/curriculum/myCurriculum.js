@@ -370,6 +370,10 @@ var app = function(auth_data) {
 					};	
 					delete CP.data.S1.script;
 					*/
+					CP.data.S1.sections = [];
+					try {
+						CP.data.S1.sections = (CP.data.S1.script) ? JSON.parse(CP.data.S1.script) : [];
+					} catch (err) {}	
 					res.send({_spent_time:data._spent_time, status:data.status, data:CP.data.S1});
 				},
 				3000

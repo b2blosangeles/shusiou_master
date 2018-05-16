@@ -1,11 +1,13 @@
 try {
 	var Embed_curriculum_demo =  React.createClass({
 		getInitialState: function() {
-			var me = this;
+			var me = this; 
+			me.lib = new _commLib();
 			return {};
 		},	
 		componentDidMount:function() {
-			var me = this;			
+			var me = this;
+			
 			if (me.props.params.opt == 'new') {
 				me.props.parent.getVideoInfo(me.props.params.id,
 					function(data) {
@@ -39,47 +41,43 @@ try {
 		},
 		callWin:function() {
 			var me = this;
-			let data = {message: 
-				function() {
-					var ta = me;
-					return (
-						<div>{ta.state.ModalPopup.message}<br/><br/><br/><br/></div>
-					);
-				}
+			let cfg = {
+				section: {
+					body : function() {
+						var ta = me;
+						var msg = 'niu window';
+						return (
+							<div style={{padding:'1em'}}>
+								<p className="text-dark">
+									=={msg}==
+								</p>
+							</div>
+						);
+					}	
+				},
+				box_class : 'modal-content',
+				popup_type : 'window',
+				close_icon : true
 			};
-			let lib = new _commLib();
-			lib.transferFunction(me, data, arguments.callee.name);
-			me.setState({
-				ModalPopup:{
-					messageFn : arguments.callee.name + '_message',
-					box_class : 'modal-dialog modal-lg modal-content',
-					popup_type : 'window',
-					close_icon : true,
-					message : 'niu window'
-				}
-			});
+			me.lib.buildPopup(me, cfg);
 		},
 		callAlert:function() {
 			var me = this;
-			let data = {message: 
-				function() {
-					var ta = me;
-					return (
-						<div>{ta.state.ModalPopup.message}<br/><br/><br/><br/></div>
-					);
-				}
+			let cfg = {
+				section: {
+					body : function() {
+						var ta = me;
+						var info = "niu a niu";
+						return (
+							<div style={{padding:'0.5em'}}> - {info} - </div>
+						);
+					}	
+				},
+				box_class : 'alert alert-success',
+				popup_type : 'alert',
+				close_icon : true
 			};
-			let lib = new _commLib();
-			lib.transferFunction(me, data, arguments.callee.name);
-			me.setState({
-				ModalPopup:{
-					messageFn : arguments.callee.name + '_message',
-					box_class : 'alert alert-success',
-					popup_type : 'alert',
-					close_icon : true,
-					message : 'niu bi'
-				}
-			});
+			me.lib.buildPopup(me, cfg);
 		},		
 		render: function() {
 			var me = this;

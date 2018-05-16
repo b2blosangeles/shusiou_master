@@ -20,10 +20,15 @@ try {
 			var me = this;
 			me.props.parent.setState({ModalPopup:'cancel'});
 		},
-		callMessage : function() {
+		callSection : function(code) {
 			var me = this;
-			if ((me.props.parent) && (me.props.parent.state.ModalPopup) && (me.props.parent.state.ModalPopup.messageFn)) {
-				return me.props.parent[me.props.parent.state.ModalPopup.messageFn]();;
+			if ((me.props.parent) && 
+			    (me.props.parent.state.ModalPopup) && 
+			    (me.props.parent.state.ModalPopup.section) &&
+			    (me.props.parent.state.ModalPopup.section[code]) &&
+			    (typeof me.props.parent[me.props.parent.state.ModalPopup.section[code]] === 'function')	
+			   ) {
+				return me.props.parent[me.props.parent.state.ModalPopup.section[code]]();
 			} else {
 				return ''
 			}
@@ -41,33 +46,20 @@ try {
 			
 			switch(popup_type) {
 			    case 'alert':
-				return (			
-					<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">  
-						<div className="modal-dialog modal-lg" role="document">
-							<div className={box_class} style={box_style} role="alert">
-								<button type="button" className="close" 
-									onClick={me.closePopup.bind(me)}
-									style={{display:close_icon}}>
-									&times;
-								</button>
-								{me.callMessage()}
-							</div>
-						</div>
-					</div>	
-				);
-				break;
 			    case 'window':
 				return (			
 					<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
-						  <div className="modal-dialog modal-lg" role="document">
-							<div className={box_class} style={{padding:'1em'}} role="alert">
+						<div className="modal-dialog modal-lg" role="document">
+							<div className={box_class + ' container-fluid'} style={{padding:'0.5em'}}>
 								<button type="button" className="close" 
 									onClick={me.closePopup.bind(me)}
 									style={{display:close_icon}}>
 									&times;
 								</button>
-								{me.callMessage()}
-							</div>							  
+								{me.callSection('header')}
+								{me.callSection('body')}
+								{me.callSection('footer')}
+							</div>
 						  </div>
 					</div>	
 				);

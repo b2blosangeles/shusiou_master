@@ -2,6 +2,7 @@ try {
 	var Embed_video_editor =  React.createClass({
 		getInitialState: function() {
 			var me = this;
+			me.lib = new _commLib();
 			me.video = me.props.video;
 			me.sections = me.props.sections;
 			return {
@@ -53,15 +54,6 @@ try {
 				me.playSection();			
 			});
 
-		},
-		toHHMMSS:function(v, noms) {
-			if (isNaN(v)) return v;
-		  	var h = Math.floor(v / 3600),m = ("00" + Math.floor((v % 3600) / 60)).slice(-2), 
-		     		s = ("00" + (Math.floor(v) % 3600) % 60).slice(-2), ms = 1000 * (v - Math.floor(v));
-		     	// if (!noms) { ms = (ms)?'&#189;':''; }
-		     	if (!noms) { ms = (ms)?'.5':'.0'; }
-			else ms = '';			
-		  	return h + ':' + m + ':' + s + ms;
 		},		
 		videoBar:function() {
 			var me = this;
@@ -110,7 +102,8 @@ try {
 			if (p_video) p_video.pause();
 			v.s = me.state.track.s;
 			v.t = me.state.track.t;
-			me.props.parent.closePopup();		
+		//	me.props.parent._closePopup();
+			me.lib.closePopup(me);
 		},
 		showSectionImages: function() {
 			var me = this, A = [];
@@ -217,8 +210,8 @@ try {
 								</video>
 								Movie clip :<span 
 								style={(me.state.track.s !== null)?{display:''}:{display:'none'}}		     
-								dangerouslySetInnerHTML={{__html: (me.state.track.t)?(me.toHHMMSS(me.state.track.s) + 
-								' - ' + me.toHHMMSS(me.state.track.s + me.state.track.t)):''}} />
+								dangerouslySetInnerHTML={{__html: (me.state.track.t)?(me.lib.toHHMMSS(me.state.track.s) + 
+								' - ' + me.lib.toHHMMSS(me.state.track.s + me.state.track.t)):''}} />
 
 								<button type="button" className="btn btn-default btn-xs video_editor_button" 
 									style={(me.state.track.t)?{display:''}:{display:'none'}}
@@ -270,8 +263,8 @@ try {
 										 +&#189;</button>
 									<span 
 										style={(me.state.track.s !== null)?{display:''}:{display:'none'}}		     
-										dangerouslySetInnerHTML={{__html: (me.state.track.t)?(me.toHHMMSS(me.state.track.s) + 
-										' - ' + me.toHHMMSS(me.state.track.s + me.state.track.t)):''}} />
+										dangerouslySetInnerHTML={{__html: (me.state.track.t)?(me.lib.toHHMMSS(me.state.track.s) + 
+										' - ' + me.lib.toHHMMSS(me.state.track.s + me.state.track.t)):''}} />
 									
 									 <button type="button" className="btn btn-sm btn-success btn_margin3"
 										  style={me.disbleAdjustSection(-0.5, 0)}

@@ -2,6 +2,7 @@ try {
 	var MyCurriculumById =  React.createClass({
 		getInitialState: function() {
 			var me = this;
+			me.lib = new _commLib();
 			return {
 				preview_time:0,
 				section:{},
@@ -77,14 +78,6 @@ try {
 				return (<TemplateSectionForm env={me.props.route.env} parent={me} params={params} section_id={me.state.section.section_id} section={me.state.section} />);		
 			}
 		},
-		toHHMMSS:function(v, noms) {
-			if (isNaN(v)) return v;
-		  	var h = Math.floor(v / 3600),m = ("00" + Math.floor((v % 3600) / 60)).slice(-2), 
-		     		s = ("00" + (Math.floor(v) % 3600) % 60).slice(-2), ms = 1000 * (v - Math.floor(v));
-		     	if (!noms) { ms = (ms)?'&#189;':''; }
-		     	else ms = '';			
-		  	return h + ':' + m + ':' + s + ' ' + ms;
-		},
 		createSection:function() {
 			var me = this;
 			me.setState({section:{section_id:'new', section:{}}}, function() {});
@@ -130,7 +123,7 @@ try {
 				me.getCurriculumById(cid, function(data) {		
 					if (data.data.curriculum_id) {
 						me.setState({curriculum:data.data, 
-						    sections:(data.data.script)? JSON.parse(data.data.script):[]});
+						sections: data.data.sections});
 					} 
 					me.leftBox(me.props.params);
 					me.rightBox(me.props.params);
@@ -142,35 +135,31 @@ try {
 		},
 		closePopup:function() {
 			var me = this;
-		//	me.setState({ModalPlus:'cancel'});
 			me.setState({ModalPopup:'cancel'});
 			return true;
 		},			
 		deleteCurriculum: function(params, track) {
-			var me = this;
-			let data = {message: 
-				function() {
-					var ta = me;
-					return (
-					<div className="container-fluid">
-						<p>It is going to clean up the curriculum please confirm:</p>
-						<button className="btn btn-danger btn_margin6 pull-right" onClick={ta.sendDeleteCurriculum.bind(ta)}>Confirm</button>
-						<button className="btn btn-warning btn_margin6 pull-right" onClick={ta.closePopup.bind(ta)}>Cancel</button>
-					</div>
-					);
-				}
+			var me = this;			
+			let cfg = {
+				section: {
+					body : function() {
+						var ta = me;
+						return (
+							<div style={{padding:'1em'}}>
+								<p>It is going to clean up the curriculum please confirm:</p>
+								<button className="btn btn-danger btn_margin6 pull-right" onClick={ta.sendDeleteCurriculum.bind(ta)}>Confirm</button>
+								<button className="btn btn-warning btn_margin6 pull-right" onClick={ta.closePopup.bind(ta)}>Cancel</button>
+							</div>
+						);
+					}	
+				},
+				box_class : 'modal-content',
+				popup_type : 'window',
+				close_icon :false
 			};
-			let lib = new _commLib();
-			lib.transferFunction(me, data, arguments.callee.name);
-			me.setState({
-				ModalPopup:{
-					messageFn : arguments.callee.name + '_message',
-					box_class : 'modal-content',
-					box_style : {padding:'1em'},
-					popup_type : 'window',
-					close_icon : true
-				}
-			});
+			me.lib.buildPopup(me, cfg);			
+			
+			
 		},		
 		sendDeleteCurriculum:function() {
 			var me = this, curriculum_id = me.state.curriculum.curriculum_id;
@@ -222,10 +211,9 @@ try {
 				} 
 				var cid = me.props.params['id'];
 				me.getCurriculumById(cid, function(data) {
-
 					if (data.data.curriculum_id) {
 						me.setState({curriculum:data.data,
-						    sections:(data.data.script)?data.data.script:[]});
+						sections: data.data.sections});
 					} 
 				});
 			},function( jqXHR, textStatus ) {
@@ -240,9 +228,9 @@ try {
 			let me = this;
 			me.getCurriculumById(me.state.curriculum.curriculum_id, function(data) {
 				if (data.data.curriculum_id) {
-					me.setState({curriculum:data.data, section:{section_id:null},
-					sections:(data.data.sections)?data.data.sections:[]});
-				} 
+					me.setState({curriculum:data.data,
+					sections: data.data.sections});
+				}
 			});			
 		},
 		getCurriculumById: function(curriculum_id, cbk) {
@@ -293,6 +281,7 @@ try {
 						<video id="video_ad" className="video_ad"  src="" muted></video>
 					</div>
 					<_commWin parent={me} />
+					<_commEng parent={me} />
 				</div>
 			)
 		}
