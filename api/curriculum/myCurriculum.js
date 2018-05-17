@@ -44,7 +44,7 @@ var app = function(auth_data) {
 				    	'`data` = "' + data + '", ' +
 				    	'`start` = "' + start + '", ' +
 				    	'`end` = "' + end + '", ' +
-				   	'`created` = NOW()  WHERE `section_id` = "'+ section_id + '"';	
+				   	'`created` = NOW()  WHERE `section_id` = "' + section_id + '"';	
 				var connection = mysql.createConnection(cfg0);
 				connection.connect();
 					connection.query(str, function (error, results, fields) {
