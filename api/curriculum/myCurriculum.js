@@ -18,7 +18,7 @@ var app = function(auth_data) {
 	 cfgM.multipleStatements = true;
 	switch(opt) {
 		case 'saveSection':
-			let curriculum_id = req.body.data.curriculum_id,
+			var curriculum_id = req.body.data.curriculum_id,
 			    section_id = req.body.data.section_id,
 			    tpl = jsonToQueryString(req.body.data.tpl),
 			    data =  jsonToQueryString(req.body.data.reack),
