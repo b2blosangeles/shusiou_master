@@ -138,10 +138,11 @@ try {
 			let me = this, 
 			    data = {
 				    curriculum_id : me.props.parent.state.curriculum.curriculum_id,
-				    section_id: me.props.section_id, 
+				    section_id: me.props.section.section_id,
 				    tpl:me.state.c_tpl, 
-				    data:me.state.data, 
-				    c_section:me.state.c_section
+				    data:me.state.data
+				    //, 
+				    //c_section:me.state.c_section
 			    };
 			    console.log(data);
 			me.props.env.engine({
