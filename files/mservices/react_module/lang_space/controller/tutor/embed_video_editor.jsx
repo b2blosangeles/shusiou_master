@@ -73,12 +73,11 @@ try {
 						
 					if (idx >= Math.round(n * s0 / video_length ) && 
 						idx < Math.round(n * (s0 + t0) / video_length)) {
-							console.log(s0 + '---' + idx + '--' + t0);
 							return (<td width="1" style={{'background-color':'green'}}></td>)
 
 					}
 					for (var j = 0; j < me.sections.length; j++) {
-						// if (me.sections[j].id == me.state.track.id) continue;
+						if (me.sections[j].section_id == me.state.track.section_id) continue;
 						if (!me.sections[j] || !me.sections[j].data || !me.sections[j].data.track) {
 							continue;
 						}
