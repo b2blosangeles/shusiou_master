@@ -26,7 +26,7 @@ var app = function(auth_data) {
 			    start = req.body.data.data.track.s,
 			    end =  req.body.data.data.track.t;
 			
-			var str = (!section_id) ? 
+			var str = (section_id === 'new') ? 
 				'INSERT INTO  `curriculum_section_items` (`curriculum_id`,  `type` ,`tpl`, `data`, `start`, `end`, `created`)' + 
 				' VALUES ("' + curriculum_id + '",' +
 				'"test",' + "'" + tpl + "'," + "'" + data + "'," + "'" + start + "'," + "'" + end + "', NOW() " +
