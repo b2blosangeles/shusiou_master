@@ -22,10 +22,11 @@ var app = function(auth_data) {
 			    section_id = req.body.data.section_id,
 			    tpl = jsonToQueryString(req.body.data.tpl),
 			    data =  jsonToQueryString(req.body.data.reack),
-			    start =  JSON.stringify(req.body.data.track.s),
-			    end =  JSON.stringify(req.body.data.track.t);
+			    start = req.body.data.track.s,
+			    end =  req.body.data.track.t;
 			
 			//if (!section_id) {
+			/*
 				let str = 'INSERT INTO  `curriculum_section_items` (`curriculum_id`,  `type` ,`tpl`, `data`, `start`, `end`, `created`)' + 
 					' VALUES ("' + curriculum_id + '",' +
 					'"niuA",' +
@@ -34,8 +35,9 @@ var app = function(auth_data) {
 					"'" + start + "'," +
 					"'" + end + "'," +
 					'NOW()' +	
-				') ';			
-				res.send(str);
+				') ';	
+			*/	
+				res.send('str');
 			//}
 			break			
 		case 'deleteSection':
