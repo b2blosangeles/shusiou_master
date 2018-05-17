@@ -39,8 +39,8 @@ var app = function(auth_data) {
 				});
 			} else {
 				var str = 'UPDATE  `curriculum_section_items` SET `curriculum_id` = "' + curriculum_id + '", ' + 
-				    	"`type` = 'test3', " +
-				    	"`tpl` = '" + tpl + ', " +
+				    	'`type` = "test3", ' +
+				    	"`tpl` = '" + tpl + "', " +
 				    	"`data` = '" + data + "', " +
 				    	"`start` = '" + start + "', " +
 				    	"`end` = '" + end + "', " +
