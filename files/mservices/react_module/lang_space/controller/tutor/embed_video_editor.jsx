@@ -77,6 +77,9 @@ try {
 					}*/	
 					for (var j = 0; j < me.sections.length; j++) {
 						//if (me.sections[j].id == me.state.track.id) continue;
+						if (!me.sections[j] || !me.sections[j].data || me.sections[j].data.track) {
+							continue;
+						}
 						let s = parseFloat(me.sections[j].data.track.s),
 						    t = parseFloat(me.sections[j].data.track.t);
 						console.log(s + '---' + t);
