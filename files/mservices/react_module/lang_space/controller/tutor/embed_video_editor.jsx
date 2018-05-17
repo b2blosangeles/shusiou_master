@@ -67,17 +67,15 @@ try {
 			// console.log(me.sections);
 			return (
 				<table id="video_bar" width="100%" height="16" style={{'border':'1px solid #ddd'}}><tr>
-				{X.map(function(x, idx) {
-					/*	
+				{X.map(function(x, idx) {	
 					let s = parseFloat(me.state.track.s),
 					    t = parseFloat(me.state.track.t);
 					if (idx >= Math.round(n * s / video_length ) && 
 						idx < Math.round(n * (s + t) / video_length)) {
-						return (<td width="1" style={{'background-color':'red'}}></td>)
-					}*/	
+						return (<td width="1" style={{'background-color':'green'}}></td>)
+					}	
 					for (var j = 0; j < me.sections.length; j++) {
-						//if (me.sections[j].id == me.state.track.id) continue;
-						// console.log(me.sections[j]);
+						if (me.sections[j].id == me.state.track.id) continue;
 						if (!me.sections[j] || !me.sections[j].data || !me.sections[j].data.track) {
 							continue;
 						}
