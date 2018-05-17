@@ -75,7 +75,7 @@ try {
 						if (!me.sections[j] || !me.sections[j].data) continue;	
 						let s = parseFloat(me.sections[j].data.track.s),
 						    t = parseFloat(me.sections[j].data.track.t);
-						console.log(s + '---' + t);
+						console.log(s + '---' + t + '===' + me.state.section_id);
 						if (idx >= Math.round(n * s / video_length ) && 
 						    idx < Math.round((n * s + n * t) / video_length)) {
 							if (me.sections[j].section_id == me.state.section_id) {
