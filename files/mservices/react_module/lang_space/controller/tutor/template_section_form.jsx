@@ -76,8 +76,6 @@ try {
 		},
 		popupEditVideo: function(track) {
 			var me = this;
-			
-			var me = this;
 			let cfg = {
 				section: {
 					body : function() {
@@ -89,11 +87,10 @@ try {
 							video_length : ta.props.parent.state.curriculum.video_length
 						};
 						let sections = (ta.props.parent.state.curriculum.script) ? ta.props.parent.state.curriculum.script:[];
-						let section_id = ta.props.section_id;
-						alert(section_id);
+						let section_id = ta.state.section_id;
 						return (
 						<Embed_video_editor parent={ta} video={video} sections={sections} track={track}  
-							popid={new Date().getTime()} />
+							popid={new Date().getTime()} section_id={section_id} />
 						);
 					}
 				},
