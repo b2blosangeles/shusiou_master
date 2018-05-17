@@ -63,8 +63,8 @@ try {
 			
 			for (var i=0; i < n; i++) X[X.length] = '';
 			let video_length = me.video.video_length;
-			console.log('---X--->');
-			console.log(X);
+			console.log('==X==>');
+			console.log(me.sections);
 			return (
 				<table id="video_bar" width="100%" height="16" style={{'border':'1px solid #ddd'}}><tr>
 				{X.map(function(x, idx) {
