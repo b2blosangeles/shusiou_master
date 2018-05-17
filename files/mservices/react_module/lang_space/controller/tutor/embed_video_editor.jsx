@@ -5,6 +5,8 @@ try {
 			me.lib = new _commLib();
 			me.video = me.props.video;
 			me.sections = JSON.parse(me.props.sections);
+			me.section_id = JSON.parse(me.props.section_id);
+			alert('section_id-->' + section_id + '---' + me.props.parent.state.section_id);
 			return {
 				preview_time:0,
 				track:me.props.track,
