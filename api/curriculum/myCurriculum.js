@@ -195,8 +195,8 @@ var app = function(auth_data) {
 			_f['S0'] = function(cbk) {
 				var connection = mysql.createConnection(cfg0);
 				connection.connect();
-				var str = 'SELECT A.*, B.*, C.`script`, S.`space` FROM `curriculums` A LEFT JOIN  `video` B  ON A.vid = B.vid '+
-				    ' LEFT JOIN  `video_space` S  ON A.vid = S.vid  LEFT JOIN `curriculum_sections` C ON A.curriculum_id = C.curriculum_id ' +
+				var str = 'SELECT A.*, B.*, S.`space` FROM `curriculums` A LEFT JOIN  `video` B  ON A.vid = B.vid '+
+				    ' LEFT JOIN  `video_space` S  ON A.vid = S.vid ' +
 				    ' WHERE A.curriculum_id = "' + curriculum_id + '" AND  A.uid = "' + uid + '";';
 
 				connection.query(str, function (error, results, fields) {
@@ -213,7 +213,7 @@ var app = function(auth_data) {
 				var connection = mysql.createConnection(cfg0);
 				connection.connect();
 				var str = 'SELECT * FROM `curriculum_sections`' +
-				    ' WHERE A.curriculum_id = "' + curriculum_id + '" AND  A.uid = "' + uid + '";';
+				    ' WHERE `curriculum_id` = "' + curriculum_id + '" AND  `uid` = "' + uid + '";';
 
 				connection.query(str, function (error, results, fields) {
 					connection.end();
