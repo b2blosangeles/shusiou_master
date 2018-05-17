@@ -212,7 +212,7 @@ var app = function(auth_data) {
 			_f['S1'] = function(cbk) {
 				var connection = mysql.createConnection(cfg0);
 				connection.connect();
-				var str = 'SELECT * FROM `curriculum_sections`' +
+				var str = 'SELECT * FROM `curriculum_section_items`' +
 				    ' WHERE `curriculum_id` = "' + curriculum_id + '";';
 
 				connection.query(str, function (error, results, fields) {
