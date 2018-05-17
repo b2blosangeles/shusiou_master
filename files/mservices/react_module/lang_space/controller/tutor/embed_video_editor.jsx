@@ -4,7 +4,6 @@ try {
 			var me = this;
 			me.lib = new _commLib();
 			me.video = me.props.video;
-			console.log(typeof me.props.sections);
 			me.sections = JSON.parse(me.props.sections);
 			return {
 				preview_time:0,
@@ -78,7 +77,7 @@ try {
 					}*/	
 					for (var j = 0; j < me.sections.length; j++) {
 						//if (me.sections[j].id == me.state.track.id) continue;
-						console.log(me.sections[j]);
+						// console.log(me.sections[j]);
 						if (!me.sections[j] || !me.sections[j].data || me.sections[j].data.track) {
 							continue;
 						}
