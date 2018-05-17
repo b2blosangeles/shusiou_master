@@ -192,7 +192,7 @@ var app = function(auth_data) {
 			var CP = new pkg.crowdProcess();
 			var _f = {};
 			var curriculum_id = req.body.curriculum_id;
-			_f['S1'] = function(cbk) {
+			_f['S0'] = function(cbk) {
 				var connection = mysql.createConnection(cfg0);
 				connection.connect();
 				var str = 'SELECT A.*, B.*, C.`script`, S.`space` FROM `curriculums` A LEFT JOIN  `video` B  ON A.vid = B.vid '+
@@ -208,31 +208,31 @@ var app = function(auth_data) {
 						cbk(results[0]);
 					}
 				});  
-			};		
+			};
+			_f['S1'] = function(cbk) {
+				var connection = mysql.createConnection(cfg0);
+				connection.connect();
+				var str = 'SELECT * FROM `curriculum_sections`' +
+				    ' WHERE A.curriculum_id = "' + curriculum_id + '" AND  A.uid = "' + uid + '";';
+
+				connection.query(str, function (error, results, fields) {
+					connection.end();
+					if (error) {
+						cbk(error.message);
+						return true;
+					} else {
+						cbk(results);
+					}
+				});  
+			};			
 			CP.serial(
 				_f,
 				function(data) {
-					/*
+					CP.data.S0.sections = [];
 					try {
-						CP.data.S1.sections =queryStringToJSON(CP.data.S1.script, []);
-						let v = CP.data.S1.sections;
-						for (var i=0; i < v.length; i++) {
-							if (!v[i].data.track) {
-								v[i].data.track = {};
-							} else {
-								if (v[i].data.track.s) v[i].data.track.s = 1 * v[i].data.track.s;
-								if (v[i].data.track.t) v[i].data.track.t = 1 * v[i].data.track.t;				
-							}
-						}
-					} catch (err) {
-					};	
-					delete CP.data.S1.script;
-					*/
-					CP.data.S1.sections = [];
-					try {
-						CP.data.S1.sections = (CP.data.S1.script) ? JSON.parse(CP.data.S1.script) : [];
+						CP.data.S0.sections = (CP.data.S1) ? CP.data.S1 : [];
 					} catch (err) {}	
-					res.send({_spent_time:data._spent_time, status:data.status, data:CP.data.S1});
+					res.send({_spent_time:data._spent_time, status:data.status, data:CP.data.S0});
 				},
 				3000
 			);
