@@ -90,7 +90,7 @@ try {
 						let section_id = ta.state.section_id;
 						return (
 						<Embed_video_editor parent={ta} video={video} sections={sections} track={track}  
-							popid={new Date().getTime()} section_id={section_id} />
+							popid={new Date().getTime()} sectionid={section_id} />
 						);
 					}
 				},
