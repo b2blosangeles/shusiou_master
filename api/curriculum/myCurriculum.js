@@ -26,32 +26,27 @@ var app = function(auth_data) {
 			    start = req.body.data.data.track.s,
 			    end =  req.body.data.data.track.t;
 			
-			if (!section_id) {
-				var str = 'INSERT INTO  `curriculum_section_items` (`curriculum_id`,  `type` ,`tpl`, `data`, `start`, `end`, `created`)' + 
-					' VALUES ("' + curriculum_id + '",' +
-					'"test",' + "'" + tpl + "'," + "'" + data + "'," + "'" + start + "'," + "'" + end + "', NOW() " +
-				    	' ) ';	
-				var connection = mysql.createConnection(cfg0);
-				connection.connect();
-					connection.query(str, function (error, results, fields) {
-					connection.end();
-					res.send(results);
-				});
-			} else {
-				var str = 'UPDATE  `curriculum_section_items` SET `curriculum_id` = "' + curriculum_id + '", ' + 
-				    	'`type` = "test3", ' +
-				    	"`tpl` = '" + tpl + "', " +
-				    	"`data` = '" + data + "', " +
-				    	"`start` = '" + start + "', " +
-				    	"`end` = '" + end + "', " +
-				   	"`created` = NOW()  WHERE `section_id` = '" + section_id + "'";	
-				var connection = mysql.createConnection(cfg0);
-				connection.connect();
-					connection.query(str, function (error, results, fields) {
-					connection.end();
-					res.send(str);
-				});			
-			}
+			var str = (!section_id) ? 
+				'INSERT INTO  `curriculum_section_items` (`curriculum_id`,  `type` ,`tpl`, `data`, `start`, `end`, `created`)' + 
+				' VALUES ("' + curriculum_id + '",' +
+				'"test",' + "'" + tpl + "'," + "'" + data + "'," + "'" + start + "'," + "'" + end + "', NOW() " +
+				' ) ' 
+				:	 
+				"UPDATE  `curriculum_section_items` SET " + 
+				"`type` = 'test8', " +
+				"`tpl` = '" + tpl + "', " +
+				"`data` = '" + data + "', " +
+				"`start` = '" + start + "', " +
+				"`end` = '" + end + "', " +
+				"`created` = NOW() " + 
+				" WHERE `section_id` = '" + section_id + "' AND  `curriculum_id` = '" + curriculum_id + "'";
+				
+			var connection = mysql.createConnection(cfg0);
+			connection.connect();
+				connection.query(str, function (error, results, fields) {
+				connection.end();
+				res.send(str);
+			});			
 			break			
 		case 'deleteSection':
 			var curriculum_id = req.body.data.curriculum_id;
