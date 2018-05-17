@@ -73,8 +73,10 @@ try {
 						
 					if (idx >= Math.round(n * s0 / video_length ) && 
 						idx < Math.round(n * (s0 + t0) / video_length)) {
-						console.log(s0 + '===0===' + t0);
-						return (<td width="1" style={{'background-color':'green'}}></td>)
+							console.log(s0 + '---0---' + t0);
+							return (<td width="1" style={{'background-color':'green'}}></td>)
+						}
+						console.log('---kkk---');
 					}	
 					for (var j = 0; j < me.sections.length; j++) {
 						if (me.sections[j].id == me.state.track.id) continue;
