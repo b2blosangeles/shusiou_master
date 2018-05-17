@@ -77,9 +77,8 @@ try {
 							return (<td width="1" style={{'background-color':'green'}}></td>)
 
 					}
-					console.log('---kkk---');
 					for (var j = 0; j < me.sections.length; j++) {
-						if (me.sections[j].id == me.state.track.id) continue;
+						// if (me.sections[j].id == me.state.track.id) continue;
 						if (!me.sections[j] || !me.sections[j].data || !me.sections[j].data.track) {
 							continue;
 						}
