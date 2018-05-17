@@ -144,29 +144,6 @@ var app = function(auth_data) {
 					}
 				}); 
 			};
-			/*
-			_f['S1'] = function(cbk) {
-				var str = 'SELECT * FROM  `curriculum_sections` WHERE `curriculum_id` = "' + 
-				    curriculum_id + '"; ';
-				var connection = mysql.createConnection(cfg0);
-				connection.connect();
-				connection.query(str, function (error, results, fields) {
-					connection.end();
-					if (error) {
-						cbk(error.message);
-						return true;
-					} else {
-						if (results) {
-							cbk(queryStringToJSON(results[0].script, []));
-						} else {
-							cbk(false);
-						}
-
-					}
-					
-				});  
-			};
-			*/
 			CP.serial(
 				_f,
 				function(data) {
@@ -269,66 +246,6 @@ var app = function(auth_data) {
 					}
 				});  
 			};
-			/*
-			_f['S2'] = function(cbk) {
-				var str = 'DELETE FROM  `curriculum_sections` WHERE `curriculum_id` = "' + req.body.curriculum_id + '"; ';
-				var connection = mysql.createConnection(cfg0);
-				connection.connect();
-				connection.query(str, function (error, results, fields) {
-					connection.end();
-					if (error) {
-						cbk(error.message);
-						return true;
-					} else {
-						if (results) {
-							cbk('results');
-						} else {
-							cbk(false);
-						}
-
-					}
-					
-				});  
-			};
-			
-			_f['S3'] = function(cbk) {
-				var section = (req.body.section)?req.body.section:{};
-				var sections = (req.body.sections)?req.body.sections:[];
-				if (section.id == 'new') {
-					section.id = new Date().getTime();
-					sections[sections.length] = section;
-				} else {
-					for (var i = 0; i < sections.length; i++) {
-						if (sections[i].id == section.id) {
-							sections[i] = section;
-							break;
-						}
-					}
-				}
-				var str = 'INSERT INTO  `curriculum_sections` (`curriculum_id`,`type`,`script`, `created`) VALUES ("' +
-				req.body.curriculum_id + '",' +
-				'"niuA",' +
-				'"' + encodeURIComponent(JSON.stringify(sections)) + '",' +
-				'NOW()' +	
-				'); ';
-				var connection = mysql.createConnection(cfg0);
-				connection.connect();
-				connection.query(str, function (error, results, fields) {
-					connection.end();
-					if (error) {
-						cbk(error.message);
-						return true;
-					} else {
-						if (results) {
-							cbk(results);
-						} else {
-							cbk(false);
-						}
-
-					}
-				});  
-			};
-			*/
 			CP.serial(
 				_f,
 				function(data) {
