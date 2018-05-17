@@ -95,16 +95,6 @@ try {
 							popid={new Date().getTime()} />
 						);
 					}
-					/*,
-					
-					_closePopup : function() {
-						let ta = me;
-						ta.setState({ModalPopup:'cancel'});
-					},					
-					close : function() {
-						let ta = me;
-						ta.setState({ModalPopup:'cancel'});
-					}*/
 				},
 				box_class : 'modal-content',
 				popup_type : 'window',
