@@ -18,13 +18,14 @@ var app = function(auth_data) {
 	 cfgM.multipleStatements = true;
 	switch(opt) {
 		case 'saveSection':
+			/*
 			var curriculum_id = req.body.data.curriculum_id,
 			    section_id = req.body.data.section_id,
 			    tpl = jsonToQueryString(req.body.data.tpl),
 			    data =  jsonToQueryString(req.body.data.reack),
 			    start = req.body.data.track.s,
 			    end =  req.body.data.track.t;
-			
+			*/
 			//if (!section_id) {
 			/*
 				let str = 'INSERT INTO  `curriculum_section_items` (`curriculum_id`,  `type` ,`tpl`, `data`, `start`, `end`, `created`)' + 
