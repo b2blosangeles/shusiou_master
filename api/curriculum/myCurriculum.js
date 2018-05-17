@@ -18,12 +18,32 @@ var app = function(auth_data) {
 	 cfgM.multipleStatements = true;
 	switch(opt) {
 		case 'saveSection':
+			let curriculum_id = req.body.data.curriculum_id,
+			    section_id = req.body.data.section_id,
+			    tpl = jsonToQueryString(req.body.data.tpl),
+			    data =  jsonToQueryString(req.body.data.reack),
+			    start =  JSON.stringify(req.body.data.track.s),
+			    end =  JSON.stringify(req.body.data.track.t);
+			
+			//if (!section_id) {
+				let str = 'INSERT INTO  `curriculum_section_items` (`curriculum_id`,  `type` ,`tpl`, `data`, `start`, `end`, `created`)' + 
+					' VALUES ("' + curriculum_id + '",' +
+					'"niuA",' +
+					"'" + tpl + "'," +
+					"'" + data + "'," +
+					"'" + start + "'," +
+					"'" + end + "'," +
+					'NOW()' +	
+				') ';			
+				res.send(str);
+			//}
+			break			
 		case 'deleteSection':
 			var curriculum_id = req.body.data.curriculum_id;
 			var CP = new pkg.crowdProcess();
 			var _f = {};
 			_f['S0'] = function(cbk) {
-	
+				
 				var str = 'SELECT * FROM  `curriculum_sections` WHERE `curriculum_id` = "' + 
 				    curriculum_id + '"; ';
 
