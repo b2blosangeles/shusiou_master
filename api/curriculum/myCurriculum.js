@@ -26,18 +26,29 @@ var app = function(auth_data) {
 			    start = req.body.data.data.track.s,
 			    end =  req.body.data.data.track.t;
 			
-			//if (!section_id) {
+			if (!section_id) {
 				let str = 'INSERT INTO  `curriculum_section_items` (`curriculum_id`,  `type` ,`tpl`, `data`, `start`, `end`, `created`)' + 
 					' VALUES ("' + curriculum_id + '",' +
 					'"test",' + "'" + tpl + "'," + "'" + data + "'," + "'" + start + "'," + "'" + end + "', NOW() " +
-				    	' ) ON DUPLICATE KEY UPDATE `created = NOW() ';	
+				    	' ) ';	
 				var connection = mysql.createConnection(cfg0);
 				connection.connect();
 					connection.query(str, function (error, results, fields) {
 					connection.end();
 					res.send(results);
 				});
-			//}
+			} else {
+				let str = 'INSERT INTO  `curriculum_section_items` (`curriculum_id`,  `type` ,`tpl`, `data`, `start`, `end`, `created`)' + 
+					' VALUES ("' + curriculum_id + '",' +
+					'"test",' + "'" + tpl + "'," + "'" + data + "'," + "'" + start + "'," + "'" + end + "', NOW() " +
+				    	' ) ';	
+				var connection = mysql.createConnection(cfg0);
+				connection.connect();
+					connection.query(str, function (error, results, fields) {
+					connection.end();
+					res.send(results);
+				});			
+			}
 			break			
 		case 'deleteSection':
 			var curriculum_id = req.body.data.curriculum_id;
