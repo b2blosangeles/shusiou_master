@@ -136,17 +136,17 @@ try {
 		},
 		saveSection:function(opt){
 			let me = this, 
-			    data = {section_id:me.props.section_id, tpl:me.state.c_tpl, data:me.state.data, c_section:me.state.c_section};
+			    data = {
+				    curriculum_id : me.props.parent.state.curriculum.curriculum_id,
+				    section_id:me.state.section_id, 
+				    tpl:me.state.c_tpl, 
+				    data:me.state.data, 
+				    c_section:me.state.c_section
+			    };
 			me.props.env.engine({
 				url: _master_svr() + '/api/curriculum/myCurriculum.api',
 				method: "POST",
-				data: { cmd:opt,
-				       data: {
-						curriculum_id : me.props.parent.state.curriculum.curriculum_id,
-						section:data,
-				       },	       
-					auth:me.props.env.state.auth},
-					dataType: "JSON"
+				data: { cmd:opt, data: data,  auth:me.props.env.state.auth}, dataType: "JSON"
 			}, function( result) {
 				me.props.parent.refreshSections();
 				
