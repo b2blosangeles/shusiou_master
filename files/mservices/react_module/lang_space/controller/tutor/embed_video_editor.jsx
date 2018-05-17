@@ -77,6 +77,7 @@ try {
 					}*/	
 					for (var j = 0; j < me.sections.length; j++) {
 						//if (me.sections[j].id == me.state.track.id) continue;
+						console.log(me.sections[j]);
 						if (!me.sections[j] || !me.sections[j].data || me.sections[j].data.track) {
 							continue;
 						}
