@@ -78,7 +78,7 @@ try {
 						console.log(s + '---' + t);
 						if (idx >= Math.round(n * s / video_length ) && 
 						    idx < Math.round((n * s + n * t) / video_length)) {
-							if (me.sections[j].section_id == me.state.track.section_id) {
+							if (me.sections[j].section_id == me.state.section_id) {
 								return (<td width="1" style={{'background-color':'green'}}></td>)
 							} else {
 								return (<td width="1" style={{'background-color':'red'}}></td>)
