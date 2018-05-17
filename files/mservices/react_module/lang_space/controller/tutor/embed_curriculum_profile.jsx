@@ -96,10 +96,10 @@ try {
 						    <tbody>
 						{me.props.parent.state.sections.map(function(rec) { return (<tr>
 							<td>
-								<span dangerouslySetInnerHTML={{__html: me.lib.toHHMMSS(rec.data.track.s)}} />    
+								<span dangerouslySetInnerHTML={{__html: me.lib.toHHMMSS(rec.data.start)}} />    
 							</td>
 							<td>	    
-								<span dangerouslySetInnerHTML={{__html:rec.data.track.t}} /> (s)    
+								<span dangerouslySetInnerHTML={{__html:rec.data.track.end}} /> (s)    
 							</td>	    
 							<td>
 								<button className="btn btn-warning btn-xs pull-right"
