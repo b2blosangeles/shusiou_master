@@ -27,7 +27,7 @@ var app = function(auth_data) {
 			    end =  req.body.data.data.track.t;
 			
 			if (!section_id) {
-				let str = 'INSERT INTO  `curriculum_section_items` (`curriculum_id`,  `type` ,`tpl`, `data`, `start`, `end`, `created`)' + 
+				var str = 'INSERT INTO  `curriculum_section_items` (`curriculum_id`,  `type` ,`tpl`, `data`, `start`, `end`, `created`)' + 
 					' VALUES ("' + curriculum_id + '",' +
 					'"test",' + "'" + tpl + "'," + "'" + data + "'," + "'" + start + "'," + "'" + end + "', NOW() " +
 				    	' ) ';	
@@ -38,7 +38,7 @@ var app = function(auth_data) {
 					res.send(results);
 				});
 			} else {
-				let str = 'UPDATE  `curriculum_section_items` SET `curriculum_id` = "' + curriculum_id + '", ' + 
+				var str = 'UPDATE  `curriculum_section_items` SET `curriculum_id` = "' + curriculum_id + '", ' + 
 				    	'`type` = "test3", ' +
 				    	'`tpl` = "' + tpl + '", ' +
 				    	'`data` = "' + data + '", ' +
@@ -49,7 +49,7 @@ var app = function(auth_data) {
 				connection.connect();
 					connection.query(str, function (error, results, fields) {
 					connection.end();
-					res.send(results);
+					res.send(str);
 				});			
 			}
 			break			
