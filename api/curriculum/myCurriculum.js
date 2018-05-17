@@ -30,19 +30,14 @@ var app = function(auth_data) {
 			
 				let str = 'INSERT INTO  `curriculum_section_items` (`curriculum_id`,  `type` ,`tpl`, `data`, `start`, `end`, `created`)' + 
 					' VALUES ("' + curriculum_id + '",' +
-					'"niuA",' +
-					"'" + tpl + "'," +
-					"'" + data + "'," +
-					"'" + start + "'," +
-					"'" + end + "'," +
-					'NOW()' +	
+					'"niuA",' + "'" + tpl + "'," + "'" + data + "'," + "'" + start + "'," + "'" + end + "', NOW()" +	
 				') ';	
-				//var connection = mysql.createConnection(cfg0);
-				//connection.connect();
-				//	connection.query(str, function (error, results, fields) {
-				//	connection.end();
+				var connection = mysql.createConnection(cfg0);
+				connection.connect();
+					connection.query(str, function (error, results, fields) {
+					connection.end();
 					res.send(str);
-				//});
+				});
 			//}
 			break			
 		case 'deleteSection':
