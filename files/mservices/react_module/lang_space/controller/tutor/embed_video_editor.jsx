@@ -5,7 +5,7 @@ try {
 			me.lib = new _commLib();
 			me.video = me.props.video;
 			me.sections = JSON.parse(me.props.sections);
-			me.section_id = JSON.parse(me.props.sectionid);
+			me.section_id = me.props.sectionid;
 			alert('section_id==-->' + me.sectionid + '---' );
 			return {
 				preview_time:0,
