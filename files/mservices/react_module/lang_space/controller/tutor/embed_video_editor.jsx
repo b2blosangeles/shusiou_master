@@ -4,7 +4,8 @@ try {
 			var me = this;
 			me.lib = new _commLib();
 			me.video = me.props.video;
-			me.sections = JSON.parser(me.props.sections);
+			console.log(typeof me.props.sections);
+			me.sections = JSON.parse(me.props.sections);
 			return {
 				preview_time:0,
 				track:me.props.track,
