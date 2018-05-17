@@ -68,25 +68,18 @@ try {
 			return (
 				<table id="video_bar" width="100%" height="16" style={{'border':'1px solid #ddd'}}><tr>
 				{X.map(function(x, idx) {	
-					let s0 = parseFloat(me.state.track.s),
-					    t0 = parseFloat(me.state.track.t);
-						
-					if (idx >= Math.round(n * s0 / video_length ) && 
-						idx < Math.round(n * (s0 + t0) / video_length)) {
-							return (<td width="1" style={{'background-color':'green'}}></td>)
-
-					}
 					for (var j = 0; j < me.sections.length; j++) {
-						if (me.sections[j].section_id == me.state.track.section_id) continue;
-						if (!me.sections[j] || !me.sections[j].data || !me.sections[j].data.track) {
-							continue;
-						}
+						if (!me.sections[j] || !me.sections[j].data) continue;	
 						let s = parseFloat(me.sections[j].data.track.s),
 						    t = parseFloat(me.sections[j].data.track.t);
 						console.log(s + '---' + t);
 						if (idx >= Math.round(n * s / video_length ) && 
 						    idx < Math.round((n * s + n * t) / video_length)) {
-							return (<td width="1" style={{'background-color':'red'}}></td>)
+							if (me.sections[j].section_id == me.state.track.section_id) {
+								return (<td width="1" style={{'background-color':'green'}}></td>)
+							} else {
+								return (<td width="1" style={{'background-color':'red'}}></td>)
+							}
 						}
 					}
 					return (<td width="1" style={{'background-color':'lightyellow'}}
