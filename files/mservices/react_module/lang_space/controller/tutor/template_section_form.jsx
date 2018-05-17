@@ -89,7 +89,8 @@ try {
 							video_length : ta.props.parent.state.curriculum.video_length
 						};
 						let sections = (ta.props.parent.state.curriculum.script) ? ta.props.parent.state.curriculum.script:[];
-
+						let section_id = ta.props.section_id;
+						alert(section_id);
 						return (
 						<Embed_video_editor parent={ta} video={video} sections={sections} track={track}  
 							popid={new Date().getTime()} />
