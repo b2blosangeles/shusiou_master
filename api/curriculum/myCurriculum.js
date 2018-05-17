@@ -37,12 +37,12 @@ var app = function(auth_data) {
 					"'" + end + "'," +
 					'NOW()' +	
 				') ';	
-				var connection = mysql.createConnection(cfg0);
-				connection.connect();
-				connection.query(str, function (error, results, fields) {
-					connection.end();
-					res.send(results);
-				});
+				//var connection = mysql.createConnection(cfg0);
+				//connection.connect();
+				//	connection.query(str, function (error, results, fields) {
+				//	connection.end();
+					res.send(str);
+				//});
 			//}
 			break			
 		case 'deleteSection':
