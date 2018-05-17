@@ -38,10 +38,13 @@ var app = function(auth_data) {
 					res.send(results);
 				});
 			} else {
-				let str = 'INSERT INTO  `curriculum_section_items` (`curriculum_id`,  `type` ,`tpl`, `data`, `start`, `end`, `created`)' + 
-					' VALUES ("' + curriculum_id + '",' +
-					'"test",' + "'" + tpl + "'," + "'" + data + "'," + "'" + start + "'," + "'" + end + "', NOW() " +
-				    	' ) ';	
+				let str = 'UPDATE  `curriculum_section_items` SET `curriculum_id` = "' + curriculum_id + '", ' + 
+				    	'`type` = "test3", ' +
+				    	'`tpl` = "' + tpl + '", ' +
+				    	'`data` = "' + data + '", ' +
+				    	'`start` = "' + start + '", ' +
+				    	'`end` = "' + end + '", ' +
+				   	'`created` = NOW()  WHERE `section_id` = "'+ section_id + '"';	
 				var connection = mysql.createConnection(cfg0);
 				connection.connect();
 					connection.query(str, function (error, results, fields) {
