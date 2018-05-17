@@ -27,11 +27,10 @@ var app = function(auth_data) {
 			    end =  req.body.data.data.track.t;
 			
 			//if (!section_id) {
-			
 				let str = 'INSERT INTO  `curriculum_section_items` (`curriculum_id`,  `type` ,`tpl`, `data`, `start`, `end`, `created`)' + 
 					' VALUES ("' + curriculum_id + '",' +
-					'"niuA",' + "'" + tpl + "'," + "'" + data + "'," + "'" + start + "'," + "'" + end + "', NOW()" +	
-				') ';	
+					'"test",' + "'" + tpl + "'," + "'" + data + "'," + "'" + start + "'," + "'" + end + "', NOW() " +
+				    	' ) ON DUPLICATE KEY UPDATE `created = NOW() ';	
 				var connection = mysql.createConnection(cfg0);
 				connection.connect();
 					connection.query(str, function (error, results, fields) {
