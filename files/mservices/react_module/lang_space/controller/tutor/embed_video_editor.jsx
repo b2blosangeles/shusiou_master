@@ -6,13 +6,12 @@ try {
 			me.video = me.props.video;
 			me.sections = JSON.parse(me.props.sections);
 			me.section_id = me.props.section.section_id;
-			alert('section_id==-->' + me.section_id + '---' );
 			return {
 				preview_time:0,
 				track:me.props.track,
 				video:{},
 				video_bar_width:0,
-				section_id : me.section_id
+				section_id : me.props.section.section_id
 			};
 		},	
 		componentDidMount:function() {
@@ -75,7 +74,7 @@ try {
 						if (!me.sections[j] || !me.sections[j].data) continue;	
 						let s = parseFloat(me.sections[j].data.track.s),
 						    t = parseFloat(me.sections[j].data.track.t);
-						console.log(s + '---' + t + '===' + me.state.section_id);
+
 						if (idx >= Math.round(n * s / video_length ) && 
 						    idx < Math.round((n * s + n * t) / video_length)) {
 							if (me.sections[j].section_id == me.state.section_id) {
