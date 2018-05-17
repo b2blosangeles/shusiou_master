@@ -87,11 +87,11 @@ try {
 							video_length : ta.props.parent.state.curriculum.video_length
 						};
 						let sections = (ta.props.parent.state.curriculum.script) ? ta.props.parent.state.curriculum.script:[];
-						let section_id = ta.props.section.section_id;
+						let section = ta.props.section.section;
 						alert(section_id);
 						return (
 						<Embed_video_editor parent={ta} video={video} sections={sections} track={track}  
-							popid={new Date().getTime()} sectionid={section_id} />
+							popid={new Date().getTime()} section={section} />
 						);
 					}
 				},
