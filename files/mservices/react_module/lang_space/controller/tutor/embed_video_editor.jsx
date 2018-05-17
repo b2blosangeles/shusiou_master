@@ -76,12 +76,13 @@ try {
 						return (<td width="1" style={{'background-color':'red'}}></td>)
 					}*/	
 					for (var j = 0; j < me.sections.length; j++) {
-						if (me.sections[j].id == me.state.track.id) continue;
+						//if (me.sections[j].id == me.state.track.id) continue;
 						let s = parseFloat(me.sections[j].data.track.s),
-						    t = parseFloat(me.sections[j].data.track.t);						
+						    t = parseFloat(me.sections[j].data.track.t);
+						console.log(s + '---' + t);
 						if (idx >= Math.round(n * s / video_length ) && 
 						    idx < Math.round((n * s + n * t) / video_length)) {
-							return (<td width="1" style={{'background-color':'lightgreen'}}></td>)
+							return (<td width="1" style={{'background-color':'red'}}></td>)
 						}
 					}
 					return (<td width="1" style={{'background-color':'lightyellow'}}
