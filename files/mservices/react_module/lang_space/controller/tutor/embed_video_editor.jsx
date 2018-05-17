@@ -11,7 +11,8 @@ try {
 				preview_time:0,
 				track:me.props.track,
 				video:{},
-				video_bar_width:0
+				video_bar_width:0,
+				section_id : me.section_id
 			};
 		},	
 		componentDidMount:function() {
