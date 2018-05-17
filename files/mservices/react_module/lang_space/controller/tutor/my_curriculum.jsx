@@ -75,7 +75,7 @@ try {
 			else if (!me.state.section.section_id) {
 				return (<Embed_curriculum_demo parent={me} params={params} video={me.state.video}/>);
 			} else {
-				return (<TemplateSectionForm env={me.props.route.env} parent={me} params={params} section_id={me.state.section.section_id} section={me.state.section} />);		
+				return (<TemplateSectionForm env={me.props.route.env} parent={me} params={params} sectionid={me.state.section.section_id} section={me.state.section} />);		
 			}
 		},
 		createSection:function() {
