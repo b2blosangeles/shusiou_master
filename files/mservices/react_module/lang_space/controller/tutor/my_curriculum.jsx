@@ -229,6 +229,9 @@ try {
 			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
 			return this.props.route.env.dictionary(v);
 		},
+		exitSection : function() {
+			this.setState({section : {},  section_id : null});			
+		},		
 		refreshSections : function() {
 			let me = this;
 			me.getCurriculumById(me.state.curriculum.curriculum_id, function(data) {
@@ -239,7 +242,9 @@ try {
 							return true;
 						}
 					}
-					me.setState({sections: data.data.sections, section : {},  section_id : null});
+					me.setState({sections: data.data.sections}, function() {
+						me.exitSection();
+					});
 				}
 			});			
 		},
