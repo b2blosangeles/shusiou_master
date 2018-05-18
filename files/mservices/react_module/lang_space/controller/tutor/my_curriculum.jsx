@@ -231,12 +231,13 @@ try {
 			let me = this;
 			me.getCurriculumById(me.state.curriculum.curriculum_id, function(data) {
 				if (data.data.curriculum_id) {
-					me.setState({
-						curriculum:data.data,
-						sections: data.data.sections, 
-						section : {}, 
-						section_id : null});
-					alert('refreshed');
+					for (var i = 0; i < data.data.sections.length; i++) {
+						if (me.state.section_id === data.data.sections[i].section_id) {
+							me.setState({sections: data.data.sections});
+							return true;
+						}
+					}
+					me.setState({sections: data.data.sections, section : {},  section_id : null});
 				}
 			});			
 		},
