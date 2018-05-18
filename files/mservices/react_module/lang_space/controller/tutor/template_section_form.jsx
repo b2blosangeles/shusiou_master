@@ -30,12 +30,13 @@ try {
 		},
 		componentDidUpdate:function(prePropos, prevState) {	
 			var me = this;
-			console.log('---me.props.section--->');
-			console.log(me.props.section);			
+			
 			if (me.state.script_id  !== prevState.script_id) {
 				me.loadScriptById(me.state.script_id);
 			}
 			if (me.props.section_id !== prePropos.section_id) {
+				console.log('---me.props.section--->');
+				console.log(me.props.section);				
 				me.setTpl({});
 			}
 		},
