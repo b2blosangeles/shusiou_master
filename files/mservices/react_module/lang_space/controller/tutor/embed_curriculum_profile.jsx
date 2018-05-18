@@ -116,7 +116,7 @@ try {
 						(function () { 
 							if (!me.props.parent.state.sections.length) return (
 								<button className="btn btn-warning btn_margin3" 
-								onClick={me.props.parent.createSection.bind(me)}>
+								onClick={me.props.parent.editSection.bind(me, 'new')}>
 									<i className="fa fa-plus" aria-hidden="true"></i> Create a new section
 								</button>)})()
 						} 
