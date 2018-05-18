@@ -32,7 +32,7 @@ try {
 			    
 			let CP = new me.crowdProcess(), Q = {};
 			for (var i = 0; i < eng.Q.length; i++) {
-				if (!Q[eng.Q[i].code) continue;
+				if (!eng.Q[eng.Q[i].code) continue;
 				if (!eng.Q[i].parallel) {
 					Q[eng.Q[i].code] = (function(i) {
 						return function(cbk) {
