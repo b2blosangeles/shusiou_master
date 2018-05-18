@@ -260,16 +260,6 @@ try {
 			if (!me.state.c_text) return {display:'none'};
 			else return {display:''};
 		},
-		/*
-		acceptSection: function(v) {
-			var me = this, section = me.state.section;	
-			section.o = v;
-			me.setState({section:section}, function() {
-				me.submitCurriculum(me.props.params);	
-				me.setState({section:{track:{}}});			
-			});
-		},
-		*/
 		render: function() {
 			var me = this;
 			return (
