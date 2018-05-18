@@ -42,7 +42,7 @@ try {
 				}
 			}
 			let qs = {};
-			if ((eng.i) && (eng.i.length))
+			if ((eng.i) && (eng.i.length)) {
 				for (var i = 0; i < eng.i.length; i++) {
 					qs['SA_'+i] = (function(i) {
 						return function(cbk) {
@@ -51,17 +51,19 @@ try {
 					})(i);
 				}
 			}
-			qs['SB_P'] = function(cbk) {
-				if (!eng.p || !eng.p.length) {
-					cbk(false)
-				} else {
+			
+			if (!eng.p || !eng.p.length) {
+				cbk(false)
+			} else {
+				qs['SB_P'] = function(cbk) {
 					CP0.parallel(qp, 
 						function(data1) {
 							cbk(data1.results);
 						}, time_out);
 				}
-			};
-			if ((eng.s) && (eng.s.length))
+			}
+			
+			if ((eng.s) && (eng.s.length)) {
 				for (var i = 0; i < eng.s.length; i++) {
 					qs['SC_'+i] = (function(i) {
 						return function(cbk) {
