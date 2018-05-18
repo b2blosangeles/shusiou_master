@@ -80,9 +80,6 @@ try {
 						section={me.state.section} section_id={me.state.section_id}/>);		
 			}
 		},
-		createSection:function(id) {
-			alert(id);
-		},
 		editSection:function(id) {
 			var me = this;
 			if (id === 'new') {
