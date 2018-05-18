@@ -14,7 +14,8 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
-			
+			console.log('---me.props.section--->');
+			console.log(me.props.section);
 			me.props.parent.props.route.env.engine({
 				url: _master_svr() +  '/api/content_data/getScripts.api',
 				method: "POST",
