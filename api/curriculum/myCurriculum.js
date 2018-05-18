@@ -40,13 +40,11 @@ var app = function(auth_data) {
 				"`length` = '" + end + "', " +
 				"`created` = NOW() " + 
 				" WHERE `section_id` = '" + section_id + "' AND  `curriculum_id` = '" + curriculum_id + "'";
-			res.send(str);
-			break;
 			var connection = mysql.createConnection(cfg0);
 			connection.connect();
 				connection.query(str, function (error, results, fields) {
 				connection.end();
-				res.send(str);
+				res.send(results);
 			});			
 			break			
 		case 'deleteSection':
