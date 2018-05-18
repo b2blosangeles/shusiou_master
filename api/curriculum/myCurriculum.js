@@ -27,7 +27,7 @@ var app = function(auth_data) {
 			    end =  req.body.data.data.track.t;
 			
 			var str = (section_id === 'new') ? 
-				'INSERT INTO  `curriculum_section_items` (`curriculum_id`,  `type` ,`tpl`, `data`, `start`, `end`, `created`)' + 
+				'INSERT INTO  `curriculum_section_items` (`curriculum_id`,  `type` ,`tpl`, `data`, `start`, `length`, `created`)' + 
 				' VALUES ("' + curriculum_id + '",' +
 				'"test",' + "'" + tpl + "'," + "'" + data + "'," + "'" + start + "'," + "'" + end + "', NOW() " +
 				' ) ' 
@@ -37,7 +37,7 @@ var app = function(auth_data) {
 				"`tpl` = '" + tpl + "', " +
 				"`data` = '" + data + "', " +
 				"`start` = '" + start + "', " +
-				"`end` = '" + end + "', " +
+				"`length` = '" + end + "', " +
 				"`created` = NOW() " + 
 				" WHERE `section_id` = '" + section_id + "' AND  `curriculum_id` = '" + curriculum_id + "'";
 			res.send(str);
