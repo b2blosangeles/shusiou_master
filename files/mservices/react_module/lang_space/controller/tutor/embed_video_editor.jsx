@@ -4,7 +4,7 @@ try {
 			var me = this;
 			me.lib = new _commLib();
 			me.video = me.props.video;
-			me.sections = JSON.parse(me.props.sections);
+			me.sections = me.props.sections;
 			me.section_id = me.props.section.section_id;
 			return {
 				preview_time:0,
