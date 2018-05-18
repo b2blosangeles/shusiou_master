@@ -215,7 +215,8 @@ try {
 								alert(v);
 								if (!me.state.data || !me.state.data[v]) {
 									me.setStateData(v, {});
-								}	
+								}
+								alert('v1--');
 								return (
 								<span>
 									{(function() {
