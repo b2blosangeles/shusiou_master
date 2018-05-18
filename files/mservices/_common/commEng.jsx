@@ -32,21 +32,24 @@ try {
 			    
 			let CP0 = new me.crowdProcess(), CP = new me.crowdProcess();
 			let qp = {};
-			for (var i = 0; i < eng.p.length; i++) {
-				qp['P_'+i] = (function(i) {
-					return function(cbk) {
-						me.ajax(eng.p[i], cbk, cbk);
-					}
-				})(i);
+			if ((eng.p) && (eng.p.length)) {
+				for (var i = 0; i < eng.p.length; i++) {
+					qp['P_'+i] = (function(i) {
+						return function(cbk) {
+							me.ajax(eng.p[i], cbk, cbk);
+						}
+					})(i);
+				}
 			}
-			
 			let qs = {};
-			for (var i = 0; i < eng.i.length; i++) {
-				qs['SA_'+i] = (function(i) {
-					return function(cbk) {
-						me.ajax(eng.i[i], cbk, cbk);
-					}
-				})(i);
+			if ((eng.i) && (eng.i.length))
+				for (var i = 0; i < eng.i.length; i++) {
+					qs['SA_'+i] = (function(i) {
+						return function(cbk) {
+							me.ajax(eng.i[i], cbk, cbk);
+						}
+					})(i);
+				}
 			}
 			qs['SB_P'] = function(cbk) {
 				if (!eng.p || !eng.p.length) {
@@ -57,13 +60,15 @@ try {
 							cbk(data1.results);
 						}, time_out);
 				}
-			};			
-			for (var i = 0; i < eng.s.length; i++) {
-				qs['SC_'+i] = (function(i) {
-					return function(cbk) {
-						me.ajax(eng.s[i], cbk, cbk);
-					}
-				})(i);
+			};
+			if ((eng.s) && (eng.s.length))
+				for (var i = 0; i < eng.s.length; i++) {
+					qs['SC_'+i] = (function(i) {
+						return function(cbk) {
+							me.ajax(eng.s[i], cbk, cbk);
+						}
+					})(i);
+				}
 			}
 			CP.serial(qs, 
 				function(data) {
