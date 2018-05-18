@@ -47,13 +47,16 @@ try {
 						me.ajax(eng.i[i], cbk, cbk);
 					}
 				})(i);
-			}			
+			}
 			qs['SB_P'] = function(cbk) {
-				CP0.parallel(qp, 
-					function(data1) {
-						cbk(data1.results);
-					},
-					time_out);	
+				if (!eng.p || !eng.p.length) {
+					cbk(false)
+				} else {
+					CP0.parallel(qp, 
+						function(data1) {
+							cbk(data1.results);
+						}, time_out);
+				}
 			};			
 			for (var i = 0; i < eng.s.length; i++) {
 				qs['SC_'+i] = (function(i) {
