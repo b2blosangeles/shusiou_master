@@ -37,7 +37,7 @@ try {
 			if (me.props.section_id !== prePropos.section_id) {
 				console.log('---me.props.section--->');
 				console.log(me.props.section);				
-				me.setTpl({});
+				me.setTpl(me.props.section.tpl);
 			}
 		},
 		loadScriptById:function(id) {
