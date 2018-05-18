@@ -31,7 +31,7 @@ try {
 			me.props.parent[eng.callbackfn] : function() { };
 			    
 			let CP = new me.crowdProcess(), Q = {};
-			for (var i = 0; i < eng.Q.length, i++) {
+			for (var i = 0; i < eng.Q.length; i++) {
 				if (!Q[eng.Q[i].code) continue;
 				if (!eng.Q[i].parallel) {
 					Q[eng.Q[i].code] = (function(i) {
@@ -43,14 +43,13 @@ try {
 					Q[eng.Q[i].code] = (function(i) {
 						return function(cbk) {
 							let CPP = new me.crowdProcess(), PQ = {};
-							for (var j = 0; i < eng.Q[i].list.length, i++) {
-								if (eng.Q[i].code + '_' + j) {
-									PQ[eng.Q[i].list[j].code] =  (function(j) {
-										return function(cbkp) {
-											me.ajax(eng.Q[i].list[j], cbk, cbkp);
-										}
-									})(j);
-								}
+							for (var j = 0; i < eng.Q[i].list.length; i++) {
+								if (!eng.Q[eng.Q[i].list[j].code) continue;
+								PQ[eng.Q[eng.Q[i].list[j].code] =  (function(j) {
+									return function(cbkp) {
+										me.ajax(eng.Q[i].list[j], cbkp, cbkp);
+									}
+								})(j);
 							}
 							CPP.parallel(PQ, 
 								function(data1) {
