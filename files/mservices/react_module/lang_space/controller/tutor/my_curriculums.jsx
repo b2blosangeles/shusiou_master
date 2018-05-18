@@ -12,15 +12,16 @@ try {
 		callEng:function() {
 			var me = this;
 			me.setState({_eng:{
-				pre_parallel:[
-					{url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+				Q:[
+					{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},
+					{parallel:true, list:[
+						{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+						 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
+						}
+					]},
+					{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
-				],				
-				parallel:[
-					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
-				],
-				after_parallel:[
-					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
 				],
 				hold:0,
 				setting: {timeout:30000},
