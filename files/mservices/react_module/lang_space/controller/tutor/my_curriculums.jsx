@@ -101,6 +101,8 @@ try {
 					<div className="content_bg opacity_bg">
 
 					</div>	
+					<_commWin parent={me} />
+					<_commEng parent={me} />
 				</div>
 			);
 		}
