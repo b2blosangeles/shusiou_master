@@ -40,8 +40,7 @@ try {
 		},
 		callEngCbk : function(data) {
 			let me = this;
-			
-			console.log('====callEngCbk=kkk==>');
+			console.log('====callEngCbk=test==>');
 			console.log(data);
 		},
 		callEng:function() {
