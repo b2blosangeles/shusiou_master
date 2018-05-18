@@ -87,7 +87,7 @@ try {
 								<th>Length</th>
 								<th>Text
 									<button className="btn btn-warning btn-xs pull-right" 
-									onClick={me.props.parent.createSection.bind(me)}>
+									onClick={me.props.parent.editSection.bind(me, 'new')}>
 										<i className="fa fa-plus" aria-hidden="true"></i>
 									</button>      
 								</th>
