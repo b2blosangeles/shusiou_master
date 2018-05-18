@@ -80,9 +80,6 @@ try {
 					data:me.props.section.data});
 			}	
 		},
-		//_closePopup : function() {
-		//	alert('niu');
-		//},
 		popupEditVideo: function(track) {
 			var me = this;
 			let cfg = {
@@ -95,13 +92,11 @@ try {
 							space : ta.props.parent.state.curriculum.space,
 							video_length : ta.props.parent.state.curriculum.video_length
 						};
-						let sections = (ta.props.parent.state.curriculum.script) ? ta.props.parent.state.curriculum.script:[];
-						let section = ta.props.section;
-						let section_id = ta.props.section_id;
-						alert(section_id);
+						let sections = (ta.props.sections) ? ta.props.sections.script:[];
 						return (
-						<Embed_video_editor parent={ta} video={video} sections={sections} track={track}  
-							popid={new Date().getTime()} section_id={section_id} />
+						<Embed_video_editor parent={ta} video={video} 
+							sections={sections} track={track}  
+							popid={new Date().getTime()} section_id={ta.props.section_id} />
 						);
 					}
 				},
