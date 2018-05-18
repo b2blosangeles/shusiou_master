@@ -232,7 +232,7 @@ try {
 			me.getCurriculumById(me.state.curriculum.curriculum_id, function(data) {
 				if (data.data.curriculum_id) {
 					me.setState({curriculum:data.data,
-					sections: data.data.sections});
+					sections: data.data.sections, section : {}, section_id : null});
 				}
 			});			
 		},
