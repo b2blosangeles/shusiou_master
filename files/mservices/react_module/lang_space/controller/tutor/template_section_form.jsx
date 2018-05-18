@@ -85,18 +85,16 @@ try {
 			let cfg = {
 				section: {
 					body : function() {
-						let ta = me, id = new Date().getTime();
-						let curriculum = ta.props.parent.state.curriculum;
+						let ta = me, popid = new Date().getTime();
 						let video = {
 							vid: ta.props.parent.state.curriculum.vid,
 							space : ta.props.parent.state.curriculum.space,
 							video_length : ta.props.parent.state.curriculum.video_length
 						};
-						let sections = (ta.props.sections) ? ta.props.sections :[];
 						return (
 						<Embed_video_editor parent={ta} video={video} 
-							sections={sections} track={track}  
-							popid={new Date().getTime()} section_id={ta.props.section_id} />
+							sections={ta.props.sections} track={track}  
+							popid={popid} section_id={ta.props.section_id} />
 						);
 					}
 				},
