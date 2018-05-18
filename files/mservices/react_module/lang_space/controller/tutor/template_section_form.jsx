@@ -92,7 +92,7 @@ try {
 							space : ta.props.parent.state.curriculum.space,
 							video_length : ta.props.parent.state.curriculum.video_length
 						};
-						let sections = (ta.props.sections) ? ta.props.sections.script:[];
+						let sections = (ta.props.sections) ? ta.props.sections :[];
 						return (
 						<Embed_video_editor parent={ta} video={video} 
 							sections={sections} track={track}  
