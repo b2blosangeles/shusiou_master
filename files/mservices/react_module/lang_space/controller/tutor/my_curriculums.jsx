@@ -6,8 +6,45 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			me.pullList();		
+			me.pullList();
+			me.callEng();
 		},
+		callEng:function() {
+			var me = this;
+			me.setState({_eng:{
+				i:[
+					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'get', data:{}}
+				],				
+				p:[
+					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
+				],
+				s:[
+					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
+				],
+				hold:0,
+				setting: {timeout:30000},
+				callbackfn: 'callEngCbk'
+				
+			}});
+		},
+		callEngCbk : function(data) {
+			let me = this;
+			console.log('====callEngCbk=test==>');
+			console.log(data);
+		},		
+		pullList1:function() {
+			var me = this;
+			me.props.route.env.engine({
+				url:  _master_svr() +  '/api/curriculum/myCurriculum.api',
+				method: "POST",
+				data: {cmd:'getList', auth:me.props.route.env.state.auth},
+				dataType: "JSON"
+			}, function( data) {
+				me.setState({list:data.data});
+			},function( jqXHR, textStatus ) {
+				console.log('error');
+			});		
+		},			
 		pullList:function() {
 			var me = this;
 			me.props.route.env.engine({
