@@ -273,11 +273,12 @@ try {
 			if (!me.state.c_text) return {display:'none'};
 			else return {display:''};
 		},
+		/*
 		abortSection: function() {
 			var me = this;
 			me.setState({section:{track:{}}});
 			me.componentDidMount();
-		},		
+		},*/		
 		acceptSection: function(v) {
 			var me = this, section = me.state.section;	
 			section.o = v;
