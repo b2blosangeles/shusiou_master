@@ -5,13 +5,12 @@ try {
 			me.lib = new _commLib();
 			me.video = me.props.video;
 			me.sections = me.props.sections;
-			me.section_id = me.props.section.section_id;
 			return {
 				preview_time:0,
 				track:me.props.track,
 				video:{},
 				video_bar_width:0,
-				section_id : me.props.section.section_id
+				section_id : me.props.section_id
 			};
 		},	
 		componentDidMount:function() {
