@@ -58,7 +58,7 @@ var app = function(auth_data) {
 			connection.connect();
 				connection.query(str, function (error, results, fields) {
 				connection.end();
-				res.send(str);
+				res.send(results);
 			});			
 			break		
 		case 'getList':
