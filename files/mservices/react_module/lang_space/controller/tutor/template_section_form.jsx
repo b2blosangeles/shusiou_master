@@ -86,6 +86,8 @@ try {
 		},
 		popupEditVideo: function(track) {
 			var me = this;
+			alert(track);
+			console.log(track);
 			let cfg = {
 				section: {
 					body : function() {
