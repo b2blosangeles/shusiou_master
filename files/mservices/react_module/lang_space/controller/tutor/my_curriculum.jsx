@@ -98,22 +98,6 @@ try {
 				} 
 			}  			       
 		},
-		
-		/*
-		deleteSection:function(id) {
-			var me = this;
-			var o = me.state.sections, v = [];	
-			for (var i = 0; i < o.length; i++) {
-				if (o[i].id == id) continue;
-				else v[v.length] = o[i]; 
-			}
-			me.setState({sections:v}, function() {
-				me.submitCurriculum(me.props.params);
-				me.setState({section:{track:{}}});
-			});
-			return true;       
-		},
-		*/
 		componentDidMount:function() {
 			var me = this;
 			var vid = '';	
