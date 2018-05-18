@@ -80,13 +80,11 @@ try {
 					data:me.props.section.data});
 			}	
 		},
-		_closePopup : function() {
-			alert('niu');
-		},
+		//_closePopup : function() {
+		//	alert('niu');
+		//},
 		popupEditVideo: function(track) {
 			var me = this;
-			alert(track);
-			console.log(track);
 			let cfg = {
 				section: {
 					body : function() {
