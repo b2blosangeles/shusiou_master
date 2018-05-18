@@ -62,9 +62,9 @@ try {
 			});			
 		},
 		setStateData(idx, data) {
-			var me = this, v = me.state.data;
-			v[idx] = data;
-			me.setState({data:v});
+			var me = this, //v = me.state.data;
+			//v[idx] = data;
+			me.setState({data:data});
 		},
 		handleChange(idx, event) {
 			var me = this;
@@ -213,7 +213,7 @@ try {
 						switch(v) {
 							case 'track':
 								alert(v);
-								if (!me.state.data) {
+								if (me.state.data[v]) {
 									me.setStateData(v, {});
 								}
 								alert('v1--');
