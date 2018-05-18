@@ -212,6 +212,7 @@ try {
 					{me.state.c_tpl.variables.map(function(v) {
 						switch(v) {
 							case 'track':
+								alert(v);
 								if (!me.state.data[v]) {
 									me.setStateData(v, {});
 								}	
