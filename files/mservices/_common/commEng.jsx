@@ -30,47 +30,38 @@ try {
 			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
 			me.props.parent[eng.callbackfn] : function() { };
 			    
-			let CP0 = new me.crowdProcess(), CP = new me.crowdProcess();
-			let qp = {};
-			if ((eng.p) && (eng.p.length)) {
-				for (var i = 0; i < eng.p.length; i++) {
-					qp['P_'+i] = (function(i) {
+			let CP = new me.crowdProcess(), Q = {};
+			for (var i = 0; i < eng.Q.length, i++) {
+				if (!Q[eng.Q[i].code) continue;
+				if (!eng.Q[i].parallel) {
+					Q[eng.Q[i].code] = (function(i) {
 						return function(cbk) {
-							me.ajax(eng.p[i], cbk, cbk);
+							me.ajax(eng.Q[i], cbk, cbk);
 						}
 					})(i);
-				}
-			}
-			let qs = {};
-			if ((eng.i) && (eng.i.length)) {
-				for (var i = 0; i < eng.i.length; i++) {
-					qs['SA_'+i] = (function(i) {
+				} else {
+					Q[eng.Q[i].code] = (function(i) {
 						return function(cbk) {
-							me.ajax(eng.i[i], cbk, cbk);
+							let CPP = new me.crowdProcess(), PQ = {};
+							for (var j = 0; i < eng.Q[i].list.length, i++) {
+								if (eng.Q[i].code + '_' + j) {
+									PQ[eng.Q[i].list[j].code] =  (function(j) {
+										return function(cbkp) {
+											me.ajax(eng.Q[i].list[j], cbk, cbkp);
+										}
+									})(j);
+								}
+							}
+							CPP.parallel(PQ, 
+								function(data1) {
+									cbk(data1.results);
+							}, time_out);
 						}
 					})(i);
+				
 				}
 			}
-			
-			if ((eng.p) && (eng.p.length)) {
-				qs['SB_P'] = function(cbk) {
-					CP0.parallel(qp, 
-						function(data1) {
-							cbk(data1.results);
-						}, time_out);
-				}
-			}
-			
-			if ((eng.s) && (eng.s.length)) {
-				for (var i = 0; i < eng.s.length; i++) {
-					qs['SC_'+i] = (function(i) {
-						return function(cbk) {
-							me.ajax(eng.s[i], cbk, cbk);
-						}
-					})(i);
-				}
-			}
-			CP.serial(qs, 
+			CP.serial(Q, 
 				function(data) {
 					let rst = [];
 					clearInterval(me._itvEng);
