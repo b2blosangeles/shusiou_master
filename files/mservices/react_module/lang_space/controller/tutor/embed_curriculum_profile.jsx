@@ -99,7 +99,7 @@ try {
 								<span dangerouslySetInnerHTML={{__html: me.lib.toHHMMSS(rec.start)}} />    
 							</td>
 							<td>	    
-								<span dangerouslySetInnerHTML={{__html:rec.end}} /> (s)    
+								<span dangerouslySetInnerHTML={{__html:rec.length}} /> (s)    
 							</td>	    
 							<td>
 								<button className="btn btn-warning btn-xs pull-right"
