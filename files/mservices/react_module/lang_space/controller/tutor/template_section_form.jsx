@@ -32,6 +32,7 @@ try {
 			var me = this;
 			
 			if (me.state.script_id  !== prevState.script_id) {
+				console.log('---kkk--->');
 				me.loadScriptById(me.state.script_id);
 			}
 			if (me.props.section_id !== prePropos.section_id) {
