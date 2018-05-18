@@ -237,7 +237,7 @@ try {
 									if (me.props.parent.state.section.id != 'new') return (<button className="btn btn-danger" 
 									onClick={me.saveSection.bind(me, 'deleteSection')}>Delete This Section</button>)
 								})()}	
-								<button className="btn btn-default pull-left" onClick={me.props.parent.abortSection.bind(me)}>Abort Change</button>
+								<button className="btn btn-default pull-left" onClick={me.props.parent.exitSection.bind(me)}>Abort Change</button>
 								<button className="btn btn-info pull-right" onClick={me.saveSection.bind(me, 'saveSection')}>Save</button>
 							</div>
 						</td></tr>	
