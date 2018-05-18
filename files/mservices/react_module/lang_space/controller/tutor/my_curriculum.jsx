@@ -80,24 +80,19 @@ try {
 						section={me.state.section} section_id={me.state.section_id}/>);		
 			}
 		},
-		createSection:function() {
-			var me = this;
-			me.setState({section:{section_id:'new', section:{}}}, function() {});
-		},
 		editSection:function(id) {
 			var me = this;
 			if (id === 'new') {
-				me.setState({section:{}, section_id:id});
-				return true;			
-			}
-			var o = me.state.sections, v = [];	
-			for (var i = 0; i < o.length; i++) {
-				if (o[i].section_id == id) {
-					me.setState({section:o[i], section_id:id});
-					return true;
-				}
-			} 
-			return true;  			       
+				me.setState({section:{}, section_id:id});			
+			} else {
+				var o = me.state.sections, v = [];	
+				for (var i = 0; i < o.length; i++) {
+					if (o[i].section_id == id) {
+						me.setState({section:o[i], section_id:id});
+						return true;
+					}
+				} 
+			}  			       
 		},
 		deleteSection:function(id) {
 			var me = this;
