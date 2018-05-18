@@ -213,7 +213,7 @@ try {
 						switch(v) {
 							case 'track':
 								alert(v);
-								if (!me.state.data[v]) {
+								if (!me.state.data || !me.state.data[v]) {
 									me.setStateData(v, {});
 								}	
 								return (
