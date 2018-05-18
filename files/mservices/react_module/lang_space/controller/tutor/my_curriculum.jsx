@@ -77,8 +77,10 @@ try {
 				if (!me.state.section_id) {
 					return (<Embed_curriculum_preview parent={me} params={params} video={me.state.video}/>);
 				} else {
-					return (<TemplateSectionForm env={me.props.route.env} parent={me} params={params} 
-						section={me.state.section} section_id={me.state.section_id}/>);	
+					return (<TemplateSectionForm env={me.props.route.env} 
+							parent={me} params={params} 
+							sections={me.state.sections}
+							section={me.state.section} section_id={me.state.section_id}/>);	
 				}
 			} 
 		},
