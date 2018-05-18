@@ -86,6 +86,10 @@ try {
 		},
 		editSection:function(id) {
 			var me = this;
+			if (id === 'new') {
+				me.setState({section:{}, section_id:id});
+				return true;			
+			}
 			var o = me.state.sections, v = [];	
 			for (var i = 0; i < o.length; i++) {
 				if (o[i].section_id == id) {
