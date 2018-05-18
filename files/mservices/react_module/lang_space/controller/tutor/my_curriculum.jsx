@@ -98,6 +98,8 @@ try {
 				} 
 			}  			       
 		},
+		
+		/*
 		deleteSection:function(id) {
 			var me = this;
 			var o = me.state.sections, v = [];	
@@ -111,6 +113,7 @@ try {
 			});
 			return true;       
 		},
+		*/
 		componentDidMount:function() {
 			var me = this;
 			var vid = '';	
