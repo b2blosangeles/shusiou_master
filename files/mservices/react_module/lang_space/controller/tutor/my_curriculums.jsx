@@ -18,8 +18,8 @@ try {
 					{code:'Pgetlist', parallel:true, list:[
 						{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 						 	data:{cmd:'getList', auth:me.props.route.env.state.auth},
-							dependence:['getlist]
-						}]
+							
+						}], dependence:['getlist]}
 					},
 					{code:'getlist2', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
