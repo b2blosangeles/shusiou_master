@@ -160,7 +160,7 @@ try {
 				method: "POST",
 				data: { cmd:opt, data: data,  auth:me.props.env.state.auth}, dataType: "JSON"
 			}, function( result) {
-				// me.props.parent.refreshSections();
+				me.props.parent.refreshSections();
 			},function( jqXHR, textStatus ) {
 				alert(JSON.stringify('error'));
 				console.log('error');
