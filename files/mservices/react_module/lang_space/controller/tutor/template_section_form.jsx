@@ -35,15 +35,16 @@ try {
 				console.log('---kkk--->');
 				me.loadScriptById(me.state.script_id);
 				me.setTpl({});
-			}
-			if (me.props.section_id !== prePropos.section_id) {
-				console.log('---me.props.section--->');
-				console.log(me.props.section);	
-				if (me.props.section_id === 'new') {
-					me.setTpl({});
-				} else {
-					me.setTpl(me.props.section.tpl);
-				}	
+			} else {
+				if (me.props.section_id !== prePropos.section_id) {
+					console.log('---me.props.section--->');
+					console.log(me.props.section);	
+					if (me.props.section_id === 'new') {
+						me.setTpl({});
+					} else {
+						me.setTpl(me.props.section.tpl);
+					}	
+				}
 			}
 		},
 		loadScriptById:function(id) {
