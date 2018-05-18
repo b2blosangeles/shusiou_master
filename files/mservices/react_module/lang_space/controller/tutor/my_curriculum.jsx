@@ -274,11 +274,6 @@ try {
 			else return {display:''};
 		},
 		/*
-		abortSection: function() {
-			var me = this;
-			me.setState({section:{track:{}}});
-			me.componentDidMount();
-		},*/		
 		acceptSection: function(v) {
 			var me = this, section = me.state.section;	
 			section.o = v;
@@ -286,7 +281,8 @@ try {
 				me.submitCurriculum(me.props.params);	
 				me.setState({section:{track:{}}});			
 			});
-		},		
+		},
+		*/
 		render: function() {
 			var me = this;
 			return (
