@@ -62,7 +62,8 @@ try {
 			});			
 		},
 		setStateData(idx, data) {
-			var me = this, //v = me.state.data;
+			var me = this; 
+			//v = me.state.data;
 			//v[idx] = data;
 			me.setState({data:data});
 		},
