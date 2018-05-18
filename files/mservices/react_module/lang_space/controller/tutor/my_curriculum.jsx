@@ -71,11 +71,8 @@ try {
 		},
 		rightBox:function(params) {
 			var me = this;
-			console.log(me.state.section);
 			if (params.opt == 'new') {
 				return (<Embed_curriculum_preview parent={me} params={params} video={me.state.video}/>);
-			//} else if (!me.state.section.section_id) {
-			//	return (<Embed_curriculum_demo parent={me} params={params} video={me.state.video}/>);
 			} else {
 				return (<TemplateSectionForm env={me.props.route.env} parent={me} params={params} 
 						section={me.state.section} section_id={me.state.section_id}/>);		
@@ -86,7 +83,7 @@ try {
 			if (id === 'new') {
 				me.setState({section:{}, section_id:id});			
 			} else {
-				var o = me.state.sections, v = [];	
+				let o = me.state.sections;	
 				for (var i = 0; i < o.length; i++) {
 					if (o[i].section_id == id) {
 						me.setState({section:o[i], section_id:id});
