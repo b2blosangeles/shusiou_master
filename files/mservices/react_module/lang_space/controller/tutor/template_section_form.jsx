@@ -14,7 +14,6 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
-
 			me.props.parent.props.route.env.engine({
 				url: _master_svr() +  '/api/content_data/getScripts.api',
 				method: "POST",
@@ -161,9 +160,9 @@ try {
 				method: "POST",
 				data: { cmd:opt, data: data,  auth:me.props.env.state.auth}, dataType: "JSON"
 			}, function( result) {
-				me.props.parent.refreshSections();
+				// me.props.parent.refreshSections();
 			},function( jqXHR, textStatus ) {
-				alert(JSON.stringify('error1'));
+				alert(JSON.stringify('error'));
 				console.log('error');
 			});			
 		},		
