@@ -52,9 +52,7 @@ try {
 				}
 			}
 			
-			if (!eng.p || !eng.p.length) {
-				cbk(false)
-			} else {
+			if ((eng.p) && (eng.p.length)) {
 				qs['SB_P'] = function(cbk) {
 					CP0.parallel(qp, 
 						function(data1) {
