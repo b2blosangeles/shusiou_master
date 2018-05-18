@@ -218,9 +218,12 @@ var app = function(auth_data) {
 				connection.query(str, function (error, results, fields) {
 					connection.end();
 					if (error) {
-						cbk(error.message);
+						cbk([]);
 						return true;
 					} else {
+						for (var i = 0; i < results.length; i++) {
+							results[i].data = JSON.parse(results[i].data);
+						}
 						cbk(results);
 					}
 				});  
