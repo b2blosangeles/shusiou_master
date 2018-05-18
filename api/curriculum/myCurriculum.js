@@ -223,6 +223,7 @@ var app = function(auth_data) {
 					} else {
 						for (var i = 0; i < results.length; i++) {
 							results[i].data = JSON.parse(results[i].data);
+							results[i].tpl = JSON.parse(results[i].tpl);
 						}
 						cbk(results);
 					}
