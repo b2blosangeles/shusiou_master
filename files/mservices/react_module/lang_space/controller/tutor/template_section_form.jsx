@@ -34,6 +34,7 @@ try {
 			if (me.state.script_id  !== prevState.script_id) {
 				console.log('---kkk--->');
 				me.loadScriptById(me.state.script_id);
+				me.setTpl({});
 			}
 			if (me.props.section_id !== prePropos.section_id) {
 				console.log('---me.props.section--->');
