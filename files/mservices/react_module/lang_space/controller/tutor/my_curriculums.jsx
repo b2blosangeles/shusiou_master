@@ -63,7 +63,7 @@ try {
 				hold:500,
 				setting: {timeout:6000},
 				callBack: function(data) {
-					let me = me;
+					// let me = me;
 					me.setState({list:data.getlist});	
 				}
 				
