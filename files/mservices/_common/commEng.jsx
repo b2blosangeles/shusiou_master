@@ -19,8 +19,7 @@ try {
 					rec.data.dependence = depdata;
 				}
 			};
-			console.log('rec===>');
-			console.log(rec);
+
 			let p = {
 				url:rec.url,
 				method: rec.method,
@@ -133,6 +132,10 @@ try {
 					clearInterval(me._itvEng);
 					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 					me.setState({ModalLoading: {}},function(){
+									console.log('rec===>');
+			console.log({result : result, report : report});
+						
+						
 						callBack({result : result, report : report});
 					});	
 				},
