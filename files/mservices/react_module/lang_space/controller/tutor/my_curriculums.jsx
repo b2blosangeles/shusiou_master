@@ -21,7 +21,8 @@ try {
 					 	list:[
 							{code:'Pgetlist2', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 						 		data:{cmd:'getList', auth:me.props.route.env.state.auth},
-						 		dependence:['getlist1']
+						 		dependence:['getlist1'],
+							 	dependence_mapping : function() { return data; }
 							}
 						]
 					},
