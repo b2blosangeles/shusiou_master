@@ -52,8 +52,34 @@ try {
 				//me.initState();	
 			//	me.setState({error:'Request failed: ' + textStatus});
 			});
+		},
+		videoUrlDecode:function() {
+			var me = this;
+			let engCfg = {
+				Q:[
+					{code:'getVieoInfo', url : _master_svr() + '/api/video/myVideo.api?opt=getYouTubeInfo', method:'post', 
+					 data:{video_url: me.state.video_url, auth:me.props.route.env.state.auth},
+					 time_out :6000	
+					}
+				],
+				hold:1,
+				setting: {timeout:3000},
+				callBack: function(data) {
+					console.log(data.EngResult);
+					var EngR = data.EngResult.getVieoInfo;
+					me.setState({vid:EngR.vid, title:EngR.title, length_seconds:EngR.length_seconds, thumbnail_url:EngR.thumbnail_url});
+					/*
+					me.setState({
+						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
+						EngR.getlist.data});	*/
+				}
+				
+			}
+			me.lib.setCallBack(engCfg, me);
+			me.setState({_eng:engCfg});
 		},		
-		videoUrlDecode:function(){
+		
+		videoUrlDecode0:function(){
 			var me = this;
 			$.ajax({
 				url:  _master_svr() + '/api/video/myVideo.api?opt=getYouTubeInfo',
