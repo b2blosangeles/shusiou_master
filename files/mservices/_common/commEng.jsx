@@ -34,7 +34,7 @@ try {
 			for (var i = 0; i < eng.Q.length; i++) {
 				if (!eng.Q[i].code || Q[eng.Q[i].code] || (err.length)) {
 					err[err.length] = 'missing or duplicated code ->' + JSON.stringify(eng.Q[i])
-					break;
+					continue;
 				}	
 				if (!eng.Q[i].parallel) {
 					Q[eng.Q[i].code] = (function(i) {
@@ -43,19 +43,25 @@ try {
 						}
 					})(i);
 				} else {
+					for (var j = 0; j < eng.Q[i].list.length; j++) {
+						if (!eng.Q[i].list[j].code || 
+						    (Q[eng.Q[i].list[j].code]) ||
+						    (err.length)
+						   ) {
+							err[err.length] = 'missing or duplicated code ->' + JSON.stringify(eng.Q[i])
+							continue;
+						}						
+						Q[eng.Q[i].list[j].code] = function(cbk) {
+							cbk(false);
+						}
+					}
+					if (err.length) {
+						continue;
+					}
 					Q[eng.Q[i].code] = (function(i) {
 						return function(cbk) {
 							let CPP = new me.crowdProcess(), PQ = {};
-							for (var j = 0; i < eng.Q[i].list.length; i++) {
-								if (!eng.Q[i].list[j].code || 
-								    (PQ[eng.Q[i].list[j].code]) ||
-								    (Q[eng.Q[i].list[j].code]) ||
-								    (err.length)
-								   ) {
-									err[err.length] = 'missing or duplicated code ->' + JSON.stringify(eng.Q[i])
-									cbk(false);
-									break;
-								}	
+							for (var j = 0; j < eng.Q[i].list.length; j++) {
 								PQ[eng.Q[i].list[j].code] =  (function(j) {
 									return function(cbkp) {
 										me.ajax(eng.Q[i].list[j], cbkp, cbkp);
