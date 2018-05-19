@@ -104,19 +104,7 @@ try {
 			me.lib.buildPopup(me, cfg);
 			return true;
 		},		
-		
-		videoInfo0:function(rec){
-			var me = this;
-			var id = new Date().getTime();
-			me.setState({ModalPlus:{type:'popup',  hold:0,
-				box_style:{top:'28px'},
-				title: (<span></span>),
-				message: (<Popup_my_video_info parent={me} rec={rec} id={me.state.popup_id}/>),
-				header:(<span></span>),
-				footer:(<span/>)
-			}});
-			return true;
-		},			
+					
 		videoDelete:function(vid){
 			var me = this;
 			$.ajax({
@@ -125,7 +113,7 @@ try {
 				data: {vid:vid, auth: me.props.route.env.state.auth},
 				dataType: "JSON"
 			}).done(function( data) {
-				me.pullList();
+				me.callEng();
 			}).fail(function( jqXHR, textStatus ) {
 				// me.pullList();
 			});
