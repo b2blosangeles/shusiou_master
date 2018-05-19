@@ -25,7 +25,7 @@ try {
 							 	mapping : function(data, dependence) { 
 									data.dependenceAAA = dependence;
 									return data; 
-								}
+								}.toString()
 							}
 						]
 					},
