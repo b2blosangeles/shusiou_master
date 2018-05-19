@@ -25,8 +25,8 @@ try {
 				*/
 			};
 
-			/* --- TO DO fill _egn ---
-			let engCfg = {
+			///* --- TO DO fill _egn ---
+			let engCfg1 = {
 				Q:[
 					{code:'getlist1', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},
@@ -47,10 +47,15 @@ try {
 				],
 				hold:0,
 				setting: {timeout:30000},
-				callbackfn: 'callEngCbk'
+				callbackfn: function() {
+					alert(jj);
+				}
 				
 			}
-			*/
+			//*/
+			let comm = new _commLib();
+			console.log(comm.obj2Json(engCfg1)));
+			
 			let engCfg = {
 				Q:[
 					{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
