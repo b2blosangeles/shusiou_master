@@ -66,7 +66,7 @@ try {
 				
 			}
 			let comm = new _commLib();
-			me.setState({_eng:comm.obj2Json(eng_cfg)});
+			me.setState({_eng:comm.obj2Json(engCfg)});
 		},			
 		componentDidUpdate:function() {
 			var me = this;
