@@ -19,7 +19,7 @@ try {
 				Q:[
 					{code:'getlist', url : _master_svr() +  '/api/video/myVideo.api?opt=getMyVideos', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth},
-					 time_out :10	
+					 time_out :6000	
 					},
 					{code:'getlistrr', url : _master_svr() +  '/api/video/myVideoA.api?opt=getMyVideos', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
