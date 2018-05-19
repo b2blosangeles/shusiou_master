@@ -33,8 +33,7 @@ try {
 				}
 				
 			}
-			let comm = new _commLib();
-			comm.setCallBack(engCfg, me);
+			me.lib.setCallBack(engCfg, me);
 			me.setState({_eng:engCfg});
 		},		
 		componentDidUpdate:function() {
