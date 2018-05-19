@@ -38,8 +38,9 @@ try {
 			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
 			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
 			me.props.parent[eng.callbackfn] : function() { };
-			    
-			me.CP = new me.crowdProcess(), Q = {}, err = [];
+			
+			me.CP = new me.crowdProcess();
+			let Q = {}, err = [];
 			for (var i = 0; i < eng.Q.length; i++) {
 	
 				if (!eng.Q[i].parallel) {
@@ -49,7 +50,7 @@ try {
 					}					
 					Q[eng.Q[i].code] = (function(i) {
 						return function(cbk) {
-							me.ajax(eng.Q[i], cbk, cbk);
+							me.ajax(CP, eng.Q[i], cbk, cbk);
 						}
 					})(i);
 				} else {
@@ -74,7 +75,7 @@ try {
 							for (var j = 0; j < eng.Q[i].list.length; j++) {
 								PQ[eng.Q[i].list[j].code] =  (function(j) {
 									return function(cbkp) {
-										me.ajax(eng.Q[i].list[j], cbkp, cbkp);
+										me.ajax(CP, eng.Q[i].list[j], cbkp, cbkp);
 									}
 								})(j);
 							}
@@ -98,7 +99,7 @@ try {
 				console.log(err);
 				return true;
 			} 
-			CP.serial(Q, 
+			me.CP.serial(Q, 
 				function(data) {
 					for (var idx in data.results) {
 						if (data.results[idx] === null) delete data.results[idx];
