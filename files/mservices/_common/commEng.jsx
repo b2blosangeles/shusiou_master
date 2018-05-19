@@ -111,8 +111,6 @@ try {
 			CP.serial(Q, 
 				function(data) {
 					let result = {}, report = {};
-					console.log('data--->');
-					console.log(data);
 					for (var idx in data.results) {
 						if (data.results[idx] === null) delete data.results[idx];
 						else {
@@ -130,8 +128,6 @@ try {
 					clearInterval(me._itvEng);
 					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 					me.setState({ModalLoading: {}},function(){
-						console.log('==={status:status, results:data.results===>>');
-						console.log({result : result, report : report});
 						callBack({result : result, report : report});
 					});	
 				},
