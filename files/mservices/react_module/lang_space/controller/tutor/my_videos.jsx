@@ -74,7 +74,7 @@ try {
 			me.setState({ModalPlus:'cancel'});			
 			return true;
 		},
-		gotoAdmin:function(v) {
+		videoAdmin0:function(v) {
 			var me = this;
 			var id = new Date().getTime();
 			me.setState({ModalPlus:{type:'popup',  hold:0,
@@ -86,6 +86,24 @@ try {
 			}});			
 			return true;
 		},
+		videoAdmin:function(v) {
+			var me = this;
+			let cfg = {
+				section: {
+					body : function() {
+						let ta = me, popid = new Date().getTime();
+						return (
+						<My_video_admin parent={ta} id={me.state.popid}/>
+						);
+					}
+				},
+				box_class : 'modal-content',
+				popup_type : 'window',
+				close_icon : true
+			};
+			me.lib.buildPopup(me, cfg);
+			return true;
+		},		
 		videoInfo: function(rec) {
 			var me = this;
 			let cfg = {
@@ -127,7 +145,7 @@ try {
 					<div className="container">
 						<div className="col-sm-4 col-lg-4 col-md-4"> 
 							<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
-								<a href="JavaScript:void(0)" onClick={me.gotoAdmin.bind(me,'admin')}>
+								<a href="JavaScript:void(0)" onClick={me.videoAdmin.bind(me,'admin')}>
 								<img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmAddStyle()} />
 								</a>	
 							</div>			
@@ -135,10 +153,7 @@ try {
 						{me.state.list.map(function(a){ 
 							if (a.space_status === 1) return(
 							<div className="col-sm-4 col-lg-4 col-md-4"> 
-									
-									
-									
-									
+	
 								<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
 									<div className="video_thumbnail_icon_group">
 										<button type="button" className="btn btn-danger"
