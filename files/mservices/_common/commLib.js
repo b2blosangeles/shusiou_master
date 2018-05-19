@@ -58,6 +58,7 @@ var _commLib = function () {
                let me = target;
                func(data);
                delete target['EngCbk_' + id];
+               delete o['EngCbk_' + id];
            }    
            o.callBack = 'EngCbk_' + id;
        }
