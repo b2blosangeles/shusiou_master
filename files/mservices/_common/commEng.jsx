@@ -5,11 +5,11 @@ try {
 			_EngIndex = (!_EngIndex || _EngIndex > 10000) ? 1 : (_EngIndex + 1);
 			return {id:_EngIndex, ModalLoading:{}};
 		},
-		ajax: function(rec, done, error) {
+		ajax: function(CP, rec, done, error) {
 			let me = this;
 			var comm = new _commLib();
 			if (rec.dependence) {
-				me.props.parent.mapping[code](me.CP, rec.data, rec.dependence);
+				me.props.parent.mapping[code](CP, rec.data, rec.dependence);
 			};
 			let p = {
 				url:rec.url,
@@ -39,8 +39,7 @@ try {
 			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
 			me.props.parent[eng.callbackfn] : function() { };
 			
-			me.CP = new me.crowdProcess();
-			let Q = {}, err = [];
+			let CP = new me.crowdProcess(), Q = {}, err = [];
 			for (var i = 0; i < eng.Q.length; i++) {
 	
 				if (!eng.Q[i].parallel) {
@@ -99,7 +98,7 @@ try {
 				console.log(err);
 				return true;
 			} 
-			me.CP.serial(Q, 
+			CP.serial(Q, 
 				function(data) {
 					for (var idx in data.results) {
 						if (data.results[idx] === null) delete data.results[idx];
