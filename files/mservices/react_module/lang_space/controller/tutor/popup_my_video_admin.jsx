@@ -70,7 +70,7 @@ try {
 		render:function() {
 			var me = this;
 			if (!me.state.vid) return (
-			<p  style={{'padding':'2em'}}>				
+			<p  style={{'padding':'1em'}}>				
 				<h5>Pulling YouTube Video</h5>	
 				<div className="input-group">
 				  <input type="text" className="form-control" placeholder="Input YouTube link" 
@@ -85,8 +85,8 @@ try {
 				</p>					
 			</p>);	
 			else return (
-			<span>						
-				<div style={{'padding':'2em'}}>	
+			<p style={{'padding':'1em'}}>						
+				<div >	
 					<div style={{float:'left', padding:'1em'}}> 
 						<img src={me.state.thumbnail_url}/>
 					</div>					
@@ -126,7 +126,7 @@ try {
 					}
 				})()}
 				</div>	
-			</span>);
+			</p>);
 		}
 	});
 	var My_video_admin_footer =  React.createClass({
