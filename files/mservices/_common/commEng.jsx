@@ -34,7 +34,7 @@ try {
 			p.data.auth = (reactCookie.load('auth'))?reactCookie.load('auth'):{};
 			$.ajax(p).done(function( data) {
 				if (typeof done == 'function') {
-					done(data);
+					done(data.results);
 				}
 			}).fail(function( jqXHR, textStatus ) {
 				if (typeof error == 'function') {
@@ -48,6 +48,7 @@ try {
 			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
 			me.props.parent[eng.callbackfn] : function() { };
 			
+			me.err = {};
 			let CP = new me.crowdProcess(), Q = {}, err = [];
 			for (var i = 0; i < eng.Q.length; i++) {
 	
