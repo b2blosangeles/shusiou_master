@@ -91,6 +91,9 @@ try {
 			} 
 			CP.serial(Q, 
 				function(data) {
+					for (var idx in data.results) {
+						if (data.results[idx] === null) delete data.results[idx];
+					}
 					if (err.length) {
 						console.log(err);
 						return true;
