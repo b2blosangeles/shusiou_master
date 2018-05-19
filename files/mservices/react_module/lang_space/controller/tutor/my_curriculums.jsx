@@ -69,7 +69,7 @@ try {
 				
 			}
 			let comm = new _commLib();
-			me.callEngCbk = comm.setCallBack(engCfg, me);
+			comm.setCallBack(engCfg, me);
 			me.setState({_eng:comm.obj2Json(engCfg)});
 		},			
 		componentDidUpdate:function() {
