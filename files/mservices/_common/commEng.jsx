@@ -41,8 +41,8 @@ try {
 			
 			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
 			
-			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
-			me.props.parent[eng.callbackfn] : function() { };
+			let callBack = ((eng.callBack) && (typeof me.props.parent[eng.callBack] == 'function')) ?
+			me.props.parent[eng.callBack] : function() { };
 			
 			console.log('eng--->');
 			console.log(eng);
@@ -120,7 +120,7 @@ try {
 					clearInterval(me._itvEng);
 					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 					me.setState({ModalLoading: {}},function(){
-						callbackfn(data.results);
+						callBack(data.results);
 					});	
 				},
 				time_out);	
