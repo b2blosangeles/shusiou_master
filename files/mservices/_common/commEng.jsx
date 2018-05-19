@@ -13,8 +13,8 @@ try {
 				data: rec.data,
 				dataType: (rec.dataType) ? rec.dataType : 'JSON'
 			}
-			if (rec.dependence) {
-				p.data.dependence = rec.dependence;
+			if (typeof rec.mapping === 'function') {
+				p.data = rec.mapping(p.data, rec.dependence);
 			}
 			p.data.auth = (reactCookie.load('auth'))?reactCookie.load('auth'):{};
 			$.ajax(p).done(function( data) {
