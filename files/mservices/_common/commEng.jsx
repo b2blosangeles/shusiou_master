@@ -7,9 +7,9 @@ try {
 		},
 		ajax: function(rec, done, error) {
 			var comm = new _commLib();
-			if (rec.mapping) {
-			var v = new Function('rec', '('+ rec.mapping +')(rec)');
-			  v(rec);  
+			if (rec.dependence) {
+			var v = new Function('rec', 'me.mapping(rec)');
+			  	v(rec);  
 			};   
 			//    var sum = new Function('a', 'b', 'alert(11);');
 			/*
