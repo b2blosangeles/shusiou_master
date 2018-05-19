@@ -25,7 +25,7 @@ try {
 				*/
 			};
 
-			///* --- TO DO fill _egn ---
+			/* --- TO DO fill _egn ---
 			let engCfg1 = {
 				Q:[
 					{code:'getlist1', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
@@ -52,9 +52,7 @@ try {
 				}
 				
 			}
-			//*/
-			let comm = new _commLib();
-			console.log(comm.obj2Json(engCfg1));
+			*/
 			
 			let engCfg = {
 				Q:[
@@ -63,7 +61,10 @@ try {
 				],
 				hold:500,
 				setting: {timeout:6000},
-				callbackfn: 'callEngCbk'
+				callbackfn: 'callEngCbk',
+				callback: function(data) {
+					alert('jj');
+				}
 				
 			}			
 			me.setState({_eng:engCfg});
