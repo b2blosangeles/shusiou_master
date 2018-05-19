@@ -25,7 +25,7 @@ try {
 				method: rec.method,
 				data: rec.data,
 				dataType: (rec.dataType) ? rec.dataType : 'JSON',
-				timeout: 3000
+				timeout: rec.time_out
 			}	
 			p.data.auth = (reactCookie.load('auth'))?reactCookie.load('auth'):{};
 			$.ajax(p).done(function( data) {
