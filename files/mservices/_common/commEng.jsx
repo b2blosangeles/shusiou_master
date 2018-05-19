@@ -7,7 +7,19 @@ try {
 		},
 		ajax: function(rec, done, error) {
 			var comm = new _commLib();
+			var v = new Function(a, b, 'console.log(b);');
+			  v(rec.data, b.dependence);  
+			    
+			    var sum = new Function('a', 'b', 'alert(11);');
+			/*
+			console.log(comm.obj2Json({
+				a:1,
+				b:function() {
+					alert(121);	
+				}
 			
+			}));
+			*/
 			console.log(comm.obj2Json({
 				a:1,
 				b:function() {
