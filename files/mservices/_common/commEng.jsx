@@ -23,7 +23,8 @@ try {
 				url:rec.url,
 				method: rec.method,
 				data: rec.data,
-				dataType: (rec.dataType) ? rec.dataType : 'JSON'
+				dataType: (rec.dataType) ? rec.dataType : 'JSON',
+				timeout: 3000
 			}	
 			p.data.auth = (reactCookie.load('auth'))?reactCookie.load('auth'):{};
 			$.ajax(p).done(function( data) {
@@ -110,12 +111,16 @@ try {
 			CP.serial(Q, 
 				function(data) {
 					let status = {};
+					console.log('data--->');
+					console.log(data);
 					for (var idx in data.results) {
 						if (data.results[idx] === null) delete data.results[idx];
 					}
-					for (var idx in data.status) {
-						status[idx] = data.status;
+					/*
+					for (var idx in data.results) {
+						status = data.results[idx].status;
 					}
+					*/
 					if (err.length) {
 						console.log(err);
 						return true;
