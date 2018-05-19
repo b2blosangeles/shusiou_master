@@ -9,7 +9,7 @@ try {
 			let me = this;
 			var comm = new _commLib();
 			if (rec.dependence) {
-				me.props.parent.mapping['Pgetlist2'](rec);
+				me.props.parent.mapping[code](me.CP, rec.data, rec.dependence);
 			};
 			let p = {
 				url:rec.url,
@@ -39,7 +39,7 @@ try {
 			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
 			me.props.parent[eng.callbackfn] : function() { };
 			    
-			let CP = new me.crowdProcess(), Q = {}, err = [];
+			me.CP = new me.crowdProcess(), Q = {}, err = [];
 			for (var i = 0; i < eng.Q.length; i++) {
 	
 				if (!eng.Q[i].parallel) {
