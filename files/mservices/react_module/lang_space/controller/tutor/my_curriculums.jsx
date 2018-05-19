@@ -12,10 +12,53 @@ try {
 		callEng:function() {
 			var me = this;
 			me.mapping = {
+				/* --- TO DO dependence mapping ---
 				'Pgetlist2' : function(CP, rec, dependenceData) {
 					rec.data.dependenceData_pppp = dependenceData;
 				}
+				*/
+			};
+			me.callEngCbk = function(data) {
+				let me = this;
+				console.log('====callEngCbk=test==>');
+				console.log(data);
+			};
+			/* --- TO DO fill _egn ---
+			let _cfg = {
+				Q:[
+					{code:'getlist1', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},
+					{code:'getlist2', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},					
+					{parallel:true, 
+					 	list:[
+							{code:'Pgetlist2', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+						 		data:{cmd:'getList', auth:me.props.route.env.state.auth},
+						 		dependence:['getlist1']
+							}
+						]
+					},
+					{code:'getlist3', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},
+					{code:'getlist4', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
+				],
+				hold:0,
+				setting: {timeout:30000},
+				callbackfn: 'callEngCbk'
+				
 			}
+			*/
+			let _cfg = {
+				Q:[
+					{code:'getlist1', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
+				],
+				hold:0,
+				setting: {timeout:30000},
+				callbackfn: 'callEngCbk'
+				
+			}			
 			me.setState({_eng:{
 				Q:[
 					{code:'getlist1', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
@@ -41,11 +84,7 @@ try {
 				
 			}});
 		},
-		callEngCbk : function(data) {
-			let me = this;
-			console.log('====callEngCbk=test==>');
-			console.log(data);
-		},		
+				
 		pullList1:function() {
 			var me = this;
 			me.props.route.env.engine({
