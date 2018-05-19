@@ -11,8 +11,6 @@ try {
 			if (rec.dependence) {
 				me.props.parent.mapping['Pgetlist2'](rec);
 			};
-			
-			var me = this;
 			let p = {
 				url:rec.url,
 				method: rec.method,
