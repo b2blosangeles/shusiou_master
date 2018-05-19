@@ -11,6 +11,12 @@ try {
 		},
 		callEng:function() {
 			var me = this;
+			me.mapping = {
+				'Pgetlist2' : function() {
+					alert(123);
+				}
+			
+			}
 			me.setState({_eng:{
 				Q:[
 					{code:'getlist1', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
@@ -21,10 +27,7 @@ try {
 					 	list:[
 							{code:'Pgetlist2', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 						 		data:{cmd:'getList', auth:me.props.route.env.state.auth},
-						 		dependence:['getlist1'],
-							 	mapping : function(data) { 
-									alert(data); 
-								}.toString()
+						 		dependence:['getlist1']
 							}
 						]
 					},
