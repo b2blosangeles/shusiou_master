@@ -103,7 +103,7 @@ try {
 				},
 				box_class : 'modal-content',
 				popup_type : 'window',
-				close_icon : true
+				close_icon : false
 			};
 			me.lib.buildPopup(me, cfg);
 			return true;
