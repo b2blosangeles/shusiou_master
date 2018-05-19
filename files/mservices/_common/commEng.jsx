@@ -114,9 +114,9 @@ try {
 			} 
 			CP.serial(Q, 
 				function(data) {
-					if (!data || data.status != 'success') {
-						callBack(data);
-					} else {
+					//if (!data || data.status != 'success') {
+					//	callBack(data);
+					//} else {
 						let result = {}, report = {};
 						console.log(data);
 						for (var idx in data.results) {
@@ -138,7 +138,7 @@ try {
 						me.setState({ModalLoading: {}},function(){
 							callBack({result : result, report : report});
 						});
-					}
+					//}
 				},
 				time_out);	
 			
