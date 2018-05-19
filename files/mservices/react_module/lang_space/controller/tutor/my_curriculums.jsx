@@ -20,7 +20,7 @@ try {
 			};
 			me.callEngCbk = function(data) {
 				let me = this;
-				me.setState({list:data});
+				// me.setState({list:data});
 				console.log('====callEngCbk=test==>');
 				console.log(data);
 			};
