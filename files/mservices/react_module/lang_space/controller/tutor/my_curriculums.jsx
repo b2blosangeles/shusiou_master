@@ -64,8 +64,9 @@ try {
 					alert('jj');
 				}
 				
-			}			
-			me.setState({_eng:engCfg});
+			}
+			let comm = new _commLib();
+			me.setState({_eng:comm.obj2Json(eng_cfg)});
 		},			
 		componentDidUpdate:function() {
 			var me = this;
