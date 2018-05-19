@@ -24,12 +24,7 @@ try {
 				method: rec.method,
 				data: rec.data,
 				dataType: (rec.dataType) ? rec.dataType : 'JSON'
-			}
-			if (typeof rec.mapping === 'function') {
-				p.data = rec.mapping(p.data, rec.dependence);
-			}
-			console.log(rec.mapping);
-			
+			}	
 			p.data.auth = (reactCookie.load('auth'))?reactCookie.load('auth'):{};
 			$.ajax(p).done(function( data) {
 				if (typeof done == 'function') {
