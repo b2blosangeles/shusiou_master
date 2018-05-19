@@ -20,7 +20,8 @@ try {
 			}
 		},		
 		close_admin:function(){
-			var me = this;  me.initState(); me.props.parent.closeAdmin();
+			var me = this;  
+			me.lib.closePopup(me);
 		},
 		handleChange:function(e) {
 			var me = this;
