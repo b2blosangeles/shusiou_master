@@ -44,12 +44,12 @@ try {
 			}).done(function( data) {
 				// me.videoDownload();
 				console.log(data);
-				me.props.parent.pullList();
 				me.close_admin();
-				me.initState();	
+				me.props.parent.callEng();
+				//me.initState();	
 			}).fail(function( jqXHR, textStatus ) {
 				me.close_admin();
-				me.initState();	
+				//me.initState();	
 			//	me.setState({error:'Request failed: ' + textStatus});
 			});
 		},		
