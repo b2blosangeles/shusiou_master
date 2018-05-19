@@ -14,21 +14,24 @@ try {
 			consoli.log(me.state.opt);
 			
 		},
-		pullList:function() {
+		callEng:function() {
 			var me = this;
-			$.ajax({
-				url:   _master_svr() +  '/api/video/myVideo.api?opt=getMyVideos',
-				method: "POST",
-				data: {auth:me.props.route.env.state.auth},
-				dataType: "JSON"
-			}).done(function( data) {
-				if (data.status == 'success') {
-					me.setState({list:data.data});
-				}	
-			}).fail(function( jqXHR, textStatus ) {
-				console.log('error');
-			});			
-		},
+			let engCfg = {
+				Q:[
+					{code:'getlist', url : _master_svr() +  '/api/video/myVideo.api?opt=getMyVideos', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
+				],
+				hold:500,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					me.setState({list:data.results.getlist});	
+				}
+				
+			}
+			let comm = new _commLib();
+			comm.setCallBack(engCfg, me);
+			me.setState({_eng:engCfg});
+		},		
 		componentDidUpdate:function() {
 			var me = this;
 		},		
@@ -154,9 +157,8 @@ try {
 
 					<br/><br/><br/><br/>
 					<ModalPlus parent={me} />
-					<div className="content_bg opacity_bg">
-
-					</div>	
+					<div className="content_bg opacity_bg"/>
+					<_commWin parent={me} /><_commEng parent={me} />
 				</div>
 			);
 		}
