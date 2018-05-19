@@ -111,8 +111,12 @@ try {
 			} 
 			CP.serial(Q, 
 				function(data) {
+					let status = {};
 					for (var idx in data.results) {
 						if (data.results[idx] === null) delete data.results[idx];
+					}
+					for (var idx in data.status) {
+						status[idx] = data.status;
 					}
 					if (err.length) {
 						console.log(err);
@@ -121,7 +125,7 @@ try {
 					clearInterval(me._itvEng);
 					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 					me.setState({ModalLoading: {}},function(){
-						callBack({results:data.results});
+						callBack({status:status, results:data.results});
 					});	
 				},
 				time_out);	
