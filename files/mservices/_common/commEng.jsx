@@ -3,11 +3,12 @@ try {
 	var _commEng = React.createClass({		
 		getInitialState: function() {
 			_EngIndex = (!_EngIndex || _EngIndex > 10000) ? 1 : (_EngIndex + 1);
+			let me = this;
+			me.lib = new _commLib();
 			return {id:_EngIndex, ModalLoading:{}};
 		},
 		ajax: function(CP, rec, done, error) {
 			let me = this;
-			var comm = new _commLib();
 			if (rec.dependence) {
 				var depdata = {};
 				for (var i = 0; i < rec.dependence.length; i++) {
@@ -42,7 +43,7 @@ try {
 			});			
 		},
 		cpCall: function(eng_cfg) {
-			let me = this, comm = new _commLib(), eng = comm.obj2Json(eng_cfg);
+			let me = this, eng = me.lib.obj2Json(eng_cfg);
 			
 			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
 			
