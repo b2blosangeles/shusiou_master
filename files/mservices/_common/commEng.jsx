@@ -114,6 +114,8 @@ try {
 			} 
 			CP.serial(Q, 
 				function(data) {
+					clearInterval(me._itvEng);
+					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 					if (!data || data.status != 'success') {
 						callBack(data);
 					} else {
@@ -133,8 +135,6 @@ try {
 							console.log(err);
 							return true;
 						}
-						clearInterval(me._itvEng);
-						viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 						me.setState({ModalLoading: {}},function(){
 							callBack({result : result, report : report});
 						});
