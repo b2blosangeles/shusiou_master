@@ -6,8 +6,8 @@ try {
 			return {id:_EngIndex, ModalLoading:{}};
 		},
 		ajax: function(rec, done, error) {
-			//var comm = new _commLib();
-			/*
+			var comm = new _commLib();
+			
 			console.log(comm.obj2Json({
 				a:1,
 				b:function() {
@@ -15,7 +15,7 @@ try {
 				}
 			
 			}));
-			*/
+			
 			var me = this;
 			let p = {
 				url:rec.url,
