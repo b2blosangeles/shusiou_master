@@ -8,10 +8,6 @@ try {
 			var me = this;
 			// me.pullList();
 			me.callEng();
-		},
-		callEngCbkA : function(data) {
-			let me = this;
-			me.setState({list:data.getlist});
 		},		
 		callEng:function() {
 			var me = this;
@@ -64,7 +60,7 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					// let me = me;
-					me.setState({list:data.getlist});	
+					me.setState({list:data.results.getlist});	
 				}
 				
 			}
