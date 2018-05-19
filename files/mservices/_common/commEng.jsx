@@ -116,9 +116,9 @@ try {
 				function(data) {
 					clearInterval(me._itvEng);
 					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
-					//if (!data || data.status != 'success') {
-					//	callBack(data);
-					//} else {
+					if (!data || data.status != 'success') {
+						callBack(data);
+					} else {
 						let result = {}, report = {};				
 						for (var idx in data.results) {
 							console.log(idx);
@@ -138,7 +138,7 @@ try {
 						me.setState({ModalLoading: {}},function(){
 							callBack({result : result, report : report});
 						});
-					//}
+					}
 				},
 				time_out);	
 			
