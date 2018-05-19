@@ -54,7 +54,7 @@ try {
 			}
 			//*/
 			let comm = new _commLib();
-			console.log(comm.obj2Json(engCfg1)));
+			console.log(comm.obj2Json(engCfg1));
 			
 			let engCfg = {
 				Q:[
