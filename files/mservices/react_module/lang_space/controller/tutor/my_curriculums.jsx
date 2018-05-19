@@ -12,13 +12,11 @@ try {
 		callEngCbk : function(data) {
 			let me = this;
 			me.setState({list:data.getlist});
-			console.log('====callEngCbk=test==>');
-			console.log(data);
 		},		
 		callEng:function() {
 			var me = this;
-			alert(Array.isArray([]));
-			alert(Array.isArray({}));
+		//	alert(Array.isArray([]));
+		//	alert(Array.isArray({}));
 			me.mapping = {
 				/* --- TO DO dependence mapping ---
 				'Pgetlist2' : function(CP, rec, dependenceData) {
