@@ -1,14 +1,4 @@
 var _commLib = function () {
-    this.obj2Json = function(o) {
-       for (var item in o) {
-          if (typeof o[item] === 'object') {
-              o[item] = this.obj2Json(o[item]);
-          } else if (typeof o[item] === function) {
-               o[item] = o[item].toString();
-          }
-       }
-       return o;
-    }
     this.buildPopup = function(o, setting)  {
        let caller_name = arguments.callee.caller.name,
            f_list = {},
@@ -56,4 +46,15 @@ var _commLib = function () {
     this.cpSeeker = function(pint, idx, data) {
         
     }
+    
+    this.obj2Json = function(o) {
+       for (var item in o) {
+          if (typeof o[item] === 'object') {
+              o[item] = this.obj2Json(o[item]);
+          } else if (typeof o[item] === function) {
+               o[item] = o[item].toString();
+          }
+       }
+       return o;
+    }    
 };
