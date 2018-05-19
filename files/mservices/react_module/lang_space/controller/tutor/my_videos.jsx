@@ -85,7 +85,26 @@ try {
 			}});			
 			return true;
 		},
-		videoInfo:function(rec){
+		videoInfo: function(rec) {
+			var me = this;
+			let cfg = {
+				section: {
+					body : function() {
+						let ta = me, popid = new Date().getTime();
+						return (
+						<Popup_my_video_info parent={me} rec={rec} id={mta.state.popup_id}/>
+						);
+					}
+				},
+				box_class : 'modal-content',
+				popup_type : 'window',
+				close_icon : true
+			};
+			me.lib.buildPopup(me, cfg);
+			return true;
+		},		
+		
+		videoInfo0:function(rec){
 			var me = this;
 			var id = new Date().getTime();
 			me.setState({ModalPlus:{type:'popup',  hold:0,
