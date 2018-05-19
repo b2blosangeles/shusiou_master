@@ -48,7 +48,7 @@ try {
 				hold:0,
 				setting: {timeout:30000},
 				callbackfn: function() {
-					alert(jj);
+					alert('jj');
 				}
 				
 			}
