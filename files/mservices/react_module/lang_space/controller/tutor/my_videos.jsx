@@ -92,7 +92,7 @@ try {
 					body : function() {
 						let ta = me, popid = new Date().getTime();
 						return (
-						<Popup_my_video_info parent={me} rec={rec} id={mta.state.popup_id}/>
+						<span>test</span>
 						);
 					}
 				},
