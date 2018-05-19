@@ -57,7 +57,7 @@ try {
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
 				],
 				hold:500,
-				setting: {timeout:30000},
+				setting: {timeout:6000},
 				callbackfn: 'callEngCbk'
 				
 			}			
