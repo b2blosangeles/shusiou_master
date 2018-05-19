@@ -70,20 +70,7 @@ try {
 		},
 		closeAdmin:function(v) {
 			var me = this;
-			me.setState({ModalPlus:'cancel'});			
-			return true;
-		},
-		videoAdmin0:function(v) {
-			var me = this;
-			var id = new Date().getTime();
-			me.setState({ModalPlus:{type:'popup',  hold:0,
-				box_style:{top:'28px'},
-				title: (<span>Add a Video</span>),
-				message: (<My_video_admin parent={me} id={me.state.popup_id}/>),
-				header:(<My_video_admin_header parent={me} id={me.state.popup_id}/>),
-				footer:(<My_video_admin_footer parent={me} id={me.state.popup_id}/>)
-			}});			
-			return true;
+			me.setState({ModalPlus:'cancel'});
 		},
 		videoAdmin:function(v) {
 			var me = this;
@@ -182,8 +169,8 @@ try {
 					</div>						
 
 					<br/><br/><br/><br/>
-					<ModalPlus parent={me} />
-					<div className="content_bg opacity_bg"/>
+					{/*<ModalPlus parent={me} />
+					<div className="content_bg opacity_bg"/>*/}
 					<_commWin parent={me} /><_commEng parent={me} />
 				</div>
 			);
