@@ -44,9 +44,6 @@ try {
 			let callBack = ((eng.callBack) && (typeof me.props.parent[eng.callBack] == 'function')) ?
 			me.props.parent[eng.callBack] : function() { };
 			
-			console.log('eng--->');
-			console.log(eng);
-			
 			me.err = {};
 			let CP = new me.crowdProcess(), Q = {}, err = [];
 			for (var i = 0; i < eng.Q.length; i++) {
