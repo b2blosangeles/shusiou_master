@@ -82,7 +82,8 @@ try {
 				<hr/>
 				<p>
 					<h5>Or pulling a shared videos</h5>
-				</p>					
+				</p>
+				<_commEng parent={me} />
 			</p>);	
 			else return (
 			<p style={{'padding':'1em'}}>						
@@ -108,6 +109,7 @@ try {
 							</p>
 						</div>	
 					</div>
+					<_commEng parent={me} />
 				</div>
 				<div className="download_matrix">
 				{(function() {
