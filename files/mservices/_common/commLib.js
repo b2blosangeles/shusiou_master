@@ -54,7 +54,10 @@ var _commLib = function () {
         
        if (typeof o.callBack === 'function') {
            func = o.callBack;
-           target['EngCbk_' + id] = func;
+           target['EngCbk_' + id] = function(data) {
+               let me = target;
+               func(data);
+           }    
            o.callBack = 'EngCbk_' + id;
        }
     }
