@@ -28,7 +28,7 @@ try {
 			var me = this;
 			return (
 				<div className="container">
-					<div className="row" style={{'padding':'2em'}}>
+					<div className="row">
 						<h4>{me.props.rec.title}</h4>
 					</div>
 					<div className="row" style={{'padding':'2em'}}>
