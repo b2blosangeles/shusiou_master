@@ -20,17 +20,17 @@ try {
 					{code:'getlist', url : _master_svr() +  '/api/video/myVideo.api?opt=getMyVideos', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth},
 					 time_out :6000	
-					}
-					/*,
+					},
 					{code:'getlistrr', url : _master_svr() +  '/api/video/myVideoA.api?opt=getMyVideos', method:'post', 
-					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}*/
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
 				],
 				hold:500,
 				setting: {timeout:3000},
 				callBack: function(data) {
+					var EngR = data.EngResult;
 					me.setState({
-						list:(!data.result || !data.result.getlist || !data.result.getlist.data) ? [] :
-						data.result.getlist.data});	
+						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
+						EngR.getlist.data});	
 				}
 				
 			}
