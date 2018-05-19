@@ -27,12 +27,12 @@ try {
 		render:function() {
 			var me = this;
 			return (
-				<div className="container">
+				<div className="container"  style={{'padding':'2em'}}>
 					<div className="row">
 						<h4>{me.props.rec.title}</h4>
 					</div>
 					<div className="row">
-						<div style={{'padding':'2em'}}>
+						<div>
 							<button type="button" className="btn btn-danger"
 								onClick={me.delete_video.bind(me)}>
 							<i className="fa fa-trash-o" aria-hidden="true"></i> Delete the video
