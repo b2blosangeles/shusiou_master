@@ -23,7 +23,7 @@ try {
 						 		data:{cmd:'getList', auth:me.props.route.env.state.auth},
 						 		dependence:['getlist1'],
 							 	mapping : function(data, dependence) { 
-									data.dependence = dependence;
+									data.dependenceAAA = dependence;
 									return data; 
 								}
 							}
