@@ -169,8 +169,7 @@ try {
 					</div>						
 
 					<br/><br/><br/><br/>
-					{/*<ModalPlus parent={me} />
-					<div className="content_bg opacity_bg"/>*/}
+					<div className="content_bg opacity_bg"/>
 					<_commWin parent={me} /><_commEng parent={me} />
 				</div>
 			);
