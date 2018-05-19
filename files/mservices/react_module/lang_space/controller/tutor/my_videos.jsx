@@ -27,8 +27,9 @@ try {
 				hold:500,
 				setting: {timeout:10},
 				callBack: function(data) {
+					console.log(data);
 					me.setState({
-						list:(!data.result || !result.getlist || !data.result.getlist.data) ? [] :
+						list:(!data.result || !data.result.getlist || !data.result.getlist.data) ? [] :
 						data.result.getlist.data});	
 				}
 				
