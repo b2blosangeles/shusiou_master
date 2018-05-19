@@ -46,9 +46,12 @@ var _commLib = function () {
     this.cpSeeker = function(pint, idx, data) {
         
     }
-    this.getCallBackFunction = function(o) {
-       if (o.callBack === 'function') return o.callBack;
-       else return null;
+    this.getCallBackFunction = function(o, target) {
+       let func = null;
+       if (typeof o.callBack === 'function') {
+           func o.callBack;
+       }    
+       return func;
     }
     this.obj2Json = function(o) {
        for (var item in o) {
