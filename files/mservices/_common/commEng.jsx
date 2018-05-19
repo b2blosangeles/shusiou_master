@@ -59,7 +59,7 @@ try {
 					if (err.length) {
 						continue;
 					}
-					Q[eng.Q[i].code] = (function(i) {
+					Q['parallel_' + i] = (function(i) {
 						return function(cbk) {
 							let CPP = new me.crowdProcess(), PQ = {};
 							for (var j = 0; j < eng.Q[i].list.length; j++) {
@@ -74,6 +74,9 @@ try {
 							} else {
 								CPP.parallel(PQ, 
 									function(data1) {
+										for (var idx in data1.results) {
+											CP.data[idx] = data1.results;
+										}
 										cbk(data1.results);
 								}, time_out);
 							}	
