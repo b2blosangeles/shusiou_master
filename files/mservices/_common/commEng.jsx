@@ -114,31 +114,31 @@ try {
 			} 
 			CP.serial(Q, 
 				function(data) {
-					let result = {}, report = {};
-					console.log(data);
-					for (var idx in data.results) {
-						if (data.results[idx] === null) delete data.results[idx];
-						else {
-							result[idx] = {
-								status: data.results[idx].status, 
-								data :  data.results[idx].data
+					if (!data || data.status != 'success') {
+						callBack(data);
+					} else {
+						let result = {}, report = {};
+						console.log(data);
+						for (var idx in data.results) {
+							if (data.results[idx] === null) delete data.results[idx];
+							else {
+								result[idx] = {
+									status: data.results[idx].status, 
+									data :  data.results[idx].data
+								}
+								report[idx] = data.results[idx];
 							}
-							report[idx] = data.results[idx];
 						}
+						if (err.length) {
+							console.log(err);
+							return true;
+						}
+						clearInterval(me._itvEng);
+						viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
+						me.setState({ModalLoading: {}},function(){
+							callBack({result : result, report : report});
+						});
 					}
-					if (err.length) {
-						console.log(err);
-						return true;
-					}
-					clearInterval(me._itvEng);
-					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
-					me.setState({ModalLoading: {}},function(){
-									console.log('rec===>');
-			console.log({result : result, report : report});
-						
-						
-						callBack({result : result, report : report});
-					});	
 				},
 				time_out);	
 			
