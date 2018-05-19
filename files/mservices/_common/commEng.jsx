@@ -112,12 +112,11 @@ try {
 					if (err.length) {
 						console.log(err);
 						return true;
-					} 				
-					let rst = [];
+					}
 					clearInterval(me._itvEng);
 					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 					me.setState({ModalLoading: {}},function(){
-						callBack({data:data.results});
+						callBack({results:data.results});
 					});	
 				},
 				time_out);	
