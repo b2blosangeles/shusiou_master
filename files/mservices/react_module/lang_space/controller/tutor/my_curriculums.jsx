@@ -12,7 +12,7 @@ try {
 		callEng:function() {
 			var me = this;
 			me.mapping = {
-				'Pgetlist2' : function(CP, rec) {
+				'Pgetlist2A' : function(CP, rec) {
 					console.log('rec.dependence===>');
 					console.log(rec.dependence);
 				}
