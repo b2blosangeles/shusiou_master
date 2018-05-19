@@ -46,10 +46,10 @@ var _commLib = function () {
     this.cpSeeker = function(pint, idx, data) {
         
     }
-    this.getCallBackFunction = function(o, target) {
+    this.setCallBack = function(o, target) {
        let func = null;
        if (typeof o.callBack === 'function') {
-           func o.callBack;
+           func = o.callBack;
        }    
        return func;
     }
