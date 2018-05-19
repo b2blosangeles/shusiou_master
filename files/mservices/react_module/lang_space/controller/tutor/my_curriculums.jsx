@@ -6,7 +6,7 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			me.pullList();
+			// me.pullList();
 			me.callEng();
 		},
 		callEng:function() {
