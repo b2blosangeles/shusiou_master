@@ -34,7 +34,7 @@ try {
 			p.data.auth = (reactCookie.load('auth'))?reactCookie.load('auth'):{};
 			$.ajax(p).done(function( data) {
 				if (typeof done == 'function') {
-					done(data.results);
+					done(data.data.results);
 				}
 			}).fail(function( jqXHR, textStatus ) {
 				if (typeof error == 'function') {
