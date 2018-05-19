@@ -110,14 +110,16 @@ try {
 			} 
 			CP.serial(Q, 
 				function(data) {
-					let status = {}, result = {};
+					let result = {};
 					console.log('data--->');
 					console.log(data);
 					for (var idx in data.results) {
 						if (data.results[idx] === null) delete data.results[idx];
 						else {
-							status[idx] = data.results[idx].status;
-							result[idx] = data.results[idx].results;
+							result[idx] = {
+								status: data.results[idx].status, 
+								data :  data.results[idx].data
+							}
 						}
 					}
 					/*
@@ -133,8 +135,8 @@ try {
 					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 					me.setState({ModalLoading: {}},function(){
 						console.log('==={status:status, results:data.results===>>');
-						console.log({status:status, results:data.results});
-						callBack({status:status, results:data.results});
+						console.log(result);
+						callBack(result);
 					});	
 				},
 				time_out);	
