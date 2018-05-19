@@ -120,7 +120,9 @@ try {
 					if (!data || data.status != 'success') {
 						callBack(data);
 					} else {
-						let result = {}, report = {};				
+						let result = {}, report = {};	
+						console.log('---data--->');
+						console.log(data);
 						for (var idx in data.results) {
 							if (data.results[idx] === null) delete data.results[idx];
 							else {
