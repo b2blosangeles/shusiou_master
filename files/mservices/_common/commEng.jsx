@@ -35,7 +35,7 @@ try {
 				if (typeof error == 'function') {
 					error({status:500, 
 					       message:(jqXHR.responseText) ? jqXHR.responseText : 'access error',
-					       results:[]
+					       data:[]
 					 });
 				}				
 			});			
@@ -110,7 +110,7 @@ try {
 			} 
 			CP.serial(Q, 
 				function(data) {
-					let result = {};
+					let result = {}, report = {};
 					console.log('data--->');
 					console.log(data);
 					for (var idx in data.results) {
@@ -120,13 +120,9 @@ try {
 								status: data.results[idx].status, 
 								data :  data.results[idx].data
 							}
+							report[idx] = data.results[idx];
 						}
 					}
-					/*
-					for (var idx in data.results) {
-						status = data.results[idx].status;
-					}
-					*/
 					if (err.length) {
 						console.log(err);
 						return true;
