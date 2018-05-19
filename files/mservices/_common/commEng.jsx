@@ -16,6 +16,8 @@ try {
 			if (typeof rec.mapping === 'function') {
 				p.data = rec.mapping(p.data, rec.dependence);
 			}
+			console.log(rec.mapping);
+			
 			p.data.auth = (reactCookie.load('auth'))?reactCookie.load('auth'):{};
 			$.ajax(p).done(function( data) {
 				if (typeof done == 'function') {
