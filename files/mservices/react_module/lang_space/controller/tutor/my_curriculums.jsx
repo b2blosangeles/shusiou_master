@@ -62,9 +62,9 @@ try {
 				],
 				hold:500,
 				setting: {timeout:6000},
-				callbackfn: 'callEngCbk',
+				//callbackfn: 'callEngCbk',
 				callBack: function() {
-					alert(888);	
+					alert(999);	
 				}
 				
 			}
