@@ -47,14 +47,16 @@ var _commLib = function () {
         
     }
     this.setCallBack = function(o, target) {
-       let func = null;
+       let me = this;
+       me.eng_id = (!me.eng_id || me.eng_id > 1000) ? 1 : (me.eng_id + 1);
+       let func = null, id = me.eng_id;
+        
        if (typeof o.callBack === 'function') {
            func = o.callBack;
            delete o.callBack;
-           target.EngCbk_1234 = func;
-           o.callbackfn = 'EngCbk_1234';
-       }   
-    //   return func;
+           target['EngCbk_' + id] = func;
+           o.callback = 'EngCbk_' + id;
+       }
     }
     this.obj2Json = function(o) {
        for (var item in o) {
