@@ -2,6 +2,7 @@ try {
 	var My_curriculums =  React.createClass({
 		getInitialState: function() {
 			var me = this;
+			me.lib = new _commLib();
 			return {opt:'', list:[]};
 		},	
 		componentDidMount:function() {
@@ -62,8 +63,7 @@ try {
 				}
 				
 			}
-			let comm = new _commLib();
-			comm.setCallBack(engCfg, me);
+			me.lib.setCallBack(engCfg, me);
 			me.setState({_eng:engCfg});
 		},			
 		componentDidUpdate:function() {
