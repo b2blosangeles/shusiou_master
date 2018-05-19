@@ -19,6 +19,8 @@ try {
 					rec.data.dependence = depdata;
 				}
 			};
+			console.log('rec===>');
+			console.log(rec);
 			let p = {
 				url:rec.url,
 				method: rec.method,
@@ -56,7 +58,10 @@ try {
 					if (!eng.Q[i].code || Q[eng.Q[i].code] || (err.length)) {
 						err[err.length] = 'missing or duplicated code ->' + JSON.stringify(eng.Q[i])
 						continue;
-					}					
+					}
+					if (!eng.Q[i].time_out) {
+						eng.Q[i].time_out = time_out / eng.Q.length;
+					}
 					Q[eng.Q[i].code] = (function(i) {
 						return function(cbk) {
 							me.ajax(CP, eng.Q[i], cbk, cbk);
