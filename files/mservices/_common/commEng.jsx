@@ -8,9 +8,9 @@ try {
 		ajax: function(CP, rec, done, error) {
 			let me = this;
 			var comm = new _commLib();
-			if (me.props.parent.mapping) {
+			if (rec.dependence) {
 				if (typdof me.props.parent.mapping[rec.code] === 'function') {
-					me.props.parent.mapping[rec.code](CP, rec.data, rec.dependence);
+					me.props.parent.mapping[rec.code](CP, rec);
 				} else {
 					rec.data.dependence = rec.dependence;
 				}
