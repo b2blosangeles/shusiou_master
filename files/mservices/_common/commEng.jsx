@@ -34,7 +34,10 @@ try {
 				if (typeof error == 'function') {
 					alert(jqXHR.status);
 					alert(jqXHR.responseText);
-					error(jqXHR, textStatus);
+					error({status:500, 
+					       message:(jqXHR.responseText) ? jqXHR.responseText : 'access error',
+					       results:[]
+					 });
 				}				
 			});			
 		},
