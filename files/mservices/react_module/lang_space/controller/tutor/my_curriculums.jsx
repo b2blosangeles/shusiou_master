@@ -24,7 +24,7 @@ try {
 				console.log(data);
 			};
 			/* --- TO DO fill _egn ---
-			let _cfg = {
+			let engCfg = {
 				Q:[
 					{code:'getlist1', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},
@@ -49,7 +49,7 @@ try {
 				
 			}
 			*/
-			let _cfg = {
+			let engCfg = {
 				Q:[
 					{code:'getlist1', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
@@ -59,30 +59,7 @@ try {
 				callbackfn: 'callEngCbk'
 				
 			}			
-			me.setState({_eng:{
-				Q:[
-					{code:'getlist1', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
-					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},
-					{code:'getlist2', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
-					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},					
-					{parallel:true, 
-					 	list:[
-							{code:'Pgetlist2', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
-						 		data:{cmd:'getList', auth:me.props.route.env.state.auth},
-						 		dependence:['getlist1']
-							}
-						]
-					},
-					{code:'getlist3', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
-					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},
-					{code:'getlist4', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
-					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
-				],
-				hold:0,
-				setting: {timeout:30000},
-				callbackfn: 'callEngCbk'
-				
-			}});
+			me.setState({_eng:engCfg});
 		},
 				
 		pullList1:function() {
