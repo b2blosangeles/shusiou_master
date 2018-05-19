@@ -110,11 +110,15 @@ try {
 			} 
 			CP.serial(Q, 
 				function(data) {
-					let status = {};
+					let status = {}, result = {};
 					console.log('data--->');
 					console.log(data);
 					for (var idx in data.results) {
 						if (data.results[idx] === null) delete data.results[idx];
+						else {
+							status[idx] = data.results[idx].status;
+							result[idx] = data.results[idx].results;
+						}
 					}
 					/*
 					for (var idx in data.results) {
