@@ -3,6 +3,7 @@ try {
 	var Popup_my_video_info =  React.createClass({
 		getInitialState: function() {
 			var me = this;
+			me.lib = new _commLib();
 			return {rec:{}};
 		},
 		componentDidMount:function() {
@@ -13,9 +14,11 @@ try {
 		},			
 		close_admin:function(){
 			var me = this;  
+			
 			// $('video').attr('src', ''); 
 			if ($('video')[0]) $('video')[0].pause();
-			me.props.parent.closeAdmin();
+			me.lib.closePopup(me);
+			// me.props.parent.closeAdmin();
 		},
 		delete_video:function(){
 			var me = this;  
