@@ -63,10 +63,13 @@ try {
 				hold:500,
 				setting: {timeout:6000},
 				callbackfn: 'callEngCbk',
-				callback: me.callEngCbk
+				callBack: function() {
+					alert(888);	
+				}
 				
 			}
 			let comm = new _commLib();
+			me.callEngCbk = comm.getCallBackFunction(me, engCfg);
 			me.setState({_eng:comm.obj2Json(engCfg)});
 		},			
 		componentDidUpdate:function() {
