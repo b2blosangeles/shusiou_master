@@ -9,26 +9,8 @@ try {
 			let me = this;
 			var comm = new _commLib();
 			if (rec.dependence) {
-			var v = new Function('rec', 'me.props.parent.mapping["' + 'Pgetlist2' + '"](rec)');
-			  	v(rec);  
-			};   
-			//    var sum = new Function('a', 'b', 'alert(11);');
-			/*
-			console.log(comm.obj2Json({
-				a:1,
-				b:function() {
-					alert(121);	
-				}
-			
-			}));
-			*/
-			console.log(comm.obj2Json({
-				a:1,
-				b:function() {
-					alert(121);	
-				}
-			
-			}));
+				me.props.parent.mapping['Pgetlist2'](rec);
+			};
 			
 			var me = this;
 			let p = {
