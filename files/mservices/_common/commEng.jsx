@@ -7,9 +7,10 @@ try {
 		},
 		ajax: function(rec, done, error) {
 			var comm = new _commLib();
-			var v = new Function('rec', 'console.log(rec);');
+			if (rec.mapping) {
+			var v = new Function('rec', '('+ rec.mapping +')()');
 			  v(rec);  
-			    
+			};   
 			//    var sum = new Function('a', 'b', 'alert(11);');
 			/*
 			console.log(comm.obj2Json({
