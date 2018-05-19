@@ -168,7 +168,8 @@ try {
 						if (!idx) {
 							if (!Object.keys(q).length) {
 								clearInterval(_itv);
-								cbk({_spent_time:new Date().getTime() - tm, status:'success', results:me.data});
+								cbk({_spent_time:new Date().getTime() - tm, status:'success', 
+								     results:me.data});
 							} else {
 								idx = Object.keys(q)[0];
 								if ((q[idx]) && typeof q[idx] == 'function') {
@@ -183,11 +184,12 @@ try {
 						}
 						if (new Date().getTime() - tm > vtime) {
 							clearInterval(_itv);
-							cbk({_spent_time:new Date().getTime() - tm, status:'timeout', results:me.data});
+							cbk({_spent_time:new Date().getTime() - tm, status:'timeout', 
+							     results:me.data});
 						}				
 						return true;
 					}
-				, 1); 
+				, 5); 
 			};
 			this.parallel = function(q, cbk, timeout) {
 				var me = this;
@@ -219,7 +221,7 @@ try {
 						}				
 						return true;
 					}
-				, 1); 		
+				, 5); 		
 			};
 		},		
 		componentDidMount:function() {
