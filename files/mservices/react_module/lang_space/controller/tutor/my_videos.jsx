@@ -26,9 +26,8 @@ try {
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}*/
 				],
 				hold:500,
-				setting: {timeout:10},
+				setting: {timeout:3000},
 				callBack: function(data) {
-					console.log(data);
 					me.setState({
 						list:(!data.result || !data.result.getlist || !data.result.getlist.data) ? [] :
 						data.result.getlist.data});	
