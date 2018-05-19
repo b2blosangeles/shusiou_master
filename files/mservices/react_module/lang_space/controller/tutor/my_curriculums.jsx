@@ -12,7 +12,7 @@ try {
 		callEng:function() {
 			var me = this;
 			me.mapping = {
-				'Pgetlist' : function(CP, rec, dependenceData) {
+				'Pgetlist2' : function(CP, rec, dependenceData) {
 					rec.data.dependenceData_pppp = dependenceData;
 				}
 			}
