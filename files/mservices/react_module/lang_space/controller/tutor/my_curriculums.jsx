@@ -56,7 +56,7 @@ try {
 					{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
 				],
-				hold:0,
+				hold:500,
 				setting: {timeout:30000},
 				callbackfn: 'callEngCbk'
 				
