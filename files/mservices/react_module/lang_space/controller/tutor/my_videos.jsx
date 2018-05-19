@@ -2,6 +2,7 @@ try {
 	var My_videos =  React.createClass({
 		getInitialState: function() {
 			var me = this;
+			me.lib = new _commLib();
 			return {opt:'', list:[]};
 		},	
 		componentDidMount:function() {
