@@ -6,6 +6,14 @@ try {
 			return {id:_EngIndex, ModalLoading:{}};
 		},
 		ajax: function(rec, done, error) {
+			var comm = new _commLib();
+			console.log(comm.obj2Json({
+				a:1,
+				b:function() {
+					alert(121);	
+				}
+			
+			}));
 			var me = this;
 			let p = {
 				url:rec.url,
