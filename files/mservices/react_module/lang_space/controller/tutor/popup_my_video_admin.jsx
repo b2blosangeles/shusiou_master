@@ -70,7 +70,7 @@ try {
 		render:function() {
 			var me = this;
 			if (!me.state.vid) return (
-			<p>				
+			<p  style={{'border-right':'2px solid #ccc'}}>				
 				<h5>Pulling YouTube Video</h5>	
 				<div className="input-group">
 				  <input type="text" className="form-control" placeholder="Input YouTube link" 
