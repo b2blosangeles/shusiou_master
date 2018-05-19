@@ -36,11 +36,16 @@ try {
 				}				
 			});			
 		},
-		cpCall: function(eng) {
-			let me = this;			
+		cpCall: function(eng_cfg) {
+			let me = this, comm = new _commLib(), eng = comm.obj2Json(eng_cfg);
+			
 			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
+			
 			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
 			me.props.parent[eng.callbackfn] : function() { };
+			
+			console.log('eng--->');
+			console.log(eng);
 			
 			me.err = {};
 			let CP = new me.crowdProcess(), Q = {}, err = [];
