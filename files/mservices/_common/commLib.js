@@ -51,8 +51,10 @@ var _commLib = function () {
        if (typeof o.callBack === 'function') {
            func = o.callBack;
            delete o.callBack;
-       }    
-       return func;
+           target.EngCbk_1234 = func;
+           o.callbackfn = 'EngCbk_1234';
+       }   
+    //   return func;
     }
     this.obj2Json = function(o) {
        for (var item in o) {
