@@ -114,15 +114,10 @@ try {
 			} 
 			CP.serial(Q, 
 				function(data) {
-					//if (!data || data.status != 'success') {
-					//	callBack(data);
-					//} else {
-						let result = {}, report = {};
-
-					console.log('=--ff-->');
-						console.log(data.results);
-						console.log('=--=data=--=>');
-						console.log(data);				
+					if (!data || data.status != 'success') {
+						callBack(data);
+					} else {
+						let result = {}, report = {};				
 						for (var idx in data.results) {
 							console.log(idx);
 							if (data.results[idx] === null) delete data.results[idx];
@@ -141,11 +136,9 @@ try {
 						clearInterval(me._itvEng);
 						viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 						me.setState({ModalLoading: {}},function(){
-							console.log('===dataA===>');
-							console.log({result : result, report : report});
 							callBack({result : result, report : report});
 						});
-					//}
+					}
 				},
 				time_out);	
 			
