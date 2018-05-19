@@ -9,7 +9,7 @@ try {
 			let me = this;
 			var comm = new _commLib();
 			if (rec.dependence) {
-				me.props.parent.mapping[code](CP, rec.data, rec.dependence);
+				me.props.parent.mapping[rec.code](CP, rec.data, rec.dependence);
 			};
 			let p = {
 				url:rec.url,
