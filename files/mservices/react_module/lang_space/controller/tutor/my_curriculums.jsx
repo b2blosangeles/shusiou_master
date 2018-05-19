@@ -12,8 +12,9 @@ try {
 		callEng:function() {
 			var me = this;
 			me.mapping = {
-				'Pgetlist2' : function(CP, data, dependence) {
-					console.log(dependence)
+				'Pgetlist2' : function(CP, rec) {
+					console.log('rec.dependence===>');
+					console.log(rec.dependence);
 				}
 			
 			}
