@@ -9,9 +9,9 @@ try {
 			let me = this;
 			var comm = new _commLib();
 			if (rec.dependence) {
-				var depdata = [];
+				var depdata = {};
 				for (var i = 0; i < rec.dependence.length; i++) {
-					depdata[depdata.length] = CP.data[rec.dependence[i]];
+					depdata[rec.depdata[i]] = CP.data[rec.dependence[i]];
 				}
 				if ((me.props.parent.mapping) && typeof me.props.parent.mapping[rec.code] === 'function') {
 					me.props.parent.mapping[rec.code](CP, rec);
