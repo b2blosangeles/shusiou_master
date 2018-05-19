@@ -13,7 +13,7 @@ try {
 			var me = this;
 			me.setState({_eng:{
 				Q:[
-					{code:'getlist0', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					{code:'', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},
 					{code:'Pgetlist', parallel:true, 
 					 	list:[
