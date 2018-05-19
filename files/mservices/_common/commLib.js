@@ -1,4 +1,6 @@
+var _LibIndex = 0;
 var _commLib = function () {
+    _LibIndex = (!_LibIndex || _LibIndex > 1000000) ? 1 : (_LibIndex + 1);
     this.buildPopup = function(o, setting)  {
        let caller_name = arguments.callee.caller.name,
            f_list = {},
@@ -48,7 +50,7 @@ var _commLib = function () {
     }
     this.setCallBack = function(_EngIndex, o, target) {
        let me = this;
-       let func = null, id = new Date().getTime() + '_' + _EngIndex;
+       let func = null, id = new Date().getTime() + '_' + _LibIndex;
         
        if (typeof o.callBack === 'function') {
            func = o.callBack;
