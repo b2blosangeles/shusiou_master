@@ -75,9 +75,9 @@ try {
 								CPP.parallel(PQ, 
 									function(data1) {
 										for (var idx in data1.results) {
-											CP.data[idx] = data1.results;
+											CP.data[idx] = data1.results[idx];
 										}
-										cbk(data1.results);
+										cbk(null);
 								}, time_out);
 							}	
 						}
