@@ -17,7 +17,7 @@ try {
 			var me = this;
 			let engCfg = {
 				Q:[
-					{code:'getlist', url : _master_svr() +  '/api/video/myVideo.api?opt=getMyVideos', method:'post', 
+					{code:'getlist', url : _master_svr() +  '/apiS/video/myVideo.api?opt=getMyVideos', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
 				],
 				hold:500,
