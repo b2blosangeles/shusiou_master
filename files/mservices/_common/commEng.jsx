@@ -136,7 +136,7 @@ try {
 							return true;
 						}
 						me.setState({ModalLoading: {}},function(){
-							callBack({result : result, report : report});
+							callBack({EngResult : result, EngReport : report});
 						});
 					}
 				},
