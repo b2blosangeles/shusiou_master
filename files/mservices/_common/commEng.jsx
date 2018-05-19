@@ -121,7 +121,6 @@ try {
 					} else {
 						let result = {}, report = {};				
 						for (var idx in data.results) {
-							console.log(idx);
 							if (data.results[idx] === null) delete data.results[idx];
 							else {
 								result[idx] = {
