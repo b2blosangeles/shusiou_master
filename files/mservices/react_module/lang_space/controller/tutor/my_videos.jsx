@@ -93,7 +93,7 @@ try {
 					body : function() {
 						let ta = me, popid = new Date().getTime();
 						return (
-						<Popup_my_video_info parent={ta} rec={rec} id={popup_id}/>
+						<Popup_my_video_info parent={ta} rec={rec} id={popid}/>
 						);
 					}
 				},
