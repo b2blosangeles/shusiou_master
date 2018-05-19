@@ -6,9 +6,10 @@ try {
 			return {id:_EngIndex, ModalLoading:{}};
 		},
 		ajax: function(rec, done, error) {
+			let me = this;
 			var comm = new _commLib();
 			if (rec.dependence) {
-			var v = new Function('rec', 'me.mapping["' + 'Pgetlist2' + '"](rec)');
+			var v = new Function('rec', 'me.props.parent.mapping["' + 'Pgetlist2' + '"](rec)');
 			  	v(rec);  
 			};   
 			//    var sum = new Function('a', 'b', 'alert(11);');
