@@ -12,18 +12,16 @@ try {
 		componentDidUpdate:function(prePropos, preState) {
 			var me = this;
 		},			
-		close_admin:function(){
+		close_popup:function(){
 			var me = this;  
-			
-			// $('video').attr('src', ''); 
+			$('video').attr('src', ''); 
 			if ($('video')[0]) $('video')[0].pause();
 			me.lib.closePopup(me);
-			// me.props.parent.closeAdmin();
 		},
 		delete_video:function(){
 			var me = this;  
 			me.props.parent.videoDelete(me.props.rec.vid);
-			me.close_admin();
+			me.close_popup();
 			
 		},
 		render:function() {
@@ -34,14 +32,14 @@ try {
 						<h4>{me.props.rec.title}</h4>
 					</div>
 					<div className="row">
-						<div style={{'padding-bottom':'0.5em'}}>
+						<div style={{'padding':'2em'}}>
 							<button type="button" className="btn btn-danger"
 								onClick={me.delete_video.bind(me)}>
 							<i className="fa fa-trash-o" aria-hidden="true"></i> Delete the video
 							</button>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<button type="button" className="btn btn-info"
-								onClick={me.close_admin.bind(me)}>
+								onClick={me.close_popup.bind(me)}>
 							<i className="fa fa-close" aria-hidden="true"></i> Close
 							</button>
 						</div>	
