@@ -9,7 +9,7 @@ try {
 			// me.pullList();
 			me.callEng();
 		},
-		callEngCbk : function(data) {
+		callEngCbkA : function(data) {
 			let me = this;
 			me.setState({list:data.getlist});
 		},		
@@ -22,7 +22,10 @@ try {
 				}
 				*/
 			};
-
+			me.callEngCbk = function(data) {
+				let me = this;
+				me.setState({list:data.getlist});
+			};
 			/* --- TO DO fill _egn ---
 			let engCfg1 = {
 				Q:[
