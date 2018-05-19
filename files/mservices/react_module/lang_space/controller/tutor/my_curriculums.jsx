@@ -55,8 +55,10 @@ try {
 				hold:500,
 				setting: {timeout:6000},
 				callBack: function(data) {
-					// let me = me;
-					me.setState({list:data.results.getlist});	
+					var EngR = data.EngResult;
+					me.setState({
+						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
+						EngR.getlist.data});	
 				}
 				
 			}
