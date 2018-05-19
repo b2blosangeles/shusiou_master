@@ -32,8 +32,6 @@ try {
 				}
 			}).fail(function( jqXHR, textStatus ) {
 				if (typeof error == 'function') {
-					alert(jqXHR.status);
-					alert(jqXHR.responseText);
 					error({status:500, 
 					       message:(jqXHR.responseText) ? jqXHR.responseText : 'access error',
 					       results:[]
@@ -125,6 +123,7 @@ try {
 					clearInterval(me._itvEng);
 					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 					me.setState({ModalLoading: {}},function(){
+						console.log({status:status, results:data.results});
 						callBack({status:status, results:data.results});
 					});	
 				},
