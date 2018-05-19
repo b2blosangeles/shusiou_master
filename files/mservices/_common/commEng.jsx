@@ -11,10 +11,10 @@ try {
 			if (rec.dependence) {
 				var depdata = {};
 				for (var i = 0; i < rec.dependence.length; i++) {
-					depdata[rec.depdata[i]] = CP.data[rec.dependence[i]];
+					depdata[rec.dependence[i]] = CP.data[rec.dependence[i]];
 				}
 				if ((me.props.parent.mapping) && typeof me.props.parent.mapping[rec.code] === 'function') {
-					me.props.parent.mapping[rec.code](CP, rec);
+					me.props.parent.mapping[rec.code](CP, rec, depdata);
 				} else {
 					rec.data.dependence = depdata;
 				}
