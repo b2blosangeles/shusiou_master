@@ -15,7 +15,7 @@ try {
 				Q:[
 					{code:'getlist1', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},
-					{code:'Pgetlist', parallel:true, 
+					{parallel:true, 
 					 	list:[
 							{code:'getlist2', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 						 		data:{cmd:'getList', auth:me.props.route.env.state.auth},
