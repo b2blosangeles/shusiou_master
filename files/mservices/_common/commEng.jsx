@@ -34,7 +34,7 @@ try {
 			for (var i = 0; i < eng.Q.length; i++) {
 				if (!eng.Q[i].code || Q[eng.Q[i].code] || (err.length)) {
 					err[err.length] = 'missing or duplicated code ->' + JSON.stringify(eng.Q[i])
-					continue;
+					break;
 				}	
 				if (!eng.Q[i].parallel) {
 					Q[eng.Q[i].code] = (function(i) {
@@ -53,7 +53,8 @@ try {
 								    (err.length)
 								   ) {
 									err[err.length] = 'missing or duplicated code ->' + JSON.stringify(eng.Q[i])
-									continue;
+									cbk(false);
+									break;
 								}	
 								PQ[eng.Q[i].list[j].code] =  (function(j) {
 									return function(cbkp) {
@@ -80,6 +81,10 @@ try {
 			} 
 			CP.serial(Q, 
 				function(data) {
+					if (err.length) {
+						console.log(err);
+						return true;
+					} 				
 					let rst = [];
 					clearInterval(me._itvEng);
 					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
