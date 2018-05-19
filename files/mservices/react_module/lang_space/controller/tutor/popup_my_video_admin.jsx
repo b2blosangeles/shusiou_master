@@ -157,9 +157,6 @@ try {
 			var me = this;
 			return (
 				<div className="modal-header">
-					{/*<button type="button" className="close" data-dismiss="modal">
-						&times;
-					</button>*/}
 					<button type="button" className="close"  data-dismiss="modal" onClick={me.close_admin.bind(me)}>&times;</button>
 					<h5 className="modal-title">Video Admin</h5>
 				</div>	
