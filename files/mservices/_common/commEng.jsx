@@ -32,11 +32,12 @@ try {
 			    
 			let CP = new me.crowdProcess(), Q = {}, err = [];
 			for (var i = 0; i < eng.Q.length; i++) {
-				if (!eng.Q[i].code || Q[eng.Q[i].code] || (err.length)) {
-					err[err.length] = 'missing or duplicated code ->' + JSON.stringify(eng.Q[i])
-					continue;
-				}	
+	
 				if (!eng.Q[i].parallel) {
+					if (!eng.Q[i].code || Q[eng.Q[i].code] || (err.length)) {
+						err[err.length] = 'missing or duplicated code ->' + JSON.stringify(eng.Q[i])
+						continue;
+					}					
 					Q[eng.Q[i].code] = (function(i) {
 						return function(cbk) {
 							me.ajax(eng.Q[i], cbk, cbk);
