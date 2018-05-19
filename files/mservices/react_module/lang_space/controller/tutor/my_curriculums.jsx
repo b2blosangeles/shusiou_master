@@ -12,11 +12,9 @@ try {
 		callEng:function() {
 			var me = this;
 			me.mapping = {
-				'Pgetlist2A' : function(CP, rec) {
-					console.log('rec.dependence===>');
-					console.log(rec.dependence);
+				'Pgetlist' : function(CP, rec, dependenceData) {
+					rec.data.dependenceData_pppp = dependenceData;
 				}
-			
 			}
 			me.setState({_eng:{
 				Q:[
