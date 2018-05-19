@@ -37,7 +37,7 @@ try {
 				if (typeof error == 'function') {
 					error({status:500, 
 					       message:(jqXHR.responseText) ? jqXHR.responseText : 'access error',
-					       data:[]
+					       data:null
 					 });
 				}				
 			});			
