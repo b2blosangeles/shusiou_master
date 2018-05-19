@@ -131,8 +131,8 @@ try {
 					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 					me.setState({ModalLoading: {}},function(){
 						console.log('==={status:status, results:data.results===>>');
-						console.log({results:results, report.report});
-						callBack({results:results, report.report});
+						console.log({result : result, report : report});
+						callBack({result : result, report : report});
 					});	
 				},
 				time_out);	
