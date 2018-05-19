@@ -132,6 +132,7 @@ try {
 					clearInterval(me._itvEng);
 					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 					me.setState({ModalLoading: {}},function(){
+						console.log('==={status:status, results:data.results===>>');
 						console.log({status:status, results:data.results});
 						callBack({status:status, results:data.results});
 					});	
