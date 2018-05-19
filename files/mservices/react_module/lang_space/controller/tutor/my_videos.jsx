@@ -18,6 +18,8 @@ try {
 			let engCfg = {
 				Q:[
 					{code:'getlist', url : _master_svr() +  '/apiS/video/myVideo.api?opt=getMyVideos', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},
+					{code:'getlistrr', url : _master_svr() +  'rr/api/video/myVideo.api?opt=getMyVideos', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
 				],
 				hold:500,
