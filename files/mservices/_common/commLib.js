@@ -46,10 +46,9 @@ var _commLib = function () {
     this.cpSeeker = function(pint, idx, data) {
         
     }
-    this.setCallBack = function(o, target) {
+    this.setCallBack = function(_EngIndex, o, target) {
        let me = this;
-       me.eng_id = (!me.eng_id || me.eng_id > 1000) ? 1 : (me.eng_id + 1);
-       let func = null, id = new Date().getTime() + '_' + me.eng_id;
+       let func = null, id = new Date().getTime() + '_' + _EngIndex;
         
        if (typeof o.callBack === 'function') {
            func = o.callBack;
