@@ -25,7 +25,6 @@ try {
 				data: rec.data,
 				dataType: (rec.dataType) ? rec.dataType : 'JSON'
 			}
-			console.log(p);
 			if (typeof rec.mapping === 'function') {
 				p.data = rec.mapping(p.data, rec.dependence);
 			}
