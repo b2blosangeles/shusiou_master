@@ -13,17 +13,19 @@ try {
 			var me = this;
 			me.setState({_eng:{
 				Q:[
-					{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					{code:'getlist1', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},
 					{code:'Pgetlist', parallel:true, 
 					 	list:[
-							{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+							{code:'getlist2', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 						 		data:{cmd:'getList', auth:me.props.route.env.state.auth},
 						 		dependence:['getlist0']
 							}
 						]
 					},
-					{code:'getlist2', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					{code:'getlist3', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},
+					{code:'getlist4', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
 				],
 				hold:0,
