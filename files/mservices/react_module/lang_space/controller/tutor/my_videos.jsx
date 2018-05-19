@@ -6,11 +6,10 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			me.pullList();
+			me.callEng();
 		},
 		componentDidUpdate:function() {
 			var me = this;
-			// me.dataApi();
 			consoli.log(me.state.opt);
 			
 		},
