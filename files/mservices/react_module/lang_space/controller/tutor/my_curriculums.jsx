@@ -62,9 +62,9 @@ try {
 				],
 				hold:500,
 				setting: {timeout:6000},
-				//callbackfn: 'callEngCbk',
-				callBack: function() {
-					alert(999);	
+				callBack: function(data) {
+					let ta = me;
+					ta.setState({list:data.getlist});	
 				}
 				
 			}
