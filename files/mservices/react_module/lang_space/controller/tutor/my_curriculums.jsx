@@ -63,9 +63,7 @@ try {
 				hold:500,
 				setting: {timeout:6000},
 				callbackfn: 'callEngCbk',
-				callback: function(data) {
-					alert('jj');
-				}
+				callback: me.callEngCbk
 				
 			}
 			let comm = new _commLib();
