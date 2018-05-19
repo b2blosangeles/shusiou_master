@@ -48,7 +48,7 @@ var _commLib = function () {
     this.cpSeeker = function(pint, idx, data) {
         
     }
-    this.setCallBack = function(_EngIndex, o, target) {
+    this.setCallBack = function(o, target) {
        let me = this;
        let func = null, id = new Date().getTime() + '_' + _LibIndex;
         
