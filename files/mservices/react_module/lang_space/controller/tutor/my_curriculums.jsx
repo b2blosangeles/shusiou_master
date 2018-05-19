@@ -9,6 +9,12 @@ try {
 			// me.pullList();
 			me.callEng();
 		},
+		callEngCbk : function(data) {
+			let me = this;
+			me.setState({list:data});
+			console.log('====callEngCbk=test==>');
+			console.log(data);
+		},		
 		callEng:function() {
 			var me = this;
 			me.mapping = {
@@ -18,12 +24,7 @@ try {
 				}
 				*/
 			};
-			me.callEngCbk = function(data) {
-				let me = this;
-				// me.setState({list:data});
-				console.log('====callEngCbk=test==>');
-				console.log(data);
-			};
+
 			/* --- TO DO fill _egn ---
 			let engCfg = {
 				Q:[
