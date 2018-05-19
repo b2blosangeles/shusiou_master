@@ -1,8 +1,8 @@
 try {	
-	
 	var My_video_admin =  React.createClass({
 		getInitialState: function() {
 			var me = this;
+			me.lib = new _commLib();
 			return {video_url:'', vid:'', error:'', list:[]};
 		},
 		initState:function() {
