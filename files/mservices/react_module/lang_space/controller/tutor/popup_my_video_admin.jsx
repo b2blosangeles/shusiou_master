@@ -58,7 +58,7 @@ try {
 			let engCfg = {
 				Q:[
 					{code:'getVieoInfo', url : _master_svr() + '/api/video/myVideo.api?opt=getYouTubeInfo', method:'post', 
-					 data:{video_url: me.state.video_url, auth:me.props.route.env.state.auth},
+					 data:{video_url: me.state.video_url, auth : me.props.parent.props.route.env.state.auth},
 					 time_out :6000	
 					}
 				],
