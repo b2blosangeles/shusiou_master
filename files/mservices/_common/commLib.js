@@ -54,7 +54,7 @@ var _commLib = function () {
                 o[item] = this.obj2Json(o[item]);
               }
           } else if (typeof o[item] === 'function') {
-               o[item] = o[item].toString();
+               o[item] = o[item].name;
           }
        }
        return o;
