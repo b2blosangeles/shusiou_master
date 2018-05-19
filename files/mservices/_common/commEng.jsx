@@ -121,6 +121,7 @@ try {
 						console.log('===data===>');
 						console.log(data);
 						for (var idx in data.results) {
+							console.log(idx);
 							if (data.results[idx] === null) delete data.results[idx];
 							else {
 								result[idx] = {
