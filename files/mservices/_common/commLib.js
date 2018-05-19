@@ -50,7 +50,9 @@ var _commLib = function () {
     this.obj2Json = function(o) {
        for (var item in o) {
           if (typeof o[item] === 'object') {
-              o[item] = this.obj2Json(o[item]);
+              if (!Array.isArray(o[item])) {
+                o[item] = this.obj2Json(o[item]);
+              }
           } else if (typeof o[item] === 'function') {
                o[item] = o[item].toString();
           }
