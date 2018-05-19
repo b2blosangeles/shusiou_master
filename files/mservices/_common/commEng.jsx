@@ -119,8 +119,8 @@ try {
 					//} else {
 						let result = {}, report = {};
 
-					console.log('=--====>');
-						console.log(data.results);
+					console.log('=----->');
+						console.log(data.status);
 						console.log('=--=data=--=>');
 						console.log(data);				
 						for (var idx in data.results) {
