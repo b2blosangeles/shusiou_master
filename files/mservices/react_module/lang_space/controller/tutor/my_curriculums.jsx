@@ -17,6 +17,7 @@ try {
 		},		
 		callEng:function() {
 			var me = this;
+			alert(typeof []);
 			me.mapping = {
 				/* --- TO DO dependence mapping ---
 				'Pgetlist2' : function(CP, rec, dependenceData) {
@@ -62,37 +63,6 @@ try {
 				
 			}			
 			me.setState({_eng:engCfg});
-		},
-				
-		pullList1:function() {
-			
-			var me = this;
-			me.props.route.env.engine({
-				url:  _master_svr() +  '/api/curriculum/myCurriculum.api',
-				method: "POST",
-				data: {cmd:'getList', auth:me.props.route.env.state.auth},
-				dataType: "JSON"
-			}, function( data) {
-				me.setState({list:data.data});
-			},function( jqXHR, textStatus ) {
-				console.log('error');
-			});		
-		},			
-		pullList:function() {
-			var me = this;
-			me.callEng();
-			/*
-			me.props.route.env.engine({
-				url:  _master_svr() +  '/api/curriculum/myCurriculum.api',
-				method: "POST",
-				data: {cmd:'getList', auth:me.props.route.env.state.auth},
-				dataType: "JSON"
-			}, function( data) {
-				me.setState({list:data.data});
-			},function( jqXHR, textStatus ) {
-				console.log('error');
-			});
-			*/
 		},			
 		componentDidUpdate:function() {
 			var me = this;
@@ -170,12 +140,8 @@ try {
 					</div>						
 
 					<br/><br/><br/><br/>
-					<ModalPlus parent={me} />
-					<div className="content_bg opacity_bg">
-
-					</div>	
-					<_commWin parent={me} />
-					<_commEng parent={me} />
+					<div className="content_bg opacity_bg"/>
+					<_commWin parent={me} /><_commEng parent={me} />
 				</div>
 			);
 		}
