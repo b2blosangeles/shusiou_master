@@ -25,7 +25,7 @@ try {
 				hold:500,
 				setting: {timeout:6000},
 				callBack: function(data) {
-					me.setState({list:data.results.getlist});	
+					me.setState({list:data.result.getlist.data});	
 				}
 				
 			}
