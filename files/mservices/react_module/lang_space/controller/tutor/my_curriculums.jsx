@@ -23,8 +23,8 @@ try {
 				*/
 			};
 			me.callEngCbk = function(data) {
-				let me = this;
-				me.setState({list:data.getlist});
+				let ta = me;
+				ta.setState({list:data.getlist});
 			};
 			/* --- TO DO fill _egn ---
 			let engCfg1 = {
