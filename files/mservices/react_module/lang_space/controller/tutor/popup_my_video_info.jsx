@@ -31,7 +31,7 @@ try {
 					<div className="row">
 						<h4>{me.props.rec.title}</h4>
 					</div>
-					<div className="row" style={{'padding':'2em'}}>
+					<div className="row" style={{'padding':'1em'}}>
 						<div>
 							<button type="button" className="btn btn-danger"
 								onClick={me.delete_video.bind(me)}>
@@ -44,7 +44,7 @@ try {
 							</button>
 						</div>	
 					</div>	
-					<div className="row" style={{'padding':'2em'}}>
+					<div className="row" style={{'padding':'1em'}}>
 						<_commObj code={'video'} data={{rec : me.props.rec, 
 							size:800}}/>
 					</div>							
