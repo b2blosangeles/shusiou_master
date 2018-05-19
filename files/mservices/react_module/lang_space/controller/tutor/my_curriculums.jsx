@@ -15,11 +15,13 @@ try {
 				Q:[
 					{code:'getlist1', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},
+					{code:'getlist2', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},					
 					{parallel:true, 
 					 	list:[
-							{code:'getlist2', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+							{code:'Pgetlist2', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 						 		data:{cmd:'getList', auth:me.props.route.env.state.auth},
-						 		dependence:['getlist0']
+						 		dependence:['getlist1']
 							}
 						]
 					},
