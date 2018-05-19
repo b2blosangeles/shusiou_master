@@ -20,6 +20,7 @@ try {
 			};
 			me.callEngCbk = function(data) {
 				let me = this;
+				me.setState({list:data});
 				console.log('====callEngCbk=test==>');
 				console.log(data);
 			};
@@ -51,7 +52,7 @@ try {
 			*/
 			let engCfg = {
 				Q:[
-					{code:'getlist1', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
 				],
 				hold:0,
@@ -63,6 +64,7 @@ try {
 		},
 				
 		pullList1:function() {
+			
 			var me = this;
 			me.props.route.env.engine({
 				url:  _master_svr() +  '/api/curriculum/myCurriculum.api',
@@ -77,6 +79,8 @@ try {
 		},			
 		pullList:function() {
 			var me = this;
+			me.callEng();
+			/*
 			me.props.route.env.engine({
 				url:  _master_svr() +  '/api/curriculum/myCurriculum.api',
 				method: "POST",
@@ -86,7 +90,8 @@ try {
 				me.setState({list:data.data});
 			},function( jqXHR, textStatus ) {
 				console.log('error');
-			});		
+			});
+			*/
 		},			
 		componentDidUpdate:function() {
 			var me = this;
