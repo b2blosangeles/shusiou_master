@@ -50,6 +50,7 @@ var _commLib = function () {
        let func = null;
        if (typeof o.callBack === 'function') {
            func = o.callBack;
+           delete o.callBack;
        }    
        return func;
     }
