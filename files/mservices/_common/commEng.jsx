@@ -32,6 +32,8 @@ try {
 				}
 			}).fail(function( jqXHR, textStatus ) {
 				if (typeof error == 'function') {
+					alert(jqXHR.status);
+					alert(jqXHR.responseText);
 					error(jqXHR, textStatus);
 				}				
 			});			
