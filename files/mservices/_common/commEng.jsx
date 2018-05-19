@@ -30,9 +30,12 @@ try {
 			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
 			me.props.parent[eng.callbackfn] : function() { };
 			    
-			let CP = new me.crowdProcess(), Q = {};
+			let CP = new me.crowdProcess(), Q = {}, err = [];
 			for (var i = 0; i < eng.Q.length; i++) {
-				if (!eng.Q[i].code || Q[eng.Q[i].code]) continue;
+				if (!eng.Q[i].code || Q[eng.Q[i].code] || (err.length)) {
+					err[err.length] = 'missing or duplicated code ->' + JSON.stringify(eng.Q[i])
+					continue;
+				}	
 				if (!eng.Q[i].parallel) {
 					Q[eng.Q[i].code] = (function(i) {
 						return function(cbk) {
@@ -44,22 +47,37 @@ try {
 						return function(cbk) {
 							let CPP = new me.crowdProcess(), PQ = {};
 							for (var j = 0; i < eng.Q[i].list.length; i++) {
-								if (!eng.Q[i].list[j].code) continue;
+								if (!eng.Q[i].list[j].code || 
+								    (PQ[eng.Q[i].list[j].code]) ||
+								    (Q[eng.Q[i].list[j].code]) ||
+								    (err.length)
+								   ) {
+									err[err.length] = 'missing or duplicated code ->' + JSON.stringify(eng.Q[i])
+									continue;
+								}	
 								PQ[eng.Q[i].list[j].code] =  (function(j) {
 									return function(cbkp) {
 										me.ajax(eng.Q[i].list[j], cbkp, cbkp);
 									}
 								})(j);
 							}
-							CPP.parallel(PQ, 
-								function(data1) {
-									cbk(data1.results);
-							}, time_out);
+							if (err.length) {
+								cbk(false);
+							} else {
+								CPP.parallel(PQ, 
+									function(data1) {
+										cbk(data1.results);
+								}, time_out);
+							}	
 						}
 					})(i);
 				
 				}
 			}
+			if (err.length) {
+				console.log(err);
+				return true;
+			} 
 			CP.serial(Q, 
 				function(data) {
 					let rst = [];
@@ -69,8 +87,8 @@ try {
 						callbackfn(data.results);
 					});	
 				},
-				time_out);
-			return true;
+				time_out);	
+			
 		},
 		crowdProcess :  function () {
 			this.serial = function(q, cbk, timeout) {
