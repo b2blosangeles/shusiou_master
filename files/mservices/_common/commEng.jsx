@@ -121,13 +121,9 @@ try {
 						callBack(data);
 					} else {
 						let result = {}, report = {};	
-						console.log('---data--->');
-						console.log(data);
 						for (var idx in data.results) {
 							if (data.results[idx] === null) delete data.results[idx];
 							else {
-								console.log('===>===' + idx);
-								console.log(data.results[idx]);
 								result[idx] = {
 									status: data.results[idx].status, 
 									data :  data.results[idx].data
