@@ -138,40 +138,6 @@ try {
 			</p>);
 		}
 	});
-	/*
-	var My_video_admin_footer =  React.createClass({
-		close_admin:function(){
-			var me = this;
-			
-			me.props.parent.closeAdmin();
-		},
-		render:function() {
-			var me = this;
-			return (<span/>);
-			return (
-				<div className="modal-footer">
-					<button type="button" className="btn btn-warning" data-dismiss="modal">Close</button>
-				</div>	
-			);
-		}
-	});
-	var My_video_admin_header =  React.createClass({
-		close_admin:function(){
-			var me = this;
-			me.props.parent.setState({popup_id:new Date().getTime()});
-		//	me.props.parent.closeAdmin();
-		},		
-		render:function() {
-			var me = this;
-			return (
-				<div className="modal-header">
-					<button type="button" className="close"  data-dismiss="modal" onClick={me.close_admin.bind(me)}>&times;</button>
-					<h5 className="modal-title">Video Admin</h5>
-				</div>	
-			);
-		}
-	});	
-	*/
 } catch (err) {
 	console.log(err.message);
 }
