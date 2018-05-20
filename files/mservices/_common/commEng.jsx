@@ -58,7 +58,7 @@ try {
 			
 			var _f = function(data) {
 				me.setState({ModalLoading: {}},function(){
-					alert(me.state.id);
+				//	alert(me.state.id);
 					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 				//	callBack({});
 				});				
