@@ -66,15 +66,16 @@ try {
 				setting: {timeout:3000},
 				callBack: function(data) {
 					
-					var EngR = data.EngResult.getVieoInfo;
-					console.log('data.EngResult.getVieoInfo;--->');
-					console.log(data.EngResult.getVieoInfo);
-					
-					me.setState({vid:EngR.vid, title:EngR.title, length_seconds:EngR.length_seconds, thumbnail_url:EngR.thumbnail_url});
-					/*
-					me.setState({
-						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
-						EngR.getlist.data});	*/
+					var EngRData = (!data || 
+							!data.EngResult || 
+							!data.EngResult.getVieoInfo || 
+							!data.EngResult.getVieoInfo.data) ? {} :
+							data.EngResult.getVieoInfo.data;
+
+					me.setState({vid:EngRData.vid, 
+						     title:EngRData.title, 
+						     length_seconds:EngRData.length_seconds, 
+						     thumbnail_url:EngRData.thumbnail_url});
 				}
 				
 			}
