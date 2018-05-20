@@ -37,11 +37,9 @@ try {
 		videoUrlSubmit:function(){
 			var me = this;
 			let engCfg = {
-				Q:[
-					{code:'getVieoInfo', url : _master_svr() + '/api/video/myVideo.api?opt=add', method:'post', 
+				Q:[ {code:'getVieoInfo', url : _master_svr() + '/api/video/myVideo.api?opt=add', method:'post', 
 					 data:{code: me.state.video_url, auth:me.props.parent.props.route.env.state.auth}
-					}
-				],
+				}],
 				hold:500,
 				setting: {timeout:6000},
 				callBack: function(data) {
