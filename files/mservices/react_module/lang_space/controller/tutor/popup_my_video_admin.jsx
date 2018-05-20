@@ -58,12 +58,11 @@ try {
 			let engCfg = {
 				Q:[
 					{code:'getVieoInfo', url : _master_svr() + '/api/video/myVideo.api?opt=getYouTubeInfo', method:'post', 
-					 data:{video_url: me.state.video_url, auth : me.props.parent.props.route.env.state.auth},
-					 time_out :6000	
+					 data:{video_url: me.state.video_url, auth : me.props.parent.props.route.env.state.auth}
 					}
 				],
 				hold:1,
-				setting: {timeout:3000},
+				setting: {timeout:6000},
 				callBack: function(data) {
 					
 					var EngRData = (!data || !data.EngResult || !data.EngResult.getVieoInfo || 
