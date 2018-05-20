@@ -50,25 +50,6 @@ try {
 			}
 			me.lib.setCallBack(engCfg, me);
 			me.setState({_eng:engCfg});
-		},		
-		videoUrlSubmit0:function(){
-			var me = this;
-			$.ajax({
-				url:  _master_svr() + '/api/video/myVideo.api?opt=add',
-				method: "POST",
-				data: {code: me.state.video_url, auth:me.props.parent.props.route.env.state.auth},
-				dataType: "JSON"
-			}).done(function( data) {
-				// me.videoDownload();
-				console.log(data);
-				me.close_admin();
-				me.props.parent.callEng();
-				//me.initState();	
-			}).fail(function( jqXHR, textStatus ) {
-				me.close_admin();
-				//me.initState();	
-			//	me.setState({error:'Request failed: ' + textStatus});
-			});
 		},
 		videoUrlDecode:function() {
 			var me = this;
