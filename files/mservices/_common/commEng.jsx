@@ -52,7 +52,7 @@ try {
 		},
 		processRequest: function(eng) {
 			let me = this;
-			me.ajax(CP, eng.request, cbkp, cbkp);
+			me.ajax(false, eng.request, cbkp, cbkp);
 			
 			let callBack = ((eng.request.callBack) && (typeof me.props.parent[eng.request.callBack] == 'function')) ?
 			me.props.parent[eng.request.callBack] : function() { };
