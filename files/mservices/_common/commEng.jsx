@@ -56,10 +56,11 @@ try {
 			me.props.parent[eng.callBack] : function() { };
 			eng.request.time_out = (eng.request.time_out) ? eng.request.time_out : 6000;
 			me.ajax(false, eng.request, callBack , callBack);
-			viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
+			
 			
 			me.setState({ModalLoading: {}},function(){
-				alert(99);
+				alert(me.state.id);
+				viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 			//	callBack({});
 			});			
 			
