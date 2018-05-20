@@ -36,6 +36,25 @@ try {
 		},
 		videoUrlSubmit:function(){
 			var me = this;
+			let engCfg = {
+				Q:[
+					{code:'getVieoInfo', url : _master_svr() + '/api/video/myVideo.api?opt=add', method:'post', 
+					 data:{code: me.state.video_url, auth:me.props.parent.props.route.env.state.auth}
+					}
+				],
+				hold:500,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					me.close_admin();
+					me.props.parent.callEng();
+				}
+				
+			}
+			me.lib.setCallBack(engCfg, me);
+			me.setState({_eng:engCfg});
+		},		
+		videoUrlSubmit0:function(){
+			var me = this;
 			$.ajax({
 				url:  _master_svr() + '/api/video/myVideo.api?opt=add',
 				method: "POST",
