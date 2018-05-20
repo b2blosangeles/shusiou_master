@@ -138,6 +138,7 @@ try {
 			</p>);
 		}
 	});
+	/*
 	var My_video_admin_footer =  React.createClass({
 		close_admin:function(){
 			var me = this;
@@ -170,6 +171,7 @@ try {
 			);
 		}
 	});	
+	*/
 } catch (err) {
 	console.log(err.message);
 }
