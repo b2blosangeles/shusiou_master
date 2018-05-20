@@ -265,9 +265,7 @@ try {
 				<div className="content_section">
 					<br/>
 					{me.mainBox()}
-					<div className="content_bg opacity_bg">
-						<video id="video_ad" className="video_ad"  src="" muted></video>
-					</div>
+					<div className="content_bg opacity_bg"></div>
 					<_commWin parent={me} />
 					<_commEng parent={me} />
 				</div>
