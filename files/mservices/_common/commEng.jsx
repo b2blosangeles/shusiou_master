@@ -57,10 +57,10 @@ try {
 			eng.request.time_out = (eng.request.time_out) ? eng.request.time_out : 6000;
 			
 			var _f = function(data) {
-				viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
-				return true;
+				//viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
+			
 				me.setState({ModalLoading: {}},function(){
-					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
+				//	viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 				//	callBack({EngResult : result, EngReport : report});
 				});
 				return true;
