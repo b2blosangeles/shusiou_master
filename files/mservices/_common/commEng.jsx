@@ -9,7 +9,7 @@ try {
 		},
 		ajax: function(CP, rec, done, error) {
 			let me = this;
-			if (rec.dependence) {
+			if ((rec.dependence) && (CP)) {
 				var depdata = {};
 				for (var i = 0; i < rec.dependence.length; i++) {
 					depdata[rec.dependence[i]] = CP.data[rec.dependence[i]];
@@ -43,8 +43,26 @@ try {
 			});			
 		},
 		cpCall: function(eng_cfg) {
-			let me = this, eng = me.lib.obj2Json(eng_cfg);
+			let me = this;
+			if (eng_cfg.Q) {
+				me.processQ(eng_cfg);
+			} else {
+				me.processRequest(eng_cfg);
+			}
+		},
+		processRequest: function(eng) {
+			let me = this;
+			me.ajax(CP, eng.request, cbkp, cbkp);
 			
+			let callBack = ((eng.request.callBack) && (typeof me.props.parent[eng.request.callBack] == 'function')) ?
+			me.props.parent[eng.request.callBack] : function() { };
+			
+			let time_out = (eng.request.timeout) ? eng.request.timeout : 6000;
+			me.ajax(false, eng.request, callBack , callBack);
+			
+		},	
+		processQ: function(eng) {
+			let me = this;
 			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
 			
 			let callBack = ((eng.callBack) && (typeof me.props.parent[eng.callBack] == 'function')) ?
