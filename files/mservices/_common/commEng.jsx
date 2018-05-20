@@ -57,7 +57,10 @@ try {
 			eng.request.time_out = (eng.request.time_out) ? eng.request.time_out : 6000;
 			
 			var _f = function(data) {
+				me.props.parent.setState({_eng:'cancel'});
+				return true;
 				me.setState({ModalLoading: {}},function(){
+					
 				//	alert(me.state.id);
 					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 				//	callBack({});
