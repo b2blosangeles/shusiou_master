@@ -58,11 +58,12 @@ try {
 			
 			var _f = function(data) {
 				viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
+				return true;
 				me.props.parent.setState({_eng:null}, function() {
 					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');		
 				});
 				
-				return true;
+				
 				me.setState({ModalLoading: {}},function(){
 					
 				//	alert(me.state.id);
