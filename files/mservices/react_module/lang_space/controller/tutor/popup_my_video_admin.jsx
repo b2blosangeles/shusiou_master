@@ -65,8 +65,11 @@ try {
 				hold:1,
 				setting: {timeout:3000},
 				callBack: function(data) {
-					console.log(data);
+					
 					var EngR = data.EngResult.getVieoInfo;
+					console.log('data.EngResult.getVieoInfo;--->');
+					console.log(data.EngResult.getVieoInfo);
+					
 					me.setState({vid:EngR.vid, title:EngR.title, length_seconds:EngR.length_seconds, thumbnail_url:EngR.thumbnail_url});
 					/*
 					me.setState({
