@@ -52,13 +52,8 @@ try {
 		},
 		processRequest: function(eng) {
 			let me = this;
-			me.ajax(false, eng.request, cbkp, cbkp);
-			
 			let callBack = ((eng.callBack) && (typeof me.props.parent[eng.callBack] == 'function')) ?
 			me.props.parent[eng.callBack] : function() { };
-			
-			console.log('===eng.callBack===>');
-			console.log(eng.callBack);
 			eng.request.time_out = (eng.request.time_out) ? eng.request.time_out : 6000;
 			me.ajax(false, eng.request, callBack , callBack);
 			
