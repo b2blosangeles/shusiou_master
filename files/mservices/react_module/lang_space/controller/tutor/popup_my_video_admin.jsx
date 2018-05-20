@@ -72,31 +72,14 @@ try {
 							!data.EngResult.getVieoInfo.data) ? {} :
 							data.EngResult.getVieoInfo.data;
 
-					me.setState({vid:EngRData.vid, 
-						     title:EngRData.title, 
-						     length_seconds:EngRData.length_seconds, 
-						     thumbnail_url:EngRData.thumbnail_url});
+					me.setState(EngRData);
 				}
 				
 			}
 			me.lib.setCallBack(engCfg, me);
 			me.setState({_eng:engCfg});
 		},		
-		
-		videoUrlDecode0:function(){
-			var me = this;
-			$.ajax({
-				url:  _master_svr() + '/api/video/myVideo.api?opt=getYouTubeInfo',
-				method: "POST",
-				data: {video_url: me.state.video_url, auth:me.props.parent.props.route.env.state.auth},
-				dataType: "JSON"
-			}).done(function( data) {
-				me.setState({vid:data.vid, title:data.title, length_seconds:data.length_seconds, thumbnail_url:data.thumbnail_url});
-			}).fail(function( jqXHR, textStatus ) {
-				me.initState();				
-				me.setState({error:'Request failed: ' + textStatus});
-			});
-		},	
+	
 		render:function() {
 			var me = this;
 			if (!me.state.vid) return (
