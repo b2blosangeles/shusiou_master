@@ -9,8 +9,30 @@ try {
 			var me = this;
 			// me.pullList();
 			me.callEng();
-		},		
+		},
 		callEng:function() {
+			var me = this;
+			let engCfg = {
+				request:{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
+				],
+				hold:500,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					console.log('data===>')
+					console.log(data);
+					return true;
+					var EngR = data.EngResult;
+					me.setState({
+						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
+						EngR.getlist.data});	
+				}
+				
+			}
+			me.lib.setCallBack(engCfg, me);
+			me.setState({_eng:engCfg});
+		},		
+		callEng0:function() {
 			var me = this;
 			me.mapping = {
 				/* --- TO DO dependence mapping ---
