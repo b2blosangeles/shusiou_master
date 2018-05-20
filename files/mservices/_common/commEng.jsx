@@ -60,7 +60,7 @@ try {
 				//viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 			
 				me.setState({ModalLoading: {}},function(){
-				//	viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
+					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 				//	callBack({EngResult : result, EngReport : report});
 				});
 				return true;
