@@ -57,8 +57,11 @@ try {
 			eng.request.time_out = (eng.request.time_out) ? eng.request.time_out : 6000;
 			
 			var _f = function(data) {
-				viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
-				me.props.parent.setState({_eng:'cancel'});
+				
+				me.props.parent.setState({_eng:'cancel'}, function() {
+					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');		
+				});
+				
 				return true;
 				me.setState({ModalLoading: {}},function(){
 					
