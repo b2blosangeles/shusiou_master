@@ -55,15 +55,15 @@ try {
 			let callBack = ((eng.callBack) && (typeof me.props.parent[eng.callBack] == 'function')) ?
 			me.props.parent[eng.callBack] : function() { };
 			eng.request.time_out = (eng.request.time_out) ? eng.request.time_out : 6000;
-		//	me.ajax(false, eng.request, callBack , callBack);
 			
-			
-			me.setState({ModalLoading: {}},function(){
-				alert(me.state.id);
-				viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
-			//	callBack({});
-			});			
-			
+			var _f = function(data) {
+				me.setState({ModalLoading: {}},function(){
+					alert(me.state.id);
+					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
+				//	callBack({});
+				});				
+			}			
+			me.ajax(false, eng.request, _f , _f);
 		},	
 		processQ: function(eng) {
 			let me = this;
