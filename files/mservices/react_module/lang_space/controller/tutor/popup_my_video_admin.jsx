@@ -66,11 +66,8 @@ try {
 				setting: {timeout:3000},
 				callBack: function(data) {
 					
-					var EngRData = (!data || 
-							!data.EngResult || 
-							!data.EngResult.getVieoInfo || 
-							!data.EngResult.getVieoInfo.data) ? {} :
-							data.EngResult.getVieoInfo.data;
+					var EngRData = (!data || !data.EngResult || !data.EngResult.getVieoInfo || 
+					!data.EngResult.getVieoInfo.data) ? {} : data.EngResult.getVieoInfo.data;
 
 					me.setState(EngRData);
 				}
