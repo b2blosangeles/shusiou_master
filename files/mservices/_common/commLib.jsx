@@ -8,9 +8,9 @@ var _commLib = function () {
     }
     this.alert = function(target, message, alert_type,  holdTime)  {
 	    console.log('====target=-vv-=');
-	    console.log(target.displayName);
+	    console.log(target.existModal);
 	    console.log('====Root===');
-	    console.log(Root.displayName);	    
+	    console.log(Root.existModal);	    
 	var me = this, ta = (target) ? target : Root;
 	let cfg = {
 		section: {
