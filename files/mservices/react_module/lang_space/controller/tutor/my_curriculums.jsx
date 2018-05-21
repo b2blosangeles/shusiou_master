@@ -20,7 +20,7 @@ try {
 				callBack: function(data) {
 					if (data.status === 'success') {
 						me.setState({list:data.data}, function() {
-							_global.lib.alert(me, 'Data load success!--bbb-', 'success', 3000);
+							Root.lib.alert(me, 'Data load success!--ccc-', 'success', 3000);
 						});
 					} else {
 						me.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
