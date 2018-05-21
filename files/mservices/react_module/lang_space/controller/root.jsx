@@ -19,9 +19,6 @@ try {
 					auth:(reactCookie.load('auth'))?reactCookie.load('auth'):{}
 				};
 			},
-			test: function() {
-				alert('test');	
-			},
 			engine:function(p, done, error) {
 				var me = this;
 				p.data.auth = me.state.auth;
