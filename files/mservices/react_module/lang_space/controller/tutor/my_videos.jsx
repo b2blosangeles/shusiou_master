@@ -14,7 +14,7 @@ try {
 			consoli.log(me.state.opt);
 			
 		},
-		callEng:function() {
+		callEngX:function() {
 			var me = this;
 			let engCfg = {
 				request:{code:'getlist', url : _master_svr() +  '/api/video/myVideo.api?opt=getMyVideos', method:'post', 
@@ -58,7 +58,7 @@ try {
 			Root.lib.setCallBack(engCfg, me);
 			Root.setState({_eng:engCfg});
 		},		
-		callEng0:function() {
+		callEng:function() {
 			var me = this;
 			let engCfg = {
 				Q:[
