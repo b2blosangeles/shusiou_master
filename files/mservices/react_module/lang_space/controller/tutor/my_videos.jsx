@@ -101,11 +101,8 @@ try {
 					body : function() {
 						let ta = me, popid = new Date().getTime();
 						return (
-						<span>=={JSON.stringify(rec)}==</span>
+						<Popup_my_video_info parent={ta} rec={rec} id={popid}/>
 						);
-						//return (
-						//<Popup_my_video_info parent={ta} rec={rec} id={popid}/>
-						//);
 					}
 				},
 				box_class : 'modal-content',
