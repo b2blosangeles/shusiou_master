@@ -83,25 +83,17 @@ var _commLib = function () {
         
     }
     this.setCallBack = function(o, target) {
-       let me = this;
+       let me = this, ta = (target.existModal) ? target : Root;
        let func = null, id = new Date().getTime() + '_' + _LibIndex;
         
        if (typeof o.callBack === 'function') {
            func = o.callBack;
-	   Root['EngCbk_' + id] = function(data) {
+	   ta['EngCbk_' + id] = function(data) {
                let me = target;
                func(data);
-               delete Root['EngCbk_' + id];
+               delete ta['EngCbk_' + id];
                delete o['EngCbk_' + id];
-           }	       
-	   /*
-           target['EngCbk_' + id] = function(data) {
-               let me = target;
-               func(data);
-               delete target['EngCbk_' + id];
-               delete o['EngCbk_' + id];
-           }
-	   */
+	   }
            o.callBack = 'EngCbk_' + id;
        }
     }
