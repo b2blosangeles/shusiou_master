@@ -10,7 +10,7 @@ try {
 			// me.pullList();
 			me.callEng();
 		},
-		callEng:function() {
+		callEng0:function() {
 			var me = this;
 			let engCfg = {
 				request:{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
@@ -32,7 +32,7 @@ try {
 			me.lib.setCallBack(engCfg, me);
 			me.setState({_eng:engCfg});
 		},		
-		callEng0:function() {
+		callEng:function() {
 			var me = this;
 			me.mapping = {
 				/* --- TO DO dependence mapping ---
@@ -75,7 +75,7 @@ try {
 					{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
 				],
-				hold:500,
+				hold:1000,
 				setting: {timeout:6000},
 				callBack: function(data) {
 					var EngR = data.EngResult;
