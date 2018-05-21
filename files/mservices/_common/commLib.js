@@ -3,7 +3,7 @@ var _commLib = function () {
     _LibIndex = (!_LibIndex || _LibIndex > 1000000) ? 1 : (_LibIndex + 1);
    
     this.alert = function(target, message, alert_type,  holdTime)  {
-	var ta = target;
+	var me = this, ta = target;
 	let cfg = {
 		section: {
 			message : function() { return message; }
@@ -12,7 +12,7 @@ var _commLib = function () {
 		popup_type : 'alert',
 		close_icon : true
 	};
-	Root.lib.buildPopup(target, cfg);
+	me.buildPopup(target, cfg);
 	setTimeout(function() {
 		if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
 			ta.setState({ModalPopup:'cancel'});
