@@ -32,6 +32,7 @@ try {
 						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
 						EngR.getlist.data},
 						function() {
+							alert(88);
 							Root.lib.alert(me, 'Data load success!', 'success', 3000);
 						});	
 				}
