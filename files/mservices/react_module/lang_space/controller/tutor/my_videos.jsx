@@ -2,7 +2,7 @@ try {
 	var My_videos =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			me.lib = new _commLib();
+			//me.lib = new _commLib();
 			return {opt:'', list:[]};
 		},	
 		componentDidMount:function() {
@@ -33,8 +33,8 @@ try {
 				}
 				
 			}
-			me.lib.setCallBack(engCfg, me);
-			me.setState({_eng:engCfg});
+			Root.lib.setCallBack(engCfg, me);
+			Root.setState({_eng:engCfg});
 		},		
 		componentDidUpdate:function() {
 			var me = this;
@@ -170,7 +170,7 @@ try {
 
 					<br/><br/><br/><br/>
 					<div className="content_bg opacity_bg"/>
-					<_commWin parent={me} /><_commEng parent={me} />
+					{/*<_commWin parent={me} /><_commEng parent={me} />*/}
 				</div>
 			);
 		}
