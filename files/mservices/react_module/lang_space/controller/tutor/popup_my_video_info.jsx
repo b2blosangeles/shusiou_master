@@ -45,8 +45,8 @@ try {
 						</div>	
 					</div>	
 					<div className="row" style={{'padding':'1em'}}>
-						{/*<_commObj code={'video'} data={{rec : me.props.rec, 
-							size:800}}/>*/}
+						{<_commObj code={'video'} data={{rec : me.props.rec, 
+							size:800}}/>}
 					</div>							
 				</div>	
 			)	
