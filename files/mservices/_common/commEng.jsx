@@ -52,12 +52,14 @@ try {
 		},
 		processRequest: function(eng) {
 			let me = this;
-			//let callBack = ((eng.callBack) && (typeof me.props.parent[eng.callBack] == 'function')) ?
-			//me.props.parent[eng.callBack] : function() { alert(888); };
 			
+			let callBack = ((eng.callBack) && (typeof me.props.parent[eng.callBack] == 'function')) ?
+			me.props.parent[eng.callBack] : function() { alert(888); };
+			
+			/*
 			let callBack = ((eng.callBack) && (typeof Root.target.props.parent[eng.callBack] == 'function')) ?
 			Root.target.props.parent[eng.callBack] : function() { alert(888); };
-			
+			*/
 			eng.request.time_out = (eng.request.time_out) ? eng.request.time_out : 6000;
 			
 			var _f = function(data) {
