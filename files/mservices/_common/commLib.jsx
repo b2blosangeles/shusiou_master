@@ -9,7 +9,6 @@ var _commLib = function () {
     }
     this.alert = function(target, message, alert_type,  holdTime)  {
 	var me = this, ta = Root;
-//	Root.target = target;
 	let cfg = {
 		section: {
 			message : function() { return message; }
@@ -27,35 +26,12 @@ var _commLib = function () {
 	return true;       
         
     }
-    /*
-     this.alert0 = function(target, message, alert_type,  holdTime)  {
-	var me = this, ta = target;
-//	Root.target = target;
-	let cfg = {
-		section: {
-			message : function() { return message; }
-		},
-		box_class : 'alert-' + alert_type,
-		popup_type : 'alert',
-		close_icon : true
-	};
-	me.buildPopup(target, cfg);
-	setTimeout(function() {
-		if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
-			ta.setState({ModalPopup:'cancel'});
-		}
-	}, (holdTime) ? holdTime : 6000);
-	return true;       
-        
-    }   
-    */
     this.popup = function(target, setting)  {
 	let me = this, ta = Root;  
 	me.buildPopup(ta, target, setting);
     }    
     this.buildPopup = function(o, target, setting)  {
-	let me = this, ta = Root;
-//	Root.target = o;   
+	let me = this, ta = Root;  
         let caller_name = arguments.callee.caller.name,
            f_list = {},
            ModalPopup_cfg = {};
@@ -68,30 +44,6 @@ var _commLib = function () {
 				//let me = target;
 				setting.section[v];
 			//})(v);	
-                        f_list[v] = caller_name + '_' + v;
-                        delete setting.section[v];
-                     }
-                  }
-                  ModalPopup_cfg['section'] =  f_list;
-             } else {
-                ModalPopup_cfg[key] = setting[key];
-             }
-        }
-        o.setState({ModalPopup : ModalPopup_cfg});        
-        
-    }
-    this.buildPopup0 = function(o, setting)  {
-	let me = this;
-//	Root.target = o;   
-        let caller_name = arguments.callee.caller.name,
-           f_list = {},
-           ModalPopup_cfg = {};
-       
-        for (var key in setting) {
-            if (key == 'section') {
-                  for (var v in setting.section) {
-                     if (typeof setting.section[v] === 'function') {
-                        o[ caller_name + '_' + v] = setting.section[v];
                         f_list[v] = caller_name + '_' + v;
                         delete setting.section[v];
                      }
