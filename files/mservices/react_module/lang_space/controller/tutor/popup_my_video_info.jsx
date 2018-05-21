@@ -3,7 +3,7 @@ try {
 	var Popup_my_video_info =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			me.lib = new _commLib();
+			// me.lib = new _commLib();
 			return {rec:{}};
 		},
 		componentDidMount:function() {
@@ -16,7 +16,7 @@ try {
 			var me = this;  
 			$('video').attr('src', ''); 
 			if ($('video')[0]) $('video')[0].pause();
-			me.lib.closePopup(me);
+			Root.lib.closePopup(me);
 		},
 		delete_video:function(){
 			var me = this;  
@@ -45,8 +45,8 @@ try {
 						</div>	
 					</div>	
 					<div className="row" style={{'padding':'1em'}}>
-						<_commObj code={'video'} data={{rec : me.props.rec, 
-							size:800}}/>
+						{/*<_commObj code={'video'} data={{rec : me.props.rec, 
+							size:800}}/>*}
 					</div>							
 				</div>	
 			)	
