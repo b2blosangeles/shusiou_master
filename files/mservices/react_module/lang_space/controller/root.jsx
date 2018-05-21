@@ -8,7 +8,7 @@ try {
 		var Root =  React.createClass({
 			getInitialState: function() {
 				var me = this;
-				_global = me;
+				Root = me;
 				me.lib = new _commLib();
 				return {
 					dictionary:_DATA_["/data/dictionary.json"],
