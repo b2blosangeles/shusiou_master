@@ -51,7 +51,7 @@ var _commLib = function () {
     */
     this.popup = function(target, setting)  {
 	let me = this, ta = Root;  
-	me.buildPopup(ta, target, cfg);
+	me.buildPopup(ta, target, setting);
     }    
     this.buildPopup = function(o, target, setting)  {
 	let me = this, , ta = Root;
