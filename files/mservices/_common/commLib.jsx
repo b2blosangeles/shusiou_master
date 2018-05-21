@@ -8,7 +8,7 @@ var _commLib = function () {
     	return(<span><_commWin parent={target} /><_commEng parent={target} /></span>)
     }
     this.alert = function(target, message, alert_type,  holdTime)  {
-	var me = this, ta = target;
+	var me = this, ta = Root;
 //	Root.target = target;
 	let cfg = {
 		section: {
@@ -27,7 +27,26 @@ var _commLib = function () {
 	return true;       
         
     }
-    
+     this.alert0 = function(target, message, alert_type,  holdTime)  {
+	var me = this, ta = target;
+//	Root.target = target;
+	let cfg = {
+		section: {
+			message : function() { return message; }
+		},
+		box_class : 'alert-' + alert_type,
+		popup_type : 'alert',
+		close_icon : true
+	};
+	me.buildPopup(target, cfg);
+	setTimeout(function() {
+		if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
+			ta.setState({ModalPopup:'cancel'});
+		}
+	}, (holdTime) ? holdTime : 6000);
+	return true;       
+        
+    }   
     this.buildPopup = function(o, setting)  {
 	let me = this;
 //	Root.target = o;   
