@@ -47,7 +47,12 @@ try {
 			switch(popup_type) {
 			    case 'alert':
 				return (
-					<div class="alert alert-success" role="alert">
+					<div className="alert alert-success" role="alert">
+						<button type="button" className="close" 
+							onClick={me.closePopup.bind(me)}
+							style={{display:close_icon}}>
+							&times;
+						</button>						
 					  <strong>Well done!</strong> You successfully read this important alert message.
 					</div>					
 
