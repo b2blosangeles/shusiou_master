@@ -75,7 +75,7 @@ try {
 					{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
 				],
-				hold:1000,
+				hold:3000,
 				setting: {timeout:6000},
 				callBack: function(data) {
 					var EngR = data.EngResult;
