@@ -1,7 +1,10 @@
 var _LibIndex = 0;
 var _commLib = function () {
     _LibIndex = (!_LibIndex || _LibIndex > 1000000) ? 1 : (_LibIndex + 1);
-   
+    
+    this.landigModal = function(o) {
+    	return(<_commWin parent={o} /><_commEng parent={o} />)
+    }
     this.alert = function(target, message, alert_type,  holdTime)  {
 	var me = this, ta = target;
 	let cfg = {
