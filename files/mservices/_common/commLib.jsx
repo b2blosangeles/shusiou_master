@@ -54,7 +54,7 @@ var _commLib = function () {
 	me.buildPopup(ta, target, setting);
     }    
     this.buildPopup = function(o, target, setting)  {
-	let me = this, , ta = Root;
+	let me = this, ta = Root;
 //	Root.target = o;   
         let caller_name = arguments.callee.caller.name,
            f_list = {},
