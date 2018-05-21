@@ -16,7 +16,7 @@ var _commLib = function () {
 		popup_type : 'alert',
 		close_icon : true
 	};
-	me.buildPopup(ta, cfg);
+	me.buildPopup(ta, target, cfg);
 	setTimeout(function() {
 		if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
 			ta.setState({ModalPopup:'cancel'});
@@ -29,8 +29,8 @@ var _commLib = function () {
 	let me = this, ta = Root;  
 	me.buildPopup(ta, setting);
     }    
-    this.buildPopup = function(target, setting)  {
-	let me = this, ta = (target) ? target : Root, o = target;  
+    this.buildPopup = function(ta, o, setting)  {
+	let me = this;  
         let caller_name = arguments.callee.caller.name,
            f_list = {},
            ModalPopup_cfg = {};
