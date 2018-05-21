@@ -1,6 +1,31 @@
 var _LibIndex = 0;
 var _commLib = function () {
     _LibIndex = (!_LibIndex || _LibIndex > 1000000) ? 1 : (_LibIndex + 1);
+    
+    this.alert = function(target, message, alert_type,  holdTime)  {
+			var ta = target;
+			let cfg = {
+				section: {
+					message : function() {
+						// let ta = target, popid = new Date().getTime();
+						return (
+						    <span>{message} aaa </span>
+						);
+					}
+				},
+				box_class : 'alert-' + alert_type,
+				popup_type : 'alert',
+				close_icon : true
+			};
+			ta.lib.buildPopup(target, cfg);
+			setTimeout(function() {
+				if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
+					ta.setState({ModalPopup:'cancel'});
+				}
+			}, (holdTime) ? holdTime : 6000);
+			return true;       
+        
+    }    
     this.buildPopup = function(o, setting)  {
        let caller_name = arguments.callee.caller.name,
            f_list = {},
