@@ -6,12 +6,8 @@ var _commLib = function () {
 	o.existModal = true;
     	return(<span><_commWin parent={o} /><_commEng parent={o} /></span>)
     }
-    this.alert = function(target, message, alert_type,  holdTime)  {
-	    console.log('====target=-vv-=');
-	    console.log(target.existModal);
-	    console.log('====Root===');
-	    console.log(Root.existModal);	    
-	var me = this, ta = (target) ? target : Root;
+    this.alert = function(target, message, alert_type,  holdTime)  {	    
+	var me = this, ta = (target.existModal) ? target : Root;
 	let cfg = {
 		section: {
 			message : function() { return message; }
