@@ -18,9 +18,9 @@ try {
 				hold:0,
 				setting: {timeout:6000},
 				callBack: function(data) {
-					console.log('----data--->');
-					console.log(data);
-					me.setState({list:data.data});
+					if (data.status === 'success') {
+						me.setState({list:data.data});
+					}
 				}
 			}
 			me.lib.setCallBack(engCfg, me);
