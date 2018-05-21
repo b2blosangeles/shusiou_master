@@ -23,7 +23,7 @@ try {
 					 time_out :6000	
 					}
 				],
-				hold:1000,
+				hold:0,
 				setting: {timeout:3000},
 				callBack: function(data) {
 					var EngR = data.EngResult;
