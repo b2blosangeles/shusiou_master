@@ -95,7 +95,7 @@ try {
 			return true;
 		},		
 		videoInfo: function(rec) {
-			// var me = this;
+			var me = this;
 			let cfg = {
 				section: {
 					body : function() {
