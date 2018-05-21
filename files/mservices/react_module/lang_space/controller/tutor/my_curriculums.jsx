@@ -9,7 +9,7 @@ try {
 			var me = this;
 			me.callEng();
 		},
-		popupAlert:function(message, holdTime) {
+		popupAlert:function(message, alert_type,  holdTime) {
 			var me = this;
 			let cfg = {
 				section: {
@@ -20,7 +20,7 @@ try {
 						);
 					}
 				},
-				box_class : 'alert-success',
+				box_class : 'alert-' + alert_type,
 				popup_type : 'alert',
 				close_icon : true
 			};
@@ -35,16 +35,16 @@ try {
 		callEng:function() {
 			var me = this;
 			let engCfg = {
-				request:{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+				request:{code:'getlist', url : _master_svr() +  'aa/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}
 				},
 				hold:0,
 				setting: {timeout:6000},
 				callBack: function(data) {
 					if (data.status === 'success') {
-						me.setState({list:data.data}, function() {
-							me.popupAlert('Success loaded!', 3000);
-						});
+						me.setState({list:data.data}, function() {});
+					} else {
+						me.popupAlert('API access error!', 'danger', 3000);
 					}
 				}
 			}
@@ -77,13 +77,6 @@ try {
 			var url = _master_svr() + '/images/teacher_' + idx + '.jpg';
 			return url;
 		},
-		/*
-		closeAdmin:function() {
-			var me = this;
-			me.setState({ModalPlus:'cancel'});
-			return true;
-		},
-		*/
 		render: function() {
 			var me = this;
 			
