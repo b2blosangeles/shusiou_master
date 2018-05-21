@@ -109,7 +109,7 @@ try {
 				popup_type : 'window',
 				close_icon : false
 			};
-			Root.lib.buildPopup(me, cfg);
+			Root.lib.popup(me, cfg);
 			return true;
 		},		
 					
