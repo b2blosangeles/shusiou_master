@@ -3,10 +3,12 @@ var _commLib = function () {
     _LibIndex = (!_LibIndex || _LibIndex > 1000000) ? 1 : (_LibIndex + 1);
     
     this.landingModal = function(o) {
-    	return(<span><_commWin parent={o} /><_commEng parent={o} /></span>)
+	var me = this;
+    	return(<span><_commWin parent={me.target} /><_commEng parent={me.target} /></span>)
     }
     this.alert = function(target, message, alert_type,  holdTime)  {
 	var me = this, ta = target;
+	me.target = target;
 	let cfg = {
 		section: {
 			message : function() { return message; }
