@@ -28,6 +28,8 @@ var _commLib = function () {
     }
     
     this.buildPopup = function(o, setting)  {
+	 var me = this;
+	me.target = o;   
        let caller_name = arguments.callee.caller.name,
            f_list = {},
            ModalPopup_cfg = {};
