@@ -54,7 +54,7 @@ try {
 								style={{display:close_icon}}>
 								&times;
 							</button>						
-							<strong>Well done!</strong> You successfully read this important alert message.				
+							{me.callSection('body')}				
 						</div>
 					</div>
 				);
