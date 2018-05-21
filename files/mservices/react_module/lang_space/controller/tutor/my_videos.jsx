@@ -23,13 +23,16 @@ try {
 					 time_out :6000	
 					}
 				],
-				hold:500,
+				hold:1000,
 				setting: {timeout:3000},
 				callBack: function(data) {
 					var EngR = data.EngResult;
 					me.setState({
 						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
-						EngR.getlist.data});	
+						EngR.getlist.data},
+						function() {
+							Root.lib.alert(me, 'Data load success!', 'success', 3000);
+						});	
 				}
 				
 			}
