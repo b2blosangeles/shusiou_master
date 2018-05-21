@@ -56,12 +56,11 @@ try {
 			me.props.parent[eng.callBack] : function() { };
 			eng.request.time_out = (eng.request.time_out) ? eng.request.time_out : 6000;
 			
-			clearInterval(me._itvEng);
 			var _f = function(data) {
 				clearInterval(me._itvEng);
-				
+				//clearInterval(me._itvEng);
+				viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 				me.props.parent.setState({_eng:null}, function() {
-					viewpoint.find('.ModalLoading_' + me.state.id).modal({backdrop:'static'});
 					callBack(data);
 				})				
 			};
