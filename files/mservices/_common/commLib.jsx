@@ -6,7 +6,7 @@ var _commLib = function () {
     	return(<span><_commWin parent={o} /><_commEng parent={o} /></span>)
     }
     this.alert = function(target, message, alert_type,  holdTime)  {
-	var me = this, ta = Root;
+	var me = this, ta = (target) ? target : Root;
 	let cfg = {
 		section: {
 			message : function() { return message; }
