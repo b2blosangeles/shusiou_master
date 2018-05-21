@@ -14,50 +14,6 @@ try {
 			consoli.log(me.state.opt);
 			
 		},
-		callEngX:function() {
-			var me = this;
-			let engCfg = {
-				request:{code:'getlist', url : _master_svr() +  '/api/video/myVideo.api?opt=getMyVideos', method:'post', 
-					 data:{cmd:'getList', auth:me.props.route.env.state.auth}
-				},
-				hold:1000,
-				setting: {timeout:6000},
-				callBack: function(data) {
-					if (data.status === 'success') {
-						me.setState({list:data.data}, function() {
-							Root.lib.alert(me, 'Data load success!', 'success', 3000);
-						});
-					} else {
-						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
-						
-					}
-				}
-			}
-			Root.lib.setCallBack(engCfg, me);
-			Root.setState({_eng:engCfg});
-		},
-		callEng1:function() {
-			var me = this;
-			let engCfg = {
-				request:{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
-					 data:{cmd:'getList', auth:me.props.route.env.state.auth}
-				},
-				hold:1000,
-				setting: {timeout:6000},
-				callBack: function(data) {
-					if (data.status === 'success') {
-						me.setState({list:data.data}, function() {
-							Root.lib.alert(me, 'Data load success!', 'success', 3000);
-						});
-					} else {
-						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
-						
-					}
-				}
-			}
-			Root.lib.setCallBack(engCfg, me);
-			Root.setState({_eng:engCfg});
-		},		
 		callEng:function() {
 			var me = this;
 			let engCfg = {
@@ -134,7 +90,7 @@ try {
 				popup_type : 'window',
 				close_icon : true
 			};
-			me.lib.buildPopup(me, cfg);
+			Root.lib.buildPopup(me, cfg);
 			return true;
 		},		
 		videoInfo: function(rec) {
@@ -152,7 +108,7 @@ try {
 				popup_type : 'window',
 				close_icon : false
 			};
-			me.lib.buildPopup(me, cfg);
+			Root.lib.buildPopup(me, cfg);
 			return true;
 		},		
 					
