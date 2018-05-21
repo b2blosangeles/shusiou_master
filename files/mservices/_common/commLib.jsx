@@ -103,14 +103,14 @@ var _commLib = function () {
     }
     
     this.closePopup = function(o) {
-       var me = this;
-       if (!o.props || !o.props.parent) {
+       var me = this, ta = Root;
+       if (!ta.props || !ta.props.parent) {
          alert('No props');
        } else {
-            if (!o.props.parent.state.ModalPopup) {
-                  me.closePopup(o.props.parent);
+            if (!ta.props.parent.state.ModalPopup) {
+                  me.closePopup(ta.props.parent);
             } else {
-               o.props.parent.setState({ModalPopup : 'cancel'});
+               ta.props.parent.setState({ModalPopup : 'cancel'});
             }
        } 
     }
