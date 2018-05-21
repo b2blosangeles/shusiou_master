@@ -4,7 +4,6 @@ try {
 	if (location.protocol !== 'https:') {
 		window.location.href = window.location.href.replace(shusiou_url, 'https://' + window.location.hostname);
 	} else {
-		var _global;
 		var Root =  React.createClass({
 			getInitialState: function() {
 				var me = this;
@@ -57,7 +56,6 @@ try {
 			},
 			componentDidUpdate:function(prevProps, prevState) {
 				var me = this;
-		//		console.log(me.state);
 			},
 			requireAuth:function(nextState, replace) {
 				var me = this;
