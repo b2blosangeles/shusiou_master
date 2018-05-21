@@ -46,7 +46,13 @@ try {
 			
 			switch(popup_type) {
 			    case 'alert':
-				return (			
+				return (
+					<div class="alert alert-success" role="alert">
+					  <strong>Well done!</strong> You successfully read this important alert message.
+					</div>					
+
+				);
+					/*
 					<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
 						<div className="modal-dialog modal-lg" role="document">
 							<div className={box_class + ' container-fluid'} style={{padding:'0.5em'}}>
@@ -58,8 +64,8 @@ try {
 								{me.callSection('body')}==
 							</div>
 						  </div>
-					</div>	
-				);
+					</div>						
+					*/
 				break;					
 			    case 'window':
 				return (			
