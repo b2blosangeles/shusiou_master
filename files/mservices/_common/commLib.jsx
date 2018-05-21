@@ -7,9 +7,9 @@ var _commLib = function () {
     }
     this.alert = function(target, message, alert_type,  holdTime)  {
 	    console.log('====target=-vv-=');
-	    console.log(target.props.name);
+	    console.log(target.displayName);
 	    console.log('====Root===');
-	    console.log(Root.props.name);	    
+	    console.log(Root.displayName);	    
 	var me = this, ta = (target) ? target : Root;
 	let cfg = {
 		section: {
