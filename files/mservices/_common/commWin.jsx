@@ -51,7 +51,7 @@ try {
 			switch(popup_type) {
 			    case 'alert':
 				return (
-					<div className={me.modalAlertClass()} tabindex="-1" role="dialog" aria-hidden="true">
+					<div className={me.modalAlertClass()} tabindex="-1" role="dialog">
 						<button type="button" className="close" 
 							onClick={me.closePopup.bind(me)}
 							style={{display:close_icon}}>
