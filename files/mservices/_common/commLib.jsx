@@ -24,7 +24,7 @@ var _commLib = function () {
 	return true;       
         
     }
-    this.popup = function(target, setting)  {
+    this.popup = function(o, setting)  {
 	let me = this, ta = Root;  
 	me.buildPopup(ta, setting);
     }    
