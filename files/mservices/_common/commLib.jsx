@@ -3,7 +3,8 @@ var _commLib = function () {
     _LibIndex = (!_LibIndex || _LibIndex > 1000000) ? 1 : (_LibIndex + 1);
     
     this.landingModal = function(o) {
-	var target = (Root.target) ? Root.target : o;
+	//var target = (Root.target) ? Root.target : o;
+	let target = o;
     	return(<span><_commWin parent={target} /><_commEng parent={target} /></span>)
     }
     this.alert = function(target, message, alert_type,  holdTime)  {
