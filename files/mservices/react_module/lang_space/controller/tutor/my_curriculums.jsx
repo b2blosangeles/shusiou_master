@@ -12,14 +12,16 @@ try {
 		callEng:function() {
 			var me = this;
 			let engCfg = {
-				request:{code:'getlist', url : _master_svr() +  'aa/api/curriculum/myCurriculum.api', method:'post', 
+				request:{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}
 				},
 				hold:0,
 				setting: {timeout:6000},
 				callBack: function(data) {
 					if (data.status === 'success') {
-						me.setState({list:data.data}, function() {});
+						me.setState({list:data.data}, function() {
+							me.lib.alert(me, 'Data load success!', 'success', 3000)
+						});
 					} else {
 						me.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
 					}
