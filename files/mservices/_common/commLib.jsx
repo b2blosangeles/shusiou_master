@@ -4,7 +4,7 @@ var _commLib = function () {
     
     this.landingModal = function(o) {
 	var me = this, target = (me.target) ?  me.target : me;
-    	return(<span><_commWin parent={me.target} /><_commEng parent={me.target} /></span>)
+    	return(<span><_commWin parent={target} /><_commEng parent={target} /></span>)
     }
     this.alert = function(target, message, alert_type,  holdTime)  {
 	var me = this, ta = target;
