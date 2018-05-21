@@ -18,6 +18,7 @@ try {
 				hold:0,
 				setting: {timeout:6000},
 				callBack: function(data) {
+					alert(JSON.stringify(data));
 					if (data.status === 'success') {
 						me.setState({list:data.data}, function() {
 							Root.lib.alert(me, 'Data load success!', 'success', 3000);
