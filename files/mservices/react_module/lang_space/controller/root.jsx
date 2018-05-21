@@ -8,7 +8,6 @@ try {
 			getInitialState: function() {
 				var me = this;
 				Root = me;
-				Root.displayName = 'Root';
 				me.lib = new _commLib();
 				return {
 					dictionary:_DATA_["/data/dictionary.json"],
