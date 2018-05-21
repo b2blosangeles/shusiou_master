@@ -3,9 +3,7 @@ var _commLib = function () {
     _LibIndex = (!_LibIndex || _LibIndex > 1000000) ? 1 : (_LibIndex + 1);
     
     this.landingModal = function(o) {
-	var target = (Root.target) ? Root.target : o;
-	//let target = o;
-    	return(<span><_commWin parent={target} /><_commEng parent={target} /></span>)
+    	return(<span><_commWin parent={o} /><_commEng parent={o} /></span>)
     }
     this.alert = function(target, message, alert_type,  holdTime)  {
 	var me = this, ta = Root;
@@ -17,7 +15,7 @@ var _commLib = function () {
 		popup_type : 'alert',
 		close_icon : true
 	};
-	me.buildPopup(ta, target, cfg);
+	me.buildPopup(ta, cfg);
 	setTimeout(function() {
 		if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
 			ta.setState({ModalPopup:'cancel'});
@@ -28,10 +26,10 @@ var _commLib = function () {
     }
     this.popup = function(target, setting)  {
 	let me = this, ta = Root;  
-	me.buildPopup(ta, target, setting);
+	me.buildPopup(ta, setting);
     }    
-    this.buildPopup = function(o, target, setting)  {
-	let me = this, ta = Root;  
+    this.buildPopup = function(target, setting)  {
+	let me = this, ta = (target) ? target : Root;  
         let caller_name = arguments.callee.caller.name,
            f_list = {},
            ModalPopup_cfg = {};
@@ -40,10 +38,7 @@ var _commLib = function () {
             if (key == 'section') {
                   for (var v in setting.section) {
                      if (typeof setting.section[v] === 'function') {
-                        o[ caller_name + '_' + v] = //(function(v) {
-				//let me = target;
-				setting.section[v];
-			//})(v);	
+                        o[ caller_name + '_' + v] =  setting.section[v];	
                         f_list[v] = caller_name + '_' + v;
                         delete setting.section[v];
                      }
@@ -53,7 +48,7 @@ var _commLib = function () {
                 ModalPopup_cfg[key] = setting[key];
              }
         }
-        o.setState({ModalPopup : ModalPopup_cfg});        
+        ta.setState({ModalPopup : ModalPopup_cfg});        
         
     }
     
