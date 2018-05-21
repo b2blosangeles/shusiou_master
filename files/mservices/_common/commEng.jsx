@@ -57,23 +57,10 @@ try {
 			eng.request.time_out = (eng.request.time_out) ? eng.request.time_out : 6000;
 			
 			var _f = function(data) {
-				// clearInterval(me._itvEng);
+				clearInterval(me._itvEng);
 				me.props.parent.setState({_eng:null}, function() {
+					callBack(data);
 				})
-				return true;
-				
-				me.setState({ModalLoading: {}},function(){
-				//	alert(8);
-				//	viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
-				//	callBack({EngResult : result, EngReport : report});
-				});
-				
-				//viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
-			
-				me.setState({ModalLoading: {}},function(){
-					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
-				//	callBack({EngResult : result, EngReport : report});
-				});
 				return true;
 				me.props.parent.setState({_eng:null}, function() {
 					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');		
