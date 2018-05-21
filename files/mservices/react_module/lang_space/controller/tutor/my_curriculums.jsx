@@ -24,6 +24,7 @@ try {
 						});
 					} else {
 						me.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
+						_global.test();
 					}
 				}
 			}
