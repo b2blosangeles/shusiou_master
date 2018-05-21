@@ -18,7 +18,7 @@ var _commLib = function () {
 		popup_type : 'alert',
 		close_icon : true
 	};
-	me.buildPopup(ta, cfg);
+	me.buildPopup(ta, target, cfg);
 	setTimeout(function() {
 		if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
 			ta.setState({ModalPopup:'cancel'});
@@ -27,6 +27,7 @@ var _commLib = function () {
 	return true;       
         
     }
+    /*
      this.alert0 = function(target, message, alert_type,  holdTime)  {
 	var me = this, ta = target;
 //	Root.target = target;
@@ -47,7 +48,36 @@ var _commLib = function () {
 	return true;       
         
     }   
-    this.buildPopup = function(o, setting)  {
+    */
+    this.popup = function(target, setting)  {
+	let me = this, , ta = Root;  
+	me.buildPopup(ta, target, cfg);
+    }    
+    this.buildPopup = function(o, target, setting)  {
+	let me = this, , ta = Root;
+//	Root.target = o;   
+        let caller_name = arguments.callee.caller.name,
+           f_list = {},
+           ModalPopup_cfg = {};
+       
+        for (var key in setting) {
+            if (key == 'section') {
+                  for (var v in setting.section) {
+                     if (typeof setting.section[v] === 'function') {
+                        o[ caller_name + '_' + v] = setting.section[v];
+                        f_list[v] = caller_name + '_' + v;
+                        delete setting.section[v];
+                     }
+                  }
+                  ModalPopup_cfg['section'] =  f_list;
+             } else {
+                ModalPopup_cfg[key] = setting[key];
+             }
+        }
+        o.setState({ModalPopup : ModalPopup_cfg});        
+        
+    }
+    this.buildPopup0 = function(o, setting)  {
 	let me = this;
 //	Root.target = o;   
         let caller_name = arguments.callee.caller.name,
@@ -71,6 +101,7 @@ var _commLib = function () {
         o.setState({ModalPopup : ModalPopup_cfg});        
         
     }
+    
     this.closePopup = function(o) {
        var me = this;
        if (!o.props || !o.props.parent) {
