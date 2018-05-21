@@ -9,6 +9,24 @@ try {
 			var me = this;
 			me.callEng();
 		},
+		popupMessage:function(v) {
+			var me = this;
+			let cfg = {
+				section: {
+					body : function() {
+						let ta = me, popid = new Date().getTime();
+						return (
+						<span>{v}</span>
+						);
+					}
+				},
+				box_class : 'modal-content',
+				popup_type : 'window',
+				close_icon : true
+			};
+			me.lib.buildPopup(me, cfg);
+			return true;
+		},		
 		callEng:function() {
 			var me = this;
 			let engCfg = {
@@ -19,7 +37,9 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					if (data.status === 'success') {
-						me.setState({list:data.data});
+						me.setState({list:data.data}, function() {
+							me.popupMessage();
+						});
 					}
 				}
 			}
