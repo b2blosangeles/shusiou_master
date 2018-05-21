@@ -21,7 +21,7 @@ try {
 					if (data.status === 'success') {
 						me.setState({list:data.data}, function() {});
 					} else {
-						me.lib.alert(me, 'API access error!---', 'danger', 6000);
+						me.lib.alert(me, 'API myCurriculum.api access error!', 'danger', 6000);
 					}
 				}
 			}
