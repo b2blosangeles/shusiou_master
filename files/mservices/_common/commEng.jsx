@@ -59,7 +59,9 @@ try {
 			clearInterval(me._itvEng);
 			var _f = function(data) {
 				clearInterval(me._itvEng);
+				
 				me.props.parent.setState({_eng:null}, function() {
+					viewpoint.find('.ModalLoading_' + me.state.id).modal({backdrop:'static'});
 					callBack(data);
 				})				
 			};
