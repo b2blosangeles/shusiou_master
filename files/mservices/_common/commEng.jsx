@@ -60,20 +60,9 @@ try {
 				clearInterval(me._itvEng);
 				me.props.parent.setState({_eng:null}, function() {
 					callBack(data);
-				})
-				return true;
-				me.props.parent.setState({_eng:null}, function() {
-					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');		
-				});
-				
-				
-				me.setState({ModalLoading: {}},function(){
-					
-				//	alert(me.state.id);
-					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
-				//	callBack({});
-				});				
-			}			
+				})				
+			};
+			
 			me.ajax(false, eng.request, _f , _f);
 		},	
 		processQ: function(eng) {
