@@ -7,7 +7,6 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			// me.pullList();
 			me.callEng();
 		},
 		callEng:function() {
@@ -21,7 +20,6 @@ try {
 				callBack: function(data) {
 					me.setState({list:data.data});
 				}
-				
 			}
 			me.lib.setCallBack(engCfg, me);
 			me.setState({_eng:engCfg});
