@@ -51,13 +51,15 @@ try {
 			switch(popup_type) {
 			    case 'alert':
 				return (
-					<div className={me.modalAlertClass()} tabindex="-1" role="dialog">
-						<button type="button" className="close" 
-							onClick={me.closePopup.bind(me)}
-							style={{display:close_icon}}>
-							&times;
-						</button>						
-						<strong>Well done!</strong> You successfully read this important alert message.				
+					<div className={me.modalClass()} tabindex="-1" role="dialog">
+						<div className="modal-dialog modal-lg" role="document">
+							<button type="button" className="close" 
+								onClick={me.closePopup.bind(me)}
+								style={{display:close_icon}}>
+								&times;
+							</button>						
+							<strong>Well done!</strong> You successfully read this important alert message.				
+						</div>
 					</div>
 				);
 				break;					
