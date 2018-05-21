@@ -25,64 +25,7 @@ try {
 			}
 			me.lib.setCallBack(engCfg, me);
 			me.setState({_eng:engCfg});
-		},		
-		callEng0:function() {
-			var me = this;
-			me.mapping = {
-				/* --- TO DO dependence mapping ---
-				'Pgetlist2' : function(CP, rec, dependenceData) {
-					rec.data.dependenceData_pppp = dependenceData;
-				}
-				*/
-			};
-			/* --- TO DO fill _egn ---
-			let engCfg1 = {
-				Q:[
-					{code:'getlist1', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
-					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},
-					{code:'getlist2', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
-					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},					
-					{parallel:true, 
-					 	list:[
-							{code:'Pgetlist2', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
-						 		data:{cmd:'getList', auth:me.props.route.env.state.auth},
-						 		dependence:['getlist1']
-							}
-						]
-					},
-					{code:'getlist3', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
-					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},
-					{code:'getlist4', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
-					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
-				],
-				hold:0,
-				setting: {timeout:30000},
-				callback: function(data) {
-					alert('jj');
-				}
-				
-			}
-			*/
-			
-			let engCfg = {
-				Q:[
-					{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
-					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
-				],
-				hold:3000,
-				setting: {timeout:6000},
-				callBack: function(data) {
-					var EngR = data.EngResult;
-					me.setState({
-						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
-						EngR.getlist.data});	
-					
-				}
-				
-			}
-			me.lib.setCallBack(engCfg, me);
-			me.setState({_eng:engCfg});
-		},			
+		},					
 		componentDidUpdate:function() {
 			var me = this;
 		},		
