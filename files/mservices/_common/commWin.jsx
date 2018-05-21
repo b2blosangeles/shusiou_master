@@ -47,7 +47,7 @@ try {
 			switch(popup_type) {
 			    case 'alert':
 				return (
-					<div className="alert alert-success" role="alert">
+					<div className={me.ModalLoadingClass() + ' alert alert-success'} role="alert">
 						<button type="button" className="close" 
 							onClick={me.closePopup.bind(me)}
 							style={{display:close_icon}}>
