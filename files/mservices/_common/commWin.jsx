@@ -39,7 +39,7 @@ try {
 		},
 		modalAlertClass:function () {
 			let me = this;	
-			return 'modal fade alert-success ModalPlus ModalPlus_'+ me.state.id;
+			return 'modal fade alert-success ModalPopup_' + me.state.id;
 		},		
 		render: function() {
 			let me = this, ModalPopup = (me.props.parent.state.ModalPopup) ? me.props.parent.state.ModalPopup : {};
