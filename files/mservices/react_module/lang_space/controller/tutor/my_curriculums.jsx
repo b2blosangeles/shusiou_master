@@ -20,7 +20,7 @@ try {
 				callBack: function(data) {
 					if (data.status === 'success') {
 						me.setState({list:data.data}, function() {
-							Root.lib.alert(me, 'Data load success!', 'success', 3000);
+							Root.lib.alert(me, 'Data load success!2', 'success', 3000);
 						});
 					} else {
 						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
@@ -103,7 +103,7 @@ try {
 
 					<br/><br/><br/><br/>
 					<div className="content_bg opacity_bg"/>
-					<_commWin parent={me} /><_commEng parent={me} />
+					{Root.lib.landingModal(me)}
 				</div>
 			);
 		}
