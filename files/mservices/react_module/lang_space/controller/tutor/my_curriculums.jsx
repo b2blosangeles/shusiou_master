@@ -21,11 +21,7 @@ try {
 				callBack: function(data) {
 					console.log('data===>')
 					console.log(data);
-					return true;
-					var EngR = data.EngResult;
-					me.setState({
-						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
-						EngR.getlist.data});	
+					me.setState({list:data.data});
 				}
 				
 			}
