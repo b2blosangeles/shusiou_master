@@ -83,12 +83,20 @@ var _commLib = function () {
         
        if (typeof o.callBack === 'function') {
            func = o.callBack;
+	   Root['EngCbk_' + id] = function(data) {
+               let me = target;
+               func(data);
+               delete Root['EngCbk_' + id];
+               delete o['EngCbk_' + id];
+           }	       
+	   /*
            target['EngCbk_' + id] = function(data) {
                let me = target;
                func(data);
                delete target['EngCbk_' + id];
                delete o['EngCbk_' + id];
-           }    
+           }
+	   */
            o.callBack = 'EngCbk_' + id;
        }
     }
