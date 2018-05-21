@@ -26,6 +26,7 @@ try {
 				hold:1000,
 				setting: {timeout:3000},
 				callBack: function(data) {
+					alert(77);
 					var EngR = data.EngResult;
 					me.setState({
 						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
