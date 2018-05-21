@@ -29,7 +29,7 @@ var _commLib = function () {
 	me.buildPopup(ta, setting);
     }    
     this.buildPopup = function(target, setting)  {
-	let me = this, ta = (target) ? target : Root;  
+	let me = this, ta = (target) ? target : Root, o = target;  
         let caller_name = arguments.callee.caller.name,
            f_list = {},
            ModalPopup_cfg = {};
