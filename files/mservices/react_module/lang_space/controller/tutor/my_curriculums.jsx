@@ -20,7 +20,7 @@ try {
 						);
 					}
 				},
-				box_class : 'modal-content',
+				box_class : 'alert-success',
 				popup_type : 'window',
 				close_icon : true
 			};
