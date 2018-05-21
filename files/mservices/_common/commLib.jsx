@@ -9,7 +9,7 @@ var _commLib = function () {
     }
     this.alert = function(target, message, alert_type,  holdTime)  {
 	var me = this, ta = target;
-	Root.target = target;
+//	Root.target = target;
 	let cfg = {
 		section: {
 			message : function() { return message; }
@@ -30,7 +30,7 @@ var _commLib = function () {
     
     this.buildPopup = function(o, setting)  {
 	let me = this;
-	Root.target = o;   
+//	Root.target = o;   
         let caller_name = arguments.callee.caller.name,
            f_list = {},
            ModalPopup_cfg = {};
