@@ -56,6 +56,7 @@ try {
 			me.props.parent[eng.callBack] : function() { };
 			eng.request.time_out = (eng.request.time_out) ? eng.request.time_out : 6000;
 			
+			clearInterval(me._itvEng);
 			var _f = function(data) {
 				clearInterval(me._itvEng);
 				me.props.parent.setState({_eng:null}, function() {
