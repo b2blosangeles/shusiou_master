@@ -91,7 +91,7 @@ try {
 				close_icon : true
 			};
 			// Root.lib.buildPopup(me, cfg);
-			Root.lib.buildPopup(Root, cfg);
+			Root.lib.popup(me, cfg);
 			return true;
 		},		
 		videoInfo: function(rec) {
