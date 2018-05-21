@@ -103,16 +103,18 @@ var _commLib = function () {
     }
     
     this.closePopup = function(o) {
-       var me = this, ta = Root;
-       if (!ta.props || !ta.props.parent) {
-         alert('No props');
-       } else {
-            if (!ta.props.parent.state.ModalPopup) {
-                  me.closePopup(ta.props.parent);
-            } else {
-               ta.props.parent.setState({ModalPopup : 'cancel'});
-            }
-       } 
+	var me = this, ta = Root;
+	ta.setState({ModalPopup : 'cancel'});
+	    return true;
+	if (!ta.props || !ta.props.parent) {
+		alert('No props');
+	} else {
+		if (!ta.props.parent.state.ModalPopup) {
+			me.closePopup(ta.props.parent);
+		} else {
+			ta.props.parent.setState({ModalPopup : 'cancel'});
+		}
+	} 
     }
     
     this.toHHMMSS = function(v, noms) {
