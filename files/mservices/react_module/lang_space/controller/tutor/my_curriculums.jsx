@@ -9,14 +9,14 @@ try {
 			var me = this;
 			me.callEng();
 		},
-		popupAlert:function(v) {
+		popupAlert:function(message) {
 			var me = this;
 			let cfg = {
 				section: {
-					body : function() {
+					message : function() {
 						let ta = me, popid = new Date().getTime();
 						return (
-						<span>{v}</span>
+						<span>{message}</span>
 						);
 					}
 				},
@@ -25,6 +25,9 @@ try {
 				close_icon : true
 			};
 			me.lib.buildPopup(me, cfg);
+			setTimeout(function {
+				me.setState({ModalPopup:'cancel'});
+			}, 6000);
 			return true;
 		},		
 		callEng:function() {
@@ -71,12 +74,14 @@ try {
 			 var idx = Math.floor(Math.random() * (6 - 1) ) + 1;
 			var url = _master_svr() + '/images/teacher_' + idx + '.jpg';
 			return url;
-		},		
+		},
+		/*
 		closeAdmin:function() {
 			var me = this;
 			me.setState({ModalPlus:'cancel'});
 			return true;
-		},		
+		},
+		*/
 		render: function() {
 			var me = this;
 			
