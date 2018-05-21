@@ -3,10 +3,12 @@ try {
 	var shusiou_url = location.protocol+'//'+window.location.hostname;
 	if (location.protocol !== 'https:') {
 		window.location.href = window.location.href.replace(shusiou_url, 'https://' + window.location.hostname);
-	} else {	
+	} else {
+		var _global;
 		var Root =  React.createClass({
 			getInitialState: function() {
 				var me = this;
+				_global = me;
 				return {
 					dictionary:_DATA_["/data/dictionary.json"],
 					lang:_DATA_["/data/language.json"],
@@ -15,6 +17,9 @@ try {
 					c_role:(!reactCookie.load('role'))?'learner':reactCookie.load('role'),
 					auth:(reactCookie.load('auth'))?reactCookie.load('auth'):{}
 				};
+			},
+			test: function() {
+				alert('test');	
 			},
 			engine:function(p, done, error) {
 				var me = this;
