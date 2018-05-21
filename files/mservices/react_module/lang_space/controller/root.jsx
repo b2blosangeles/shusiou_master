@@ -5,6 +5,7 @@ try {
 		window.location.href = window.location.href.replace(shusiou_url, 'https://' + window.location.hostname);
 	} else {
 		var Root =  React.createClass({
+			displayName: 'HeyHey',
 			getInitialState: function() {
 				var me = this;
 				Root = me;
