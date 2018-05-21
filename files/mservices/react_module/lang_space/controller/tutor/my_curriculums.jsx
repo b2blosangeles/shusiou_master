@@ -9,7 +9,7 @@ try {
 			var me = this;
 			me.callEng();
 		},
-		popupMessage:function(v) {
+		popupAlert:function(v) {
 			var me = this;
 			let cfg = {
 				section: {
@@ -21,7 +21,7 @@ try {
 					}
 				},
 				box_class : 'alert-success',
-				popup_type : 'window',
+				popup_type : 'alert',
 				close_icon : true
 			};
 			me.lib.buildPopup(me, cfg);
