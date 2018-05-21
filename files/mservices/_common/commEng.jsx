@@ -54,7 +54,7 @@ try {
 			let me = this;
 			
 			let callBack = ((eng.callBack) && (typeof me.props.parent[eng.callBack] == 'function')) ?
-			me.props.parent[eng.callBack] : function() { alert(888); };
+			me.props.parent[eng.callBack] : function() {  };
 
 			eng.request.time_out = (eng.request.time_out) ? eng.request.time_out : 6000;
 			
@@ -73,7 +73,7 @@ try {
 			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
 			
 			let callBack = ((eng.callBack) && (typeof me.props.parent[eng.callBack] == 'function')) ?
-			me.props.parent[eng.callBack] : function() { alert(999); };
+			me.props.parent[eng.callBack] : function() {  };
 			
 			me.err = {};
 			let CP = new me.crowdProcess(), Q = {}, err = [];
