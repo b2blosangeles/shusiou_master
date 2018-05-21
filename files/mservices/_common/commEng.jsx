@@ -59,7 +59,7 @@ try {
 			var _f = function(data) {
 				clearInterval(me._itvEng);
 				me.setState({ModalLoading: {}},function(){
-					alert(8);
+				//	alert(8);
 				//	viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 				//	callBack({EngResult : result, EngReport : report});
 				});
