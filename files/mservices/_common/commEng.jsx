@@ -55,11 +55,7 @@ try {
 			
 			let callBack = ((eng.callBack) && (typeof me.props.parent[eng.callBack] == 'function')) ?
 			me.props.parent[eng.callBack] : function() { alert(888); };
-			
-			/*
-			let callBack = ((eng.callBack) && (typeof Root.target.props.parent[eng.callBack] == 'function')) ?
-			Root.target.props.parent[eng.callBack] : function() { alert(888); };
-			*/
+
 			eng.request.time_out = (eng.request.time_out) ? eng.request.time_out : 6000;
 			
 			var _f = function(data) {
@@ -77,7 +73,7 @@ try {
 			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
 			
 			let callBack = ((eng.callBack) && (typeof me.props.parent[eng.callBack] == 'function')) ?
-			me.props.parent[eng.callBack] : function() { };
+			me.props.parent[eng.callBack] : function() { alert(999); };
 			
 			me.err = {};
 			let CP = new me.crowdProcess(), Q = {}, err = [];
