@@ -103,7 +103,7 @@ try {
 
 					<br/><br/><br/><br/>
 					<div className="content_bg opacity_bg"/>
-					<_commWin parent={me} /><_commEng parent={me} />
+					<span><_commWin parent={me} /><_commEng parent={me} /></span>
 				</div>
 			);
 		}
