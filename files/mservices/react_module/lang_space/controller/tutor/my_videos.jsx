@@ -23,7 +23,6 @@ try {
 				hold:1000,
 				setting: {timeout:6000},
 				callBack: function(data) {
-					alert(8848);
 					if (data.status === 'success') {
 						me.setState({list:data.data}, function() {
 							Root.lib.alert(me, 'Data load success!', 'success', 3000);
