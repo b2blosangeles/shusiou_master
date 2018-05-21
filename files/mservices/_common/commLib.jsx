@@ -6,10 +6,10 @@ var _commLib = function () {
     	return(<span><_commWin parent={o} /><_commEng parent={o} /></span>)
     }
     this.alert = function(target, message, alert_type,  holdTime)  {
-	    console.log('====target=---=');
-	    console.log(target.props.name);
+	    console.log('====target=-ff-=');
+	    console.log(target.constructor.displayName);
 	    console.log('====Root===');
-	    console.log(Root.props.name);	    
+	    console.log(Root.constructor.displayName);	    
 	var me = this, ta = (target) ? target : Root;
 	let cfg = {
 		section: {
