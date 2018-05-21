@@ -25,7 +25,7 @@ try {
 				close_icon : true
 			};
 			me.lib.buildPopup(me, cfg);
-			setTimeout(function {
+			setTimeout(function() {
 				me.setState({ModalPopup:'cancel'});
 			}, 6000);
 			return true;
