@@ -38,7 +38,7 @@ try {
 				callBack: function(data) {
 					if (data.status === 'success') {
 						me.setState({list:data.data}, function() {
-							me.popupMessage();
+							me.popupMessage('test');
 						});
 					}
 				}
