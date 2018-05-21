@@ -8,29 +8,6 @@ try {
 		componentDidMount:function() {
 			var me = this;
 			me.callEng();
-		},
-		popupAlert:function(message, alert_type,  holdTime) {
-			var me = this;
-			let cfg = {
-				section: {
-					message : function() {
-						let ta = me, popid = new Date().getTime();
-						return (
-						<span>{message}</span>
-						);
-					}
-				},
-				box_class : 'alert-' + alert_type,
-				popup_type : 'alert',
-				close_icon : true
-			};
-			me.lib.buildPopup(me, cfg);
-			setTimeout(function() {
-				if ((me.state.ModalPopup) && (me.state.ModalPopup.popup_type === 'alert')) {
-					me.setState({ModalPopup:'cancel'});
-				}
-			}, (holdTime) ? holdTime : 6000);
-			return true;
 		},		
 		callEng:function() {
 			var me = this;
@@ -44,7 +21,7 @@ try {
 					if (data.status === 'success') {
 						me.setState({list:data.data}, function() {});
 					} else {
-						me.lib.alert('API access error!---', 'danger', 6000);
+						me.lib.alert(me, 'API access error!---', 'danger', 6000);
 					}
 				}
 			}
