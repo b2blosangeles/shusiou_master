@@ -12,7 +12,7 @@ try {
 		callEng:function() {
 			var me = this;
 			let engCfg = {
-				request:{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+				request:{code:'getlist', url : _master_svr() +  'ttt/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}
 				},
 				hold:0,
