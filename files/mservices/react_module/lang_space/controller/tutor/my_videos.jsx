@@ -17,6 +17,29 @@ try {
 		callEng:function() {
 			var me = this;
 			let engCfg = {
+				request:{code:'getlist', url : _master_svr() +  '/api/video/myVideo.api?opt=getMyVideos', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth},
+					 time_out :6000	
+				},
+				hold:1000,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					if (data.status === 'success') {
+						me.setState({list:data.data}, function() {
+							Root.lib.alert(me, 'Data load success!', 'success', 3000);
+						});
+					} else {
+						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
+						
+					}
+				}
+			}
+			Root.lib.setCallBack(engCfg, me);
+			Root.setState({_eng:engCfg});
+		},			
+		callEng0:function() {
+			var me = this;
+			let engCfg = {
 				Q:[
 					{code:'getlist', url : _master_svr() +  '/api/video/myVideo.api?opt=getMyVideos', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth},
