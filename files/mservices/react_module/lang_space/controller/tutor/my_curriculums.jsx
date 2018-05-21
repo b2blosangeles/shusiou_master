@@ -2,7 +2,7 @@ try {
 	var My_curriculums =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			me.lib = new _commLib();
+		//	me.lib = new _commLib();
 			return {opt:'', list:[]};
 		},	
 		componentDidMount:function() {
@@ -23,12 +23,12 @@ try {
 							Root.lib.alert(me, 'Data load success!--ccc-', 'success', 3000);
 						});
 					} else {
-						me.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
+						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
 						
 					}
 				}
 			}
-			me.lib.setCallBack(engCfg, me);
+			Root.lib.setCallBack(engCfg, me);
 			me.setState({_eng:engCfg});
 		},					
 		componentDidUpdate:function() {
