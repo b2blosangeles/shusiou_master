@@ -57,6 +57,8 @@ try {
 			eng.request.time_out = (eng.request.time_out) ? eng.request.time_out : 6000;
 			
 			var _f = function(data) {
+				clearInterval(me._itvEng);
+				return true;
 				//viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 			
 				me.setState({ModalLoading: {}},function(){
