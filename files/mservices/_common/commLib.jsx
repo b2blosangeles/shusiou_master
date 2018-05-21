@@ -3,12 +3,12 @@ var _commLib = function () {
     _LibIndex = (!_LibIndex || _LibIndex > 1000000) ? 1 : (_LibIndex + 1);
     
     this.landingModal = function(o) {
-	var me = this, target = (me.target) ?  me.target : me;
+	var me = this, target = Root.target;
     	return(<span><_commWin parent={target} /><_commEng parent={target} /></span>)
     }
     this.alert = function(target, message, alert_type,  holdTime)  {
 	var me = this, ta = target;
-	me.target = target;
+	Root.target = target;
 	let cfg = {
 		section: {
 			message : function() { return message; }
@@ -28,9 +28,9 @@ var _commLib = function () {
     }
     
     this.buildPopup = function(o, setting)  {
-	 var me = this;
-	me.target = o;   
-       let caller_name = arguments.callee.caller.name,
+	let me = this;
+	Root.target = o;   
+        let caller_name = arguments.callee.caller.name,
            f_list = {},
            ModalPopup_cfg = {};
        
