@@ -38,7 +38,7 @@ var _commLib = function () {
 		popup_type : 'alert',
 		close_icon : true
 	};
-	me.buildPopup(target, cfg);
+	me.buildPopup(ta, cfg);
 	setTimeout(function() {
 		if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
 			ta.setState({ModalPopup:'cancel'});
