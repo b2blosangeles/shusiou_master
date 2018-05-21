@@ -29,7 +29,7 @@ try {
 				}
 			}
 			Root.lib.setCallBack(engCfg, me);
-			me.setState({_eng:engCfg});
+			Root.setState({_eng:engCfg});
 		},					
 		componentDidUpdate:function() {
 			var me = this;
