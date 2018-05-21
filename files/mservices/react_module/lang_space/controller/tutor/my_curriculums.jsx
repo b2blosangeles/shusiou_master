@@ -16,11 +16,9 @@ try {
 				request:{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}
 				},
-				hold:500,
+				hold:0,
 				setting: {timeout:6000},
 				callBack: function(data) {
-					console.log('data===>')
-					console.log(data);
 					me.setState({list:data.data});
 				}
 				
