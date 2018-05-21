@@ -64,10 +64,10 @@ var _commLib = function () {
             if (key == 'section') {
                   for (var v in setting.section) {
                      if (typeof setting.section[v] === 'function') {
-                        o[ caller_name + '_' + v] = function(v) {
+                        o[ caller_name + '_' + v] = (function(v) {
 				//let me = target;
-				setting.section[v];
-			}	
+				return setting.section[v];
+			})(v);	
                         f_list[v] = caller_name + '_' + v;
                         delete setting.section[v];
                      }
