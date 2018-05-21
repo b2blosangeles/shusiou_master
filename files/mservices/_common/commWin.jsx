@@ -36,11 +36,7 @@ try {
 		ModalLoadingClass: function() {
 			let me = this;	
 			return 'modal fade ModalPopup_' + me.state.id;
-		},
-		modalAlertClass:function () {
-			let me = this;	
-			return 'modal fade alert-success ModalPopup_' + me.state.id;
-		},		
+		},	
 		render: function() {
 			let me = this, ModalPopup = (me.props.parent.state.ModalPopup) ? me.props.parent.state.ModalPopup : {};
 			let box_class = ModalPopup.box_class,
@@ -51,7 +47,7 @@ try {
 			switch(popup_type) {
 			    case 'alert':
 				return (
-					<div className={me.modalClass()} tabindex="-1" role="dialog">
+					<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
 						<div className="modal-dialog modal-lg" role="document">
 							<button type="button" className="close" 
 								onClick={me.closePopup.bind(me)}
