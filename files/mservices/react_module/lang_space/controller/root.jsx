@@ -9,6 +9,7 @@ try {
 			getInitialState: function() {
 				var me = this;
 				_global = me;
+				me.lib = new _commLib();
 				return {
 					dictionary:_DATA_["/data/dictionary.json"],
 					lang:_DATA_["/data/language.json"],
