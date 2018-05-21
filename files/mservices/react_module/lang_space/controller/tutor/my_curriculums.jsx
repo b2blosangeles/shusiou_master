@@ -9,7 +9,7 @@ try {
 			var me = this;
 			me.callEng();
 		},
-		popupAlert:function(message) {
+		popupAlert:function(message, holdTime) {
 			var me = this;
 			let cfg = {
 				section: {
@@ -26,9 +26,10 @@ try {
 			};
 			me.lib.buildPopup(me, cfg);
 			setTimeout(function() {
-				console.log(me.state.ModalPopup);
-				me.setState({ModalPopup:'cancel'});
-			}, 6000);
+				if ((me.state.ModalPopup) && (me.state.ModalPopup.popup_type === 'alert')) {
+					me.setState({ModalPopup:'cancel'});
+				}
+			}, (holdTime) ? holdTime : 6000);
 			return true;
 		},		
 		callEng:function() {
@@ -42,7 +43,7 @@ try {
 				callBack: function(data) {
 					if (data.status === 'success') {
 						me.setState({list:data.data}, function() {
-							me.popupAlert('test');
+							me.popupAlert('Success loaded!', 3000);
 						});
 					}
 				}
