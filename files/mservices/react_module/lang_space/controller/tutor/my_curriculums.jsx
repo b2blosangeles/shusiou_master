@@ -26,6 +26,7 @@ try {
 			};
 			me.lib.buildPopup(me, cfg);
 			setTimeout(function() {
+				console.log(me.state.ModalPopup);
 				me.setState({ModalPopup:'cancel'});
 			}, 6000);
 			return true;
