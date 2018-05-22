@@ -27,8 +27,7 @@ try {
 					}
 				}
 			}
-			Root.lib.loadModalEng(engCfg, me);
-			// Root.setState({_eng:engCfg});
+			Root.lib.loadEng(me, engCfg);
 		},					
 		componentDidUpdate:function() {
 			var me = this;
