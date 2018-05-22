@@ -6,7 +6,7 @@ var _commLib = function () {
 	o.existModal = true;
     	return(<span><_commWin parent={o} /><_commEng parent={o} /></span>)
     }
-    
+    /*
     this.setCallBack = function(o, target) {
        let me = this, ta = (target.existModal) ? target : Root;
        let func = null, id = new Date().getTime() + '_' + _LibIndex;
@@ -21,8 +21,9 @@ var _commLib = function () {
 	   }
            o.callBack = 'EngCbk_' + id;
        }
-    }    
-    this.loadModalEng = function(o, target) {
+    } 
+    */
+    this.loadEng = function(o, target) {
 	let ta = (target.existModal) ? target : Root,
 	    func = null, 
 	    id = new Date().getTime() + '_' + _LibIndex;
