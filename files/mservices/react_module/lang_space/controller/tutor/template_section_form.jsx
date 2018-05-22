@@ -74,7 +74,7 @@ try {
 			var me = this;
 			let engCfg = {
 				request:
-					{code:'getlist', url :  _master_svr() +  '/api/content_data/getScripts.api, method:'post', 
+					{code:'getlist', url :  _master_svr() +  '/api/content_data/getScripts.api', method:'post', 
 					 data: {cmd:'getScriptById', id: id, auth:me.props.parent.props.route.env.state.auth},
 				},
 				hold:0,
