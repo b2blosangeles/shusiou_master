@@ -89,8 +89,7 @@ try {
 				popup_type : 'window',
 				close_icon : true
 			};
-			// Root.lib.buildPopup(me, cfg);
-			Root.lib.popup(me, cfg);
+			Root.lib.popupWin(me, cfg);
 			return true;
 		},		
 		videoInfo: function(rec) {
@@ -108,7 +107,7 @@ try {
 				popup_type : 'window',
 				close_icon : false
 			};
-			Root.lib.popupWin(cfg, me);
+			Root.lib.popupWin(me, cfg);
 			return true;
 		},		
 					
