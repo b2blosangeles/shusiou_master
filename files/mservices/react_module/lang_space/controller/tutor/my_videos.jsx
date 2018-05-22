@@ -28,7 +28,7 @@ try {
 						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
 						EngR.getlist.data},
 						function() {
-							Root.lib.alert(me, 'Data load success!', 'success', 3000);
+							Root.lib.alert(me, 'Data load success!AA', 'success', 3000);
 						});	
 				}
 				
@@ -169,6 +169,7 @@ try {
 
 					<br/><br/><br/><br/>
 					<div className="content_bg opacity_bg"/>
+					{Root.lib.landingModal(me)}
 				</div>
 			);
 		}
