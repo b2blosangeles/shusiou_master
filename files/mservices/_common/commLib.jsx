@@ -75,6 +75,7 @@ var _commLib = function () {
                      if (typeof setting.section[v] === 'function') {
                         ta[ caller_name + '_' + v] =  
 				(function(v) {
+					let me = o;
 					return setting.section[v];
 				})(v);
 					
