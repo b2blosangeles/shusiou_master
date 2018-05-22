@@ -78,7 +78,7 @@ try {
 					body : function() {
 						let ta = me, popid = new Date().getTime();
 						return (
-						<My_video_admin parent={ta} id={me.state.popid}/>
+						<My_video_admin parent={ta} id={popid}/>
 						);
 					}
 				},
