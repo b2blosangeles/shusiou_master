@@ -6,7 +6,6 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			me.lib = new _commLib();
 		},
 		componentDidUpdate:function(prePropos, preState) {
 			var me = this, c = me.props.parent.state.curriculum;
@@ -96,7 +95,7 @@ try {
 						    <tbody>
 						{me.props.parent.state.sections.map(function(rec) { return (<tr>
 							<td>
-								<span dangerouslySetInnerHTML={{__html: me.lib.toHHMMSS(rec.start)}} />    
+								<span dangerouslySetInnerHTML={{__html: Root.lib.toHHMMSS(rec.start)}} />    
 							</td>
 							<td>	    
 								<span dangerouslySetInnerHTML={{__html:rec.length}} /> (s)    
