@@ -6,7 +6,7 @@ var _commLib = function () {
 	o.existModal = true;
     	return(<span><_commWin parent={o} /><_commEng parent={o} /></span>)
     }
-    this.assignEng = function(target, engCfg) {
+    this.assignEng = function(engCfg, target) {
 	let ta = (target.existModal) ? target : Root;
     	ta.setState({_eng:engCfg})
     }    
