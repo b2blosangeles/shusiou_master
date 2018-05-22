@@ -113,7 +113,7 @@ try {
 
 						<Footsection env={me}/>
 						<Breakpoints env={me}/>
-						{Root.lib.landingModal(me)}
+						{/*Root.lib.landingModal(me)*/}
 					</span>
 				  );
 			}	
