@@ -30,7 +30,7 @@ try {
 			   ) {
 				return me.props.parent[me.props.parent.state.ModalPopup.section[code]]();
 			} else {
-				return 'tt'
+				return me.props.parent[me.state.ModalPopup.section[code]]();
 			}
 		},
 		ModalLoadingClass: function() {
