@@ -108,7 +108,7 @@ try {
 				popup_type : 'window',
 				close_icon : false
 			};
-			Root.lib.popup(me, cfg);
+			Root.lib.popupWin(cfg, me);
 			return true;
 		},		
 					
