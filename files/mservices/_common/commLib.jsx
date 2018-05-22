@@ -112,9 +112,6 @@ var _commLib = function () {
         return h + ':' + m + ':' + s + ' ' + ms;
     }
     
-    this.cpSeeker = function(pint, idx, data) {
-        
-    }
     this.obj2Json = function(o) {
        for (var item in o) {
           if (typeof o[item] === 'object') {
