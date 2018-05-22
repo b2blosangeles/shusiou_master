@@ -20,7 +20,7 @@ try {
 			var me = this, A = me.state.list;
 
 			$.ajax({
-				url: shusiou_config.api_server + '/api/shusiou_curriculum.js',
+				url: _master_svr() + '/api/shusiou_curriculum.js',
 				method: "POST",
 				data: {cmd:'getList', uid:1, token:'xxxxx',  auth:me.props.route.env.state.auth},
 				dataType: "JSON"
