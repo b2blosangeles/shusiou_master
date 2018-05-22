@@ -36,7 +36,7 @@ try {
 				
 			}
 			Root.lib.setCallBack(engCfg, me);
-			Root.setState({_eng:engCfg});
+			Root.lib.assignEng(engCfg, me);
 		},		
 		componentDidUpdate:function() {
 			var me = this;
