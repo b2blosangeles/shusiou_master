@@ -87,10 +87,12 @@ var _commLib = function () {
         
     }
     
-    this.closePopup = function(o) {
-	var me = this, ta = Root;
+    this.closePopup = function(target) {
+	var me = this, ta = (target.existModal) ? target : Root;
 	ta.setState({ModalPopup : 'cancel'});
+	/*
 	    return true;
+	    
 	if (!ta.props || !ta.props.parent) {
 		alert('No props');
 	} else {
@@ -100,6 +102,7 @@ var _commLib = function () {
 			ta.props.parent.setState({ModalPopup : 'cancel'});
 		}
 	} 
+	*/
     }
     
     this.toHHMMSS = function(v, noms) {
