@@ -6,6 +6,10 @@ var _commLib = function () {
 	o.existModal = true;
     	return(<span><_commWin parent={o} /><_commEng parent={o} /></span>)
     }
+    this.assignEng = function(target, engCfg) {
+	let ta = (target.existModal) ? target : Root;
+    	ta.setState({_eng:engCfg})
+    }    
     this.alert = function(target, message, alert_type,  holdTime)  {	
 	    console.log('===target.existModal===>');
 	    console.log(target.existModal);
