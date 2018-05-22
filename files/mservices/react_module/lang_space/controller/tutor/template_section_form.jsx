@@ -45,7 +45,48 @@ try {
 				}
 			}
 		},
+		callEng:function() {
+			var me = this;
+			let engCfg = {
+				Q:[
+					{code:'getlist', url : _master_svr() +  '/api/video/myVideo.api?opt=getMyVideos', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth},
+					 time_out :6000	
+					}
+				],
+				hold:0,
+				setting: {timeout:3000},
+				callBack: function(data) {
+					var EngR = data.EngResult;
+					me.setState({
+						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
+						EngR.getlist.data},
+						function() {
+							// Root.lib.alert(me, 'Data load success!', 'success', 3000);
+						});	
+				}
+				
+			}
+			Root.lib.loadEng(me, engCfg);
+		},		
+		
 		loadScriptById:function(id) {
+			var me = this;
+			let engCfg = {
+				request:
+					{code:'getlist', url :  _master_svr() +  '/api/content_data/getScripts.api, method:'post', 
+					 data: {cmd:'getScriptById', id: id, auth:me.props.parent.props.route.env.state.auth},
+				},
+				hold:0,
+				setting: {timeout:3000},
+				callBack: function(data) {
+					me.setState({c_tpl:data});
+				}
+				
+			}
+			Root.lib.loadEng(me, engCfg);
+			return true;
+			//=====================================
 			var me = this;
 			me.props.parent.props.route.env.engine({
 				url:  _master_svr() +  '/api/content_data/getScripts.api',
