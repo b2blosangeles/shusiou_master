@@ -2,7 +2,7 @@ try {
 	var TemplateSectionForm =  React.createClass({
 		getInitialState: function() {
 			var me = this; 
-			me.lib = new _commLib();
+		//	me.lib = new _commLib();
 			return {
 				scriptLangs:[],
 				scriptList:[],
@@ -209,8 +209,8 @@ try {
 								<span>
 									{(function() {
 										return (<span dangerouslySetInnerHTML=
-										{{__html: 'Start: ' + me.lib.toHHMMSS(me.state.data[v].s) + 
-										' To:' + me.lib.toHHMMSS(parseInt(me.state.data[v].s) + parseInt(me.state.data[v].t))}}
+										{{__html: 'Start: ' + Root.lib.toHHMMSS(me.state.data[v].s) + 
+										' To:' + Root.lib.toHHMMSS(parseInt(me.state.data[v].s) + parseInt(me.state.data[v].t))}}
 										/>)
 									})()}
 									<button className="btn btn-info btn-xs" 
