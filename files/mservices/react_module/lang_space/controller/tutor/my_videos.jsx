@@ -35,8 +35,7 @@ try {
 				}
 				
 			}
-			// Root.lib.setCallBack(engCfg, me);
-			Root.lib.loadModalEng(engCfg, me);
+			Root.lib.loadEng(me, engCfg);
 		},		
 		componentDidUpdate:function() {
 			var me = this;
