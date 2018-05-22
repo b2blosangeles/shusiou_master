@@ -80,25 +80,11 @@ try {
 				hold:0,
 				setting: {timeout:3000},
 				callBack: function(data) {
+					Root.lib.alert(me, 'Data load success!', 'success', 3000);
 					me.setState({c_tpl:data});
 				}
-				
 			}
-			Root.lib.loadEng(me, engCfg);
-			return true;
-			//=====================================
-			var me = this;
-			me.props.parent.props.route.env.engine({
-				url:  _master_svr() +  '/api/content_data/getScripts.api',
-				method: "POST",
-				data: {cmd:'getScriptById', id: id, auth:me.props.parent.props.route.env.state.auth},
-				dataType: "JSON"
-			}, function( data) {
-				console.log(data);
-				me.setState({c_tpl:data});
-			},function( jqXHR, textStatus ) {
-				console.log('error');
-			});			
+			Root.lib.loadEng(me, engCfg);			
 		},
 		setStateData(idx, data) {
 			var me = this, v = (me.state.data) ? me.state.data : {};
