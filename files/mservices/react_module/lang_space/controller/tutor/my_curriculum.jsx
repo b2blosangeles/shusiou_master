@@ -35,32 +35,8 @@ try {
 							{me.rightBox(me.props.params)}			
 						</div>	
 					</div>	
-					<ModalPlus parent={me} />
 				</div>);
 		},
-		callEngCbk : function(data) {
-			let me = this;
-			console.log('====callEngCbk=test==>');
-			console.log(data);
-		},
-		callEng:function() {
-			var me = this;
-			me.setState({_eng:{
-				pre_parallel:[
-					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'get', data:{}}
-				],				
-				parallel:[
-					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
-				],
-				after_parallel:[
-					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
-				],
-				hold:0,
-				setting: {timeout:30000},
-				callbackfn: 'callEngCbk'
-				
-			}});
-		},		
 		leftBox:function(params) {
 			var me = this;
 			if (params.opt == 'new') {
