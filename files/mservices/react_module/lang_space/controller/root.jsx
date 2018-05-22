@@ -110,7 +110,9 @@ try {
 						<IndexRoute env={me} component={Ad}/>
 						{me.routeMatrix()}
 					</ReactRouter.Router>
-					{Root.lib.landingModal(me)}	
+					<div className="content_section">
+						{Root.lib.landingModal(me)}
+					</div>	
 					<Footsection env={me}/>
 					<Breakpoints env={me}/>
 					
