@@ -40,8 +40,6 @@ var _commLib = function () {
 	ta.setState({_eng:o})
     }    
     this.alert = function(target, message, alert_type,  holdTime)  {	
-	    console.log('===target.existModal===>');
-	    console.log(target.existModal);
 	var me = this, ta = (target.existModal) ? target : Root;
 	let cfg = {
 		section: {
@@ -60,9 +58,9 @@ var _commLib = function () {
 	return true;       
         
     }
-    this.popup = function(o, setting)  {
-	let me = this, ta = Root;  
-	me.buildPopup(ta, setting);
+    this.popupWin = function(target, setting)  {
+	let me = this, ta = (target.existModal) ? target : Root;
+	me.buildPopup(ta, target, setting);
     }    
     this.buildPopup = function(ta, o, setting)  {
 	let me = this;  
