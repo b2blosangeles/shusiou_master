@@ -104,18 +104,16 @@ try {
 				var me = this;		
 				return (
 					<span>
-					<Topsection env={me}/>
-					
-					<ReactRouter.Router history={hashHistory}>
-						<IndexRoute env={me} component={Ad}/>
-						{me.routeMatrix()}
-					</ReactRouter.Router>
-					<div className="content_section">
+						<Topsection env={me}/>
+
+						<ReactRouter.Router history={hashHistory}>
+							<IndexRoute env={me} component={Ad}/>
+							{me.routeMatrix()}
+						</ReactRouter.Router>
+
+						<Footsection env={me}/>
+						<Breakpoints env={me}/>
 						{Root.lib.landingModal(me)}
-					</div>	
-					<Footsection env={me}/>
-					<Breakpoints env={me}/>
-					
 					</span>
 				  );
 			}	
