@@ -45,31 +45,6 @@ try {
 				}
 			}
 		},
-		callEng:function() {
-			var me = this;
-			let engCfg = {
-				Q:[
-					{code:'getlist', url : _master_svr() +  '/api/video/myVideo.api?opt=getMyVideos', method:'post', 
-					 data:{cmd:'getList', auth:me.props.route.env.state.auth},
-					 time_out :6000	
-					}
-				],
-				hold:0,
-				setting: {timeout:3000},
-				callBack: function(data) {
-					var EngR = data.EngResult;
-					me.setState({
-						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
-						EngR.getlist.data},
-						function() {
-							// Root.lib.alert(me, 'Data load success!', 'success', 3000);
-						});	
-				}
-				
-			}
-			Root.lib.loadEng(me, engCfg);
-		},		
-		
 		loadScriptById:function(id) {
 			var me = this;
 			let engCfg = {
@@ -81,8 +56,7 @@ try {
 				setting: {timeout:3000},
 				callBack: function(data) {
 					Root.lib.alert(me, 'Data load success!', 'success', 3000);
-					alert(44);
-					me.setState({c_tpl:data});
+					// me.setState({c_tpl:data});
 				}
 			}
 			Root.lib.loadEng(me, engCfg);			
