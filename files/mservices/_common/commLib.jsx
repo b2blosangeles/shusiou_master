@@ -6,9 +6,38 @@ var _commLib = function () {
 	o.existModal = true;
     	return(<span><_commWin parent={o} /><_commEng parent={o} /></span>)
     }
-    this.assignEng = function(engCfg, target) {
-	let ta = (target.existModal) ? target : Root;
-    	ta.setState({_eng:engCfg})
+    
+    this.setCallBack = function(o, target) {
+       let me = this, ta = (target.existModal) ? target : Root;
+       let func = null, id = new Date().getTime() + '_' + _LibIndex;
+        
+       if (typeof o.callBack === 'function') {
+           func = o.callBack;
+	   ta['EngCbk_' + id] = function(data) {
+               let me = target;
+               func(data);
+               delete ta['EngCbk_' + id];
+               delete o['EngCbk_' + id];
+	   }
+           o.callBack = 'EngCbk_' + id;
+       }
+    }    
+    this.loadModalEng = function(o, target) {
+	let ta = (target.existModal) ? target : Root,
+	    func = null, 
+	    id = new Date().getTime() + '_' + _LibIndex;
+        
+       if (typeof o.callBack === 'function') {
+           func = o.callBack;
+	   ta['EngCbk_' + id] = function(data) {
+               let me = target;
+               func(data);
+               delete ta['EngCbk_' + id];
+               delete o['EngCbk_' + id];
+	   }
+           o.callBack = 'EngCbk_' + id;
+       	}	    
+	ta.setState({_eng:o})
     }    
     this.alert = function(target, message, alert_type,  holdTime)  {	
 	    console.log('===target.existModal===>');
@@ -85,21 +114,6 @@ var _commLib = function () {
     
     this.cpSeeker = function(pint, idx, data) {
         
-    }
-    this.setCallBack = function(o, target) {
-       let me = this, ta = (target.existModal) ? target : Root;
-       let func = null, id = new Date().getTime() + '_' + _LibIndex;
-        
-       if (typeof o.callBack === 'function') {
-           func = o.callBack;
-	   ta['EngCbk_' + id] = function(data) {
-               let me = target;
-               func(data);
-               delete ta['EngCbk_' + id];
-               delete o['EngCbk_' + id];
-	   }
-           o.callBack = 'EngCbk_' + id;
-       }
     }
     this.obj2Json = function(o) {
        for (var item in o) {
