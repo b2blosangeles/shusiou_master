@@ -74,9 +74,9 @@ var _commLib = function () {
                   for (var v in setting.section) {
                      if (typeof setting.section[v] === 'function') {
                         ta[ caller_name + '_' + v] =  
-				function() {
-					setting.section[v]();
-				};
+				(function(v) {
+					return setting.section[v];
+				})(v);
 					
                         f_list[v] = caller_name + '_' + v;
                         delete setting.section[v];
