@@ -257,7 +257,7 @@ try {
 				<ModalPlus parent={me} />
 				<_commWin parent={me} />
 				<_commEng parent={me} />*/}
-				{Root.lib.landingModal(me)}
+				{/*Root.lib.landingModal(me)*/}
 				</span>)
 		}
 	});	
