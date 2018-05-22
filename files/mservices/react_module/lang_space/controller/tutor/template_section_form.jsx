@@ -102,7 +102,7 @@ try {
 				popup_type : 'window',
 				close_icon : true
 			};
-			me.lib.buildPopup(me, cfg);
+			Root.lib.popupWin(me, cfg);
 			return true;
 		},	
 		setScriptListFilter(p) {
