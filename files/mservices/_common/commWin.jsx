@@ -30,7 +30,7 @@ try {
 			   ) {
 				return me.props.parent[me.props.parent.state.ModalPopup.section[code]]();
 			} else {
-				return '===';
+				return '';
 			}
 		},
 		ModalLoadingClass: function() {
@@ -54,7 +54,7 @@ try {
 								style={{display:close_icon}}>
 								&times;
 							</button>						
-							{me.callSection('message')}--			
+							{me.callSection('message')}
 						</div>
 					</div>
 				);
