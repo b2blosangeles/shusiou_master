@@ -54,7 +54,7 @@ try {
 								style={{display:close_icon}}>
 								&times;
 							</button>						
-							{me.callSection('message')}				
+							{me.callSection('message')}'--'				
 						</div>
 					</div>
 				);
