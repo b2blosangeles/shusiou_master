@@ -2,7 +2,7 @@ try {
 	var TemplateSectionForm =  React.createClass({
 		getInitialState: function() {
 			var me = this; 
-		//	me.lib = new _commLib();
+			me.lib = new _commLib();
 			return {
 				scriptLangs:[],
 				scriptList:[],
