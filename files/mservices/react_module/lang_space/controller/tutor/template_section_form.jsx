@@ -81,6 +81,7 @@ try {
 				setting: {timeout:3000},
 				callBack: function(data) {
 					Root.lib.alert(me, 'Data load success!', 'success', 3000);
+					alert(44);
 					me.setState({c_tpl:data});
 				}
 			}
