@@ -23,22 +23,22 @@ var _commLib = function () {
        }
     } 
     */
-    this.loadEng = function(o, target) {
+    this.loadEng = function(target, engCfg) {
 	let ta = (target.existModal) ? target : Root,
 	    func = null, 
 	    id = new Date().getTime() + '_' + _LibIndex;
         
-       if (typeof o.callBack === 'function') {
-           func = o.callBack;
+       if (typeof engCfg.callBack === 'function') {
+           func = engCfg.callBack;
 	   ta['EngCbk_' + id] = function(data) {
                let me = target;
                func(data);
                delete ta['EngCbk_' + id];
-               delete o['EngCbk_' + id];
+               delete engCfg['EngCbk_' + id];
 	   }
-           o.callBack = 'EngCbk_' + id;
+           engCfg.callBack = 'EngCbk_' + id;
        	}	    
-	ta.setState({_eng:o})
+	ta.setState({_eng:engCfg})
     }    
     this.alert = function(target, message, alert_type,  holdTime)  {	
 	var me = this, ta = (target.existModal) ? target : Root;
