@@ -16,7 +16,7 @@ try {
 			var me = this;  
 			$('video').attr('src', ''); 
 			if ($('video')[0]) $('video')[0].pause();
-			Root.lib.closePopup(me);
+			Root.lib.closePopup(me.props.parent);
 		},
 		delete_video:function(){
 			var me = this;  
