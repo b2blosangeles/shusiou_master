@@ -105,11 +105,12 @@ try {
 				return (
 					<span>
 					<Topsection env={me}/>
-					{Root.lib.landingModal(me)}
+					
 					<ReactRouter.Router history={hashHistory}>
 						<IndexRoute env={me} component={Ad}/>
 						{me.routeMatrix()}
 					</ReactRouter.Router>
+					{Root.lib.landingModal(me)}	
 					<Footsection env={me}/>
 					<Breakpoints env={me}/>
 					
