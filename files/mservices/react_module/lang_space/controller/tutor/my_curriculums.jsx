@@ -2,7 +2,6 @@ try {
 	var My_curriculums =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-		//	me.lib = new _commLib();
 			return {opt:'', list:[]};
 		},	
 		componentDidMount:function() {
@@ -28,8 +27,8 @@ try {
 					}
 				}
 			}
-			Root.lib.setCallBack(engCfg, me);
-			Root.setState({_eng:engCfg});
+			Root.lib.loadModalEng(engCfg, me);
+			// Root.setState({_eng:engCfg});
 		},					
 		componentDidUpdate:function() {
 			var me = this;
