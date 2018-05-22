@@ -87,8 +87,6 @@ var _commLib = function () {
         
     }
     this.setCallBack = function(o, target) {
-	    console.log('target.existModal-->');
-	     console.log(target.existModal);
        let me = this, ta = (target.existModal) ? target : Root;
        let func = null, id = new Date().getTime() + '_' + _LibIndex;
         
