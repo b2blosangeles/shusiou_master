@@ -2,7 +2,6 @@ try {
 	var TemplateSectionForm =  React.createClass({
 		getInitialState: function() {
 			var me = this; 
-		//	me.lib = new _commLib();
 			return {
 				scriptLangs:[],
 				scriptList:[],
@@ -253,11 +252,6 @@ try {
 				{me.props.parent.state.curriculum.level}
 				{me.templateSelectScript()}
 				{me.tplSection()}
-				{/*JSON.stringify(me.state.c_tpl)
-				<ModalPlus parent={me} />
-				<_commWin parent={me} />
-				<_commEng parent={me} />*/}
-				{/*Root.lib.landingModal(me)*/}
 				</span>)
 		}
 	});	
