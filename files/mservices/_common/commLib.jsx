@@ -1,11 +1,12 @@
 var _LibIndex = 0;
 var _commLib = function () {
     _LibIndex = (!_LibIndex || _LibIndex > 1000000) ? 1 : (_LibIndex + 1);
-	
+
+    this.getAuth = function() {
+		return (reactCookie.load('auth'))?reactCookie.load('auth'):{}
+    },	
     this.landingModal = function(o) {
 	o.existModal = true;
-	    console.log('this.getAuth()===>>');
-	     console.log(this.getAuth());
     	return(<span><_commWin parent={o} /><_commEng parent={o} /></span>)
     }
     this.loadEng = function(target, engCfg) {
