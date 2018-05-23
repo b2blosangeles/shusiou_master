@@ -259,8 +259,9 @@ switch(req.body.cmd) {
 			
 			var str = 'DELETE FROM  `auth_session` WHERE `uid` = "' +  req.body.data.uid  + '" AND ' + 
 			    '`token` = "' +  req.body.data.token + '"';
-			
+			connection.connect();
 			connection.query(str, function (error, results, fields) {
+				connection.end();
 				if (error) {
 					cbk(false);
 					return true;
@@ -269,11 +270,10 @@ switch(req.body.cmd) {
 				}
 			}); 
 		}
-		connection.connect();
+		
 		CP.serial(
 			_f,
 			function(data) {
-				connection.end();
 				if (!CP.data.S1) {
 					res.send({status:'failure', message:'DB error!'});
 				} else {
