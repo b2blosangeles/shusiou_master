@@ -250,15 +250,15 @@ switch(req.body.cmd) {
 	
 		break;	
 	case 'signout':
-		if (!req.body.data || !req.body.data.uid || !req.body.data.token) {
+		if (!req.body.auth || !req.body.auth.uid || !req.body.auth.token) {
 			res.send({status:'failure', message:'Missing auth info'});
 			return true;
 		}
 		var _f = {};
 		_f['S1'] = function(cbk) {
 			
-			var str = 'DELETE FROM  `auth_session` WHERE `uid` = "' +  req.body.data.uid  + '" AND ' + 
-			    '`token` = "' +  req.body.data.token + '"';
+			var str = 'DELETE FROM  `auth_session` WHERE `uid` = "' +  req.body.auth.uid  + '" AND ' + 
+			    '`token` = "' +  req.body.auth.token + '"';
 			connection.connect();
 			connection.query(str, function (error, results, fields) {
 				connection.end();
