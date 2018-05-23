@@ -55,7 +55,7 @@ try {
 				hold:0,
 				setting: {timeout:3000},
 				callBack: function(data) {
-					Root.lib.alert(me, 'Data load success!', 'success', 1000);
+					// Root.lib.alert(me, 'Data load success!', 'success', 1000);
 					me.setState({c_tpl:data});
 				}
 			}
@@ -64,7 +64,6 @@ try {
 		setStateData(idx, data) {
 			var me = this, v = (me.state.data) ? me.state.data : {};
 			v[idx] = data;
-			
 			me.setState({data:v});
 		},
 		handleChange(idx, event) {
@@ -141,6 +140,27 @@ try {
 			me.saveCurriculum(data);
 		},
 		saveSection:function(opt){
+			var me = this;
+			let engCfg = {
+				request:
+					{code:'getlist', url : _master_svr() + '/api/curriculum/myCurriculum.api', method:'post', 
+					 data: { cmd:opt, data:{
+						    curriculum_id : me.props.parent.state.curriculum.curriculum_id,
+						    section_id: me.props.section_id,
+						    tpl:me.state.c_tpl, 
+						    data:me.state.data
+					    },  auth:me.props.env.state.auth},
+				},
+				hold:0,
+				setting: {timeout:3000},
+				callBack: function(data) {
+					Root.lib.alert(me, 'Data update success!', 'success', 1000);
+					me.props.parent.refreshSections();
+				}
+			}
+			Root.lib.loadEng(me, engCfg);				
+			return true;
+			
 			let me = this, 
 			    data = {
 				    curriculum_id : me.props.parent.state.curriculum.curriculum_id,
