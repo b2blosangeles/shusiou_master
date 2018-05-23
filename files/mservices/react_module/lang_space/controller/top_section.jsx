@@ -154,33 +154,16 @@ try {
 		},		
 		signOut:function() {
 			var me = this;	
-			alert('signout');
-			/*
-			var me = this;
 			let engCfg = {
 				request:{
 					code:'getAll', 
-					url: _master_svr() +  '/api/content_data/getScripts.api', 
+					url: _master_svr() +  '/api/auth/auth.api', 
 					method:'post',
-					data: {cmd:'getAll', auth:me.props.parent.props.route.env.state.auth}
+					data: {cmd:'signout',data:me.props.env.state.auth}
 				},
 				hold:0,
 				setting: {timeout:3000},
 				callBack: function(data) {
-					me.setState({scriptLangs:data.langs, scriptList:data.list});
-				}
-			}
-			Root.lib.loadEng(me, engCfg);				
-			me.setTpl({});			
-			*/
-			$.ajax({
-				url: '/api/auth/auth.api',
-				method: "POST",
-				data: {cmd:'signout',data:me.props.env.state.auth},
-				dataType: "JSON"
-			}).done(function( data) {
-				if (data.data) {
-					// console.log(data);
 					reactCookie.remove('auth', { path: '/'});
 					me.props.env.setState({auth:null},
 						function() {
@@ -188,12 +171,9 @@ try {
 							me.componentDidMount();
 							window.location.href = '/#/'
 						});
-					
-				//	window.location.href = '/#/';
-					// window.location.reload();
-				}	
-			}).fail(function( jqXHR, textStatus ) {
-			});				
+				}
+			}
+			Root.lib.loadEng(me, engCfg);			
 		},		
 		render: function() {
 			var me = this;		
