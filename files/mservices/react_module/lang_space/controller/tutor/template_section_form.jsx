@@ -158,10 +158,12 @@ try {
 				hold:0,
 				setting: {timeout:3000},
 				callBack: function(data) {
-					console.log('---data--->')
-					console.log(data)
-					Root.lib.alert(me, 'Data successfully saved!', 'success', 1000);
-					me.props.parent.refreshSections();
+					if (!data || data.status !== 'success') {
+						Root.lib.alert(me, 'Error!' + (data) ? data.message : '', 'danger', 1000);
+					} else {
+						Root.lib.alert(me, 'Data successfully saved!', 'success', 1000);
+						me.props.parent.refreshSections();
+					}
 				}
 			}
 			Root.lib.loadEng(me, engCfg);
