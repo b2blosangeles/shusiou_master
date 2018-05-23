@@ -69,7 +69,8 @@ try {
 						if (data.status === 'success') {
 							Root.lib.alert(me, 'Logout successfully', 'success', 1000);
 							reactCookie.remove('auth', { path: '/'});
-							window.location.href = '/#/'
+							window.location.href = '/#/';
+							window.location.reload();
 						} else {
 							Root.lib.alert(me, 'Error! ' + 
 								(((data) && (data.message)) ? data.message : '' ), 'warning');
