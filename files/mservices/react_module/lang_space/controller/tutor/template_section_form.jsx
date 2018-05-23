@@ -159,7 +159,7 @@ try {
 				setting: {timeout:3000},
 				callBack: function(data) {
 					if (!data || data.status !== 'success') {
-						Root.lib.alert(me, 'Error!' + (data) ? data.message : '', 'danger', 1000);
+						Root.lib.alert(me, 'Error! ' + ((data) ? data.message : ''), 'danger', 1000);
 					} else {
 						Root.lib.alert(me, 'Data successfully saved!', 'success', 1000);
 						me.props.parent.refreshSections();
