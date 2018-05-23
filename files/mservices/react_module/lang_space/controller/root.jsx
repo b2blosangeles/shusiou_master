@@ -66,25 +66,15 @@ try {
 					hold:0,
 					setting: {timeout:3000},
 					callBack: function(data) {
-						console.log(data);
 						if (data.status === 'success') {
-							Root.lib.alert(me, 'Data successfully saved!', 'success');
-						} else {
-							Root.lib.alert(me, 'Data successfully saved!', 'warning');
-						}
-						return true;
-						if (data.status === 'success') {
+							Root.lib.alert(me, 'Login successfully saved!', 'success');
 							reactCookie.remove('auth', { path: '/'});
+							window.location.href = '/#/'
 						} else {
-						
+							Root.lib.alert(me, 'Error! ' + 
+								(((data) && (data.message)) ? data.message : '' ), 'warning');
 						}
 						return true;
-						me.props.env.setState({auth:null},
-							function() {
-								// me.props.env.props.router.push('/');
-								// me.componentDidMount();
-								window.location.href = '/#/'
-							});
 					}
 				}
 				Root.lib.loadEng(Root, engCfg);			
