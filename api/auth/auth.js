@@ -278,7 +278,7 @@ switch(req.body.cmd) {
 					res.send({status:'failure', message:'DB error!'});
 				} else {
 					if (data.status == 'success') {
-						res.send({status:'success', _spent_time:data._spent_time);
+						res.send({status:'success', _spent_time:data._spent_time});
 					} else {
 						res.send({_spent_time:data._spent_time, status:data.status, data:CP.data.S1});	 
 					}
