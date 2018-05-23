@@ -158,6 +158,7 @@ try {
 				hold:0,
 				setting: {timeout:3000},
 				callBack: function(data) {
+					console.log(data);
 					if (!data || data.status !== 'success') {
 						Root.lib.alert(me, 'Error! ' + ((data) ? data.message : ''), 'danger');
 					} else {
