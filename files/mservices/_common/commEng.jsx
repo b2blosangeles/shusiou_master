@@ -1,12 +1,13 @@
 try {
 	var _EngIndex = 0;
+
 	var _commEng = React.createClass({		
 		getInitialState: function() {
 			_EngIndex = (!_EngIndex || _EngIndex > 10000) ? 1 : (_EngIndex + 1);
 			let me = this;
 			me.lib = new _commLib();
 			return {id:_EngIndex, ModalLoading:{}};
-		},
+		},		
 		ajax: function(CP, rec, done, error) {
 			let me = this;
 			if ((rec.dependence) && (CP)) {
@@ -20,7 +21,7 @@ try {
 					rec.data.dependence = depdata;
 				}
 			};
-
+			rec.auth = Root.lib.getAuth();
 			let p = {
 				url:rec.url,
 				method: rec.method,
