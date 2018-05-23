@@ -64,6 +64,7 @@ try {
 		setStateData(idx, data) {
 			var me = this, v = (me.state.data) ? me.state.data : {};
 			v[idx] = data;
+			console.log(v);
 			me.setState({data:v});
 		},
 		handleChange(idx, event) {
