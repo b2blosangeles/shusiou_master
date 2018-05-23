@@ -67,7 +67,17 @@ try {
 					setting: {timeout:3000},
 					callBack: function(data) {
 						console.log(data);
-						reactCookie.remove('auth', { path: '/'});
+						if (data.status === 'success') {
+							Root.lib.alert(me, 'Data successfully saved!', 'success');
+						} else {
+							Root.lib.alert(me, 'Data successfully saved!', 'warning');
+						}
+						return true;
+						if (data.status === 'success') {
+							reactCookie.remove('auth', { path: '/'});
+						} else {
+						
+						}
 						return true;
 						me.props.env.setState({auth:null},
 							function() {
