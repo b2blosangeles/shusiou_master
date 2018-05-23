@@ -143,7 +143,7 @@ try {
 			let engCfg = {
 				request:
 					{code:'saveSection', 
-					 url : _master_svr() + 'A/api/curriculum/myCurriculum.api', 
+					 url : _master_svr() + '/api/curriculum/myCurriculum.api', 
 					 method:'post', 
 					 data: { 
 						 cmd:opt,
