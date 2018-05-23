@@ -19,7 +19,6 @@ try {
 				data: {cmd:'getAll', auth:me.props.parent.props.route.env.state.auth},
 				dataType: "JSON"
 			}, function( data) {
-				console.log(data);
 				me.setState({scriptLangs:data.langs, scriptList:data.list});
 			},function( jqXHR, textStatus ) {
 				console.log('error');
@@ -144,7 +143,7 @@ try {
 			let engCfg = {
 				request:
 					{code:'saveSection', 
-					 url : _master_svr() + '/api/curriculum/myCurriculum.api', 
+					 url : _master_svr() + 'A/api/curriculum/myCurriculum.api', 
 					 method:'post', 
 					 data: { 
 						 cmd:opt,
@@ -159,6 +158,8 @@ try {
 				hold:0,
 				setting: {timeout:3000},
 				callBack: function(data) {
+					console.log('---data--->')
+					console.log(data)
 					Root.lib.alert(me, 'Data successfully saved!', 'success', 1000);
 					me.props.parent.refreshSections();
 				}
