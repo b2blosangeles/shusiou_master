@@ -144,36 +144,13 @@ try {
 					>{(me.props.env.state.auth.name)?me.props.env.state.auth.name:'Guest'}
 					<span className="caret"></span></a>
 					<ul className="dropdown-menu">
-						<li><a href="JavaScript:void(0);" onClick={me.signOut.bind(me)}>{me.dictionary('menu_logout')}</a></li>
+						<li><a href="JavaScript:void(0);" onClick={Root.signOut.bind(me)}>{me.dictionary('menu_logout')}</a></li>
 					</ul>	 
 				</li>   
 			
 			) } else {return (
 				<li><a href="#/Signin">{me.dictionary('menu_login')}</a></li>
 			)};
-		},		
-		signOut:function() {
-			var me = this;	
-			let engCfg = {
-				request:{
-					code:'getAll', 
-					url: _master_svr() +  '/api/auth/auth.api', 
-					method:'post',
-					data: {cmd:'signout',data:me.props.env.state.auth}
-				},
-				hold:0,
-				setting: {timeout:3000},
-				callBack: function(data) {
-					reactCookie.remove('auth', { path: '/'});
-					me.props.env.setState({auth:null},
-						function() {
-							// me.props.env.props.router.push('/');
-							me.componentDidMount();
-							window.location.href = '/#/'
-						});
-				}
-			}
-			Root.lib.loadEng(me, engCfg);			
 		},		
 		render: function() {
 			var me = this;		
