@@ -48,13 +48,12 @@ try {
 			var me = this;
 			let engCfg = {
 				request:
-					{code:'getlist', url :  _master_svr() +  '/api/content_data/getScripts.api', method:'post', 
+					{code:'getlist', url : _master_svr() +  '/api/content_data/getScripts.api', method:'post', 
 					 data: {cmd:'getScriptById', id: id, auth:me.props.parent.props.route.env.state.auth},
 				},
 				hold:0,
 				setting: {timeout:3000},
 				callBack: function(data) {
-					// Root.lib.alert(me, 'Data load success!', 'success', 1000);
 					me.setState({c_tpl:data});
 				}
 			}
@@ -158,7 +157,6 @@ try {
 				hold:0,
 				setting: {timeout:3000},
 				callBack: function(data) {
-					console.log(data);
 					if (!data || data.status !== 'success') {
 						Root.lib.alert(me, 'Error! ' + ((data) ? data.message : ''), 'danger');
 					} else {
