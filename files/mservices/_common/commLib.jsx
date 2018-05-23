@@ -6,23 +6,6 @@ var _commLib = function () {
 	o.existModal = true;
     	return(<span><_commWin parent={o} /><_commEng parent={o} /></span>)
     }
-    /*
-    this.setCallBack = function(o, target) {
-       let me = this, ta = (target.existModal) ? target : Root;
-       let func = null, id = new Date().getTime() + '_' + _LibIndex;
-        
-       if (typeof o.callBack === 'function') {
-           func = o.callBack;
-	   ta['EngCbk_' + id] = function(data) {
-               let me = target;
-               func(data);
-               delete ta['EngCbk_' + id];
-               delete o['EngCbk_' + id];
-	   }
-           o.callBack = 'EngCbk_' + id;
-       }
-    } 
-    */
     this.loadEng = function(target, engCfg) {
 	let ta = (target.existModal) ? target : Root,
 	    func = null, 
@@ -51,11 +34,13 @@ var _commLib = function () {
 		close_icon : true
 	};
 	me.buildPopup(ta, target, cfg);
-	setTimeout(function() {
-		if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
-			ta.setState({ModalPopup:'cancel'});
-		}
-	}, (holdTime) ? holdTime : 6000);
+	if (holdTime) { 
+		setTimeout(function() {
+			if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
+				ta.setState({ModalPopup:'cancel'});
+			}
+		}, holdTime);
+	}
 	return true;       
         
     }
