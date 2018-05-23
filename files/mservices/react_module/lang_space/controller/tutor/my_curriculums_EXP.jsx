@@ -2,33 +2,87 @@ try {
 	var My_curriculums =  React.createClass({
 		getInitialState: function() {
 			var me = this;
+			me.lib = new _commLib();
 			return {opt:'', list:[]};
 		},	
 		componentDidMount:function() {
 			var me = this;
 			me.callEng();
-		},		
+		},
 		callEng:function() {
 			var me = this;
 			let engCfg = {
 				request:{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
 					 data:{cmd:'getList', auth:me.props.route.env.state.auth}
 				},
-				hold:1000,
+				hold:0,
 				setting: {timeout:6000},
 				callBack: function(data) {
 					if (data.status === 'success') {
-						me.setState({list:data.data}, function() {
-						//	Root.lib.alert(me, 'Data load success!', 'success', 3000);
-						});
-					} else {
-						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
-						
+						me.setState({list:data.data});
 					}
 				}
 			}
-			Root.lib.loadEng(me, engCfg);
-		},					
+			me.lib.setCallBack(engCfg, me);
+			me.setState({_eng:engCfg});
+		},		
+		callEng0:function() {
+			var me = this;
+			me.mapping = {
+				/* --- TO DO dependence mapping ---
+				'Pgetlist2' : function(CP, rec, dependenceData) {
+					rec.data.dependenceData_pppp = dependenceData;
+				}
+				*/
+			};
+			/* --- TO DO fill _egn ---
+			let engCfg1 = {
+				Q:[
+					{code:'getlist1', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},
+					{code:'getlist2', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},					
+					{parallel:true, 
+					 	list:[
+							{code:'Pgetlist2', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+						 		data:{cmd:'getList', auth:me.props.route.env.state.auth},
+						 		dependence:['getlist1']
+							}
+						]
+					},
+					{code:'getlist3', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}},
+					{code:'getlist4', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
+				],
+				hold:0,
+				setting: {timeout:30000},
+				callback: function(data) {
+					alert('jj');
+				}
+				
+			}
+			*/
+			
+			let engCfg = {
+				Q:[
+					{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}}
+				],
+				hold:3000,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					var EngR = data.EngResult;
+					me.setState({
+						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
+						EngR.getlist.data});	
+					
+				}
+				
+			}
+			me.lib.setCallBack(engCfg, me);
+			me.setState({_eng:engCfg});
+		},			
 		componentDidUpdate:function() {
 			var me = this;
 		},		
@@ -54,7 +108,12 @@ try {
 			 var idx = Math.floor(Math.random() * (6 - 1) ) + 1;
 			var url = _master_svr() + '/images/teacher_' + idx + '.jpg';
 			return url;
-		},
+		},		
+		closeAdmin:function() {
+			var me = this;
+			me.setState({ModalPlus:'cancel'});
+			return true;
+		},		
 		render: function() {
 			var me = this;
 			
@@ -101,6 +160,7 @@ try {
 
 					<br/><br/><br/><br/>
 					<div className="content_bg opacity_bg"/>
+					<_commWin parent={me} /><_commEng parent={me} />
 				</div>
 			);
 		}

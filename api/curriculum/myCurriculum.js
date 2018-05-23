@@ -18,132 +18,49 @@ var app = function(auth_data) {
 	 cfgM.multipleStatements = true;
 	switch(opt) {
 		case 'saveSection':
+			
+			var curriculum_id = req.body.data.curriculum_id,
+			    section_id = req.body.data.section_id,
+			    tpl = jsonToQueryString(req.body.data.tpl),
+			    data =  jsonToQueryString(req.body.data.data),
+			    start = req.body.data.data.track.s,
+			    end =  req.body.data.data.track.t;
+			
+			var str = (section_id === 'new') ? 
+				'INSERT INTO  `curriculum_section_items` (`curriculum_id`,  `type` ,`tpl`, `data`, `start`, `length`, `created`)' + 
+				' VALUES ("' + curriculum_id + '",' +
+				'"test",' + "'" + tpl + "'," + "'" + data + "'," + "'" + start + "'," + "'" + end + "', NOW() " +
+				' ) ' 
+				:	 
+				"UPDATE  `curriculum_section_items` SET " + 
+				"`type` = 'test8', " +
+				"`tpl` = '" + tpl + "', " +
+				"`data` = '" + data + "', " +
+				"`start` = '" + start + "', " +
+				"`length` = '" + end + "', " +
+				"`created` = NOW() " + 
+				" WHERE `section_id` = '" + section_id + "' AND  `curriculum_id` = '" + curriculum_id + "'";
+			var connection = mysql.createConnection(cfg0);
+			connection.connect();
+				connection.query(str, function (error, results, fields) {
+				connection.end();
+				res.send(results);
+			});			
+			break			
 		case 'deleteSection':
-			var curriculum_id = req.body.data.curriculum_id;
-			var CP = new pkg.crowdProcess();
-			var _f = {};
-			_f['S0'] = function(cbk) {
-	
-				var str = 'SELECT * FROM  `curriculum_sections` WHERE `curriculum_id` = "' + 
-				    curriculum_id + '"; ';
-
-				var connection = mysql.createConnection(cfg0);
-				connection.connect();
-				connection.query(str, function (error, results, fields) {
-					connection.end();
-					if (error) {
-						cbk(error.message);
-						return true;
-					} else {
-						if ((results) && (results[0])) {
-							cbk(queryStringToJSON(results[0].script, []));
-						} else {
-							cbk(false);
-						}
-
-					}
-					
-				});  
-			};
+			var curriculum_id = req.body.data.curriculum_id,
+			    section_id = req.body.data.section_id;
 			
-			_f['P0'] = function(cbk) {
-				let v = (CP.data.S0) ? CP.data.S0 : [];
-				if (opt === 'saveSection' && req.body.data.section.section_id === 'new') {
-					v[v.length] = req.body.data.section;
-				} else if (opt === 'saveSection') {
-					
-					for (var i = 0; i < v.length; i++) {
-						
-						if (v[i].section_id == req.body.data.section.section_id) {
-							v[i] = req.body.data.section;
-						//	break;
-						} 
-						if (v[i].track) {
-							if (v[i].track.s) v[i].track.s = 1 * v[i].track.s;
-							if (v[i].track.t) v[i].track.t = 1 * v[i].track.t;				
-						}						
-					}					
-					
-				} else if (opt === 'deleteSection')  {
-					cbk('--lv-3--' + typeof v);
-					return true;
-					
-					var lv = v.filter(function(a) {
-						return a.section_id != req.body.data.section.section_id;
-					});
-					v = lv;
-					
-											
-					
-				}
+			var str = "DELETE FROM  `curriculum_section_items` " + 
+				" WHERE `section_id` = '" + section_id + "' AND  `curriculum_id` = '" + curriculum_id + "'";
 				
-				v.sort(function(a1, a2) {
-					let s1 = (a1.data.track)?a1.data.track.s:0, s2 = (a1.data.track)?a2.data.track.s:0
-					return (s1 > s2)
-				});
-
-				for (var i = 0; i < v.length; i++) {
-					v[i].section_id = i + 1;
-				}
-			//	cbk(v);
-			//		return true;				
-				var str = 'INSERT INTO  `curriculum_sections` (`curriculum_id`,`type`,`script`, `created`) VALUES ("' +
-				curriculum_id + '",' +
-				'"niuA",' +
-				"'" + jsonToQueryString(v) + "'," +
-				'NOW()' +	
-				') ON DUPLICATE KEY UPDATE `script` = ' + 
-				"'" + jsonToQueryString(v) + "'"  + 
-				'; ';
-				var connection = mysql.createConnection(cfg0);
-				connection.connect();
+			var connection = mysql.createConnection(cfg0);
+			connection.connect();
 				connection.query(str, function (error, results, fields) {
-					connection.end();
-					if (error) {
-						cbk(error.message);
-						return true;
-					} else {
-						if (results) {
-							cbk(req.body.data.section); // req.body.data.section
-						} else {
-							cbk(false);
-						}
-
-					}
-				}); 
-			};
-			/*
-			_f['S1'] = function(cbk) {
-				var str = 'SELECT * FROM  `curriculum_sections` WHERE `curriculum_id` = "' + 
-				    curriculum_id + '"; ';
-				var connection = mysql.createConnection(cfg0);
-				connection.connect();
-				connection.query(str, function (error, results, fields) {
-					connection.end();
-					if (error) {
-						cbk(error.message);
-						return true;
-					} else {
-						if (results) {
-							cbk(queryStringToJSON(results[0].script, []));
-						} else {
-							cbk(false);
-						}
-
-					}
-					
-				});  
-			};
-			*/
-			CP.serial(
-				_f,
-				function(data) {
-					res.send({_spent_time:data._spent_time, status:'success', v:CP.data.P0});
-				},
-				30000
-			);
-			break;	
-			
+				connection.end();
+				res.send(results);
+			});			
+			break		
 		case 'getList':
 			var CP = new pkg.crowdProcess();
 			var _f = {};
@@ -237,66 +154,6 @@ var app = function(auth_data) {
 					}
 				});  
 			};
-			/*
-			_f['S2'] = function(cbk) {
-				var str = 'DELETE FROM  `curriculum_sections` WHERE `curriculum_id` = "' + req.body.curriculum_id + '"; ';
-				var connection = mysql.createConnection(cfg0);
-				connection.connect();
-				connection.query(str, function (error, results, fields) {
-					connection.end();
-					if (error) {
-						cbk(error.message);
-						return true;
-					} else {
-						if (results) {
-							cbk('results');
-						} else {
-							cbk(false);
-						}
-
-					}
-					
-				});  
-			};
-			
-			_f['S3'] = function(cbk) {
-				var section = (req.body.section)?req.body.section:{};
-				var sections = (req.body.sections)?req.body.sections:[];
-				if (section.id == 'new') {
-					section.id = new Date().getTime();
-					sections[sections.length] = section;
-				} else {
-					for (var i = 0; i < sections.length; i++) {
-						if (sections[i].id == section.id) {
-							sections[i] = section;
-							break;
-						}
-					}
-				}
-				var str = 'INSERT INTO  `curriculum_sections` (`curriculum_id`,`type`,`script`, `created`) VALUES ("' +
-				req.body.curriculum_id + '",' +
-				'"niuA",' +
-				'"' + encodeURIComponent(JSON.stringify(sections)) + '",' +
-				'NOW()' +	
-				'); ';
-				var connection = mysql.createConnection(cfg0);
-				connection.connect();
-				connection.query(str, function (error, results, fields) {
-					connection.end();
-					if (error) {
-						cbk(error.message);
-						return true;
-					} else {
-						if (results) {
-							cbk(results);
-						} else {
-							cbk(false);
-						}
-
-					}
-				});  
-			};
-			*/
 			CP.serial(
 				_f,
 				function(data) {
@@ -334,11 +191,11 @@ var app = function(auth_data) {
 			var CP = new pkg.crowdProcess();
 			var _f = {};
 			var curriculum_id = req.body.curriculum_id;
-			_f['S1'] = function(cbk) {
+			_f['S0'] = function(cbk) {
 				var connection = mysql.createConnection(cfg0);
 				connection.connect();
-				var str = 'SELECT A.*, B.*, C.`script`, S.`space` FROM `curriculums` A LEFT JOIN  `video` B  ON A.vid = B.vid '+
-				    ' LEFT JOIN  `video_space` S  ON A.vid = S.vid  LEFT JOIN `curriculum_sections` C ON A.curriculum_id = C.curriculum_id ' +
+				var str = 'SELECT A.*, B.*, S.`space` FROM `curriculums` A LEFT JOIN  `video` B  ON A.vid = B.vid '+
+				    ' LEFT JOIN  `video_space` S  ON A.vid = S.vid ' +
 				    ' WHERE A.curriculum_id = "' + curriculum_id + '" AND  A.uid = "' + uid + '";';
 
 				connection.query(str, function (error, results, fields) {
@@ -350,31 +207,35 @@ var app = function(auth_data) {
 						cbk(results[0]);
 					}
 				});  
-			};		
+			};
+			_f['S1'] = function(cbk) {
+				var connection = mysql.createConnection(cfg0);
+				connection.connect();
+				var str = 'SELECT * FROM `curriculum_section_items`' +
+				    ' WHERE `curriculum_id` = "' + curriculum_id + '";';
+
+				connection.query(str, function (error, results, fields) {
+					connection.end();
+					if (error) {
+						cbk([]);
+						return true;
+					} else {
+						for (var i = 0; i < results.length; i++) {
+							results[i].data = JSON.parse(results[i].data);
+							results[i].tpl = JSON.parse(results[i].tpl);
+						}
+						cbk(results);
+					}
+				});  
+			};			
 			CP.serial(
 				_f,
 				function(data) {
-					/*
+					CP.data.S0.sections = [];
 					try {
-						CP.data.S1.sections =queryStringToJSON(CP.data.S1.script, []);
-						let v = CP.data.S1.sections;
-						for (var i=0; i < v.length; i++) {
-							if (!v[i].data.track) {
-								v[i].data.track = {};
-							} else {
-								if (v[i].data.track.s) v[i].data.track.s = 1 * v[i].data.track.s;
-								if (v[i].data.track.t) v[i].data.track.t = 1 * v[i].data.track.t;				
-							}
-						}
-					} catch (err) {
-					};	
-					delete CP.data.S1.script;
-					*/
-					CP.data.S1.sections = [];
-					try {
-						CP.data.S1.sections = (CP.data.S1.script) ? JSON.parse(CP.data.S1.script) : [];
+						CP.data.S0.sections = (CP.data.S1) ? CP.data.S1 : [];
 					} catch (err) {}	
-					res.send({_spent_time:data._spent_time, status:data.status, data:CP.data.S1});
+					res.send({_spent_time:data._spent_time, status:data.status, data:CP.data.S0});
 				},
 				3000
 			);

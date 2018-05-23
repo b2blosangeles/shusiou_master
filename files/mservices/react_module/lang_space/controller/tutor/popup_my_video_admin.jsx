@@ -1,8 +1,8 @@
 try {	
-	
 	var My_video_admin =  React.createClass({
 		getInitialState: function() {
 			var me = this;
+			me.lib = new _commLib();
 			return {video_url:'', vid:'', error:'', list:[]};
 		},
 		initState:function() {
@@ -20,7 +20,8 @@ try {
 			}
 		},		
 		close_admin:function(){
-			var me = this;  me.initState(); me.props.parent.closeAdmin();
+			var me = this;  
+			me.lib.closePopup(me);
 		},
 		handleChange:function(e) {
 			var me = this;
@@ -35,41 +36,48 @@ try {
 		},
 		videoUrlSubmit:function(){
 			var me = this;
-			$.ajax({
-				url:  _master_svr() + '/api/video/myVideo.api?opt=add',
-				method: "POST",
-				data: {code: me.state.video_url, auth:me.props.parent.props.route.env.state.auth},
-				dataType: "JSON"
-			}).done(function( data) {
-				// me.videoDownload();
-				console.log(data);
-				me.props.parent.pullList();
-				me.close_admin();
-				me.initState();	
-			}).fail(function( jqXHR, textStatus ) {
-				me.close_admin();
-				me.initState();	
-			//	me.setState({error:'Request failed: ' + textStatus});
-			});
-		},		
-		videoUrlDecode:function(){
+			let engCfg = {
+				Q:[ {code:'getVieoInfo', url : _master_svr() + '/api/video/myVideo.api?opt=add', method:'post', 
+					 data:{code: me.state.video_url, auth:me.props.parent.props.route.env.state.auth}
+				}],
+				hold:500,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					me.close_admin();
+					me.props.parent.callEng();
+				}
+				
+			}
+			me.lib.setCallBack(engCfg, me);
+			me.setState({_eng:engCfg});
+		},
+		videoUrlDecode:function() {
 			var me = this;
-			$.ajax({
-				url:  _master_svr() + '/api/video/myVideo.api?opt=getYouTubeInfo',
-				method: "POST",
-				data: {video_url: me.state.video_url, auth:me.props.parent.props.route.env.state.auth},
-				dataType: "JSON"
-			}).done(function( data) {
-				me.setState({vid:data.vid, title:data.title, length_seconds:data.length_seconds, thumbnail_url:data.thumbnail_url});
-			}).fail(function( jqXHR, textStatus ) {
-				me.initState();				
-				me.setState({error:'Request failed: ' + textStatus});
-			});
-		},	
+			let engCfg = {
+				Q:[
+					{code:'getVieoInfo', url : _master_svr() + '/api/video/myVideo.api?opt=getYouTubeInfo', method:'post', 
+					 data:{video_url: me.state.video_url, auth : me.props.parent.props.route.env.state.auth}
+					}
+				],
+				hold:1,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					
+					var EngRData = (!data || !data.EngResult || !data.EngResult.getVieoInfo || 
+					!data.EngResult.getVieoInfo.data) ? {} : data.EngResult.getVieoInfo.data;
+
+					me.setState(EngRData);
+				}
+				
+			}
+			me.lib.setCallBack(engCfg, me);
+			me.setState({_eng:engCfg});
+		},		
+	
 		render:function() {
 			var me = this;
 			if (!me.state.vid) return (
-			<p>				
+			<p  style={{'padding':'1em'}}>				
 				<h5>Pulling YouTube Video</h5>	
 				<div className="input-group">
 				  <input type="text" className="form-control" placeholder="Input YouTube link" 
@@ -81,11 +89,12 @@ try {
 				<hr/>
 				<p>
 					<h5>Or pulling a shared videos</h5>
-				</p>					
+				</p>
+				<_commEng parent={me} />
 			</p>);	
 			else return (
-			<span>						
-				<div>	
+			<p style={{'padding':'1em'}}>						
+				<div >	
 					<div style={{float:'left', padding:'1em'}}> 
 						<img src={me.state.thumbnail_url}/>
 					</div>					
@@ -107,6 +116,7 @@ try {
 							</p>
 						</div>	
 					</div>
+					<_commEng parent={me} />
 				</div>
 				<div className="download_matrix">
 				{(function() {
@@ -125,44 +135,9 @@ try {
 					}
 				})()}
 				</div>	
-			</span>);
+			</p>);
 		}
 	});
-	var My_video_admin_footer =  React.createClass({
-		close_admin:function(){
-			var me = this;
-			
-			me.props.parent.closeAdmin();
-		},
-		render:function() {
-			var me = this;
-			return (<span/>);
-			return (
-				<div className="modal-footer">
-					<button type="button" className="btn btn-warning" data-dismiss="modal">Close</button>
-				</div>	
-			);
-		}
-	});
-	var My_video_admin_header =  React.createClass({
-		close_admin:function(){
-			var me = this;
-			me.props.parent.setState({popup_id:new Date().getTime()});
-		//	me.props.parent.closeAdmin();
-		},		
-		render:function() {
-			var me = this;
-			return (
-				<div className="modal-header">
-					{/*<button type="button" className="close" data-dismiss="modal">
-						&times;
-					</button>*/}
-					<button type="button" className="close"  data-dismiss="modal" onClick={me.close_admin.bind(me)}>&times;</button>
-					<h5 className="modal-title">Video Admin</h5>
-				</div>	
-			);
-		}
-	});	
 } catch (err) {
 	console.log(err.message);
 }

@@ -3,16 +3,31 @@ try {
 	var _commEng = React.createClass({		
 		getInitialState: function() {
 			_EngIndex = (!_EngIndex || _EngIndex > 10000) ? 1 : (_EngIndex + 1);
+			let me = this;
+			me.lib = new _commLib();
 			return {id:_EngIndex, ModalLoading:{}};
 		},
-		ajax: function(rec, done, error) {
-			var me = this;
+		ajax: function(CP, rec, done, error) {
+			let me = this;
+			if ((rec.dependence) && (CP)) {
+				var depdata = {};
+				for (var i = 0; i < rec.dependence.length; i++) {
+					depdata[rec.dependence[i]] = CP.data[rec.dependence[i]];
+				}
+				if ((me.props.parent.mapping) && typeof me.props.parent.mapping[rec.code] === 'function') {
+					me.props.parent.mapping[rec.code](CP, rec, depdata);
+				} else {
+					rec.data.dependence = depdata;
+				}
+			};
+
 			let p = {
 				url:rec.url,
 				method: rec.method,
 				data: rec.data,
-				dataType: (rec.dataType) ? rec.dataType : 'JSON'
-			}
+				dataType: (rec.dataType) ? rec.dataType : 'JSON',
+				timeout: rec.time_out
+			}	
 			p.data.auth = (reactCookie.load('auth'))?reactCookie.load('auth'):{};
 			$.ajax(p).done(function( data) {
 				if (typeof done == 'function') {
@@ -20,59 +35,141 @@ try {
 				}
 			}).fail(function( jqXHR, textStatus ) {
 				if (typeof error == 'function') {
-					error(jqXHR, textStatus);
+					error({status:500, 
+					       message:(jqXHR.responseText) ? jqXHR.responseText : 'access error',
+					       data:null
+					 });
 				}				
 			});			
 		},
-		cpCall: function(eng) {
-			let me = this;			
-			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
-			let callbackfn = ((eng.callbackfn) && (typeof me.props.parent[eng.callbackfn] == 'function')) ?
-			me.props.parent[eng.callbackfn] : function() { };
-			    
-			let CP0 = new me.crowdProcess(), CP = new me.crowdProcess();
-			let qp = {};
-			for (var i = 0; i < eng.p.length; i++) {
-				qp['P_'+i] = (function(i) {
-					return function(cbk) {
-						me.ajax(eng.p[i], cbk, cbk);
-					}
-				})(i);
+		cpCall: function(eng_cfg) {
+			let me = this;
+			if (eng_cfg.Q) {
+				me.processQ(eng_cfg);
+			} else {
+				me.processRequest(eng_cfg);
 			}
+		},
+		processRequest: function(eng) {
+			let me = this;
 			
-			let qs = {};
-			for (var i = 0; i < eng.i.length; i++) {
-				qs['SA_'+i] = (function(i) {
-					return function(cbk) {
-						me.ajax(eng.i[i], cbk, cbk);
+			let callBack = ((eng.callBack) && (typeof me.props.parent[eng.callBack] == 'function')) ?
+			me.props.parent[eng.callBack] : function() {  };
+
+			eng.request.time_out = (eng.request.time_out) ? eng.request.time_out : 6000;
+			
+			var _f = function(data) {
+				clearInterval(me._itvEng);
+				viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
+				me.props.parent.setState({_eng:null}, function() {
+					
+					callBack(data);
+				})				
+			};
+			me.ajax(false, eng.request, _f , _f);
+		},	
+		processQ: function(eng) {
+			let me = this;
+			let time_out = ((eng.setting) && (eng.setting.timeout)) ? eng.setting.timeout : 6000;
+			
+			let callBack = ((eng.callBack) && (typeof me.props.parent[eng.callBack] == 'function')) ?
+			me.props.parent[eng.callBack] : function() {  };
+			
+			me.err = {};
+			let CP = new me.crowdProcess(), Q = {}, err = [];
+			for (var i = 0; i < eng.Q.length; i++) {
+	
+				if (!eng.Q[i].parallel) {
+					if (!eng.Q[i].code || Q[eng.Q[i].code] || (err.length)) {
+						err[err.length] = 'missing or duplicated code ->' + JSON.stringify(eng.Q[i])
+						continue;
 					}
-				})(i);
-			}			
-			qs['SB_P'] = function(cbk) {
-				CP0.parallel(qp, 
-					function(data1) {
-						cbk(data1.results);
-					},
-					time_out);	
-			};			
-			for (var i = 0; i < eng.s.length; i++) {
-				qs['SC_'+i] = (function(i) {
-					return function(cbk) {
-						me.ajax(eng.s[i], cbk, cbk);
+					if (!eng.Q[i].time_out) {
+						eng.Q[i].time_out = time_out / eng.Q.length;
 					}
-				})(i);
+					Q[eng.Q[i].code] = (function(i) {
+						return function(cbk) {
+							me.ajax(CP, eng.Q[i], cbk, cbk);
+						}
+					})(i);
+				} else {
+					for (var j = 0; j < eng.Q[i].list.length; j++) {
+						if (!eng.Q[i].list[j].code || 
+						    (Q[eng.Q[i].list[j].code]) ||
+						    (err.length)
+						   ) {
+							err[err.length] = 'missing or duplicated code ->' + JSON.stringify(eng.Q[i])
+							continue;
+						}						
+						Q[eng.Q[i].list[j].code] = function(cbk) {
+							cbk(false);
+						}
+					}
+					if (err.length) {
+						continue;
+					}
+					Q['parallel_' + i] = (function(i) {
+						return function(cbk) {
+							let CPP = new me.crowdProcess(), PQ = {};
+							for (var j = 0; j < eng.Q[i].list.length; j++) {
+								PQ[eng.Q[i].list[j].code] =  (function(j) {
+									return function(cbkp) {
+										me.ajax(CP, eng.Q[i].list[j], cbkp, cbkp);
+									}
+								})(j);
+							}
+							if (err.length) {
+								cbk(false);
+							} else {
+								CPP.parallel(PQ, 
+									function(data1) {
+										for (var idx in data1.results) {
+											CP.data[idx] = data1.results[idx];
+										}
+										cbk(null);
+								}, time_out);
+							}	
+						}
+					})(i);
+				
+				}
 			}
-			CP.serial(qs, 
+			if (err.length) {
+				console.log(err);
+				return true;
+			} 
+			CP.serial(Q, 
 				function(data) {
-					let rst = [];
-					clearInterval(me._itvEng);
-					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
-					me.setState({ModalLoading: {}},function(){
-						callbackfn(data.results);
-					});	
+					
+					if (!data || data.status != 'success') {
+						clearInterval(me._itvEng);
+						viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
+						callBack(data);
+					} else {
+						let result = {}, report = {};	
+						for (var idx in data.results) {
+							if (data.results[idx] === null) delete data.results[idx];
+							else {
+								result[idx] = {
+									status: data.results[idx].status, 
+									data :  data.results[idx].data
+								}
+								report[idx] = data.results[idx];
+							}
+						}
+						if (err.length) {
+							console.log(err);
+							return true;
+						}
+						me.setState({ModalLoading: {}},function(){
+							clearInterval(me._itvEng);
+							viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');							
+							callBack({EngResult : result, EngReport : report});
+						});
+					}
 				},
-				time_out);
-			return true;
+				time_out);	
+			
 		},
 		crowdProcess :  function () {
 			this.serial = function(q, cbk, timeout) {
@@ -92,7 +189,8 @@ try {
 						if (!idx) {
 							if (!Object.keys(q).length) {
 								clearInterval(_itv);
-								cbk({_spent_time:new Date().getTime() - tm, status:'success', results:me.data});
+								cbk({_spent_time:new Date().getTime() - tm, status:'success', 
+								     results:me.data});
 							} else {
 								idx = Object.keys(q)[0];
 								if ((q[idx]) && typeof q[idx] == 'function') {
@@ -107,11 +205,12 @@ try {
 						}
 						if (new Date().getTime() - tm > vtime) {
 							clearInterval(_itv);
-							cbk({_spent_time:new Date().getTime() - tm, status:'timeout', results:me.data});
+							cbk({_spent_time:new Date().getTime() - tm, status:'timeout', 
+							     results:me.data});
 						}				
 						return true;
 					}
-				, 1); 
+				, 5); 
 			};
 			this.parallel = function(q, cbk, timeout) {
 				var me = this;
@@ -143,7 +242,7 @@ try {
 						}				
 						return true;
 					}
-				, 1); 		
+				, 5); 		
 			};
 		},		
 		componentDidMount:function() {

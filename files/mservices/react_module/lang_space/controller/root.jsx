@@ -3,10 +3,12 @@ try {
 	var shusiou_url = location.protocol+'//'+window.location.hostname;
 	if (location.protocol !== 'https:') {
 		window.location.href = window.location.href.replace(shusiou_url, 'https://' + window.location.hostname);
-	} else {	
+	} else {
 		var Root =  React.createClass({
 			getInitialState: function() {
 				var me = this;
+				Root = me;
+				me.lib = new _commLib();
 				return {
 					dictionary:_DATA_["/data/dictionary.json"],
 					lang:_DATA_["/data/language.json"],
@@ -54,7 +56,6 @@ try {
 			},
 			componentDidUpdate:function(prevProps, prevState) {
 				var me = this;
-		//		console.log(me.state);
 			},
 			requireAuth:function(nextState, replace) {
 				var me = this;
@@ -103,13 +104,16 @@ try {
 				var me = this;		
 				return (
 					<span>
-					<Topsection env={me}/>
-					<ReactRouter.Router history={hashHistory}>
-						<IndexRoute env={me} component={Ad}/>
-						{me.routeMatrix()}
-					</ReactRouter.Router>
-					<Footsection env={me}/>
-					<Breakpoints env={me}/>
+						<Topsection env={me}/>
+
+						<ReactRouter.Router history={hashHistory}>
+							<IndexRoute env={me} component={Ad}/>
+							{me.routeMatrix()}
+						</ReactRouter.Router>
+
+						<Footsection env={me}/>
+						<Breakpoints env={me}/>
+						{Root.lib.landingModal(me)}
 					</span>
 				  );
 			}	

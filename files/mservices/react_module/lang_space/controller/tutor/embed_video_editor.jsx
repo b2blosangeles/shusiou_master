@@ -9,7 +9,8 @@ try {
 				preview_time:0,
 				track:me.props.track,
 				video:{},
-				video_bar_width:0
+				video_bar_width:0,
+				section_id : me.props.section_id
 			};
 		},	
 		componentDidMount:function() {
@@ -63,19 +64,23 @@ try {
 			
 			for (var i=0; i < n; i++) X[X.length] = '';
 			let video_length = me.video.video_length;
-
+			console.log('--X-->');
+			console.log(me.state);
 			return (
 				<table id="video_bar" width="100%" height="16" style={{'border':'1px solid #ddd'}}><tr>
-				{X.map(function(x, idx) {
-					if (idx >= Math.round(n * me.state.track.s / video_length ) && 
-						idx < Math.round(n * (me.state.track.s +me.state.track.t) / video_length)) {
-						return (<td width="1" style={{'background-color':'red'}}></td>)
-					}	
+				{X.map(function(x, idx) {	
 					for (var j = 0; j < me.sections.length; j++) {
-						if (me.sections[j].id == me.state.track.id) continue;
-						if (idx >= Math.round(n * me.sections[j].track.s / video_length ) && 
-						    idx < Math.round((n * me.sections[j].track.s + n * me.sections[j].track.t) / video_length)) {
-							return (<td width="1" style={{'background-color':'lightgreen'}}></td>)
+						if (!me.sections[j] || !me.sections[j].data) continue;	
+						let s = parseFloat(me.sections[j].data.track.s),
+						    t = parseFloat(me.sections[j].data.track.t);
+
+						if (idx >= Math.round(n * s / video_length ) && 
+						    idx < Math.round((n * s + n * t) / video_length)) {
+							if (me.sections[j].section_id == me.state.section_id) {
+								return (<td width="1" style={{'background-color':'green'}}></td>)
+							} else {
+								return (<td width="1" style={{'background-color':'red'}}></td>)
+							}
 						}
 					}
 					return (<td width="1" style={{'background-color':'lightyellow'}}
@@ -110,7 +115,7 @@ try {
 
 			if (!me.state.track) return false;
 			for (var i = 0; i < 2 * me.state.track.t; i++) {
-				A[A.length] = me.state.track.s + i * 0.5;
+				A[A.length] = parseInt(me.state.track.s) + i * 0.5;
 			}
 			return A.map(function(a,idx){
 				if (idx < 8 || idx > A.length - 8)  return (<span>
@@ -166,16 +171,6 @@ try {
 				me.playSection();	
 			});
 			
-		},
-		adjustSection_bk:function(ds, dt) {
-			var me = this;
-			if (!me.changeAble(ds, dt)) return true;
-			var s = parseFloat(me.state.track.s) + parseFloat(ds); if (s<0) s=0;
-			var t = parseFloat(me.state.track.t) + parseFloat(dt); if (t>20) t=20; if (t<2) t=2;
-			me.setState({track:{s:s, t:t}}, function(){
-				me.playSection();	
-			});
-			
 		},		
 		bytesToSize:function (bytes) {
 		   var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
@@ -211,7 +206,7 @@ try {
 								Movie clip :<span 
 								style={(me.state.track.s !== null)?{display:''}:{display:'none'}}		     
 								dangerouslySetInnerHTML={{__html: (me.state.track.t)?(me.lib.toHHMMSS(me.state.track.s) + 
-								' - ' + me.lib.toHHMMSS(me.state.track.s + me.state.track.t)):''}} />
+								' - ' + me.lib.toHHMMSS(parseInt(me.state.track.s) + parseInt(me.state.track.t))):''}} />
 
 								<button type="button" className="btn btn-default btn-xs video_editor_button" 
 									style={(me.state.track.t)?{display:''}:{display:'none'}}
@@ -264,7 +259,7 @@ try {
 									<span 
 										style={(me.state.track.s !== null)?{display:''}:{display:'none'}}		     
 										dangerouslySetInnerHTML={{__html: (me.state.track.t)?(me.lib.toHHMMSS(me.state.track.s) + 
-										' - ' + me.lib.toHHMMSS(me.state.track.s + me.state.track.t)):''}} />
+										' - ' + me.lib.toHHMMSS(parseInt(me.state.track.s) + parseInt(me.state.track.t))):''}} />
 									
 									 <button type="button" className="btn btn-sm btn-success btn_margin3"
 										  style={me.disbleAdjustSection(-0.5, 0)}

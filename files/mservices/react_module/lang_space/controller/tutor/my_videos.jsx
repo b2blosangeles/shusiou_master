@@ -6,29 +6,35 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			me.pullList();
+			me.callEng();
 		},
 		componentDidUpdate:function() {
-			var me = this;
-			// me.dataApi();
-			consoli.log(me.state.opt);
-			
+			var me = this;	
 		},
-		pullList:function() {
+		callEng:function() {
 			var me = this;
-			$.ajax({
-				url:   _master_svr() +  '/api/video/myVideo.api?opt=getMyVideos',
-				method: "POST",
-				data: {auth:me.props.route.env.state.auth},
-				dataType: "JSON"
-			}).done(function( data) {
-				if (data.status == 'success') {
-					me.setState({list:data.data});
-				}	
-			}).fail(function( jqXHR, textStatus ) {
-				console.log('error');
-			});			
-		},
+			let engCfg = {
+				Q:[
+					{code:'getlist', url : _master_svr() +  '/api/video/myVideo.api?opt=getMyVideos', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth},
+					 time_out :6000	
+					}
+				],
+				hold:0,
+				setting: {timeout:3000},
+				callBack: function(data) {
+					var EngR = data.EngResult;
+					me.setState({
+						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
+						EngR.getlist.data},
+						function() {
+							// Root.lib.alert(me, 'Data load success!', 'success', 3000);
+						});	
+				}
+				
+			}
+			Root.lib.loadEng(me, engCfg);
+		},		
 		componentDidUpdate:function() {
 			var me = this;
 		},		
@@ -63,33 +69,45 @@ try {
 		},
 		closeAdmin:function(v) {
 			var me = this;
-			me.setState({ModalPlus:'cancel'});			
-			return true;
+			me.setState({ModalPlus:'cancel'});
 		},
-		gotoAdmin:function(v) {
+		videoAdmin:function(v) {
 			var me = this;
-			var id = new Date().getTime();
-			me.setState({ModalPlus:{type:'popup',  hold:0,
-				box_style:{top:'28px'},
-				title: (<span>Add a Video</span>),
-				message: (<My_video_admin parent={me} id={me.state.popup_id}/>),
-				header:(<My_video_admin_header parent={me} id={me.state.popup_id}/>),
-				footer:(<My_video_admin_footer parent={me} id={me.state.popup_id}/>)
-			}});			
+			let cfg = {
+				section: {
+					body : function() {
+						let ta = me, popid = new Date().getTime();
+						return (
+						<My_video_admin parent={ta} id={popid}/>
+						);
+					}
+				},
+				box_class : 'modal-content',
+				popup_type : 'window',
+				close_icon : true
+			};
+			Root.lib.popupWin(me, cfg);
 			return true;
-		},
-		videoInfo:function(rec){
+		},		
+		videoInfo: function(rec) {
 			var me = this;
-			var id = new Date().getTime();
-			me.setState({ModalPlus:{type:'popup',  hold:0,
-				box_style:{top:'28px'},
-				title: (<span></span>),
-				message: (<Popup_my_video_info parent={me} rec={rec} id={me.state.popup_id}/>),
-				header:(<span></span>),
-				footer:(<span/>)
-			}});
+			let cfg = {
+				section: {
+					body : function() {
+						let ta = me, popid = new Date().getTime();
+						return (
+						<Popup_my_video_info parent={ta} rec={rec} id={popid}/>
+						);
+					}
+				},
+				box_class : 'modal-content',
+				popup_type : 'window',
+				close_icon : false
+			};
+			Root.lib.popupWin(me, cfg);
 			return true;
-		},			
+		},		
+					
 		videoDelete:function(vid){
 			var me = this;
 			$.ajax({
@@ -98,7 +116,7 @@ try {
 				data: {vid:vid, auth: me.props.route.env.state.auth},
 				dataType: "JSON"
 			}).done(function( data) {
-				me.pullList();
+				me.callEng();
 			}).fail(function( jqXHR, textStatus ) {
 				// me.pullList();
 			});
@@ -112,7 +130,7 @@ try {
 					<div className="container">
 						<div className="col-sm-4 col-lg-4 col-md-4"> 
 							<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
-								<a href="JavaScript:void(0)" onClick={me.gotoAdmin.bind(me,'admin')}>
+								<a href="JavaScript:void(0)" onClick={me.videoAdmin.bind(me,'admin')}>
 								<img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmAddStyle()} />
 								</a>	
 							</div>			
@@ -120,10 +138,7 @@ try {
 						{me.state.list.map(function(a){ 
 							if (a.space_status === 1) return(
 							<div className="col-sm-4 col-lg-4 col-md-4"> 
-									
-									
-									
-									
+	
 								<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
 									<div className="video_thumbnail_icon_group">
 										<button type="button" className="btn btn-danger"
@@ -153,10 +168,7 @@ try {
 					</div>						
 
 					<br/><br/><br/><br/>
-					<ModalPlus parent={me} />
-					<div className="content_bg opacity_bg">
-
-					</div>	
+					<div className="content_bg opacity_bg"/>
 				</div>
 			);
 		}

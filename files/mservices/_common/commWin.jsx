@@ -30,13 +30,13 @@ try {
 			   ) {
 				return me.props.parent[me.props.parent.state.ModalPopup.section[code]]();
 			} else {
-				return ''
+				return '';
 			}
 		},
 		ModalLoadingClass: function() {
 			let me = this;	
 			return 'modal fade ModalPopup_' + me.state.id;
-		},		
+		},	
 		render: function() {
 			let me = this, ModalPopup = (me.props.parent.state.ModalPopup) ? me.props.parent.state.ModalPopup : {};
 			let box_class = ModalPopup.box_class,
@@ -46,6 +46,19 @@ try {
 			
 			switch(popup_type) {
 			    case 'alert':
+				return (
+					<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">
+						<div className={'modal-dialog modal-lg alert ' + box_class} role="document">
+							<button type="button" className="close" 
+								onClick={me.closePopup.bind(me)}
+								style={{display:close_icon}}>
+								&times;
+							</button>						
+							{me.callSection('message')}
+						</div>
+					</div>
+				);
+				break;					
 			    case 'window':
 				return (			
 					<div className={me.ModalLoadingClass()} tabindex="-1" role="dialog" aria-hidden="true">

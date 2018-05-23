@@ -35,33 +35,8 @@ try {
 							{me.rightBox(me.props.params)}			
 						</div>	
 					</div>	
-					<ModalPlus parent={me} />
 				</div>);
 		},
-		callEngCbk : function(data) {
-			let me = this;
-			
-			console.log('====callEngCbk=kkk==>');
-			console.log(data);
-		},
-		callEng:function() {
-			var me = this;
-			me.setState({_eng:{
-				i:[
-					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'get', data:{}}
-				],				
-				p:[
-					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
-				],
-				s:[
-					{url : _master_svr() + '/api/ad/get_default_ad.api', method:'post', data:{}}
-				],
-				hold:0,
-				setting: {timeout:30000},
-				callbackfn: 'callEngCbk'
-				
-			}});
-		},		
 		leftBox:function(params) {
 			var me = this;
 			if (params.opt == 'new') {
@@ -70,41 +45,33 @@ try {
 			} else return(<Embed_curriculum_profile parent={me} params={params} video={me.state.video} />);
 		},
 		rightBox:function(params) {
-			var me = this;	
-			if (params.opt == 'new') return (<Embed_curriculum_preview parent={me} params={params} video={me.state.video}/>);
-			else if (!me.state.section.section_id) {
-				return (<Embed_curriculum_demo parent={me} params={params} video={me.state.video}/>);
-			} else {
-				return (<TemplateSectionForm env={me.props.route.env} parent={me} params={params} section_id={me.state.section.section_id} section={me.state.section} />);		
-			}
-		},
-		createSection:function() {
 			var me = this;
-			me.setState({section:{section_id:'new', section:{}}}, function() {});
+			if (params.opt == 'new') {
+				return (<Embed_curriculum_preview parent={me} params={params} video={me.state.video}/>);
+			} else {
+				if (!me.state.section_id) {
+					return (<Embed_curriculum_preview parent={me} params={params} video={me.state.video}/>);
+				} else {
+					return (<TemplateSectionForm env={me.props.route.env} 
+							parent={me} params={params} 
+							sections={me.state.sections}
+							section={me.state.section} section_id={me.state.section_id}/>);	
+				}
+			} 
 		},
 		editSection:function(id) {
 			var me = this;
-			var o = me.state.sections, v = [];	
-			for (var i = 0; i < o.length; i++) {
-				if (o[i].section_id == id) {
-					me.setState({section:o[i], section_id:id});
-					return true;
-				}
-			} 
-			return true;  			       
-		},
-		deleteSection:function(id) {
-			var me = this;
-			var o = me.state.sections, v = [];	
-			for (var i = 0; i < o.length; i++) {
-				if (o[i].id == id) continue;
-				else v[v.length] = o[i]; 
-			}
-			me.setState({sections:v}, function() {
-				me.submitCurriculum(me.props.params);
-				me.setState({section:{track:{}}});
-			});
-			return true;       
+			if (id === 'new') {
+				me.setState({section:{}, section_id:id});			
+			} else {
+				let o = me.state.sections;	
+				for (var i = 0; i < o.length; i++) {
+					if (o[i].section_id == id) {
+						me.setState({section:o[i], section_id:id});
+						return true;
+					}
+				} 
+			}  			       
 		},
 		componentDidMount:function() {
 			var me = this;
@@ -224,12 +191,22 @@ try {
 			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
 			return this.props.route.env.dictionary(v);
 		},
+		exitSection : function() {
+			this.setState({section : {},  section_id : null});			
+		},		
 		refreshSections : function() {
 			let me = this;
 			me.getCurriculumById(me.state.curriculum.curriculum_id, function(data) {
 				if (data.data.curriculum_id) {
-					me.setState({curriculum:data.data,
-					sections: data.data.sections});
+					for (var i = 0; i < data.data.sections.length; i++) {
+						if (me.state.section_id === data.data.sections[i].section_id) {
+							me.setState({sections: data.data.sections});
+							return true;
+						}
+					}
+					me.setState({sections: data.data.sections}, function() {
+						me.exitSection();
+					});
 				}
 			});			
 		},
@@ -258,28 +235,13 @@ try {
 			if (!me.state.c_text) return {display:'none'};
 			else return {display:''};
 		},
-		abortSection: function() {
-			var me = this;
-			me.setState({section:{track:{}}});
-			me.componentDidMount();
-		},		
-		acceptSection: function(v) {
-			var me = this, section = me.state.section;	
-			section.o = v;
-			me.setState({section:section}, function() {
-				me.submitCurriculum(me.props.params);	
-				me.setState({section:{track:{}}});			
-			});
-		},		
 		render: function() {
 			var me = this;
 			return (
 				<div className="content_section">
 					<br/>
 					{me.mainBox()}
-					<div className="content_bg opacity_bg">
-						<video id="video_ad" className="video_ad"  src="" muted></video>
-					</div>
+					<div className="content_bg opacity_bg"></div>
 					<_commWin parent={me} />
 					<_commEng parent={me} />
 				</div>

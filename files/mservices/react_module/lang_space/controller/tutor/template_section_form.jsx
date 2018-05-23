@@ -2,7 +2,6 @@ try {
 	var TemplateSectionForm =  React.createClass({
 		getInitialState: function() {
 			var me = this; 
-			me.lib = new _commLib();
 			return {
 				scriptLangs:[],
 				scriptList:[],
@@ -14,7 +13,6 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
-			
 			me.props.parent.props.route.env.engine({
 				url: _master_svr() +  '/api/content_data/getScripts.api',
 				method: "POST",
@@ -30,29 +28,41 @@ try {
 		},
 		componentDidUpdate:function(prePropos, prevState) {	
 			var me = this;
+			
 			if (me.state.script_id  !== prevState.script_id) {
+				console.log('---kkk--->');
 				me.loadScriptById(me.state.script_id);
-			}
-			if (me.props.section_id !== prePropos.section_id) {
 				me.setTpl({});
+			} else {
+				if (me.props.section_id !== prePropos.section_id) {
+					console.log('---me.props.section--->');
+					console.log(me.props.section);	
+					if (me.props.section_id === 'new') {
+						me.setTpl({});
+					} else {
+						me.setTpl(me.props.section.tpl);
+					}	
+				}
 			}
 		},
 		loadScriptById:function(id) {
 			var me = this;
-			me.props.parent.props.route.env.engine({
-				url:  _master_svr() +  '/api/content_data/getScripts.api',
-				method: "POST",
-				data: {cmd:'getScriptById', id: id, auth:me.props.parent.props.route.env.state.auth},
-				dataType: "JSON"
-			}, function( data) {
-				console.log(data);
-				me.setState({c_tpl:data});
-			},function( jqXHR, textStatus ) {
-				console.log('error');
-			});			
+			let engCfg = {
+				request:
+					{code:'getlist', url :  _master_svr() +  '/api/content_data/getScripts.api', method:'post', 
+					 data: {cmd:'getScriptById', id: id, auth:me.props.parent.props.route.env.state.auth},
+				},
+				hold:0,
+				setting: {timeout:3000},
+				callBack: function(data) {
+					Root.lib.alert(me, 'Data load success!', 'success', 1000);
+					me.setState({c_tpl:data});
+				}
+			}
+			Root.lib.loadEng(me, engCfg);			
 		},
 		setStateData(idx, data) {
-			var me = this, v = me.state.data;
+			var me = this, v = (me.state.data) ? me.state.data : {};
 			v[idx] = data;
 			me.setState({data:v});
 		},
@@ -71,46 +81,29 @@ try {
 					data:me.props.section.data});
 			}	
 		},
-		_closePopup : function() {
-			alert('niu');
-		},
 		popupEditVideo: function(track) {
-			var me = this;
-			
 			var me = this;
 			let cfg = {
 				section: {
 					body : function() {
-						let ta = me, id = new Date().getTime();
-						let curriculum = ta.props.parent.state.curriculum;
+						let ta = me, popid = new Date().getTime();
 						let video = {
 							vid: ta.props.parent.state.curriculum.vid,
 							space : ta.props.parent.state.curriculum.space,
 							video_length : ta.props.parent.state.curriculum.video_length
 						};
-						let sections = (ta.props.parent.state.curriculum.script) ? ta.props.parent.state.curriculum.script:[];
-
 						return (
-						<Embed_video_editor parent={ta} video={video} sections={sections} track={track}  
-							popid={new Date().getTime()} />
+						<Embed_video_editor parent={ta} video={video} 
+							sections={ta.props.sections} track={track}  
+							popid={popid} section_id={ta.props.section_id} />
 						);
 					}
-					/*,
-					
-					_closePopup : function() {
-						let ta = me;
-						ta.setState({ModalPopup:'cancel'});
-					},					
-					close : function() {
-						let ta = me;
-						ta.setState({ModalPopup:'cancel'});
-					}*/
 				},
 				box_class : 'modal-content',
 				popup_type : 'window',
 				close_icon : true
 			};
-			me.lib.buildPopup(me, cfg);
+			Root.lib.popupWin(me, cfg);
 			return true;
 		},	
 		setScriptListFilter(p) {
@@ -148,20 +141,18 @@ try {
 		},
 		saveSection:function(opt){
 			let me = this, 
-			    data = {section_id:me.props.section_id, tpl:me.state.c_tpl, data:me.state.data, c_section:me.state.c_section};
+			    data = {
+				    curriculum_id : me.props.parent.state.curriculum.curriculum_id,
+				    section_id: me.props.section_id,
+				    tpl:me.state.c_tpl, 
+				    data:me.state.data
+			    };
 			me.props.env.engine({
 				url: _master_svr() + '/api/curriculum/myCurriculum.api',
 				method: "POST",
-				data: { cmd:opt,
-				       data: {
-						curriculum_id : me.props.parent.state.curriculum.curriculum_id,
-						section:data,
-				       },	       
-					auth:me.props.env.state.auth},
-					dataType: "JSON"
+				data: { cmd:opt, data: data,  auth:me.props.env.state.auth}, dataType: "JSON"
 			}, function( result) {
 				me.props.parent.refreshSections();
-				
 			},function( jqXHR, textStatus ) {
 				alert(JSON.stringify('error'));
 				console.log('error');
@@ -212,17 +203,17 @@ try {
 					{me.state.c_tpl.variables.map(function(v) {
 						switch(v) {
 							case 'track':
-								if (!me.state.data[v]) {
+								if (!me.state.data || !me.state.data[v]) {
 									me.setStateData(v, {});
-								}	
+								}
 								return (
 								<span>
-									{(function() {
+									{/*(function() {
 										return (<span dangerouslySetInnerHTML=
-										{{__html: 'Start: ' + me.lib.toHHMMSS(me.state.data[v].s) + 
-										' To:' + me.lib.toHHMMSS(parseInt(me.state.data[v].s) + parseInt(me.state.data[v].t))}}
+										{{__html: 'Start: ' + Root.lib.toHHMMSS(me.state.data[v].s) + 
+										' To:' + Root.lib.toHHMMSS(parseInt(me.state.data[v].s) + parseInt(me.state.data[v].t))}}
 										/>)
-									})()}
+									})()*/}
 									<button className="btn btn-info btn-xs" 
 										onClick={me.popupEditVideo.bind(me, me.state.data[v])}>
 									<i className="fa fa-scissors" aria-hidden="true"></i> Clip video
@@ -245,7 +236,7 @@ try {
 									if (me.props.parent.state.section.id != 'new') return (<button className="btn btn-danger" 
 									onClick={me.saveSection.bind(me, 'deleteSection')}>Delete This Section</button>)
 								})()}	
-								<button className="btn btn-default pull-left" onClick={me.props.parent.abortSection.bind(me)}>Abort Change</button>
+								<button className="btn btn-default pull-left" onClick={me.props.parent.exitSection.bind(me)}>Abort Change</button>
 								<button className="btn btn-info pull-right" onClick={me.saveSection.bind(me, 'saveSection')}>Save</button>
 							</div>
 						</td></tr>	
@@ -263,10 +254,6 @@ try {
 				{me.props.parent.state.curriculum.level}
 				{me.templateSelectScript()}
 				{me.tplSection()}
-				{/*JSON.stringify(me.state.c_tpl)*/}
-				<ModalPlus parent={me} />
-				<_commWin parent={me} />
-				<_commEng parent={me} />
 				</span>)
 		}
 	});	

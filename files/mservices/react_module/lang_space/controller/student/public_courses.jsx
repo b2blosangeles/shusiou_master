@@ -6,11 +6,32 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			me.getDataApi();
+			me.callEng();
 			var str='test1[s]test2';
 			var a = str.split(/\[s\]/i);
 		},
-		getDataApi: function(opt) {
+		callEng:function() {
+			var me = this;
+			let engCfg = {
+				request:{code:'getlist', url : _master_svr() + '/api/curriculum/curriculums.api', method:'post', 
+					 data:{cmd:'getPublicList'}
+				},
+				hold:0,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					if (data.status === 'success') {
+						me.setState({list:data.data}, function() {
+						//	Root.lib.alert(me, 'Data load success!', 'success', 3000);
+						});
+					} else {
+						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
+						
+					}
+				}
+			}
+			Root.lib.loadEng(me, engCfg);
+		},		
+		getDataApiAA: function(opt) {
 			var me = this, A = me.state.list;
 			$.ajax({
 				url:  _master_svr() + '/api/curriculum/curriculums.api',

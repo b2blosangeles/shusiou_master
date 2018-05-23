@@ -6,7 +6,6 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			me.lib = new _commLib();
 		},
 		componentDidUpdate:function(prePropos, preState) {
 			var me = this, c = me.props.parent.state.curriculum;
@@ -87,7 +86,7 @@ try {
 								<th>Length</th>
 								<th>Text
 									<button className="btn btn-warning btn-xs pull-right" 
-									onClick={me.props.parent.createSection.bind(me)}>
+									onClick={me.props.parent.editSection.bind(me, 'new')}>
 										<i className="fa fa-plus" aria-hidden="true"></i>
 									</button>      
 								</th>
@@ -96,10 +95,10 @@ try {
 						    <tbody>
 						{me.props.parent.state.sections.map(function(rec) { return (<tr>
 							<td>
-								<span dangerouslySetInnerHTML={{__html: me.lib.toHHMMSS(rec.data.track.s)}} />    
+								<span dangerouslySetInnerHTML={{__html: Root.lib.toHHMMSS(rec.start)}} />    
 							</td>
 							<td>	    
-								<span dangerouslySetInnerHTML={{__html:rec.data.track.t}} /> (s)    
+								<span dangerouslySetInnerHTML={{__html:rec.length}} /> (s)    
 							</td>	    
 							<td>
 								<button className="btn btn-warning btn-xs pull-right"
@@ -116,7 +115,7 @@ try {
 						(function () { 
 							if (!me.props.parent.state.sections.length) return (
 								<button className="btn btn-warning btn_margin3" 
-								onClick={me.props.parent.createSection.bind(me)}>
+								onClick={me.props.parent.editSection.bind(me, 'new')}>
 									<i className="fa fa-plus" aria-hidden="true"></i> Create a new section
 								</button>)})()
 						} 
