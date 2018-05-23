@@ -64,7 +64,7 @@ try {
 		setStateData(idx, data) {
 			var me = this, v = (me.state.data) ? me.state.data : {};
 			v[idx] = data;
-			console.log(v);
+			
 			me.setState({data:v});
 		},
 		handleChange(idx, event) {
@@ -207,6 +207,8 @@ try {
 								if (!me.state.data || !me.state.data[v]) {
 									me.setStateData(v, {});
 								}
+								console.log('---me.state.data--->');
+								console.log(me.state.data);
 								return (
 								<span>
 									{/*(function() {
