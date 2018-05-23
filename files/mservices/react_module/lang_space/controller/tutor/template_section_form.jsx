@@ -63,6 +63,7 @@ try {
 		},
 		setStateData(idx, data) {
 			var me = this, v = (me.state.data) ? me.state.data : {};
+			alert(idx);
 			v[idx] = data;
 			me.setState({data:v});
 		},
