@@ -54,6 +54,31 @@ try {
 				// reactCookie.save('lang', v, { path: '/', maxAge: 3 });
 				reactCookie.save('lang', v, { path: '/'});
 			},
+			signOut:function() {
+				var me = this;	
+				let engCfg = {
+					request:{
+						code:'getAll', 
+						url: _master_svr() +  '/api/auth/auth.api', 
+						method:'post',
+						data: {cmd:'signout'}
+					},
+					hold:0,
+					setting: {timeout:3000},
+					callBack: function(data) {
+						console.log(data);
+						reactCookie.remove('auth', { path: '/'});
+						return true;
+						me.props.env.setState({auth:null},
+							function() {
+								// me.props.env.props.router.push('/');
+								// me.componentDidMount();
+								window.location.href = '/#/'
+							});
+					}
+				}
+				Root.lib.loadEng(Root, engCfg);			
+			},			
 			componentDidUpdate:function(prevProps, prevState) {
 				var me = this;
 			},
