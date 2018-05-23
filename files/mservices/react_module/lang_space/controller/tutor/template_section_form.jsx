@@ -63,7 +63,6 @@ try {
 		},
 		setStateData(idx, data) {
 			var me = this, v = (me.state.data) ? me.state.data : {};
-			alert(idx);
 			v[idx] = data;
 			me.setState({data:v});
 		},
@@ -216,7 +215,7 @@ try {
 										/>)
 									})()*/}
 									<button className="btn btn-info btn-xs" 
-										onClick={me.popupEditVideo.bind(me, (me.state.data)?me.state.data[v]:{})}>
+										onClick={me.popupEditVideo.bind(me, me.state.data[v])}>
 									<i className="fa fa-scissors" aria-hidden="true"></i> Clip video
 									</button>										
 								</span>
