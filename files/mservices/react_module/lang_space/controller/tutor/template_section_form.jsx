@@ -202,14 +202,13 @@ try {
 				return (
 					<span>		
 					{me.state.c_tpl.variables.map(function(v) {
+						if (!me.state.data) {
+							return(<span>niu</span>)
+						}							
 						switch(v) {
 							case 'track':
 								if (!me.state.data || !me.state.data[v]) {
 									me.setStateData(v, {});
-								}
-								console.log('---me.state.data--->');
-								if (!me.state.data) {
-									return(<span>niu</span>)
 								}
 								return (
 								<span>
