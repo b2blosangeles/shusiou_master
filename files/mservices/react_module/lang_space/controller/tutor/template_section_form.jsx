@@ -143,13 +143,18 @@ try {
 			var me = this;
 			let engCfg = {
 				request:
-					{code:'getlist', url : _master_svr() + '/api/curriculum/myCurriculum.api', method:'post', 
-					 data: { cmd:opt, data:{
+					{code:'saveSection', 
+					 url : _master_svr() + '/api/curriculum/myCurriculum.api', 
+					 method:'post', 
+					 data: { 
+						 cmd:opt,
+						 data:{
 						    curriculum_id : me.props.parent.state.curriculum.curriculum_id,
 						    section_id: me.props.section_id,
 						    tpl:me.state.c_tpl, 
-						    data:me.state.data
-					    },  auth:me.props.env.state.auth},
+						    data:me.state.data},
+						 auth:me.props.env.state.auth
+					 },
 				},
 				hold:0,
 				setting: {timeout:3000},
