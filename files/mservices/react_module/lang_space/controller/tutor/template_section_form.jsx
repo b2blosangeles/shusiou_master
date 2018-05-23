@@ -239,7 +239,7 @@ try {
 								return me.textField(v);
 								break;
 							 default:
-								return '-- undefined variable' + v + ' --<br/>';
+								return '<span>-- undefined variable' + v + '<s/pan>';
 						}
 					})}
 					<table width="100%" className="section_template_frame">	
