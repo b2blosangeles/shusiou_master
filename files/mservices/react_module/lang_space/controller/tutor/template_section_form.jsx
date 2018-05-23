@@ -163,7 +163,8 @@ try {
 					me.props.parent.refreshSections();
 				}
 			}
-			Root.lib.loadEng(me, engCfg);				
+			Root.lib.loadEng(me, engCfg);
+			/*
 			return true;
 			
 			let me = this, 
@@ -182,7 +183,8 @@ try {
 			},function( jqXHR, textStatus ) {
 				alert(JSON.stringify('error'));
 				console.log('error');
-			});			
+			});
+			*/
 		},		
 		templateSelectScript: function() {
 			let me = this, scriptLangs = me.state.scriptLangs, scriptList = me.state.scriptList;
