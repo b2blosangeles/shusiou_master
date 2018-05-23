@@ -251,7 +251,7 @@ switch(req.body.cmd) {
 		break;	
 	case 'signout':
 		if (!req.body.data || !req.body.data.uid || !req.body.data.token) {
-			res.send({data:true});
+			res.send({status:'failure', message:'Missing auth info'});
 			return true;
 		}
 		var _f = {};
@@ -274,7 +274,15 @@ switch(req.body.cmd) {
 			_f,
 			function(data) {
 				connection.end();
-				res.send({_spent_time:data._spent_time, status:data.status, data:data});
+				if (!CP.data.S1) {
+					res.send({status:'failure', message:'DB error!'});
+				} else {
+					if (data.status == 'success') {
+						res.send({status:'success', _spent_time:data._spent_time);
+					} else {
+						res.send({_spent_time:data._spent_time, status:data.status, data:CP.data.S1});	 
+					}
+				}
 			},
 			3000
 		);		
