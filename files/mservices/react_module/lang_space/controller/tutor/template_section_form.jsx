@@ -208,12 +208,12 @@ try {
 								}
 								return (
 								<span>
-									{(function() {
+									{/*(function() {
 										return (<span dangerouslySetInnerHTML=
 										{{__html: 'Start: ' + Root.lib.toHHMMSS(me.state.data[v].s) + 
 										' To:' + Root.lib.toHHMMSS(parseInt(me.state.data[v].s) + parseInt(me.state.data[v].t))}}
 										/>)
-									})()}
+									})()*/}
 									<button className="btn btn-info btn-xs" 
 										onClick={me.popupEditVideo.bind(me, me.state.data[v])}>
 									<i className="fa fa-scissors" aria-hidden="true"></i> Clip video
