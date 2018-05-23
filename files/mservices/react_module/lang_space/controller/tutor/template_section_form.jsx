@@ -13,29 +13,29 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
-			me.props.parent.props.route.env.engine({
-				url: _master_svr() +  '/api/content_data/getScripts.api',
-				method: "POST",
-				data: {cmd:'getAll', auth:me.props.parent.props.route.env.state.auth},
-				dataType: "JSON"
-			}, function( data) {
-				me.setState({scriptLangs:data.langs, scriptList:data.list});
-			},function( jqXHR, textStatus ) {
-				console.log('error');
-			});				
+			let engCfg = {
+				request:{
+					code:'getAll', 
+					url: _master_svr() +  '/api/content_data/getScripts.api', 
+					method:'post',
+					data: {cmd:'getAll', auth:me.props.parent.props.route.env.state.auth}
+				},
+				hold:0,
+				setting: {timeout:3000},
+				callBack: function(data) {
+					me.setState({scriptLangs:data.langs, scriptList:data.list});
+				}
+			}
+			Root.lib.loadEng(me, engCfg);				
 			me.setTpl({});
 		},
 		componentDidUpdate:function(prePropos, prevState) {	
 			var me = this;
-			
 			if (me.state.script_id  !== prevState.script_id) {
-				console.log('---kkk--->');
 				me.loadScriptById(me.state.script_id);
 				me.setTpl({});
 			} else {
 				if (me.props.section_id !== prePropos.section_id) {
-					console.log('---me.props.section--->');
-					console.log(me.props.section);	
 					if (me.props.section_id === 'new') {
 						me.setTpl({});
 					} else {
