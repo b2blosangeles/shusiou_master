@@ -154,6 +154,25 @@ try {
 		},		
 		signOut:function() {
 			var me = this;	
+			alert('signout');
+			/*
+			var me = this;
+			let engCfg = {
+				request:{
+					code:'getAll', 
+					url: _master_svr() +  '/api/content_data/getScripts.api', 
+					method:'post',
+					data: {cmd:'getAll', auth:me.props.parent.props.route.env.state.auth}
+				},
+				hold:0,
+				setting: {timeout:3000},
+				callBack: function(data) {
+					me.setState({scriptLangs:data.langs, scriptList:data.list});
+				}
+			}
+			Root.lib.loadEng(me, engCfg);				
+			me.setTpl({});			
+			*/
 			$.ajax({
 				url: '/api/auth/auth.api',
 				method: "POST",
