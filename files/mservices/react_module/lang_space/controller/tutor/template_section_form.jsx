@@ -7,7 +7,7 @@ try {
 				scriptList:[],
 				scriptListFilter:{},
 				script_id:0,
-				data:{},
+				data:{track:{}},
 				c_tpl:{}
 			};
 		},
