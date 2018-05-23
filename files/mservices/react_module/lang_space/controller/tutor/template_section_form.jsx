@@ -55,8 +55,8 @@ try {
 				hold:0,
 				setting: {timeout:3000},
 				callBack: function(data) {
-					Root.lib.alert(me, 'Data load success!', 'success', 3000);
-					// me.setState({c_tpl:data});
+					Root.lib.alert(me, 'Data load success!', 'success', 1000);
+					me.setState({c_tpl:data});
 				}
 			}
 			Root.lib.loadEng(me, engCfg);			
