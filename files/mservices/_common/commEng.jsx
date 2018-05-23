@@ -21,7 +21,6 @@ try {
 					rec.data.dependence = depdata;
 				}
 			};
-			rec.auth = Root.lib.getAuth();
 			let p = {
 				url:rec.url,
 				method: rec.method,
