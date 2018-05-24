@@ -178,6 +178,7 @@ switch(req.body.cmd) {
 			if (CP.data.status === 'success') {
 				CP.data.roles = CP.data.roles.split(',');
 			}
+			cbk(true);
 		}		
 		CP.serial(
 			_f,
