@@ -175,8 +175,8 @@ switch(req.body.cmd) {
 			});
 		}
 		_f['S2'] = function(cbk) {
-			if (CP.data.status === 'success') {
-				CP.data.roles = CP.data.roles.split(',');
+			if (CP.data.S1.status === 'success') {
+				CP.data.S1.roles = CP.data.S1.roles.split(',');
 			}
 			cbk(true);
 		}		
