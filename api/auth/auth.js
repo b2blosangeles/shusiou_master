@@ -180,7 +180,7 @@ switch(req.body.cmd) {
 		}
 		
 		_f['S2'] = function(cbk) {
-			if (CP.data.S1.status === 'success' && (CP.data.S1.data.roles)) {
+			if (CP.data.S1.status === 'success' && (CP.data.S1.data) && (CP.data.S1.data.roles)) {
 				CP.data.S1.data.roles = CP.data.S1.data.roles.split(',');
 			}
 			cbk(true);
