@@ -61,6 +61,8 @@ var _commLib = function () {
            f_list = {},
            ModalPopup_cfg = {};
       
+	 alert(ta.name);
+	    
         for (var key in setting) {
             if (key == 'section') {
                   for (var v in setting.section) {
