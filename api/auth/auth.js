@@ -165,18 +165,18 @@ switch(req.body.cmd) {
 		var _f = {};	
 		_f['S1'] = function(cbk) {
 			if (!req.body.auth || !req.body.auth.uid || !req.body.auth.token) {
-				cbk( {status:'success', data:{});
-				      return true;
-			}
-			connection.connect();
-			var str = 'SELECT B.`uid`,  B.`email`, B.`roles` FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  ' +
-			    'WHERE A.`uid` = "' +  req.body.auth.uid  + '" AND ' + 
-			    '`token` = "' +  req.body.auth.token + '"';
+				cbk({status:'success', data:{}});
+			} else {
+				connection.connect();
+				var str = 'SELECT B.`uid`,  B.`email`, B.`roles` FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  ' +
+				    'WHERE A.`uid` = "' +  req.body.auth.uid  + '" AND ' + 
+				    '`token` = "' +  req.body.auth.token + '"';
 
-			connection.query(str, function (error, results, fields) {
-				connection.end();
-				cbk((error)?{status:'failure', message:error.message} : {status:'success', data : results[0]});
-			});
+				connection.query(str, function (error, results, fields) {
+					connection.end();
+					cbk((error)?{status:'failure', message:error.message} : {status:'success', data : results[0]});
+				});
+			}
 		}
 		_f['S2'] = function(cbk) {
 			if (CP.data.S1.status === 'success') {
