@@ -9,13 +9,15 @@ try {
 				var me = this;
 				Root = me;
 				me.lib = new _commLib();
+				me.getAuth();
 				return {
 					dictionary:_DATA_["/data/dictionary.json"],
 					lang:_DATA_["/data/language.json"],
 					roles:_DATA_["/data/user_role.json"],
 					c_lang:(!reactCookie.load('lang'))?'cn':reactCookie.load('lang'),
 					c_role:(!reactCookie.load('role'))?'learner':reactCookie.load('role'),
-					auth:(reactCookie.load('auth'))?reactCookie.load('auth'):{}
+					auth:(reactCookie.load('auth'))?reactCookie.load('auth'):{},
+					userInfo: {}
 				};
 			},
 			engine:function(p, done, error) {
