@@ -162,15 +162,26 @@ switch(req.body.cmd) {
 		break;	
 		
 	case 'getAuth':
-		connection.connect();
-		var str = 'SELECT B.* FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  ' +
-		    'WHERE A.`uid` = "' +  req.body.auth.uid  + '" AND ' + 
-		    '`token` = "' +  req.body.auth.token + '"';
-		
-		connection.query(str, function (error, results, fields) {
-			connection.end();
-			res.send((error)?{status:'failure', message:error.message} : {status:'success', data : results[0]});
-		});
+		let _f = {};
+		_f['S1'] = function(cbk) {
+			connection.connect();
+			var str = 'SELECT B.* FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  ' +
+			    'WHERE A.`uid` = "' +  req.body.auth.uid  + '" AND ' + 
+			    '`token` = "' +  req.body.auth.token + '"';
+
+			connection.query(str, function (error, results, fields) {
+				connection.end();
+				cbk((error)?{status:'failure', message:error.message} : {status:'success', data : results[0]});
+			});
+		}
+		CP.serial(
+			_f,
+			function(data) {
+				connection.end();
+				res.send(CP.data.S1);
+			},
+			6000
+		);		
 		break;	
 	case 'signin':
 		connection.connect();
