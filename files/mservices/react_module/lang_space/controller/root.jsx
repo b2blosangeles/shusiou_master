@@ -21,6 +21,7 @@ try {
 					userInfo: {}
 				};
 			},
+			/*
 			engine:function(p, done, error) {
 				var me = this;
 				p.data.auth = me.state.auth;
@@ -33,7 +34,7 @@ try {
 						error(jqXHR, textStatus);
 					}				
 				});
-			},
+			},*/
 			dictionary: function(v) {
 				if  (!this.state.dictionary[v]) return v;
 				return (!this.state.dictionary[v][this.state.c_lang])?this.state.dictionary[v]['en']:this.state.dictionary[v][this.state.c_lang];
