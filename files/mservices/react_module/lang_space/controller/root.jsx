@@ -96,6 +96,8 @@ try {
 					callBack: function(data) {
 						if (data.status === 'success') {
 							Root.setState({'userInfo': data.data});
+							Root.lib.alert(me, 'auccess ' + 
+								(((data) && (data.message)) ? data.message : '' ), 'warning');
 						} else {
 							Root.lib.alert(me, 'Error! ' + 
 								(((data) && (data.message)) ? data.message : '' ), 'danger');
