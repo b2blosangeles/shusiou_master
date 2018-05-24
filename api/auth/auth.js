@@ -165,7 +165,7 @@ switch(req.body.cmd) {
 		var _f = {};	
 		_f['S1'] = function(cbk) {
 			if (!req.body.auth || (!req.body.auth.uid && !req.body.auth.token)) {
-				cbk({status:'success', data:{}});
+				cbk({status:'success', data:req.body.auth});
 			} else {
 				connection.connect();
 				var str = 'SELECT B.`uid`,  B.`email`, B.`roles` FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  ' +
