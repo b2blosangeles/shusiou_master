@@ -118,7 +118,7 @@ try {
 			if ((Root.state.userInfo) && (Root.state.userInfo.uid)) { return(	
 				<li className="dropdown">
 					<a href="JavaScript:void(0)" className="dropdown-toggle" data-toggle="dropdown"
-					>{(me.props.env.state.auth.name)?me.props.env.state.auth.name:'Guest'}
+					>{(Root.state.userInfo.email) ? Root.state.userInfo.email : 'Guest'}
 					<span className="caret"></span></a>
 					<ul className="dropdown-menu">
 						<li><a href="JavaScript:void(0);" onClick={Root.signOut.bind(me)}>{me.dictionary('menu_logout')}</a></li>
