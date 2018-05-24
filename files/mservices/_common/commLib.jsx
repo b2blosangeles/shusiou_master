@@ -57,7 +57,7 @@ var _commLib = function () {
     }    
     this.buildPopup = function(ta, o, setting)  {
 	let me = this;  
-        let caller_name = ta.moduleName,
+        let caller_name = (ta.moduleName) ? ta.moduleName : '_Dynamic_',
            f_list = {},
            ModalPopup_cfg = {};
 	    
