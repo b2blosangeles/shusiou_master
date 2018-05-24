@@ -26,7 +26,10 @@ var _commLib = function () {
        	}	    
 	ta.setState({_eng:engCfg})
     }    
-    this.alert = function(target, message, alert_type,  holdTime)  {	
+    this.alert = function(target, message, alert_type,  holdTime)  {
+	    let caller_name = arguments.callee.caller.name;
+		 alert(caller_name);
+	    
 	var me = this, ta = (target.existModal) ? target : Root;
 	let cfg = {
 		section: {
@@ -59,7 +62,7 @@ var _commLib = function () {
         let caller_name = arguments.callee.caller.name,
            f_list = {},
            ModalPopup_cfg = {};
-       alert(caller_name);
+      
         for (var key in setting) {
             if (key == 'section') {
                   for (var v in setting.section) {
