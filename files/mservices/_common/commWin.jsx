@@ -18,7 +18,9 @@ try {
 		},
 		closePopup : function() {
 			var me = this;
-			me.props.parent.setState({ModalPopup:'cancel'});
+			me.props.parent.setState({ModalPopup:'cancel'}, function() {
+				alert('after close');
+			});
 		},
 		callSection : function(code) {
 			var me = this;
