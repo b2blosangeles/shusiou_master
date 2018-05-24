@@ -59,7 +59,7 @@ var _commLib = function () {
         let caller_name = arguments.callee.caller.name,
            f_list = {},
            ModalPopup_cfg = {};
-       
+       alert(caller_name);
         for (var key in setting) {
             if (key == 'section') {
                   for (var v in setting.section) {
