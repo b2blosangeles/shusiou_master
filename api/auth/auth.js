@@ -282,7 +282,7 @@ switch(req.body.cmd) {
 		break;	
 	case 'verifySignin':
 		if (!req.body.data || !req.body.data.uid || !req.body.data.token) {
-			res.send({status:'success', status:false});
+			res.send({status:'success', data:{}});
 			return true;
 		}
 		res.send({status:'success', status:false});
