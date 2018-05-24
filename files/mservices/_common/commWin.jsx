@@ -17,10 +17,12 @@ try {
 			}			
 		},
 		closePopup : function() {
-			var me = this;
+			var me = this, closeCallback = me.props.parent.ModalPopup.closeCallback;
 			me.props.parent.setState({ModalPopup:'cancel'}, function() {
-				if (typeof me._closeCallback === 'function') {
-					 me._closeCallback();
+				if (typeof me[closeCallback] === 'function') {
+					 me[closeCallback]();
+				} else {
+					alert(6);
 				}
 			});
 		},
