@@ -139,7 +139,7 @@ try {
 		},
 		authItem:function() {
 			var me = this;
-			if ((me.props.env.state.userInfo) && (me.props.env.state.userInfo.uid)) { return(	
+			if ((Root.state.userInfo) && (Root.state.userInfo.uid)) { return(	
 				<li className="dropdown">
 					<a href="JavaScript:void(0)" className="dropdown-toggle" data-toggle="dropdown"
 					>{(me.props.env.state.auth.name)?me.props.env.state.auth.name:'Guest'}
