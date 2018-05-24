@@ -20,7 +20,8 @@ try {
 		},
 		myRoles : function() {
 			var me = this;
-			var my_role = ((me.props.env.state.auth) && (me.props.env.state.auth.roles))?me.props.env.state.auth.roles:[];
+			var my_role = ((me.props.env.state.userInfo) && (me.props.env.state.userInfo.roles)) ?
+			    	me.props.env.state.userInfo.roles: [];
 			if (my_role.length) return (
 				<span>
 					[{my_role.map(function(r) {
