@@ -86,10 +86,10 @@ try {
 				var me = this;	
 				let engCfg = {
 					request:{
-						code:'getAuth', 
+						code:'getAuthUser', 
 						url: _master_svr() +  '/api/auth/auth.api', 
 						method:'post',
-						data: {cmd:'getAuth'}
+						data: {cmd:'getAuthUser'}
 					},
 					hold:0,
 					setting: {timeout:3000},
