@@ -17,7 +17,7 @@ try {
 					roles:_DATA_["/data/user_role.json"],
 					c_lang:(!reactCookie.load('lang'))?'cn':reactCookie.load('lang'),
 					c_role:(!reactCookie.load('role'))?'learner':reactCookie.load('role'),
-					auth:(reactCookie.load('auth'))?reactCookie.load('auth'):{},
+				//	auth:(reactCookie.load('auth'))?reactCookie.load('auth'):{},
 					userInfo: {}
 				};
 			},
@@ -102,6 +102,7 @@ try {
 							Root.lib.alert(me, 'Success ' + 
 								(((data) && (data.message)) ? data.message : '' ), 'success');
 						} else {
+							Root.setState({'userInfo': null});
 							Root.lib.alert(me, 'Error! ' + 
 								(((data) && (data.message)) ? data.message : '' ), 'danger');
 						}
