@@ -163,13 +163,14 @@ switch(req.body.cmd) {
 		
 	case 'getAuth':
 		connection.connect();
-		var str = 'SELECT B.* FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  WHERE A.`uid` = "' +  req.body.auth.uid  + '" AND ' + 
+		var str = 'SELECT B.* FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  ' +
+		    'WHERE A.`uid` = "' +  req.body.auth.uid  + '" AND ' + 
 		    '`token` = "' +  req.body.auth.token + '"';
+		
 		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if (error) {
 				cbk({status:'failure', message:error.message});
-				return true;
 			} else {
 				cbk({status:'success', data : results[0]});
 			}
@@ -245,7 +246,6 @@ switch(req.body.cmd) {
 		}
 		var _f = {};
 		_f['S1'] = function(cbk) {
-			
 			var str = 'DELETE FROM  `auth_session` WHERE `uid` = "' +  req.body.auth.uid  + '" AND ' + 
 			    '`token` = "' +  req.body.auth.token + '"';
 			connection.connect();
