@@ -75,6 +75,18 @@ var _commLib = function () {
                      }
                   }
                   ModalPopup_cfg['section'] =  f_list;
+             } else if (key == 'closeCallback') {
+
+		     if (typeof setting.closeCallback === 'function') {
+			ta[ caller_name + '_closeCallback'] =  
+				(function(v) {
+					let me = o;
+					return setting.closeCallback;
+				})(v);
+
+			ModalPopup_cfg['closeCallback'] = caller_name + '_closeCallback';
+			delete setting.closeCallback;
+		     }
              } else {
                 ModalPopup_cfg[key] = setting[key];
              }
