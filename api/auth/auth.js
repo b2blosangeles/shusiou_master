@@ -162,6 +162,8 @@ switch(req.body.cmd) {
 		break;	
 		
 	case 'getAuthUser':
+		res.send(CP.data.S1);
+		return true;
 		var _f = {};	
 		_f['S1'] = function(cbk) {
 			cbk({status:'success', data:req.body.auth});
