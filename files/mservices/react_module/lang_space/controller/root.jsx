@@ -94,9 +94,8 @@ try {
 					hold:0,
 					setting: {timeout:3000},
 					callBack: function(data) {
-						console.log(data);
 						if (data.status === 'success') {
-							Root.lib.alert(me, 'Logout successfully', 'success', 1000);
+							Root.setState({userInfo, data.data});
 						} else {
 							Root.lib.alert(me, 'Error! ' + 
 								(((data) && (data.message)) ? data.message : '' ), 'warning');
