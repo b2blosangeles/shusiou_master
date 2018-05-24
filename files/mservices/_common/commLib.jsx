@@ -35,8 +35,8 @@ var _commLib = function () {
 		box_class : 'alert-' + alert_type,
 		popup_type : 'alert',
 		close_icon : true,
-		callback : function () {
-			alert('callback');
+		closeCallback : function () {
+			alert('closeCallback');
 		}
 	};
 	me.buildPopup(ta, target, cfg);
