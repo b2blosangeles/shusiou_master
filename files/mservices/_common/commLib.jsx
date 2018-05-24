@@ -1,10 +1,13 @@
 var _LibIndex = 0;
 var _commLib = function () {
+	    let caller_name = arguments.callee.caller.name;
+		 alert(caller_name);
+	    	
     _LibIndex = (!_LibIndex || _LibIndex > 1000000) ? 1 : (_LibIndex + 1);
 
     this.getAuth = function() {
 		return (reactCookie.load('auth'))?reactCookie.load('auth'):{}
-    },	
+    }	
     this.landingModal = function(o) {
 	o.existModal = true;
     	return(<span><_commWin parent={o} /><_commEng parent={o} /></span>)
@@ -27,9 +30,7 @@ var _commLib = function () {
 	ta.setState({_eng:engCfg})
     }    
     this.alert = function(target, message, alert_type,  holdTime, callback)  {
-	    let caller_name = arguments.callee.caller.name;
-		 alert(caller_name);
-	    
+
 	var me = this, ta = (target.existModal) ? target : Root;
 	let cfg = {
 		section: {
