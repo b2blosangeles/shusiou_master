@@ -166,7 +166,7 @@ switch(req.body.cmd) {
 		_f['S1'] = function(cbk) {
 			cbk({status:'success', data:req.body.auth});
 			return true;
-		
+		/*
 			if (!req.body.auth || (!req.body.auth.uid && !req.body.auth.token)) {
 				cbk({status:'success', data:req.body.auth});
 			} else {
@@ -180,6 +180,7 @@ switch(req.body.cmd) {
 					cbk((error)?{status:'failure', message:error.message} : {status:'success', data : results[0]});
 				});
 			}
+			*/
 		}
 		_f['S2'] = function(cbk) {
 			if (CP.data.S1.status === 'success' && (CP.data.S1.data.uid)) {
