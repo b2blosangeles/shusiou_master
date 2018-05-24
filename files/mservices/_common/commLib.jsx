@@ -1,8 +1,6 @@
 var _LibIndex = 0;
 var _commLib = function () {
-	    let caller_name = arguments.callee.caller.name;
-		 alert(caller_name);
-	    	
+	
     _LibIndex = (!_LibIndex || _LibIndex > 1000000) ? 1 : (_LibIndex + 1);
 
     this.getAuth = function() {
@@ -59,7 +57,7 @@ var _commLib = function () {
     }    
     this.buildPopup = function(ta, o, setting)  {
 	let me = this;  
-        let caller_name = arguments.callee.caller.name,
+        let caller_name = 'arguments.callee.caller.name',
            f_list = {},
            ModalPopup_cfg = {};
       
