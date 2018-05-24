@@ -34,7 +34,10 @@ var _commLib = function () {
 		},
 		box_class : 'alert-' + alert_type,
 		popup_type : 'alert',
-		close_icon : true
+		close_icon : true,
+		callback : function () {
+			alert('callback');
+		}
 	};
 	me.buildPopup(ta, target, cfg);
 	if (holdTime) { 
