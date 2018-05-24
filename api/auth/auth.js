@@ -165,7 +165,7 @@ switch(req.body.cmd) {
 		var _f = {};
 		_f['S1'] = function(cbk) {
 			connection.connect();
-			var str = 'SELECT B.`uid`,  B.`email`, B.`roles` FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  ' +
+			var str = 'eSELECT B.`uid`,  B.`email`, B.`roles` FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  ' +
 			    'WHERE A.`uid` = "' +  req.body.auth.uid  + '" AND ' + 
 			    '`token` = "' +  req.body.auth.token + '"';
 
