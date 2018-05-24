@@ -79,7 +79,35 @@ try {
 					}
 				}
 				Root.lib.loadEng(Root, engCfg);			
-			},			
+			},
+			getAuth:function() {
+				alert('getAuth');
+				return true;
+				var me = this;	
+				let engCfg = {
+					request:{
+						code:'getAll', 
+						url: _master_svr() +  '/api/auth/auth.api', 
+						method:'post',
+						data: {cmd:'signout'}
+					},
+					hold:0,
+					setting: {timeout:3000},
+					callBack: function(data) {
+						if (data.status === 'success') {
+							Root.lib.alert(me, 'Logout successfully', 'success', 1000);
+							reactCookie.remove('auth', { path: '/'});
+							window.location.href = '/#/';
+							window.location.reload();
+						} else {
+							Root.lib.alert(me, 'Error! ' + 
+								(((data) && (data.message)) ? data.message : '' ), 'warning');
+						}
+						return true;
+					}
+				}
+				Root.lib.loadEng(Root, engCfg);			
+			},				
 			componentDidUpdate:function(prevProps, prevState) {
 				var me = this;
 			},
