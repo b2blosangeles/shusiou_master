@@ -26,7 +26,7 @@ var _commLib = function () {
        	}	    
 	ta.setState({_eng:engCfg})
     }    
-    this.alert = function(target, message, alert_type,  holdTime)  {
+    this.alert = function(target, message, alert_type,  holdTime, callback)  {
 	    let caller_name = arguments.callee.caller.name;
 		 alert(caller_name);
 	    
@@ -38,9 +38,8 @@ var _commLib = function () {
 		box_class : 'alert-' + alert_type,
 		popup_type : 'alert',
 		close_icon : true,
-		closeCallback : function () {
-			alert('closeCallback');
-		}
+		closeCallback : (typeof  holdTime === 'function')? holdTime :
+			(typeof callback === 'function') ? callback : null
 	};
 	me.buildPopup(ta, target, cfg);
 	if (holdTime) { 
