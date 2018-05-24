@@ -165,7 +165,7 @@ switch(req.body.cmd) {
 		let _f = {};
 		_f['S1'] = function(cbk) {
 			connection.connect();
-			var str = 'SELECT B.* FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  ' +
+			var str = 'SELECT B.`uid`,  B.`mail`, B.`roles` FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  ' +
 			    'WHERE A.`uid` = "' +  req.body.auth.uid  + '" AND ' + 
 			    '`token` = "' +  req.body.auth.token + '"';
 
@@ -174,6 +174,11 @@ switch(req.body.cmd) {
 				cbk((error)?{status:'failure', message:error.message} : {status:'success', data : results[0]});
 			});
 		}
+		_f['S2'] = function(cbk) {
+			if (CP.data.status === 'success') {
+				CP.data.roles = CP.data.roles.split(',');
+			}
+		}		
 		CP.serial(
 			_f,
 			function(data) {
