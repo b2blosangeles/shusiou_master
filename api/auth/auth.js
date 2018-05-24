@@ -179,7 +179,7 @@ switch(req.body.cmd) {
 			}
 		}
 		_f['S2'] = function(cbk) {
-			if (CP.data.S1.status === 'success') {
+			if (CP.data.S1.status === 'success' && (CP.data.S1.data.uid)) {
 				CP.data.S1.data.roles = CP.data.S1.data.roles.split(',');
 			}
 			cbk(true);
