@@ -17,7 +17,7 @@ try {
 			}			
 		},
 		closePopup : function() {
-			var me = this, closeCallback = me.props.parent.ModalPopup.closeCallback;
+			var me = this, closeCallback = me.props.parent.state.ModalPopup.closeCallback;
 			me.props.parent.setState({ModalPopup:'cancel'}, function() {
 				if (typeof me[closeCallback] === 'function') {
 					 me[closeCallback]();
