@@ -161,11 +161,15 @@ switch(req.body.cmd) {
 		
 		break;	
 		
-	case 'getAuth':
-		var _f = {};
+	case 'getAuthUser':
+		var _f = {};	
 		_f['S1'] = function(cbk) {
+			if (!req.body.auth || !req.body.auth.uid || !req.body.auth.token) {
+				cbk( {status:'success', data:{});
+				      return true;
+			}
 			connection.connect();
-			var str = 'eSELECT B.`uid`,  B.`email`, B.`roles` FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  ' +
+			var str = 'SELECT B.`uid`,  B.`email`, B.`roles` FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  ' +
 			    'WHERE A.`uid` = "' +  req.body.auth.uid  + '" AND ' + 
 			    '`token` = "' +  req.body.auth.token + '"';
 
