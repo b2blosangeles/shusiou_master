@@ -19,7 +19,7 @@ try {
 		closePopup : function() {
 			var me = this;
 			me.props.parent.setState({ModalPopup:'cancel'}, function() {
-				alert('after close');
+				me.closeCallback();
 			});
 		},
 		callSection : function(code) {
@@ -45,6 +45,12 @@ try {
 			    box_style=ModalPopup.box_style, 
 			    close_icon = (ModalPopup.close_icon) ? '' : 'none',
 			    popup_type = ModalPopup.popup_type;
+			
+			if  (typeof ModalPopup.callback == 'function') {
+				me.closeCallback = ModalPopup.callback;
+			} else {
+				me.closeCallback  = function() {};
+			}
 			
 			switch(popup_type) {
 			    case 'alert':
