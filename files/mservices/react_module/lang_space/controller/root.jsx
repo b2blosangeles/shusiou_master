@@ -95,7 +95,7 @@ try {
 					setting: {timeout:3000},
 					callBack: function(data) {
 						if (data.status === 'success') {
-							Root.setState({'userInfo', data.data});
+							Root.setState({'userInfo': data.data});
 						} else {
 							Root.lib.alert(me, 'Error! ' + 
 								(((data) && (data.message)) ? data.message : '' ), 'danger');
