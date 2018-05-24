@@ -17,12 +17,13 @@ try {
 			}			
 		},
 		closePopup : function() {
-			var me = this, closeCallback = me.props.parent.state.ModalPopup.closeCallback;
+			var me = this, closeCallback = 
+			    ((me.props.parent) && (me.props.parent.state.ModalPopup)) ?
+			    me.props.parent.state.ModalPopup.closeCallback : false;
+			
 			me.props.parent.setState({ModalPopup:'cancel'}, function() {
-				if (typeof me[closeCallback] === 'function') {
-					 me[closeCallback]();
-				} else {
-					alert(me.props.parent[closeCallback]);
+				if (( closeCallback) && typeof me.props.parent[closeCallback] === 'function') {
+					 me.props.parent[closeCallback]();
 				}
 			});
 		},
