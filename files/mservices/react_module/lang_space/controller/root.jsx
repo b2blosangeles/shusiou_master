@@ -73,9 +73,9 @@ try {
 						if (data.status === 'success') {
 							Root.lib.alert(me, 'Logout successfully', 'success', 1000,
 							function() {
-								reactCookie.remove('auth', { path: '/'});
-								window.location.href = '/#/';
-								window.location.reload();
+							//	reactCookie.remove('auth', { path: '/'});
+							//	window.location.href = '/#/';
+							//	window.location.reload();
 							});
 						} else {
 							Root.lib.alert(me, 'Error! ' + 
@@ -98,7 +98,7 @@ try {
 					hold:0,
 					setting: {timeout:3000},
 					callBack: function(data) {
-						if (data.status === 'success') {
+						if (data.status === 'success') {console.log( data.data);
 							Root.setState({'userInfo': data.data});
 							Root.lib.alert(me, 'Success ' + 
 								(((data) && (data.message)) ? data.message : '' ), 'success');
