@@ -161,13 +161,14 @@ switch(req.body.cmd) {
 		
 		break;	
 		
-	case 'getusers':
-		connection.connect();
+	case 'getAuth':
+		
 		var _f = {};
 		_f['S1'] = function(cbk) {
+			connection.connect();
 			var str = 'SELECT * FROM  `auth_users` WHERE 1 ';
 			connection.query(str, function (error, results, fields) {
-				
+				connection.end();
 				if (error) {
 					cbk(error.message);
 					return true;
@@ -179,7 +180,6 @@ switch(req.body.cmd) {
 		CP.serial(
 			_f,
 			function(data) {
-				connection.end();
 				res.send({_spent_time:data._spent_time, status:data.status, data:data});
 			},
 			30000
