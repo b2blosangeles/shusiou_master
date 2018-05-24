@@ -183,7 +183,6 @@ switch(req.body.cmd) {
 		CP.serial(
 			_f,
 			function(data) {
-				connection.end();
 				res.send(CP.data.S1);
 			},
 			6000
