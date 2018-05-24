@@ -162,30 +162,18 @@ switch(req.body.cmd) {
 		break;	
 		
 	case 'getAuth':
-		
-		var _f = {};
-		_f['S1'] = function(cbk) {
-			connection.connect();
-			var str = 'SELECT B.* FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  WHERE A.`uid` = "' +  req.body.auth.uid  + '" AND ' + 
-			    '`token` = "' +  req.body.auth.token + '"';
-			connection.query(str, function (error, results, fields) {
-				connection.end();
-				if (error) {
-					cbk(error.message);
-					return true;
-				} else {
-					cbk(results);
-				}
-			}); 
-		}
-		CP.serial(
-			_f,
-			function(data) {
-				res.send({_spent_time:data._spent_time, status:data.status, data:data});
-			},
-			30000
-		);	
-	
+		connection.connect();
+		var str = 'SELECT B.* FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  WHERE A.`uid` = "' +  req.body.auth.uid  + '" AND ' + 
+		    '`token` = "' +  req.body.auth.token + '"';
+		connection.query(str, function (error, results, fields) {
+			connection.end();
+			if (error) {
+				cbk({status:'failure', message:error.message});
+				return true;
+			} else {
+				cbk({status:'success', data : results[0]});
+			}
+		});
 		break;	
 	case 'signin':
 		connection.connect();
