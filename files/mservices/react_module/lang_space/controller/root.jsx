@@ -9,7 +9,7 @@ try {
 				var me = this;
 				Root = me;
 				me.lib = new _commLib();
-				me.getAuth();
+				
 				return {
 					dictionary:_DATA_["/data/dictionary.json"],
 					lang:_DATA_["/data/language.json"],
@@ -109,7 +109,12 @@ try {
 					}
 				}
 				Root.lib.loadEng(Root, engCfg);			
-			},				
+			},
+			componentDidMount:function() {	
+				var me = this;
+				me.getAuth();
+
+			},
 			componentDidUpdate:function(prevProps, prevState) {
 				var me = this;
 			},
