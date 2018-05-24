@@ -164,6 +164,9 @@ switch(req.body.cmd) {
 	case 'getAuthUser':
 		var _f = {};	
 		_f['S1'] = function(cbk) {
+			cbk({status:'success', data:req.body.auth});
+			return true;
+		
 			if (!req.body.auth || (!req.body.auth.uid && !req.body.auth.token)) {
 				cbk({status:'success', data:req.body.auth});
 			} else {
