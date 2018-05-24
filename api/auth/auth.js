@@ -169,11 +169,7 @@ switch(req.body.cmd) {
 		
 		connection.query(str, function (error, results, fields) {
 			connection.end();
-			if (error) {
-				cbk({status:'failure', message:error.message});
-			} else {
-				cbk({status:'success', data : results[0]});
-			}
+			res.send((error)?{status:'failure', message:error.message} : {status:'success', data : results[0]});
 		});
 		break;	
 	case 'signin':
