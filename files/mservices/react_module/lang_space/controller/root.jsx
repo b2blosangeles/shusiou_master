@@ -75,7 +75,7 @@ try {
 							window.location.reload();
 						} else {
 							Root.lib.alert(me, 'Error! ' + 
-								(((data) && (data.message)) ? data.message : '' ), 'warning');
+								(((data) && (data.message)) ? data.message : '' ), 'danger');
 						}
 						return true;
 					}
