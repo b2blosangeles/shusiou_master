@@ -22,7 +22,7 @@ try {
 				if (typeof me[closeCallback] === 'function') {
 					 me[closeCallback]();
 				} else {
-					alert( me[closeCallback]);
+					alert(me.props.parent[closeCallback]);
 				}
 			});
 		},
