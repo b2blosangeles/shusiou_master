@@ -57,11 +57,9 @@ var _commLib = function () {
     }    
     this.buildPopup = function(ta, o, setting)  {
 	let me = this;  
-        let caller_name = 'arguments.callee.caller.name',
+        let caller_name = ta.moduleName,
            f_list = {},
            ModalPopup_cfg = {};
-      
-	 alert(ta.moduleName);
 	    
         for (var key in setting) {
             if (key == 'section') {
