@@ -42,7 +42,7 @@ var _commLib = function () {
 			(typeof callback === 'function') ? callback : null
 	};
 	me.buildPopup(ta, target, cfg);
-	if (holdTime) { 
+	if (!isNaN(holdTime)) { 
 		setTimeout(function() {
 			if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
 				ta.setState({ModalPopup:'cancel'});
