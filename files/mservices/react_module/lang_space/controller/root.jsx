@@ -70,10 +70,12 @@ try {
 					setting: {timeout:3000},
 					callBack: function(data) {
 						if (data.status === 'success') {
-							Root.lib.alert(me, 'Logout successfully', 'success', 1000);
-							reactCookie.remove('auth', { path: '/'});
-							window.location.href = '/#/';
-							window.location.reload();
+							Root.lib.alert(me, 'Logout successfully', 'success', 1000,
+							function() {
+								reactCookie.remove('auth', { path: '/'});
+								window.location.href = '/#/';
+								window.location.reload();
+							});
 						} else {
 							Root.lib.alert(me, 'Error! ' + 
 								(((data) && (data.message)) ? data.message : '' ), 'danger');
@@ -98,8 +100,7 @@ try {
 						if (data.status === 'success') {
 							Root.setState({'userInfo': data.data});
 							Root.lib.alert(me, 'auccess ' + 
-								(((data) && (data.message)) ? data.message : '' ), 'warning', 
-								      function() { alert('niu r')});
+								(((data) && (data.message)) ? data.message : '' ), 'warning');
 						} else {
 							Root.lib.alert(me, 'Error! ' + 
 								(((data) && (data.message)) ? data.message : '' ), 'danger');
