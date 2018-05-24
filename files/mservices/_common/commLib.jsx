@@ -97,7 +97,9 @@ var _commLib = function () {
     
     this.closePopup = function(target) {
 	var me = this, ta = (target.existModal) ? target : Root;
-	ta.setState({ModalPopup : 'cancel'});
+	ta.setState({ModalPopup : 'cancel'}, function() {
+		alert(777);
+	});
 	/*
 	    return true;
 	    
