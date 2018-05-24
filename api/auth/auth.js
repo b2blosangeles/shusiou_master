@@ -166,7 +166,8 @@ switch(req.body.cmd) {
 		var _f = {};
 		_f['S1'] = function(cbk) {
 			connection.connect();
-			var str = 'SELECT * FROM  `auth_users` WHERE 1 ';
+			var str = 'SELECT B.* FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  WHERE A.`uid` = "' +  req.body.auth.uid  + '" AND ' + 
+			    '`token` = "' +  req.body.auth.token + '"';
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				if (error) {
