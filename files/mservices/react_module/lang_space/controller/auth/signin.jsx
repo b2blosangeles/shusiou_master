@@ -35,14 +35,16 @@ try {
 				callBack: function(data) {
 					if (data.data) {
 						reactCookie.save('auth', data.data, { path: '/'});
+						window.location.href = '/#/';
 						setTimeout(
 							function() {
 								Root.getAuth();
-								window.location.href = '/#/';
+								
 							}, 1000
 						);
 						
-				
+							//Root.lib.alert(me, 'Error! ' + 
+							//	(((data) && (data.message)) ? data.message : '' ), 'danger');
 					} 
 				}
 			}
