@@ -7,6 +7,8 @@ var _commLib = function () {
 		return (reactCookie.load('auth'))?reactCookie.load('auth'):{}
     }
     this.routerPermission = function(target, permission) {
+	console.log('---Root.state.userInfo---');
+	console.log(Root.state.userInfo);
 	console.log(permission);
     }	    
     this.landingModal = function(o) {
