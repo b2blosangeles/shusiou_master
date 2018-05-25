@@ -22,20 +22,6 @@ try {
 					userInfo: {}
 				};
 			},
-			/*
-			engine:function(p, done, error) {
-				var me = this;
-				p.data.auth = me.state.auth;
-				$.ajax(p).done(function( data) {
-					if (typeof done == 'function') {
-						done(data);
-					}
-				}).fail(function( jqXHR, textStatus ) {
-					if (typeof error == 'function') {
-						error(jqXHR, textStatus);
-					}				
-				});
-			},*/
 			dictionary: function(v) {
 				if  (!this.state.dictionary[v]) return v;
 				return (!this.state.dictionary[v][this.state.c_lang])?this.state.dictionary[v]['en']:this.state.dictionary[v][this.state.c_lang];
@@ -50,13 +36,7 @@ try {
 			getCurrentRole: function() {
 				console.log('getCurrentRole--->');
 				return this.state.c_role;
-			},
-			/*
-			setRole: function(v) {
-				this.setState({c_role: v});
-				reactCookie.save('role', v, { path: '/'});
-				alert('r');
-			},	*/	
+			},	
 			setLang: function(v) {
 				this.setState({c_lang: v});
 				// reactCookie.save('lang', v, { path: '/', maxAge: 3 });
@@ -77,6 +57,7 @@ try {
 						if (data.status === 'success') {
 							Root.setState({'userInfo': null}, function() {
 								reactCookie.remove('auth', { path: '/'});
+								window.location.href = '/#/';
 							});
 						} else {
 							Root.lib.alert(me, 'Error! ' + 
