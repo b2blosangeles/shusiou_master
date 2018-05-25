@@ -40,7 +40,7 @@ try {
 						window.location.href = '/#/';
 						Root.lib.alert(me, 'Success login! ', 'success', 1000, 
 							function() {
-								Root.getAuth();
+								Root.setState({userInfo : data.userInfo.data});
 							});
 					} 
 				}
