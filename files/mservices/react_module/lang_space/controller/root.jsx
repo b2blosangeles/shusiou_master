@@ -74,7 +74,10 @@ try {
 							// Root.lib.alert(me, 'Logout successfully', 'success',
 							// function() {
 								reactCookie.remove('auth', { path: '/'});
-								me.getAuth();
+								setTimeout(
+									me.getAuth
+								);
+								// me.getAuth();
 								//window.location.href = '/#/';
 								// window.location.reload();
 							//});
