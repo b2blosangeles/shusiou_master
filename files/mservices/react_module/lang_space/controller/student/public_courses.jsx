@@ -2,7 +2,7 @@ try {
 	var PublicCourses =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			console.log('me.callEng()');
+			// console.log('me.callEng()');
 			return { video:{}, list:[]};
 		},	
 		componentDidMount:function() {
@@ -23,7 +23,7 @@ try {
 				callBack: function(data) {
 					if (data.status === 'success') {
 						me.setState({list:data.data}, function() {
-						//	Root.lib.alert(me, 'Data load success!', 'success', 3000);
+							Root.lib.alert(me, 'Data load success!', 'success', 3000);
 						});
 					} else {
 						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
