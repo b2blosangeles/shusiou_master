@@ -252,6 +252,7 @@ try {
 		},	
 		componentDidUpdate: function (prevProps, prevState) {
 			var me = this;
+			console.log('===_eng===changed');
 			if ((me.props.parent) && (me.props.parent.state._eng)) {	
 				if (me.props.parent.state._eng === 'cancel') {
 					me.props.parent.setState({_eng:null});
