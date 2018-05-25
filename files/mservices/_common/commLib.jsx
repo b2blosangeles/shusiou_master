@@ -14,10 +14,10 @@ var _commLib = function () {
 	let roles = (!userInfo || !userInfo.roles) ? [] : userInfo.roles,
 	    uid = (!userInfo || !userInfo.uid) ? null  : userInfo.uid;
 	if (!this.inte_array(roles, permission.role) &&  !this.inte_array(['*'], permission.role)) {
-		console.log('jump need');
+		window.location.href = '/#/';
 	}
 	if (!uid && (permission.auth)) {
-		console.log('need login---');
+		window.location.href = '/#/Signin';
 	}
     }	    
     this.landingModal = function(o) {
