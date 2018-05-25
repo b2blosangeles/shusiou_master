@@ -36,44 +36,15 @@ try {
 					if (data.data) {
 						reactCookie.save('auth', data.data, { path: '/'});
 						window.location.href = '/#/';
-						setTimeout(
+						Root.getAuth();
+						Root.lib.alert(me, 'Success login! ', 'success', 1000, 
 							function() {
-								Root.getAuth();
 								
-							}, 1000
-						);
-						
-							//Root.lib.alert(me, 'Success login! ', 'success');
+							});
 					} 
 				}
 			}
-			Root.lib.loadEng(Root, engCfg);				
-			
-			/*
-			var me = this;		
-			$.ajax({
-				url: _master_svr() + '/api/auth/auth.api',
-				method: "POST",
-				data: {cmd:'signin', username:me.state.username, password:me.state.password},
-				dataType: "JSON"
-			}).done(function( data) {
-				if (data.data) {
-					reactCookie.save('auth', data.data, { path: '/'});
-					me.props.route.env.setState({auth:data.data},
-						function() {
-							Root.getAuth();
-							// me.props.env.props.router.push('/');
-							// me.componentDidMount();
-							window.location.href = '/#/';
-							//window.location.reload();						
-						});
-				} else {
-					me.setState({loginerr:'Login error! try again.'})
-				}
-			}).fail(function( jqXHR, textStatus ) {
-				me.setState({loginerr:'Login error! try again.'})
-			});
-			*/
+			Root.lib.loadEng(Root, engCfg);	
 		},	
 		componentDidMount:function() {
 			var me = this;
