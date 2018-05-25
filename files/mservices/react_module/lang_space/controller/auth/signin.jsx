@@ -34,12 +34,16 @@ try {
 				setting: {timeout:3000},
 				callBack: function(data) {
 					if (data.data) {
+						console.log('---data.data---')
+						console.log(data.data)
+						/*
 						reactCookie.save('auth', data.data, { path: '/'});
 						window.location.href = '/#/';
 						Root.lib.alert(me, 'Success login! ', 'success', 1000, 
 							function() {
 								Root.getAuth();
 							});
+							*/
 					} 
 				}
 			}
