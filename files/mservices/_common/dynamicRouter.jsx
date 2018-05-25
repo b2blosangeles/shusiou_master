@@ -8,7 +8,7 @@ try {
 
 			return (			
 				<div><br/>
-					{Signin}</div>
+					{me.props.route.route_config.component}</div>
 			);
 		}		
 	});	
