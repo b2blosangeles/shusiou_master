@@ -211,7 +211,7 @@ switch(req.body.cmd) {
 				}
 			}); 
 		}
-		/*
+		
 		_f['S2'] = function(cbk) {
 			if (!CP.data.S1 || !CP.data.S1.uid) {
 				cbk(false);
@@ -226,13 +226,12 @@ switch(req.body.cmd) {
 				connection.end();
 				if (error) {
 					cbk(false);
-					return true;
 				} else {
 					cbk(token);
 				}
 			}); 			
 		}
-		
+		/*
 		_f['S3'] = function(cbk) {
 			if (!CP.data.S2) {
 				cbk(false);
