@@ -225,13 +225,11 @@ switch(req.body.cmd) {
 			connection.connect();
 			connection.query(str, function (error, results, fields) {
 				connection.end();
-				cbk({uid : CP.data.S1.uid, token : token, str:str});
-				/*
 				if (error) {
 					cbk(false);
 				} else {
 					cbk({uid : CP.data.S1.uid, token : token});
-				}*/
+				}
 			}); 			
 		}
 		/*
