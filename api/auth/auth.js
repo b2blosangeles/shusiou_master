@@ -257,7 +257,9 @@ switch(req.body.cmd) {
 			_f,
 			function(data) {
 				if ((CP.data.S3) && (CP.data.S3.status === 'success'))  {
-					res.send({status:'success', auth: CP.data.S2, userInfo :  CP.data.S3.data});	
+					let userInfo =  CP.data.S3.data;
+					userInfo.roles = userInfo.roles.split(',');
+					res.send({status:'success', auth: CP.data.S2, userInfo : userInfo});	
 				} else {
 					res.send({status:'falure', message:'login error'});
 				}
