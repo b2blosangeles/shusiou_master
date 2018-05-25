@@ -21,6 +21,29 @@ try {
 			else return false;
 		},
 		submit:function() {
+			var me = this;	
+			let engCfg = {
+				request:{
+					code:'getAll', 
+					url: _master_svr() + '/api/auth/auth.api', 
+					method:'post',
+					data: {cmd:'signin', username:me.state.username, password:me.state.password},
+					dataType: 'JSON'
+				},
+				hold:0,
+				setting: {timeout:3000},
+				callBack: function(data) {
+					if (data.data) {
+						reactCookie.save('auth', data.data, { path: '/'});
+						Root.getAuth();
+						window.location.href = '/#/';
+				
+					} 
+				}
+			}
+			Root.lib.loadEng(Root, engCfg);				
+			
+			
 			var me = this;		
 			$.ajax({
 				url: _master_svr() + '/api/auth/auth.api',
