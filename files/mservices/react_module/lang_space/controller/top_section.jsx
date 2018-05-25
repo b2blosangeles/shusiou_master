@@ -31,7 +31,8 @@ try {
 		},
 		roleMenu: function(c_role)  {
 			var me = this;
-			var my_role = ((me.props.env.state.auth) && (me.props.env.state.auth.roles))?me.props.env.state.auth.roles:[];
+			var my_role = ( ((Root.state.userInfo) && (Root.state.userInfo.uid)) && (Root.state.userInfo.roles)) ?
+			    	Root.state.userInfo.roles: [];
 			
 			var m = [ 
 			//	{code:'what_to_study', router:'what_to_study'},
