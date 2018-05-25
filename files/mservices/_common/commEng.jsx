@@ -6,7 +6,7 @@ try {
 			_EngIndex = (!_EngIndex || _EngIndex > 10000) ? 1 : (_EngIndex + 1);
 			let me = this;
 			me.lib = new _commLib();
-			return {id:_EngIndex, ModalLoading:{}};
+			return {id:_EngIndex, ModalLoading:{}, _eng:null};
 		},		
 		ajax: function(CP, rec, done, error) {
 			let me = this;
