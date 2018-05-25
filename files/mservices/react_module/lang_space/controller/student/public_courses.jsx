@@ -6,7 +6,7 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			setTimeout(me.callEng, 1);
+			setTimeout(me.callEng, 100);
 			var str='test1[s]test2';
 			var a = str.split(/\[s\]/i);
 		},
@@ -22,7 +22,7 @@ try {
 					console.log('me.callEng()--24>');
 					if (data.status === 'success') {
 						me.setState({list:data.data}, function() {
-							Root.lib.alert(me, 'Data load success!', 'success', 3000);
+						//	Root.lib.alert(me, 'Data load success!', 'success', 3000);
 						});
 					} else {
 						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
