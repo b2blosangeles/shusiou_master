@@ -2,7 +2,6 @@ try {
 	var PublicCourses =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			//me.lib = new _commLib();
 			return { video:{}, list:[]};
 		},	
 		componentDidMount:function() {
