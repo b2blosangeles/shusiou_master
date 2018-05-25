@@ -2,11 +2,11 @@ try {
 	var PublicCourses =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			setTimeout(me.callEng, 1000);	
 			return { video:{}, list:[]};
 		},	
 		componentDidMount:function() {
 			var me = this;
+			setTimeout(me.callEng, 1000);
 			var str='test1[s]test2';
 			var a = str.split(/\[s\]/i);
 		},
