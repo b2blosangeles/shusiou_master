@@ -17,7 +17,7 @@ var _commLib = function () {
 		window.location.href = '/#/';
 	}
 	if (!uid && (permission.auth)) {
-		window.location.href = '/#/Signin';
+	//	window.location.href = '/#/Signin';
 	}
     }	    
     this.landingModal = function(o) {
