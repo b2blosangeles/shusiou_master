@@ -253,8 +253,7 @@ try {
 		componentDidUpdate: function (prevProps, prevState) {
 			var me = this;
 			console.log('===_eng===changed 2');
-			if (me.props.parent) console.log('===_eng===changed Pa');
-			if ((me.props.parent.state._eng)) console.log('===_eng===changed Pbbb');
+
 			if ((me.props.parent) && (me.props.parent.state._eng)) {
 				console.log('===_eng===changed 4');
 				if (me.props.parent.state._eng === 'cancel') {
@@ -279,7 +278,9 @@ try {
 					});
 				}			
 			} else {
-				console.log('===_eng===changed 4');
+				console.log('===_eng=>>==changed 4');
+				if (me.props.parent) console.log('===_eng=>>==changed Pa');
+				if ((me.props.parent.state._eng)) console.log('=>>==_eng===changed Pbbb');				
 			}
 		},
 		loading:function() {
