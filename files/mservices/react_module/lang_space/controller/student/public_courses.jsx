@@ -7,8 +7,11 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-
-			me.callEng();
+			setTimeout(
+				function() {
+					me.callEng();
+				}, 3000	
+			}	
 			var str='test1[s]test2';
 			var a = str.split(/\[s\]/i);
 		},
