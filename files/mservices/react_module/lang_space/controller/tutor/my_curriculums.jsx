@@ -6,6 +6,7 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
+			console.log(auth:me.props.route.permission);
 			setTimeout(me.callEng);
 		},		
 		callEng:function() {
