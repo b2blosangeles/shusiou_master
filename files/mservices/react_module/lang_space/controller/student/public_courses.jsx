@@ -34,21 +34,7 @@ try {
 				}
 			}
 			Root.lib.loadEng(me, engCfg);
-		},		
-		getDataApiAA: function(opt) {
-			var me = this, A = me.state.list;
-			$.ajax({
-				url:  _master_svr() + '/api/curriculum/curriculums.api',
-				method: "POST",
-				data: {cmd:'getPublicList'},
-				dataType: "JSON"
-			}).done(function( data) {
-				console.log(data.data);
-				me.setState({list:data.data});
-			}).fail(function( jqXHR, textStatus ) {
-				console.log('error');
-			});
-		},			
+		},					
 		componentDidUpdate:function() {
 			var me = this;
 		},		
