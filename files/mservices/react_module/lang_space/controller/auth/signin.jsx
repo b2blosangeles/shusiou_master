@@ -35,7 +35,7 @@ try {
 							Root.getAuth();
 							// me.props.env.props.router.push('/');
 							// me.componentDidMount();
-							//window.location.href = '/#/';
+							window.location.href = '/#/';
 							//window.location.reload();						
 						});
 				} else {
