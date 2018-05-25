@@ -71,12 +71,14 @@ try {
 					setting: {timeout:3000},
 					callBack: function(data) {
 						if (data.status === 'success') {
-							Root.lib.alert(me, 'Logout successfully', 'success',
-							function() {
-								reactCookie.remove('auth', { path: '/'});
-								window.location.href = '/#/';
-								window.location.reload();
-							});
+							// Root.lib.alert(me, 'Logout successfully', 'success',
+							// function() {
+								reactCookie.remove('auth', { path: '/'}, function() {
+									alert(77);
+								});
+								//window.location.href = '/#/';
+								// window.location.reload();
+							//});
 						} else {
 							Root.lib.alert(me, 'Error! ' + 
 								(((data) && (data.message)) ? data.message : '' ), 'danger');
