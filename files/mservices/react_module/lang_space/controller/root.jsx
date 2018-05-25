@@ -96,6 +96,7 @@ try {
 					hold:0,
 					setting: {timeout:3000},
 					callBack: function(data) {
+						me.setRole(["learner", "teacher", "advisor"]);
 						if (data.status === 'success') {console.log( data.data);
 							Root.setState({'userInfo': data.data});
 						} else {
