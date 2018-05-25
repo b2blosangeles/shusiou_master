@@ -35,8 +35,13 @@ try {
 				callBack: function(data) {
 					if (data.data) {
 						reactCookie.save('auth', data.data, { path: '/'});
-						Root.getAuth();
-						window.location.href = '/#/';
+						setTimeout(
+							function() {
+								Root.getAuth();
+								window.location.href = '/#/';
+							}
+						);
+						
 				
 					} 
 				}
