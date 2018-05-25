@@ -5,7 +5,6 @@ try {
 		getInitialState: function() {
 			_EngIndex = (!_EngIndex || _EngIndex > 10000) ? 1 : (_EngIndex + 1);
 			let me = this;
-			me.lib = new _commLib();
 			return {id:_EngIndex, ModalLoading:{}};
 		},		
 		ajax: function(CP, rec, done, error) {
