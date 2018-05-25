@@ -255,15 +255,14 @@ try {
 			console.log('===_eng===changed 2');
 
 			if ((me.props.parent) && (me.props.parent.state._eng)) {
-				console.log('===_eng===changed 4');
 				if (me.props.parent.state._eng === 'cancel') {
 					me.props.parent.setState({_eng:null});
 					return true
 				} else {
 					console.log('===_eng===changed 3');
 					if ((Root.state._eng)) {
-					console.log('=>>==_eng===changed 8Pccc');
-					console.log(me.state._eng);
+						console.log('=>>==_eng===changed 8Pccc');
+						console.log(me.state._eng);
 					}
 					
 					let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
