@@ -6,7 +6,7 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			setTimeout(me.callEng);
+			setTimeout(me.callEng, 100);
 			var str='test1[s]test2';
 			var a = str.split(/\[s\]/i);
 		},
