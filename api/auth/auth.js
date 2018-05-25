@@ -211,6 +211,7 @@ switch(req.body.cmd) {
 				}
 			}); 
 		}
+		/*
 		_f['S2'] = function(cbk) {
 			if (!CP.data.S1) {
 				cbk(false);
@@ -249,7 +250,8 @@ switch(req.body.cmd) {
 					cbk(r);
 				}
 			}); 			
-		}		
+		}	
+		*/
 		CP.serial(
 			_f,
 			function(data) {
