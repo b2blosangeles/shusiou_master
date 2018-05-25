@@ -6,10 +6,17 @@ var _commLib = function () {
     this.getAuth = function() {
 		return (reactCookie.load('auth'))?reactCookie.load('auth'):{}
     }
+    this.inte_array = function (a, b) {
+	for(var i=0; i < a.length; i++) { if (b.indexOf(a[i]) !== -1) return true;}
+	return false;
+    }
     this.routerPermission = function(userInfo, permission) {
-	console.log('---userInfo---');
-	console.log(userInfo);
-	console.log(permission);
+	if (!this.inte_array(userInfo.roles, permission.role) &&  !this.inte_array('*', permission.role)) {
+		console.log('jump need');
+	}
+	if (!userInfo.uid && (permission.auth)) {
+		console.log('need login---');
+	}
     }	    
     this.landingModal = function(o) {
 	o.existModal = true;
