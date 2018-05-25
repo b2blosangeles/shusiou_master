@@ -223,7 +223,7 @@ switch(req.body.cmd) {
 			    '("' +  CP.data.S1.uid + '","' +  token + '", NOW())';
 			
 			cbk(str);
-			
+			return true;
 			connection.connect();
 			connection.query(str, function (error, results, fields) {
 				connection.end();
