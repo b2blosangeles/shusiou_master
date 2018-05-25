@@ -7,14 +7,6 @@ try {
 		componentDidMount:function() {
 			var me = this;
 			setTimeout(me.callEng);
-			
-			var str='test1[s]test2';
-			var a = str.split(/\[s\]/i);
-			//console.log(a);
-			/*
-			$('.video_ad').attr('autoplay', true);
-			$(".video_ad").attr("src", "http://virtual_language_lab.qalet.com/api/lang_space/vr.js?video=sample.mp4");
-			*/
 		},
 		callEng:function() {
 			var me = this;
