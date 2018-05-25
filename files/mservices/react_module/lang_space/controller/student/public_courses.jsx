@@ -16,7 +16,7 @@ try {
 			var me = this;
 			console.log('me.callEng()--23>');
 			let engCfg = {
-				request:{code:'getlist', url : _master_svr() + '/api/curriculum/curriculums.api', method:'post', 
+				request:{code:'getPublicList', url : _master_svr() + '/api/curriculum/curriculums.api', method:'post', 
 					 data:{cmd:'getPublicList'}
 				},
 				hold:0,
