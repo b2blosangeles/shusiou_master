@@ -22,6 +22,7 @@ try {
 		},
 		submit:function() {
 			var me = this;	
+			reactCookie.remove('auth', { path: '/'});
 			let engCfg = {
 				request:{
 					code:'getAll', 
