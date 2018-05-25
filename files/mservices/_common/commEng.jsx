@@ -252,19 +252,11 @@ try {
 		},	
 		componentDidUpdate: function (prevProps, prevState) {
 			var me = this;
-			console.log('===_eng===changed 2');
-
 			if ((me.props.parent) && (me.props.parent.state._eng)) {
 				if (me.props.parent.state._eng === 'cancel') {
 					me.props.parent.setState({_eng:null});
 					return true
 				} else {
-					console.log('===_eng===changed 3');
-					if ((Root.state._eng)) {
-						console.log('=>>==_eng===changed 8Pccc');
-						console.log(me.state._eng);
-					}
-					
 					let eng =  JSON.parse(JSON.stringify(me.props.parent.state._eng));
 					if (!eng.tm) eng.tm = new Date().getTime();
 					eng.hold = (!eng.hold && eng.hold !== 0) ? 1000 : eng.hold;
@@ -281,14 +273,6 @@ try {
 						me.cpCall(eng);			
 					});
 				}			
-			} else {
-				console.log('===_eng=>>==changed 4');
-				if (me.props.parent) console.log('===_eng=>>==changed Pa');
-				if ((me.props.parent.state._eng)) console.log('=>>==_eng===changed Pbbb');
-				if ((Root.state._eng)) {
-					console.log('=>>==_eng===changed Pccc');
-					console.log(me.state._eng);
-				}	
 			}
 		},
 		loading:function() {
