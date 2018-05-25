@@ -71,8 +71,10 @@ try {
 					setting: {timeout:3000},
 					callBack: function(data) {
 						if (data.status === 'success') {
-							reactCookie.remove('auth', { path: '/'});
-							Root.setState({'userInfo': null});
+							Root.setState({'userInfo': null}, function() {
+								reactCookie.remove('auth', { path: '/'});
+							});
+							/*
 							Root.lib.alert(me, 'Logout successfully', 'success', 1000,
 							 function() {
 								setTimeout(
@@ -87,6 +89,7 @@ try {
 								//window.location.href = '/#/';
 								// window.location.reload();
 							});
+							*/
 						} else {
 							Root.lib.alert(me, 'Error! ' + 
 								(((data) && (data.message)) ? data.message : '' ), 'danger');
