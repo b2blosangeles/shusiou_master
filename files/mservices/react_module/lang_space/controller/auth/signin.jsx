@@ -32,10 +32,11 @@ try {
 					reactCookie.save('auth', data.data, { path: '/'});
 					me.props.route.env.setState({auth:data.data},
 						function() {
+							Root.getAuth();
 							// me.props.env.props.router.push('/');
 							// me.componentDidMount();
-							window.location.href = '/#/';
-							window.location.reload();						
+							//window.location.href = '/#/';
+							//window.location.reload();						
 						});
 				} else {
 					me.setState({loginerr:'Login error! try again.'})
