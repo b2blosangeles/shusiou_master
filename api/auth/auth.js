@@ -220,7 +220,7 @@ switch(req.body.cmd) {
 			var token = CP.data.S1.uid + '_'+ MD5(new Date().toString());
 			 
 			var str = 'INSERT INTO `auth_session` (`uid`, `token`, `created`) VALUES ' + 
-			    '("' +  CP.data.S1.uid + '","' +  token + '", NOW())';
+			    "('" +  CP.data.S1.uid + "','" +  token + "', NOW())";
 			
 			cbk(str);
 			return true;
