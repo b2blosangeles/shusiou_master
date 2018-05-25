@@ -43,7 +43,7 @@ try {
 			}
 			Root.lib.loadEng(Root, engCfg);				
 			
-			
+			/*
 			var me = this;		
 			$.ajax({
 				url: _master_svr() + '/api/auth/auth.api',
@@ -66,17 +66,14 @@ try {
 				}
 			}).fail(function( jqXHR, textStatus ) {
 				me.setState({loginerr:'Login error! try again.'})
-			});			
+			});
+			*/
 		},	
 		componentDidMount:function() {
 			var me = this;
-			if ((me.props.route.env.state.auth) && (me.props.route.env.state.auth.uid)) {
-				me.props.router.push('/');
-			}
 		},		
 		componentDidUpdate:function(prePropos, preState) {
 			var me = this;
-			// console.log(me.state);
 		},		
 		render: function() {
 			var me = this;		
