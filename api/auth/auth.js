@@ -92,14 +92,14 @@ switch(req.body.cmd) {
 	*/	
 	case 'adduser':
 		var connection = mysql.createConnection(cfg0);
-		connection.connect();
+		
 		var _f = {};
 		_f['S1'] = function(cbk) {
 			var str = 'INSERT INTO  `auth_users` ( `email`, `password`, `roles`, `created`, `status`) VALUES '+
 			    '("shusiou", "' + MD5('Montreal107#') + '", "learner,teacher,advisor", NOW(), 1); ';
-			
+			connection.connect();
 			connection.query(str, function (error, results, fields) {
-				
+			connection.end();	
 				if (!error) {
 					cbk({status: results});
 					return true;
@@ -111,9 +111,9 @@ switch(req.body.cmd) {
 		_f['S2'] = function(cbk) {
 			var str = 'INSERT INTO  `auth_users` ( `email`, `password`, `roles`, `created`, `status`) VALUES '+
 			    '("shusiou_learner", "' + MD5('Montreal107#') + '", "learner", NOW(), 1); ';
-			
+			connection.connect();
 			connection.query(str, function (error, results, fields) {
-				
+				connection.end();
 				if (!error) {
 					cbk({status: results});
 					return true;
@@ -125,9 +125,9 @@ switch(req.body.cmd) {
 		_f['S3'] = function(cbk) {
 			var str = 'INSERT INTO  `auth_users` ( `email`, `password`, `roles`, `created`, `status`) VALUES '+
 			    '("shusiou_teacher", "' + MD5('Montreal107#') + '", "teacher", NOW(), 1); ';
-			
+			connection.connect();
 			connection.query(str, function (error, results, fields) {
-				
+				connection.end();
 				if (!error) {
 					cbk({status: results});
 					return true;
@@ -139,9 +139,9 @@ switch(req.body.cmd) {
 		_f['S4'] = function(cbk) {
 			var str = 'INSERT INTO  `auth_users` ( `email`, `password`, `roles`, `created`, `status`) VALUES '+
 			    '("shusiou_advisor", "' + MD5('Montreal107#') + '", "advisor", NOW(), 1); ';
-			
+			connection.connect();
 			connection.query(str, function (error, results, fields) {
-				
+				connection.end();
 				if (!error) {
 					cbk({status: results});
 					return true;
@@ -153,7 +153,7 @@ switch(req.body.cmd) {
 		CP.serial(
 			_f,
 			function(data) {
-				connection.end();
+				
 				res.send({_spent_time:data._spent_time, status:data.status, data:data});
 			},
 			30000
