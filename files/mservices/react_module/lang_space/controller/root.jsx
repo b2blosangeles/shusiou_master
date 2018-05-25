@@ -74,22 +74,6 @@ try {
 							Root.setState({'userInfo': null}, function() {
 								reactCookie.remove('auth', { path: '/'});
 							});
-							/*
-							Root.lib.alert(me, 'Logout successfully', 'success', 1000,
-							 function() {
-								setTimeout(
-									function() {
-										// me.getAuth();
-										
-										// window.location.href = '/#/';
-										// window.location.reload();
-									}, 1000
-								);
-								// me.getAuth();
-								//window.location.href = '/#/';
-								// window.location.reload();
-							});
-							*/
 						} else {
 							Root.lib.alert(me, 'Error! ' + 
 								(((data) && (data.message)) ? data.message : '' ), 'danger');
@@ -113,8 +97,6 @@ try {
 					callBack: function(data) {
 						if (data.status === 'success') {console.log( data.data);
 							Root.setState({'userInfo': data.data});
-							//Root.lib.alert(me, 'Success ' + 
-							//	(((data) && (data.message)) ? data.message : '' ), 'success');
 						} else {
 							Root.setState({'userInfo': null});
 							Root.lib.alert(me, 'Error! ' + 
