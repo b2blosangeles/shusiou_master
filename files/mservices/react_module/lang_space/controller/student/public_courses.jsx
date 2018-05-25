@@ -32,10 +32,8 @@ try {
 			Root.lib.loadEng(me, engCfg);
 		},					
 		componentDidUpdate:function() {
-			var me = this;
-			console.log('---ROOT.statr.userInfo- B-->');	
-			Root.lib.routerPermission(Root.state.userInfo, me.props.route.permission);
-			console.log(Root.state.userInfo);			
+			var me = this;	
+			Root.lib.routerPermission(Root.state.userInfo, me.props.route.permission);			
 		},		
 		dictionary:function(v) {
 			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
