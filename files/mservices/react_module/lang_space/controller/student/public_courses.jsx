@@ -11,8 +11,7 @@ try {
 				function() {
 					me.callEng();
 					console.log('88888');
-				}, 3000	
-			});	
+				}, 3000);	
 			var str='test1[s]test2';
 			var a = str.split(/\[s\]/i);
 		},
