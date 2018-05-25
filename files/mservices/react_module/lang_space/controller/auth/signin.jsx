@@ -35,14 +35,14 @@ try {
 				setting: {timeout:3000},
 				callBack: function(data) {
 					console.log(data);
-					if (data) {
+					if ((data) && (data.status === 'success')) {
 						reactCookie.save('auth', data.auth, { path: '/'});
 						window.location.href = '/#/';
-						Root.lib.alert(me, 'Success login! ', 'success', 1000, 
-							function() {
-								Root.setState({userInfo : data.userInfo.data});
-							});
-					} 
+						Root.setState({userInfo : data.userInfo});
+						// Root.lib.alert(me, 'Success login! ', 'success', 1000,  function() {});
+					} else {
+						Root.lib.alert(me, 'Error ' + data.message, 'danger');
+					}
 				}
 			}
 			Root.lib.loadEng(Root, engCfg);	
