@@ -235,6 +235,7 @@ switch(req.body.cmd) {
 				}
 			}); 			
 		}
+		/*
 		_f['S3'] = function(cbk) {
 			if (!CP.data.S2) {
 				cbk(false);
@@ -251,7 +252,7 @@ switch(req.body.cmd) {
 				cbk((error)?{status:'failure', message:error.message} : {status:'success', data : results[0]});
 			}); 			
 		}	
-		
+		*/
 		CP.serial(
 			_f,
 			function(data) {
