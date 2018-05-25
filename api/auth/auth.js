@@ -226,7 +226,7 @@ switch(req.body.cmd) {
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				if (error) {
-					cbk(false);
+					cbk(error.message);
 				} else {
 					cbk({uid : CP.data.S1.uid, token : token});
 				}
