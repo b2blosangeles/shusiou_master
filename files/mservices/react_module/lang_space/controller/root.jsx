@@ -160,7 +160,7 @@ try {
 						//if (me.inte_array(my_role,m.role) || me.inte_array(['*'],m.role)) {
 							//if (((me.state.userInfo) && (me.state.userInfo.uid) && (m.auth)) 
 							//    || !m.auth) {
-								return(<Route path={m.route} env={me} component={m.component)} />)
+								return(<Route path={m.route} env={me} component={m.component} />)
 							//} else {
 							//	return(<Route path={m.route} env={me}  component={Signin} />)
 							//}						
