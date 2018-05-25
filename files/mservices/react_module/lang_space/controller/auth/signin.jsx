@@ -36,10 +36,9 @@ try {
 					if (data.data) {
 						reactCookie.save('auth', data.data, { path: '/'});
 						window.location.href = '/#/';
-						Root.getAuth();
 						Root.lib.alert(me, 'Success login! ', 'success', 1000, 
 							function() {
-								
+								Root.getAuth();
 							});
 					} 
 				}
