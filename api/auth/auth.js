@@ -221,11 +221,12 @@ switch(req.body.cmd) {
 			 
 			var stra = 'INSERT INTO `auth_session` (`uid`, `token`, `created`) VALUES ' + 
 			    "('" +  CP.data.S1.uid + "','" +  token + "', NOW())";
-			
+			cbk('error.message');
+			return true;
 			connection.connect();
 			connection.query(stra, function (error, results, fields) {
 				connection.end();
-				cbk('error.message');
+				
 				return true;
 				if (error) {
 					cbk(error.message);
