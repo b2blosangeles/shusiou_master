@@ -39,12 +39,12 @@ try {
 			
 			window.addEventListener("hashchange", function() {
 				me.monitorBody('hashchange');
-				console.log('changed');
+			//	console.log('changed');
 				me.setState({hash:window.location.hash});
 			}, false);
 			window.addEventListener("resize", function() {
 				me.monitorBody("resize");
-				console.log('resized');
+			//	console.log('resized');
 				me.setState({size:new Date().getTime()});
 			}, false);
 			
