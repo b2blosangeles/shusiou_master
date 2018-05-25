@@ -161,7 +161,8 @@ try {
 							//if (((me.state.userInfo) && (me.state.userInfo.uid) && (m.auth)) 
 							//    || !m.auth) {
 								return(<Route path={m.route} env={me}  
-									       component={me.dynamicRouter(true, m.component)} />)
+									  component={me.dynamicRouter((((me.state.userInfo) && (me.state.userInfo.uid) && (m.auth)) 
+							//    || !m.auth), m.component)} />)
 							//} else {
 							//	return(<Route path={m.route} env={me}  component={Signin} />)
 							//}						
