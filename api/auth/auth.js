@@ -200,6 +200,7 @@ switch(req.body.cmd) {
 		_f['S1'] = function(cbk) {
 			var str = 'SELECT `uid`,`roles` FROM  `auth_users` WHERE `email` = "' + req.body.username + '" AND ' + 
 			    '`password` = "' +  MD5(req.body.password) + '"';
+			var connection = mysql.createConnection(cfg0);
 			connection.connect();
 			connection.query(str, function (error, results, fields) {
 				connection.end();
@@ -219,11 +220,9 @@ switch(req.body.cmd) {
 			}
 			var token = CP.data.S1.uid + '_'+ MD5(new Date().toString());
 			 
-			//var str = 'INSERT INTO `auth_session` (`uid`, `token`, `created`) VALUES ' + 
-			//    "('" +  CP.data.S1.uid + "','" +  token + "', NOW())";
-			var str = 'SELECT `uid`,`roles` FROM  `auth_users` WHERE `email` = "' + req.body.username + '" AND ' + 
-			    '`password` = "' +  MD5(req.body.password) + '"'
-			
+			var str = 'INSERT INTO `auth_session` (`uid`, `token`, `created`) VALUES ' + 
+			    "('" +  CP.data.S1.uid + "','" +  token + "', NOW())";
+			var connection = mysql.createConnection(cfg0);
 			connection.connect();
 			connection.query(str, function (error, results, fields) {
 				connection.end();
