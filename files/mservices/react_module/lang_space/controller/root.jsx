@@ -126,7 +126,7 @@ try {
 			},
 			routeMatrix:function() {
 				var me = this;
-				var my_role = ((me.state.auth) && (me.state.auth.roles))?me.state.auth.roles:[];
+				var my_role = ((me.state.userInfo) && (me.state.userInfo.roles)) ? me.state.userInfo.roles:[];
 
 				me.matrix = [
 					{route:'tutor/my_curriculums', role:['teacher'], auth:true, component:My_curriculums},
