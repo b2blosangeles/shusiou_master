@@ -135,7 +135,7 @@ try {
 					{route:'tutor/my_curriculums', role:['teacher'], auth:true, component:My_curriculums},
 					{route:'tutor/my_curriculum/:opt/', role:['teacher'],  auth:true, component:MyCurriculumById},
 					{route:'tutor/my_curriculum/:opt/:id', role:['teacher'],  auth:true, component:MyCurriculumById},
-					{route:'tutor/my_videos', role:['*'], role:['teacher'],  auth:true, component:My_videos},
+					{route:'tutor/my_videos', role:['teacher'],  auth:true, component:My_videos},
 
 					{route:'public_courses', role:['*'], component:PublicCourses},
 					{route:'student/my_courses', role:['learner'],  auth:true, component:Mycourse},
