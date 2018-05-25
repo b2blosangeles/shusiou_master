@@ -5,7 +5,10 @@ var _commLib = function () {
 
     this.getAuth = function() {
 		return (reactCookie.load('auth'))?reactCookie.load('auth'):{}
-    }	
+    }
+    this.routerPermission = function(target, permission) {
+	console.log(permission);
+    }	    
     this.landingModal = function(o) {
 	o.existModal = true;
     	return(<span><_commWin parent={o} /><_commEng parent={o} /></span>)
