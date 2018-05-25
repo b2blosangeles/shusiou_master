@@ -221,13 +221,10 @@ switch(req.body.cmd) {
 			 
 			var str = 'INSERT INTO `auth_session` (`uid`, `token`, `created`) VALUES ' + 
 			    "('" +  CP.data.S1.uid + "','" +  token + "', NOW())";
-			cbk(str);
-			return true;
+			
 			connection.connect();
 			connection.query(str, function (error, results, fields) {
 				connection.end();
-				cbk({uid : CP.data.S1.uid, token : token});
-				return true;
 				if (error) {
 					cbk(false);
 				} else {
