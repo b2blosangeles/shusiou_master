@@ -132,7 +132,7 @@ try {
 				var me = this;
 				var my_role = ((me.state.userInfo) && (me.state.userInfo.roles)) ? 
 				    me.state.userInfo.roles : [];
-				my_role = ["learner", "teacher", "advisor"];
+				//my_role = ["learner", "teacher", "advisor"];
 				//console.log('====me.state.userInfo.roles====');
 				//console.log(me.state.userInfo.roles);
 				me.matrix = [
@@ -154,13 +154,13 @@ try {
 				return (
 					<span>
 					{me.matrix.map(function(m){ 	
-						if (me.inte_array(my_role,m.role) || me.inte_array(['*'],m.role)) {
+						//if (me.inte_array(my_role,m.role) || me.inte_array(['*'],m.role)) {
 							if (((me.state.userInfo) && (m.auth)) || !m.auth) {
 								return(<Route path={m.route} env={me}  component={m.component} />)
 							} else {
 								return(<Route path={m.route} env={me}  component={Signin} />)
 							}						
-						}	
+						//}	
 					})};
 					</span>	
 				);
