@@ -2,6 +2,7 @@ try {
 	var PublicCourses =  React.createClass({
 		getInitialState: function() {
 			var me = this;
+			me.callEng();
 			return { video:{}, list:[]};
 		},	
 		componentDidMount:function() {
