@@ -36,9 +36,8 @@ try {
 				callBack: function(data) {
 					if ((data) && (data.status === 'success')) {
 						reactCookie.save('auth', data.auth, { path: '/'});
-						Root.setState({userInfo : data.userInfo}, function() {
-							window.location.href = '/#/';
-						});
+						window.location.href = '/#/';
+						Root.setState({userInfo : data.userInfo}, function() {});
 						// Root.lib.alert(me, 'Success login! ', 'success', 1000,  function() {});
 					} else {
 						Root.lib.alert(me, 'Error ' + data.message, 'danger');
