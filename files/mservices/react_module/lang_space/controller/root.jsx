@@ -16,7 +16,8 @@ try {
 					lang:_DATA_["/data/language.json"],
 					roles:_DATA_["/data/user_role.json"],
 					c_lang:(!reactCookie.load('lang'))?'cn':reactCookie.load('lang'),
-					c_role:(!reactCookie.load('role'))?'learner':reactCookie.load('role'),
+					c_role:["learner", "teacher", "advisor"],
+					// c_role:(!reactCookie.load('role'))?'learner':reactCookie.load('role'),
 					// auth:(reactCookie.load('auth'))?reactCookie.load('auth'):{},
 					userInfo: {}
 				};
@@ -96,7 +97,6 @@ try {
 					hold:0,
 					setting: {timeout:3000},
 					callBack: function(data) {
-						me.setRole(["learner", "teacher", "advisor"]);
 						if (data.status === 'success') {console.log( data.data);
 							Root.setState({'userInfo': data.data});
 						} else {
