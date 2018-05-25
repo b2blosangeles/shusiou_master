@@ -34,6 +34,7 @@ try {
 				hold:0,
 				setting: {timeout:3000},
 				callBack: function(data) {
+					console.log(data);
 					if (data.data) {
 						reactCookie.save('auth', data.data.auth, { path: '/'});
 						window.location.href = '/#/';
