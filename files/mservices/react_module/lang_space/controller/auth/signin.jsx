@@ -43,8 +43,7 @@ try {
 							}, 1000
 						);
 						
-							//Root.lib.alert(me, 'Error! ' + 
-							//	(((data) && (data.message)) ? data.message : '' ), 'danger');
+							//Root.lib.alert(me, 'Success login! ', 'success');
 					} 
 				}
 			}
