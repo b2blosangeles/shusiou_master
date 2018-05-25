@@ -117,7 +117,7 @@ try {
 			},
 			requireAuth:function(nextState, replace) {
 				var me = this;
-			  if (!me.state.auth || !me.state.auth.uid) {
+			  if (!me.state.userInfo || !me.state.userInfo.uid) {
 			    replace({
 			      pathname: '/Signin',
 			      state: { nextPathname: nextState.location.pathname }
