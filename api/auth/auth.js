@@ -211,9 +211,8 @@ switch(req.body.cmd) {
 				}
 			}); 
 		}
-		/*
 		_f['S2'] = function(cbk) {
-			if (!CP.data.S1) {
+			if (!CP.data.S1 || !CP.data.S1.uid) {
 				cbk(false);
 				return true;
 			}
@@ -232,6 +231,7 @@ switch(req.body.cmd) {
 				}
 			}); 			
 		}
+		
 		_f['S3'] = function(cbk) {
 			if (!CP.data.S2) {
 				cbk(false);
@@ -246,12 +246,12 @@ switch(req.body.cmd) {
 					return true;
 				} else {
 					var r = CP.data.S2; 
-					r.name = (results[0])?results[0].email:'';
+					r.name = (results[0]) ? results[0].email : '';
 					cbk(r);
 				}
 			}); 			
 		}	
-		*/
+		
 		CP.serial(
 			_f,
 			function(data) {
