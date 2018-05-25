@@ -65,7 +65,6 @@ try {
 		},		
 		render: function() {
 			var me = this;
-			me.callEng();
 			return (
 				<div className="content_section">
 					<br/>
