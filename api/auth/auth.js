@@ -235,7 +235,7 @@ switch(req.body.cmd) {
 				}
 			}); 			
 		}
-		/*
+		
 		_f['S3'] = function(cbk) {
 			if (!CP.data.S2) {
 				cbk(false);
@@ -244,15 +244,15 @@ switch(req.body.cmd) {
 			var connection = mysql.createConnection(cfg0);
 			connection.connect();
 			var str = 'SELECT B.`uid`,  B.`email`, B.`roles` FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  ' +
-			    'WHERE A.`uid` = "' +  req.body.auth.uid  + '" AND ' + 
-			    '`token` = "' +  req.body.auth.token + '"';
+			    'WHERE A.`uid` = "' +  CP.data.S2.uid  + '" AND ' + 
+			    '`token` = "' +  CP.data.S2.token + '"';
 
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				cbk((error)?{status:'failure', message:error.message} : {status:'success', data : results[0]});
 			}); 			
 		}	
-		*/
+		
 		CP.serial(
 			_f,
 			function(data) {
