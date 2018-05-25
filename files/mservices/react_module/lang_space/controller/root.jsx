@@ -17,7 +17,7 @@ try {
 					roles:_DATA_["/data/user_role.json"],
 					c_lang:(!reactCookie.load('lang'))?'cn':reactCookie.load('lang'),
 					c_role:(!reactCookie.load('role'))?'learner':reactCookie.load('role'),
-					auth:(reactCookie.load('auth'))?reactCookie.load('auth'):{},
+					// auth:(reactCookie.load('auth'))?reactCookie.load('auth'):{},
 					userInfo: {}
 				};
 			},
@@ -52,6 +52,7 @@ try {
 			setRole: function(v) {
 				this.setState({c_role: v});
 				reactCookie.save('role', v, { path: '/'});
+				alert('r');
 			},		
 			setLang: function(v) {
 				this.setState({c_lang: v});
