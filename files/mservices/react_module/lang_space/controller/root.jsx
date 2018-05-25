@@ -16,9 +16,6 @@ try {
 					lang:_DATA_["/data/language.json"],
 					roles:_DATA_["/data/user_role.json"],
 					c_lang:(!reactCookie.load('lang'))?'cn':reactCookie.load('lang'),
-					//c_role:["learner", "teacher", "advisor"],
-					// c_role:(!reactCookie.load('role'))?'learner':reactCookie.load('role'),
-					// auth:(reactCookie.load('auth'))?reactCookie.load('auth'):{},
 					userInfo: {}
 				};
 			},
@@ -32,10 +29,6 @@ try {
 			},
 			getCurrentLanguage: function() {
 				return this.state.c_lang;
-			},
-			getCurrentRole: function() {
-				console.log('getCurrentRole--->');
-				return this.state.c_role;
 			},	
 			setLang: function(v) {
 				this.setState({c_lang: v});
@@ -109,9 +102,6 @@ try {
 			    })
 			  }
 			},
-			dynamicRouter : function(ifauth, v) {
-				return (ifauth) ? Signin : v;
-			},
 			routeMatrix:function() {
 				var me = this;
 				var my_role = ((me.state.userInfo) && (me.state.userInfo.roles)) ? 
@@ -136,11 +126,6 @@ try {
 				return (
 					<span>
 					{me.matrix.map(function(m){ 
-						/*
-						let permission = {
-							role : (me.inte_array(my_role,m.role) || me.inte_array(['*'],m.role)),
-							auth : (((me.state.userInfo) && (me.state.userInfo.uid) && (m.auth)) || !m.auth)
-						} */
 						let permission = {
 							role : m.role,
 							auth : m.auth
