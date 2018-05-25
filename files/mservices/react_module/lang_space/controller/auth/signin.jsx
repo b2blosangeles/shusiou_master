@@ -39,7 +39,7 @@ try {
 							function() {
 								Root.getAuth();
 								window.location.href = '/#/';
-							}
+							}, 1000
 						);
 						
 				
