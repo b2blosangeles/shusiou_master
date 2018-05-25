@@ -2,6 +2,7 @@ try {
 	var PublicCourses =  React.createClass({
 		getInitialState: function() {
 			var me = this;
+			//me.lib = new _commLib();
 			return { video:{}, list:[]};
 		},	
 		componentDidMount:function() {
@@ -97,8 +98,8 @@ try {
 					
 					<br/><br/><br/><br/>
 					
-					<div className="content_bg opacity_bg">					
-					</div>	
+					<div className="content_bg opacity_bg"/>					
+					{Root.lib.landingModal(me)}
 				</div>
 			)
 		}
