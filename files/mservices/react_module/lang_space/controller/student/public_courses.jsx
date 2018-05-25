@@ -36,6 +36,8 @@ try {
 		},					
 		componentDidUpdate:function() {
 			var me = this;
+			console.log('---ROOT.statr.userInfo- B-->');	
+			console.log(Root.state.userInfo);			
 		},		
 		dictionary:function(v) {
 			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
