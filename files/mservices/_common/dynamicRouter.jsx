@@ -8,7 +8,7 @@ try {
 
 			return (			
 				<div><br/>
-					<{me.props.route.route_config.component}/>uu</div>
+					{me.props.route.route_config.component}12</div>
 			);
 		}		
 	});	
