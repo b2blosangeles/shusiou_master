@@ -256,7 +256,7 @@ switch(req.body.cmd) {
 		CP.serial(
 			_f,
 			function(data) {
-				res.send({_spent_time:data._spent_time, status:data.status, data:data});
+				res.send(CP.data.S3);
 			},
 			6000
 		);	
