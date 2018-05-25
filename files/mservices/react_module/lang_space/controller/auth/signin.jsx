@@ -35,8 +35,8 @@ try {
 				setting: {timeout:3000},
 				callBack: function(data) {
 					console.log(data);
-					if (data.data) {
-						reactCookie.save('auth', data.data.auth, { path: '/'});
+					if (data) {
+						reactCookie.save('auth', data.auth, { path: '/'});
 						window.location.href = '/#/';
 						Root.lib.alert(me, 'Success login! ', 'success', 1000, 
 							function() {
