@@ -159,7 +159,7 @@ try {
 							role : (me.inte_array(my_role,m.role) || me.inte_array(['*'],m.role)),
 							auth : (((me.state.userInfo) && (me.state.userInfo.uid) && (m.auth)) || !m.auth)
 						} 
-						return(<Route path={m.route} env={me} permission={permission} component={m.component} />)	
+						return(<Route path={m.route} env={me} permission={m} component={m.component} />)	
 					})};
 					</span>	
 				);
