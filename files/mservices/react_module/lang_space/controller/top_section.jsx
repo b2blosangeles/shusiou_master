@@ -20,7 +20,8 @@ try {
 		},
 		myRoles : function() {
 			var me = this;
-			var my_role = ((me.props.env.state.userInfo) && (me.props.env.state.auth.userInfo))?me.props.env.state.userInfo.roles:[];
+			var my_role = ((me.props.env.state.userInfo) && (me.props.env.state.userInfo.roles)) ?
+			    	me.props.env.state.userInfo.roles: [];
 			alert(JSON.stringify(my_role));
 			if (my_role.length) return (
 				<span>
@@ -31,7 +32,8 @@ try {
 		},
 		roleMenu: function(c_role)  {
 			var me = this;
-			var my_role = ((me.props.env.state.userInfo) && (me.props.env.state.userInfo.roles))?me.props.env.state.userInfo.roles:[];
+			var my_role = ( ((Root.state.userInfo) && (Root.state.userInfo.uid)) && (Root.state.userInfo.roles)) ?
+			    	Root.state.userInfo.roles: [];
 			
 			var m = [ 
 			//	{code:'what_to_study', router:'what_to_study'},
@@ -87,30 +89,6 @@ try {
 				obj.attr('disabled', false);
 			}
 		},	
-		loadData:function(d, e) {
-			console.log(e);
-			var me = this;
-			me.lock(e);
-
-			me.setState({ModalLoading: {textcolor:'#fff', hold:100,
-				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24">'}});	
-
-			$.get('http://m.qalet.com/api/newsfeed/wxct/wxct_list.js',
-			{}, 
-			function (data) {
-
-				me.setState({ModalPlus: {type:'alert', style:'success', message:'saved B'}});
-				setTimeout(
-					function() {
-						me.setState({ModalLoading: 'cancel'});	
-					},12000
-
-				);
-				me.setState({list: data }, function() {
-					me.release(e);
-				});
-			},'json');
-		},
 		isActive:function(v) {
 			var k = this.state.hash;
 			if (v == k.replace(/\#\//,'')) {
@@ -139,43 +117,19 @@ try {
 		},
 		authItem:function() {
 			var me = this;
-			if ((me.props.env.state.auth) && (me.props.env.state.auth.uid)) { return(	
+			if ((Root.state.userInfo) && (Root.state.userInfo.uid)) { return(	
 				<li className="dropdown">
 					<a href="JavaScript:void(0)" className="dropdown-toggle" data-toggle="dropdown"
-					>{(me.props.env.state.auth.name)?me.props.env.state.auth.name:'Guest'}
+					>{(Root.state.userInfo.email) ? Root.state.userInfo.email : 'Guest'}
 					<span className="caret"></span></a>
 					<ul className="dropdown-menu">
-						<li><a href="JavaScript:void(0);" onClick={me.signOut.bind(me)}>{me.dictionary('menu_logout')}</a></li>
+						<li><a href="JavaScript:void(0);" onClick={Root.signOut.bind(me)}>{me.dictionary('menu_logout')}</a></li>
 					</ul>	 
 				</li>   
 			
 			) } else {return (
 				<li><a href="#/Signin">{me.dictionary('menu_login')}</a></li>
 			)};
-		},		
-		signOut:function() {
-			var me = this;	
-			$.ajax({
-				url: '/api/auth/auth.api',
-				method: "POST",
-				data: {cmd:'signout',data:me.props.env.state.auth},
-				dataType: "JSON"
-			}).done(function( data) {
-				if (data.data) {
-					// console.log(data);
-					reactCookie.remove('auth', { path: '/'});
-					me.props.env.setState({auth:null},
-						function() {
-							// me.props.env.props.router.push('/');
-							me.componentDidMount();
-							window.location.href = '/#/'
-						});
-					
-				//	window.location.href = '/#/';
-					// window.location.reload();
-				}	
-			}).fail(function( jqXHR, textStatus ) {
-			});				
 		},		
 		render: function() {
 			var me = this;		
