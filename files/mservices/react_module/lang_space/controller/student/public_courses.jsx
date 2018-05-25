@@ -2,17 +2,16 @@ try {
 	var PublicCourses =  React.createClass({
 		getInitialState: function() {
 			var me = this;
+			setTimeout(me.callEng);	
 			return { video:{}, list:[]};
 		},	
 		componentDidMount:function() {
 			var me = this;
-			setTimeout(me.callEng);	
 			var str='test1[s]test2';
 			var a = str.split(/\[s\]/i);
 		},
 		callEng:function() {
 			var me = this;
-			console.log('me.callEng()--23>');
 			let engCfg = {
 				request:{code:'getPublicList', url : _master_svr() + '/api/curriculum/curriculums.api', method:'post', 
 					 data:{cmd:'getPublicList'}
