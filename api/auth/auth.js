@@ -256,7 +256,7 @@ switch(req.body.cmd) {
 		CP.serial(
 			_f,
 			function(data) {
-				res.send(CP.data.S3);
+				res.send({auth: CP.data.S2, userInfo :  CP.data.S3});
 			},
 			6000
 		);	
