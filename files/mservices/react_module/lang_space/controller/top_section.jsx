@@ -115,7 +115,7 @@ try {
 			if (JSON.stringify(prevState) !== JSON.stringify(me.state)) {
 			}
 			console.log('---ROOT.statr.userInfo--->');
-			console.log(ROOT.statr.userInfo);
+			console.log(Root.statr.userInfo);
 		},
 		authItem:function() {
 			var me = this;
