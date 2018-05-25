@@ -263,7 +263,7 @@ switch(req.body.cmd) {
 		CP.serial(
 			_f,
 			function(data) {
-				res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S2});
+				res.send({_spent_time:data._spent_time, status:data.status, data:data});
 			},
 			6000
 		);	
