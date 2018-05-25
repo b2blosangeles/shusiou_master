@@ -157,7 +157,7 @@ try {
 				return (
 					<span>
 					{me.matrix.map(function(m){
-						return(<Route path={m.route} env={me} route_config={m} component={dynamicRouter} />)
+						return(<Route path={m.route} env={me} routeconfig={m} component={dynamicRouter} />)
 					})};
 					</span>	
 				);				
