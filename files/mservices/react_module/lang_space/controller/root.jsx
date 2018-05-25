@@ -100,8 +100,8 @@ try {
 					callBack: function(data) {
 						if (data.status === 'success') {console.log( data.data);
 							Root.setState({'userInfo': data.data});
-							Root.lib.alert(me, 'Success ' + 
-								(((data) && (data.message)) ? data.message : '' ), 'success');
+							//Root.lib.alert(me, 'Success ' + 
+							//	(((data) && (data.message)) ? data.message : '' ), 'success');
 						} else {
 							Root.setState({'userInfo': null});
 							Root.lib.alert(me, 'Error! ' + 
