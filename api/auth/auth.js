@@ -211,6 +211,7 @@ switch(req.body.cmd) {
 				}
 			}); 
 		}
+		/*
 		_f['S2'] = function(cbk) {
 			if (!CP.data.S1 || !CP.data.S1.uid) {
 				cbk(false);
@@ -231,7 +232,7 @@ switch(req.body.cmd) {
 				}
 			}); 			
 		}
-		/*
+		
 		_f['S3'] = function(cbk) {
 			if (!CP.data.S2) {
 				cbk(false);
