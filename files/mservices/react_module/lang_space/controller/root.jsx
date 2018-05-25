@@ -73,7 +73,7 @@ try {
 					hold:0,
 					setting: {timeout:3000},
 					callBack: function(data) {
-						if (data.status === 'success') {console.log( data.data);
+						if (data.status === 'success') {
 							Root.setState({'userInfo': data.data});
 						} else {
 							Root.setState({'userInfo': null});
