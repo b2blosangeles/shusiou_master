@@ -8,7 +8,7 @@ try {
 
 			return (			
 				<div><br/>
-					dynamicRouter{Signin}</div>
+					{Signin}</div>
 			);
 		}		
 	});	
