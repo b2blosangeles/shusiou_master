@@ -11,7 +11,7 @@ var _commLib = function () {
 	return false;
     }
     this.routerPermission = function(userInfo, permission) {
-	    let roles = (userInfo.roles) ? userInfo.roles : [];
+	    let roles = (!userInfo || !userInfo.roles) ? [] : userInfo.roles;
 	if (!this.inte_array(roles, permission.role) &&  !this.inte_array(['*'], permission.role)) {
 		console.log('jump need');
 	}
