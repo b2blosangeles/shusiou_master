@@ -6,8 +6,9 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
+			Root.lib.routerPermission(me, me.props.route.permission);
 			setTimeout(me.callEng);
-			console.log(me.props.route.permission);
+			
 			var str='test1[s]test2';
 			var a = str.split(/\[s\]/i);
 		},
