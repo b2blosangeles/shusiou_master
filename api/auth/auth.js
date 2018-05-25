@@ -227,17 +227,25 @@ switch(req.body.cmd) {
 					cbk(false);
 					return true;
 				} else {
-					cbk({uid:CP.data.S1.uid, token:token, roles:CP.data.S1.roles.split(',')});
+					cbk(token);
 				}
 			}); 			
 		}
-		
+		/*
 		_f['S3'] = function(cbk) {
 			if (!CP.data.S2) {
 				cbk(false);
 				return true;
 			}
-			var str = 'SELECT `email` FROM `auth_users` WHERE `uid` ="' +  CP.data.S1.uid + '"';
+			connection.connect();
+			var str = 'SELECT B.`uid`,  B.`email`, B.`roles` FROM  `auth_session` A LEFT JOIN `auth_users` B ON A.`uid` = B.`uid`  ' +
+			    'WHERE A.`uid` = "' +  req.body.auth.uid  + '" AND ' + 
+			    '`token` = "' +  req.body.auth.token + '"';
+
+			connection.query(str, function (error, results, fields) {
+				connection.end();
+				cbk((error)?{status:'failure', message:error.message} : {status:'success', data : results[0]});
+			});
 			connection.connect();
 			connection.query(str, function (error, results, fields) {
 				connection.end();
@@ -251,11 +259,11 @@ switch(req.body.cmd) {
 				}
 			}); 			
 		}	
-		
+		*/
 		CP.serial(
 			_f,
 			function(data) {
-				res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S3});
+				res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S2});
 			},
 			6000
 		);	
