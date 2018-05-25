@@ -252,8 +252,9 @@ try {
 		},	
 		componentDidUpdate: function (prevProps, prevState) {
 			var me = this;
-			console.log('===_eng===changed');
-			if ((me.props.parent) && (me.props.parent.state._eng)) {	
+			console.log('===_eng===changed 2');
+			if ((me.props.parent) && (me.props.parent.state._eng)) {
+				console.log('===_eng===changed 4');
 				if (me.props.parent.state._eng === 'cancel') {
 					me.props.parent.setState({_eng:null});
 					return true
@@ -274,7 +275,9 @@ try {
 						me.cpCall(eng);			
 					});
 				}			
-			}		
+			} else {
+				console.log('===_eng===changed 4');
+			}
 		},
 		loading:function() {
 			var me = this;
