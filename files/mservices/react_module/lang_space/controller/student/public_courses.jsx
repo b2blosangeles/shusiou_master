@@ -2,7 +2,7 @@ try {
 	var PublicCourses =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			setTimeout(me.callEng);	
+			setTimeout(me.callEng, 1000);	
 			return { video:{}, list:[]};
 		},	
 		componentDidMount:function() {
