@@ -6,7 +6,7 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			me.getDataApi();
+			setTimeout(me.callEng);
 			
 			var str='test1[s]test2';
 			var a = str.split(/\[s\]/i);
@@ -16,6 +16,28 @@ try {
 			$(".video_ad").attr("src", "http://virtual_language_lab.qalet.com/api/lang_space/vr.js?video=sample.mp4");
 			*/
 		},
+		callEng:function() {
+			var me = this;
+			let engCfg = {
+				request:{code:'getMyCourseList', url : _master_svr() + '/api/curriculum/curriculums.api', method:'post', 
+					 data:{cmd:'getMyCourseList'}
+				},
+				hold:0,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					if (data.status === 'success') {
+						me.setState({list:data.data}, function() {
+						//	Root.lib.alert(me, 'Data load success!', 'success', 3000);
+						});
+					} else {
+						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
+						
+					}
+				}
+			}
+			Root.lib.loadEng(me, engCfg);
+		},
+		/*
 		getDataApi: function(opt) {
 			var me = this, A = me.state.list;
 
@@ -30,7 +52,8 @@ try {
 			}).fail(function( jqXHR, textStatus ) {
 				console.log('error');
 			});
-		},			
+		},
+		*/
 		componentDidUpdate:function() {
 			var me = this;
 		},		
