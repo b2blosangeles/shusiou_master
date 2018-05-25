@@ -25,9 +25,7 @@ var _commLib = function () {
 	   }
            engCfg.callBack = 'EngCbk_' + id;
        	}
-	console.log('=====loadded eng AA ==');
-	// ta.setState({_eng:engCfg});
-	 target.setState({_eng:engCfg});
+	ta.setState({_eng:engCfg});
     }    
     this.alert = function(target, message, alert_type,  holdTime, callback)  {
 
