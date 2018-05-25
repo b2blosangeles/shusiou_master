@@ -8,7 +8,7 @@ var _commLib = function () {
     }
     this.routerPermission = function(target, permission) {
 	console.log('---Root.state.userInfo---');
-	console.log(Root.state.userInfo);
+	console.log(target.state.userInfo);
 	console.log(permission);
     }	    
     this.landingModal = function(o) {
