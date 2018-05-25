@@ -7,7 +7,7 @@ try {
 			var me = this;
 
 			return (			
-				<div><br/><br/><br/><br/><br/><br/><br/>
+				<div><br/>
 					dynamicRouter</div>
 			);
 		}		
