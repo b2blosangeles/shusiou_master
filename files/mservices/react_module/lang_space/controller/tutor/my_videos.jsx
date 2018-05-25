@@ -6,7 +6,7 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			me.callEng();
+			setTimeout(me.callEng);
 		},
 		componentDidUpdate:function() {
 			var me = this;	
@@ -169,6 +169,7 @@ try {
 
 					<br/><br/><br/><br/>
 					<div className="content_bg opacity_bg"/>
+					{Root.lib.landingModal(me)}
 				</div>
 			);
 		}
