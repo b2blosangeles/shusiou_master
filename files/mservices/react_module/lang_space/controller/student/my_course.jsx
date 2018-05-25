@@ -20,7 +20,7 @@ try {
 			var me = this;
 			let engCfg = {
 				request:{code:'getMyCourseList', url : _master_svr() + '/api/curriculum/curriculums.api', method:'post', 
-					 data:{cmd:'getMyCourseList'}
+					 data:{cmd:'getPublicList'}
 				},
 				hold:0,
 				setting: {timeout:6000},
