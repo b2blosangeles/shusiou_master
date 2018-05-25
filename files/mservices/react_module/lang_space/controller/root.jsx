@@ -48,13 +48,15 @@ try {
 				return this.state.c_lang;
 			},
 			getCurrentRole: function() {
+				console.log('getCurrentRole--->');
 				return this.state.c_role;
-			},		
+			},
+			/*
 			setRole: function(v) {
 				this.setState({c_role: v});
 				reactCookie.save('role', v, { path: '/'});
 				alert('r');
-			},		
+			},	*/	
 			setLang: function(v) {
 				this.setState({c_lang: v});
 				// reactCookie.save('lang', v, { path: '/', maxAge: 3 });
