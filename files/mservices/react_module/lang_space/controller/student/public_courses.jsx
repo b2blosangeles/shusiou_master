@@ -6,10 +6,7 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			setTimeout(function() {
-				Root.lib.routerPermission(Root.state.userInfo, me.props.route.permission);
-				me.callEng();
-			});
+			me.callEng();
 			var str='test1[s]test2';
 			var a = str.split(/\[s\]/i);
 		},
@@ -37,6 +34,7 @@ try {
 		componentDidUpdate:function() {
 			var me = this;
 			console.log('---ROOT.statr.userInfo- B-->');	
+			Root.lib.routerPermission(Root.state.userInfo, me.props.route.permission);
 			console.log(Root.state.userInfo);			
 		},		
 		dictionary:function(v) {
