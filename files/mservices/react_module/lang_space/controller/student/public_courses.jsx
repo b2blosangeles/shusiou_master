@@ -6,7 +6,7 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			Root.lib.routerPermission(me, me.props.route.permission);
+			Root.lib.routerPermission(Root, me.props.route.permission);
 			setTimeout(me.callEng);
 			
 			var str='test1[s]test2';
