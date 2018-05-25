@@ -73,9 +73,9 @@ try {
 						if (data.status === 'success') {
 							Root.lib.alert(me, 'Logout successfully', 'success', 1000,
 							function() {
-							//	reactCookie.remove('auth', { path: '/'});
-							//	window.location.href = '/#/';
-							//	window.location.reload();
+								reactCookie.remove('auth', { path: '/'});
+								window.location.href = '/#/';
+								window.location.reload();
 							});
 						} else {
 							Root.lib.alert(me, 'Error! ' + 
