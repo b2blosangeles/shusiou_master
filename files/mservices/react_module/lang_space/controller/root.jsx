@@ -76,7 +76,8 @@ try {
 								reactCookie.remove('auth', { path: '/'});
 								setTimeout(
 									function() {
-										me.getAuth();
+										// me.getAuth();
+										Root.setState({'userInfo': null});
 										// window.location.href = '/#/';
 										// window.location.reload();
 									}, 1000
