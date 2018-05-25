@@ -154,6 +154,7 @@ try {
 					{route:'/', role:['*'], auth:false, component:Ad},
 					{route:'*', role:['*'], auth:false, component:ErrorPage}
 				];
+				return (<dynamicRouter/>)
 				return (
 					<span>
 					{me.matrix.map(function(m){ 	
