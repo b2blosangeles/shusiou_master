@@ -71,7 +71,7 @@ try {
 					setting: {timeout:3000},
 					callBack: function(data) {
 						if (data.status === 'success') {
-							Root.lib.alert(me, 'Logout successfully', 'success', 1000,
+							Root.lib.alert(me, 'Logout successfully', 'success',
 							function() {
 								reactCookie.remove('auth', { path: '/'});
 								window.location.href = '/#/';
