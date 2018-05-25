@@ -37,23 +37,6 @@ try {
 			}
 			Root.lib.loadEng(me, engCfg);
 		},
-		/*
-		getDataApi: function(opt) {
-			var me = this, A = me.state.list;
-
-			$.ajax({
-				url: _master_svr() + '/api/shusiou_curriculum.js',
-				method: "POST",
-				data: {cmd:'getList', uid:1, token:'xxxxx',  auth:me.props.route.env.state.auth},
-				dataType: "JSON"
-			}).done(function( data) {
-				console.log(data.data);
-				me.setState({list:data.data});
-			}).fail(function( jqXHR, textStatus ) {
-				console.log('error');
-			});
-		},
-		*/
 		componentDidUpdate:function() {
 			var me = this;
 		},		
