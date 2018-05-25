@@ -61,10 +61,11 @@ try {
 			var _f = function(data) {
 				clearInterval(me._itvEng);
 				viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
-				callBack(data);
+				
 				me.props.parent.setState({_eng:null}, function() {
-					
-					
+					setTimeout(function() {
+						callBack(data);
+					})
 				})				
 			};
 			me.ajax(false, eng.request, _f , _f);
