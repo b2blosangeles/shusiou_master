@@ -207,7 +207,7 @@ switch(req.body.cmd) {
 					cbk(false);
 				} else {
 					if (results.length) cbk(results[0]);
-					else cbk(false);
+					else cbk({});
 				}
 			}); 
 		}
@@ -227,7 +227,7 @@ switch(req.body.cmd) {
 			connection.connect();
 			connection.query(str, function (error, results, fields) {
 				connection.end();
-				
+				cbk(str);
 				return true;
 				if (error) {
 					cbk(error.message);
