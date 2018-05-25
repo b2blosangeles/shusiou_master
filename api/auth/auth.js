@@ -219,12 +219,12 @@ switch(req.body.cmd) {
 			}
 			var token = CP.data.S1.uid + '_'+ MD5(new Date().toString());
 			 
-			var stra = 'INSERT INTO `auth_session` (`uid`, `token`, `created`) VALUES ' + 
+			var str = 'INSERT INTO `auth_session` (`uid`, `token`, `created`) VALUES ' + 
 			    "('" +  CP.data.S1.uid + "','" +  token + "', NOW())";
-			cbk('error.message');
+			cbk(str);
 			return true;
 			connection.connect();
-			connection.query(stra, function (error, results, fields) {
+			connection.query(str, function (error, results, fields) {
 				connection.end();
 				
 				return true;
