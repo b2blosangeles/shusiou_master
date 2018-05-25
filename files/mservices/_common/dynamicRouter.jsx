@@ -6,10 +6,7 @@ try {
 		render: function() {
 			var me = this;
 
-			return (			
-				<div><br/>
-					{me.props.route.routeconfig.component}12</div>
-			);
+			return me.props.route.routeconfig.component
 		}		
 	});	
 } catch (err) {
