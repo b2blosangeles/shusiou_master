@@ -37,6 +37,7 @@ try {
 		},		
 		componentDidUpdate:function() {
 			var me = this;
+			Root.lib.routerPermission(Root.state.userInfo, me.props.route.permission);
 		},		
 		dictionary:function(v) {
 			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
