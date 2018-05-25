@@ -6,7 +6,7 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			me.callEng();
+			setTimeout(me.callEng);
 		},		
 		callEng:function() {
 			var me = this;
@@ -31,9 +31,7 @@ try {
 		},					
 		componentDidUpdate:function() {
 			var me = this;
-			console.log('---ROOT.statr.userInfo- A-->');
-			Root.lib.routerPermission(Root.state.userInfo, me.props.route.permission);
-			console.log(Root.state.userInfo);			
+			Root.lib.routerPermission(Root.state.userInfo, me.props.route.permission);			
 		},		
 		dictionary:function(v) {
 			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
