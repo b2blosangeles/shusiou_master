@@ -129,7 +129,7 @@ try {
 			  }
 			},
 			dynamicRouter : function(ifauth, v) {
-				return (ifauth) ? v : v;
+				return (ifauth) ? Signin : v;
 			},
 			routeMatrix:function() {
 				var me = this;
@@ -160,7 +160,8 @@ try {
 						//if (me.inte_array(my_role,m.role) || me.inte_array(['*'],m.role)) {
 							//if (((me.state.userInfo) && (me.state.userInfo.uid) && (m.auth)) 
 							//    || !m.auth) {
-								return(<Route path={m.route} env={me}  component={me.dynamicRouter(true, m.component)} />)
+								return(<Route path={m.route} env={me}  
+									       component={me.dynamicRouter(true, m.component)} />)
 							//} else {
 							//	return(<Route path={m.route} env={me}  component={Signin} />)
 							//}						
