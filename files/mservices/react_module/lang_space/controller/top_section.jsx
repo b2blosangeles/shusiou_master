@@ -114,8 +114,6 @@ try {
 			$('title').html(me.dictionary('site_name'));
 			if (JSON.stringify(prevState) !== JSON.stringify(me.state)) {
 			}
-			console.log('---ROOT.statr.userInfo--->');
-			console.log(Root.state.userInfo);
 		},
 		authItem:function() {
 			var me = this;
