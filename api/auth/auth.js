@@ -195,13 +195,14 @@ switch(req.body.cmd) {
 		);		
 		break;	
 	case 'signin':
-		connection.connect();
+		
 		var _f = {};
 		_f['S1'] = function(cbk) {
 			var str = 'SELECT `uid`,`roles` FROM  `auth_users` WHERE `email` = "' + req.body.username + '" AND ' + 
 			    '`password` = "' +  MD5(req.body.password) + '"';
-	
+			connection.connect();
 			connection.query(str, function (error, results, fields) {
+				connection.end();
 				if (error) {
 					cbk(false);
 				} else {
@@ -219,8 +220,9 @@ switch(req.body.cmd) {
 			 
 			var str = 'INSERT INTO `auth_session` (`uid`, `token`, `created`) VALUES ' + 
 			    '("' +  CP.data.S1.uid + '","' +  token + '", NOW())';
-		
+			connection.connect();
 			connection.query(str, function (error, results, fields) {
+				connection.end();
 				if (error) {
 					cbk(false);
 					return true;
@@ -235,8 +237,9 @@ switch(req.body.cmd) {
 				return true;
 			}
 			var str = 'SELECT `email` FROM `auth_users` WHERE `uid` ="' +  CP.data.S1.uid + '"';
-		
+			connection.connect();
 			connection.query(str, function (error, results, fields) {
+				connection.end();
 				if (error) {
 					cbk(false);
 					return true;
@@ -250,7 +253,6 @@ switch(req.body.cmd) {
 		CP.serial(
 			_f,
 			function(data) {
-				connection.end();
 				res.send({_spent_time:data._spent_time, status:data.status, data:data.results.S3});
 			},
 			6000
