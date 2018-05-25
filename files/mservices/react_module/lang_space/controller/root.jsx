@@ -16,7 +16,7 @@ try {
 					lang:_DATA_["/data/language.json"],
 					roles:_DATA_["/data/user_role.json"],
 					c_lang:(!reactCookie.load('lang'))?'cn':reactCookie.load('lang'),
-					c_role:["learner", "teacher", "advisor"],
+					//c_role:["learner", "teacher", "advisor"],
 					// c_role:(!reactCookie.load('role'))?'learner':reactCookie.load('role'),
 					// auth:(reactCookie.load('auth'))?reactCookie.load('auth'):{},
 					userInfo: {}
