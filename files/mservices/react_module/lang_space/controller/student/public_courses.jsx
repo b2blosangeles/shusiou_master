@@ -2,11 +2,12 @@ try {
 	var PublicCourses =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			me.callEng();
+			console.log('me.callEng()');
 			return { video:{}, list:[]};
 		},	
 		componentDidMount:function() {
 			var me = this;
+			console.log('me.callEng()--22>');
 			me.callEng();
 			var str='test1[s]test2';
 			var a = str.split(/\[s\]/i);
