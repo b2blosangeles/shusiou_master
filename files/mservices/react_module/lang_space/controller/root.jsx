@@ -132,10 +132,9 @@ try {
 				var me = this;
 				var my_role = ((me.state.userInfo) && (me.state.userInfo.roles)) ? 
 				    me.state.userInfo.roles : [];
-				// my_role = ["learner", "teacher", "advisor"];
-				console.log('====me.state.userInfo.roles====');
-				console.log(me.state.userInfo.roles);
-				//me.context.refresh();
+				my_role = ["learner", "teacher", "advisor"];
+				//console.log('====me.state.userInfo.roles====');
+				//console.log(me.state.userInfo.roles);
 				me.matrix = [
 					{route:'tutor/my_curriculums', role:['teacher'], auth:true, component:My_curriculums},
 					{route:'tutor/my_curriculum/:opt/', role:['teacher'],  auth:true, component:MyCurriculumById},
