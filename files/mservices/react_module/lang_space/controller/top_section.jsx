@@ -20,7 +20,8 @@ try {
 		},
 		myRoles : function() {
 			var me = this;
-			var my_role = ((me.props.env.state.auth) && (me.props.env.state.auth.roles))?me.props.env.state.auth.roles:[];
+			var my_role = ((me.props.env.state.userInfo) && (me.props.env.state.auth.userInfo))?me.props.env.state.userInfo.roles:[];
+			alert(JSON.stringify(my_role));
 			if (my_role.length) return (
 				<span>
 					[{my_role.map(function(r) {
@@ -30,7 +31,7 @@ try {
 		},
 		roleMenu: function(c_role)  {
 			var me = this;
-			var my_role = ((me.props.env.userInfo.auth) && (me.props.env.state.userInfo.roles))?me.props.env.state.userInfo.roles:[];
+			var my_role = ((me.props.env.state.userInfo) && (me.props.env.state.userInfo.roles))?me.props.env.state.userInfo.roles:[];
 			
 			var m = [ 
 			//	{code:'what_to_study', router:'what_to_study'},
