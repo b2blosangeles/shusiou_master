@@ -153,25 +153,15 @@ try {
 					{route:'Doc/:code', role:['*'], auth:false, component:DocviewPage},
 					{route:'/', role:['*'], auth:false, component:Ad},
 					{route:'*', role:['*'], auth:false, component:ErrorPage}
-				];
+				];			
 				return (
 					<span>
-					{me.matrix.map(function(m){
-						return(<Route path={m.route} env={me} routeconfig={m} component={dynamicRouter} />)
-					})};
-					</span>	
-				);				
-				return (
-					<span>
-					{me.matrix.map(function(m){ 	
-						//if (me.inte_array(my_role,m.role) || me.inte_array(['*'],m.role)) {
-							//if (((me.state.userInfo) && (me.state.userInfo.uid) && (m.auth)) 
-							//    || !m.auth) {
-								return(<Route path={m.route} env={me} route_config={m} component={m.component} />)
-							//} else {
-							//	return(<Route path={m.route} env={me}  component={Signin} />)
-							//}						
-						//}	
+					{me.matrix.map(function(m){ 
+						let permission = {
+							role : (me.inte_array(my_role,m.role) || me.inte_array(['*'],m.role)),
+							auth : (((me.state.userInfo) && (me.state.userInfo.uid) && (m.auth)) || !m.auth)
+						} 
+						return(<Route path={m.route} env={me} permission={permission} component={m.component} />)	
 					})};
 					</span>	
 				);
