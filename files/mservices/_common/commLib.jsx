@@ -6,9 +6,9 @@ var _commLib = function () {
     this.getAuth = function() {
 		return (reactCookie.load('auth'))?reactCookie.load('auth'):{}
     }
-    this.routerPermission = function(target, permission) {
-	console.log('---Root.state.userInfo---');
-	console.log(target.state);
+    this.routerPermission = function(userInfo, permission) {
+	console.log('---userInfo---');
+	console.log(userInfo);
 	console.log(permission);
     }	    
     this.landingModal = function(o) {
