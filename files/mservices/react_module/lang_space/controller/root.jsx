@@ -130,7 +130,8 @@ try {
 			},
 			routeMatrix:function() {
 				var me = this;
-				var my_role = ((me.state.userInfo) && (me.state.userInfo.roles)) ? me.state.userInfo.roles:[];
+				var my_role = ((me.state.userInfo) && (me.state.userInfo.roles)) ? 
+				    me.state.userInfo.roles : [];
 				// my_role = ["learner", "teacher", "advisor"];
 				console.log('====me.state.userInfo.roles====');
 				console.log(me.state.userInfo.roles);
