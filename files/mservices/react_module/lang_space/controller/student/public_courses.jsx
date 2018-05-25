@@ -7,13 +7,14 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			console.log('me.callEng()--22>');
+
 			me.callEng();
 			var str='test1[s]test2';
 			var a = str.split(/\[s\]/i);
 		},
 		callEng:function() {
 			var me = this;
+			console.log('me.callEng()--23>');
 			let engCfg = {
 				request:{code:'getlist', url : _master_svr() + '/api/curriculum/curriculums.api', method:'post', 
 					 data:{cmd:'getPublicList'}
@@ -21,6 +22,7 @@ try {
 				hold:0,
 				setting: {timeout:6000},
 				callBack: function(data) {
+					console.log('me.callEng()--24>');
 					if (data.status === 'success') {
 						me.setState({list:data.data}, function() {
 							Root.lib.alert(me, 'Data load success!', 'success', 3000);
