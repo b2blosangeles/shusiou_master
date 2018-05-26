@@ -211,30 +211,6 @@ try {
 				}
 			}
 			Root.lib.loadEng(me, engCfg);			
-			
-			return true;
-			
-			me.props.route.env.engine({
-				url: _master_svr() + '/api/curriculum/myCurriculum.api',
-				method: "POST",
-				data: data,
-				dataType: "JSON"
-			}, function( data) {
-				if ((data.data) && v === '') {
-					me.props.router.push('/tutor/my_curriculum/edit/'+data.data);
-				} else if (jump) {
-					me.props.router.push('/tutor/my_curriculums');
-				} 
-				var cid = me.props.params['id'];
-				me.getCurriculumById(cid, function(data) {
-					if (data.data.curriculum_id) {
-						me.setState({curriculum:data.data,
-						sections: data.data.sections});
-					} 
-				});
-			},function( jqXHR, textStatus ) {
-				console.log('error');
-			});			
 		},
 		dictionary:function(v) {
 			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
