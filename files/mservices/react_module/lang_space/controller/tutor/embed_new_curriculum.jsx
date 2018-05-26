@@ -10,7 +10,7 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
-			me.getVideos();
+			setTimeout(me.getVideos);
 		},
 
 		checkVideo:function(v) {
@@ -181,7 +181,7 @@ try {
 						<button className="btn btn-default btn_margin6"
 							onClick={this.cancelToSave.bind(this)}>Cancel</button>	
 						{me.saveButton()}
-
+						{Root.lib.landingModal(me)}
 					</div>)
 		}
 	});
