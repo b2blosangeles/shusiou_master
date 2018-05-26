@@ -134,9 +134,8 @@ try {
 				hold:500,
 				setting: {timeout:6000},
 				callBack: function(data) {
-					
 					if (data.status === 'success') {
-						indow.location.href = '/#/tutor/my_curriculums';
+						window.location.href = '/#/tutor/my_curriculums';
 					} else {
 						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
 						
@@ -178,6 +177,7 @@ try {
 							window.location.href = '/#/tutor/my_curriculums';
 						} 					
 					//});
+					return true;
 					var cid = me.props.params['id'];
 					me.getCurriculumById(cid, function(data) {
 						if (data.data.curriculum_id) {
