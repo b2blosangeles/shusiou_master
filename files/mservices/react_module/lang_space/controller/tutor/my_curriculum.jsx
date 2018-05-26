@@ -138,10 +138,10 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					if (data.status === 'success') {
-						alert(curriculum_id + 'AA');
+						alert(curriculum_id + 'AA-');
 						Root.lib.alert(me, 'Delete success!', 'success', 1000, 
 							function() {
-								alert(curriculum_id + 'AAB');
+								alert(curriculum_id + 'AA-B');
 								window.location.href = '/#/tutor/my_curriculums';
 							console.log("window.location.href = '/#/tutor/my_curriculums'");
 						});
