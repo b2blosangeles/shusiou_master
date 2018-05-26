@@ -210,7 +210,57 @@ try {
 				}
 			});			
 		},
+		callEng:function() {
+			var me = this;
+			let engCfg = {
+				request:{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}
+				},
+				hold:1000,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					if (data.status === 'success') {
+						me.setState({list:data.data}, function() {
+						//	Root.lib.alert(me, 'Data load success!', 'success', 3000);
+						});
+					} else {
+						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
+						
+					}
+				}
+			}
+			Root.lib.loadEng(me, engCfg);
+		},		
 		getCurriculumById: function(curriculum_id, cbk) {
+			var me = this;
+			let engCfg = {
+				request:{code:'getlist', url : _master_svr() + '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{ cmd:'getCurriculumById', curriculum_id:curriculum_id,
+				      		auth:me.props.route.env.state.auth},
+					 dataType: "JSON"
+				},
+				hold:1000,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					if (typeof cbk == 'function') {
+						cbk(data);
+					}
+					/*
+					return true;
+					
+					if (data.status === 'success') {
+						me.setState({list:data.data}, function() {
+						//	Root.lib.alert(me, 'Data load success!', 'success', 3000);
+						});
+					} else {
+						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
+						
+					}*/
+				}
+			}
+			Root.lib.loadEng(me, engCfg);
+		},		
+		getCurriculumById0: function(curriculum_id, cbk) {
 			var me = this;
 			me.props.route.env.engine({
 				url: _master_svr() + '/api/curriculum/myCurriculum.api',
