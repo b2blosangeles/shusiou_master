@@ -102,7 +102,6 @@ try {
 
 					<br/><br/><br/><br/>
 					<div className="content_bg opacity_bg"/>
-					{Root.lib.landingModal(me)}
 				</div>
 			);
 		}
