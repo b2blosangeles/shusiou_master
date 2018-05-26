@@ -58,7 +58,8 @@ var _commLib = function () {
 	if (!isNaN(holdTime)) { 
 		setTimeout(function() {
 			if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
-				ta.setState({ModalPopup:'cancel'}, cfg.closeCallback);
+				ta.setState({ModalPopup:'cancel'});
+				cfg.closeCallback();
 			}
 		}, holdTime);
 	}
