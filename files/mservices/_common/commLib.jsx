@@ -52,18 +52,17 @@ var _commLib = function () {
 		popup_type : 'alert',
 		close_icon : true,
 		closeCallback : (typeof  holdTime === 'function')? holdTime :
-			(typeof callback === 'function') ? callback : function(){ alert(7); }
+			(typeof callback === 'function') ? callback : null
 	};
 	me.buildPopup(ta, target, cfg);
 	if (!isNaN(holdTime)) { 
-		setTimeout((function(cfg) {
-			return function() {
+		setTimeout(function() {
 				if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
 					ta.setState({ModalPopup:'cancel'});
-					cfg.closeCallback();
+					if (typeof  holdTime === 'function') holdTime();
+					if (typeof callback === 'function') callback();
 				}
-			}
-		})(cfg), holdTime);
+			), holdTime);
 	}
 	return true;       
         
