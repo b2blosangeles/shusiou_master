@@ -100,11 +100,6 @@ try {
 		},
 		componentDidUpdate:function() {
 			var me = this;
-		},
-		closePopup:function() {
-			var me = this;
-			me.setState({ModalPopup:'cancel'});
-			return true;
 		},			
 		deleteCurriculum: function(params, track) {
 			var me = this;			
@@ -116,7 +111,7 @@ try {
 							<div style={{padding:'1em'}}>
 								<p>It is going to clean up the curriculum please confirm:</p>
 								<button className="btn btn-danger btn_margin6 pull-right" onClick={ta.sendDeleteCurriculum.bind(ta)}>Confirm</button>
-								<button className="btn btn-warning btn_margin6 pull-right" onClick={ta.closePopup.bind(ta)}>Cancel</button>
+								<button className="btn btn-warning btn_margin6 pull-right" onClick={Root.lib.closePopupWin.bind(ta, ta)}>Cancel</button>
 							</div>
 						);
 					}	
@@ -139,8 +134,8 @@ try {
 				hold:500,
 				setting: {timeout:6000},
 				callBack: function(data) {
+					Root.lib.closePopupWin(me);
 					if (data.status === 'success') {
-						me.closePopup();
 						setTimeout(
 							function() {
 								alert(777);
