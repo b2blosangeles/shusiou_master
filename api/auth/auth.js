@@ -307,6 +307,39 @@ switch(req.body.cmd) {
 			3000
 		);		
 	
+		break;	
+	case 'verifySignin':
+		if (!req.body.data || !req.body.data.uid || !req.body.data.token) {
+			res.send({status:'success', data:{}});
+			return true;
+		}
+		res.send({status:'success', status:false});
+		return true;
+		var _f = {};
+		_f['S1'] = function(cbk) {
+			
+			var str = 'DELETE FROM  `auth_session` WHERE `uid` = "' +  req.body.data.uid  + '" AND ' + 
+			    '`token` = "' +  req.body.data.token + '"';
+			
+			connection.query(str, function (error, results, fields) {
+				if (error) {
+					cbk(false);
+					return true;
+				} else {
+					cbk(true);
+				}
+			}); 
+		}
+		connection.connect();
+		CP.serial(
+			_f,
+			function(data) {
+				connection.end();
+				res.send({_spent_time:data._spent_time, status:data.status, data:data});
+			},
+			3000
+		);		
+	
 		break;			
 	case 'getSessions':
 		var connection = mysql.createConnection(cfg0);
