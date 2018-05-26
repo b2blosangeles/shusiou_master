@@ -17,21 +17,29 @@ try {
 			var me = this;
 			me.props.parent.setState({video:v});	
 		},
+				
 		getVideos:function() {
 			var me = this;
-			$.ajax({
-				url: _master_svr() + '/api/video/myVideo.api?opt=getMyActiveVideos',
-				method: "POST",
-				data: {auth:me.props.parent.props.route.env.state.auth},
-				dataType: "JSON"
-			}).done(function( data) {
-				if (data.status == 'success') {
-					me.setState({videoList:data.data});
-				}	
-				console.log(data);
-			}).fail(function( jqXHR, textStatus ) {
-				console.log('error');
-			});			
+			let engCfg = {
+				request:{code:'getMyActiveVideos', 
+					 url : _master_svr() + '/api/video/myVideo.api?opt=getMyActiveVideos', 
+					 method:'post', 
+					 data:{}
+				},
+				hold:1000,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					if (data.status === 'success') {
+						me.setState({videoList:data.data}, function() {
+							Root.lib.alert(me, 'Data load success!', 'success', 1000);
+						});
+					} else {
+						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
+						
+					}
+				}
+			}
+			Root.lib.loadEng(me, engCfg);						
 		},
 		bgFilmStyle:function(a) {
 			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
