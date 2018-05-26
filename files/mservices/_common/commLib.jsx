@@ -70,7 +70,11 @@ var _commLib = function () {
     this.popupWin = function(target, setting)  {
 	let me = this, ta = (target.existModal) ? target : Root;
 	me.buildPopup(ta, target, setting);
-    }    
+    }
+    this.closePopupWin = function(target, setting)  {
+	let me = this, ta = (target.existModal) ? target : Root;
+	ta.setState({ModalPopup:'cancel'}); 
+    }        
     this.buildPopup = function(ta, o, setting)  {
 	let me = this;  
         let caller_name = (ta.moduleName) ? ta.moduleName : '_Dynamic_',
