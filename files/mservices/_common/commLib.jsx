@@ -52,13 +52,13 @@ var _commLib = function () {
 		popup_type : 'alert',
 		close_icon : true,
 		closeCallback : (typeof  holdTime === 'function')? holdTime :
-			(typeof callback === 'function') ? callback : null
+			(typeof callback === 'function') ? callback : function(){}
 	};
 	me.buildPopup(ta, target, cfg);
 	if (!isNaN(holdTime)) { 
 		setTimeout(function() {
 			if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
-				ta.setState({ModalPopup:'cancel'});
+				ta.setState({ModalPopup:'cancel'}, cfg.closeCallback);
 			}
 		}, holdTime);
 	}
