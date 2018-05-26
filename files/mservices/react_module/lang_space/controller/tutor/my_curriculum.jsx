@@ -143,7 +143,7 @@ try {
 						setTimeout(
 							function() {
 								window.location.href = '/#/tutor/my_curriculums';
-							}
+							}, 500
 						);
 					} else {
 						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
