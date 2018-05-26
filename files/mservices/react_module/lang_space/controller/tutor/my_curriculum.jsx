@@ -143,7 +143,7 @@ try {
 						setTimeout(
 							function() {
 								alert(999);
-								window.location.href = '/#/tutor/my_curriculums';
+							//	window.location.href = '/#/tutor/my_curriculums';
 							}, 500
 						);
 					} else {
