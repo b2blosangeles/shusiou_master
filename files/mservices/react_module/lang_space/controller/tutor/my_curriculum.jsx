@@ -138,16 +138,12 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					if (data.status === 'success') {
-						alert(curriculum_id + '-');
 						Root.lib.alert(me, 'Delete success!', 'success', 1000, 
 							function() {
-								alert(curriculum_id + '-B');
 								window.location.href = '/#/tutor/my_curriculums';
-							console.log("window.location.href = '/#/tutor/my_curriculums'");
-						});
+							});
 						
 					} else {
-						alert(curriculum_id + 'B');
 						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
 						
 					}
