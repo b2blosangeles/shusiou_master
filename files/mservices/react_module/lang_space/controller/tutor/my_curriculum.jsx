@@ -138,7 +138,7 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					if (data.status === 'success') {
-						me.props.router.push('/tutor/my_curriculums');
+						window.location.href = '/#/tutor/my_curriculums';
 					} else {
 						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
 						
@@ -175,7 +175,7 @@ try {
 					Root.lib.alert(me, 'Data load success!', 'success', 1000, function() {
 						if ((data.data) && v === '') {
 							// me.props.router.push('/tutor/my_curriculum/edit/'+data.data);
-							window.location.href = '/tutor/my_curriculum/edit/'+data.data;
+							window.location.href = '/#/tutor/my_curriculum/edit/'+data.data;
 						} else if (jump) {
 							window.location.href = '/#/tutor/my_curriculums';
 						} 					
