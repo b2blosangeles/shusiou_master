@@ -176,7 +176,8 @@ try {
 				callBack: function(data) {
 					Root.lib.alert(me, 'Data load success!', 'success', 1000);
 					if ((data.data) && v === '') {
-						me.props.router.push('/tutor/my_curriculum/edit/'+data.data);
+						// me.props.router.push('/tutor/my_curriculum/edit/'+data.data);
+						window.location.href = '/tutor/my_curriculum/edit/'+data.data;
 					} else if (jump) {
 						window.location.href = '/#/tutor/my_curriculums');
 					} 
