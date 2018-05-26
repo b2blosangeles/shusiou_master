@@ -145,7 +145,31 @@ try {
 			} else {}
 			
 		},
+		
+		callEng:function() {
+			var me = this;
+			let engCfg = {
+				request:{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{cmd:'getList', auth:me.props.route.env.state.auth}
+				},
+				hold:1000,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					if (data.status === 'success') {
+						me.setState({list:data.data}, function() {
+						//	Root.lib.alert(me, 'Data load success!', 'success', 3000);
+						});
+					} else {
+						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
+						
+					}
+				}
+			}
+			Root.lib.loadEng(me, engCfg);
+		},		
+		
 		submitCurriculum:function(v, jump){
+			
 			var me = this, data = {};
 			if (me.state.curriculum.id) {
 				data = {cmd:'update', curriculum_id:me.state.curriculum.curriculum_id, vid: me.state.curriculum.vid, 
@@ -164,6 +188,31 @@ try {
 					auth:me.props.route.env.state.auth
 				       };
 			}
+			let engCfg = {
+				request:{code:'getlist', url : _master_svr() + '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:data
+				},
+				hold:500,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					Root.lib.alert(me, 'Data load success!', 'success', 3000);
+					if ((data.data) && v === '') {
+						me.props.router.push('/tutor/my_curriculum/edit/'+data.data);
+					} else if (jump) {
+						me.props.router.push('/tutor/my_curriculums');
+					} 
+					var cid = me.props.params['id'];
+					me.getCurriculumById(cid, function(data) {
+						if (data.data.curriculum_id) {
+							me.setState({curriculum:data.data,
+							sections: data.data.sections});
+						} 
+					});
+				}
+			}
+			Root.lib.loadEng(me, engCfg);			
+			
+			return true;
 			
 			me.props.route.env.engine({
 				url: _master_svr() + '/api/curriculum/myCurriculum.api',
@@ -209,27 +258,6 @@ try {
 					});
 				}
 			});			
-		},
-		callEng:function() {
-			var me = this;
-			let engCfg = {
-				request:{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
-					 data:{cmd:'getList', auth:me.props.route.env.state.auth}
-				},
-				hold:1000,
-				setting: {timeout:6000},
-				callBack: function(data) {
-					if (data.status === 'success') {
-						me.setState({list:data.data}, function() {
-						//	Root.lib.alert(me, 'Data load success!', 'success', 3000);
-						});
-					} else {
-						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
-						
-					}
-				}
-			}
-			Root.lib.loadEng(me, engCfg);
 		},		
 		getCurriculumById: function(curriculum_id, cbk) {
 			var me = this;
