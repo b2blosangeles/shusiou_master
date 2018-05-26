@@ -291,9 +291,8 @@ try {
 				<div className="content_section">
 					<br/>
 					{me.mainBox()}
-					<div className="content_bg opacity_bg"></div>
-					<_commWin parent={me} />
-					<_commEng parent={me} />
+					<div className="content_bg opacity_bg"/>
+					{Root.lib.landingModal(me)}
 				</div>
 			)
 		}
