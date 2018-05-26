@@ -124,7 +124,7 @@ try {
 				popup_type : 'window',
 				close_icon :false
 			};
-			Root.lib.buildPopup(me, cfg);
+			Root.lib.popupWin(me, cfg);
 		},
 		sendDeleteCurriculum:function() {
 			var me = this, curriculum_id = me.state.curriculum.curriculum_id;
