@@ -124,7 +124,7 @@ try {
 		},
 		sendDeleteCurriculum:function() {
 			var me = this, curriculum_id = me.state.curriculum.curriculum_id;
-			
+			Root.lib.closePopupWin(me);
 			let engCfg = {
 				request:{code:'delete_curriculum', 
 					 url : _master_svr() + '/api/curriculum/myCurriculum.api', 
@@ -134,13 +134,12 @@ try {
 				hold:500,
 				setting: {timeout:6000},
 				callBack: function(data) {
-					Root.lib.closePopupWin(me);
+					
 					if (data.status === 'success') {
 						setTimeout(
 							function() {
-								alert(777);
-							//	window.location.href = '/#/tutor/my_curriculums';
-							}, 500
+								window.location.href = '/#/tutor/my_curriculums';
+							}
 						);
 					} else {
 						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
