@@ -2,7 +2,6 @@ try {
 	var MyCurriculumById =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			me.lib = new _commLib();
 			return {
 				preview_time:0,
 				section:{},
@@ -138,8 +137,10 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					if (data.status === 'success') {
-						Root.lib.alert(me, 'Delete success!', 'success', 3000);
-						me.props.router.push('/tutor/my_curriculums');
+						Root.lib.alert(me, 'Delete success!', 'success', 1000, 
+							function() {
+								me.props.router.push('/tutor/my_curriculums');
+						});
 					} else {
 						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
 						
