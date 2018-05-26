@@ -127,6 +127,7 @@ try {
 		},
 		sendDeleteCurriculum:function() {
 			var me = this, curriculum_id = me.state.curriculum.curriculum_id;
+			alert(curriculum_id);
 			let engCfg = {
 				request:{code:'delete_curriculum', 
 					 url : _master_svr() + '/api/curriculum/myCurriculum.api', 
