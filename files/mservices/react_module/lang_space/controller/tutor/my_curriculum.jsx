@@ -127,38 +127,20 @@ try {
 			me.lib.buildPopup(me, cfg);			
 			
 			
-		},		
+		},
 		sendDeleteCurriculum:function() {
 			var me = this, curriculum_id = me.state.curriculum.curriculum_id;
-			if (curriculum_id) {
-				me.props.route.env.engine({
-					url: _master_svr() + '/api/curriculum/myCurriculum.api',
-					method: "POST",
-					data: {cmd:'delete', curriculum_id:curriculum_id},
-					dataType: "JSON"
-				}, function( data) {
-					me.closePopup();
-					me.props.router.push('/tutor/my_curriculums');
-				},function( jqXHR, textStatus ) {
-					me.closePopup();
-				});				
-			} else {}
-			
-		},
-		
-		callEng:function() {
-			var me = this;
 			let engCfg = {
-				request:{code:'getlist', url : _master_svr() +  '/api/curriculum/myCurriculum.api', method:'post', 
-					 data:{cmd:'getList', auth:me.props.route.env.state.auth}
+				request:{code:'delete_curriculum', 
+					 url : _master_svr() + '/api/curriculum/myCurriculum.api', 
+					 method:'post', 
+					 data:{cmd:'delete', curriculum_id:curriculum_id}
 				},
-				hold:1000,
+				hold:500,
 				setting: {timeout:6000},
 				callBack: function(data) {
 					if (data.status === 'success') {
-						me.setState({list:data.data}, function() {
-						//	Root.lib.alert(me, 'Data load success!', 'success', 3000);
-						});
+						Root.lib.alert(me, 'Delete success!', 'success', 3000);
 					} else {
 						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
 						
@@ -166,8 +148,7 @@ try {
 				}
 			}
 			Root.lib.loadEng(me, engCfg);
-		},		
-		
+		},	
 		submitCurriculum:function(v, jump){
 			
 			var me = this, data = {};
