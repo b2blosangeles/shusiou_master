@@ -179,7 +179,7 @@ try {
 						// me.props.router.push('/tutor/my_curriculum/edit/'+data.data);
 						window.location.href = '/tutor/my_curriculum/edit/'+data.data;
 					} else if (jump) {
-						window.location.href = '/#/tutor/my_curriculums');
+						window.location.href = '/#/tutor/my_curriculums';
 					} 
 					var cid = me.props.params['id'];
 					me.getCurriculumById(cid, function(data) {
