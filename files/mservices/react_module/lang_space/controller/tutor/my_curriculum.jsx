@@ -140,9 +140,10 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					if (data.status === 'success') {
+						me.closePopup();
 						setTimeout(
 							function() {
-							//	alert(999);
+								alert(777);
 							//	window.location.href = '/#/tutor/my_curriculums';
 							}, 500
 						);
