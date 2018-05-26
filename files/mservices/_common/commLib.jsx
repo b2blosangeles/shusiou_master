@@ -56,12 +56,14 @@ var _commLib = function () {
 	};
 	me.buildPopup(ta, target, cfg);
 	if (!isNaN(holdTime)) { 
-		setTimeout(function() {
-			if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
-				ta.setState({ModalPopup:'cancel'});
-				cfg.closeCallback();
+		setTimeout((function(cfg) {
+			return function() {
+				if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
+					ta.setState({ModalPopup:'cancel'});
+					cfg.closeCallback();
+				}
 			}
-		}, holdTime);
+		})(cfg), holdTime);
 	}
 	return true;       
         
