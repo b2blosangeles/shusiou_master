@@ -52,7 +52,7 @@ var _commLib = function () {
 		popup_type : 'alert',
 		close_icon : true,
 		closeCallback : (typeof  holdTime === 'function')? holdTime :
-			(typeof callback === 'function') ? callback : function(){}
+			(typeof callback === 'function') ? callback : function(){ alert(7); }
 	};
 	me.buildPopup(ta, target, cfg);
 	if (!isNaN(holdTime)) { 
