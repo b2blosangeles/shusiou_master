@@ -22,7 +22,7 @@ try {
 			var me = this;
 			var my_role = ((me.props.env.state.userInfo) && (me.props.env.state.userInfo.roles)) ?
 			    	me.props.env.state.userInfo.roles: [];
-			alert(JSON.stringify(my_role));
+
 			if (my_role.length) return (
 				<span>
 					[{my_role.map(function(r) {

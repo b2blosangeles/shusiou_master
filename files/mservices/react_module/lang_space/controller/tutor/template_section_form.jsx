@@ -13,30 +13,29 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
-			me.props.parent.props.route.env.engine({
-				url: _master_svr() +  '/api/content_data/getScripts.api',
-				method: "POST",
-				data: {cmd:'getAll', auth:me.props.parent.props.route.env.state.auth},
-				dataType: "JSON"
-			}, function( data) {
-				console.log(data);
-				me.setState({scriptLangs:data.langs, scriptList:data.list});
-			},function( jqXHR, textStatus ) {
-				console.log('error');
-			});				
+			let engCfg = {
+				request:{
+					code:'getAll', 
+					url: _master_svr() +  '/api/content_data/getScripts.api', 
+					method:'post',
+					data: {cmd:'getAll', auth:me.props.parent.props.route.env.state.auth}
+				},
+				hold:0,
+				setting: {timeout:3000},
+				callBack: function(data) {
+					me.setState({scriptLangs:data.langs, scriptList:data.list});
+				}
+			}
+			Root.lib.loadEng(me, engCfg);				
 			me.setTpl({});
 		},
 		componentDidUpdate:function(prePropos, prevState) {	
 			var me = this;
-			
 			if (me.state.script_id  !== prevState.script_id) {
-				console.log('---kkk--->');
 				me.loadScriptById(me.state.script_id);
 				me.setTpl({});
 			} else {
 				if (me.props.section_id !== prePropos.section_id) {
-					console.log('---me.props.section--->');
-					console.log(me.props.section);	
 					if (me.props.section_id === 'new') {
 						me.setTpl({});
 					} else {
@@ -49,13 +48,12 @@ try {
 			var me = this;
 			let engCfg = {
 				request:
-					{code:'getlist', url :  _master_svr() +  '/api/content_data/getScripts.api', method:'post', 
+					{code:'getlist', url : _master_svr() +  '/api/content_data/getScripts.api', method:'post', 
 					 data: {cmd:'getScriptById', id: id, auth:me.props.parent.props.route.env.state.auth},
 				},
 				hold:0,
 				setting: {timeout:3000},
 				callBack: function(data) {
-					Root.lib.alert(me, 'Data load success!', 'success', 1000);
 					me.setState({c_tpl:data});
 				}
 			}
@@ -140,23 +138,34 @@ try {
 			me.saveCurriculum(data);
 		},
 		saveSection:function(opt){
-			let me = this, 
-			    data = {
-				    curriculum_id : me.props.parent.state.curriculum.curriculum_id,
-				    section_id: me.props.section_id,
-				    tpl:me.state.c_tpl, 
-				    data:me.state.data
-			    };
-			me.props.env.engine({
-				url: _master_svr() + '/api/curriculum/myCurriculum.api',
-				method: "POST",
-				data: { cmd:opt, data: data,  auth:me.props.env.state.auth}, dataType: "JSON"
-			}, function( result) {
-				me.props.parent.refreshSections();
-			},function( jqXHR, textStatus ) {
-				alert(JSON.stringify('error'));
-				console.log('error');
-			});			
+			var me = this;
+			let engCfg = {
+				request:
+					{code:'saveSection', 
+					 url : _master_svr() + '/api/curriculum/myCurriculum.api', 
+					 method:'post', 
+					 data: { 
+						 cmd:opt,
+						 data:{
+						    curriculum_id : me.props.parent.state.curriculum.curriculum_id,
+						    section_id: me.props.section_id,
+						    tpl:me.state.c_tpl, 
+						    data:me.state.data},
+						 auth:me.props.env.state.auth
+					 },
+				},
+				hold:0,
+				setting: {timeout:3000},
+				callBack: function(data) {
+					if (!data || data.status !== 'success') {
+						Root.lib.alert(me, 'Error! ' + ((data) ? data.message : ''), 'danger');
+					} else {
+						Root.lib.alert(me, 'Data successfully saved!', 'success', 1000);
+						me.props.parent.refreshSections();
+					}
+				}
+			}
+			Root.lib.loadEng(me, engCfg);
 		},		
 		templateSelectScript: function() {
 			let me = this, scriptLangs = me.state.scriptLangs, scriptList = me.state.scriptList;
@@ -201,6 +210,10 @@ try {
 				return (
 					<span>		
 					{me.state.c_tpl.variables.map(function(v) {
+						if (!me.state.data || !me.state.data[v]) {
+							me.setStateData(v, {});
+							return(<span>niu</span>)
+						}								
 						switch(v) {
 							case 'track':
 								if (!me.state.data || !me.state.data[v]) {
@@ -208,12 +221,12 @@ try {
 								}
 								return (
 								<span>
-									{/*(function() {
+									{(function() {
 										return (<span dangerouslySetInnerHTML=
 										{{__html: 'Start: ' + Root.lib.toHHMMSS(me.state.data[v].s) + 
 										' To:' + Root.lib.toHHMMSS(parseInt(me.state.data[v].s) + parseInt(me.state.data[v].t))}}
 										/>)
-									})()*/}
+									})()}
 									<button className="btn btn-info btn-xs" 
 										onClick={me.popupEditVideo.bind(me, me.state.data[v])}>
 									<i className="fa fa-scissors" aria-hidden="true"></i> Clip video
@@ -226,7 +239,7 @@ try {
 								return me.textField(v);
 								break;
 							 default:
-								return '-- undefined variable' + v + ' --<br/>';
+								return '<span>-- undefined variable' + v + '<s/pan>';
 						}
 					})}
 					<table width="100%" className="section_template_frame">	

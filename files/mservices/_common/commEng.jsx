@@ -1,12 +1,12 @@
 try {
 	var _EngIndex = 0;
+
 	var _commEng = React.createClass({		
 		getInitialState: function() {
 			_EngIndex = (!_EngIndex || _EngIndex > 10000) ? 1 : (_EngIndex + 1);
 			let me = this;
-			me.lib = new _commLib();
 			return {id:_EngIndex, ModalLoading:{}};
-		},
+		},		
 		ajax: function(CP, rec, done, error) {
 			let me = this;
 			if ((rec.dependence) && (CP)) {
@@ -20,7 +20,6 @@ try {
 					rec.data.dependence = depdata;
 				}
 			};
-
 			let p = {
 				url:rec.url,
 				method: rec.method,
@@ -61,9 +60,11 @@ try {
 			var _f = function(data) {
 				clearInterval(me._itvEng);
 				viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
+				
 				me.props.parent.setState({_eng:null}, function() {
-					
-					callBack(data);
+					setTimeout(function() {
+						callBack(data);
+					})
 				})				
 			};
 			me.ajax(false, eng.request, _f , _f);
@@ -250,7 +251,7 @@ try {
 		},	
 		componentDidUpdate: function (prevProps, prevState) {
 			var me = this;
-			if ((me.props.parent) && (me.props.parent.state._eng)) {	
+			if ((me.props.parent) && (me.props.parent.state._eng)) {
 				if (me.props.parent.state._eng === 'cancel') {
 					me.props.parent.setState({_eng:null});
 					return true
@@ -271,7 +272,7 @@ try {
 						me.cpCall(eng);			
 					});
 				}			
-			}		
+			}
 		},
 		loading:function() {
 			var me = this;

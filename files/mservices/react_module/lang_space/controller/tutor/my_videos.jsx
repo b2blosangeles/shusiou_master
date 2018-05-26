@@ -6,7 +6,7 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			me.callEng();
+			setTimeout(me.callEng);
 		},
 		componentDidUpdate:function() {
 			var me = this;	
@@ -37,6 +37,7 @@ try {
 		},		
 		componentDidUpdate:function() {
 			var me = this;
+			Root.lib.routerPermission(Root.state.userInfo, me.props.route.permission);
 		},		
 		dictionary:function(v) {
 			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
@@ -169,6 +170,7 @@ try {
 
 					<br/><br/><br/><br/>
 					<div className="content_bg opacity_bg"/>
+					{Root.lib.landingModal(me)}
 				</div>
 			);
 		}

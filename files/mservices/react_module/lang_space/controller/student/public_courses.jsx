@@ -6,14 +6,14 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			me.callEng();
+			setTimeout(me.callEng);
 			var str='test1[s]test2';
 			var a = str.split(/\[s\]/i);
 		},
 		callEng:function() {
 			var me = this;
 			let engCfg = {
-				request:{code:'getlist', url : _master_svr() + '/api/curriculum/curriculums.api', method:'post', 
+				request:{code:'getPublicList', url : _master_svr() + '/api/curriculum/curriculums.api', method:'post', 
 					 data:{cmd:'getPublicList'}
 				},
 				hold:0,
@@ -30,23 +30,10 @@ try {
 				}
 			}
 			Root.lib.loadEng(me, engCfg);
-		},		
-		getDataApiAA: function(opt) {
-			var me = this, A = me.state.list;
-			$.ajax({
-				url:  _master_svr() + '/api/curriculum/curriculums.api',
-				method: "POST",
-				data: {cmd:'getPublicList'},
-				dataType: "JSON"
-			}).done(function( data) {
-				console.log(data.data);
-				me.setState({list:data.data});
-			}).fail(function( jqXHR, textStatus ) {
-				console.log('error');
-			});
-		},			
+		},					
 		componentDidUpdate:function() {
-			var me = this;
+			var me = this;	
+			Root.lib.routerPermission(Root.state.userInfo, me.props.route.permission);			
 		},		
 		dictionary:function(v) {
 			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
@@ -111,8 +98,8 @@ try {
 					
 					<br/><br/><br/><br/>
 					
-					<div className="content_bg opacity_bg">					
-					</div>	
+					<div className="content_bg opacity_bg"/>					
+					{Root.lib.landingModal(me)}
 				</div>
 			)
 		}

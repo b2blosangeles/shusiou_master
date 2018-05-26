@@ -6,31 +6,29 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			me.getDataApi();
-			
-			var str='test1[s]test2';
-			var a = str.split(/\[s\]/i);
-			console.log(a);
-			/*
-			$('.video_ad').attr('autoplay', true);
-			$(".video_ad").attr("src", "http://virtual_language_lab.qalet.com/api/lang_space/vr.js?video=sample.mp4");
-			*/
+			setTimeout(me.callEng);
 		},
-		getDataApi: function(opt) {
-			var me = this, A = me.state.list;
-
-			$.ajax({
-				url: _master_svr() + '/api/shusiou_curriculum.js',
-				method: "POST",
-				data: {cmd:'getList', uid:1, token:'xxxxx',  auth:me.props.route.env.state.auth},
-				dataType: "JSON"
-			}).done(function( data) {
-				console.log(data.data);
-				me.setState({list:data.data});
-			}).fail(function( jqXHR, textStatus ) {
-				console.log('error');
-			});
-		},			
+		callEng:function() {
+			var me = this;
+			let engCfg = {
+				request:{code:'getMyCourseList', url : _master_svr() + '/api/curriculum/curriculums.api', method:'post', 
+					 data:{cmd:'getPublicList'}
+				},
+				hold:0,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					if (data.status === 'success') {
+						me.setState({list:data.data}, function() {
+						//	Root.lib.alert(me, 'Data load success!', 'success', 3000);
+						});
+					} else {
+						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
+						
+					}
+				}
+			}
+			Root.lib.loadEng(me, engCfg);
+		},
 		componentDidUpdate:function() {
 			var me = this;
 		},		
@@ -75,7 +73,8 @@ try {
 										<div className="video_thumbnail_text_top">
 											{a.name}	
 										</div>
-										<img src={me.videoImageFilm(a.code, 10)} style={{width:'100%'}}/>
+										<_commObj code={'videoImage'}  
+											data={{rec:a, width:'100%', ss:90, size:320}}/>
 										<div className="video_thumbnail_text">
 											<a href={'#/student/my_course/' + a.id}>
 												<button type="button" 
@@ -95,8 +94,8 @@ try {
 					
 					<br/><br/><br/><br/>
 					
-					<div className="content_bg opacity_bg">					
-					</div>	
+					<div className="content_bg opacity_bg"/>					
+					{Root.lib.landingModal(me)}	
 				</div>
 			)
 		}

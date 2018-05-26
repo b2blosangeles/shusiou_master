@@ -18,7 +18,7 @@
 			"/mservices/_common/commObj.jsx",
 			"/mservices/_common/commEng.jsx",
 			"/mservices/_common/commWin.jsx",
-			
+
 			"/mservices/react_module/lang_space/controller/shusiou_config.js",			
 			
 			"/mservices/react_module/lang_space/controller/root.jsx",

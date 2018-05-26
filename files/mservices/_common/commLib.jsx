@@ -1,28 +1,29 @@
 var _LibIndex = 0;
 var _commLib = function () {
+	
     _LibIndex = (!_LibIndex || _LibIndex > 1000000) ? 1 : (_LibIndex + 1);
-    
+
+    this.getAuth = function() {
+		return (reactCookie.load('auth'))?reactCookie.load('auth'):{}
+    }
+    this.inte_array = function (a, b) {
+	for(var i=0; i < a.length; i++) { if (b.indexOf(a[i]) !== -1) return true;}
+	return false;
+    }
+    this.routerPermission = function(userInfo, permission) {
+	let roles = (!userInfo || !userInfo.roles) ? [] : userInfo.roles,
+	    uid = (!userInfo || !userInfo.uid) ? null  : userInfo.uid;
+	if (!this.inte_array(roles, permission.role) &&  !this.inte_array(['*'], permission.role)) {
+		window.location.href = '/#/';
+	}
+	if (!uid && (permission.auth)) {
+	//	window.location.href = '/#/Signin';
+	}
+    }	    
     this.landingModal = function(o) {
 	o.existModal = true;
     	return(<span><_commWin parent={o} /><_commEng parent={o} /></span>)
     }
-    /*
-    this.setCallBack = function(o, target) {
-       let me = this, ta = (target.existModal) ? target : Root;
-       let func = null, id = new Date().getTime() + '_' + _LibIndex;
-        
-       if (typeof o.callBack === 'function') {
-           func = o.callBack;
-	   ta['EngCbk_' + id] = function(data) {
-               let me = target;
-               func(data);
-               delete ta['EngCbk_' + id];
-               delete o['EngCbk_' + id];
-	   }
-           o.callBack = 'EngCbk_' + id;
-       }
-    } 
-    */
     this.loadEng = function(target, engCfg) {
 	let ta = (target.existModal) ? target : Root,
 	    func = null, 
@@ -37,10 +38,11 @@ var _commLib = function () {
                delete engCfg['EngCbk_' + id];
 	   }
            engCfg.callBack = 'EngCbk_' + id;
-       	}	    
-	ta.setState({_eng:engCfg})
+       	}
+	ta.setState({_eng:engCfg});
     }    
-    this.alert = function(target, message, alert_type,  holdTime)  {	
+    this.alert = function(target, message, alert_type,  holdTime, callback)  {
+
 	var me = this, ta = (target.existModal) ? target : Root;
 	let cfg = {
 		section: {
@@ -48,14 +50,18 @@ var _commLib = function () {
 		},
 		box_class : 'alert-' + alert_type,
 		popup_type : 'alert',
-		close_icon : true
+		close_icon : true,
+		closeCallback : (typeof  holdTime === 'function')? holdTime :
+			(typeof callback === 'function') ? callback : null
 	};
 	me.buildPopup(ta, target, cfg);
-	setTimeout(function() {
-		if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
-			ta.setState({ModalPopup:'cancel'});
-		}
-	}, (holdTime) ? holdTime : 6000);
+	if (!isNaN(holdTime)) { 
+		setTimeout(function() {
+			if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
+				ta.setState({ModalPopup:'cancel'});
+			}
+		}, holdTime);
+	}
 	return true;       
         
     }
@@ -65,10 +71,10 @@ var _commLib = function () {
     }    
     this.buildPopup = function(ta, o, setting)  {
 	let me = this;  
-        let caller_name = arguments.callee.caller.name,
+        let caller_name = (ta.moduleName) ? ta.moduleName : '_Dynamic_',
            f_list = {},
            ModalPopup_cfg = {};
-       
+	    
         for (var key in setting) {
             if (key == 'section') {
                   for (var v in setting.section) {
@@ -84,6 +90,18 @@ var _commLib = function () {
                      }
                   }
                   ModalPopup_cfg['section'] =  f_list;
+             } else if (key == 'closeCallback') {
+
+		     if (typeof setting.closeCallback === 'function') {
+			ta[ caller_name + '_closeCallback'] =  
+				(function(v) {
+					let me = o;
+					return setting.closeCallback;
+				})(v);
+
+			ModalPopup_cfg['closeCallback'] = caller_name + '_closeCallback';
+			delete setting.closeCallback;
+		     }
              } else {
                 ModalPopup_cfg[key] = setting[key];
              }
@@ -94,7 +112,9 @@ var _commLib = function () {
     
     this.closePopup = function(target) {
 	var me = this, ta = (target.existModal) ? target : Root;
-	ta.setState({ModalPopup : 'cancel'});
+	ta.setState({ModalPopup : 'cancel'}, function() {
+		alert(777);
+	});
 	/*
 	    return true;
 	    

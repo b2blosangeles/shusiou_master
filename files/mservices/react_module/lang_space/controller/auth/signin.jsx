@@ -21,38 +21,36 @@ try {
 			else return false;
 		},
 		submit:function() {
-			var me = this;		
-			$.ajax({
-				url: _master_svr() + '/api/auth/auth.api',
-				method: "POST",
-				data: {cmd:'signin', username:me.state.username, password:me.state.password},
-				dataType: "JSON"
-			}).done(function( data) {
-				if (data.data) {
-					reactCookie.save('auth', data.data, { path: '/'});
-					me.props.route.env.setState({auth:data.data},
-						function() {
-							// me.props.env.props.router.push('/');
-							// me.componentDidMount();
-							window.location.href = '/#/';
-							window.location.reload();						
-						});
-				} else {
-					me.setState({loginerr:'Login error! try again.'})
+			var me = this;	
+			reactCookie.remove('auth', { path: '/'});
+			let engCfg = {
+				request:{
+					code:'getAll', 
+					url: _master_svr() + '/api/auth/auth.api', 
+					method:'post',
+					data: {cmd:'signin', username:me.state.username, password:me.state.password},
+					dataType: 'JSON'
+				},
+				hold:0,
+				setting: {timeout:3000},
+				callBack: function(data) {
+					if ((data) && (data.status === 'success')) {
+						reactCookie.save('auth', data.auth, { path: '/'});
+						window.location.href = '/#/';
+						Root.setState({userInfo : data.userInfo}, function() {});
+						// Root.lib.alert(me, 'Success login! ', 'success', 1000,  function() {});
+					} else {
+						Root.lib.alert(me, 'Error ' + data.message, 'danger');
+					}
 				}
-			}).fail(function( jqXHR, textStatus ) {
-				me.setState({loginerr:'Login error! try again.'})
-			});			
+			}
+			Root.lib.loadEng(Root, engCfg);	
 		},	
 		componentDidMount:function() {
 			var me = this;
-			if ((me.props.route.env.state.auth) && (me.props.route.env.state.auth.uid)) {
-				me.props.router.push('/');
-			}
 		},		
 		componentDidUpdate:function(prePropos, preState) {
 			var me = this;
-			// console.log(me.state);
 		},		
 		render: function() {
 			var me = this;		

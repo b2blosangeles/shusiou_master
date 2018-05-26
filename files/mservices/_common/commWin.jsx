@@ -17,8 +17,15 @@ try {
 			}			
 		},
 		closePopup : function() {
-			var me = this;
-			me.props.parent.setState({ModalPopup:'cancel'});
+			var me = this, closeCallback = 
+			    ((me.props.parent) && (me.props.parent.state.ModalPopup)) ?
+			    me.props.parent.state.ModalPopup.closeCallback : false;
+			
+			me.props.parent.setState({ModalPopup:'cancel'}, function() {
+				if (( closeCallback) && typeof me.props.parent[closeCallback] === 'function') {
+					 me.props.parent[closeCallback]();
+				}
+			});
 		},
 		callSection : function(code) {
 			var me = this;

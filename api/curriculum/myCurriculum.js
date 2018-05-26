@@ -44,7 +44,7 @@ var app = function(auth_data) {
 			connection.connect();
 				connection.query(str, function (error, results, fields) {
 				connection.end();
-				res.send(results);
+				res.send({status:'success', results:results});
 			});			
 			break			
 		case 'deleteSection':
@@ -58,7 +58,7 @@ var app = function(auth_data) {
 			connection.connect();
 				connection.query(str, function (error, results, fields) {
 				connection.end();
-				res.send(results);
+				res.send({status:'success', results:results});
 			});			
 			break		
 		case 'getList':
