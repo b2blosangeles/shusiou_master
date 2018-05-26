@@ -71,7 +71,7 @@ var _commLib = function () {
 	let me = this, ta = (target.existModal) ? target : Root;
 	me.buildPopup(ta, target, setting);
     }
-    this.closePopupWin = function(target, setting)  {
+    this.closePopupWin = function(target)  {
 	let me = this, ta = (target.existModal) ? target : Root;
 	ta.setState({ModalPopup:'cancel'}); 
     }        
