@@ -77,7 +77,7 @@ try {
 			var vid = '';	
 			if (me.props.params['opt'] == 'new') {
 				vid = me.props.params['id'];
-				/*
+				
 				me.getVideoInfo(vid,
 					function(data) {
 						me.setState({vid:vid, video:data.data[0]});
@@ -85,7 +85,7 @@ try {
 						me.rightBox(me.props.params);				
 					}
 				);
-				*/
+				
 			} else if (me.props.params['opt'] == 'edit') {
 				var cid = me.props.params['id'];
 				me.getCurriculumById(cid, function(data) {		
