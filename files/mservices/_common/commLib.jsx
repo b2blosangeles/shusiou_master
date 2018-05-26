@@ -62,7 +62,7 @@ var _commLib = function () {
 					if (typeof  holdTime === 'function') holdTime();
 					if (typeof callback === 'function') callback();
 				}
-			, holdTime);
+		}, holdTime);
 	}
 	return true;       
         
