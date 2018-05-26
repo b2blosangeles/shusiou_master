@@ -140,6 +140,7 @@ try {
 						Root.lib.alert(me, 'Delete success!', 'success', 1000, 
 							function() {
 								window.location.href = '/#/tutor/my_curriculums';
+							console.log("window.location.href = '/#/tutor/my_curriculums'");
 						});
 					} else {
 						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
