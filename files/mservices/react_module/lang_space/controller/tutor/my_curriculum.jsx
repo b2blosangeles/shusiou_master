@@ -136,11 +136,7 @@ try {
 				callBack: function(data) {
 					
 					if (data.status === 'success') {
-						setTimeout(
-							function() {
-								window.location.href = '/#/tutor/my_curriculums';
-							}
-						);
+						indow.location.href = '/#/tutor/my_curriculums';
 					} else {
 						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
 						
