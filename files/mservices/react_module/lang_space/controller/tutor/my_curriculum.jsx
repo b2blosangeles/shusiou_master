@@ -174,13 +174,14 @@ try {
 				hold:500,
 				setting: {timeout:6000},
 				callBack: function(data) {
-					Root.lib.alert(me, 'Data load success!', 'success', 1000);
-					if ((data.data) && v === '') {
-						// me.props.router.push('/tutor/my_curriculum/edit/'+data.data);
-						window.location.href = '/tutor/my_curriculum/edit/'+data.data;
-					} else if (jump) {
-						window.location.href = '/#/tutor/my_curriculums';
-					} 
+					Root.lib.alert(me, 'Data load success!', 'success', 1000, function() {
+						if ((data.data) && v === '') {
+							// me.props.router.push('/tutor/my_curriculum/edit/'+data.data);
+							window.location.href = '/tutor/my_curriculum/edit/'+data.data;
+						} else if (jump) {
+							window.location.href = '/#/tutor/my_curriculums';
+						} 					
+					});
 					var cid = me.props.params['id'];
 					me.getCurriculumById(cid, function(data) {
 						if (data.data.curriculum_id) {
