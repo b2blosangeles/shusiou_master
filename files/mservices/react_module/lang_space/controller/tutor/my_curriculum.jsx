@@ -138,11 +138,14 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					if (data.status === 'success') {
+						me.props.router.push('/#/tutor/my_curriculums');
+						//window.location.href = '/#/tutor/my_curriculums';
+						/*
 						Root.lib.alert(me, 'Delete success!', 'success', 1000, 
 							function() {
 								window.location.href = '/#/tutor/my_curriculums';
 							});
-						
+						*/
 					} else {
 						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
 						
