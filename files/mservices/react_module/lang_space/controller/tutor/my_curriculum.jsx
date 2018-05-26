@@ -195,7 +195,7 @@ try {
 				hold:500,
 				setting: {timeout:6000},
 				callBack: function(data) {
-					Root.lib.alert(me, 'Data load success!', 'success', 3000);
+					Root.lib.alert(me, 'Data load success!', 'success', 1000);
 					if ((data.data) && v === '') {
 						me.props.router.push('/tutor/my_curriculum/edit/'+data.data);
 					} else if (jump) {
