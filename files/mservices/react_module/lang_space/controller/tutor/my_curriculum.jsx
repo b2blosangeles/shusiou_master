@@ -239,7 +239,7 @@ try {
 				      		auth:me.props.route.env.state.auth},
 					 dataType: "JSON"
 				},
-				hold:1000,
+				hold:0,
 				setting: {timeout:6000},
 				callBack: function(data) {
 					if (typeof cbk == 'function') {
