@@ -140,7 +140,11 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					if (data.status === 'success') {
-						window.location.href = '/#/tutor/my_curriculums';
+						setTimeout(
+							function() {
+								window.location.href = '/#/tutor/my_curriculums';
+							}
+						);
 					} else {
 						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
 						
