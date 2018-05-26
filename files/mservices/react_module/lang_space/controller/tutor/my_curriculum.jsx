@@ -142,6 +142,7 @@ try {
 					if (data.status === 'success') {
 						setTimeout(
 							function() {
+								alert(999);
 								window.location.href = '/#/tutor/my_curriculums';
 							}, 500
 						);
