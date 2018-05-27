@@ -2,9 +2,6 @@
 	var obj =  function (config, env, pkg, tm) {
 		// find next need processed vid from table video_space
 		this.load = function(load_callback) {
-			
-			console.log(env);
-			
 			let me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};	
@@ -16,22 +13,13 @@
 				var str = "SELECT * FROM `cloud_spaces` WHERE `status` = 0 ORDER BY `size` ASC;";
 				
 				connection.query(str, function (err, results, fields) {
-					console.log('===config.db===>');
-					console.log(config.db);
-					console.log('----');
-					console.log('===str===>');
-					console.log(results);
-					console.log('----');
 					for (var i = 0; i < results.length; i++) {
-						console.log(results[0]);
-						console.log('<---->');
 						if (patt.test( results[i].bucket)) {
 							me.space = { 
 								space_id : results[i].bucket,
 								space_url :'https://'+results[i].bucket+'.' + config.objectSpace.endpoint + '/',
 								mnt_folder : '/var/shusiou_video/'
 							};
-							console.log(me.space);
 							break;
 						}
 						
@@ -50,6 +38,11 @@
 			    });
 			};
 			_f['db_video']  = function(cbk) { /* get database catched local videos */
+				
+			
+				console.log('---CP.data.ip--->');
+				console.log(CP.data.ip);			
+				
 				var connection = pkg.mysql.createConnection(config.db);
 				connection.connect();
 				var str = "SELECT A.*, B.`status` FROM `video` A LEFT JOIN `video_space` B ON A.`vid` = B.`vid`" +
