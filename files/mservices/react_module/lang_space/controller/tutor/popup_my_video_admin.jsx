@@ -64,7 +64,7 @@ try {
 			Root.lib.loadEng(me, engCfg);
 		},
 		videoUrlDecode:function() {
-			var me = this;			
+			var me = this, code = me.state.video_url;		
 			let engCfg = {
 				request:{code:'getVieoInfo', 
 					 url :  _master_svr() + '/api/video/myVideo.api?opt=getYouTubeInfo', 
@@ -74,7 +74,7 @@ try {
 				hold:500,
 				setting: {timeout:6000},
 				callBack: function(data) {
-					data.data.video_url = me.state.video_url;
+					data.data.code = code;
 					console.log(data.data);
 					me.setState(data.data);
 				}
