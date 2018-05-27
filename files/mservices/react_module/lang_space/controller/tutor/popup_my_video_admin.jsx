@@ -48,12 +48,25 @@ try {
 				}
 				
 			}
-			me.lib.setCallBack(engCfg, me);
-			me.setState({_eng:engCfg});
+			//me.lib.setCallBack(engCfg, me);
+			//me.setState({_eng:engCfg});
 		},
 		videoUrlDecode:function() {
-			var me = this;
+			var me = this;			
 			let engCfg = {
+				request:{code:'getVieoInfo', 
+					 url :  _master_svr() + '/api/video/myVideo.api?opt=getYouTubeInfo', 
+					 method:'post', 
+					 data:{video_url: me.state.video_url}
+				},
+				hold:500,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					console.log(data);
+				}
+			}			
+			
+			let engCfgA = {
 				Q:[
 					{code:'getVieoInfo', url : _master_svr() + '/api/video/myVideo.api?opt=getYouTubeInfo', method:'post', 
 					 data:{video_url: me.state.video_url, auth : me.props.parent.props.route.env.state.auth}
@@ -89,7 +102,6 @@ try {
 				<p>
 					<h5>Or pulling a shared videos</h5>
 				</p>
-				<_commEng parent={me} />
 			</p>);	
 			else return (
 			<p style={{'padding':'1em'}}>						
@@ -115,7 +127,6 @@ try {
 							</p>
 						</div>	
 					</div>
-					<_commEng parent={me} />
 				</div>
 				<div className="download_matrix">
 				{(function() {
