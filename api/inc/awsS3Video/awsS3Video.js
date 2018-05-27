@@ -19,9 +19,6 @@
 					console.log('===str===>');
 					console.log(results);
 					console.log('----');
-					console.log('===fields===>');
-					console.log(fields);
-					console.log('----');
 					for (var i = 0; i < results.length; i++) {
 						if (patt.test( results[i].bucket)) {
 							me.space = { 
