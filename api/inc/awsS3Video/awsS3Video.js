@@ -122,7 +122,9 @@
 			me.space_info = 'videos/' + me.source_file + '/_info.txt';
 			me.trunkSize = 512 * 1024;
 			me.vid = vid;
-			
+			console.log('=====>');
+			console.log(me.space_url +  me.space_info);
+			console.log('<=====>');
 			pkg.request(me.space_url +  me.space_info, 
 				function (err, res, body) {
 					let v = (err) ? false : {};
