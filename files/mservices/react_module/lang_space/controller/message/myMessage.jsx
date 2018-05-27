@@ -6,8 +6,8 @@ try {
         },		
         render: function() {
             var me = this;
-            return (<span></span>
-        )
+            return (<span></span>)
+	}	
     });	
 	
 } catch (err) {
