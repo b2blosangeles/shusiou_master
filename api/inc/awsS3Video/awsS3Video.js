@@ -244,7 +244,11 @@
 
 						if (data.IsTruncated) {
 							params.Marker = data.NextMarker;
-							listAllObject(params, callback)
+							console.log('--->');
+							console.log(data.length);
+							console.log('<--->');							
+							
+							listAllObject(params, callback);
 						} else {
 							
 							console.log('=====>');
