@@ -2,7 +2,7 @@ try {
     var MyMessage =  React.createClass({
         getInitialState: function() {
             let me = this;
-            return {};
+            return {list:[]};
         },
 	componentDidMount:function() {
 		let me = this, i = 0;
@@ -10,7 +10,9 @@ try {
 		me._itv = setInterval(
 			function() {
 				i++;
-				me.list.push(i);
+				let list = me.state.list;
+				list.push(i);
+				me.setState({list : list});
 				localStorage.setItem('upload_' + i, new Date());
 			},1000
 		);
@@ -19,7 +21,7 @@ try {
             var me = this;
             return (<div className="content_section">
 			<br/><br/><br/>==
-			{me.list.map((item) => {
+			{me.state.list.map((item) => {
 				    return (<div>{item}</div>)
 				// return (<div>{localStorage.getItem('upload_' + item)}</div>)
 			})}
