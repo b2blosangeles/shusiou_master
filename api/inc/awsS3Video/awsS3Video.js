@@ -135,11 +135,7 @@
 						_fA['_s'] = function (cbks) { me.split('_s', video_name, cbks); }
 						_fA['_t'] = function (cbks) { me.split('_t', video_name, cbks); }
 						CP_A.parallel( _fA,
-							function(results) {
-							
-			console.log('=====>');
-			console.log(results);
-			console.log('<=====>');							
+							function(results) {						
 								cbk(results);
 							},
 							50000
@@ -179,6 +175,11 @@
 			}
 		}		
 		this.split = function(_type, _file, _cbk) {
+			
+			console.log('=====>');
+			console.log('split--->' + _type);
+			console.log('<=====>');				
+			
 			let me = this;
 			let tmp_folder = '/var/shusiou_cache/tmpvideo/' + me.source_file + '/' + _type + '/';
 			let space_dir = 'videos/' + me.source_file + '/' + _type + '/';
