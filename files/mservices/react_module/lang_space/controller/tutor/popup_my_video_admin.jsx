@@ -83,7 +83,7 @@ try {
 				}
 				
 			}
-			Root.lib.popupWin(me, engCfg);
+			Root.lib.loadEng(me, engCfg);
 		},		
 	
 		render:function() {
