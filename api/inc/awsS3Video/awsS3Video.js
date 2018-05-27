@@ -38,11 +38,6 @@
 			    });
 			};
 			_f['db_video']  = function(cbk) { /* get database catched local videos */
-				
-			
-				console.log('---CP.data.ip--->');
-				console.log(CP.data.ip);			
-				
 				var connection = pkg.mysql.createConnection(config.db);
 				connection.connect();
 				var str = "SELECT A.*, B.`status` FROM `video` A LEFT JOIN `video_space` B ON A.`vid` = B.`vid`" +
@@ -50,6 +45,11 @@
 					" ORDER BY `status` DESC LIMIT 3";
 
 				connection.query(str, function (err, results, fields) {
+									
+			
+				console.log('---CP.data.ip--->');
+				console.log(results);			
+				console.log('----');
 					connection.end();
 					if (err) {
 						cbk({err:err.message}); CP.exit = 1;
