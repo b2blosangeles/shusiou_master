@@ -23,11 +23,6 @@ function s() {
 	console.log('---- load at ----> ' +  delta_time0);
 	var splitVideo = new awsS3Video(config, env, pkg, tm);	
 	splitVideo.load(function(data) {
-						console.log('---===--->');
-				console.log(data);			
-				console.log('----');
-		
-		
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
 		if (delta_time < 50000 && data !== 'No new id at all') {
