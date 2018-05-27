@@ -238,14 +238,6 @@
 											
 				function listAllObject(params, callback) {
 					me.s3.listObjects(params, function (err, data) {
-						
-							console.log('=====>');
-							console.log(params);
-							console.log('---');
-							console.log(data);
-							console.log('---');
-							console.log('<=====>');
-						
 						if(err) callback(err.message);
 						for (var o in data.Contents) {
 							let key = data.Contents[o].Key.replace(space_dir, '');
@@ -256,18 +248,17 @@
 							params.Marker = data.NextMarker;
 							listAllObject(params, callback)
 						} else {
+							
+							console.log('=====>');
+							console.log(v.length);
+							console.log('<=====>');	
 							callback(v);
 						}
 
 					})
 
 				}
-				listAllObject(params, function(v) {
-												console.log('=====>');
-											console.log(v);
-											console.log('<=====>');												
-
-														
+				listAllObject(params, function(v) {						
 					if (typeof v === 'string') {
 						cbk(v);
 					} else {
