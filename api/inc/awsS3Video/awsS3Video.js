@@ -45,11 +45,6 @@
 					" ORDER BY `status` DESC LIMIT 3";
 
 				connection.query(str, function (err, results, fields) {
-									
-			
-				console.log('---CP.data.ip--->');
-				console.log(results);			
-				console.log('----');
 					connection.end();
 					if (err) {
 						cbk({err:err.message}); CP.exit = 1;
@@ -78,6 +73,12 @@
 				}
 			};
 			_f['get_video_name']  = function(cbk) { 
+									
+			
+				console.log('---CP.data.get_vid--->');
+				console.log(CP.data.get_vid);			
+				console.log('----');				
+				
 				let vid = CP.data.get_vid,
 				    video_folder = me.space.mnt_folder,
 				    _file = video_folder + vid + '/video/' + vid;
