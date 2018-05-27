@@ -176,6 +176,46 @@ var app = function(auth_data) {
 			});		
 			break;
 		case 'getMyActiveVideos':
+			var CP = new pkg.crowdProcess();
+			var _f = {};
+				
+			_f['P1'] = function(cbk) {
+				var connection = mysql.createConnection(cfg0);
+				connection.connect();
+
+				var str = 'SELECT A.*, B.`created` AS addtime, C.`status` AS space_status, C.`space` FROM  `video` A ' +
+				    ' LEFT JOIN `video_user` B ON A.`vid` = B.`vid` ' +
+				    ' LEFT JOIN `video_space` AS C ON A.`vid` = C.`vid` ' +
+				    " WHERE B.`uid` = '" + uid +"' AND C.`status` = 1";
+
+				connection.query(str, function (error, results, fields) {
+					connection.end();
+					if (results.length)  cbk(results);
+					else cbk([]);
+				});  
+			};
+
+			CP.serial(
+				_f,
+				function(data) {			
+					var d = [];
+					for (var i = 0; i < CP.data.P1.length; i++) {
+						CP.data.P1[i].status = 'ready';
+						CP.data.P1[i].env = config.environment;
+						CP.data.P1[i].info = {};
+						try {
+							CP.data.P1[i].info = JSON.parse(CP.data.P1[i].video_info);
+						} catch (e) {}
+						
+						d.push(data.results.P1[i]);
+					}
+					res.send({status:data.status, _spent_time:data._spent_time, 
+						data:d.sort(function(a,b) { return ( a.addtime < b.addtime )?1:-1} )});
+					
+				},
+				3000
+			);
+			break;			
 		case 'getMyVideos':
 			var CP = new pkg.crowdProcess();
 			var _f = {};
