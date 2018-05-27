@@ -13,6 +13,8 @@
 		}
 		this.getBuckets = function(getBuckets_cbk) {	
 			var me = this, params = {}, Buckets = {};
+			console.log('====-->');
+			
 			me.s3.listBuckets(params, function(err, data) {
 				console.log('---err--->');
 				console.log(err);
