@@ -47,11 +47,12 @@ try {
 				}
 				
 			}*/
+			alert(me.state.video_url);
 			let engCfg = {
 				request:{code:'videoUrlSubmit', 
 					 url :  _master_svr() + '/api/video/myVideo.api?opt=add', 
 					 method:'post', 
-					 data:{video_url: me.state.video_url}
+					 data:{code: me.state.video_url}
 				},
 				hold:500,
 				setting: {timeout:6000},
