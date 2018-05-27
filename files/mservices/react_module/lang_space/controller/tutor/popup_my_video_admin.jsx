@@ -70,8 +70,7 @@ try {
 				}
 				
 			}
-			me.lib.setCallBack(engCfg, me);
-			me.setState({_eng:engCfg});
+			Root.lib.popupWin(me, engCfg);
 		},		
 	
 		render:function() {
