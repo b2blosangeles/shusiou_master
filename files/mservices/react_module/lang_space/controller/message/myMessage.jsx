@@ -18,7 +18,7 @@ try {
         render: function() {
             var me = this;
             return (<div className="content_section">
-			<br/><br/><br/>
+			<br/><br/><br/>==
 			{me.list.map((item) => {
 				    return (<div>{item}</div>)
 				// return (<div>{localStorage.getItem('upload_' + item)}</div>)
