@@ -6,10 +6,10 @@ try {
         },		
         render: function() {
             var me = this;
-            return (<span>
+            return (<div className="content_section">
 			<br/><br/><br/>    
 		    	<div className="content_bg opacity_bg"/>
-		    </span>)
+		    </div>)
 	}	
     });	
 	
