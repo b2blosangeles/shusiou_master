@@ -28,7 +28,6 @@
 			
 			"/mservices/react_module/lang_space/controller/message/myMessage.jsx",
 
-			
 			"/mservices/react_module/lang_space/controller/admin/user_adminAAA.jsx",
 			
 			"/mservices/react_module/lang_space/controller/auth/signin.jsx",
