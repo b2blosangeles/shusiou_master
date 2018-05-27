@@ -239,11 +239,12 @@
 						if(err) callback(err.message);
 						for (var o in data.Contents) {
 							let key = data.Contents[o].Key.replace(space_dir, '');
-							console.log(key);
+							// console.log(key);
 							v[key] = data.Contents[o].Size;
 						}
 
 						if (data.IsTruncated) {
+							console.log('data.NextMarker===>' + data.NextMarker);
 							params.Marker = data.NextMarker;
 							console.log('--->');
 							console.log(data.Contents.length);
