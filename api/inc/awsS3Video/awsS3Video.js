@@ -189,15 +189,8 @@
 			_f['tracks'] = function(cbk) {
 				me.getInfo(me.space_url +  me.space_info, me.source_path + me.source_file,
 					function(v) {
-					
-						console.log('=====>');
-						console.log(me.space_url +  me.space_info);
-						console.log(me.source_path + me.source_file);
-						console.log('<=====>');	
-					
 						if (v === false) {
 							CP.exit = 1;
-							console.log({err:'no videoinfo'});
 							cbk({err:'no videoinfo'});
 						} else {
 							var folderP = require(env.site_path + '/api/inc/folderP/folderP');
@@ -212,6 +205,11 @@
 
 									if (err || condition) {
 										me.splitVideo(_type, tmp_folder, function(data) { 	
+											console.log('=====>');
+											console.log(data);
+											console.log('<=====>');												
+
+											
 											if (data.err) {
 												CP.exit = 1;
 												cbk(data);
