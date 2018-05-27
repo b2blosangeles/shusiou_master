@@ -233,13 +233,19 @@
 				  Marker : '',
 				  Prefix: space_dir
 				}, v = {};
-										console.log('=====>');
-											console.log(params);
-											console.log('<=====>');												
+																					
 
 											
 				function listAllObject(params, callback) {
 					me.s3.listObjects(params, function (err, data) {
+						
+							console.log('=====>');
+							console.log(params);
+							console.log('---');
+							console.log(err);
+							console.log('---');
+							console.log('<=====>');
+						
 						if(err) callback(err.message);
 						for (var o in data.Contents) {
 							let key = data.Contents[o].Key.replace(space_dir, '');
