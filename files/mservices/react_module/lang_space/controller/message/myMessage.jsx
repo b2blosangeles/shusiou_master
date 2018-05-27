@@ -5,9 +5,10 @@ try {
             return {};
         },
 	componentDidMount:function() {
-		var me = this;
-		
+		let me = this;
+		if (!me.list) me.list = [];
 		for (let i = 0 ; i < 100; i++) {
+			me.list.push(i);
 			localStorage.setItem('upload_' + i, new Date());
 		}
 	},
@@ -15,9 +16,9 @@ try {
             var me = this;
             return (<div className="content_section">
 			<br/><br/><br/>
-			{localStorage.getItem('upload1')} <br/>
-			{localStorage.getItem('upload2')} <br/>
-			{localStorage.getItem('upload3')} <br/>
+			{this.list.map((item) => {
+				return {localStorage.getItem('upload' + item)}<br/>;
+			}
 		    	<div className="content_bg opacity_bg"/>
 		    </div>)
 	}	
