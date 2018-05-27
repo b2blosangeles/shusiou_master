@@ -6,8 +6,10 @@ try {
         },
 	componentDidMount:function() {
 		var me = this;
-		localStorage.setItem('upload1', new Date());
-		localStorage.setItem('upload2', new Date());
+		
+		for (let i = 0 ; i < 100; i++) {
+			localStorage.setItem('upload_' + i, new Date());
+		}
 	},
         render: function() {
             var me = this;
@@ -15,6 +17,7 @@ try {
 			<br/><br/><br/>
 			{localStorage.getItem('upload1')} <br/>
 			{localStorage.getItem('upload2')} <br/>
+			{localStorage.getItem('upload3')} <br/>
 		    	<div className="content_bg opacity_bg"/>
 		    </div>)
 	}	
