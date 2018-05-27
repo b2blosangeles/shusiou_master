@@ -5,7 +5,6 @@
 			let me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};	
-			
 			_f['loadspace']  = function(cbk) {
 				var patt = new RegExp(config.environment);
 				var connection = pkg.mysql.createConnection(config.db);
