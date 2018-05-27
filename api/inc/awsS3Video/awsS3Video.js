@@ -93,7 +93,7 @@
 				function(result) {
 			
 				console.log('---CP.data.get_vid--->');
-				console.log(CP.data.result);			
+				console.log(result);			
 				console.log('----');					
 					if (CP.data.db_video === true) {
 						load_callback('No new id at all');
