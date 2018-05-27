@@ -11,9 +11,12 @@
 				var connection = pkg.mysql.createConnection(config.db);
 				connection.connect();
 				var str = "SELECT * FROM `cloud_spaces` WHERE `status` = 0 ORDER BY `size` ASC;";
-				console.log('===str===>');
-				console.log(str);
+				
 				connection.query(str, function (err, results, fields) {
+					
+					console.log('===str===>');
+					console.log(results);
+					
 					for (var i = 0; i < results.length; i++) {
 						if (patt.test( results[i].bucket)) {
 							me.space = { 
