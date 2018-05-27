@@ -233,7 +233,11 @@
 				  Marker : '',
 				  Prefix: space_dir
 				}, v = {};
+										console.log('=====>');
+											console.log(params);
+											console.log('<=====>');												
 
+											
 				function listAllObject(params, callback) {
 					me.s3.listObjects(params, function (err, data) {
 						if(err) callback(err.message);
