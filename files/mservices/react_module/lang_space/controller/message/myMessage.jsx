@@ -7,10 +7,12 @@ try {
 	componentDidMount:function() {
 		let me = this;
 		localStorage.clear();
-		for (let i = 0 ; i < 100; i++) {
-			me.list.push(i);
-			localStorage.setItem('upload_' + i, new Date());
-		}
+		me.setInteval(
+			function() {
+				me.list.push(i);
+				localStorage.setItem('upload_' + i, new Date());
+			},1000
+		)
 	},
         render: function() {
             var me = this;
