@@ -2,7 +2,6 @@ try {
 	var My_video_admin =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			me.lib = new _commLib();
 			return {video_url:'', vid:'', error:'', list:[]};
 		},
 		initState:function() {
@@ -21,7 +20,7 @@ try {
 		},		
 		close_admin:function(){
 			var me = this;  
-			me.lib.closePopup(me);
+			Root.lib.closePopupWin(me);
 		},
 		handleChange:function(e) {
 			var me = this;
