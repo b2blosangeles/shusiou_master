@@ -2,9 +2,13 @@
 	var obj =  function (config, env, pkg, tm) {
 		// find next need processed vid from table video_space
 		this.load = function(load_callback) {
+			
+			console.log(env);
+			
 			let me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};	
+			
 			_f['loadspace']  = function(cbk) {
 				var patt = new RegExp(config.environment);
 				var connection = pkg.mysql.createConnection(config.db);
