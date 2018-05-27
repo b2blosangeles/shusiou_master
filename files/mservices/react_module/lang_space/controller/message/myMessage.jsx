@@ -20,9 +20,17 @@ try {
         render: function() {
             var me = this;
             return (<div className="content_section">
-			<br/><br/><br/>==
+			<br/>
 			{me.state.list.map((item) => {
-				return (<div>{localStorage.getItem('upload_' + item)}</div>)
+				return (
+					<div className="container">
+						<div class="row">
+							<div className="col-sm-12 col-lg-12 col-md-12"> 
+								{localStorage.getItem('upload_' + item)}
+							</div>
+						</div>
+					</div>
+				)
 			})}
 		    	<div className="content_bg opacity_bg"/>
 		    </div>)
