@@ -5,10 +5,11 @@ try {
             return {};
         },
 	componentDidMount:function() {
-		let me = this;
+		let me = this, i = 0;
 		localStorage.clear();
 		me._itv = setInterval(
 			function() {
+				i++;
 				me.list.push(i);
 				localStorage.setItem('upload_' + i, new Date());
 			},1000
