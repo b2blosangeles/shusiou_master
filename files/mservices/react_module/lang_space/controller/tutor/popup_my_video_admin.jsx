@@ -74,6 +74,7 @@ try {
 				hold:500,
 				setting: {timeout:6000},
 				callBack: function(data) {
+					data.data.video_url = me.state.video_url;
 					me.setState(data.data);
 				}
 			}			
