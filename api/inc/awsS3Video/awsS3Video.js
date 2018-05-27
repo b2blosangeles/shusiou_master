@@ -245,7 +245,7 @@
 						if (data.IsTruncated) {
 							params.Marker = data.NextMarker;
 							console.log('--->');
-							console.log(data.length);
+							console.log(data.Contents);
 							console.log('<--->');							
 							
 							listAllObject(params, callback);
