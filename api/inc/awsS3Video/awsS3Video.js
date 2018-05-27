@@ -73,12 +73,6 @@
 				}
 			};
 			_f['get_video_name']  = function(cbk) { 
-									
-			
-				console.log('---CP.data.get_vid--->');
-				console.log(CP.data.get_vid);			
-				console.log('----');				
-				
 				let vid = CP.data.get_vid,
 				    video_folder = me.space.mnt_folder,
 				    _file = video_folder + vid + '/video/' + vid;
@@ -97,6 +91,10 @@
 			CP.serial(
 				_f,
 				function(result) {
+			
+				console.log('---CP.data.get_vid--->');
+				console.log(CP.data.result);			
+				console.log('----');					
 					if (CP.data.db_video === true) {
 						load_callback('No new id at all');
 					} else {
