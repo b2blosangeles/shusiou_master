@@ -52,7 +52,7 @@ try {
 				request:{code:'videoUrlSubmit', 
 					 url :  _master_svr() + '/api/video/myVideo.api?opt=add', 
 					 method:'post', 
-					 data:{code: me.state.video_url}
+					 data:{code: me.state.code}
 				},
 				hold:500,
 				setting: {timeout:6000},
@@ -75,7 +75,6 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					data.data.code = code;
-					console.log(data.data);
 					me.setState(data.data);
 				}
 			}			
