@@ -34,20 +34,6 @@ try {
 		},
 		videoUrlSubmit:function(){
 			var me = this;
-			/*
-			let engCfg = {
-				Q:[ {code:'getVieoInfo', url : _master_svr() + '/api/video/myVideo.api?opt=add', method:'post', 
-					 data:{code: me.state.video_url, auth:me.props.parent.props.route.env.state.auth}
-				}],
-				hold:500,
-				setting: {timeout:6000},
-				callBack: function(data) {
-					me.close_admin();
-					me.props.parent.callEng();
-				}
-				
-			}*/
-			console.log(me.state);
 			let engCfg = {
 				request:{code:'videoUrlSubmit', 
 					 url :  _master_svr() + '/api/video/myVideo.api?opt=add', 
@@ -57,7 +43,7 @@ try {
 				hold:500,
 				setting: {timeout:6000},
 				callBack: function(data) {
-					me.close_admin();
+					me.close_admin(me);
 					me.props.parent.callEng();
 				}
 			}			
