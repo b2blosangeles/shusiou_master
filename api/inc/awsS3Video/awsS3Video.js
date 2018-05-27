@@ -122,9 +122,6 @@
 			me.space_info = 'videos/' + me.source_file + '/_info.txt';
 			me.trunkSize = 512 * 1024;
 			me.vid = vid;
-			console.log('=====>');
-			console.log(me.space_url +  me.space_info);
-			console.log('<=====>');
 			pkg.request(me.space_url +  me.space_info, 
 				function (err, res, body) {
 					let v = (err) ? false : {};
@@ -139,6 +136,10 @@
 						_fA['_t'] = function (cbks) { me.split('_t', video_name, cbks); }
 						CP_A.parallel( _fA,
 							function(results) {
+							
+			console.log('=====>');
+			console.log(results);
+			console.log('<=====>');							
 								cbk(results);
 							},
 							50000
