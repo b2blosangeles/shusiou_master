@@ -204,17 +204,7 @@
 									else var condition = false;
 
 									if (err || condition) {
-										if (err) {
-											console.log('----->');
-											console.log(err);
-											console.log('<-----');	
-										}
-										me.splitVideo(_type, tmp_folder, function(data) { 	
-											console.log('=====>');
-											console.log(data);
-											console.log('<=====>');												
-
-											
+										me.splitVideo(_type, tmp_folder, function(data) {
 											if (data.err) {
 												CP.exit = 1;
 												cbk(data);
@@ -263,6 +253,11 @@
 
 				}
 				listAllObject(params, function(v) {
+												console.log('=====>');
+											console.log(v);
+											console.log('<=====>');												
+
+														
 					if (typeof v === 'string') {
 						cbk(v);
 					} else {
