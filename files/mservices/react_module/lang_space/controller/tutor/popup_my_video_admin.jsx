@@ -62,7 +62,7 @@ try {
 				hold:500,
 				setting: {timeout:6000},
 				callBack: function(data) {
-					console.log(data);
+					me.setState(data.data);
 				}
 			}			
 			
@@ -75,11 +75,8 @@ try {
 				hold:1,
 				setting: {timeout:6000},
 				callBack: function(data) {
-					
-					var EngRData = (!data || !data.EngResult || !data.EngResult.getVieoInfo || 
-					!data.EngResult.getVieoInfo.data) ? {} : data.EngResult.getVieoInfo.data;
 
-					me.setState(EngRData);
+					me.setState(data);
 				}
 				
 			}
