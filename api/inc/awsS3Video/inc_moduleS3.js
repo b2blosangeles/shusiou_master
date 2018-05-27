@@ -9,7 +9,7 @@
 			    accessKeyId: config.objectSpace.accessKeyId,
 			    secretAccessKey: config.objectSpace.secretAccessKey
 			});
-			
+			console.log('---init--->');
 		}
 		this.getBuckets = function(getBuckets_cbk) {	
 			var me = this, params = {}, Buckets = {};
