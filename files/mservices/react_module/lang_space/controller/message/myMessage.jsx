@@ -7,12 +7,12 @@ try {
 	componentDidMount:function() {
 		let me = this;
 		localStorage.clear();
-		me.setInteval(
+		me._itv = setInterval(
 			function() {
 				me.list.push(i);
 				localStorage.setItem('upload_' + i, new Date());
 			},1000
-		)
+		);
 	},
         render: function() {
             var me = this;
