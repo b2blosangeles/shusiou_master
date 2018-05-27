@@ -6,7 +6,10 @@ try {
         },		
         render: function() {
             var me = this;
-            return (<span></span>)
+            return (<span>
+			<br/><br/><br/>    
+		    	<div className="content_bg opacity_bg"/>
+		    </span>)
 	}	
     });	
 	
