@@ -248,8 +248,8 @@
 						
 						if (data.IsTruncated) {
 							console.log('data.NextMarker===>' + NextMarker);
-							console.log(data);
-							params.Marker = data.NextMarker;
+							// console.log(data);
+							params.Marker = NextMarker;
 							console.log('--->');
 							console.log(data.Contents.length);
 							console.log('<--->');							
