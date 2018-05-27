@@ -9,7 +9,7 @@ try {
             var me = this;
             return (<div className="content_section">
 			<br/><br/><br/>
-			    {localStorage.lastname}
+			    {localStorage.getItem('lastname')}
 		    	<div className="content_bg opacity_bg"/>
 		    </div>)
 	}	
