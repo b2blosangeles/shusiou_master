@@ -236,15 +236,18 @@
 						
 				function listAllObject(params, callback) {
 					me.s3.listObjects(params, function (err, data) {
+						let NextMarker = '';
 						if(err) callback(err.message);
 						for (var o in data.Contents) {
 							let key = data.Contents[o].Key.replace(space_dir, '');
 							// console.log(key);
 							v[key] = data.Contents[o].Size;
+							NextMarker = data.Contents[o].Key;
 						}
-
+						
+						
 						if (data.IsTruncated) {
-							console.log('data.NextMarker===>' + data.NextMarker);
+							console.log('data.NextMarker===>' + NextMarker);
 							console.log(data);
 							params.Marker = data.NextMarker;
 							console.log('--->');
@@ -255,8 +258,8 @@
 						} else {
 							
 							console.log('=====>');
-							console.log(v);
-							// console.log(Object.keys(v).length);
+							//console.log(v);
+							console.log(Object.keys(v).length);
 							console.log('<=====>');	
 							callback(v);
 						}
