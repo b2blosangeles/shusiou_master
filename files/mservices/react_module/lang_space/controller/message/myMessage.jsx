@@ -1,13 +1,15 @@
 try {	
     var MyMessage =  React.createClass({
         getInitialState: function() {
-            var me = this;
+            let me = this;
+		localStorage.setItem("lastname", "Smith");
             return {};
         },		
         render: function() {
             var me = this;
             return (<div className="content_section">
-			<br/><br/><br/>    
+			<br/><br/><br/>
+			    {localStorage.lastname}
 		    	<div className="content_bg opacity_bg"/>
 		    </div>)
 	}	
