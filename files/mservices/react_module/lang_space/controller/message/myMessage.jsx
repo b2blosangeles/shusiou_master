@@ -1,5 +1,5 @@
 try {	
-    var My_message =  React.createClass({
+    var MyMessage =  React.createClass({
         getInitialState: function() {
             var me = this;
             return {};
@@ -7,7 +7,7 @@ try {
         render: function() {
             var me = this;
             return (<span></span>
-        );
+        )
     });	
 	
 } catch (err) {
