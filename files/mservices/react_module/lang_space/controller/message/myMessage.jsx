@@ -22,8 +22,7 @@ try {
             return (<div className="content_section">
 			<br/><br/><br/>==
 			{me.state.list.map((item) => {
-				    return (<div>{item}</div>)
-				// return (<div>{localStorage.getItem('upload_' + item)}</div>)
+				return (<div>{localStorage.getItem('upload_' + item)}</div>)
 			})}
 		    	<div className="content_bg opacity_bg"/>
 		    </div>)
