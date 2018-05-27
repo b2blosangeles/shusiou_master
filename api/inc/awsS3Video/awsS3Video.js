@@ -247,20 +247,9 @@
 						
 						
 						if (data.IsTruncated) {
-							console.log('data.NextMarker===>' + NextMarker);
-							// console.log(data);
 							params.Marker = NextMarker;
-							console.log('--->');
-							console.log(data.Contents.length);
-							console.log('<--->');							
-							
 							listAllObject(params, callback);
 						} else {
-							
-							console.log('=====>');
-							//console.log(v);
-							console.log(Object.keys(v).length);
-							console.log('<=====>');	
 							callback(v);
 						}
 
