@@ -116,26 +116,6 @@ var _commLib = function () {
         
     }
     
-    this.closePopup = function(target) {
-	var me = this, ta = (target.existModal) ? target : Root;
-	ta.setState({ModalPopup : 'cancel'}, function() {
-		alert(777);
-	});
-	/*
-	    return true;
-	    
-	if (!ta.props || !ta.props.parent) {
-		alert('No props');
-	} else {
-		if (!ta.props.parent.state.ModalPopup) {
-			me.closePopup(ta.props.parent);
-		} else {
-			ta.props.parent.setState({ModalPopup : 'cancel'});
-		}
-	} 
-	*/
-    }
-    
     this.toHHMMSS = function(v, noms) {
         if (isNaN(v)) return v;
         var h = Math.floor(v / 3600),m = ("00" + Math.floor((v % 3600) / 60)).slice(-2),
