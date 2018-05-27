@@ -13,8 +13,8 @@
 				var str = "SELECT * FROM `cloud_spaces` WHERE `status` = 0 ORDER BY `size` ASC;";
 				
 				connection.query(str, function (err, results, fields) {
-					console.log('===ERR===>');
-					console.log(err);
+					console.log('===config.db===>');
+					console.log(config.db);
 					console.log('----');
 					console.log('===str===>');
 					console.log(results);
