@@ -2,9 +2,12 @@ try {
     var MyMessage =  React.createClass({
         getInitialState: function() {
             let me = this;
-		localStorage.setItem('upload', new Date());
             return {};
-        },		
+        },
+	componentDidMount:function() {
+		var me = this;
+		localStorage.setItem('upload', new Date());
+	},
         render: function() {
             var me = this;
             return (<div className="content_section">
