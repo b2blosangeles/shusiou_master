@@ -91,10 +91,7 @@
 			CP.serial(
 				_f,
 				function(result) {
-			
-				console.log('---CP.data.get_vid--->');
-				console.log(result);			
-				console.log('----');					
+								
 					if (CP.data.db_video === true) {
 						load_callback('No new id at all');
 					} else {
