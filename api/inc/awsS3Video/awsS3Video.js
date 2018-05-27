@@ -204,6 +204,11 @@
 									else var condition = false;
 
 									if (err || condition) {
+										if (err) {
+											console.log('----->');
+											console.log(err);
+											console.log('<-----');	
+										}
 										me.splitVideo(_type, tmp_folder, function(data) { 	
 											console.log('=====>');
 											console.log(data);
