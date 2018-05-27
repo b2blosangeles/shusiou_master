@@ -16,7 +16,7 @@ try {
             var me = this;
             return (<div className="content_section">
 			<br/><br/><br/>
-			{this.list.map((item) => {
+			{me.list.map((item) => {
 				return (<div>{localStorage.getItem('upload' + item)}</div>)
 			})}
 		    	<div className="content_bg opacity_bg"/>
