@@ -47,7 +47,7 @@ try {
 				}
 				
 			}*/
-			alert(me.state.video_url);
+			console.log(me.state);
 			let engCfg = {
 				request:{code:'videoUrlSubmit', 
 					 url :  _master_svr() + '/api/video/myVideo.api?opt=add', 
@@ -75,6 +75,7 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					data.data.video_url = me.state.video_url;
+					console.log(data.data);
 					me.setState(data.data);
 				}
 			}			
