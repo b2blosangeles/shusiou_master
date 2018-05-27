@@ -16,7 +16,7 @@ try {
 				request:{code:'getPublicList', url : _master_svr() + '/api/curriculum/curriculums.api', method:'post', 
 					 data:{cmd:'getPublicList'}
 				},
-				hold:0,
+				hold:500,
 				setting: {timeout:6000},
 				callBack: function(data) {
 					if (data.status === 'success') {
