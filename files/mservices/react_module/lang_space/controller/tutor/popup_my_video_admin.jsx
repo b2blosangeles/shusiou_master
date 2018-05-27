@@ -17,9 +17,9 @@ try {
 				me.setState({video_url:'', vid:'', error:'', list:[]});
 			}
 		},		
-		close_admin:function(){
+		close_admin:function(ta){
 			var me = this;  
-			Root.lib.closePopupWin(me);
+			Root.lib.closePopupWin(ta);
 		},
 		handleChange:function(e) {
 			var me = this;
@@ -103,7 +103,7 @@ try {
 								&nbsp;
 								<button type="button" 
 									className="btn btn-default" 
-									onClick={me.close_admin.bind(me)}>
+									onClick={me.close_admin.bind(me, me)}>
 								Cancel</button>
 							</p>
 						</div>	
