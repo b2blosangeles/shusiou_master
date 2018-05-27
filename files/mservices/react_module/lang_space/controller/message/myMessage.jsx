@@ -18,7 +18,7 @@ try {
 			<br/><br/><br/>
 			{this.list.map((item) => {
 				return (<div>{localStorage.getItem('upload' + item)}</div>)
-			}
+			})}
 		    	<div className="content_bg opacity_bg"/>
 		    </div>)
 	}	
