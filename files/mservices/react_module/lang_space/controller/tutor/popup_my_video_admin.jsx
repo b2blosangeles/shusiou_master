@@ -11,7 +11,6 @@ try {
 			var me = this;	
 		},
 		componentDidUpdate:function(prePropos, preState) {
-			
 			var me = this;
 			if (prePropos.id != me.props.id) {
 			//	console.log(prePropos.id + '=======' + me.props.id);
@@ -35,6 +34,7 @@ try {
 		},
 		videoUrlSubmit:function(){
 			var me = this;
+			/*
 			let engCfg = {
 				Q:[ {code:'getVieoInfo', url : _master_svr() + '/api/video/myVideo.api?opt=add', method:'post', 
 					 data:{code: me.state.video_url, auth:me.props.parent.props.route.env.state.auth}
@@ -46,9 +46,21 @@ try {
 					me.props.parent.callEng();
 				}
 				
-			}
-			//me.lib.setCallBack(engCfg, me);
-			//me.setState({_eng:engCfg});
+			}*/
+			let engCfg = {
+				request:{code:'videoUrlSubmit', 
+					 url :  _master_svr() + '/api/video/myVideo.api?opt=add', 
+					 method:'post', 
+					 data:{code: me.state.video_url}
+				},
+				hold:500,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					me.close_admin();
+					me.props.parent.callEng();
+				}
+			}			
+			Root.lib.loadEng(me, engCfg);
 		},
 		videoUrlDecode:function() {
 			var me = this;			
@@ -64,21 +76,6 @@ try {
 					me.setState(data.data);
 				}
 			}			
-			
-			let engCfgA = {
-				Q:[
-					{code:'getVieoInfo', url : _master_svr() + '/api/video/myVideo.api?opt=getYouTubeInfo', method:'post', 
-					 data:{video_url: me.state.video_url, auth : me.props.parent.props.route.env.state.auth}
-					}
-				],
-				hold:1,
-				setting: {timeout:6000},
-				callBack: function(data) {
-
-					me.setState(data);
-				}
-				
-			}
 			Root.lib.loadEng(me, engCfg);
 		},		
 	
