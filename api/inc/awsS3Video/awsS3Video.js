@@ -23,14 +23,18 @@
 					console.log(results);
 					console.log('----');
 					for (var i = 0; i < results.length; i++) {
+						console.log(results[0]);
+						console.log('<---->');
 						if (patt.test( results[i].bucket)) {
 							me.space = { 
 								space_id : results[i].bucket,
 								space_url :'https://'+results[i].bucket+'.' + config.objectSpace.endpoint + '/',
 								mnt_folder : '/var/shusiou_video/'
 							};
+							console.log(me.space);
 							break;
-						}	
+						}
+						
 					}
 					cbk(true);
 				});
