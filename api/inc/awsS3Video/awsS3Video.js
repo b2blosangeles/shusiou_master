@@ -245,6 +245,7 @@
 
 						if (data.IsTruncated) {
 							console.log('data.NextMarker===>' + data.NextMarker);
+							console.log(data);
 							params.Marker = data.NextMarker;
 							console.log('--->');
 							console.log(data.Contents.length);
