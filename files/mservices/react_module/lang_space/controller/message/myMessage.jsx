@@ -2,11 +2,11 @@ try {
     var MyMessage =  React.createClass({
         getInitialState: function() {
             let me = this;
+	    if (!me.list) me.list = [];	
             return {};
         },
 	componentDidMount:function() {
 		let me = this;
-		if (!me.list) me.list = [];
 		for (let i = 0 ; i < 100; i++) {
 			me.list.push(i);
 			localStorage.setItem('upload_' + i, new Date());
