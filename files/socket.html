@@ -8,7 +8,7 @@
 	<meta name="author" content="John Xu">
 	<title>Shusiou demo</title>
   <script>
-      var ws = new WebSocket('wss://master1.service.dev.shusiou.win:1443');
+      var ws = new WebSocket('http://master1.service.dev.shusiou.win:1443');
       ws.onmessage = function (event) {
         console.log(event.data);
       };
