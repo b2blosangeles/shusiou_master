@@ -9,7 +9,7 @@ try {
 		localStorage.clear();
 		me._itv = setInterval(
 			function() {
-				if (i > 5) {
+				if (i > 4) {
 					i = 0;
 					localStorage.clear();
 					me.setState({list : []});
