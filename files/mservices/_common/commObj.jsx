@@ -18,11 +18,16 @@ try {
 			if (!a.space) return '';
 			return url;
 		},
+		showVideoImage : function() {
+			alert('Show');
+		},
 		videoImage : function() {
 			var me = this, 
 			    url = me.videoImageUrl(), width = (me.props.data.width) ? me.props.data.width : '';
 			if (!url) return (<span/>);
-			else return (width) ? (<img src={url} width={width}  style={{display:none}}/>) :  (<img src={url}  style={{display:none}}/>);
+			else return (width) ? (<img src={url} width={width}  style={{display:none}} 
+				onLoad={me.bind.showVideoImage(me, me)} />) :  
+				(<img src={url}  style={{display:none}} onLoad={me.bind.showVideoImage(me, me)}/>);
 		},
 		videoBgImage : function() {
 			let me = this, img = me.props.data.img, url =  me.videoImageUrl();
