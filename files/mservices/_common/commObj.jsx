@@ -27,7 +27,7 @@ try {
 			var me = this, 
 			    url = me.videoImageUrl(), width = (me.props.data.width) ? me.props.data.width : '';
 			var def = (<img src={'https://master1.service.dev.shusiou.win/images/film_bg.png'}
-				className={'niu')} width={width} />);
+				className={'niu'} width={width} />);
 			if (!url) return (<span/>);
 			else return (width) ? (<span><img src={url} width={width}  style={{display:'none'}} 
 				onLoad={me.showVideoImage.bind(me, url)} />{def}</span>) :  
