@@ -9,7 +9,7 @@
 	<title>Shusiou demo</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
   <script>
-    	var socket = io.connect('/');
+    	var socket = io.connect('https://master1.service.dev.shusiou.win:1443/');
 	socket.emit('event', { message: 'some data' }); 
 	socket.on('announcements', function(data) {
         	console.log('Got announcement:', data.message);
