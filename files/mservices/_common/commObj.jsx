@@ -20,18 +20,19 @@ try {
 		},
 		showVideoImage : function(url) {
 			console.log(url);
-			$('.niu').hide();
+			$('.'+encodeURIComponent(url)).hide();
 			$("img[src='" + url + "']").show();
 		},
 		videoImage : function() {
 			var me = this, 
-			    url = me.videoImageUrl(), width = (me.props.data.width) ? me.props.data.width : '';
+			    url = me.videoImageUrl(), width = (me.props.data.width) ? me.props.data.width : '',
+			    classurl = encodeURIComponent(url);
 			
 			if (!url) return (<span/>);
 			
 			var def = (width) ? 
-				(<img src={_master_svr() + '/images/film_bg.png'} className={'niu'} width={width} />) :
-				(<img src={_master_svr() + '/images/film_bg.png'} className={'niu'} />) 
+				(<img src={_master_svr() + '/images/film_bg.png'} className={classurl} width={width} />) :
+				(<img src={_master_svr() + '/images/film_bg.png'} className={classurl} />) 
 			var img = (width) ? 
 				(<img src={url} width={width}  style={{display:'none'}} onLoad={me.showVideoImage.bind(me, url)} />) :
 				(<img src={url} style={{display:'none'}} onLoad={me.showVideoImage.bind(me, url)} />) 
