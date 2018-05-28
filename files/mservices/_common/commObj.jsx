@@ -25,7 +25,7 @@ try {
 		videoImage : function() {
 			var me = this, 
 			    url = me.videoImageUrl(), width = (me.props.data.width) ? me.props.data.width : '';
-			var def = (<img src={'https://dailyquotes99.com/url_maskimage/1790652/best-reverse-image-search-engines-apps-and-uses.jpg'}
+			var def = (<img src={'https://master1.service.dev.shusiou.win/images/film_bg.png'}
 					width={width} />);
 			if (!url) return (<span/>);
 			else return (width) ? (<span><img src={url} width={width}  style={{display:'none'}} 
