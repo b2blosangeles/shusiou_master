@@ -23,10 +23,10 @@ try {
 			<br/>
 			{me.state.list.map((item) => {
 				return (
-					<div className="container1">
+					<div className="container">
 						<div class="row">
 							<div className="col-sm-12 col-lg-12 col-md-12">
-								<div className="overlayer_box editor_box">
+								<div className="overlayer_box homepage_box">
 								{localStorage.getItem('upload_' + item)}
 								</div>	
 							</div>
