@@ -29,8 +29,8 @@ try {
 			
 			if (!url) return (<span/>);
 			var def = (width) ? 
-				(<img src={_master_svr() + '/images/film_bg.png'} className={classname} width={width} />) :
-				(<img src={_master_svr() + '/images/film_bg.png'} className={classname} />) 
+				(<img src={_master_svr() + '/images/empty_default.png'} className={classname} width={width} />) :
+				(<img src={_master_svr() + '/images/empty_default.png'} className={classname} />) 
 			var img = (width) ? 
 				(<img src={url} width={width}  style={{display:'none'}} onLoad={me.showVideoImage.bind(me, url, classname)} />) :
 				(<img src={url} style={{display:'none'}} onLoad={me.showVideoImage.bind(me, url, classname)} />) 
