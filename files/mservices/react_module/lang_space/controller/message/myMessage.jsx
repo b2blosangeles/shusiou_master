@@ -31,7 +31,7 @@ try {
 								</div>	
 							</div>
 						</div>
-						<div class="row"></div>	
+						<div class="row">&nbsp;</div>	
 					</div>
 				)
 			})}
