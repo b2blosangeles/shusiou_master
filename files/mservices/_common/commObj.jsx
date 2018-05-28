@@ -19,6 +19,7 @@ try {
 			return url;
 		},
 		showVideoImage : function(url) {
+			console.log(url);
 			$("img[src='" + url + "']").show();
 		},
 		videoImage : function() {
