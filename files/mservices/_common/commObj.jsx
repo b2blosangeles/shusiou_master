@@ -28,7 +28,10 @@ try {
 			if (!url) return (<span/>);
 			else return (width) ? (<img src={url} width={width}  style={{display:'none'}} 
 				onLoad={me.showVideoImage.bind(me, url)} />) :  
-				(<img src={url}  style={{display:'none'}} onLoad={me.showVideoImage.bind(me, url)}/>);
+				(<img src={url}  style={{display:'none'}} onLoad={me.showVideoImage.bind(me, url)}/>
+				<img src={'https://dailyquotes99.com/url_maskimage/1790652/best-reverse-image-search-engines-apps-and-uses.jpg'}
+					width={width} />
+			);
 		},
 		videoBgImage : function() {
 			let me = this, img = me.props.data.img, url =  me.videoImageUrl();
