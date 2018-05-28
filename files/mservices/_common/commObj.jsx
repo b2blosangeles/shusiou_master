@@ -19,7 +19,7 @@ try {
 			return url;
 		},
 		showVideoImage : function(url, classurl) {
-			console.log(url);
+			console.log(url + '===' + classurl);
 			$('.'+classurl).hide();
 			$("img[src='" + url + "']").show();
 		},
