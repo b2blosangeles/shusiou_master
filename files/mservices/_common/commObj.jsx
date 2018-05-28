@@ -34,7 +34,7 @@ try {
 				(<img src={_master_svr() + '/images/film_bg.png'} className={classurl} width={width} />) :
 				(<img src={_master_svr() + '/images/film_bg.png'} className={classurl} />) 
 			var img = (width) ? 
-				(<img src={url} width={width}  style={{display:'none'}} onLoad={me.showVideoImage.bind(me, url)} />) :
+				(<img src={url} width={width}  style={{display:'none'}} onLoad={me.showVideoImage.bind(me, url, classurl)} />) :
 				(<img src={url} style={{display:'none'}} onLoad={me.showVideoImage.bind(me, url, classurl)} />) 
 			
 			return (<span>{img}{def}</span>);
