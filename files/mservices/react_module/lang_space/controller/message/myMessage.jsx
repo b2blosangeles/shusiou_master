@@ -27,7 +27,7 @@ try {
             return (<div className="content_section">
 			{me.state.list.map((item) => {
 				return (
-					<div className="container" style={{'padding':'1em'}}>
+					<div className="container" style={{'padding-top':'1em'}}>
 						<div class="row">
 							<div className="col-sm-12 col-lg-12 col-md-12">
 								<div className="overlayer_box homepage_box">
