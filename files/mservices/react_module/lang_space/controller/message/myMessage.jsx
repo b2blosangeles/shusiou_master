@@ -19,7 +19,7 @@ try {
 				list.push(i);
 				me.setState({list : list});
 				localStorage.setItem('upload_' + i, new Date());
-			},1000
+			},6000
 		);
 	},
         render: function() {
