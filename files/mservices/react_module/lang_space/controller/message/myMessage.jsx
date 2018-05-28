@@ -23,7 +23,7 @@ try {
 			<br/>
 			{me.state.list.map((item) => {
 				return (
-					<div className="container">
+					<div className="container" style={{'padding-top':'1em'}}>
 						<div class="row">
 							<div className="col-sm-12 col-lg-12 col-md-12">
 								<div className="overlayer_box homepage_box">
@@ -31,7 +31,6 @@ try {
 								</div>	
 							</div>
 						</div>
-						<div class="row">&nbsp;</div>	
 					</div>
 				)
 			})}
