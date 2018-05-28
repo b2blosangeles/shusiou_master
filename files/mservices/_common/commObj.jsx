@@ -18,8 +18,8 @@ try {
 			if (!a.space) return '';
 			return url;
 		},
-		showVideoImage : function() {
-			alert('Show');
+		showVideoImage : function(o) {
+			$(o).show();
 		},
 		videoImage : function() {
 			var me = this, 
