@@ -9,6 +9,11 @@ try {
 		localStorage.clear();
 		me._itv = setInterval(
 			function() {
+				if (i > 5) {
+					i = 0;
+					localStorage.clear();
+					me.setState({list : []});
+				}
 				i++;
 				let list = me.state.list;
 				list.push(i);
