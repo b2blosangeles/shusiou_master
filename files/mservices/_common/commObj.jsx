@@ -18,15 +18,15 @@ try {
 			if (!a.space) return '';
 			return url;
 		},
-		showVideoImage : function(url) {
+		showVideoImage : function(url, classurl) {
 			console.log(url);
-			$('.'+encodeURIComponent(url)).hide();
+			$('.'+classurl).hide();
 			$("img[src='" + url + "']").show();
 		},
 		videoImage : function() {
 			var me = this, 
 			    url = me.videoImageUrl(), width = (me.props.data.width) ? me.props.data.width : '',
-			    classurl = encodeURIComponent(url);
+			    classurl = 'videoImage_' + _commObj.unicode;
 			
 			if (!url) return (<span/>);
 			
@@ -35,7 +35,7 @@ try {
 				(<img src={_master_svr() + '/images/film_bg.png'} className={classurl} />) 
 			var img = (width) ? 
 				(<img src={url} width={width}  style={{display:'none'}} onLoad={me.showVideoImage.bind(me, url)} />) :
-				(<img src={url} style={{display:'none'}} onLoad={me.showVideoImage.bind(me, url)} />) 
+				(<img src={url} style={{display:'none'}} onLoad={me.showVideoImage.bind(me, url, classurl)} />) 
 			
 			return (<span>{img}{def}</span>);
 		},
