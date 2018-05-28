@@ -14,7 +14,7 @@ var _commLib = function () {
 	let roles = (!userInfo || !userInfo.roles) ? [] : userInfo.roles,
 	    uid = (!userInfo || !userInfo.uid) ? null  : userInfo.uid;
 	if (!this.inte_array(roles, permission.role) &&  !this.inte_array(['*'], permission.role)) {
-		window.location.href = '/#/';
+	//	window.location.href = '/#/';
 	}
 	if (!uid && (permission.auth)) {
 	//	window.location.href = '/#/Signin';
@@ -57,9 +57,11 @@ var _commLib = function () {
 	me.buildPopup(ta, target, cfg);
 	if (!isNaN(holdTime)) { 
 		setTimeout(function() {
-			if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
-				ta.setState({ModalPopup:'cancel'});
-			}
+				if ((ta.state.ModalPopup) && (ta.state.ModalPopup.popup_type === 'alert')) {
+					ta.setState({ModalPopup:'cancel'});
+					if (typeof  holdTime === 'function') holdTime();
+					if (typeof callback === 'function') callback();
+				}
 		}, holdTime);
 	}
 	return true;       
@@ -68,7 +70,11 @@ var _commLib = function () {
     this.popupWin = function(target, setting)  {
 	let me = this, ta = (target.existModal) ? target : Root;
 	me.buildPopup(ta, target, setting);
-    }    
+    }
+    this.closePopupWin = function(target)  {
+	let me = this, ta = (target.existModal) ? target : Root;
+	ta.setState({ModalPopup:'cancel'}); 
+    }        
     this.buildPopup = function(ta, o, setting)  {
 	let me = this;  
         let caller_name = (ta.moduleName) ? ta.moduleName : '_Dynamic_',
@@ -108,26 +114,6 @@ var _commLib = function () {
         }
         ta.setState({ModalPopup : ModalPopup_cfg});        
         
-    }
-    
-    this.closePopup = function(target) {
-	var me = this, ta = (target.existModal) ? target : Root;
-	ta.setState({ModalPopup : 'cancel'}, function() {
-		alert(777);
-	});
-	/*
-	    return true;
-	    
-	if (!ta.props || !ta.props.parent) {
-		alert('No props');
-	} else {
-		if (!ta.props.parent.state.ModalPopup) {
-			me.closePopup(ta.props.parent);
-		} else {
-			ta.props.parent.setState({ModalPopup : 'cancel'});
-		}
-	} 
-	*/
     }
     
     this.toHHMMSS = function(v, noms) {

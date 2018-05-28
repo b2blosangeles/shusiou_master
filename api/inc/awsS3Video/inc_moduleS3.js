@@ -9,10 +9,10 @@
 			    accessKeyId: config.objectSpace.accessKeyId,
 			    secretAccessKey: config.objectSpace.secretAccessKey
 			});
-			
 		}
 		this.getBuckets = function(getBuckets_cbk) {	
 			var me = this, params = {}, Buckets = {};
+		
 			me.s3.listBuckets(params, function(err, data) {
 				if(err) {
 					getBuckets_cbk({err:err.message});

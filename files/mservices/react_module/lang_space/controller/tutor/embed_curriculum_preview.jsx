@@ -8,17 +8,18 @@ try {
 			var me = this;
 			if (me.props.params.opt == 'new') {
 				// me.getVideos();
+				/*
 				me.props.parent.getVideoInfo(me.props.params.id,
 					function(data) {
 						me.props.parent.setState({video:data.data[0]});
 					}
-				);
+				);*/
 			}
 		},
 		videoImage:function(t, a) {
 			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
 				      '&size=320&ss='+t;
-			return url;
+			return '';
 		},
 		checkVideo:function(id) {
 			var me = this;

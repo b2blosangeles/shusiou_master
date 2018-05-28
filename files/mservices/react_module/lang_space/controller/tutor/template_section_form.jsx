@@ -150,8 +150,7 @@ try {
 						    curriculum_id : me.props.parent.state.curriculum.curriculum_id,
 						    section_id: me.props.section_id,
 						    tpl:me.state.c_tpl, 
-						    data:me.state.data},
-						 auth:me.props.env.state.auth
+						    data:me.state.data}
 					 },
 				},
 				hold:0,
@@ -160,7 +159,7 @@ try {
 					if (!data || data.status !== 'success') {
 						Root.lib.alert(me, 'Error! ' + ((data) ? data.message : ''), 'danger');
 					} else {
-						Root.lib.alert(me, 'Data successfully saved!', 'success', 1000);
+						//  Root.lib.alert(me, 'Data successfully saved!', 'success', 1000);
 						me.props.parent.refreshSections();
 					}
 				}

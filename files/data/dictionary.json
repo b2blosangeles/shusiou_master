@@ -61,6 +61,10 @@
 		cn:"帮助",
 		en:"Help"	
 	},
+	my_message: {
+		cn:"系统信息",
+		en:"Message"	
+	},	
 	menu_testimony: {
 		cn:"成功案例",
 		en:"Testimony"	

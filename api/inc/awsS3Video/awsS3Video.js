@@ -11,7 +11,7 @@
 				var connection = pkg.mysql.createConnection(config.db);
 				connection.connect();
 				var str = "SELECT * FROM `cloud_spaces` WHERE `status` = 0 ORDER BY `size` ASC;";
-
+				
 				connection.query(str, function (err, results, fields) {
 					for (var i = 0; i < results.length; i++) {
 						if (patt.test( results[i].bucket)) {
@@ -21,7 +21,8 @@
 								mnt_folder : '/var/shusiou_video/'
 							};
 							break;
-						}	
+						}
+						
 					}
 					cbk(true);
 				});
@@ -90,6 +91,7 @@
 			CP.serial(
 				_f,
 				function(result) {
+								
 					if (CP.data.db_video === true) {
 						load_callback('No new id at all');
 					} else {
@@ -120,7 +122,6 @@
 			me.space_info = 'videos/' + me.source_file + '/_info.txt';
 			me.trunkSize = 512 * 1024;
 			me.vid = vid;
-			
 			pkg.request(me.space_url +  me.space_info, 
 				function (err, res, body) {
 					let v = (err) ? false : {};
@@ -134,7 +135,7 @@
 						_fA['_s'] = function (cbks) { me.split('_s', video_name, cbks); }
 						_fA['_t'] = function (cbks) { me.split('_t', video_name, cbks); }
 						CP_A.parallel( _fA,
-							function(results) {
+							function(results) {						
 								cbk(results);
 							},
 							50000
@@ -174,6 +175,9 @@
 			}
 		}		
 		this.split = function(_type, _file, _cbk) {
+			
+						
+			
 			let me = this;
 			let tmp_folder = '/var/shusiou_cache/tmpvideo/' + me.source_file + '/' + _type + '/';
 			let space_dir = 'videos/' + me.source_file + '/' + _type + '/';
@@ -200,7 +204,7 @@
 									else var condition = false;
 
 									if (err || condition) {
-										me.splitVideo(_type, tmp_folder, function(data) { 	
+										me.splitVideo(_type, tmp_folder, function(data) {
 											if (data.err) {
 												CP.exit = 1;
 												cbk(data);
@@ -229,18 +233,22 @@
 				  Marker : '',
 				  Prefix: space_dir
 				}, v = {};
-
+						
 				function listAllObject(params, callback) {
 					me.s3.listObjects(params, function (err, data) {
+						let NextMarker = '';
 						if(err) callback(err.message);
 						for (var o in data.Contents) {
 							let key = data.Contents[o].Key.replace(space_dir, '');
+							// console.log(key);
 							v[key] = data.Contents[o].Size;
+							NextMarker = data.Contents[o].Key;
 						}
-
+						
+						
 						if (data.IsTruncated) {
-							params.Marker = data.NextMarker;
-							listAllObject(params, callback)
+							params.Marker = NextMarker;
+							listAllObject(params, callback);
 						} else {
 							callback(v);
 						}
@@ -248,7 +256,7 @@
 					})
 
 				}
-				listAllObject(params, function(v) {
+				listAllObject(params, function(v) {						
 					if (typeof v === 'string') {
 						cbk(v);
 					} else {

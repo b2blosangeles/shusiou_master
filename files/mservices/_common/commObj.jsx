@@ -18,11 +18,24 @@ try {
 			if (!a.space) return '';
 			return url;
 		},
+		showVideoImage : function(url, classname) {
+			$('.'+classname).hide();
+			$("img[src='" + url + "']").show();
+		},
 		videoImage : function() {
 			var me = this, 
-			    url = me.videoImageUrl(), width = (me.props.data.width) ? me.props.data.width : '';
+			    url = me.videoImageUrl(), width = (me.props.data.width) ? me.props.data.width : '',
+			    classname = 'videoImage_' + _commObj.unicode;
+			
 			if (!url) return (<span/>);
-			else return (width) ? (<img src={url} width={width}  />) :  (<img src={url} width={width} />);
+			var def = (width) ? 
+				(<img src={_master_svr() + '/images/empty_default.png'} className={classname} width={width} />) :
+				(<img src={_master_svr() + '/images/empty_default.png'} className={classname} />) 
+			var img = (width) ? 
+				(<img src={url} width={width}  style={{display:'none'}} onLoad={me.showVideoImage.bind(me, url, classname)} />) :
+				(<img src={url} style={{display:'none'}} onLoad={me.showVideoImage.bind(me, url, classname)} />) 
+			
+			return (<span>{img}{def}</span>);
 		},
 		videoBgImage : function() {
 			let me = this, img = me.props.data.img, url =  me.videoImageUrl();

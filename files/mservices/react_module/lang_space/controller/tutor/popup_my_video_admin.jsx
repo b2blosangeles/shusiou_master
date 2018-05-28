@@ -2,7 +2,6 @@ try {
 	var My_video_admin =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			me.lib = new _commLib();
 			return {video_url:'', vid:'', error:'', list:[]};
 		},
 		initState:function() {
@@ -12,7 +11,6 @@ try {
 			var me = this;	
 		},
 		componentDidUpdate:function(prePropos, preState) {
-			
 			var me = this;
 			if (prePropos.id != me.props.id) {
 			//	console.log(prePropos.id + '=======' + me.props.id);
@@ -21,7 +19,7 @@ try {
 		},		
 		close_admin:function(){
 			var me = this;  
-			me.lib.closePopup(me);
+			Root.lib.closePopupWin(me);
 		},
 		handleChange:function(e) {
 			var me = this;
@@ -37,41 +35,36 @@ try {
 		videoUrlSubmit:function(){
 			var me = this;
 			let engCfg = {
-				Q:[ {code:'getVieoInfo', url : _master_svr() + '/api/video/myVideo.api?opt=add', method:'post', 
-					 data:{code: me.state.video_url, auth:me.props.parent.props.route.env.state.auth}
-				}],
+				request:{code:'videoUrlSubmit', 
+					 url :  _master_svr() + '/api/video/myVideo.api?opt=add', 
+					 method:'post', 
+					 data:{code: me.state.code}
+				},
 				hold:500,
 				setting: {timeout:6000},
 				callBack: function(data) {
-					me.close_admin();
+					Root.lib.closePopupWin(me.props.parent);
 					me.props.parent.callEng();
 				}
-				
-			}
-			me.lib.setCallBack(engCfg, me);
-			me.setState({_eng:engCfg});
+			}			
+			Root.lib.loadEng(me, engCfg);
 		},
 		videoUrlDecode:function() {
-			var me = this;
+			var me = this, code = me.state.video_url;		
 			let engCfg = {
-				Q:[
-					{code:'getVieoInfo', url : _master_svr() + '/api/video/myVideo.api?opt=getYouTubeInfo', method:'post', 
-					 data:{video_url: me.state.video_url, auth : me.props.parent.props.route.env.state.auth}
-					}
-				],
-				hold:1,
+				request:{code:'getVieoInfo', 
+					 url :  _master_svr() + '/api/video/myVideo.api?opt=getYouTubeInfo', 
+					 method:'post', 
+					 data:{video_url: me.state.video_url}
+				},
+				hold:500,
 				setting: {timeout:6000},
 				callBack: function(data) {
-					
-					var EngRData = (!data || !data.EngResult || !data.EngResult.getVieoInfo || 
-					!data.EngResult.getVieoInfo.data) ? {} : data.EngResult.getVieoInfo.data;
-
-					me.setState(EngRData);
+					data.data.code = code;
+					me.setState(data.data);
 				}
-				
-			}
-			me.lib.setCallBack(engCfg, me);
-			me.setState({_eng:engCfg});
+			}			
+			Root.lib.loadEng(me, engCfg);
 		},		
 	
 		render:function() {
@@ -90,7 +83,6 @@ try {
 				<p>
 					<h5>Or pulling a shared videos</h5>
 				</p>
-				<_commEng parent={me} />
 			</p>);	
 			else return (
 			<p style={{'padding':'1em'}}>						
@@ -116,7 +108,6 @@ try {
 							</p>
 						</div>	
 					</div>
-					<_commEng parent={me} />
 				</div>
 				<div className="download_matrix">
 				{(function() {

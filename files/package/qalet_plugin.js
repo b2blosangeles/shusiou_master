@@ -24,9 +24,10 @@
 			"/mservices/react_module/lang_space/controller/root.jsx",
 			"/mservices/react_module/lang_space/controller/foot_section.jsx",
 			"/mservices/react_module/lang_space/controller/top_section.jsx",
-			"/mservices/react_module/lang_space/controller/help_popup.jsx",			
-
+			"/mservices/react_module/lang_space/controller/help_popup.jsx",	
 			
+			"/mservices/react_module/lang_space/controller/message/myMessage.jsx",
+
 			"/mservices/react_module/lang_space/controller/admin/user_adminAAA.jsx",
 			
 			"/mservices/react_module/lang_space/controller/auth/signin.jsx",

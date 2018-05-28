@@ -2,7 +2,6 @@ try {
 	var MyCurriculumById =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			me.lib = new _commLib();
 			return {
 				preview_time:0,
 				section:{},
@@ -78,13 +77,15 @@ try {
 			var vid = '';	
 			if (me.props.params['opt'] == 'new') {
 				vid = me.props.params['id'];
+				/*
 				me.getVideoInfo(vid,
 					function(data) {
 						me.setState({vid:vid, video:data.data[0]});
 						me.leftBox(me.props.params);
 						me.rightBox(me.props.params);				
 					}
-				);
+				);*/
+				
 			} else if (me.props.params['opt'] == 'edit') {
 				var cid = me.props.params['id'];
 				me.getCurriculumById(cid, function(data) {		
@@ -99,11 +100,6 @@ try {
 		},
 		componentDidUpdate:function() {
 			var me = this;
-		},
-		closePopup:function() {
-			var me = this;
-			me.setState({ModalPopup:'cancel'});
-			return true;
 		},			
 		deleteCurriculum: function(params, track) {
 			var me = this;			
@@ -115,7 +111,7 @@ try {
 							<div style={{padding:'1em'}}>
 								<p>It is going to clean up the curriculum please confirm:</p>
 								<button className="btn btn-danger btn_margin6 pull-right" onClick={ta.sendDeleteCurriculum.bind(ta)}>Confirm</button>
-								<button className="btn btn-warning btn_margin6 pull-right" onClick={ta.closePopup.bind(ta)}>Cancel</button>
+								<button className="btn btn-warning btn_margin6 pull-right" onClick={Root.lib.closePopupWin.bind(ta, ta)}>Cancel</button>
 							</div>
 						);
 					}	
@@ -124,68 +120,74 @@ try {
 				popup_type : 'window',
 				close_icon :false
 			};
-			me.lib.buildPopup(me, cfg);			
-			
-			
-		},		
+			Root.lib.popupWin(me, cfg);
+		},
 		sendDeleteCurriculum:function() {
 			var me = this, curriculum_id = me.state.curriculum.curriculum_id;
-			if (curriculum_id) {
-				me.props.route.env.engine({
-					url: _master_svr() + '/api/curriculum/myCurriculum.api',
-					method: "POST",
-					data: {cmd:'delete', curriculum_id:curriculum_id},
-					dataType: "JSON"
-				}, function( data) {
-					me.closePopup();
-					me.props.router.push('/tutor/my_curriculums');
-				},function( jqXHR, textStatus ) {
-					me.closePopup();
-				});				
-			} else {}
-			
-		},
+			Root.lib.closePopupWin(me);
+			let engCfg = {
+				request:{code:'delete_curriculum', 
+					 url : _master_svr() + '/api/curriculum/myCurriculum.api', 
+					 method:'post', 
+					 data:{cmd:'delete', curriculum_id:curriculum_id}
+				},
+				hold:500,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					if (data.status === 'success') {
+						window.location.href = '/#/tutor/my_curriculums';
+					} else {
+						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
+						
+					}
+				}
+			}
+			Root.lib.loadEng(me, engCfg);
+		},	
 		submitCurriculum:function(v, jump){
+			
 			var me = this, data = {};
 			if (me.state.curriculum.id) {
 				data = {cmd:'update', curriculum_id:me.state.curriculum.curriculum_id, vid: me.state.curriculum.vid, 
 					name:me.state.curriculum.name, 
 					section:me.state.section,
 					published:(me.state.curriculum.published)?me.state.curriculum.published:0,
-				        sections:me.state.sections,
-				        auth:me.props.route.env.state.auth
+				        sections:me.state.sections
 				};
 			} else {
 				data = {cmd:'add', vid: me.state.video.vid, name:me.state.curriculum.name, 
 					mother_lang:me.state.curriculum.mother_lang, 
 					learning_lang:me.state.curriculum.learning_lang, 
 					level:me.state.curriculum.level, 					
-				        sections:me.state.sections,
-					auth:me.props.route.env.state.auth
+				        sections:me.state.sections
 				       };
 			}
-			
-			me.props.route.env.engine({
-				url: _master_svr() + '/api/curriculum/myCurriculum.api',
-				method: "POST",
-				data: data,
-				dataType: "JSON"
-			}, function( data) {
-				if ((data.data) && v === '') {
-					me.props.router.push('/tutor/my_curriculum/edit/'+data.data);
-				} else if (jump) {
-					me.props.router.push('/tutor/my_curriculums');
-				} 
-				var cid = me.props.params['id'];
-				me.getCurriculumById(cid, function(data) {
-					if (data.data.curriculum_id) {
-						me.setState({curriculum:data.data,
-						sections: data.data.sections});
-					} 
-				});
-			},function( jqXHR, textStatus ) {
-				console.log('error');
-			});			
+			let engCfg = {
+				request:{code:'getlist', url : _master_svr() + '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:data
+				},
+				hold:500,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					//Root.lib.alert(me, 'Data load success!', 'success', 1000, function() {
+						if ((data.data) && v === '') {
+							// me.props.router.push('/tutor/my_curriculum/edit/'+data.data);
+							window.location.href = '/#/tutor/my_curriculum/edit/'+data.data;
+						} else if (jump) {
+							window.location.href = '/#/tutor/my_curriculums';
+						} 					
+					//});
+					return true;
+					var cid = me.props.params['id'];
+					me.getCurriculumById(cid, function(data) {
+						if (data.data.curriculum_id) {
+							me.setState({curriculum:data.data,
+							sections: data.data.sections});
+						} 
+					});
+				}
+			}
+			Root.lib.loadEng(me, engCfg);			
 		},
 		dictionary:function(v) {
 			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
@@ -209,8 +211,37 @@ try {
 					});
 				}
 			});			
-		},
+		},		
 		getCurriculumById: function(curriculum_id, cbk) {
+			var me = this;
+			let engCfg = {
+				request:{code:'getlist', url : _master_svr() + '/api/curriculum/myCurriculum.api', method:'post', 
+					 data:{ cmd:'getCurriculumById', curriculum_id:curriculum_id,
+				      		auth:me.props.route.env.state.auth},
+					 dataType: "JSON"
+				},
+				hold:0,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					if (typeof cbk == 'function') {
+						cbk(data);
+					}
+					/*
+					return true;
+					
+					if (data.status === 'success') {
+						me.setState({list:data.data}, function() {
+						//	Root.lib.alert(me, 'Data load success!', 'success', 3000);
+						});
+					} else {
+						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
+						
+					}*/
+				}
+			}
+			Root.lib.loadEng(me, engCfg);
+		},		
+		getCurriculumById0: function(curriculum_id, cbk) {
 			var me = this;
 			me.props.route.env.engine({
 				url: _master_svr() + '/api/curriculum/myCurriculum.api',
@@ -241,9 +272,8 @@ try {
 				<div className="content_section">
 					<br/>
 					{me.mainBox()}
-					<div className="content_bg opacity_bg"></div>
-					<_commWin parent={me} />
-					<_commEng parent={me} />
+					<div className="content_bg opacity_bg"/>
+					{Root.lib.landingModal(me)}
 				</div>
 			)
 		}

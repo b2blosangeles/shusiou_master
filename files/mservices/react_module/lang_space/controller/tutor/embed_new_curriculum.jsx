@@ -10,28 +10,36 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
-			me.getVideos();
+			setTimeout(me.getVideos);
 		},
 
 		checkVideo:function(v) {
 			var me = this;
 			me.props.parent.setState({video:v});	
 		},
+				
 		getVideos:function() {
 			var me = this;
-			$.ajax({
-				url: _master_svr() + '/api/video/myVideo.api?opt=getMyActiveVideos',
-				method: "POST",
-				data: {auth:me.props.parent.props.route.env.state.auth},
-				dataType: "JSON"
-			}).done(function( data) {
-				if (data.status == 'success') {
-					me.setState({videoList:data.data});
-				}	
-				console.log(data);
-			}).fail(function( jqXHR, textStatus ) {
-				console.log('error');
-			});			
+			let engCfg = {
+				request:{code:'getMyActiveVideos', 
+					 url : _master_svr() + '/api/video/myVideo.api?opt=getMyActiveVideos', 
+					 method:'post', 
+					 data:{}
+				},
+				hold:1000,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					if (data.status === 'success') {
+						me.setState({videoList:data.data}, function() {
+							Root.lib.alert(me, 'Data load success!', 'success', 1000);
+						});
+					} else {
+						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
+						
+					}
+				}
+			}
+			Root.lib.loadEng(me, engCfg);						
 		},
 		bgFilmStyle:function(a) {
 			var url =  _node_svr() + '/api/video/pipe.api?space=' + a.space + '&video_fn='+ a.vid +
@@ -104,8 +112,8 @@ try {
 									<table width="100%" style={{'margin-bottom':'6px'}}>
 										<tr>
 											<td width="100" valign="top">
-												<img src={ _master_svr() + '/images/film_bg.png'} 
-												style={me.bgFilmStyle(a)}  width="90"/>
+												<_commObj code={'videoImage'}  
+												data={{rec:a, width:'100%', ss:90, size:90}}/>
 											</td>
 											<td  width="6"></td>
 											<td  style={{'text-align':'left',whiteSpace: 'normal',wordWrap: 'break-word',
@@ -173,7 +181,7 @@ try {
 						<button className="btn btn-default btn_margin6"
 							onClick={this.cancelToSave.bind(this)}>Cancel</button>	
 						{me.saveButton()}
-
+						{Root.lib.landingModal(me)}
 					</div>)
 		}
 	});

@@ -28,6 +28,8 @@ let CP = new pkg.crowdProcess(),
     _f = {};
 _f['getBuckets'] = function(cbk) {
 	objS3.getBuckets(function(list) {
+		console.log('list---->');
+		console.log(list);
 		cbk({tm : new Date().getTime() - tm, data:list});
 	});
 }
