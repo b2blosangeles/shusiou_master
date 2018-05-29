@@ -94,6 +94,7 @@ try {
 			},
 			componentDidMount:function() {	
 				var me = this;
+				me.buidSocketIO();
 				me.getAuth();
 
 			},
