@@ -11,6 +11,19 @@ try {
 		componentDidUpdate:function() {
 			var me = this;	
 		},
+		io:function(list) {
+			for (let i=0; i < list.length; i++) {
+				if (list[i].space_status === 1) {
+					Root.socket.emit('createRoom', 'VID_' + list[i].vid); 
+				}	
+			}
+			/*
+			Root.socket.on('serverData', function(data) {
+				console.log(data);
+			});
+			Root.socket.emit('clientData', {room: 'testroom', data: cdata});
+			*/
+		},
 		callEng:function() {
 			var me = this;
 			let engCfg = {
@@ -28,6 +41,7 @@ try {
 						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
 						EngR.getlist.data},
 						function() {
+							me.io(EngR.getlist.data);
 							// Root.lib.alert(me, 'Data load success!', 'success', 3000);
 						});	
 				}

@@ -19,6 +19,13 @@ try {
 					userInfo: {}
 				};
 			},
+			buidSocketIO : function() {
+				let me = this;
+				me.socket = io.connect('/');
+				me.socket.on('serverMessage', function(data) {
+					console.log(data);
+				});				
+			},
 			dictionary: function(v) {
 				if  (!this.state.dictionary[v]) return v;
 				return (!this.state.dictionary[v][this.state.c_lang])?this.state.dictionary[v]['en']:this.state.dictionary[v][this.state.c_lang];
@@ -87,6 +94,7 @@ try {
 			},
 			componentDidMount:function() {	
 				var me = this;
+				me.buidSocketIO();
 				me.getAuth();
 
 			},
