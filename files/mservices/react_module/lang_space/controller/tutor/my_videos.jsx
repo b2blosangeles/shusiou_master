@@ -13,10 +13,11 @@ try {
 		},
 		io:function(cdata) {
 			Root.socket.emit('createRoom', 'testroom'); 
+			Root.socket.emit('createRoom', 'testroom'); 
 			Root.socket.on('serverData', function(data) {
 				console.log(data);
 			});
-			Root.socket.emit('clientData', {room: 'testroom', data: cdata});		
+			Root.socket.emit('clientData', {room: 'testroom', data: 'cdata'});		
 		},
 		callEng:function() {
 			var me = this;
