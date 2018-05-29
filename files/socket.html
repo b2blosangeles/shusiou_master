@@ -11,10 +11,11 @@
   <script>
     	var socket = io.connect('https://master1.service.dev.shusiou.win:1443/');
 	socket.emit('createRoom', 'VIDEO_112'); 
-	socket.emit('event', { message: 'some data' }); 
+	 
 	socket.on('announcements', function(data) {
         	console.log('Got announcement:', data.message);
     	});
+	  socket.emit('event', { message: 'some data' });
     </script>	
 </head>	
 <body>	
