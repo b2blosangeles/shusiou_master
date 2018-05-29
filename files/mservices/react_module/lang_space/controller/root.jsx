@@ -1,6 +1,7 @@
 
 try {
 	var shusiou_url = location.protocol+'//'+window.location.hostname;
+	var socket = io.connect('/');
 	if (location.protocol !== 'https:') {
 		window.location.href = window.location.href.replace(shusiou_url, 'https://' + window.location.hostname);
 	} else {
