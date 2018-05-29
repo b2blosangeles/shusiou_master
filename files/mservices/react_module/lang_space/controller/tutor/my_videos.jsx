@@ -11,6 +11,13 @@ try {
 		componentDidUpdate:function() {
 			var me = this;	
 		},
+		io:function(cdata) {
+			socket.emit('createRoom', 'test_room'); 
+			socket.on('serverData', function(data) {
+			  console.log(data);
+			});
+			socket.emit('test_room', {room: 'niub', data: cdata});		
+		},
 		callEng:function() {
 			var me = this;
 			let engCfg = {
@@ -28,12 +35,7 @@ try {
 						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
 						EngR.getlist.data},
 						function() {
-							socket.emit('createRoom', 'niub'); 
-							socket.on('serverData', function(data) {
-							  console.log(data);
-							});
-							socket.emit('clientData', {room: 'niub', data: 'EngR.getlist.data'});
-
+							me.io(EngR.getlist.data);
 							// Root.lib.alert(me, 'Data load success!', 'success', 3000);
 						});	
 				}
