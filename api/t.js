@@ -1,2 +1,2 @@
-var mysql = require(env.site_path + '/api/inc/mysql/node_modules/mysql');
+var io_client = require(env.site_path + '/api/inc/socket.io-client/node_modules/socket.io-client');
 res.send(env);
