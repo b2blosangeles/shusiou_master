@@ -16,6 +16,9 @@ try {
 			socket.on('serverData', function(data) {
 			  console.log(data);
 			});
+			socket.on('serverMessage', function(data) {
+			  console.log(data);
+			});
 			socket.emit('test_room', {room: 'niub', data: cdata});		
 		},
 		callEng:function() {
