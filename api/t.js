@@ -10,5 +10,7 @@ var socket = require('/var/qalet/sites/master/api/inc/socket.io-client/node_modu
 socket.on('connect', function(err){
     console.log(err);
 });
-
-
+socket.on('serverMessage', function(data) {
+    console.log(data);
+});
+socket.emit('createRoom', 'VID_NIU');
