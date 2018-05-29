@@ -7,7 +7,7 @@
 
 // var socket = io("http://dev.shusiou.win/");
 var io = require('/var/qalet/sites/master/api/inc/socket.io-client/node_modules/socket.io-client');
-let socket = io.connect("http://dev.shusiou.win/");
+let socket = io.connect("https://dev.shusiou.win/");
 console.log('check 1', socket.connected);
 socket.on('connect', function(err){
     console.log('---1---');
