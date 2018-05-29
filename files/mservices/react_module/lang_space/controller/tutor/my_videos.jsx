@@ -28,6 +28,12 @@ try {
 						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
 						EngR.getlist.data},
 						function() {
+							setTimeout(
+							  function() {
+							    socket.emit('clientData', {room: 'testroom' , data: {id:'niu', data:'test'}});
+							  }, 3000
+							);
+
 							// Root.lib.alert(me, 'Data load success!', 'success', 3000);
 						});	
 				}
