@@ -1,7 +1,6 @@
 
 try {
 	var shusiou_url = location.protocol+'//'+window.location.hostname;
-	var socket = io.connect('/');
 	if (location.protocol !== 'https:') {
 		window.location.href = window.location.href.replace(shusiou_url, 'https://' + window.location.hostname);
 	} else {
@@ -19,6 +18,13 @@ try {
 					c_lang:(!reactCookie.load('lang'))?'cn':reactCookie.load('lang'),
 					userInfo: {}
 				};
+			},
+			buidSocketIO : function() {
+				let me = this;
+				me.socket = io.connect('/');
+				me.socket.on('serverMessage', function(data) {
+					console.log(data);
+				});				
 			},
 			dictionary: function(v) {
 				if  (!this.state.dictionary[v]) return v;
