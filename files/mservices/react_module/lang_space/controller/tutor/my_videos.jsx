@@ -28,7 +28,11 @@ try {
 						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
 						EngR.getlist.data},
 						function() {
-							socket.emit('clientData', {room: 'testroom', data: EngR.getlist.data});
+							socket.emit('createRoom', 'niub'); 
+							socket.on('serverData', function(data) {
+							  console.log(data);
+							});
+							socket.emit('clientData', {room: 'niub', data: 'EngR.getlist.data'});
 
 							// Root.lib.alert(me, 'Data load success!', 'success', 3000);
 						});	
