@@ -5,6 +5,6 @@ socket.on('serverData', function(data) {
 });
 setTimeout(
   function() {
-    socket.emit('clientData', encodeURIComponent(JSON.stringify({room: 'testroom' , data: 'dcsf.sdf'})));
+    socket.emit('clientData', {room: 'testroom' , data: 'dcsf.sdf'});
   }, 3000
 );
