@@ -7,8 +7,8 @@
 
 // var socket = io("https://dev.shusiou.win/");
 var socket = require('/var/qalet/sites/master/api/inc/socket.io-client/node_modules/socket.io-client')('https://dev.shusiou.win');
-socket.on('connect', function(){
-  res.send('env--A');
+socket.on('connect', function(err){
+    console.log(err);
 });
 
 
