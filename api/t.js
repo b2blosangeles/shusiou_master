@@ -5,4 +5,4 @@ ioClient.emit('createRoom', 'VID_NIU');
 
  ioClient.emit('clientData', {room: 'VID_NIU', data: 'niu BB'});
 
-res.send(env);
+res.send('env--');
