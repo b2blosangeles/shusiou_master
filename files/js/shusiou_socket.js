@@ -5,8 +5,6 @@ socket.on('serverData', function(data) {
 });
 setTimeout(
   function() {
-    socket.emit('clientData', {room: 'testroom' , data: {id:'niu', data:'dcsf.sdf', func:function() {
-      alert(test);
-    }}});
+    socket.emit('clientData', {room: 'testroom' , data: {id:'niu', data:'dcsf.sdf', func:'func name'}});
   }, 3000
 );
