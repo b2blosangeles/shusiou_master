@@ -21,9 +21,11 @@ try {
 			},
 			buidSocketIO : function() {
 				let me = this;
-				me.socket = io.connect('/');
-				console.log('==socket_id ====>');
-				console.log(me.socket.id);
+				me.socket = io.connect('/', function() {
+					console.log('==socket_id ====>');
+					console.log(me.socket.id);
+				});
+				
 				me.socket.on('serverMessage', function(data) {
 					console.log(data);
 				});				
