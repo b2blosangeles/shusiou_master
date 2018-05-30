@@ -44,21 +44,21 @@ function s() {
 				//delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
 				//var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
 				// var socketClient = new socketNodeClient('https://' + config.root + '/');
-
+				/*
 				socketClient.sendToRoom(
 				    'VID_NIU',
 				    {x:new Date(), Y:6},
 				    function(data) {
 					// res.send(data);
 				    }
-				);			
+				);*/			
 			s();
 		} else {
 			console.log('---- stopped ----> ');
 				//delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
 				//var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
 				//var socketClient = new socketNodeClient('https://' + config.root + '/');
-
+				/*
 				socketClient.sendToRoom(
 				    'VID_NIU',
 				    {x:new Date(), Y:1},
@@ -66,6 +66,7 @@ function s() {
 					// res.send(data);
 				    }
 				);
+				*/
 			process.exit(-1);
 			return true;
 		}
@@ -77,7 +78,7 @@ s();
 //delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
 //var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
 //var socketClient = new socketNodeClient('https://' + config.root + '/');
-
+/*
 socketClient.sendToRoom(
     'VID_NIU',
     {x:new Date()},
@@ -85,7 +86,7 @@ socketClient.sendToRoom(
       //  res.send(data);
     }
 );
-
+*/
 /* --- code for cron watch ---*/
 delete require.cache[__dirname + '/watch_cron.inc.js'];
 let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
