@@ -2,7 +2,7 @@
 	var obj =  function () {
 		let me = this;
 		me.io = require('../socket.io-client/node_modules/socket.io-client');
-		me.sendToRoom = function (room, url, data, callback) {
+		this.sendToRoom = function (room, url, data, callback) {
 			let me = this;
 			me.socket = me.io.connect(url, {secure: true, reconnect: true, rejectUnauthorized : false});
 			me.requestID = room + '_' + new Date().getTime();
