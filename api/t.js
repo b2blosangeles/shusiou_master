@@ -9,7 +9,7 @@ socket.on('serverData', (function(res) {
     return function(data) {
         if (data.requestID === requestID) {
             socket.disconnect();
-            res.send('data_'+requestID);
+            res.send(data);
         }
     }  
 })(res));
