@@ -10,7 +10,7 @@ socket.on('connect', function(){
         function() {
             socket.emit('clientData', {room: room, data: { requestID:requestID, data: 'requestID'}});
         }, 1000
-    }
+    )
     socket.on('serverData', (function(res, requestID) {
         return function(data) {
            // if (data.requestID === requestID) {
