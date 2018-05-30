@@ -1,7 +1,7 @@
 (function () { 
 	var obj =  function () {
-		let me = this;
-		me.io = require('../socket.io-client/node_modules/socket.io-client');
+		//let me = this;
+		this.io = require('../socket.io-client/node_modules/socket.io-client');
 		this.sendToRoom = function (room, url, data, callback) {
 			let me = this;
 			me.socket = me.io.connect(url, {secure: true, reconnect: true, rejectUnauthorized : false});
