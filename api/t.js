@@ -1,7 +1,8 @@
 let socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
 let socketClient = new socketNodeClient();
 
-socketClient.sendToRoom('VID_NIU', 
+socketClient.sendToRoom(
+    'VID_NIU', 
     'https://dev.shusiou.win/', 
     {secure: true, reconnect: true, rejectUnauthorized : false},
     function(data) {
