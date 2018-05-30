@@ -10,9 +10,8 @@ var config = require(env.config_path + '/config.json');
 
 /* -------------*/
 delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
-let socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-
-let socketClient = new socketNodeClient('https://' + config.root + '/');
+var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+var socketClient = new socketNodeClient('https://' + config.root + '/');
 
 socketClient.sendToRoom(
     'VID_NIU',
@@ -46,10 +45,8 @@ function s() {
 		} else {
 			console.log('---- stopped ----> ');
 				delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
-				let socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-
-				var config = require(env.config_path + '/config.json');
-				let socketClient = new socketNodeClient('https://' + config.root + '/');
+				var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+				var socketClient = new socketNodeClient('https://' + config.root + '/');
 
 				socketClient.sendToRoom(
 				    'VID_NIU',
@@ -67,10 +64,8 @@ function s() {
 s();
 
 delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
-let socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-
-var config = require(env.config_path + '/config.json');
-let socketClient = new socketNodeClient('https://' + config.root + '/');
+var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+var socketClient = new socketNodeClient('https://' + config.root + '/');
 
 socketClient.sendToRoom(
     'VID_NIU',
