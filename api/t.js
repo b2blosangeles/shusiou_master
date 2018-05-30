@@ -4,10 +4,13 @@ socket.on('connect', function(err, a){
     socket.emit('createRoom', 'VID_NIU');
     socket.emit('clientData', {room: 'VID_NIU', data: 'reloadvideos'});
     socket.on('serverMessage', function(data) {
+        console.log(data);
+    }); 
+    socket.on('getData', function(data) {
          console.log('---2---');
         console.log(data);
         socket.disconnect();
-    });    
+    });      
 });
 
 
