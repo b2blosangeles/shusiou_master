@@ -2,9 +2,11 @@ var io = require('/var/qalet/sites/master/api/inc/socket.io-client/node_modules/
 let socket = io.connect("https://dev.shusiou.win/", {secure: true, reconnect: true, rejectUnauthorized : false});
 let room = 'VID_NIU', requestID = room + '_' + new Date().getTime();
 socket.on('connect', function(){
+
+});
     socket.emit('createRoom', room);
     socket.emit('clientData', {room: room, data: { requestID:requestID, data: 'requestID'}});
-});
+
 socket.on('serverData', (function(res, requestID) {
     return function(data) {
         if (data.requestID === requestID) {
