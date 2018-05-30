@@ -6,11 +6,8 @@ let res = {send: function(d) { console.log(d);}}
 
 socket.on('connect', function(){
     socket.emit('createRoom', room);
-    setTimeout(
-        function() {
-            socket.emit('clientData', {room: room, data: { requestID:requestID, data: 'requestID'}});
-        }, 1000
-    )
+    socket.emit('clientData', {room: room, data: { requestID:requestID, data: 'requestID'}});
+    
     socket.on('serverData', (function(res, requestID) {
         return function(data) {
             if ((data.data) && data.data.requestID === requestID) {
