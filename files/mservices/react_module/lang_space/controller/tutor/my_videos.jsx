@@ -28,7 +28,8 @@ try {
 			}
 			
 			Root.socket.on('serverData', function(data) {
-				console.log(data);
+				console.log('Root.socket.id->' + Root.socket.id)
+				console.log(data.data);
 			});
 			/*
 			Root.socket.emit('clientData', {room: 'testroom', data: cdata});
