@@ -6,10 +6,13 @@ socket.on('connect', function(){
     socket.emit('clientData', {room: 'VID_NIU', requestID:requestID, data: requestID});
 
 });
-socket.on('serverData', (function(res) {
-    return function(data) {
+socket.on('serverData', 
+          //(function(res) {
+   // return 
+    function(data) {
         socket.disconnect();
         res.send('data_'+requestID);
     }  
-})(res));
+//})(res)
+);
 
