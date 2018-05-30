@@ -16,12 +16,13 @@
 			});
 			me.socket.on('serverData', function(data) {
 				if ((data.data) && data.data.requestID === me.requestID) {
-					me.socket.disconnect();
+					
 					if(me.socket.rooms.length){
 					    callback('A' + me.socket.rooms.length);
 					  }else{
 					    callback('B' + me.socket.rooms.length);
 					  }
+					me.socket.disconnect();
 					//callback(me.requestID + '===---' + data.data.requestID);
 				}
 			});		
