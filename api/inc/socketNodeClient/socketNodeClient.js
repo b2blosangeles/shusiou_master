@@ -1,10 +1,14 @@
 (function () { 
-	var obj =  function () {
+	var obj =  function (url) {
 		let me = this;
 		me.io = require('../socket.io-client/node_modules/socket.io-client');
-		me.sendToRoom = function (room, url, data, callback) {
-			let me = this;
+
+		me.connect = function (room, data, callback) {
 			me.socket = me.io.connect(url, {secure: true, reconnect: true, rejectUnauthorized : false});
+		}
+		me.sendToRoom = function (room, data, callback) {
+			let me = this;
+			me.connect();
 			me.requestID = room + '_' + new Date().getTime();
 
 			me.socket.on('connect', function(){
