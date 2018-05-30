@@ -9,10 +9,10 @@ socket.emit('clientData', {room: room, data: { requestID:requestID, data: 'reque
 
 socket.on('serverData', (function(res, requestID) {
     return function(data) {
-        if (data.requestID === requestID) {
+      //  if (data.requestID === requestID) {
             socket.disconnect();
-            res.send(data);
-        }
+            res.send(requestID);
+       // }
     }  
 })(res, requestID));
 
