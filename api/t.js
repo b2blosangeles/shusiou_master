@@ -5,6 +5,7 @@ let socketClient = new socketNodeClient('https://dev.shusiou.win/');
 
 socketClient.sendToRoom(
     'VID_NIU',
+    {x:1234},
     function(data) {
         res.send(data);
     }
