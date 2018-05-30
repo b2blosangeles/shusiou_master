@@ -1,12 +1,10 @@
 delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
 let socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
 
-let socketClient = new socketNodeClient();
+let socketClient = new socketNodeClient('https://dev.shusiou.win/');
 
 socketClient.sendToRoom(
-    'VID_NIU', 
-    'https://dev.shusiou.win/', 
-    {secure: true, reconnect: true, rejectUnauthorized : false},
+    'VID_NIU',
     function(data) {
         res.send(data);
     }
