@@ -9,7 +9,9 @@
 		}
 		me.sendToRoom = function (room, data, callback) {
 			let me = this;
-			me.connect();
+			if (!me.socket.connected) {
+				me.connect();
+			}
 			me.requestID = room + '_' + new Date().getTime();
 
 			me.socket.on('connect', function(){
