@@ -22,10 +22,12 @@ try {
 			buidSocketIO : function() {
 				let me = this;
 				me.socket = io.connect('/', function() {
+					
+				});
+				me.socket.on('connection', function(socket) {
 					console.log('==socket_id ====>');
 					console.log(me.socket.id);
 				});
-				
 				me.socket.on('serverMessage', function(data) {
 					console.log(data);
 				});				
