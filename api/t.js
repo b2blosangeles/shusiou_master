@@ -3,7 +3,7 @@ let socket = io.connect("https://dev.shusiou.win/", {secure: true, reconnect: tr
 let requestID = 'asedk';
 socket.on('connect', function(){
     socket.emit('createRoom', 'VID_NIU');
-    socket.emit('clientData', {room: 'VID_NIU', data: { requestID:requestID, data: 'requestID'});
+    socket.emit('clientData', {room: 'VID_NIU', data: { requestID:requestID, data: 'requestID'}});
 
 });
 socket.on('serverData', 
