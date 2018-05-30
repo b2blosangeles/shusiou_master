@@ -1,3 +1,8 @@
+
+var config = require(env.config_path + '/config.json');
+res.send(config);
+return true;
+
 delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
 let socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
 
