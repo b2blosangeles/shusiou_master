@@ -21,13 +21,7 @@ try {
 			},
 			buidSocketIO : function() {
 				let me = this;
-				me.socket = io.connect('/', function() {
-					
-				});
-				let _itv = setInterval(function() {
-					console.log('==socket_id ====>');
-					console.log(me.socket.id + '--connected --' + me.socket.connected);
-				}, 10000);
+				me.socket = io.connect('/', function() {});
 				me.socket.on('serverMessage', function(data) {
 					console.log(data);
 				});				
