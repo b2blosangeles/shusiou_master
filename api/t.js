@@ -10,7 +10,7 @@ socket.on('serverData',
           //(function(res) {
    // return 
     function(data) {
-        socket.disconnect();
+       // socket.disconnect();
         res.send('data_'+requestID);
     }  
 //})(res)
