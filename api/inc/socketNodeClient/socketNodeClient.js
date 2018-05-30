@@ -22,12 +22,9 @@
 			});
 			me.socket.on('serverData', function(data) {
 				if ((data.data) && data.data.requestID === me.requestID) {
-					
-					callback('me.socket.connected-->' + me.socket.connected);
+					callback('- requestID -' + data.data.requestID + ' - connected -' + me.socket.connected);
 					me.socket.disconnect();
 					return true;
-					
-					//callback(me.requestID + '===---' + data.data.requestID);
 				}
 			});		
 		};
