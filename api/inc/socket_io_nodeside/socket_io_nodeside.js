@@ -1,27 +1,25 @@
 (function () { 
 	var obj =  function () {
-		var io = require(env.sites_path + '/api/inc/socket.io-client/node_modules/socket.io-client');
-		let socket = io.connect("https://dev.shusiou.win/", {secure: true, reconnect: true, rejectUnauthorized : false});
-		let room = 'VID_NIU', requestID = room + '_' + new Date().getTime();
-
-		socket.on('connect', function(){
-		    socket.emit('createRoom', room);
+		let me = this;
+		me.io = require('../socket.io-client/node_modules/socket.io-client');
+	};
+	sendToRoom = function (room, url, data, callback) {
+		let me = this;
+		me.socket = me.io.connect(url, {secure: true, reconnect: true, rejectUnauthorized : false});
+		me.requestID = room + '_' + new Date().getTime();
+		
+		me.socket.on('connect', function(){
+		    me.socket.emit('createRoom', room);
 		    setTimeout(function() {
-			socket.emit('clientData', {room: room, data: { requestID:requestID, data: 'requestID'}});
+			me.socket.emit('clientData', {room: room, data: { requestID:me.requestID, data: data}});
 		    });
 		});
-
-		    socket.on('serverData', (function(res, requestID) {
-			return function(data) {
-			    if ((data.data) && data.data.requestID === requestID) {
-				socket.disconnect();
-				res.send(requestID + '---' + data.data.requestID);
-			    }
-			}  
-		    })(res, requestID));
-	};
-	sendToRoom = function (room) {
-		
+		me.socket.on('serverData', function(data) {
+				if ((data.data) && data.data.requestID === me.requestID) {
+					me.socket.disconnect();
+					callback(me.requestID + '===---' + data.data.requestID);
+				}
+			});		
 	};
 	module.exports = obj;
 })();
