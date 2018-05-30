@@ -2,7 +2,7 @@ var io = require('/var/qalet/sites/master/api/inc/socket.io-client/node_modules/
 let socket = io.connect("https://dev.shusiou.win/", {secure: true, reconnect: true, rejectUnauthorized : false});
 let room = 'VID_NIU', requestID = room + '_' + new Date().getTime();
 
-let res = {send: function(d) { console.log(g);}}
+let res = {send: function(d) { console.log(d);}}
 
 socket.on('connect', function(){
     socket.emit('createRoom', room);
