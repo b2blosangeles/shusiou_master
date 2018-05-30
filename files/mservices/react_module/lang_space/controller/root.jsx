@@ -23,7 +23,7 @@ try {
 				let me = this;
 				me.socket = io.connect('/');
 				console.log('==socket_id ====>');
-				console.log(socket_id);
+				console.log(me.socket.id);
 				me.socket.on('serverMessage', function(data) {
 					console.log(data);
 				});				
