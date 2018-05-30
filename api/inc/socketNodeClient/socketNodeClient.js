@@ -3,7 +3,8 @@
 		let me = this;
 		me.io = require('../socket.io-client/node_modules/socket.io-client');
 
-		me.connect = function (room, data, callback) {
+		me.connect = function () {
+			let me = this;
 			me.socket = me.io.connect(url, {secure: true, reconnect: true, rejectUnauthorized : false});
 		}
 		me.sendToRoom = function (room, data, callback) {
@@ -21,7 +22,7 @@
 			me.socket.on('serverData', function(data) {
 				if ((data.data) && data.data.requestID === me.requestID) {
 					
-					callback('me.socket.connected-->');
+					callback('me.socket.connected-->' + me.socket.connected);
 					return true;
 					me.socket.disconnect();
 					//callback(me.requestID + '===---' + data.data.requestID);
