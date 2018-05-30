@@ -5,12 +5,12 @@ socket.on('connect', function(){
     socket.emit('createRoom', room);
     socket.emit('clientData', {room: room, data: { requestID:requestID, data: 'requestID'}});
 });
-socket.on('serverData', (function(res) {
+socket.on('serverData', (function(res, requestID) {
     return function(data) {
         if (data.requestID == requestID) {
             socket.disconnect();
             res.send(data);
         }
     }  
-})(res));
+})(res, requestID));
 
