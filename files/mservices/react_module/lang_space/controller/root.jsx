@@ -23,7 +23,7 @@ try {
 				let me = this;
 				me.socket = io.connect('/');
 				me.socket.on('serverMessage', function(data) {
-				//	console.log(data);
+					console.log(data);
 				});				
 			},
 			dictionary: function(v) {
