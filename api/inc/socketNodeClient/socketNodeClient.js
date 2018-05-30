@@ -10,13 +10,15 @@
 			me.socket.on('connect', function(){
 			    me.socket.emit('createRoom', room);
 			    setTimeout(function() {
+				    
 				me.socket.emit('clientData', {room: room, data: { requestID:me.requestID, data: data}});
 			    });
 			});
 			me.socket.on('serverData', function(data) {
 				if ((data.data) && data.data.requestID === me.requestID) {
 					me.socket.disconnect();
-					callback(me.requestID + '===---' + data.data.requestID);
+					callback(me.socket.rooms);
+					//callback(me.requestID + '===---' + data.data.requestID);
 				}
 			});		
 		};
