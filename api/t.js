@@ -1,3 +1,14 @@
+let socket_io_nodeside = require(env.sites_path + '/api/inc/socket_io_nodeside/socket_io_nodeside.js');
+let io = new socket_io_nodeside();
+
+io.sendToRoom('VID_NIU', 'https://dev.shusiou.win/', {secure: true, reconnect: true, rejectUnauthorized : false},
+    function(data) {
+        res.send(data);
+    }
+);
+
+return true;
+
 var io = require(env.sites_path + '/api/inc/socket.io-client/node_modules/socket.io-client');
 let socket = io.connect("https://dev.shusiou.win/", {secure: true, reconnect: true, rejectUnauthorized : false});
 let room = 'VID_NIU', requestID = room + '_' + new Date().getTime();
