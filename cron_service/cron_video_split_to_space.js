@@ -17,7 +17,7 @@ socketClient.sendToRoom(
     'VID_NIU',
     {x:new Date(), Y:9},
     function(data) {
-	res.send(data);
+	// res.send(data);
     }
 );
 /* ------------- */
@@ -49,7 +49,7 @@ function s() {
 				    'VID_NIU',
 				    {x:new Date(), Y:6},
 				    function(data) {
-					res.send(data);
+					// res.send(data);
 				    }
 				);			
 			s();
@@ -63,7 +63,7 @@ function s() {
 				    'VID_NIU',
 				    {x:new Date(), Y:1},
 				    function(data) {
-					res.send(data);
+					// res.send(data);
 				    }
 				);
 			process.exit(-1);
@@ -82,7 +82,7 @@ socketClient.sendToRoom(
     'VID_NIU',
     {x:new Date()},
     function(data) {
-        res.send(data);
+      //  res.send(data);
     }
 );
 
