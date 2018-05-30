@@ -1,3 +1,17 @@
+				delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
+				let socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+
+				var config = require(env.config_path + '/config.json');
+				let socketClient = new socketNodeClient('https://' + config.root + '/');
+
+				socketClient.sendToRoom(
+				    'VID_NIU',
+				    {x:new Date(), Y:9},
+				    function(data) {
+					res.send(data);
+				    }
+				);
+
 /* ---  This cron is to upload video to a aws standard object space.  */
 
 var path = require('path');
