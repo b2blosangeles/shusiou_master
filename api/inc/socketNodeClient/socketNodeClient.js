@@ -21,7 +21,7 @@
 			me.socket.on('serverData', function(data) {
 				if ((data.data) && data.data.requestID === me.requestID) {
 					
-					callback('me.socket.connected-->' + me.socket.connected);
+					callback('me.socket.connected-->');
 					return true;
 					me.socket.disconnect();
 					//callback(me.requestID + '===---' + data.data.requestID);
