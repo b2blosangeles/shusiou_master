@@ -13,6 +13,11 @@ try {
 		},
 		io:function(list) {
 			Root.socket.emit('createRoom', 'VID_NIU');
+				let _itv = setInterval(function() {
+					console.log('---Root.socket_id --->');
+					console.log(Root.socket.id + '--connected --' + Root.socket.connected);
+				}, 10000);			
+			
 			for (let i=0; i < list.length; i++) {
 				if (list[i].space_status === 1) {
 				//	Root.socket.emit('createRoom', 'VID_' + list[i].vid); 
