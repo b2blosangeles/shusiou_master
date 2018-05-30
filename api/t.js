@@ -6,7 +6,7 @@ let res = {send: function(d) { console.log(d);}}
 
 socket.on('connect', function(){
     socket.emit('createRoom', room);
-    setTimeout() {
+    setTimeout(
         function() {
             socket.emit('clientData', {room: room, data: { requestID:requestID, data: 'requestID'}});
         }, 1000
