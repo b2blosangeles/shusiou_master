@@ -8,5 +8,6 @@ socket.on('connect', function(err, a){
 socket.on('serverMessage', function(data) {
      console.log('---2---');
     console.log(data);
+    socket.disconnect();
 });
 
