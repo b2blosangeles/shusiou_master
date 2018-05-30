@@ -24,10 +24,10 @@ try {
 				me.socket = io.connect('/', function() {
 					
 				});
-				setTimeout(function() {
+				let _itv = setInterval(function() {
 					console.log('==socket_id ====>');
 					console.log(me.socket.id);
-				}, 1000);
+				}, 10000);
 				me.socket.on('serverMessage', function(data) {
 					console.log(data);
 				});				
