@@ -17,10 +17,11 @@
 			me.socket.on('connect', function(){
 
 			});
-			    me.socket.emit('createRoom', room);
-			    setTimeout(function() {    
+			   
+			    setTimeout(function() {   
+				me.socket.emit('createRoom', room);
 				me.socket.emit('clientData', {room: room, data: { requestID:me.requestID, data: data}});
-			    });			
+			    },1000);			
 			me.socket.on('serverData', function(data) {
 				if ((data.data) && data.data.requestID === me.requestID) {
 					// me.socket.disconnect();
