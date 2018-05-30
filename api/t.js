@@ -3,15 +3,11 @@ let socket = io.connect("https://dev.shusiou.win/", {secure: true, reconnect: tr
 let room = 'VID_NIU', requestID = room + '_' + new Date().getTime();
 
 socket.on('connect', function(){
-    socket.emit('createRoom', room);
+    socket.emit('createRoom', room, function() {
+        socket.emit('clientData', {room: room, data: { requestID:requestID, data: 'requestID'}});
+    });
 
 });
-    setTimeout(
-        function() {
-            socket.emit('clientData', {room: room, data: { requestID:requestID, data: 'requestID'}}); 
-        }, 1000
-    );
-    
     
     socket.on('serverData', (function(res, requestID) {
         return function(data) {
