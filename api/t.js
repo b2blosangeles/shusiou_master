@@ -15,7 +15,7 @@ socket.on('connect', function(){
         return function(data) {
            // if (data.requestID === requestID) {
              //   socket.disconnect();
-                res.send(requestID + '---' + data.requestID);
+                res.send(requestID + '---' + data.data.requestID);
            // }
         }  
     })(res, requestID));
