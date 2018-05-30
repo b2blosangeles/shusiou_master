@@ -1,4 +1,6 @@
 let socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+res.send('===niu===');
+return true;
 let socketClient = new socketNodeClient();
 
 socketClient.sendToRoom(
