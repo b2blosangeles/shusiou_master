@@ -22,8 +22,9 @@
 			});
 			me.socket.on('serverData', function(data) {
 				if ((data.data) && data.data.requestID === me.requestID) {
-					me.socket.disconnect();
+					
 					callback('me.socket.connected-->' + me.socket.connected);
+					me.socket.disconnect();
 					return true;
 					
 					//callback(me.requestID + '===---' + data.data.requestID);
