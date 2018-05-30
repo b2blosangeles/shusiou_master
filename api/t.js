@@ -7,7 +7,7 @@ socket.on('connect', function(){
 });
 socket.on('serverData', (function(res) {
     return function(data) {
-        if (data.requestID === requestID) {
+        if (data.requestID == requestID) {
             socket.disconnect();
             res.send(data);
         }
