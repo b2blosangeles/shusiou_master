@@ -17,7 +17,11 @@
 			me.socket.on('serverData', function(data) {
 				if ((data.data) && data.data.requestID === me.requestID) {
 					me.socket.disconnect();
-					callback(me.socket.rooms);
+					if(me.socket.rooms[room]){
+					    callback('A');
+					  }else{
+					    callback('B');
+					  }
 					//callback(me.requestID + '===---' + data.data.requestID);
 				}
 			});		
