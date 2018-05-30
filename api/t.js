@@ -6,7 +6,7 @@ socket.on('connect', function(){
     socket.emit('createRoom', room);
     setTimeout(function() {
         socket.emit('clientData', {room: room, data: { requestID:requestID, data: 'requestID'}});
-    }, 100);
+    });
 });
     
     socket.on('serverData', (function(res, requestID) {
