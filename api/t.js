@@ -11,7 +11,7 @@ socket.on('serverData', (function(res, requestID) {
     return function(data) {
       //  if (data.requestID === requestID) {
             socket.disconnect();
-            res.send(requestID);
+            res.send(requestID + '---' + data.requestID);
        // }
     }  
 })(res, requestID));
