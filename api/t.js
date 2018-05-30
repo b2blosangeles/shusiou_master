@@ -5,8 +5,10 @@ socket.on('connect', function(){
     socket.emit('clientData', {room: 'VID_NIU', data: 'reloadvideos'});
 
 });
-socket.on('serverData', function(data) {
-    res.send('data');
-    socket.disconnect();
-});
+socket.on('serverData', (function(res) {
+    return function(data) {
+        res.send('data');
+        socket.disconnect();
+    }  
+})(res));
 
