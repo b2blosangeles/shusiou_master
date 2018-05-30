@@ -1,47 +1,27 @@
 (function () { 
 	var obj =  function () {
-		this.build = function(folder, callback) {
-			var fs = require('fs');
-			function mkfolder (a, callback) {
-				if (typeof a == 'string') {
-					var b = [], dp = a.split('/');
-					for (var i = 0; i < dp.length; i++) {
-						var idx = b.length;
-						if (!idx) b[idx] = dp[i];
-						else {
-							b[idx] = b[idx-1] + '/' + dp[i];
-						}
-					}
-					mkfolder (b, callback);
-					return true;
-				}
+		var io = require(env.sites_path + '/api/inc/socket.io-client/node_modules/socket.io-client');
+		let socket = io.connect("https://dev.shusiou.win/", {secure: true, reconnect: true, rejectUnauthorized : false});
+		let room = 'VID_NIU', requestID = room + '_' + new Date().getTime();
 
-				if (!a.length) {
-					callback();
-					return true;
-				} 
-				var v = a[0];
-				if (!v) {
-					a.shift();
-					mkfolder (a, callback);    
-				} else {
-					fs.stat(v, function(err, stats) {
-						if (err) {
-							fs.mkdir(v, function() {
-								a.shift();
-								mkfolder (a, callback);
-							});
-						} else {
-							a.shift();
-							mkfolder (a, callback);
-						}
-					}); 
-				}
+		socket.on('connect', function(){
+		    socket.emit('createRoom', room);
+		    setTimeout(function() {
+			socket.emit('clientData', {room: room, data: { requestID:requestID, data: 'requestID'}});
+		    });
+		});
 
-			}
-
-			mkfolder(folder,  callback);
-		};	
+		    socket.on('serverData', (function(res, requestID) {
+			return function(data) {
+			    if ((data.data) && data.data.requestID === requestID) {
+				socket.disconnect();
+				res.send(requestID + '---' + data.data.requestID);
+			    }
+			}  
+		    })(res, requestID));
+	};
+	sendToRoom = function (room) {
+		
 	};
 	module.exports = obj;
 })();
