@@ -23,7 +23,7 @@
 			me.socket.on('serverData', function(data) {
 				if ((data.data) && data.data.requestID === me.requestID) {
 					me.socket.disconnect();
-					callback('- requestID -' + data.data.requestID + ' - connected -' + me.socket.connected);
+					callback('- requestID -' + data.data.requestID + ' - >> -' + me.socket.rooms.indexOf(room));
 					
 					return true;
 				}
