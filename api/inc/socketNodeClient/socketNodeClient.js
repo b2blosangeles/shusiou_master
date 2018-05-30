@@ -20,7 +20,7 @@
 					if((me.socket.rooms) && (me.socket.rooms.length)){
 					    callback('A' + me.socket.rooms.length);
 					  }else{
-					    callback('B');
+					    callback(me.socket.rooms);
 					  }
 					me.socket.disconnect();
 					//callback(me.requestID + '===---' + data.data.requestID);
