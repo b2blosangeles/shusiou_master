@@ -19,7 +19,7 @@ try {
 					Root.socket.emit('createRoom', 'VID_NIU');
 					me.socket_id = Root.socket.id;
 				}
-			}, 10000);			
+			}, 1000);			
 			
 			for (let i=0; i < list.length; i++) {
 				if (list[i].space_status === 1) {
