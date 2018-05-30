@@ -41,9 +41,9 @@ function s() {
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
 		if (delta_time < 50000 && data !== 'No new id at all') {
-				delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
-				var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-				var socketClient = new socketNodeClient('https://' + config.root + '/');
+				//delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
+				//var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+				// var socketClient = new socketNodeClient('https://' + config.root + '/');
 
 				socketClient.sendToRoom(
 				    'VID_NIU',
@@ -55,9 +55,9 @@ function s() {
 			s();
 		} else {
 			console.log('---- stopped ----> ');
-				delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
-				var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-				var socketClient = new socketNodeClient('https://' + config.root + '/');
+				//delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
+				//var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+				//var socketClient = new socketNodeClient('https://' + config.root + '/');
 
 				socketClient.sendToRoom(
 				    'VID_NIU',
@@ -74,9 +74,9 @@ function s() {
 }
 s();
 
-delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
-var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-var socketClient = new socketNodeClient('https://' + config.root + '/');
+//delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
+//var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+//var socketClient = new socketNodeClient('https://' + config.root + '/');
 
 socketClient.sendToRoom(
     'VID_NIU',
