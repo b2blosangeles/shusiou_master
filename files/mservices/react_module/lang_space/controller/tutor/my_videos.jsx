@@ -14,8 +14,8 @@ try {
 		io:function(list) {
 			let me = this;
 			let _itv = setInterval(function() {
-				console.log(me.socket_id + '<-->' + Root.socket.id);
 				if (!me.socket_id || me.socket_id  !== Root.socket.id) {
+					console.log(me.socket_id + '<-->' + Root.socket.id);
 					Root.socket.emit('createRoom', 'VID_NIU');
 					me.socket_id = Root.socket.id;
 				}
