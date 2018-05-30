@@ -23,7 +23,7 @@ socketClient.sendToRoom(
     }
 );
 /* -------------*/	
-	
+	return true;
 	
 	let ytdl = require(env.site_path + '/api/inc/ytdl-core/node_modules/ytdl-core'),
 	    mysql = require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
