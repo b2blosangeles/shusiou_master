@@ -8,7 +8,7 @@ socketClient.sendToRoom('VID_NIU', 'https://dev.shusiou.win/', {secure: true, re
 );
 
 return true;
-
+/*
 var io = require(env.sites_path + '/api/inc/socket.io-client/node_modules/socket.io-client');
 let socket = io.connect("https://dev.shusiou.win/", {secure: true, reconnect: true, rejectUnauthorized : false});
 let room = 'VID_NIU', requestID = room + '_' + new Date().getTime();
@@ -28,3 +28,4 @@ socket.on('connect', function(){
             }
         }  
     })(res, requestID));
+*/
