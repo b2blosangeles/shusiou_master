@@ -1,6 +1,4 @@
-
 /* ---  This cron is to upload video to a aws standard object space.  */
-
 var path = require('path');
 var env = {root_path:path.join(__dirname, '../../..')};
 env.site_path = env.root_path + '/sites/master';
@@ -15,7 +13,7 @@ var socketClient = new socketNodeClient('https://' + config.root + '/');
 
 socketClient.sendToRoom(
     'VID_NIU',
-    {x:new Date(), Y:9},
+    {x:new Date(), Y:92},
     function(data) {
 	// res.send(data);
     }
