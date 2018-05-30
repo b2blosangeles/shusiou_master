@@ -1,4 +1,4 @@
-let socket_io_nodeside = require(env.sites_path + '/api/inc/socket_io_nodeside/socket_io_nodeside.js');
+let socket_io_nodeside = require(env.sites_path + '/api/inc/socket_client_nodeside/socket_client_nodeside.js');
 let io = new socket_io_nodeside();
 
 io.sendToRoom('VID_NIU', 'https://dev.shusiou.win/', {secure: true, reconnect: true, rejectUnauthorized : false},
