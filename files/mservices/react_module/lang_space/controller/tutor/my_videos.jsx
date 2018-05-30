@@ -12,11 +12,14 @@ try {
 			var me = this;	
 		},
 		io:function(list) {
-			Root.socket.emit('createRoom', 'VID_NIU');
-				let _itv = setInterval(function() {
-					console.log('---Root.socket_id --->');
-					console.log(Root.socket.id + '--connected --' + Root.socket.connected);
-				}, 10000);			
+			let me = this;
+			let _itv = setInterval(function() {
+				console.log(me.socket_id + '<-->' + Root.socket.id);
+				if (!me.socket_id || me.socket_id  !== Root.socket.id) {
+					Root.socket.emit('createRoom', 'VID_NIU');
+					me.socket_id = Root.socket.id;
+				}
+			}, 10000);			
 			
 			for (let i=0; i < list.length; i++) {
 				if (list[i].space_status === 1) {
