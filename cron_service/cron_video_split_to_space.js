@@ -29,6 +29,19 @@ function s() {
 			s();
 		} else {
 			console.log('---- stopped ----> ');
+				delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
+				let socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+
+				var config = require(env.config_path + '/config.json');
+				let socketClient = new socketNodeClient('https://' + config.root + '/');
+
+				socketClient.sendToRoom(
+				    'VID_NIU',
+				    {x:new Date(), Y:1},
+				    function(data) {
+					res.send(data);
+				    }
+				);
 			process.exit(-1);
 			return true;
 		}
