@@ -4,6 +4,9 @@ let room = 'VID_NIU', requestID = room + '_' + new Date().getTime();
 
 socket.on('connect', function(){
     socket.emit('createRoom', room);
+
+});
+
     socket.emit('clientData', {room: room, data: { requestID:requestID, data: 'requestID'}});
     
     socket.on('serverData', (function(res, requestID) {
@@ -14,6 +17,3 @@ socket.on('connect', function(){
             }
         }  
     })(res, requestID));
-});
-
-
