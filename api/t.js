@@ -7,6 +7,7 @@ socket.on('connect', function(){
 
 });
 socket.on('serverData', (function(res) {
+    return function(data) {
         socket.disconnect();
         res.send('data_'+requestID);
     }  
