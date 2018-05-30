@@ -26,10 +26,10 @@ let pkg = {
 	exec		: require('child_process').exec,
 	fs 		: require('fs')
 }; 
-
+/*
 let awsS3VideoAdmin = require(env.site_path + '/api/inc/awsS3Video/awsS3VideoAdmin.js');
 let tm = new Date().getTime();
-/*
+
 function s() {
 	let delta_time0 = new Date().getTime() - tm;
 	console.log('---- task start ----> ' +  delta_time0);	
