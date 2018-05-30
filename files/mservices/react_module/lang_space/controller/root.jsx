@@ -26,7 +26,7 @@ try {
 				});
 				let _itv = setInterval(function() {
 					console.log('==socket_id ====>');
-					console.log(me.socket.id);
+					console.log(me.socket.id + '--connected --' + me.socket.connected);
 				}, 10000);
 				me.socket.on('serverMessage', function(data) {
 					console.log(data);
