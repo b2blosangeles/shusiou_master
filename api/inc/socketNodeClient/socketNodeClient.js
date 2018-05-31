@@ -17,7 +17,6 @@
 			me.socket.on('connect', function(){
 
 			});
-			   
 			    setTimeout(function() {   
 				me.socket.emit('createRoom', room);
 				me.socket.emit('clientData', {room: room, data: { requestID:me.requestID, data: data}});
@@ -26,7 +25,7 @@
 				if ((data.data) && data.data.requestID === me.requestID) {
 					// me.socket.disconnect();
 					callback('- requestID -' + data.data.requestID);
-					
+					me.socket.close();
 					return true;
 				}
 			});		
