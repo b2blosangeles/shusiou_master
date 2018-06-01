@@ -8,7 +8,7 @@ try {
 		let me = this;
 		me.componentWillUnmount = function() {
 			let me = this;
-			console.log('componentWillUnmount triggled';);
+			console.log('componentWillUnmount triggled');
 			me.socket.close();
 		}
 		if (me.socket) me.socket.close();
