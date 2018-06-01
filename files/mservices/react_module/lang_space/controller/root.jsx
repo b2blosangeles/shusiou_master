@@ -21,16 +21,17 @@ try {
 			},
 			loadSocketIO : function(o, cfg) {
 				Root.socket = (Root.socket) ? Root.socket : {};
-				Root.socket[cfg.resource] = (Root.socket[cfg.resource]) ? Root.socket[cfg.resource] : {};
+				let _id = ((cfg.id) ? cfg.id : cfg.room) + '__' + cfg.resource;
+				Root.socket[_id] = (Root.socket[_id]) ? Root.socket[_id] : {};
 				
-				let obj = (!cfg.public) ? o : Root.socket[cfg.resource]; 
+				let obj = (!cfg.public) ? o : Root.socket[_id]; 
 				if (!cfg.public) {
 					o.componentWillUnmount = (function(o, componentWillUnmount) {
 						return function() {
 							if (typeof componentWillUnmount === 'function') {
 								componentWillUnmount();
 							}
-							console.log('---componentWillUnmount triggled');
+							console.log('---componentWillUnmount triggled ==' + _id);
 							this.socket.close();
 						}
 					})(o, o.componentWillUnmount);
