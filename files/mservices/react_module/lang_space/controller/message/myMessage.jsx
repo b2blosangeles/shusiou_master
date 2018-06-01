@@ -17,7 +17,7 @@ try {
 		
 		});
 		me.socket.on('serverMessage', function(data) {
-			// console.log(data);
+			 console.log(data);
 		});				
 	},    
         io1:function() {
