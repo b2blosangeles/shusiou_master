@@ -6,22 +6,19 @@ try {
         },
 	buildSocketIO : function() {
 		let me = this;
-		if (!me.socket) {
-			me.socket = io.connect('https://dev.shusiou.win/');
-			me.socket.on('connect', function () {
-				me.socket.emit('createRoom', 'news_board');
-				me.socket.on('serverData', function(income) {
-				//	if (income._room === 'news_board') {
-						console.log(income.data);
-				//	}
-				});	
-			});
-			me.socket.on('serverMessage', function(data) {
-				// console.log(data);
-			});
-		} else {
-			console.log('---to join test ---');
-		}
+		if (me.socket) me.socket.close();
+		me.socket = io.connect('/');
+		me.socket.on('connect', function () {
+			me.socket.emit('createRoom', 'news_board');
+			me.socket.on('serverData', function(income) {
+				if (income._room === 'news_board') {
+					console.log(income.data);
+				}
+			});	
+		});
+		me.socket.on('serverMessage', function(data) {
+			// console.log(data);
+		});
 	},    
         io1:function() {
 		let me = this;
