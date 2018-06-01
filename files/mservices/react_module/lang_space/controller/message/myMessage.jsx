@@ -6,7 +6,6 @@ try {
         },
         io:function() {
 		let me = this;
-		me.niu = 1;
 		let _itv = setInterval(function() {
 			if (!Root.socket || !Root.socket.id) {
 				return true;
@@ -18,7 +17,6 @@ try {
 				Root.socket.on('serverData', function(income) {
 					if (income._room === 'news_board') {
 						console.log(income.data);
-						console.log(me.niu);
 					}
 				});				
 				
@@ -27,9 +25,7 @@ try {
 
         },
 	componentWillUnmount() {
-	    console.log('UNMOUNTED');
-		Root.socket.emit('leaveRoom', 'news_board');
-		 console.log('UNMOUNTED 2');
+		Root.socket.emit('leaveRoom', 'news_board');;
 	},	    
         componentDidMount:function() {
           let me = this, i = 0;
