@@ -8,7 +8,7 @@ try {
 	rr:'niuB',
         componentDidMount:function() {
           let me = this, i = 0;
-		me.buildSocketIO(me, {
+		Root.buildSocketIO(me, {
 			resource:'/',
 			room:'news_board',
 			onServerData : function(incomeData) {
