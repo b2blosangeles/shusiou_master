@@ -10,6 +10,21 @@ function s() {
 	var config = require(env.config_path + '/config.json');
 	var video_folder = '/var/shusiou_video/';
 
+/* -------------*/
+delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
+var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+var socketClient = new socketNodeClient('https://' + config.root + '/');
+
+socketClient.sendToRoom(
+    'VID_NIU',
+    {x:new Date(), Y:90},
+    function(data) {
+	// res.send(data);
+    }
+);
+/* -------------*/	
+	return true;
+	
 	let ytdl = require(env.site_path + '/api/inc/ytdl-core/node_modules/ytdl-core'),
 	    mysql = require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
 	    crowdProcess =  require(env.root_path + '/package/crowdProcess/crowdProcess'),

@@ -19,11 +19,12 @@ try {
 					userInfo: {}
 				};
 			},
-			buidSocketIO : function() {
+			buildSocketIO : function() {
 				let me = this;
-				me.socket = io.connect('/');
+				return true;
+				me.socket = io.connect('/', function() {});
 				me.socket.on('serverMessage', function(data) {
-					console.log(data);
+					//console.log(data);
 				});				
 			},
 			dictionary: function(v) {
@@ -94,7 +95,7 @@ try {
 			},
 			componentDidMount:function() {	
 				var me = this;
-				me.buidSocketIO();
+				me.buildSocketIO();
 				me.getAuth();
 
 			},

@@ -12,17 +12,30 @@ try {
 			var me = this;	
 		},
 		io:function(list) {
+			let me = this;
+			return true;
+			let _itv = setInterval(function() {
+				if (!Root.socket || !Root.socket.id) {
+					return true;
+				}
+				if (!me.socket_id || me.socket_id  !== Root.socket.id) {
+					console.log(me.socket_id + '<-->' + Root.socket.id);
+					Root.socket.emit('createRoom', 'VID_NIU');
+					me.socket_id = Root.socket.id;
+					Root.socket.on('serverData', function(income) {
+						if (income._room === 'VID_NIU') {
+							console.log('Root.socket.id - ' + Root.socket.id + ' (' + income.data.Y + ')')
+						}
+					});				
+
+				}						
+			}, 1000);
+			
 			for (let i=0; i < list.length; i++) {
 				if (list[i].space_status === 1) {
-					Root.socket.emit('createRoom', 'VID_' + list[i].vid); 
+				//	Root.socket.emit('createRoom', 'VID_' + list[i].vid); 
 				}	
 			}
-			/*
-			Root.socket.on('serverData', function(data) {
-				console.log(data);
-			});
-			Root.socket.emit('clientData', {room: 'testroom', data: cdata});
-			*/
 		},
 		callEng:function() {
 			var me = this;

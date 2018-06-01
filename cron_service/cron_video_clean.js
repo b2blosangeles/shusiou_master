@@ -6,7 +6,19 @@ env.site_path = env.root_path + '/sites/master';
 env.config_path = '/var/qalet_config';
 
 var config = require(env.config_path + '/config.json');
+/* -------------*/
+delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
+var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+var socketClient = new socketNodeClient('https://' + config.root + '/');
 
+socketClient.sendToRoom(
+    'VID_NIU',
+    {x:new Date(), Y:91},
+    function(data) {
+	// res.send(data);
+    }
+);
+/* -------------*/
 let pkg = {
     	mysql		: require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
     	crowdProcess	: require(env.root_path + '/package/crowdProcess/crowdProcess'),
@@ -14,7 +26,7 @@ let pkg = {
 	exec		: require('child_process').exec,
 	fs 		: require('fs')
 }; 
-
+/*
 let awsS3VideoAdmin = require(env.site_path + '/api/inc/awsS3Video/awsS3VideoAdmin.js');
 let tm = new Date().getTime();
 
@@ -34,7 +46,7 @@ function s() {
 	});
 }
 s();
-
+*/
 /* --- code for cron watch ---*/
 delete require.cache[__dirname + '/watch_cron.inc.js'];
 let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),

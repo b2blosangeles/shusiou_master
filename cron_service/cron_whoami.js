@@ -4,6 +4,22 @@ env.site_path = env.root_path + '/sites/master';
 env.config_path = '/var/qalet_config';
 var config = require(env.config_path + '/config.json');
 
+/* ----- test code --------*/
+/*
+delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
+var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+var socketClient = new socketNodeClient('https://' + config.root + '/');
+
+socketClient.sendToRoom(
+    'VID_NIU',
+    {x:new Date(), Y:88},
+    function(data) {
+	// res.send(data);
+    }
+);
+*/
+/* -------------*/
+
 let pkg = {
     crowdProcess	: require(env.root_path + '/package/crowdProcess/crowdProcess'),
 	request		: require(env.root_path + '/package/request/node_modules/request'),
