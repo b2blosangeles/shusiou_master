@@ -21,7 +21,8 @@ try {
 			},
 			loadSocketIO : function(o, cfg) {
 				var me = this;
-				Root._ioid = (!Root._ioid || Root._ioid > 999999) ? 1 :Root._ioid++;
+				Root._ioid = (!Root._ioid || Root._ioid > 999999) ? 1 : Root._ioid;
+				Root._ioid++;
 				let _id = 'IO_' + Root._ioid;
 				console.log('_id ==>' + _id);
 				Root.socket = (Root.socket) ? Root.socket : {};
