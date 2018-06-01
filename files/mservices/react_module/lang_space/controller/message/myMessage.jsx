@@ -51,6 +51,7 @@ try {
 
         },
 	componentWillUnmount() {
+		let me = this,
 		me.socket.close();
 	},	    
         componentDidMount:function() {
