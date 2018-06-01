@@ -25,10 +25,6 @@ try {
 				
 				let obj = (!cfg.public) ? o : Root.socket[cfg.resource]; 
 				if (!cfg.public) {
-					if (typeof o.componentWillUnmount === 'function') {
-						let componentWillUnmount = o.componentWillUnmount;
-						delete o.componentWillUnmount;
-					}
 					o.componentWillUnmount = (function(o, componentWillUnmount) {
 						return function() {
 							if (typeof componentWillUnmount === 'function') {
@@ -37,7 +33,7 @@ try {
 							console.log('---componentWillUnmount triggled');
 							this.socket.close();
 						}
-					})(o, componentWillUnmount);
+					})(o, o.componentWillUnmount);
 				}
 				if (!cfg.public && (obj.socket)) {
 					console.log('o.socket.close();');
