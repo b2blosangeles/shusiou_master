@@ -21,6 +21,8 @@ try {
 			},
 			loadSocketIO : function(o, cfg) {
 				Root.socket = (Root.socket) ? Root.socket : {};
+				Root.socket[cfg.resource] = (Root.socket[cfg.resource]) ? Root.socket[cfg.resource] : {};
+				
 				let obj = (!cfg.public) ? o : Root.socket[cfg.resource]; 
 				o.componentWillUnmount = function() {
 					console.log('---componentWillUnmount triggled');
