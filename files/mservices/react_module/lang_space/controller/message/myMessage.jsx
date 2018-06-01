@@ -23,12 +23,7 @@ try {
         },	    
         componentDidMount:function() {
           let me = this, i = 0;
-		setTimeout(
-			function() {
-				me.io();
-			}, 1000);
-		
-		alert(3);
+		me.io();
 		return true;
 		/*
           localStorage.clear();
