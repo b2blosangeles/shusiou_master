@@ -25,7 +25,7 @@ try {
 
         },
 	componentWillUnmount() {
-		Root.socket.emit('leaveRoom', 'news_board');;
+		Root.socket.emit('leaveRoom', 'news_board');
 	},	    
         componentDidMount:function() {
           let me = this, i = 0;
