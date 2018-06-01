@@ -5,7 +5,7 @@ var config = require(env.config_path + '/config.json');
 let socketClient = new socketNodeClient('https://' + config.root + '/');
 
 socketClient.sendToRoom(
-    'VID_NIU',
+    'news_board',
     {x:1234},
     function(data) {
         res.send(data);
