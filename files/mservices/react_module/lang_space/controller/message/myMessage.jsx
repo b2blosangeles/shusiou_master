@@ -11,20 +11,21 @@ try {
 			console.log('---componentWillUnmount triggled');
 			// me.socket.close();
 		}
-		// if (me.socket) me.socket.close();
-		o.socket = io.connect('/');
-		o.socket.on('connect', function () {
-			console.log('--->connected -->' + o.socket.id);
-			o.socket.emit('createRoom', 'news_board');
-			o.socket.on('serverData', function(income) {
-				if (income._room === 'news_board') {
-					console.log(income.data);
-				}
-			});	
-		});
-		o.socket.on('serverMessage', function(data) {
-			// console.log(data);
-		});
+		if (!me.socket) {
+			o.socket = io.connect('/');
+			o.socket.on('connect', function () {
+				console.log('--->connected -->' + o.socket.id);
+				o.socket.emit('createRoom', 'news_board');
+				o.socket.on('serverData', function(income) {
+					if (income._room === 'news_board') {
+						console.log(income.data);
+					}
+				});	
+			});
+			o.socket.on('serverMessage', function(data) {
+				// console.log(data);
+			});
+		}
 	},    
         componentDidMount:function() {
           let me = this, i = 0;
