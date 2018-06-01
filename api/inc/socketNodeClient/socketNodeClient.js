@@ -24,9 +24,7 @@
 			me.socket.on('serverData', function(data) {
 				if ((data._room) && data._requestID === me.requestID) {
 					// me.socket.disconnect();
-					let d = data.data;
-					d._room = data._room;
-					callback(d);
+					callback(data);
 					me.socket.close();
 					return true;
 				}
