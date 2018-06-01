@@ -14,7 +14,10 @@ try {
 			}
 		}, 1000);
 		Root.socket.on('serverData', function(data) {
-			console.log(data);
+			if (data.room === 'news_board') {
+				console.log(data);
+			}
+			
 			// console.log(data.data);
 		});
         },	    
