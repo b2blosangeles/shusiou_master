@@ -4,35 +4,36 @@ try {
             let me = this;
             return {list:[]};
         },
-	buildSocketIO : function(o, onServerData, onServerMessage) {
-		let me = this;
-		me.componentWillUnmount = function() {
+	buildSocketIO : function(o, room, onServerData, onServerMessage) {
+		//let me = this;
+		o.componentWillUnmount = function() {
 			let me = this;
 			console.log('componentWillUnmount triggled');
 			// me.socket.close();
 		}
 		// if (me.socket) me.socket.close();
-		me.socket = io.connect('/');
-		me.socket.on('connect', function () {
-			me.socket.emit('createRoom', 'news_board');
-			me.socket.on('serverData', function(income) {
+		o.socket = io.connect('/');
+		o.socket.on('connect', function () {
+			o.socket.emit('createRoom', 'news_board');
+			o.socket.on('serverData', function(income) {
 				if (income._room === 'news_board') {
 					console.log(income.data);
 				}
 			});	
 		});
-		me.socket.on('serverMessage', function(data) {
+		o.socket.on('serverMessage', function(data) {
 			// console.log(data);
 		});
 	},    
         componentDidMount:function() {
           let me = this, i = 0;
-		me.buildSocketIO(me, function(data) {
-			console.log(data)
-		},
-		function(data) {
-			console.log('message coming!')
-		});
+		me.buildSocketIO(me, 'news_board',
+			function(data) {
+				console.log(data)
+			},
+			function(data) {
+				console.log('message coming!')
+			});
 		return true;
 		/*
           localStorage.clear();
