@@ -9,9 +9,7 @@ try {
 		if (!me.socket) {
 			me.socket = io.connect('https://dev.shusiou.win/');
 			me.socket.on('connect', function () {
-				console.log('---joined 211---');
 				me.socket.emit('createRoom', 'news_board');
-				console.log('---joined 2---');
 				me.socket.on('serverData', function(income) {
 				//	if (income._room === 'news_board') {
 						console.log(income.data);
