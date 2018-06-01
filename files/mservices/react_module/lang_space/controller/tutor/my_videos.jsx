@@ -11,6 +11,9 @@ try {
 		componentDidUpdate:function() {
 			var me = this;	
 		},
+		componentWillUnmount :function () {
+			alert('switched');
+		},
 		callEng:function() {
 			var me = this;
 			let engCfg = {
