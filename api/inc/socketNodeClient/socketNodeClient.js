@@ -25,7 +25,6 @@
 				if ((data._room) && data._requestID === me.requestID) {
 					// me.socket.disconnect();
 					callback(data);
-				//	callback('- requestID -' + data.data.requestID);
 					me.socket.close();
 					return true;
 				}
