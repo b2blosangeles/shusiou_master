@@ -25,7 +25,10 @@ try {
 			}
 		}, 1000);
 
-        },	    
+        },
+	componentWillUnmount() {
+	    console.log('UNMOUNTED');
+	},	    
         componentDidMount:function() {
           let me = this, i = 0;
 		me.io();
