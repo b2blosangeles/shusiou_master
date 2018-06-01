@@ -5,7 +5,7 @@ var config = require(env.config_path + '/config.json');
 let socketClient = new socketNodeClient('https://' + config.root + '/');
 
 socketClient.sendToRoom(
-    ['room1', 'room2'],
+    'room1',
     env,
     function(data) {
         res.send(data);
