@@ -6,6 +6,7 @@ try {
         },
 	buildSocketIO : function() {
 		let me = this;
+		return true;
 		me.socket = io.connect('/', function() {
 			me.socket.emit('createRoom', 'news_board');
 			me.socket.on('serverData', function(income) {
