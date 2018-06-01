@@ -6,13 +6,8 @@ try {
         },
 	buildSocketIO : function() {
 		let me = this;
-		console.log('---to join 21A ---');
 		if (!me.socket) {
-			me.socket = io.connect('https://dev.shusiou.win/', { forceNew: true }, function() {
-				
-
-
-			});
+			me.socket = io.connect('https://dev.shusiou.win/');
 			me.socket.on('connect', function () {
 				console.log('---joined 211---');
 				me.socket.emit('createRoom', 'news_board');
