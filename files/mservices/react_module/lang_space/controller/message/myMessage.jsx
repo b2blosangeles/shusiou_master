@@ -14,7 +14,7 @@ try {
 			}
 		}, 1000);
 		Root.socket.on('serverData', function(data) {
-			if (data.room === 'news_board') {
+			if (data.data.room === 'news_board') {
 				console.log(data);
 			}
 			
