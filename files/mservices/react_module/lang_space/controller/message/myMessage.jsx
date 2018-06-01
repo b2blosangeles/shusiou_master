@@ -8,7 +8,8 @@ try {
 		let me = this;
 		console.log('---to join 21 ---');
 		if (!me.socket) {
-			me.socket = io.connect('/', function() {
+			me.socket = io.connect('/', { forceNew: true }, function() {
+				console.log('---joined 211---');
 				me.socket.emit('createRoom', 'news_board');
 				console.log('---joined 2---');
 				me.socket.on('serverData', function(income) {
