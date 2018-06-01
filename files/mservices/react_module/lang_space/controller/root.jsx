@@ -48,6 +48,35 @@ try {
 					}
 				}
 			},
+			loadSocketIOBK : function(o, cfg) {
+				Root.socket = (Root.socket) ? Root.socket : {};
+				let obj = (!cfg.public) ? o : Root.socket[cfg.resource]; 
+				o.componentWillUnmount = function() {
+					console.log('---componentWillUnmount triggled');
+					this.socket.close();
+				}
+				if (o.socket) {
+					console.log('o.socket.close();');
+					o.socket.close();
+				}
+				if (!o.socke) {
+					o.socket = io.connect(cfg.resource);
+					o.socket.on('connect', function() {
+						console.log('--->connected -->' + o.socket.id);
+						o.socket.emit('createRoom', cfg.room);
+						if (typeof cfg.onServerData === 'function') {
+							o.socket.on('serverData', function(incomeData) {
+								if (incomeData._room === cfg.room) {
+									cfg.onServerData(incomeData);
+								}
+							});
+						}	
+					});
+					if (typeof cfg.onServerMessage === 'function') {
+						o.socket.on('serverData', cfg.onServerMessage);
+					}
+				}
+			},			
 			dictionary: function(v) {
 				if  (!this.state.dictionary[v]) return v;
 				return (!this.state.dictionary[v][this.state.c_lang])?this.state.dictionary[v]['en']:this.state.dictionary[v][this.state.c_lang];
