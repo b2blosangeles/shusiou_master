@@ -6,7 +6,7 @@ try {
         },
 	buildSocketIO : function() {
 		let me = this;
-		console.log('---to join 21 ---');
+		console.log('---to join 21A ---');
 		if (!me.socket) {
 			me.socket = io.connect('https://dev.shusiou.win/', { forceNew: true }, function() {
 				console.log('---joined 211---');
@@ -20,7 +20,7 @@ try {
 
 
 			});
-			socket.on('connect', function () {
+			me.socket.on('connect', function () {
 			   console.log('disconnect client event....');
 			});
 			me.socket.on('serverMessage', function(data) {
@@ -58,7 +58,7 @@ try {
 		setTimeout(
 			function() {
 				me.buildSocketIO();
-			}, 6000
+			}, 1000
 		);	
 		//me.io();
 		return true;
