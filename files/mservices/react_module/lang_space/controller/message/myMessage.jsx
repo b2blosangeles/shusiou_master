@@ -9,9 +9,9 @@ try {
 		me.socket = io.connect('/', function() {
 			me.socket.emit('createRoom', 'news_board');
 			me.socket.on('serverData', function(income) {
-				if (income._room === 'news_board') {
+			//	if (income._room === 'news_board') {
 					console.log(income.data);
-				}
+			//	}
 			});	
 		
 		
