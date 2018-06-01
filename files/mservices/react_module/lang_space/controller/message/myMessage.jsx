@@ -7,7 +7,7 @@ try {
         io:function() {
 		let me = this;
 		let _itv = setInterval(function() {
-			if (!me.socket_id || me.socket_id  !== Root.socket.id) {
+			if ((Root.socket.id) && (!me.socket_id || me.socket_id  !== Root.socket.id)) {
 				console.log(me.socket_id + '<-->' + Root.socket.id);
 				Root.socket.emit('createRoom', 'news_board');
 				me.socket_id = Root.socket.id;
@@ -28,7 +28,7 @@ try {
 				me.io();
 			}, 1000);
 		
-		alert(2);
+		alert(3);
 		return true;
 		/*
           localStorage.clear();
