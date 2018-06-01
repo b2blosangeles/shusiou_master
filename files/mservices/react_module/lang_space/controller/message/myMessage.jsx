@@ -4,7 +4,7 @@ try {
             let me = this;
             return {list:[]};
         },
-	buildSocketIO : function(o, room, onServerData, onServerMessage) {
+	buildSocketIO : function(o, cfg) {
 		o.componentWillUnmount = function() {
 			console.log('---componentWillUnmount triggled');
 			this.socket.close();
@@ -14,25 +14,32 @@ try {
 			o.socket.close();
 		}	
 		o.socket = io.connect('/');
-		o.socket.on('connect', onServerData);
+		o.socket.on('connect', function() {
+			console.log('--->connected -->' + me.socket.id);
+			me.socket.emit('createRoom', cfg.room);
+			if (cfg.onServerData) {
+				o.socket.on('serverData', cfg.onServerData);
+			}	
+		});
 		o.socket.on('serverMessage', onServerMessage);
+		
 	}, 
 	rr:'niuB',
         componentDidMount:function() {
           let me = this, i = 0;
-		me.buildSocketIO(me, 'news_board',
-			function(data) {
-				console.log('--->connected -->' + me.socket.id);
-				me.socket.emit('createRoom', 'news_board');
-				me.socket.on('serverData', function(income) {
-					if (income._room === 'news_board') {
-						console.log(income.data);
-					}
-				});
+		me.buildSocketIO(me, {
+			room:'news_board',
+			onServerData : function(incomeData) {
+				if (incomeData._room === 'news_board') {
+					console.log(incomeData.data);
+					console.log('onServerData -- ' + me.rr);
+				}
 			},
-			function(data) {
-				console.log('message coming!--' + me.rr)
+			onServerMessage: function(data) {
+					console.log('message coming!--' + me.rr)
+				}
 			});
+		
 		return true;
 		/*
           localStorage.clear();
