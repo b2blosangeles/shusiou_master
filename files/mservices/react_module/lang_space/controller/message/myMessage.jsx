@@ -9,9 +9,9 @@ try {
 		me.componentWillUnmount = function() {
 			let me = this;
 			console.log('componentWillUnmount triggled');
-			me.socket.close();
+			// me.socket.close();
 		}
-		if (me.socket) me.socket.close();
+		// if (me.socket) me.socket.close();
 		me.socket = io.connect('/');
 		me.socket.on('connect', function () {
 			me.socket.emit('createRoom', 'news_board');
@@ -45,12 +45,6 @@ try {
 		}, 1000);
 
         },
-	/*
-	    componentWillUnmount() {
-		let me = this;
-		// me.socket.close();
-	},
-	*/
         componentDidMount:function() {
           let me = this, i = 0;
 		me.buildSocketIO();
