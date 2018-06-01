@@ -9,7 +9,7 @@ try {
 		o.componentWillUnmount = function() {
 			let me = this;
 			console.log('---componentWillUnmount triggled');
-			// me.socket.close();
+			me.socket.close();
 		}
 		if (!o.socket) {
 			console.log('fire connect');
