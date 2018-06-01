@@ -11,32 +11,6 @@ try {
 		componentDidUpdate:function() {
 			var me = this;	
 		},
-		io:function(list) {
-			let me = this;
-			return true;
-			let _itv = setInterval(function() {
-				if (!Root.socket || !Root.socket.id) {
-					return true;
-				}
-				if (!me.socket_id || me.socket_id  !== Root.socket.id) {
-					console.log(me.socket_id + '<-->' + Root.socket.id);
-					Root.socket.emit('createRoom', 'VID_NIU');
-					me.socket_id = Root.socket.id;
-					Root.socket.on('serverData', function(income) {
-						if (income._room === 'VID_NIU') {
-							console.log('Root.socket.id - ' + Root.socket.id + ' (' + income.data.Y + ')')
-						}
-					});				
-
-				}						
-			}, 1000);
-			
-			for (let i=0; i < list.length; i++) {
-				if (list[i].space_status === 1) {
-				//	Root.socket.emit('createRoom', 'VID_' + list[i].vid); 
-				}	
-			}
-		},
 		callEng:function() {
 			var me = this;
 			let engCfg = {
@@ -54,7 +28,16 @@ try {
 						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
 						EngR.getlist.data},
 						function() {
-							me.io(EngR.getlist.data);
+							Root.loadSocketIO(me, {
+								resource:'/',
+								room:'VID_NIU',
+								onServerData : function(incomeData) {
+									if (income._room === 'VID_NIU') {
+										console.log('socket.id - ' + me.socket.id + ' (' + income.data.Y + ')')
+									}
+								}
+							});						
+							// me.io(EngR.getlist.data);
 							// Root.lib.alert(me, 'Data load success!', 'success', 3000);
 						});	
 				}
