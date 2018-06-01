@@ -24,7 +24,7 @@ try {
 				});	
 			});
 			me.socket.on('serverMessage', function(data) {
-				 console.log(data);
+				// console.log(data);
 			});
 		} else {
 			console.log('---to join test ---');
