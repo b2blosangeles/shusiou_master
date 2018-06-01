@@ -28,6 +28,8 @@ try {
         },
 	componentWillUnmount() {
 	    console.log('UNMOUNTED');
+		Root.socket.leave('news_board');
+		 console.log('UNMOUNTED 2');
 	},	    
         componentDidMount:function() {
           let me = this, i = 0;
