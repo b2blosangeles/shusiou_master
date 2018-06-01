@@ -15,12 +15,12 @@
 			me.requestID = room + '_' + new Date().getTime();
 
 			me.socket.on('connect', function(){
-
-			});
-			    setTimeout(function() {   
 				me.socket.emit('createRoom', room);
 				me.socket.emit('clientData', {room: room, data: { requestID:me.requestID, data: data}});
-			    },1000);			
+			});
+			setTimeout(function() {   
+				me.socket.close();
+			},1000);			
 			me.socket.on('serverData', function(data) {
 				if ((data.data) && data.data.requestID === me.requestID) {
 					// me.socket.disconnect();
