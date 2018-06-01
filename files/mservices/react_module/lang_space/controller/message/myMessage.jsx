@@ -6,6 +6,7 @@ try {
         },
 	buildSocketIO : function() {
 		let me = this;
+		console.log('---to join---');
 		me.socket = io.connect('/', function() {
 			me.socket.emit('createRoom', 'news_board');
 			console.log('---joied---');
