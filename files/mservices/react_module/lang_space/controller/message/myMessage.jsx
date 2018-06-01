@@ -7,7 +7,7 @@ try {
 	rr:'niuB',
         componentDidMount:function() {
           let me = this, i = 0;
-		Root.loadSocketIO(me, {
+		Root.lib.loadSocketIO(me, {
 			resource:'/',
 			public : true, 
 			room:'news_board',
