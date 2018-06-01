@@ -13,7 +13,7 @@ try {
 				resource:'/',
 				id : 'sanramon',
 				public : true, 
-				room:'news_board',
+				room:'room1',
 				onServerData : function(incomeData, socket) {
 					if (incomeData._room === 'room1') {
 						console.log(incomeData.data);
