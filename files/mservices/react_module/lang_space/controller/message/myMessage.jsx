@@ -17,6 +17,7 @@ try {
 				Root.socket.on('serverData', function(income) {
 					if (income._room === 'news_board') {
 						console.log(income.data);
+						console.log(income.data);
 					}
 				});				
 				
