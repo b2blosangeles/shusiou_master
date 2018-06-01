@@ -55,7 +55,7 @@ try {
 		setTimeout(
 			function() {
 				me.buildSocketIO();
-			}, 2000
+			}, 6000
 		);	
 		//me.io();
 		return true;
