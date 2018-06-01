@@ -10,6 +10,7 @@ try {
           let me = this, i = 0;
 		Root.loadSocketIO(me, {
 			resource:'/',
+			public : true, 
 			room:'news_board',
 			onServerData : function(incomeData) {
 				if (incomeData._room === 'news_board') {
