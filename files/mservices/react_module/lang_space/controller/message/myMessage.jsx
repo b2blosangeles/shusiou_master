@@ -28,7 +28,7 @@ try {
         },
 	componentWillUnmount() {
 	    console.log('UNMOUNTED');
-		Root.socket.leave('news_board');
+		Root.socket.emit('leaveRoom', 'news_board');
 		 console.log('UNMOUNTED 2');
 	},	    
         componentDidMount:function() {
