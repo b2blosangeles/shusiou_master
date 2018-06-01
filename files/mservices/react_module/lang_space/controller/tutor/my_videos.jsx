@@ -29,7 +29,7 @@ try {
 			
 			Root.socket.on('serverData', function(data) {
 				console.log('Root.socket.id - ' + Root.socket.id + ' (' + data.data.data.Y + ')')
-				console.log(data.data);
+				// console.log(data.data);
 			});
 			/*
 			Root.socket.emit('clientData', {room: 'testroom', data: cdata});
