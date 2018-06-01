@@ -10,12 +10,10 @@ try {
 		Root.lib.loadSocketIO(me, {
 			resource:'/',
 			public : true, 
-			room:'news_board',
+			room:'room2',
 			onServerData : function(incomeData, socket) {
-				if (incomeData._room === 'news_board') {
-					console.log(incomeData.data);
-					console.log('onServerData -- ' + me.rr + ' === ' + socket.id);
-				}
+				console.log(incomeData.data);
+				console.log('onServerData -- ' + me.rr + ' === ' + socket.id);
 			}
 			/*,
 			onServerMessage: function(data) {
