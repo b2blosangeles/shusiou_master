@@ -4,7 +4,9 @@ try {
             let me = this;
             return {list:[]};
         },
-
+		componentWillUnmount :function () {
+			alert('switched message');
+		},
 	rr:'niuB',
         componentDidMount:function() {
           let me = this, i = 0;
