@@ -35,14 +35,14 @@ try {
 					o.socket.emit('createRoom', cfg.room);
 					if (typeof cfg.onServerData === 'function') {
 						o.socket.on('serverData', function(incomeData) {
-							cfg.onServerData(incomeData);
+							if (incomeData._room === cfg.room) {
+								cfg.onServerData(incomeData);
+							}
 						});
 					}	
 				});
 				if (typeof cfg.onServerMessage === 'function') {
-					o.socket.on('serverData', function(incomeData) {
-							cfg.onServerMessage(incomeData);
-						});
+					o.socket.on('serverData', cfg.onServerMessage);
 				}
 			},
 			dictionary: function(v) {
