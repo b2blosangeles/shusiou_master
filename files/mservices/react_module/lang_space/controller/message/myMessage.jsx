@@ -52,7 +52,11 @@ try {
 	},	    
         componentDidMount:function() {
           let me = this, i = 0;
-		me.buildSocketIO();
+		setTimeout(
+			function() {
+				me.buildSocketIO();
+			}, 2000
+		);	
 		//me.io();
 		return true;
 		/*
