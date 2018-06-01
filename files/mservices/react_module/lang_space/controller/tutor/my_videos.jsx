@@ -28,11 +28,11 @@ try {
 						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
 						EngR.getlist.data},
 						function() {
-							Root.loadSocketIO(me, {
+							Root.lib.loadSocketIO(me, {
 								resource:'/',
 								room:'VID_NIU',
 								onServerData : function(incomeData, socket) {
-									console.log('socket.id - ' + socket.id + ' (' + incomeData.data.Y + ')')
+									console.log('socket.id PP=> ' + socket.id + ' (' + incomeData.data.Y + ')')
 								}
 							});						
 							// me.io(EngR.getlist.data);
