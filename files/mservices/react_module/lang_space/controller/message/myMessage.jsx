@@ -14,11 +14,11 @@ try {
 			}
 		}, 1000);
 		Root.socket.on('serverData', function(data) {
-			if (data.data.room === 'news_board') {
-				console.log(data);
-			}
+		///	if (data.data.room === 'news_board') {
+		//		console.log(data);
+		//	}
 			
-			// console.log(data.data);
+			console.log(data.data);
 		});
         },	    
         componentDidMount:function() {
