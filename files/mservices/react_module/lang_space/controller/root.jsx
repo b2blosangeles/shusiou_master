@@ -20,11 +20,14 @@ try {
 				};
 			},
 			loadSocketIO : function(o, cfg) {
+				var me = this;
+				me._ioid = (!me._ioid || me._ioid > 999999) ? 1 :me._ioid++;
+				let _id = 'IO_' + me._ioid;
+				
 				Root.socket = (Root.socket) ? Root.socket : {};
-				let _id = ((cfg.id) ? cfg.id : cfg.room) + '__' + cfg.resource;
 				Root.socket[_id] = (Root.socket[_id]) ? Root.socket[_id] : {};
 				
-				let obj = (!cfg.public) ? o : Root.socket[_id]; 
+				let obj = (!cfg.public) ? o : Root.socket[me._ioid]; 
 				if (!cfg.public) {
 					o.componentWillUnmount = (function(o, componentWillUnmount) {
 						return function() {
@@ -56,35 +59,6 @@ try {
 					});
 					if (typeof cfg.onServerMessage === 'function') {
 						obj.socket.on('serverData', cfg.onServerMessage);
-					}
-				}
-			},
-			loadSocketIOBK : function(o, cfg) {
-				Root.socket = (Root.socket) ? Root.socket : {};
-				let obj = (!cfg.public) ? o : Root.socket[cfg.resource]; 
-				o.componentWillUnmount = function() {
-					console.log('---componentWillUnmount triggled');
-					this.socket.close();
-				}
-				if (o.socket) {
-					console.log('o.socket.close();');
-					o.socket.close();
-				}
-				if (!o.socke) {
-					o.socket = io.connect(cfg.resource);
-					o.socket.on('connect', function() {
-						console.log('--->connected -->' + o.socket.id);
-						o.socket.emit('createRoom', cfg.room);
-						if (typeof cfg.onServerData === 'function') {
-							o.socket.on('serverData', function(incomeData) {
-								if (incomeData._room === cfg.room) {
-									cfg.onServerData(incomeData);
-								}
-							});
-						}	
-					});
-					if (typeof cfg.onServerMessage === 'function') {
-						o.socket.on('serverData', cfg.onServerMessage);
 					}
 				}
 			},			
