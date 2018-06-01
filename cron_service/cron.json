@@ -1,7 +1,7 @@
 [
 	{"id":"_cron_whoami.js","schedule":"1 * * * * *", "script":"cron_whoami.js"},
-	{"id":"_video_download","schedule":"21 * * * * *", "script":"video_downloadA.js"},
-	{"id":"_video_split","schedule":"41 * * * * *", "script":"cron_video_split_to_spaceA.js"},
-	{"id":"_cron_video_clean","schedule":"51 * * * * *", "script":"cron_video_cleanA.js"},
-	{"id":"_cron_spaces_status","schedule":"31 * * * * *", "script":"cron_spaces_statusA.js"}
+	{"id":"_video_download","schedule":"21 * * * * *", "script":"video_download.js"},
+	{"id":"_video_split","schedule":"41 * * * * *", "script":"cron_video_split_to_space.js"},
+	{"id":"_cron_video_clean","schedule":"51 * * * * *", "script":"cron_video_clean.js"},
+	{"id":"_cron_spaces_status","schedule":"31 * * * * *", "script":"cron_spaces_status.js"}
 ]
