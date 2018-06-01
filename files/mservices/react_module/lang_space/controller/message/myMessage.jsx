@@ -24,6 +24,7 @@ try {
         componentDidMount:function() {
           let me = this, i = 0;
 		me.io();
+		return true;
           localStorage.clear();
           me._itv = setInterval(
             function() {
