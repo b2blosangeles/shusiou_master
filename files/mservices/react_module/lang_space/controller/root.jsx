@@ -27,8 +27,8 @@ try {
 				Root.socket = (Root.socket) ? Root.socket : {};
 				Root.socket[_id] = (Root.socket[_id]) ? Root.socket[_id] : {};
 				
-				//let obj = (!cfg.public) ? o : Root.socket[_id]; 
-				let obj = Root.socket[_id]; 
+				let obj = (!cfg.public) ? o : Root.socket[_id]; 
+
 				if (!cfg.public) {
 					o.componentWillUnmount = (function(o, componentWillUnmount) {
 						return function() {
@@ -36,7 +36,7 @@ try {
 								componentWillUnmount();
 							}
 							console.log('---componentWillUnmount triggled ==' + _id);
-							obj.socket.close();
+							o.socket.close();
 						}
 					})(o, o.componentWillUnmount);
 				}
