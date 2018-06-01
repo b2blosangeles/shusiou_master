@@ -25,6 +25,7 @@ try {
           let me = this, i = 0;
 		me.io();
 		return true;
+		/*
           localStorage.clear();
           me._itv = setInterval(
             function() {
@@ -40,6 +41,7 @@ try {
               localStorage.setItem('upload_' + i, new Date());
             },6000
           );
+	  */
         },
         render: function() {
             var me = this;
