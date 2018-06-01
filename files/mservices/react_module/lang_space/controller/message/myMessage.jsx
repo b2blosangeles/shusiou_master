@@ -14,15 +14,17 @@ try {
 				console.log(me.socket_id + '<-->' + Root.socket.id);
 				Root.socket.emit('createRoom', 'news_board');
 				me.socket_id = Root.socket.id;
+				Root.socket.on('serverData', function(data) {
+				///	if (data.data.room === 'news_board') {
+				//		console.log(data);
+				//	}
+
+					console.log(data.data);
+				});				
+				
 			}
 		}, 1000);
-		Root.socket.on('serverData', function(data) {
-		///	if (data.data.room === 'news_board') {
-		//		console.log(data);
-		//	}
-			
-			console.log(data.data);
-		});
+
         },	    
         componentDidMount:function() {
           let me = this, i = 0;
