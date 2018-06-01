@@ -7,16 +7,16 @@ try {
 	buildSocketIO : function(o, room, onServerData, onServerMessage) {
 		//let me = this;
 		o.componentWillUnmount = function() {
-			let me = this;
 			console.log('---componentWillUnmount triggled');
-			me.socket.close();
+			this.socket.close();
 		}
-		if (!o.socket) {
-			console.log('fire connect');
-			o.socket = io.connect('/');
-			o.socket.on('connect', onServerData);
-			o.socket.on('serverMessage', onServerMessage);
-		}
+		if (o.socket) {
+			console.log('o.socket.close();');
+			o.socket.close();
+		}	
+		o.socket = io.connect('/');
+		o.socket.on('connect', onServerData);
+		o.socket.on('serverMessage', onServerMessage);
 	},    
         componentDidMount:function() {
           let me = this, i = 0;
