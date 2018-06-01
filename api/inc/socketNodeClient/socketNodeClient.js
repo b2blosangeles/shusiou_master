@@ -16,15 +16,16 @@
 
 			me.socket.on('connect', function(){
 				me.socket.emit('createRoom', room);
-				me.socket.emit('clientData', {room: room, data: {room: room, requestID:me.requestID, data: data}});
+				me.socket.emit('clientData', {_room: room, _requestID:me.requestID, data: data}});
 			});
 			setTimeout(function() {   
 				me.socket.close();
 			},1000);			
 			me.socket.on('serverData', function(data) {
-				if ((data.data) && data.data.requestID === me.requestID) {
+				if ((data._room) && data._requestID === me.requestID) {
 					// me.socket.disconnect();
-					callback('- requestID -' + data.data.requestID);
+					callback(data);
+				//	callback('- requestID -' + data.data.requestID);
 					me.socket.close();
 					return true;
 				}
