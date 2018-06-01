@@ -16,11 +16,12 @@ try {
 					console.log(incomeData.data);
 					console.log('onServerData -- ' + me.rr);
 				}
-			},
+			}
+			/*,
 			onServerMessage: function(data) {
 					console.log('message coming!--' + me.rr)
 				}
-			});
+			}*/);
 		
 		return true;
 		/*
