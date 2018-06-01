@@ -12,12 +12,11 @@ try {
 				Root.socket.emit('createRoom', 'news_board');
 				me.socket_id = Root.socket.id;
 			}
-		}, 1000);		
-		
-
-       		Root.socket.on('serverData', function(data) {
-          		console.log(data);
-          	});
+		}, 1000);
+		Root.socket.on('serverData', function(data) {
+			console.log(data);
+			// console.log(data.data);
+		});
         },	    
         componentDidMount:function() {
           let me = this, i = 0;
