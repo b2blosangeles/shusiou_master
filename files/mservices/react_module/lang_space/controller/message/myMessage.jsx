@@ -20,6 +20,9 @@ try {
 
 
 			});
+			socket.on('connect', function () {
+			   console.log('disconnect client event....');
+			});
 			me.socket.on('serverMessage', function(data) {
 				 console.log(data);
 			});
