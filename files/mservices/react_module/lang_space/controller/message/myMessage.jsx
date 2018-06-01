@@ -6,7 +6,7 @@ try {
         },
 	buildSocketIO : function() {
 		let me = this;
-		console.log('---to join 2 ---');
+		console.log('---to join 21 ---');
 		if (!me.socket) {
 			me.socket = io.connect('/', function() {
 				me.socket.emit('createRoom', 'news_board');
