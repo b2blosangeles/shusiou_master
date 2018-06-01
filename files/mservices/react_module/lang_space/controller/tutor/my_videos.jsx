@@ -32,9 +32,7 @@ try {
 								resource:'/',
 								room:'VID_NIU',
 								onServerData : function(incomeData) {
-									if (incomeData._room === 'VID_NIU') {
-										console.log('socket.id - ' + me.socket.id + ' (' + incomeData.data.Y + ')')
-									}
+									console.log('socket.id - ' + me.socket.id + ' (' + incomeData.data.Y + ')')
 								}
 							});						
 							// me.io(EngR.getlist.data);
