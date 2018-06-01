@@ -12,6 +12,7 @@ try {
 			// me.socket.close();
 		}
 		if (!o.socket) {
+			console.log('fire connect');
 			o.socket = io.connect('/');
 			o.socket.on('connect', onServerData);
 			o.socket.on('serverMessage', onServerMessage);
