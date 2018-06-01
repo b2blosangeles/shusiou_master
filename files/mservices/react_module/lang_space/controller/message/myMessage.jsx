@@ -11,27 +11,23 @@ try {
 			console.log('---componentWillUnmount triggled');
 			// me.socket.close();
 		}
-		if (!me.socket) {
+		if (!o.socket) {
 			o.socket = io.connect('/');
-			o.socket.on('connect', function () {
-				console.log('--->connected -->' + o.socket.id);
-				o.socket.emit('createRoom', 'news_board');
-				o.socket.on('serverData', function(income) {
-					if (income._room === 'news_board') {
-						console.log(income.data);
-					}
-				});	
-			});
-			o.socket.on('serverMessage', function(data) {
-				// console.log(data);
-			});
+			o.socket.on('connect', onServerData);
+			o.socket.on('serverMessage', onServerMessage);
 		}
 	},    
         componentDidMount:function() {
           let me = this, i = 0;
 		me.buildSocketIO(me, 'news_board',
 			function(data) {
-				console.log(data)
+				console.log('--->connected -->' + me.socket.id);
+				me.socket.emit('createRoom', 'news_board');
+				me.socket.on('serverData', function(income) {
+					if (income._room === 'news_board') {
+						console.log(income.data);
+					}
+				});
 			},
 			function(data) {
 				console.log('message coming!')
