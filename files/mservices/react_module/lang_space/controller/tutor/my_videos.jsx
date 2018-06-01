@@ -13,6 +13,7 @@ try {
 		},
 		io:function(list) {
 			let me = this;
+			return true;
 			let _itv = setInterval(function() {
 				if (!Root.socket || !Root.socket.id) {
 					return true;
