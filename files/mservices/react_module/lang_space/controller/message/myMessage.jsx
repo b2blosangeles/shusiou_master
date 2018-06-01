@@ -6,7 +6,14 @@ try {
         },
         io:function() {
 		let me = this;
-		Root.socket.emit('createRoom', 'news_board');
+		let _itv = setInterval(function() {
+			if (!me.socket_id || me.socket_id  !== Root.socket.id) {
+				console.log(me.socket_id + '<-->' + Root.socket.id);
+				Root.socket.emit('createRoom', 'news_board');
+				me.socket_id = Root.socket.id;
+			}
+		}, 1000);		
+		
 
        		Root.socket.on('serverData', function(data) {
           		console.log(data);
