@@ -30,7 +30,7 @@ try {
 					console.log('o.socket.close();');
 					obj.socket.close();
 				}
-				if (!obj.socke) {
+				if (!obj.socket) {
 					obj.socket = io.connect(cfg.resource);
 					obj.socket.on('connect', function() {
 						console.log('--->connected -->' + obj.socket.id);
