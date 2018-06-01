@@ -16,7 +16,7 @@
 
 			me.socket.on('connect', function(){
 				me.socket.emit('createRoom', room);
-				me.socket.emit('clientData', {room: room, data: { requestID:me.requestID, data: data}});
+				me.socket.emit('clientData', {room: room, data: {room: room, requestID:me.requestID, data: data}});
 			});
 			setTimeout(function() {   
 				me.socket.close();
