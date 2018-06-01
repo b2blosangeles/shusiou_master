@@ -49,12 +49,7 @@ try {
 	},	    
         componentDidMount:function() {
           let me = this, i = 0;
-		setTimeout(
-			function() {
-				me.buildSocketIO();
-			}, 1000
-		);	
-		//me.io();
+		me.buildSocketIO();
 		return true;
 		/*
           localStorage.clear();
