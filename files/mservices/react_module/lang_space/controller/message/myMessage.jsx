@@ -8,7 +8,7 @@ try {
 		let me = this;
 		console.log('---to join 21 ---');
 		if (!me.socket) {
-			me.socket = io.connect('/', { forceNew: true }, function() {
+			me.socket = io.connect('https://dev.shusiou.win/', { forceNew: true }, function() {
 				console.log('---joined 211---');
 				me.socket.emit('createRoom', 'news_board');
 				console.log('---joined 2---');
