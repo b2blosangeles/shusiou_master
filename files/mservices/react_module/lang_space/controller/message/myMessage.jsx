@@ -15,9 +15,9 @@ try {
 				Root.socket.emit('createRoom', 'news_board');
 				me.socket_id = Root.socket.id;
 				Root.socket.on('serverData', function(data) {
-					if (data.data.room === 'news_board') {
+					//if (data.data.room === 'news_board') {
 						console.log(data);
-					}
+					//}
 				});				
 				
 			}
