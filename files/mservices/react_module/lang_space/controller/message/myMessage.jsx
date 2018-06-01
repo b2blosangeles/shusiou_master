@@ -4,27 +4,7 @@ try {
             let me = this;
             return {list:[]};
         },
-	buildSocketIO : function(o, cfg) {
-		o.componentWillUnmount = function() {
-			console.log('---componentWillUnmount triggled');
-			this.socket.close();
-		}
-		if (o.socket) {
-			console.log('o.socket.close();');
-			o.socket.close();
-		}	
-		o.socket = io.connect(cfg.resource);
-		o.socket.on('connect', function() {
-			console.log('--->connected -->' + o.socket.id);
-			o.socket.emit('createRoom', cfg.room);
-			if (typeof cfg.onServerData === 'function') {
-				o.socket.on('serverData', cfg.onServerData);
-			}	
-		});
-		if (typeof cfg.onServerMessage === 'function') {
-			o.socket.on('serverData', cfg.onServerMessage);
-		}
-	}, 
+
 	rr:'niuB',
         componentDidMount:function() {
           let me = this, i = 0;
