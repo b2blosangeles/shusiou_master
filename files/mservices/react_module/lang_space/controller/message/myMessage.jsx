@@ -9,6 +9,11 @@ try {
 		console.log('---to join 21A ---');
 		if (!me.socket) {
 			me.socket = io.connect('https://dev.shusiou.win/', { forceNew: true }, function() {
+				
+
+
+			});
+			me.socket.on('connect', function () {
 				console.log('---joined 211---');
 				me.socket.emit('createRoom', 'news_board');
 				console.log('---joined 2---');
@@ -17,11 +22,6 @@ try {
 						console.log(income.data);
 				//	}
 				});	
-
-
-			});
-			me.socket.on('connect', function () {
-			   console.log('disconnect client event....');
 			});
 			me.socket.on('serverMessage', function(data) {
 				 console.log(data);
