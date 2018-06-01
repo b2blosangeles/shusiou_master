@@ -6,10 +6,10 @@ try {
         },
 	buildSocketIO : function() {
 		let me = this;
-		console.log('---to join---');
+		console.log('---to join 2 ---');
 		me.socket = io.connect('/', function() {
 			me.socket.emit('createRoom', 'news_board');
-			console.log('---joied---');
+			console.log('---joined 2---');
 			me.socket.on('serverData', function(income) {
 			//	if (income._room === 'news_board') {
 					console.log(income.data);
