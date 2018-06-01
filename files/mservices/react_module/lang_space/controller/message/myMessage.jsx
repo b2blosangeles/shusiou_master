@@ -5,11 +5,12 @@ try {
             return {list:[]};
         },
         io:function() {
-          Root.socket.emit('createRoom', 'news_board');
+		let me = this;
+		Root.socket.emit('createRoom', 'news_board');
 
-          Root.socket.on('serverData', function(data) {
-            console.log(data);
-          });
+       		Root.socket.on('serverData', function(data) {
+          		console.log(data);
+          	});
         },	    
         componentDidMount:function() {
           let me = this, i = 0;
