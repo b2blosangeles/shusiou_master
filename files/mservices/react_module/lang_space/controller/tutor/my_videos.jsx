@@ -33,7 +33,7 @@ try {
 								room:'VID_NIU',
 								onServerData : function(incomeData) {
 									if (income._room === 'VID_NIU') {
-										console.log('socket.id - ' + me.socket.id + ' (' + income.data.Y + ')')
+										console.log('socket.id - ' + me.socket.id + ' (' + incomeData.data.Y + ')')
 									}
 								}
 							});						
