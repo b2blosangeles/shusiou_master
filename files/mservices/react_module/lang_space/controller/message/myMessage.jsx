@@ -14,6 +14,7 @@ try {
 		// if (me.socket) me.socket.close();
 		o.socket = io.connect('/');
 		o.socket.on('connect', function () {
+			console.log('--->connected -->' + o.socket.id);
 			o.socket.emit('createRoom', 'news_board');
 			o.socket.on('serverData', function(income) {
 				if (income._room === 'news_board') {
