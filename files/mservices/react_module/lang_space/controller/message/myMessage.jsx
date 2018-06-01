@@ -6,6 +6,11 @@ try {
         },
 	buildSocketIO : function() {
 		let me = this;
+		me.componentWillUnmount = function() {
+			let me = this;
+			console.log('componentWillUnmount triggled';);
+			me.socket.close();
+		}
 		if (me.socket) me.socket.close();
 		me.socket = io.connect('/');
 		me.socket.on('connect', function () {
@@ -40,10 +45,12 @@ try {
 		}, 1000);
 
         },
-	componentWillUnmount() {
+	/*
+	    componentWillUnmount() {
 		let me = this;
 		// me.socket.close();
-	},	    
+	},
+	*/
         componentDidMount:function() {
           let me = this, i = 0;
 		me.buildSocketIO();
