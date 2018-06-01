@@ -6,7 +6,7 @@ let socketClient = new socketNodeClient('https://' + config.root + '/');
 
 socketClient.sendToRoom(
     'news_board',
-    {x:1234},
+    env,
     function(data) {
         res.send(data);
     }
