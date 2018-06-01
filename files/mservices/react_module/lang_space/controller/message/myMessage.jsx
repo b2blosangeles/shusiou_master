@@ -6,9 +6,9 @@ try {
         },
 	buildSocketIO : function() {
 		let me = this;
-		return true;
 		me.socket = io.connect('/', function() {
 			me.socket.emit('createRoom', 'news_board');
+			console.log('---joied---');
 			me.socket.on('serverData', function(income) {
 			//	if (income._room === 'news_board') {
 					console.log(income.data);
