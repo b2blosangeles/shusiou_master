@@ -16,7 +16,7 @@ try {
 				me.socket_id = Root.socket.id;
 				Root.socket.on('serverData', function(income) {
 					//if (income._room === 'news_board') {
-						console.log(income.data);
+						console.log(income);
 					//}
 				});				
 				
