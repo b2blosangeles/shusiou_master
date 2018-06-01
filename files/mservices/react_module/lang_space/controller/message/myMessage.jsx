@@ -17,12 +17,13 @@ try {
 		o.socket.on('connect', function() {
 			console.log('--->connected -->' + o.socket.id);
 			o.socket.emit('createRoom', cfg.room);
-			if (cfg.onServerData) {
+			if (typeof cfg.onServerData === 'function') {
 				o.socket.on('serverData', cfg.onServerData);
 			}	
 		});
-		o.socket.on('serverMessage', onServerMessage);
-		
+		if (typeof cfg.onServerMessage === 'function') {
+			o.socket.on('serverData', cfg.onServerMessage);
+		}
 	}, 
 	rr:'niuB',
         componentDidMount:function() {
