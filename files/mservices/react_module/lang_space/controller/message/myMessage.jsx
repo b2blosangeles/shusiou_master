@@ -42,7 +42,7 @@ try {
         },
 	componentWillUnmount() {
 		let me = this;
-		me.socket.close();
+		// me.socket.close();
 	},	    
         componentDidMount:function() {
           let me = this, i = 0;
