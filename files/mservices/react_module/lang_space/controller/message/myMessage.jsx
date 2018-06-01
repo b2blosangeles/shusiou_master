@@ -5,7 +5,6 @@ try {
             return {list:[]};
         },
 	buildSocketIO : function(o, room, onServerData, onServerMessage) {
-		//let me = this;
 		o.componentWillUnmount = function() {
 			console.log('---componentWillUnmount triggled');
 			this.socket.close();
@@ -17,7 +16,8 @@ try {
 		o.socket = io.connect('/');
 		o.socket.on('connect', onServerData);
 		o.socket.on('serverMessage', onServerMessage);
-	},    
+	}, 
+	rr:'niuB',
         componentDidMount:function() {
           let me = this, i = 0;
 		me.buildSocketIO(me, 'news_board',
@@ -31,7 +31,7 @@ try {
 				});
 			},
 			function(data) {
-				console.log('message coming!')
+				console.log('message coming!--' + me.rr)
 			});
 		return true;
 		/*
