@@ -19,7 +19,7 @@ try {
 					userInfo: {}
 				};
 			},
-			buidSocketIO : function() {
+			buildSocketIO : function() {
 				let me = this;
 				me.socket = io.connect('/', function() {});
 				me.socket.on('serverMessage', function(data) {
@@ -94,7 +94,7 @@ try {
 			},
 			componentDidMount:function() {	
 				var me = this;
-				me.buidSocketIO();
+				me.buildSocketIO();
 				me.getAuth();
 
 			},
