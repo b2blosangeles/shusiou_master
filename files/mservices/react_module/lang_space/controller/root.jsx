@@ -29,7 +29,7 @@ try {
 						let componentWillUnmount = o.componentWillUnmount;
 						delete o.componentWillUnmount;
 					}
-					o.componentWillUnmount = (function(o) {
+					o.componentWillUnmount = (function(o, componentWillUnmount) {
 						return function() {
 							if (typeof componentWillUnmount === 'function') {
 								componentWillUnmount();
@@ -37,7 +37,7 @@ try {
 							console.log('---componentWillUnmount triggled');
 							this.socket.close();
 						}
-					})(o);
+					})(o, componentWillUnmount);
 				}
 				if (!cfg.public && (obj.socket)) {
 					console.log('o.socket.close();');
