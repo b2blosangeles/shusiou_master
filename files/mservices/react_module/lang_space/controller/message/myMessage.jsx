@@ -24,6 +24,7 @@ try {
         componentDidMount:function() {
           let me = this, i = 0;
 		me.io();
+		alert(1);
 		return true;
 		/*
           localStorage.clear();
