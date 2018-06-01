@@ -26,17 +26,17 @@ try {
 					console.log('---componentWillUnmount triggled');
 					this.socket.close();
 				}
-				if (o.socket) {
+				if (!cfg.public && (obj.socket)) {
 					console.log('o.socket.close();');
-					o.socket.close();
+					obj.socket.close();
 				}
-				if (!o.socke) {
-					o.socket = io.connect(cfg.resource);
-					o.socket.on('connect', function() {
+				if (!obj.socke) {
+					obj.socket = io.connect(cfg.resource);
+					obj.socket.on('connect', function() {
 						console.log('--->connected -->' + o.socket.id);
-						o.socket.emit('createRoom', cfg.room);
+						obj.socket.emit('createRoom', cfg.room);
 						if (typeof cfg.onServerData === 'function') {
-							o.socket.on('serverData', function(incomeData) {
+							obj.socket.on('serverData', function(incomeData) {
 								if (incomeData._room === cfg.room) {
 									cfg.onServerData(incomeData);
 								}
@@ -44,7 +44,7 @@ try {
 						}	
 					});
 					if (typeof cfg.onServerMessage === 'function') {
-						o.socket.on('serverData', cfg.onServerMessage);
+						obj.socket.on('serverData', cfg.onServerMessage);
 					}
 				}
 			},
