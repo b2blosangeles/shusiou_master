@@ -4,7 +4,7 @@ try {
             let me = this;
             return {list:[]};
         },
-	buildSocketIO : function() {
+	buildSocketIO : function(o, onServerData, onServerMessage) {
 		let me = this;
 		me.componentWillUnmount = function() {
 			let me = this;
@@ -25,29 +25,14 @@ try {
 			// console.log(data);
 		});
 	},    
-        io1:function() {
-		let me = this;
-		let _itv = setInterval(function() {
-			if (!Root.socket || !Root.socket.id) {
-				return true;
-			}
-			if (!me.socket_id || me.socket_id  !== Root.socket.id) {
-				console.log(me.socket_id + '<-->' + Root.socket.id);
-				Root.socket.emit('createRoom', 'news_board');
-				me.socket_id = Root.socket.id;
-				Root.socket.on('serverData', function(income) {
-					if (income._room === 'news_board') {
-						console.log(income.data);
-					}
-				});				
-				
-			}
-		}, 1000);
-
-        },
         componentDidMount:function() {
           let me = this, i = 0;
-		me.buildSocketIO();
+		me.buildSocketIO(me, function(data) {
+			console.log(data)
+		},
+		function(data) {
+			console.log('message coming!')
+		});
 		return true;
 		/*
           localStorage.clear();
