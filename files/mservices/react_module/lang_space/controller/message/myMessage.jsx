@@ -6,6 +6,7 @@ try {
         },
         io:function() {
 		let me = this;
+		me.niu = 1;
 		let _itv = setInterval(function() {
 			if (!Root.socket || !Root.socket.id) {
 				return true;
@@ -17,7 +18,7 @@ try {
 				Root.socket.on('serverData', function(income) {
 					if (income._room === 'news_board') {
 						console.log(income.data);
-						console.log(income.data);
+						console.log(me.niu);
 					}
 				});				
 				
