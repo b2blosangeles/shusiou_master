@@ -15,7 +15,7 @@ try {
 				public : true, 
 				room:'news_board',
 				onServerData : function(incomeData, socket) {
-					if (incomeData._room === 'news_board') {
+					if (incomeData._room === 'room1') {
 						console.log(incomeData.data);
 						console.log('onServerData -- san ramon ' + socket.id);
 					}
