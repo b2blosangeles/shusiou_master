@@ -21,6 +21,7 @@ try {
 			},
 			buildSocketIO : function() {
 				let me = this;
+				return true;
 				me.socket = io.connect('/', function() {});
 				me.socket.on('serverMessage', function(data) {
 					//console.log(data);
