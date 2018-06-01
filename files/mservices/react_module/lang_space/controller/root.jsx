@@ -27,7 +27,7 @@ try {
 				if (o.socket) {
 					console.log('o.socket.close();');
 					o.socket.close();
-				}	
+				}
 				o.socket = io.connect(cfg.resource);
 				o.socket.on('connect', function() {
 					console.log('--->connected -->' + o.socket.id);
