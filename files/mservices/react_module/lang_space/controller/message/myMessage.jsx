@@ -5,7 +5,7 @@ try {
             return {list:[]};
         },
 		componentWillUnmount :function () {
-			alert('switched message');
+			alert('switched message' + this.rr);
 		},
 	rr:'niuB',
         componentDidMount:function() {
