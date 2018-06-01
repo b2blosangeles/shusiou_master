@@ -11,10 +11,10 @@ try {
 			resource:'/',
 			public : true, 
 			room:'news_board',
-			onServerData : function(incomeData) {
+			onServerData : function(incomeData, socket) {
 				if (incomeData._room === 'news_board') {
 					console.log(incomeData.data);
-					console.log('onServerData -- ' + me.rr);
+					console.log('onServerData -- ' + me.rr + ' === ' + socket.id);
 				}
 			}
 			/*,
