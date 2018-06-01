@@ -33,7 +33,7 @@ try {
 				if (!obj.socke) {
 					obj.socket = io.connect(cfg.resource);
 					obj.socket.on('connect', function() {
-						console.log('--->connected -->' + o.socket.id);
+						console.log('--->connected -->' + obj.socket.id);
 						obj.socket.emit('createRoom', cfg.room);
 						if (typeof cfg.onServerData === 'function') {
 							obj.socket.on('serverData', function(incomeData) {
