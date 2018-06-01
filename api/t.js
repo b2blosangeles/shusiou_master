@@ -9,8 +9,8 @@ for (let i = 0; i < rooms.length; i++) {
         rooms[i],
         env,
         function(data) {
-            res.send(data);
+           // res.send(data);
         }
     );
 }
-
+ res.send(rooms);
