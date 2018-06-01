@@ -16,7 +16,7 @@ try {
 		o.socket = io.connect('/');
 		o.socket.on('connect', function() {
 			console.log('--->connected -->' + me.socket.id);
-			me.socket.emit('createRoom', cfg.room);
+			o.socket.emit('createRoom', cfg.room);
 			if (cfg.onServerData) {
 				o.socket.on('serverData', cfg.onServerData);
 			}	
