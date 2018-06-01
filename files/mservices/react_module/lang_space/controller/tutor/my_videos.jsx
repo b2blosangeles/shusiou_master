@@ -31,8 +31,8 @@ try {
 							Root.loadSocketIO(me, {
 								resource:'/',
 								room:'VID_NIU',
-								onServerData : function(incomeData) {
-									console.log('socket.id - ' + me.socket.id + ' (' + incomeData.data.Y + ')')
+								onServerData : function(incomeData, socket) {
+									console.log('socket.id - ' + socket.id + ' (' + incomeData.data.Y + ')')
 								}
 							});						
 							// me.io(EngR.getlist.data);
