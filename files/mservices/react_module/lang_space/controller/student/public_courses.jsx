@@ -9,7 +9,7 @@ try {
 			setTimeout(me.callEng);
 			var str='test1[s]test2';
 			var a = str.split(/\[s\]/i);
-			Root.loadSocketIO(me, {
+			Root.lib.loadSocketIO(me, {
 				resource:'/',
 				id : 'sanramon',
 				public : true, 
