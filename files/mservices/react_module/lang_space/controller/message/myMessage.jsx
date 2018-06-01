@@ -4,7 +4,23 @@ try {
             let me = this;
             return {list:[]};
         },
-        io:function() {
+	buildSocketIO : function() {
+		let me = this;
+		me.socket = io.connect('/', function() {
+			me.socket.emit('createRoom', 'news_board');
+			me.socket.on('serverData', function(income) {
+				if (income._room === 'news_board') {
+					console.log(income.data);
+				}
+			});	
+		
+		
+		});
+		me.socket.on('serverMessage', function(data) {
+			// console.log(data);
+		});				
+	},    
+        io1:function() {
 		let me = this;
 		let _itv = setInterval(function() {
 			if (!Root.socket || !Root.socket.id) {
@@ -29,7 +45,8 @@ try {
 	},	    
         componentDidMount:function() {
           let me = this, i = 0;
-		me.io();
+		me.buildSocketIO();
+		//me.io();
 		return true;
 		/*
           localStorage.clear();
