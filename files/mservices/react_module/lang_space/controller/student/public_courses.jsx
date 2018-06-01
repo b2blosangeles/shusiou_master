@@ -17,7 +17,7 @@ try {
 				onServerData : function(incomeData) {
 					if (incomeData._room === 'news_board') {
 						console.log(incomeData.data);
-						console.log('onServerData -- san ramon');
+						console.log('onServerData -- san ramon ' + socket.id);
 					}
 				}
 				/*,
