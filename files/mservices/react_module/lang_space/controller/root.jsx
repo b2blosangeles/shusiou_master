@@ -46,14 +46,11 @@ try {
 						console.log('--->connected -->' + obj.socket.id);
 						obj.socket.emit('createRoom', cfg.room);
 						if (typeof cfg.onServerData === 'function') {
-							obj.socket.on('serverData', (function(socket) {
-									return function(incomeData) {
-										console.log('====>>' + socket.id);
-										if (incomeData._room === cfg.room) {
-											cfg.onServerData(incomeData);
-										}
-									}	
-								})(obj.socket)
+							obj.socket.on('serverData', function(incomeData) {
+								console.log('====>>' + socket.id);
+								if (incomeData._room === cfg.room) {
+									cfg.onServerData(incomeData, obj.socket);
+								}
 							});
 						}	
 					});
