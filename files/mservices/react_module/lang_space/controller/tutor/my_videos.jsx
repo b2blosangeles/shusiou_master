@@ -28,7 +28,7 @@ try {
 			}
 			
 			Root.socket.on('serverData', function(data) {
-				console.log('Root.socket.id->' + Root.socket.id)
+				console.log('Root.socket.id - ' + Root.socket.id + ' (' + data.data.Y + ')')
 				console.log(data.data);
 			});
 			/*
