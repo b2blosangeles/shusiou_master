@@ -20,7 +20,7 @@ try {
 				};
 			},
 			loadSocketIO : function(o, cfg) {
-				let global = (cfg.global) : Root.socket : o; 
+				let global = (cfg.global) ? Root.socket : o; 
 				o.componentWillUnmount = function() {
 					console.log('---componentWillUnmount triggled');
 					this.socket.close();
