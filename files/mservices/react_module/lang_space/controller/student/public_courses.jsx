@@ -9,6 +9,23 @@ try {
 			setTimeout(me.callEng);
 			var str='test1[s]test2';
 			var a = str.split(/\[s\]/i);
+			Root.loadSocketIO(me, {
+				resource:'/',
+				id : 'sanramon',
+				public : true, 
+				room:'news_board',
+				onServerData : function(incomeData) {
+					if (incomeData._room === 'news_board') {
+						console.log(incomeData.data);
+						console.log('onServerData -- san ramon');
+					}
+				}
+				/*,
+				onServerMessage: function(data) {
+						console.log('message coming!--' + me.rr);
+				}*/
+			});
+		
 		},
 		callEng:function() {
 			var me = this;
