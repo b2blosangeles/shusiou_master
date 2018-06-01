@@ -36,7 +36,7 @@ try {
 								componentWillUnmount();
 							}
 							console.log('---componentWillUnmount triggled ==' + _id);
-							this.socket.close();
+							obj.socket.close();
 						}
 					})(o, o.componentWillUnmount);
 				}
