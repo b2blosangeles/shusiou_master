@@ -24,9 +24,11 @@ try {
 				Root.socket[cfg.resource] = (Root.socket[cfg.resource]) ? Root.socket[cfg.resource] : {};
 				
 				let obj = (!cfg.public) ? o : Root.socket[cfg.resource]; 
-				o.componentWillUnmount = function() {
-					console.log('---componentWillUnmount triggled');
-					this.socket.close();
+				if (!cfg.public && (obj.socket)) {
+					o.componentWillUnmount = function() {
+						console.log('---componentWillUnmount triggled');
+						this.socket.close();
+					}
 				}
 				if (!cfg.public && (obj.socket)) {
 					console.log('o.socket.close();');
