@@ -19,10 +19,9 @@ try {
 			}
 			/*,
 			onServerMessage: function(data) {
-					console.log('message coming!--' + me.rr)
-				}
+					console.log('message coming!--' + me.rr);
 			}*/
-			);
+		});
 		
 		return true;
 		/*
