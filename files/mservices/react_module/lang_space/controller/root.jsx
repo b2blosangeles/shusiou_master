@@ -21,9 +21,7 @@ try {
 			},
 			loadSocketIO : function(o, cfg) {
 				var me = this;
-				console.log(o.props.route);
-				Root._ioid = (!Root._ioid || Root._ioid > 999999) ? 1 : ++Root._ioid;
-				let _id = cfg.room + '_' + cfg.id;
+				let _id = (!o || !o.props || !o.props.route || !o.props.route.path) ? cfg.room : (o.props.route.path + '_' + cfg.room);
 				console.log('_id =D=>' + _id);
 				Root.socket = (Root.socket) ? Root.socket : {};
 				Root.socket[_id] = (Root.socket[_id]) ? Root.socket[_id] : {};
