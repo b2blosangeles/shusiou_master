@@ -7,20 +7,24 @@ try {
 	buildSocketIO : function() {
 		let me = this;
 		console.log('---to join 2 ---');
-		me.socket = io.connect('/', function() {
-			me.socket.emit('createRoom', 'news_board');
-			console.log('---joined 2---');
-			me.socket.on('serverData', function(income) {
-			//	if (income._room === 'news_board') {
-					console.log(income.data);
-			//	}
-			});	
-		
-		
-		});
-		me.socket.on('serverMessage', function(data) {
-			 console.log(data);
-		});				
+		if (!me.socket) {
+			me.socket = io.connect('/', function() {
+				me.socket.emit('createRoom', 'news_board');
+				console.log('---joined 2---');
+				me.socket.on('serverData', function(income) {
+				//	if (income._room === 'news_board') {
+						console.log(income.data);
+				//	}
+				});	
+
+
+			});
+			me.socket.on('serverMessage', function(data) {
+				 console.log(data);
+			});
+		} else {
+			console.log('---to join test ---');
+		}
 	},    
         io1:function() {
 		let me = this;
