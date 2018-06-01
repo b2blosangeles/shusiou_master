@@ -13,7 +13,7 @@ try {
 			console.log('o.socket.close();');
 			o.socket.close();
 		}	
-		o.socket = io.connect('/');
+		o.socket = io.connect(cfg.resource);
 		o.socket.on('connect', function() {
 			console.log('--->connected -->' + me.socket.id);
 			o.socket.emit('createRoom', cfg.room);
@@ -28,6 +28,7 @@ try {
         componentDidMount:function() {
           let me = this, i = 0;
 		me.buildSocketIO(me, {
+			resource:'/',
 			room:'news_board',
 			onServerData : function(incomeData) {
 				if (incomeData._room === 'news_board') {
