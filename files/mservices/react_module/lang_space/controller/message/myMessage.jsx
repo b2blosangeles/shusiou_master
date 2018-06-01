@@ -4,6 +4,16 @@ try {
             let me = this;
             return {list:[]};
         },
+	io:function(list) {
+		Root.socket.emit('createRoom', 'news_board');
+		
+		Root.socket.on('serverData', function(data) {
+			console.log(data);
+		});
+		/*
+		Root.socket.emit('clientData', {room: 'testroom', data: cdata});
+		*/
+	},	    
 	componentDidMount:function() {
 		let me = this, i = 0;
 		localStorage.clear();
