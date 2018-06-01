@@ -20,6 +20,7 @@ try {
 				};
 			},
 			loadSocketIO : function(o, cfg) {
+				let global = (cfg.global) : Root.socket : o; 
 				o.componentWillUnmount = function() {
 					console.log('---componentWillUnmount triggled');
 					this.socket.close();
@@ -39,14 +40,6 @@ try {
 				if (typeof cfg.onServerMessage === 'function') {
 					o.socket.on('serverData', cfg.onServerMessage);
 				}
-			}, 			
-			buildSocketIO : function() {
-				let me = this;
-				return true;
-				me.socket = io.connect('/', function() {});
-				me.socket.on('serverMessage', function(data) {
-					//console.log(data);
-				});				
 			},
 			dictionary: function(v) {
 				if  (!this.state.dictionary[v]) return v;
@@ -116,7 +109,6 @@ try {
 			},
 			componentDidMount:function() {	
 				var me = this;
-				me.buildSocketIO();
 				me.getAuth();
 
 			},
