@@ -4,7 +4,7 @@ try {
             let me = this;
             return {list:[]};
         },
-        io:function(list) {
+        io:function() {
           Root.socket.emit('createRoom', 'news_board');
 
           Root.socket.on('serverData', function(data) {
@@ -13,6 +13,7 @@ try {
         },	    
         componentDidMount:function() {
           let me = this, i = 0;
+		me.io();
           localStorage.clear();
           me._itv = setInterval(
             function() {
