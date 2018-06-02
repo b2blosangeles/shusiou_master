@@ -1,7 +1,7 @@
 (function () { 
 	var obj =  function (url) {
 		let me = this;
-		me.io = require('/var/qalet/sites/master/api/inc/socket.io-client/node_modules/socket.io-client');
+		me.io = require(env.root_path + '/sites/master/api/inc/socket.io-client/node_modules/socket.io-client');
 
 		me.connect = function () {
 			let me = this;
