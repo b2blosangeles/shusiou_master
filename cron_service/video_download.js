@@ -146,9 +146,11 @@ socketClient.sendToRoom(
 				});	
 			});	
 	};
-	/*
+	
 	_f['conclution'] = function(cbk) {
-		var connection = mysql.createConnection(cfg0);
+		let new_cfg = cfg0;
+		new_cfg.multipleStatements = true;
+		var connection = mysql.createConnection(new_cfg);
 		connection.connect();
 		var info = (CP.data.current.info)?CP.data.current.info:'';
 		var json_info = {};
@@ -163,7 +165,8 @@ socketClient.sendToRoom(
 			    "'" + CP.data.current.vid + "'," +
 			    "'" +  CP.data.current.video_length + "'," +
 			    "'" +  CP.data.current.org_thumbnail + "'," +
-			    'NOW())';
+			    'NOW()); ';
+			    
 		} else {
 			var str = 'INSERT INTO `download_failure` ' +
 			    '(`vid`,`source`, `code`, `video_info`, `message`) VALUES (' +
@@ -171,33 +174,33 @@ socketClient.sendToRoom(
 			    "'" + CP.data.current.source + "'," +
 			    "'" + CP.data.current.code.replace(/\'/g, "\\\'") + "'," +
 			    "'" + info.replace(/\'/g, "\\\'") + "'," +
-			    "'Wrong video format!')";
+			    "'Wrong video format!');";
 
 		}
+		 str += 'DELETE FROM `download_queue`  WHERE `id` = "' + CP.data.current.id + '";'
 		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if (error) {
-				cbk(str);
+				cbk(false);
 			} else {
-				if (results.affectedRows) {
-					cbk(true);
-				} else {
-					cbk(false);
-				}
-
+				cbk(true);
 			}
 		});  
 	};
-	_f['clean_download_queue'] = function(cbk) {
-		var connection = mysql.createConnection(cfg0);
-		connection.connect();
-		var str = 'DELETE FROM `download_queue`  WHERE `id` = "' + CP.data.current.id + '"';
-		connection.query(str, function (error, results, fields) {
-			connection.end();
+	_f['notice_frontend'] = function(cbk) {
+		delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
+		var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+		var socketClient = new socketNodeClient('https://' + config.root + '/');
+
+		socketClient.sendToRoom(
+		    'video_' +  CP.data.current.id,
+		    {reload:true},
+		    function(data) {
 			cbk(true);
-		});  
+		    }
+		);
 	};
-	*/
+	
 	CP.serial(_f,
 		function(data) {
 			let delta_time = new Date().getTime() - tm;
