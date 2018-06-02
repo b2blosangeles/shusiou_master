@@ -45,6 +45,7 @@ try {
 									onServerData : function(incomeData, socket) {
 										if ((incomeData.data) && (incomeData.data.reload)) {
 											me.callEng();
+											console.log('---reloaded!---');
 										}
 									}
 								});
