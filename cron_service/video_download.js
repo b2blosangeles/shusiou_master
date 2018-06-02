@@ -70,7 +70,7 @@ socketClient.sendToRoom(
 			if (error) {
 				cbk(false);
 			} else {
-				cbk(results);
+				cbk(JSON.stringify(results));
 			}
 		});  
 	};
