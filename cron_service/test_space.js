@@ -41,7 +41,7 @@ function s() {
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
 		if (delta_time < 50000 && data !== 'No new id at all') {		
-			// s();
+			s();
 		} 
 		console.log('exit current session');
 		process.exit(-1);
