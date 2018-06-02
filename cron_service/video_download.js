@@ -53,7 +53,7 @@ socketClient.sendToRoom(
 		});	 
 	};
 
-	
+	/*
 	_f['process_download_failure_overtime'] = function(cbk) {
 		let new_cfg = cfg0;
 		new_cfg.multipleStatements = true;
@@ -75,7 +75,7 @@ socketClient.sendToRoom(
 			}
 		});  
 	};
-	/*
+	*/
 	_f['start_one_from_download_queue'] = function(cbk) { 
 		// --- pickup one from queue --- 
 		var connection = mysql.createConnection(cfg0);
@@ -92,6 +92,7 @@ socketClient.sendToRoom(
 			}
 		});  
 	};
+	/*
 	_f['current'] = function(cbk) { 
 		// --- get the one from queue --- 
 		var connection = mysql.createConnection(cfg0);
