@@ -9,19 +9,19 @@ env.config_path = '/var/qalet_config';
 var config = require(env.config_path + '/config.json');
 
 /* --- test code ----------*/
-/*
+
 delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
 var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-var socketClient = new socketNodeClient('https://' + config.root + '/');
+var socketClient = new socketNodeClient('https://' + config.root + '/', env);
 
 socketClient.sendToRoom(
-    'VID_NIU',
+    'CRON_REPORT',
     {x:new Date(), Y:99},
     function(data) {
 	// res.send(data);
     }
 );
-*/
+
 /* ------------- */
 
 
