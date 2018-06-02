@@ -30,7 +30,7 @@ try {
 						function() {
 							Root.lib.loadSocketIO(me, {
 								resource:'/',
-								room:'VID_NIU',
+								room:'CRON_REPORT',
 								onServerData : function(incomeData, socket) {
 									console.log('socket.id PP=> ' + socket.id + ' (' + incomeData.data.Y + ')')
 								}
