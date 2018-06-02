@@ -13,7 +13,7 @@ var socketClient = new socketNodeClient('https://' + config.root + '/', env);
 
 socketClient.sendToRoom(
     'CRON_REPORT',
-    {x:new Date(), Y:92},
+    {x:new Date(), Y:98},
     function(data) {
 	// res.send(data);
     }
