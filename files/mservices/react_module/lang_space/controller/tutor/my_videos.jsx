@@ -34,9 +34,17 @@ try {
 								onServerData : function(incomeData, socket) {
 									console.log('socket.id PP=> ' + socket.id + ' (' + incomeData.data.Y + ')')
 								}
-							});						
-							// me.io(EngR.getlist.data);
-							// Root.lib.alert(me, 'Data load success!', 'success', 3000);
+							});
+							let list = EngR.getlist.data;
+							for (let i = 0; i < list.lengthl i++) {
+								Root.lib.loadSocketIO(me, {
+									resource:'/',
+									room:'video_' + list[i].vid,
+									onServerData : function(incomeData, socket) {
+										console.log(incomeData)
+									}
+								});
+							}
 						});	
 				}
 				
