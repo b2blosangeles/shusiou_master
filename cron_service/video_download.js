@@ -78,7 +78,7 @@ socketClient.sendToRoom(
 		var str = 'DELETE FROM `download_queue` WHERE `status` = 9';
 		connection.query(str, function (error, results, fields) {
 			connection.end(); 
-			cbk(false);
+			cbk(true);
 		});  
 	};
 	/*
