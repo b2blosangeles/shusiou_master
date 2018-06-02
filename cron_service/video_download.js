@@ -51,7 +51,7 @@ socketClient.sendToRoom(
 		});	 
 	};
 
-	/*
+	
 	_f['write_download_failure'] = function(cbk) {
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
@@ -69,7 +69,8 @@ socketClient.sendToRoom(
 				cbk(results.affectedRows);
 			}
 		});  
-	};	
+	};
+	/*
 	_f['DELETE_download_queue'] = function(cbk) { 
 		// --- clean overtime --- 
 		var connection = mysql.createConnection(cfg0);
