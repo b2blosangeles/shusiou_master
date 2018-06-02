@@ -103,7 +103,6 @@ socketClient.sendToRoom(
 			}
 		});  
 	};
-	/*
 	_f['DIR'] = function(cbk) { 
 		// create video path 
 		fp = new folderP();
@@ -119,6 +118,7 @@ socketClient.sendToRoom(
 			});		
 		});
 	};
+	/*
 	_f['downlod_video'] = function(cbk) {  
 		// downlod video 
 		var url = decodeURIComponent(CP.data.current.code);
