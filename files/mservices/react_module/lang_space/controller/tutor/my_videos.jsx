@@ -43,7 +43,9 @@ try {
 									resource:'/',
 									room:'video_' + list[i].vid,
 									onServerData : function(incomeData, socket) {
-										console.log(incomeData)
+										if ((incomeData.data) && (incomeData.data.reload)) {
+											me.callEng();
+										}
 									}
 								});
 								console.log('video_' + list[i].vid);
