@@ -223,6 +223,7 @@ socketClient.sendToRoom(
 			cbk(true);
 		    }
 		);
+		console.log( '===video_' +  CP.data.current.vid);
 	};
 	
 	CP.serial(_f,
