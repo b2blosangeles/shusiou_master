@@ -53,7 +53,21 @@ socketClient.sendToRoom(
 			} else { cbk(false); CP.exit = 1; }
 		});	 
 	};
+	_f['ifanyovertime'] = function(cbk) {
+		var connection = mysql.createConnection(cfg0);
+		connection.connect();
+		var message = '';
+		var str = 'SELECT `vid`, NOW() - `created` AS D  FROM `download_queue` WHERE `status` = 9 AND NOW() - `created` > 60;'
 
+		connection.query(str, function (error, results, fields) {
+			connection.end();
+			if (error) {
+				cbk(false);  CP.exit = 1;
+			} else {
+				cbk(results);  CP.exit = 1;
+			}
+		});  
+	};
 	/*
 	_f['process_download_failure_overtime'] = function(cbk) {
 		let new_cfg = cfg0;
