@@ -76,13 +76,15 @@ socketClient.sendToRoom(
 		});  
 	};
 	*/
+	
 	_f['start_one_from_download_queue'] = function(cbk) { 
 		// --- pickup one from queue --- 
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
 		var str = 'UPDATE  download_queue SET `holder_ip` = "' + CP.data.IP + '", `status` = 1 ' + 
 			' WHERE  `status` = 0 AND (`holder_ip` = "" OR `holder_ip` IS NULL) ORDER BY `created` ASC LIMIT 1';
-
+		cbk(str);
+		return true;
 		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if ((results) && (results.affectedRows)) {
