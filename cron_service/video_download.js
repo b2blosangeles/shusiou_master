@@ -232,9 +232,11 @@ socketClient.sendToRoom(
 			let delta_time = new Date().getTime() - tm;
 			if (delta_time < 40000 && (CP.data.notice_frontend)) {
 				s();
-			} else {
+			} 
+			/*
+			else {
 				process.exit(-1);
-			}	
+			}*/	
 		},
 		53000
 	);
