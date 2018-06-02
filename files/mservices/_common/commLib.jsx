@@ -147,8 +147,9 @@ var _commLib = function () {
 		Root.socket = (Root.socket) ? Root.socket : {};
 		Root.socket[_id] = (Root.socket[_id]) ? Root.socket[_id] : {};
 
-		let obj = (!cfg.public) ? o : Root.socket[_id]; 
-
+		//let obj = (!cfg.public) ? o : Root.socket[_id]; 
+		let obj = Root.socket[_id];
+		
 		if (!cfg.public) {
 			o.componentWillUnmount = (function(o, componentWillUnmount) {
 				return function() {
@@ -156,7 +157,7 @@ var _commLib = function () {
 						componentWillUnmount();
 					}
 					// console.log('---componentWillUnmount triggled ==' + _id);
-					o.socket.close();
+					obj.socket.close();
 				}
 			})(o, o.componentWillUnmount);
 		}
