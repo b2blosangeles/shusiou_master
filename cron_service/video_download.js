@@ -16,7 +16,7 @@ var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socket
 var socketClient = new socketNodeClient('https://' + config.root + '/', env);
 
 socketClient.sendToRoom(
-    'VID_NIU',
+    'CRON_REPORT',
     {x:new Date(), Y:90},
     function(data) {
 	// res.send(data);
