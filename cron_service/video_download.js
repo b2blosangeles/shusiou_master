@@ -23,7 +23,7 @@ socketClient.sendToRoom(
     }
 );
 /* -------------*/	
-	return true;
+	
 	
 	let ytdl = require(env.site_path + '/api/inc/ytdl-core/node_modules/ytdl-core'),
 	    mysql = require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
@@ -44,13 +44,14 @@ socketClient.sendToRoom(
 			return address;
 		};
 		var ips = getServerIP();
-	    fs.readFile('/var/.qalet_whoami.data', 'utf8', function(err,data) {
-			if ((data) && ips.indexOf(data) != -1) { cbk(data);
+		fs.readFile('/var/.qalet_whoami.data', 'utf8', function(err,data) {
+			if ((data) && ips.indexOf(data) != -1) { 
+				cbk(data);
 			} else { cbk(false); CP.exit = 1; }
-	    });	 
+		});	 
 	};
 
-
+	/*
 	_f['write_download_failure'] = function(cbk) {
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
@@ -69,7 +70,8 @@ socketClient.sendToRoom(
 			}
 		});  
 	};	
-	_f['DELETE_download_queue'] = function(cbk) { /* --- clean overtime --- */
+	_f['DELETE_download_queue'] = function(cbk) { 
+		// --- clean overtime --- 
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
 		var str = 'DELETE FROM `download_queue` WHERE `status` = 9';
@@ -77,7 +79,8 @@ socketClient.sendToRoom(
 			connection.end(); cbk(false);
 		});  
 	};
-	_f['mark_download_queue'] = function(cbk) { /* --- mark overtime --- */
+	_f['mark_download_queue'] = function(cbk) { 
+		// --- mark overtime --- 
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
 		var str = 'UPDATE `download_queue` SET `status` = 9 WHERE `holder_ip` = "' +  CP.data.IP + '" AND `status` = 1';
@@ -86,7 +89,8 @@ socketClient.sendToRoom(
 		});  
 	};
 
-	_f['start_one_from_download_queue'] = function(cbk) { /* --- pickup one from queue --- */
+	_f['start_one_from_download_queue'] = function(cbk) { 
+		// --- pickup one from queue --- 
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
 		var str = 'UPDATE  download_queue SET `holder_ip` = "' + CP.data.IP + '", `status` = 1 ' + 
@@ -101,7 +105,8 @@ socketClient.sendToRoom(
 			}
 		});  
 	};
-	_f['current'] = function(cbk) { /* --- get the one from queue --- */
+	_f['current'] = function(cbk) { 
+		// --- get the one from queue --- 
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
 		var str = 'SELECT * FROM `download_queue` WHERE `holder_ip` = "' + CP.data.IP + '" AND `status` = 1';
@@ -114,7 +119,8 @@ socketClient.sendToRoom(
 			}
 		});  
 	};
-	_f['DIR'] = function(cbk) { /* create video path */
+	_f['DIR'] = function(cbk) { 
+		// create video path 
 		fp = new folderP();
 		fp.build(video_folder + CP.data.current.vid + '/video/', () => {
 			fp.build(video_folder + CP.data.current.vid + '/images/' , () => {
@@ -128,7 +134,8 @@ socketClient.sendToRoom(
 			});		
 		});
 	};
-	_f['downlod_video'] = function(cbk) {  /* downlod video */
+	_f['downlod_video'] = function(cbk) {  
+		// downlod video 
 		var url = decodeURIComponent(CP.data.current.code);
 		var video = ytdl(url, {quality:'highest'}, function(err) { });
 		video.pipe(fs.createWriteStream(CP.data.DIR.video +'video.mp4'));	
@@ -207,10 +214,12 @@ socketClient.sendToRoom(
 			cbk(true);
 		});  
 	};
+	*/
 	CP.serial(_f,
 		function(data) {
 			let delta_time = new Date().getTime() - tm;
 			console.log(data);
+			return true;
 			if (delta_time < 50000 && (CP.data.current)) {
 				s();
 			} else {
