@@ -43,6 +43,7 @@ function s() {
 		if (delta_time < 50000 && data !== 'No new id at all') {		
 			// s();
 		} else {
+			console.log('exit current session');
 			process.exit(-1);
 			return true;
 		}
