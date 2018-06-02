@@ -83,9 +83,9 @@ socketClient.sendToRoom(
 		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if ((results) && (results.affectedRows)) {
-				cbk(results.affectedRows);
+				cbk(true);
 			} else {
-				cbk(false); CP.exit = 1;
+				cbk(false);
 			}
 		});  
 	};
