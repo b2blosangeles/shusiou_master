@@ -24,7 +24,6 @@ socketClient.sendToRoom(
 );
 /* -------------*/	
 	
-	
 	let ytdl = require(env.site_path + '/api/inc/ytdl-core/node_modules/ytdl-core'),
 	    mysql = require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
 	    crowdProcess =  require(env.root_path + '/package/crowdProcess/crowdProcess'),
@@ -118,7 +117,6 @@ socketClient.sendToRoom(
 			});		
 		});
 	};
-	/*
 	_f['downlod_video'] = function(cbk) {  
 		// downlod video 
 		var url = decodeURIComponent(CP.data.current.code);
@@ -134,7 +132,7 @@ socketClient.sendToRoom(
 			cbk('ERR: CP.data.current.code');
 		});	
 	};
-
+	/*
 	_f['verifyFormat'] = function(cbk) {
 		var childProcess = require('child_process');
 		var f_video = CP.data.DIR.video +'video.mp4';
