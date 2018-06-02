@@ -57,7 +57,7 @@ socketClient.sendToRoom(
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
 		var message = '';
-		var str = 'SELECT `vid`, NOW() - `created` AS D  FROM `download_queue` WHERE `status` = 9 AND NOW() - `created` > 60;'
+		var str = 'SELECT `vid`, NOW() - `updated` AS D  FROM `video` WHERE `status` = 9 AND NOW() - `uploaded` > 60;'
 
 		connection.query(str, function (error, results, fields) {
 			connection.end();
