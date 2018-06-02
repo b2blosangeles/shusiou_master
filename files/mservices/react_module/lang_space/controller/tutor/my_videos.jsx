@@ -36,7 +36,7 @@ try {
 								}
 							});
 							let list = EngR.getlist.data;
-							for (let i = 0; i < list.lengthl i++) {
+							for (let i = 0; i < list.length; i++) {
 								Root.lib.loadSocketIO(me, {
 									resource:'/',
 									room:'video_' + list[i].vid,
