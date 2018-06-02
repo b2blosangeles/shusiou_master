@@ -45,6 +45,7 @@
 					" ORDER BY `status` DESC LIMIT 3";
 
 				connection.query(str, function (err, results, fields) {
+					console.log('db_video==>');
 					connection.end();
 					if (err) {
 						cbk({err:err.message}); CP.exit = 1;
