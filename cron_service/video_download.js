@@ -229,7 +229,7 @@ socketClient.sendToRoom(
 		function(data) {
 			let delta_time = new Date().getTime() - tm;
 			if (delta_time < 30000) {
-				s();
+				setTimeout(function() { s(); }, 5000);
 			}	
 		},
 		53000
