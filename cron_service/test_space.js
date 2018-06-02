@@ -33,7 +33,7 @@ let awsS3Video = require(env.site_path + '/api/inc/awsS3Video/awsS3Video.js');
 let tm = new Date().getTime();
 
 function s() {
-	return true;
+	// return true;
 	let delta_time0 = new Date().getTime() - tm;
 	console.log('---- load at ----> ' +  delta_time0);
 	var splitVideo = new awsS3Video(config, env, pkg, tm);	
@@ -41,7 +41,7 @@ function s() {
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
 		if (delta_time < 50000 && data !== 'No new id at all') {		
-			s();
+			// s();
 		} else {
 			process.exit(-1);
 			return true;
