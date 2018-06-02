@@ -36,8 +36,9 @@ try {
 								}
 							});
 							let list = EngR.getlist.data;
-							console.log(list);
+							
 							for (let i = 0; i < list.length; i++) {
+								if (!list[i].space_status) continue;
 								Root.lib.loadSocketIO(me, {
 									resource:'/',
 									room:'video_' + list[i].vid,
@@ -45,6 +46,7 @@ try {
 										console.log(incomeData)
 									}
 								});
+								console.log('video_' + list[i].vid);
 							}
 						});	
 				}
