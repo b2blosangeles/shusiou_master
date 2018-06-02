@@ -67,7 +67,6 @@ socketClient.sendToRoom(
 			}
 		});  
 	};
-	/*
 	_f['process_download_failure_overtime'] = function(cbk) {
 		let new_cfg = cfg0;
 		new_cfg.multipleStatements = true;
@@ -89,7 +88,6 @@ socketClient.sendToRoom(
 			}
 		});  
 	};
-	*/
 	_f['notice_frontend0'] = function(cbk) {
 		if (!CP.data.ifanyovertime || CP.data.ifanyovertime.vid) {
 			cbk(false);
