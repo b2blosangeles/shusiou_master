@@ -66,6 +66,7 @@
 					    	" ON DUPLICATE KEY UPDATE `space` = '" + me.space.space_url + "' ";
 				
 					connection.query(str, function (error, results, fields) {
+						console.log('get_vid==>');
 						connection.end();
 						cbk(vid);
 					});
@@ -79,6 +80,7 @@
 				    _file = video_folder + vid + '/video/' + vid;
 
 				pkg.fs.stat(_file, function(err, stat) {
+					console.log('get_video_name==>');
 					if (err) {
 						pkg.exec('mv -f ' + video_folder + vid + '/video/video.mp4 ' +  _file, 					 
 							function(err, stdout, stderr) {
