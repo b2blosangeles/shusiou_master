@@ -55,8 +55,10 @@ socketClient.sendToRoom(
 
 	
 	_f['write_download_failure'] = function(cbk) {
-		var connection = mysql.createConnection(cfg0);
-		connection.connect({multipleStatements: true});
+		let new_cfg = cfg0;
+		new_cfg.multipleStatements = true;
+		var connection = mysql.createConnection(new_cfg);
+		connection.connect();
 		var message = '';
 		var str = 'INSERT INTO `download_failure` ' +
 		    '(`vid`, `source`, `code`, `video_info`, `message`) '+
