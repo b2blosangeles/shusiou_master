@@ -54,7 +54,7 @@ socketClient.sendToRoom(
 	};
 
 	
-	_f['write_download_failure'] = function(cbk) {
+	_f['process_download_failure_overtime'] = function(cbk) {
 		let new_cfg = cfg0;
 		new_cfg.multipleStatements = true;
 		var connection = mysql.createConnection(new_cfg);
@@ -63,39 +63,19 @@ socketClient.sendToRoom(
 		var str = 'INSERT INTO `download_failure` ' +
 		    '(`vid`, `source`, `code`, `video_info`, `message`) '+
 		    'SELECT `vid`, `source`, `code`, `info`, "Over 1 minute time limutation" FROM `download_queue` '+
-		    ' WHERE `status` = 9; DELETE FROM `download_queue` WHERE `status` = 9';
+		    ' WHERE `status` = 9; DELETE FROM `download_queue` WHERE `status` = 9; ' +
+		    'UPDATE `download_queue` SET `status` = 9 WHERE `holder_ip` = "' +  CP.data.IP + '" AND `status` = 1;'
 
 		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if (error) {
 				cbk(false);
 			} else {
-				cbk(JSON.stringify(results));
+				cbk(true);
 			}
 		});  
 	};
-	
-	_f['DELETE_download_queue'] = function(cbk) { 
-		// --- clean overtime --- 
-		var connection = mysql.createConnection(cfg0);
-		connection.connect();
-		var str = 'DELETE FROM `download_queue` WHERE `status` = 9';
-		connection.query(str, function (error, results, fields) {
-			connection.end(); 
-			cbk(true);
-		});  
-	};
 	/*
-	_f['mark_download_queue'] = function(cbk) { 
-		// --- mark overtime --- 
-		var connection = mysql.createConnection(cfg0);
-		connection.connect();
-		var str = 'UPDATE `download_queue` SET `status` = 9 WHERE `holder_ip` = "' +  CP.data.IP + '" AND `status` = 1';
-		connection.query(str, function (error, results, fields) {
-			connection.end(); cbk(false);
-		});  
-	};
-
 	_f['start_one_from_download_queue'] = function(cbk) { 
 		// --- pickup one from queue --- 
 		var connection = mysql.createConnection(cfg0);
