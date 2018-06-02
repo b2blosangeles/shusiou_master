@@ -70,16 +70,18 @@ socketClient.sendToRoom(
 			}
 		});  
 	};
-	/*
+	
 	_f['DELETE_download_queue'] = function(cbk) { 
 		// --- clean overtime --- 
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
 		var str = 'DELETE FROM `download_queue` WHERE `status` = 9';
 		connection.query(str, function (error, results, fields) {
-			connection.end(); cbk(false);
+			connection.end(); 
+			cbk(false);
 		});  
 	};
+	/*
 	_f['mark_download_queue'] = function(cbk) { 
 		// --- mark overtime --- 
 		var connection = mysql.createConnection(cfg0);
