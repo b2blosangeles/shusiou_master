@@ -40,7 +40,10 @@ function s() {
 	splitVideo.load(function(data) {
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
-		if (delta_time < 50000 && data !== 'No new id at all') {		
+		if (delta_time < 50000 && data !== 'No new id at all') {
+			console.log('*** ==== ***');
+			console.log(data);
+			console.log('*** ==== ***');
 			s();
 		} 
 		console.log('exit current session');
