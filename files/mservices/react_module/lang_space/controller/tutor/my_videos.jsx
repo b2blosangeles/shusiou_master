@@ -38,7 +38,7 @@ try {
 							let list = EngR.getlist.data;
 							
 							for (let i = 0; i < list.length; i++) {
-								if (!list[i].space_status) continue;
+								if (list[i].space_status) continue;
 								Root.lib.loadSocketIO(me, {
 									resource:'/',
 									room:'video_' + list[i].vid,
