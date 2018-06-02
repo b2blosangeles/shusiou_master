@@ -284,7 +284,7 @@
 				let tracks = CP.data.tracks,
 				    space_tracks = CP.data.space_tracks;
 				
-				
+				console.log('upload==>');
 				if (tracks.length == space_tracks.length) {
 					me.getInfo(me.space_url +  me.space_info, me.source_path + me.source_file,
 						function(v) {
@@ -466,6 +466,7 @@
 		}
 		this.splitVideo = function(_type, tmp_folder, cbk) {
 			let me = this;
+			console.log('splitVideo==>');
 			switch(_type) {
 				case '_t':
 					pkg.exec('rm -f ' + tmp_folder + '* ' + ' && rm -f ' + tmp_folder + '*.* ' +
