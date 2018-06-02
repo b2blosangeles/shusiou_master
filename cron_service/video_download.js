@@ -64,7 +64,7 @@ socketClient.sendToRoom(
 			if (error) {
 				cbk(false);  CP.exit = 1;
 			} else {
-				cbk(results);  CP.exit = 1;
+				cbk(JSON.stringify(results));  CP.exit = 1;
 			}
 		});  
 	};
