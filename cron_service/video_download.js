@@ -32,6 +32,10 @@ socketClient.sendToRoom(
 	    cfg0 = config.db,
 	    CP = new crowdProcess(), 
 	    _f = {};
+
+	delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
+	var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+	var socketClient = new socketNodeClient('https://' + config.root + '/');	
 	
 	_f['IP'] = function(cbk) { /* --- get server IP --- */
 		function getServerIP() {
@@ -188,10 +192,6 @@ socketClient.sendToRoom(
 		});  
 	};
 	_f['notice_frontend'] = function(cbk) {
-		delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
-		var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-		var socketClient = new socketNodeClient('https://' + config.root + '/');
-
 		socketClient.sendToRoom(
 		    'video_' +  CP.data.current.id,
 		    {reload:true},
