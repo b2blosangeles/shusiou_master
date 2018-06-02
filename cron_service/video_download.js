@@ -57,14 +57,13 @@ socketClient.sendToRoom(
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
 		var message = '';
-		var str = 'SELECT `vid`, NOW() - `uploaded` AS D  FROM `video` WHERE  NOW() - `uploaded` > 60;'
-
+		var str = 'SELECT `vid`  FROM  `download_queue` WHERE  `status` = 9;'
 		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if (error) {
-				cbk(false);  CP.exit = 1;
+				cbk(false);
 			} else {
-				cbk(JSON.stringify(results));  CP.exit = 1;
+				cbk(results[0]); 
 			}
 		});  
 	};
@@ -91,6 +90,19 @@ socketClient.sendToRoom(
 		});  
 	};
 	*/
+	_f['notice_frontend0'] = function(cbk) {
+		if (!CP.data.ifanyovertime || CP.data.ifanyovertime.vid) {
+			cbk(false);
+		} else {
+			socketClient.sendToRoom(
+			    'video_' +  CP.data.ifanyovertime.vid,
+			    {reload:true},
+			    function(data) {
+				cbk(true);
+			    }
+			);
+		}
+	};	
 	_f['start_one_from_download_queue'] = function(cbk) { 
 		// --- pickup one from queue --- 
 		var connection = mysql.createConnection(cfg0);
@@ -207,7 +219,7 @@ socketClient.sendToRoom(
 	};
 	_f['notice_frontend'] = function(cbk) {
 		socketClient.sendToRoom(
-		    'video_' +  CP.data.current.id,
+		    'video_' +  CP.data.current.vid,
 		    {reload:true},
 		    function(data) {
 			cbk(true);
@@ -218,9 +230,7 @@ socketClient.sendToRoom(
 	CP.serial(_f,
 		function(data) {
 			let delta_time = new Date().getTime() - tm;
-			console.log(data);
-			return true;
-			if (delta_time < 50000 && (CP.data.current)) {
+			if (delta_time < 40000 && (CP.data.notice_frontend)) {
 				s();
 			} else {
 				process.exit(-1);
