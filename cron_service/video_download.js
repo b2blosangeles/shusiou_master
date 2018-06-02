@@ -66,7 +66,7 @@ socketClient.sendToRoom(
 			if (error) {
 				cbk(false);
 			} else {
-				cbk(results.affectedRows);
+				cbk(true);
 			}
 		});  
 	};
