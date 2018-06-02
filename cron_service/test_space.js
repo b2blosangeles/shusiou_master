@@ -6,20 +6,6 @@ env.config_path = '/var/qalet_config';
 
 var config = require(env.config_path + '/config.json');
 
-/* -------------*/
-delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
-var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-var socketClient = new socketNodeClient('https://' + config.root + '/', env);
-
-socketClient.sendToRoom(
-    'CRON_REPORT',
-    {x:new Date(), Y:92},
-    function(data) {
-	// res.send(data);
-    }
-);
-/* ------------- */
-
 let pkg = {
     	mysql		: require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
     	crowdProcess	: require(env.root_path + '/package/crowdProcess/crowdProcess'),
@@ -86,8 +72,3 @@ socketClient.sendToRoom(
     }
 );
 */
-/* --- code for cron watch ---*/
-delete require.cache[__dirname + '/watch_cron.inc.js'];
-let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
-    watchCron = new watch_cron_inc(__filename);
-watchCron.load('master', 60);
