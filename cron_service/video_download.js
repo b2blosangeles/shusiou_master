@@ -132,7 +132,7 @@ socketClient.sendToRoom(
 			cbk('ERR: CP.data.current.code');
 		});	
 	};
-	/*
+	
 	_f['verifyFormat'] = function(cbk) {
 		var childProcess = require('child_process');
 		var f_video = CP.data.DIR.video +'video.mp4';
@@ -146,7 +146,7 @@ socketClient.sendToRoom(
 				});	
 			});	
 	};
-
+	/*
 	_f['conclution'] = function(cbk) {
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
