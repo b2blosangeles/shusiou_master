@@ -6,6 +6,21 @@ env.config_path = '/var/qalet_config';
 
 var config = require(env.config_path + '/config.json');
 
+
+/* -------------*/
+delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
+var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+var socketClient = new socketNodeClient('https://' + config.root + '/', env);
+
+socketClient.sendToRoom(
+    'CRON_REPORT',
+    {x:new Date(), Y:100},
+    function(data) {
+	// res.send(data);
+    }
+);
+/* ------------- */
+
 let pkg = {
     	mysql		: require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
     	crowdProcess	: require(env.root_path + '/package/crowdProcess/crowdProcess'),
@@ -25,33 +40,9 @@ function s() {
 	splitVideo.load(function(data) {
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
-		if (delta_time < 50000 && data !== 'No new id at all') {
-				//delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
-				//var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-				// var socketClient = new socketNodeClient('https://' + config.root + '/');
-				/*
-				socketClient.sendToRoom(
-				    'VID_NIU',
-				    {x:new Date(), Y:6},
-				    function(data) {
-					// res.send(data);
-				    }
-				);*/			
+		if (delta_time < 50000 && data !== 'No new id at all') {		
 			s();
 		} else {
-			console.log('---- stopped ----> ');
-				//delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
-				//var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-				//var socketClient = new socketNodeClient('https://' + config.root + '/');
-				/*
-				socketClient.sendToRoom(
-				    'VID_NIU',
-				    {x:new Date(), Y:1},
-				    function(data) {
-					// res.send(data);
-				    }
-				);
-				*/
 			process.exit(-1);
 			return true;
 		}
