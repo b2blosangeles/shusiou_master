@@ -231,7 +231,7 @@ socketClient.sendToRoom(
 		function(data) {
 			console.log(data);
 			let delta_time = new Date().getTime() - tm;
-			if (delta_time < 30000 && (CP.data.notice_frontend)) {
+			if (delta_time < 30000) {
 				s();
 			}	
 		},
