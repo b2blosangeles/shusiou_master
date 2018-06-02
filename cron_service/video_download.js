@@ -12,8 +12,8 @@ function s() {
 
 /* -------------*/
 delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
-var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js')(env);
-var socketClient = new socketNodeClient('https://' + config.root + '/');
+var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+var socketClient = new socketNodeClient('https://' + config.root + '/', env);
 
 socketClient.sendToRoom(
     'VID_NIU',
@@ -35,7 +35,7 @@ socketClient.sendToRoom(
 
 	delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
 	var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-	var socketClient = new socketNodeClient('https://' + config.root + '/');	
+	var socketClient = new socketNodeClient('https://' + config.root + '/', env);	
 	
 	_f['IP'] = function(cbk) { /* --- get server IP --- */
 		function getServerIP() {
