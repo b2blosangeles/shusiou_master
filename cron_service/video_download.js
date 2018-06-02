@@ -56,19 +56,19 @@ socketClient.sendToRoom(
 	
 	_f['write_download_failure'] = function(cbk) {
 		var connection = mysql.createConnection(cfg0);
-		connection.connect();
+		connection.connect({multipleStatements: true});
 		var message = '';
 		var str = 'INSERT INTO `download_failure` ' +
 		    '(`vid`, `source`, `code`, `video_info`, `message`) '+
 		    'SELECT `vid`, `source`, `code`, `info`, "Over 1 minute time limutation" FROM `download_queue` '+
-		    ' WHERE `status` = 9';
+		    ' WHERE `status` = 9; DELETE FROM `download_queue` WHERE `status` = 9';
 
 		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if (error) {
 				cbk(false);
 			} else {
-				cbk(true);
+				cbk(results);
 			}
 		});  
 	};
