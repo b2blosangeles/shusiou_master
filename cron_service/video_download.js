@@ -33,8 +33,6 @@ socketClient.sendToRoom(
 	    cfg0 = config.db,
 	    CP = new crowdProcess(), 
 	    _f = {};
-
-	console.log( cfg0);
 	
 	_f['IP'] = function(cbk) { /* --- get server IP --- */
 		function getServerIP() {
