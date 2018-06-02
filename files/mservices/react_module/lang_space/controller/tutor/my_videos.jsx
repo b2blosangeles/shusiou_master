@@ -36,6 +36,7 @@ try {
 								}
 							});
 							let list = EngR.getlist.data;
+							console.log(list);
 							for (let i = 0; i < list.length; i++) {
 								Root.lib.loadSocketIO(me, {
 									resource:'/',
