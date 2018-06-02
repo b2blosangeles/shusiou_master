@@ -230,13 +230,9 @@ socketClient.sendToRoom(
 	CP.serial(_f,
 		function(data) {
 			let delta_time = new Date().getTime() - tm;
-			if (delta_time < 40000 && (CP.data.notice_frontend)) {
+			if (delta_time < 30000 && (CP.data.notice_frontend)) {
 				s();
-			} 
-			/*
-			else {
-				process.exit(-1);
-			}*/	
+			}	
 		},
 		53000
 	);
