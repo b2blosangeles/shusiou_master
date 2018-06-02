@@ -1,4 +1,4 @@
-(function (env) { 
+function (env) { 
 	var obj =  function (url) {
 		let me = this;
 		me.io = require(env.root_path + '/sites/master/api/inc/socket.io-client/node_modules/socket.io-client');
@@ -32,4 +32,4 @@
 		};
 	}	
 	module.exports = obj;
-})(env);
+};
