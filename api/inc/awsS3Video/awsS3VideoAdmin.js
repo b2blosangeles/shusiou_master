@@ -82,8 +82,6 @@
 			    accessKeyId: config.objectSpace.accessKeyId,
 			    secretAccessKey: config.objectSpace.secretAccessKey
 			});
-			me.listAllSpaceVideos('');
-
 		}
 	
 		this.findNeedToDelete = function(list, cbk) {
