@@ -63,6 +63,12 @@ function s() {
 		} else {
 			console.log('*** -IN- ***>');
 			console.log(IN);
+			if (IN.length) {
+				sendToFrontendNotice(IN[0], function(data) {
+					console.log('====this.sendToFrontendNotice(vid)===>' + IN[0]);
+					console.log(data);
+				});
+			}			
 			console.log('exit current session');
 			process.exit(-1);
 			return true;
