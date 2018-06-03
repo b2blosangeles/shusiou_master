@@ -1,5 +1,5 @@
 (function () { 
-	var obj =  function (config, env, pkg, tm) {
+	var obj =  function (IN, config, env, pkg, tm) {
 		this.sendToFrontendNotice = function(vid, cbk) {
 			delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
 			var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
