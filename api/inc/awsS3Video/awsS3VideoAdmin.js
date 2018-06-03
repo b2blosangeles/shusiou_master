@@ -91,7 +91,7 @@
 					console.log('okk');
 				} else {
 					for (var i = 0; i < results.length; i++) {
-						if (list.indexOf(results[i].vid) === -1) {
+						if (list.indexOf(results[i].vid) == -1) {
 							remove_list[remove_list.length] = results[i].vid;
 						}
 					}
