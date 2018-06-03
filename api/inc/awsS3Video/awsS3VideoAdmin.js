@@ -102,6 +102,9 @@
 						for (var i = 0; i < data.CommonPrefixes.length; i++) {
 							v.push(data.CommonPrefixes[i].Prefix)
 						}
+						if (data.NextMarker) {
+							me.listAllSpaceVideos(data.NextMarker);
+						}
 						console.log(data);
 					}
 				}
