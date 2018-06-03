@@ -6,6 +6,13 @@ env.site_path = env.root_path + '/sites/master';
 env.config_path = '/var/qalet_config';
 
 var config = require(env.config_path + '/config.json');
+
+/* --- code for cron watch ---*/
+delete require.cache[__dirname + '/watch_cron.inc.js'];
+let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
+    watchCron = new watch_cron_inc(__filename);
+watchCron.load('master', 60);
+
 /* -------------*/
 delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
 var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
@@ -13,7 +20,7 @@ var socketClient = new socketNodeClient('https://' + config.root + '/', env);
 
 socketClient.sendToRoom(
     'CRON_REPORT',
-    {x:new Date(), Y:91},
+    {x:new Date(), Y:81},
     function(data) {
 	// res.send(data);
     }
@@ -47,8 +54,4 @@ function s() {
 }
 s();
 */
-/* --- code for cron watch ---*/
-delete require.cache[__dirname + '/watch_cron.inc.js'];
-let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
-    watchCron = new watch_cron_inc(__filename);
-watchCron.load('master', 60);
+
