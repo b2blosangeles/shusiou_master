@@ -98,6 +98,7 @@
 					if (!data.CommonPrefixes.length) {
 						console.log('empty lll');
 					} else {
+						console.log(data.CommonPrefixes);
 						for (var i = 0; i < data.CommonPrefixes.length; i++) {
 							v.push({Key :  data.CommonPrefixes[i].Key})
 						}
