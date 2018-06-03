@@ -7,6 +7,13 @@
 		}
 		this.delete = function(delete_callback) {
 			let me = this;
+			me.s3.listBuckets(params, function (err, data) {
+				if (err) console.log(err, err.stack);
+				else console.log(data);
+			}
+			return true;
+			
+
 			var connection = pkg.mysql.createConnection(config.db);
 			connection.connect();
 			var str = 'SELECT * FRom `video_space` WHERE `vid` NOT IN (SELECT `vid` FROM `video_user` WHERE 1)';
@@ -21,9 +28,9 @@
 			});			
 			return true;
 		}	
-		this.removeVidFromSpace = function(rec, cbk) {
+		this.removeVidFromSpace = function(space, vid, cbk) {
 			let me = this;
-			let space_dir = 'videos/' + rec.vid;
+			let space_dir = 'videos/' + vid;
 			var params = { 
 				Bucket: me.getSpaceId(rec.space),
 				Delimiter: '',
@@ -38,12 +45,12 @@
 					return true;
 				} else {	
 					if (!data.Contents.length) {
-						me.cleanVideoRec(rec.vid, cbk);
+						me.cleanVideoRec(vid, cbk);
 					} else {
 						for (var i = 0; i < data.Contents.length; i++) {
 							v.push({Key :  data.Contents[i].Key})
 						}
-						me.removeObjects(rec.space, rec.vid, v, cbk);
+						me.removeObjects(space, vid, v, cbk);
 					}
 				}
 			});	
