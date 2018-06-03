@@ -88,7 +88,7 @@
 			connection.query(str, function (error, results, fields) {
 				connection.end();
 				if (error || !results.length) {
-					delete_callback('finished');
+					console.log('okk');
 				} else {
 					console.log(results); 
 				}	
