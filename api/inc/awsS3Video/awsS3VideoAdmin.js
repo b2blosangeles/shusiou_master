@@ -7,7 +7,7 @@
 		}
 		this.delete = function(delete_callback) {
 			let me = this;
-			me.s3.listBuckets(params, function (err, data) {
+			me.s3.listBuckets({}, function (err, data) {
 				if (err) console.log(err, err.stack);
 				else console.log(data);
 			});
