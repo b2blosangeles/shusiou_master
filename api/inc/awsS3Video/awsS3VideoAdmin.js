@@ -7,6 +7,7 @@
 		}
 		this.delete = function(delete_callback) {
 			let me = this, buckets = [];
+			me.deleteList = [];
 			me.s3.listBuckets({}, function (err, data) {
 				if (err) console.log(err, err.stack);
 				else {
@@ -132,7 +133,8 @@
 							v.push('"' + prefix.replace(new RegExp('^videos/'), '').replace(new RegExp('/'), '') + '"')
 						}
 						me.findNeedToDelete(v, function(remove_list) {
-							console.log(remove_list);
+							me.deleteList = me.deleteList.concate(remove_list);
+							console.log(me.deleteList);
 							if (data.NextMarker) {
 								me.scanAllBucketVideos(bucket, data.NextMarker);
 							}
