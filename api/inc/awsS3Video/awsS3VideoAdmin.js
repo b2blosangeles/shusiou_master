@@ -10,10 +10,9 @@
 			me.s3.listBuckets({}, function (err, data) {
 				if (err) console.log(err, err.stack);
 				else {
-					console.log( data.Buckets);
 					for (var i=0; i < data.Buckets.length ; i++) {
 						console.log(data.Buckets[i].Name);
-						let environment = '-' + cfg.environment + '-'
+						let environment = '-' + config.environment + '-'
 						if (new RegExp(environment).test(data.Buckets[i].Name)) {
 							buckets.push(data.Buckets[i].Name);
 						}
