@@ -79,11 +79,11 @@
 
 		}
 	
-		this.listAllSpaceVideos = function(rec, cbk) {
+		this.listAllSpaceVideos = function(rec) {
 			let me = this;
 			let space_dir = 'videos/';
 			var params = { 
-				Bucket: me.getSpaceId(rec.space),
+				Bucket: 'shusiouwin-dev-1',
 				Delimiter: '',
 				MaxKeys : 300,
 				Marker : '',
