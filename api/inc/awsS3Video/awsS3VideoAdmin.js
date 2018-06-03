@@ -75,18 +75,18 @@
 			    accessKeyId: config.objectSpace.accessKeyId,
 			    secretAccessKey: config.objectSpace.secretAccessKey
 			});
-			me.listAllSpaceVideos();
+			me.listAllSpaceVideos('');
 
 		}
 	
-		this.listAllSpaceVideos = function(rec) {
+		this.listAllSpaceVideos = function(Marker) {
 			let me = this;
 			let space_dir = 'videos/';
 			var params = { 
 				Bucket: 'shusiouwin-dev-1',
 				Delimiter: '/',
-				MaxKeys : 300,
-				Marker : '',
+				MaxKeys : 3,
+				Marker : Marker,
 				Prefix: space_dir
 			}, v = [];
 
@@ -102,10 +102,10 @@
 						for (var i = 0; i < data.CommonPrefixes.length; i++) {
 							v.push(data.CommonPrefixes[i].Prefix)
 						}
-						console.log(v);
+						console.log(data);
 					}
 				}
-			});	
+			});
 			return true;
 		}		
 		
