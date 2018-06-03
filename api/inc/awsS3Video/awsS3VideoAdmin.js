@@ -123,7 +123,6 @@
 					if (!data.CommonPrefixes.length) {
 						console.log('empty lll');
 					} else {
-						console.log(data.CommonPrefixes);
 						for (var i = 0; i < data.CommonPrefixes.length; i++) {
 							let prefix = data.CommonPrefixes[i].Prefix;
 							v.push('"' + prefix.replace(new RegExp('^videos/'), '').replace(new RegExp('/'), '') + '"')
