@@ -75,8 +75,38 @@
 			    accessKeyId: config.objectSpace.accessKeyId,
 			    secretAccessKey: config.objectSpace.secretAccessKey
 			});
+			me.listAllSpaceVideos();
 
 		}
+	
+		this.listAllSpaceVideos = function(rec, cbk) {
+			let me = this;
+			let space_dir = 'videos/';
+			var params = { 
+				Bucket: me.getSpaceId(rec.space),
+				Delimiter: '',
+				MaxKeys : 300,
+				Marker : '',
+				Prefix: space_dir
+			}, v = [];
+
+			me.s3.listObjects(params, function (err, data) {
+				if(err) {
+					cbk({err:err.message});
+					return true;
+				} else {	
+					if (!data.Contents.length) {
+						console.log('empty lll');
+					} else {
+						for (var i = 0; i < data.Contents.length; i++) {
+							v.push({Key :  data.Contents[i].Key})
+						}
+						console.log(v);
+					}
+				}
+			});	
+			return true;
+		}		
 		
 		this.removeObjects = function(space, vid, list, callback) {
 			let me = this;
