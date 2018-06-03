@@ -24,7 +24,7 @@ socketClient.sendToRoom(
 var sendToFrontendNotice = function(vid, cbk) {
 	var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
 	var socketClient = new socketNodeClient('https://' + config.root + '/', env);
-	console.log('send message to video_' +  vid);
+	// console.log('send message to video_' +  vid);
 	socketClient.sendToRoom(
 	    'video_' +  vid,
 	    {reload:true},
