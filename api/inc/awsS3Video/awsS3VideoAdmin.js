@@ -80,10 +80,10 @@
 		}
 	
 		this.findNeedToDelete = function(list, cbk) {
-			let me = this, remove_list = [];
+			let me = this, exist_list = [], remove_list = [];
 			var connection = pkg.mysql.createConnection(config.db);
 			connection.connect();
-			var str = 'SELECT `vid` FRom `video` WHERE `vid` IN (' + list.join(',') + ')';
+			var str = 'SELECT `vid` FROM `video` WHERE `vid` IN (' + list.join(',') + ')';
 
 			connection.query(str, function (err, results, fields) {
 				connection.end();
@@ -91,9 +91,12 @@
 					console.log(err.message);
 				} else {
 					for (var i = 0; i < results.length; i++) {
+						exist_list[exist_list.length] =  results[i].vid;
+						/*
 						if (list.indexOf('"' + results[i].vid + '"') === -1) {
 							remove_list[remove_list.length] = results[i].vid;
 						}
+						*/
 					}
 					cbk(remove_list); 
 				}	
