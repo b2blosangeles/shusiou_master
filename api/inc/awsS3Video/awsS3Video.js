@@ -1,19 +1,5 @@
 (function () { 
 	var obj =  function (IN, config, env, pkg, tm) {
-		this.sendToFrontendNotice = function(vid, cbk) {
-			delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
-			var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-			var socketClient = new socketNodeClient('https://' + config.root + '/', env);
-			console.log('send message to video_' +  vid);
-			socketClient.sendToRoom(
-			    'video_' +  vid,
-			    {reload:true},
-			    function(data) {
-				cbk(true);
-			    }
-			);			
-		};
-
 		this.load = function(load_callback) {
 			let me = this;
 			var CP = new pkg.crowdProcess();
@@ -184,13 +170,6 @@
 
 				connection.query(str, function (error, results, fields) {
 					connection.end();
-					/*
-					me.sendToFrontendNotice(me.vid, function(data) {
-						console.log('====this.sendToFrontendNotice(vid)===>' + me.vid);
-						console.log(data);
-						cbk('This video has been processed.' + me.vid); 
-					});
-					*/
 					cbk('This video has been processed.' + me.vid); 
 					IN[IN.length] = me.vid;
 				});
