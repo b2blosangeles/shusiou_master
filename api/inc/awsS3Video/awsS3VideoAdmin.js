@@ -84,7 +84,7 @@
 			let space_dir = 'videos';
 			var params = { 
 				Bucket: 'shusiouwin-dev-1',
-				Delimiter: '/',
+				Delimiter: '',
 				MaxKeys : 300,
 				Marker : '',
 				Prefix: space_dir
