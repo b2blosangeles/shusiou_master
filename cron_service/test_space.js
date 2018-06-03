@@ -22,7 +22,6 @@ socketClient.sendToRoom(
 /* ------------- */
 
 var sendToFrontendNotice = function(vid, cbk) {
-	delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
 	var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
 	var socketClient = new socketNodeClient('https://' + config.root + '/', env);
 	console.log('send message to video_' +  vid);
