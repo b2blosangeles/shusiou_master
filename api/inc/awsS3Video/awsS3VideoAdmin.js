@@ -92,11 +92,11 @@
 				} else {
 					for (var i = 0; i < results.length; i++) {
 						exist_list[exist_list.length] =  results[i].vid;
-						/*
-						if (list.indexOf('"' + results[i].vid + '"') === -1) {
-							remove_list[remove_list.length] = results[i].vid;
-						}
-						*/
+					}
+					for (var i = 0; i < list.length; i++) {
+						if (exist_list.indexOf(list[i].replace('"', '')) === -1) {
+							remove_list[remove_list.length] = list[i].replace('"', '');
+						}					
 					}
 					cbk(remove_list); 
 				}	
