@@ -12,7 +12,7 @@
 				else {
 					console.log(data.Buckets);
 					for (var i=0; i < data.Buckets.length ; i++) {
-						if (new RegExp('-' + environment + '-').test(data.Buckets[i])) {
+						if (new RegExp('-' + env.environment + '-').test(data.Buckets[i])) {
 							buckets.push(data.Buckets[i]);
 						}
 					}
