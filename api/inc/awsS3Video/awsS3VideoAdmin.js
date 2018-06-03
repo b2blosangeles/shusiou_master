@@ -17,7 +17,6 @@
 							buckets.push(data.Buckets[i].Name);
 						}
 					}
-					console.log(buckets);
 					for (var i = 0; i < buckets[i];  i++) {
 						me.listAllSpaceVideos(buckets[i], '');
 					}
@@ -117,6 +116,9 @@
 				Prefix: space_dir
 			}, v = [];
 
+			console.log(params);
+			
+			
 			me.s3.listObjects(params, function (err, data) {
 				if(err) {
 					cbk({err:err.message});
