@@ -14,7 +14,7 @@
 			);			
 		};
 
-		this.load = function(IN, load_callback) {
+		this.load = function(load_callback) {
 			let me = this;
 			var CP = new pkg.crowdProcess();
 			var _f = {};	
