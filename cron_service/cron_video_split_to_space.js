@@ -59,7 +59,7 @@ function s() {
 	var splitVideo = new awsS3Video(IN, config, env, pkg, tm);	
 	splitVideo.load(function(data) {
 		let delta_time = new Date().getTime() - tm;
-		if (delta_time < 40000 && data !== 'No new id at all') {
+		if (delta_time < 40000 && data !== 'No new id at all') {			
 			s();
 		} else {
 			//console.log('*** -IN- ***>');
