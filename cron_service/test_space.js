@@ -56,8 +56,8 @@ function s() {
 		if (delta_time < 40000 && data !== 'No new id at all') {
 			s();
 		} else {
-			console.log('*** -IN- ***>');
-			console.log(IN);
+			//console.log('*** -IN- ***>');
+			//console.log(IN);
 			if (IN.length) {
 				sendToFrontendNotice(IN[0], function(data) {
 					console.log('====this.sendToFrontendNotice(vid)===>' + IN[0]);
