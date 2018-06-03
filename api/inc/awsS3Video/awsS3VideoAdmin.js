@@ -79,6 +79,23 @@
 
 		}
 	
+		this.findNeedToDelete = function(list) {
+			let me = this;
+			var connection = pkg.mysql.createConnection(config.db);
+			connection.connect();
+			var str = 'SELECT `vid` FRom `video` WHERE IN (' + list.join(,) + ')';
+
+			connection.query(str, function (error, results, fields) {
+				connection.end();
+				if (error || !results.length) {
+					delete_callback('finished');
+				} else {
+					console.log(results); 
+				}	
+			});			
+			return true;
+		}	
+		
 		this.listAllSpaceVideos = function(Marker) {
 			let me = this;
 			let space_dir = 'videos/';
@@ -101,12 +118,13 @@
 						console.log(data.CommonPrefixes);
 						for (var i = 0; i < data.CommonPrefixes.length; i++) {
 							let prefix = data.CommonPrefixes[i].Prefix;
-							v.push(prefix.replace(new RegExp('^videos/'), '').replace(new RegExp('/'), ''))
+							v.push('"' + prefix.replace(new RegExp('^videos/'), '').replace(new RegExp('/'), '') + '"')
 						}
-						if (data.NextMarker) {
-							me.listAllSpaceVideos(data.NextMarker);
-						}
-						console.log(v);
+						mefindNeedToDelete(v, function() {
+							if (data.NextMarker) {
+								me.listAllSpaceVideos(data.NextMarker);
+							}
+						});
 					}
 				}
 			});
