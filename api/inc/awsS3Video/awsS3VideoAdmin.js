@@ -100,7 +100,7 @@
 					} else {
 						console.log(data.CommonPrefixes);
 						for (var i = 0; i < data.CommonPrefixes.length; i++) {
-							v.push(data.CommonPrefixes[i].Prefix)
+							v.push(data.CommonPrefixes[i].Prefix.replace(space_dir, ''))
 						}
 						if (data.NextMarker) {
 							me.listAllSpaceVideos(data.NextMarker);
