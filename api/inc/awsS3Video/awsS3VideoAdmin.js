@@ -81,7 +81,7 @@
 	
 		this.listAllSpaceVideos = function(rec) {
 			let me = this;
-			let space_dir = '';
+			let space_dir = 'videos/';
 			var params = { 
 				Bucket: 'shusiouwin-dev-1',
 				Delimiter: '',
