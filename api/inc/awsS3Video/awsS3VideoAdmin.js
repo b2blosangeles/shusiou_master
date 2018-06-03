@@ -79,8 +79,8 @@
 
 		}
 	
-		this.findNeedToDelete = function(list) {
-			let me = this;
+		this.findNeedToDelete = function(list, cbk) {
+			let me = this, remove_list = [];
 			var connection = pkg.mysql.createConnection(config.db);
 			connection.connect();
 			var str = 'SELECT `vid` FRom `video` WHERE IN (' + list.join(',') + ')';
@@ -90,7 +90,12 @@
 				if (error || !results.length) {
 					console.log('okk');
 				} else {
-					console.log(results); 
+					for (var i = 0; i < results.length; i++) {
+						if (list.indexOf(results[i].vid) === -1) {
+							remove_list[remove_list.length] = results[i].vid;
+						}
+					}
+					cbk(remove_list); 
 				}	
 			});			
 			return true;
@@ -120,7 +125,8 @@
 							let prefix = data.CommonPrefixes[i].Prefix;
 							v.push('"' + prefix.replace(new RegExp('^videos/'), '').replace(new RegExp('/'), '') + '"')
 						}
-						me.findNeedToDelete(v, function() {
+						me.findNeedToDelete(v, function(remove_list) {
+							console.log(remove_list);
 							if (data.NextMarker) {
 								me.listAllSpaceVideos(data.NextMarker);
 							}
