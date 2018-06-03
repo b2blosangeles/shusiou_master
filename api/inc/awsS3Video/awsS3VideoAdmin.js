@@ -84,7 +84,7 @@
 			let space_dir = 'videos';
 			var params = { 
 				Bucket: 'shusiouwin-dev-1',
-				Delimiter: '',
+				Delimiter: '/',
 				MaxKeys : 300,
 				Marker : '',
 				Prefix: space_dir
@@ -95,7 +95,7 @@
 					cbk({err:err.message});
 					return true;
 				} else {	
-					if (!data.Contents.length) {
+					if (!data.CommonPrefixes.length) {
 						console.log('empty lll');
 					} else {
 						for (var i = 0; i < data.Contents.length; i++) {
