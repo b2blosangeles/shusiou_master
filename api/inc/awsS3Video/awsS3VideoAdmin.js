@@ -13,7 +13,7 @@
 					console.log( data.Buckets);
 					for (var i=0; i < data.Buckets.length ; i++) {
 						console.log(data.Buckets[i].Name);
-						let environment = '-dev-'
+						let environment = '-' + cfg.environment + '-'
 						if (new RegExp(environment).test(data.Buckets[i].Name)) {
 							buckets.push(data.Buckets[i].Name);
 						}
