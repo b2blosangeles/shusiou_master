@@ -30,6 +30,9 @@
 				}
 			});		
 		};
+		me.sendToRoomArray = function (arr, data, callback) {
+		
+		};		
 	}	
 	module.exports = obj;
 })();
