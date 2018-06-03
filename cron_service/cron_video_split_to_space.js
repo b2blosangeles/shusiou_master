@@ -6,14 +6,12 @@ env.config_path = '/var/qalet_config';
 
 var config = require(env.config_path + '/config.json');
 
-
 /* --- code for cron watch ---*/
 delete require.cache[__dirname + '/watch_cron.inc.js'];
 let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
     watchCron = new watch_cron_inc(__filename);
 watchCron.load('master', 60);
 /* --- code for cron watch  ---*/
-
 
 /* -------------*/
 delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
