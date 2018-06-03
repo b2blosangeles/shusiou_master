@@ -53,6 +53,7 @@ let tm = new Date().getTime();
 
 var IN = [];
 function s() {
+	return true;
 	let delta_time0 = new Date().getTime() - tm;
 	// console.log('---- load at ----> ' +  delta_time0);
 	var splitVideo = new awsS3Video(IN, config, env, pkg, tm);	
