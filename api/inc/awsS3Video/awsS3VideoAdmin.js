@@ -17,7 +17,7 @@
 							buckets.push(data.Buckets[i].Name);
 						}
 					}
-					for (var i = 0; i < buckets[i].length;  i++) {
+					for (var i = 0; i < buckets.length;  i++) {
 						me.scanAllBucketVideos(buckets[i], '');
 					}
 				}
