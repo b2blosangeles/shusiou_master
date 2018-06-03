@@ -17,8 +17,8 @@
 							buckets.push(data.Buckets[i].Name);
 						}
 					}
-					for (var i = 0; i < buckets[i];  i++) {
-						me.listAllSpaceVideos(buckets[i], '');
+					for (var i = 0; i < buckets[i].length;  i++) {
+						me.scanAllBucketVideos(buckets[i], '');
 					}
 				}
 			});
@@ -105,7 +105,7 @@
 			return true;
 		}	
 		
-		this.listAllSpaceVideos = function(bucket, Marker) {
+		this.scanAllBucketVideos = function(bucket, Marker) {
 			let me = this;
 			let space_dir = 'videos/';
 			var params = { 
@@ -134,7 +134,7 @@
 						me.findNeedToDelete(v, function(remove_list) {
 							console.log(remove_list);
 							if (data.NextMarker) {
-								me.listAllSpaceVideos(bucket, data.NextMarker);
+								me.scanAllBucketVideos(bucket, data.NextMarker);
 							}
 						});
 					}
