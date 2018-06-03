@@ -1,14 +1,16 @@
 let tm = new Date().getTime();
 
-function s() {
-	let delta_time0 = new Date().getTime() - tm;
-	console.log('---- load at ----> ' +  delta_time0);	
-	
-	var path = require('path'), env = {root_path:path.join(__dirname, '../../..')};
-	env.site_path = env.root_path + '/sites/master';
-	env.config_path = '/var/qalet_config';
-	var config = require(env.config_path + '/config.json');
-	var video_folder = '/var/shusiou_video/';
+var path = require('path'), env = {root_path:path.join(__dirname, '../../..')};
+env.site_path = env.root_path + '/sites/master';
+env.config_path = '/var/qalet_config';
+var config = require(env.config_path + '/config.json');
+var video_folder = '/var/shusiou_video/';
+
+/* --- code for cron watch ---*/
+delete require.cache[__dirname + '/watch_cron.inc.js'];
+let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
+    watchCron = new watch_cron_inc(__filename);
+watchCron.load('master', 60);
 
 /* -------------*/
 delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
@@ -22,8 +24,11 @@ socketClient.sendToRoom(
 	// res.send(data);
     }
 );
-/* -------------*/	
-	
+/* -------------*/
+
+function s() {
+	let delta_time0 = new Date().getTime() - tm;
+	console.log('---- load at ----> ' +  delta_time0);	
 	let ytdl = require(env.site_path + '/api/inc/ytdl-core/node_modules/ytdl-core'),
 	    mysql = require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
 	    crowdProcess =  require(env.root_path + '/package/crowdProcess/crowdProcess'),
@@ -237,9 +242,5 @@ socketClient.sendToRoom(
 }
 s();
 
-/* --- code for cron watch ---*/
-delete require.cache[__dirname + '/watch_cron.inc.js'];
-let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
-    watchCron = new watch_cron_inc(__filename);
-watchCron.load('master', 60);
+
 
