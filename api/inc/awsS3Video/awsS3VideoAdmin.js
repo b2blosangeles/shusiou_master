@@ -85,10 +85,10 @@
 			connection.connect();
 			var str = 'SELECT `vid` FRom `video` WHERE IN (' + list.join(',') + ')';
 
-			connection.query(str, function (error, results, fields) {
+			connection.query(str, function (err, results, fields) {
 				connection.end();
-				if (error || !results.length) {
-					console.log('okk');
+				if (err) {
+					console.log(err.message);
 				} else {
 					for (var i = 0; i < results.length; i++) {
 						if (list.indexOf('"' + results[i].vid + '"') === -1) {
