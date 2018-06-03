@@ -1,6 +1,6 @@
 (function () { 
 	var obj =  function (config, env, pkg, tm) {
-		this.sendToFrontendNotice(vid, cbk) {
+		this.sendToFrontendNotice = function(vid, cbk) {
 			delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
 			var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
 			var socketClient = new socketNodeClient('https://' + config.root + '/', env);
