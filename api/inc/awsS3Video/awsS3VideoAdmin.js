@@ -83,7 +83,7 @@
 			let me = this, remove_list = [];
 			var connection = pkg.mysql.createConnection(config.db);
 			connection.connect();
-			var str = 'SELECT `vid` FRom `video` WHERE IN (' + list.join(',') + ')';
+			var str = 'SELECT `vid` FRom `video` WHERE `vid` IN (' + list.join(',') + ')';
 
 			connection.query(str, function (err, results, fields) {
 				connection.end();
