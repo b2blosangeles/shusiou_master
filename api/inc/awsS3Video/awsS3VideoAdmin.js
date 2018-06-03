@@ -120,7 +120,7 @@
 							let prefix = data.CommonPrefixes[i].Prefix;
 							v.push('"' + prefix.replace(new RegExp('^videos/'), '').replace(new RegExp('/'), '') + '"')
 						}
-						mefindNeedToDelete(v, function() {
+						me.findNeedToDelete(v, function() {
 							if (data.NextMarker) {
 								me.listAllSpaceVideos(data.NextMarker);
 							}
