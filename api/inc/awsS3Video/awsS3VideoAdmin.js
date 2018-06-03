@@ -9,7 +9,10 @@
 			let me = this;
 			me.s3.listBuckets({}, function (err, data) {
 				if (err) console.log(err, err.stack);
-				else console.log(data);
+				else {
+					console.log(data.Buckets);
+					console.log(config);
+				}
 			});
 			return true;
 			
