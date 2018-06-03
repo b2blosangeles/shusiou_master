@@ -64,7 +64,6 @@
 					    	" ON DUPLICATE KEY UPDATE `space` = '" + me.space.space_url + "' ";
 				
 					connection.query(str, function (error, results, fields) {
-						console.log('get_vid==>');
 						connection.end();
 						cbk(vid);
 					});
@@ -174,9 +173,7 @@
 			}
 		}		
 		this.split = function(_type, _file, _cbk) {
-			
-						
-			
+
 			let me = this;
 			let tmp_folder = '/var/shusiou_cache/tmpvideo/' + me.source_file + '/' + _type + '/';
 			let space_dir = 'videos/' + me.source_file + '/' + _type + '/';
@@ -262,7 +259,6 @@
 						let tracks = CP.data.tracks;
 						let diff = Object.keys(v).filter(x => !tracks.includes(x));
 						if (diff.length) {
-							console.log('me.removeObjects============>');
 							me.removeObjects(space_dir, diff, 
 								function(data) {
 									CP.exit = 1;
