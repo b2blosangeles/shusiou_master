@@ -184,13 +184,15 @@
 
 				connection.query(str, function (error, results, fields) {
 					connection.end();
-					
+					/*
 					me.sendToFrontendNotice(me.vid, function(data) {
 						console.log('====this.sendToFrontendNotice(vid)===>' + me.vid);
 						console.log(data);
 						cbk('This video has been processed.' + me.vid); 
 					});
-					//IN[IN.length] = me.vid;
+					*/
+					cbk('This video has been processed.' + me.vid); 
+					IN[IN.length] = me.vid;
 				});
 			} else {
 				cbk(false);
