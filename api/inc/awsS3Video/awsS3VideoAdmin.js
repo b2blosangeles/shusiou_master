@@ -10,12 +10,13 @@
 			me.s3.listBuckets({}, function (err, data) {
 				if (err) console.log(err, err.stack);
 				else {
-					console.log(data.Buckets);
+					
 					for (var i=0; i < data.Buckets.length ; i++) {
-						if (new RegExp('-' + env.environment + '-').test(data.Buckets[i])) {
-							buckets.push(data.Buckets[i]);
+						if (new RegExp('-' + env.environment + '-').test(data.Buckets[i].Name)) {
+							buckets.push(data.Buckets[i].Name);
 						}
 					}
+					console.log(buckets);
 				}
 			});
 			return true;
