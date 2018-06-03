@@ -44,7 +44,6 @@
 					" ORDER BY `status` DESC LIMIT 3";
 
 				connection.query(str, function (err, results, fields) {
-					console.log('db_video==>');
 					connection.end();
 					if (err) {
 						cbk({err:err.message}); CP.exit = 1;
@@ -79,7 +78,6 @@
 				    _file = video_folder + vid + '/video/' + vid;
 
 				pkg.fs.stat(_file, function(err, stat) {
-					console.log('get_video_name==>');
 					if (err) {
 						pkg.exec('mv -f ' + video_folder + vid + '/video/video.mp4 ' +  _file, 					 
 							function(err, stdout, stderr) {
@@ -92,8 +90,7 @@
 			};
 			CP.serial(
 				_f,
-				function(result) {
-								
+				function(result) {		
 					if (CP.data.db_video === true) {
 						load_callback('No new id at all');
 					} else {
@@ -113,7 +110,6 @@
 		
 		}	
 		this.loadvid = function(space, vid, video_name, cbk) {
-			console.log('process vid ' + vid + ' ... ');
 			let me = this,
 			    _p = video_name.match(/(.+)\/([^\/]+)$/);
 				
