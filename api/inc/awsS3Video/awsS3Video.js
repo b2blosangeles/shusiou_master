@@ -1,6 +1,18 @@
 (function () { 
 	var obj =  function (config, env, pkg, tm) {
-		// find next need processed vid from table video_space
+		this.sendToFrontendNotice(vid, cbk) {
+			delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
+			var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+			var socketClient = new socketNodeClient('https://' + config.root + '/', env);
+			socketClient.sendToRoom(
+			    'video_' +  vid,
+			    {reload:true},
+			    function(data) {
+				cbk(true);
+			    }
+			);			
+		};
+
 		this.load = function(load_callback) {
 			let me = this;
 			var CP = new pkg.crowdProcess();
@@ -171,7 +183,11 @@
 
 				connection.query(str, function (error, results, fields) {
 					connection.end();
-					cbk('This video has been processed.' + me.vid) 
+					me.sendToFrontendNotice(me.vid, function(data) {
+						console.log('====this.sendToFrontendNotice(vid)===>');
+						console.log(data);
+					});
+					cbk('This video has been processed.' + me.vid); 
 				});
 			} else {
 				cbk(false);
