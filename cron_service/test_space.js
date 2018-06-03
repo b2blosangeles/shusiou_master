@@ -21,6 +21,21 @@ socketClient.sendToRoom(
 );
 /* ------------- */
 
+var sendToFrontendNotice = function(vid, cbk) {
+	delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
+	var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+	var socketClient = new socketNodeClient('https://' + config.root + '/', env);
+	console.log('send message to video_' +  vid);
+	socketClient.sendToRoom(
+	    'video_' +  vid,
+	    {reload:true},
+	    function(data) {
+		cbk(true);
+	    }
+	);			
+};
+
+
 let pkg = {
     	mysql		: require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
     	crowdProcess	: require(env.root_path + '/package/crowdProcess/crowdProcess'),
