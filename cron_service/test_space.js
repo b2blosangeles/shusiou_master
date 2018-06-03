@@ -40,10 +40,10 @@ function s() {
 	splitVideo.load(function(data) {
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
-		if (delta_time < 40000 && data !== 'No new id at all') {
+		if (delta_time < 30000 && data !== 'No new id at all') {
 			setTimeout(function() {
 				s();
-			}, 5000);
+			}, 10000);
 			console.log('*** --- ***');
 		} else {
 			console.log('*** -IN- ***>');
