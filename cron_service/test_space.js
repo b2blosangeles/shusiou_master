@@ -46,10 +46,11 @@ function s() {
 			
 			s();
 			console.log('*** --- ***');
-		} 
-		console.log('exit current session');
-		process.exit(-1);
-		return true;
+		} else {
+			console.log('exit current session');
+			process.exit(-1);
+			return true;
+		}
 		
 	});
 }
