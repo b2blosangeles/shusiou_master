@@ -55,11 +55,8 @@ function s() {
 	splitVideo.load(function(data) {
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
-		if (delta_time < 30000 && data !== 'No new id at all') {
-			setTimeout(function() {
-				s();
-			}, 10000);
-			console.log('*** --- ***');
+		if (delta_time < 40000 && data !== 'No new id at all') {
+			s();
 		} else {
 			console.log('*** -IN- ***>');
 			console.log(IN);
@@ -70,7 +67,12 @@ function s() {
 					process.exit(-1);
 					return true;
 				});
-			}			
+			} else {
+				console.log('exit current session');
+				process.exit(-1);
+				return true;
+			}
+			
 			
 		}
 		
