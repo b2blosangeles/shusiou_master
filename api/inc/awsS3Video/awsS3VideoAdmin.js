@@ -100,7 +100,7 @@
 					} else {
 						console.log(data.CommonPrefixes);
 						for (var i = 0; i < data.CommonPrefixes.length; i++) {
-							v.push(data.CommonPrefixes[i].Prefix.replace(/^videos\//i, ''))
+							v.push(data.CommonPrefixes[i].Prefix.replace(new RegExp('^videos/'), ''))
 						}
 						if (data.NextMarker) {
 							me.listAllSpaceVideos(data.NextMarker);
