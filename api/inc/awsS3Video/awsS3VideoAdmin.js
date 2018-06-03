@@ -8,6 +8,7 @@
 		this.delete = function(delete_callback) {
 			let me = this, buckets = [];
 			me.s3.listBuckets({}, function (err, data) {
+				console.log(data);
 				if (err) console.log(err, err.stack);
 				else {
 					for (var i=0; i < data.Buckets.length ; i++) {
