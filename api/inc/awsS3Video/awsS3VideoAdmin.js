@@ -6,12 +6,16 @@
 			return r[1];
 		}
 		this.delete = function(delete_callback) {
-			let me = this;
+			let me = this, buckets = 0;
 			me.s3.listBuckets({}, function (err, data) {
 				if (err) console.log(err, err.stack);
 				else {
 					console.log(data.Buckets);
-					console.log(config);
+					for (var i=0; i < data.Buckets.length ; i++) {
+						if (new RegExp('-' + environment + '-').test(data.Buckets[i])) {
+							buckets.push(data.Buckets[i]);
+						}
+					}
 				}
 			});
 			return true;
