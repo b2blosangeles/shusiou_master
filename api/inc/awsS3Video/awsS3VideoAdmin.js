@@ -17,24 +17,11 @@
 							buckets.push(data.Buckets[i].Name);
 						}
 					}
-					console.log(buckets);
+					for (var i = 0; i < buckets[i];  i++) {
+						me.listAllSpaceVideos(buckets[i], '');
+					}
 				}
 			});
-			return true;
-			
-
-			var connection = pkg.mysql.createConnection(config.db);
-			connection.connect();
-			var str = 'SELECT * FRom `video_space` WHERE `vid` NOT IN (SELECT `vid` FROM `video_user` WHERE 1)';
-
-			connection.query(str, function (error, results, fields) {
-				connection.end();
-				if (error || !results.length) {
-					delete_callback('finished');
-				} else {
-					me.removeVidFromSpace(results[0], delete_callback); 
-				}	
-			});			
 			return true;
 		}	
 		this.removeVidFromSpace = function(space, vid, cbk) {
@@ -118,11 +105,11 @@
 			return true;
 		}	
 		
-		this.listAllSpaceVideos = function(Marker) {
+		this.listAllSpaceVideos = function(bucket, Marker) {
 			let me = this;
 			let space_dir = 'videos/';
 			var params = { 
-				Bucket: 'shusiouwin-dev-1',
+				Bucket: bucket,
 				Delimiter: '/',
 				MaxKeys : 100,
 				Marker : Marker,
@@ -144,7 +131,7 @@
 						me.findNeedToDelete(v, function(remove_list) {
 							console.log(remove_list);
 							if (data.NextMarker) {
-								me.listAllSpaceVideos(data.NextMarker);
+								me.listAllSpaceVideos(bucket, data.NextMarker);
 							}
 						});
 					}
