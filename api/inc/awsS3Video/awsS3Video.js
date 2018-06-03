@@ -190,7 +190,7 @@
 						console.log(data);
 						cbk('This video has been processed.' + me.vid); 
 					});
-					IN[IN.length] = me.vid;
+					//IN[IN.length] = me.vid;
 				});
 			} else {
 				cbk(false);
