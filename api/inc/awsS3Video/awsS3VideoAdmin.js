@@ -110,7 +110,7 @@
 			var params = { 
 				Bucket: 'shusiouwin-dev-1',
 				Delimiter: '/',
-				MaxKeys : 3,
+				MaxKeys : 100,
 				Marker : Marker,
 				Prefix: space_dir
 			}, v = [];
