@@ -8,6 +8,7 @@ try {
 		componentDidMount:function() {
 			var me = this;
 			$('.content_bg').find('video').attr('autoplay', true).attr('loop', true);
+			console.log('Load...');
 			me.loadData(function() {
 				me.loadAd();
 			});		
