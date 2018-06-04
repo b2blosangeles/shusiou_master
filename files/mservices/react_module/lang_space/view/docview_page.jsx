@@ -42,7 +42,6 @@ try {
 			var me = this;		
 			return (
 				<div className="content_section">
-					<div dangerouslySetInnerHTML={{__html: me.state.body}} />
 					<div className="container">
 						<div class="row">
 							<div className="col-sm-12 col-lg-12 col-md-12"> 
@@ -55,9 +54,10 @@ try {
 								<p dangerouslySetInnerHTML={{__html: me.state.body}} />
 									
 								</div>	
-							</div>								
+							</div>						
 						</div>
-					</div>	
+					</div>
+					<p/><p/>
 					<div className="content_bg opacity_bg"/>
 				</div>					
 				
