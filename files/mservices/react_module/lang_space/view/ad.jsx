@@ -25,6 +25,7 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					me.setState({adlist:data.data});
+					me.playVideo();
 				}
 			}
 			Root.lib.loadEng(me, engCfg);			
