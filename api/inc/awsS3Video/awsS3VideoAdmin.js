@@ -20,7 +20,7 @@
 							buckets.push(data.Buckets[i].Name);
 						}
 					}
-					let CP = new crowdProcess(), _f = {};
+					let CP = new pkg.crowdProcess(), _f = {};
 					for (var i = 0; i < buckets.length;  i++) {
 						_f[buckets[i]] = function(cbk) {
 							me.scanAllBucketVideos(buckets[i], '', function() {
