@@ -126,12 +126,12 @@
 			me.s3.listObjects(params, function (err, data) {
 				if(err) {
 					console.log({err:err.message});
-					callback(me.deleteList);
+					callback();
 					return true;
 				} else {
 					
 					if (!data || !data.CommonPrefixes || !data.CommonPrefixes.length) {
-						callback(me.deleteList);
+						callback();
 					} else {
 						for (var i = 0; i < data.CommonPrefixes.length; i++) {
 							let prefix = data.CommonPrefixes[i].Prefix;
@@ -142,7 +142,7 @@
 							if (data.NextMarker) {
 								me.scanAllBucketVideos(bucket, data.NextMarker, callback);
 							} else {
-								callback(me.deleteList);
+								callback();
 							}
 						});
 					}
