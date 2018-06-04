@@ -21,8 +21,8 @@
 						}
 					}
 					for (var i = 0; i < buckets.length;  i++) {
-						me.scanAllBucketVideos(buckets[i], '', function() {
-							console.log(me.deleteList);
+						me.scanAllBucketVideos(buckets[i], '', function(data) {
+							console.log(data);
 						});
 					}
 				}
@@ -127,7 +127,7 @@
 					return true;
 				} else {	
 					if (!data.CommonPrefixes.length) {
-						callback();
+						callback(me.deleteList);
 					} else {
 						for (var i = 0; i < data.CommonPrefixes.length; i++) {
 							let prefix = data.CommonPrefixes[i].Prefix;
