@@ -9,15 +9,7 @@ try {
 			var me = this;
 			$('.content_bg').find('video').attr('autoplay', true).attr('loop', true);
 			
-			$.ajax({
-				url: _master_svr() + '/api/ad/get_default_ad.api',
-				method: "POST",
-				dataType: "JSON"
-			}).done(function(data) {
-				me.setState({adlist:data.data});
-				me.playVideo();
-			}).fail(function( jqXHR, textStatus ) {
-			});
+			me.lodAdData();
 			
 			$.ajax({
 				url: _master_svr() + '/api/content_data/shusiou_data.api',
@@ -28,6 +20,23 @@ try {
 				me.setState({text:data});
 			}).fail(function( jqXHR, textStatus ) {
 			});			
+		},
+		lodAdData: function () {
+			var me = this;
+			let engCfg = {
+				request:{code:'getAdList', 
+					 url : _master_svr() + '/api/ad/get_default_ad.api', 
+					 method:'post', 
+					 dataType: "JSON"
+					 data:{}
+				},
+				hold:500,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					me.setState({adlist:data.data});
+				}
+			}
+			Root.lib.loadEng(me, engCfg);			
 		},
 		dictionary:function(v) {
 			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
