@@ -52,7 +52,8 @@ try {
 								{/*
 								  <p>=={me.props.route.doc}==>{me.props.params.code}-{me.state.title}</p>
 								*/}  
-								<p dangerouslySetInnerHTML={{__html: me.state.body}} />									</div>	
+								<div dangerouslySetInnerHTML={{__html: me.state.body}} />	
+								</div>	
 							</div>								
 						</div>
 					</div>	
