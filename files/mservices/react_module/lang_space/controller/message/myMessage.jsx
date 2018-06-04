@@ -4,7 +4,10 @@ try {
             let me = this;
             return {list:[]};
         },
-	rr:'niuB',
+	dictionary:function(v) {
+		if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
+		return this.props.route.env.dictionary(v);
+	},	    
         componentDidMount:function() {
           let me = this, i = 0;
 		Root.lib.loadSocketIO(me, {
@@ -13,7 +16,7 @@ try {
 			room:'room2',
 			onServerData : function(incomeData, socket) {
 				console.log(incomeData.data);
-				console.log('onServerData -- ' + me.rr + ' === ' + socket.id);
+				console.log('onServerData -- ' + ' === ' + socket.id);
 			}
 			/*,
 			onServerMessage: function(data) {
@@ -22,23 +25,6 @@ try {
 		});
 		
 		return true;
-		/*
-          localStorage.clear();
-          me._itv = setInterval(
-            function() {
-              if (i > 4) {
-                i = 0;
-                localStorage.clear();
-                me.setState({list : []});
-              }
-              i++;
-              let list = me.state.list;
-              list.push(i);
-              me.setState({list : list});
-              localStorage.setItem('upload_' + i, new Date());
-            },6000
-          );
-	  */
         },
         render: function() {
             var me = this;
