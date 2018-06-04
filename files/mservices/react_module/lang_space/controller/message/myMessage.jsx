@@ -22,6 +22,8 @@ try {
 			return {'font-size':'1em'}	
 		}
 	},
+	playVideo: function() {
+	},	    
         componentDidMount:function() {
           let me = this, i = 0;
 		Root.lib.loadSocketIO(me, {
