@@ -22,6 +22,7 @@
 					let CP = new pkg.crowdProcess(), _f = {};
 					for (var i = 0; i < buckets.length;  i++) {
 						_f[buckets[i]] = function(cbk) {
+							console.log(buckets[i]);
 							me.scanAllBucketVideos(buckets[i], '', function(deleteList) {
 								console.log(deleteList);
 								cbk(true);
