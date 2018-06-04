@@ -7,7 +7,21 @@ try {
 	dictionary:function(v) {
 		if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
 		return this.props.route.env.dictionary(v);
-	},	    
+	},
+	getCurrentLanguage: function() {
+		return this.props.route.env.getCurrentLanguage();	
+	},
+	getText:function(v) {
+		return this.state.text[this.getCurrentLanguage() + '/home_page/'+v];
+	},
+	textStyle:function() {
+		var me = this;
+		if (me.props.route.env.state.Breakpoint == 'sm' || me.props.route.env.state.Breakpoint == 'sx') {
+			return {'font-size':'0.8em'}
+		} else {
+			return {'font-size':'1em'}	
+		}
+	},
         componentDidMount:function() {
           let me = this, i = 0;
 		Root.lib.loadSocketIO(me, {
