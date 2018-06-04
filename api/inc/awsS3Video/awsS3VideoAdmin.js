@@ -118,6 +118,8 @@
 						}					
 					}
 					console.log(exist_list);
+					console.log('remove_list--->');
+					console.log(remove_list);
 					cbk([]); 
 					// cbk(remove_list); 
 				}	
