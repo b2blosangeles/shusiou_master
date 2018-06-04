@@ -18,15 +18,7 @@ try {
 					c_lang:(!reactCookie.load('lang'))?'cn':reactCookie.load('lang'),
 					userInfo: {}
 				};
-			},
-			buildSocketIO : function() {
-				let me = this;
-				return true;
-				me.socket = io.connect('/', function() {});
-				me.socket.on('serverMessage', function(data) {
-					//console.log(data);
-				});				
-			},
+			},			
 			dictionary: function(v) {
 				if  (!this.state.dictionary[v]) return v;
 				return (!this.state.dictionary[v][this.state.c_lang])?this.state.dictionary[v]['en']:this.state.dictionary[v][this.state.c_lang];
@@ -95,7 +87,6 @@ try {
 			},
 			componentDidMount:function() {	
 				var me = this;
-				me.buildSocketIO();
 				me.getAuth();
 
 			},

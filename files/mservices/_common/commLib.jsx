@@ -136,5 +136,53 @@ var _commLib = function () {
           }
        }
        return o;
-    } 
+    }
+
+	this.loadSocketIO = function(o, cfg) {
+		let _id = (cfg.id) ? (cfg.id + '_' + cfg.room) :
+		    (!o || !o.props || !o.props.route || !o.props.route.path) ? cfg.room : (o.props.route.path + '_' + cfg.room);
+
+		// console.log('_id =D=>' + _id);
+
+		Root.socket = (Root.socket) ? Root.socket : {};
+		Root.socket[_id] = (Root.socket[_id]) ? Root.socket[_id] : {};
+
+		//let obj = (!cfg.public) ? o : Root.socket[_id]; 
+		let obj = Root.socket[_id];
+		
+		if (!cfg.public) {
+			o.componentWillUnmount = (function(o, componentWillUnmount) {
+				return function() {
+					if (typeof componentWillUnmount === 'function') {
+						componentWillUnmount();
+					}
+					// console.log('---componentWillUnmount triggled ==' + _id);
+					obj.socket.close();
+				}
+			})(o, o.componentWillUnmount);
+		}
+		if (!cfg.public && (obj.socket)) {
+			// console.log('o.socket.close();');
+			obj.socket.close();
+		}
+		if (!obj.socket) {
+			obj.socket = io.connect(cfg.resource);
+			obj.socket.on('connect', function() {
+				// console.log('--->connected -->' + obj.socket.id);
+				obj.socket.emit('createRoom', cfg.room);
+				if (typeof cfg.onServerData === 'function') {
+					obj.socket.on('serverData', function(incomeData) {
+						// console.log('====>>' + obj.socket.id);
+						if (incomeData._room === cfg.room) {
+							cfg.onServerData(incomeData, obj.socket);
+						}
+					});
+				}	
+			});
+			if (typeof cfg.onServerMessage === 'function') {
+				obj.socket.on('serverData', cfg.onServerMessage);
+			}
+		}
+	}   
+    
 };

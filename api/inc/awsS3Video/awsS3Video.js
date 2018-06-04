@@ -1,6 +1,5 @@
 (function () { 
-	var obj =  function (config, env, pkg, tm) {
-		// find next need processed vid from table video_space
+	var obj =  function (IN, config, env, pkg, tm) {
 		this.load = function(load_callback) {
 			let me = this;
 			var CP = new pkg.crowdProcess();
@@ -90,8 +89,7 @@
 			};
 			CP.serial(
 				_f,
-				function(result) {
-								
+				function(result) {		
 					if (CP.data.db_video === true) {
 						load_callback('No new id at all');
 					} else {
@@ -111,7 +109,6 @@
 		
 		}	
 		this.loadvid = function(space, vid, video_name, cbk) {
-			console.log('process vid ' + vid + ' ... ');
 			let me = this,
 			    _p = video_name.match(/(.+)\/([^\/]+)$/);
 				
@@ -168,16 +165,15 @@
 
 				connection.query(str, function (error, results, fields) {
 					connection.end();
-					cbk('This video has been processed.' + me.vid) 
+					cbk('This video has been processed.' + me.vid); 
+					IN[IN.length] = me.vid;
 				});
 			} else {
 				cbk(false);
 			}
 		}		
 		this.split = function(_type, _file, _cbk) {
-			
-						
-			
+
 			let me = this;
 			let tmp_folder = '/var/shusiou_cache/tmpvideo/' + me.source_file + '/' + _type + '/';
 			let space_dir = 'videos/' + me.source_file + '/' + _type + '/';
@@ -263,7 +259,6 @@
 						let tracks = CP.data.tracks;
 						let diff = Object.keys(v).filter(x => !tracks.includes(x));
 						if (diff.length) {
-							console.log('me.removeObjects============>');
 							me.removeObjects(space_dir, diff, 
 								function(data) {
 									CP.exit = 1;
@@ -281,7 +276,7 @@
 				let tracks = CP.data.tracks,
 				    space_tracks = CP.data.space_tracks;
 				
-				
+				console.log('upload==>');
 				if (tracks.length == space_tracks.length) {
 					me.getInfo(me.space_url +  me.space_info, me.source_path + me.source_file,
 						function(v) {
@@ -463,6 +458,7 @@
 		}
 		this.splitVideo = function(_type, tmp_folder, cbk) {
 			let me = this;
+			console.log('splitVideo==>');
 			switch(_type) {
 				case '_t':
 					pkg.exec('rm -f ' + tmp_folder + '* ' + ' && rm -f ' + tmp_folder + '*.* ' +

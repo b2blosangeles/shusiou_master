@@ -1,30 +1,34 @@
 let tm = new Date().getTime();
 
-function s() {
-	let delta_time0 = new Date().getTime() - tm;
-	console.log('---- load at ----> ' +  delta_time0);	
-	
-	var path = require('path'), env = {root_path:path.join(__dirname, '../../..')};
-	env.site_path = env.root_path + '/sites/master';
-	env.config_path = '/var/qalet_config';
-	var config = require(env.config_path + '/config.json');
-	var video_folder = '/var/shusiou_video/';
+var path = require('path'), env = {root_path:path.join(__dirname, '../../..')};
+env.site_path = env.root_path + '/sites/master';
+env.config_path = '/var/qalet_config';
+var config = require(env.config_path + '/config.json');
+var video_folder = '/var/shusiou_video/';
+
+/* --- code for cron watch ---*/
+delete require.cache[__dirname + '/watch_cron.inc.js'];
+let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
+    watchCron = new watch_cron_inc(__filename);
+watchCron.load('master', 60);
 
 /* -------------*/
 delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
 var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-var socketClient = new socketNodeClient('https://' + config.root + '/');
+var socketClient = new socketNodeClient('https://' + config.root + '/', env);
 
 socketClient.sendToRoom(
-    'VID_NIU',
+    'CRON_REPORT',
     {x:new Date(), Y:90},
     function(data) {
 	// res.send(data);
     }
 );
-/* -------------*/	
-	return true;
-	
+/* -------------*/
+
+function s() {
+	let delta_time0 = new Date().getTime() - tm;
+	console.log('---- load at ----> ' +  delta_time0);	
 	let ytdl = require(env.site_path + '/api/inc/ytdl-core/node_modules/ytdl-core'),
 	    mysql = require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
 	    crowdProcess =  require(env.root_path + '/package/crowdProcess/crowdProcess'),
@@ -34,6 +38,10 @@ socketClient.sendToRoom(
 	    CP = new crowdProcess(), 
 	    _f = {};
 
+	delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
+	var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+	var socketClient = new socketNodeClient('https://' + config.root + '/', env);	
+	
 	_f['IP'] = function(cbk) { /* --- get server IP --- */
 		function getServerIP() {
 			var ifaces = require('os').networkInterfaces(), address=[];
@@ -44,64 +52,77 @@ socketClient.sendToRoom(
 			return address;
 		};
 		var ips = getServerIP();
-	    fs.readFile('/var/.qalet_whoami.data', 'utf8', function(err,data) {
-			if ((data) && ips.indexOf(data) != -1) { cbk(data);
+		fs.readFile('/var/.qalet_whoami.data', 'utf8', function(err,data) {
+			if ((data) && ips.indexOf(data) != -1) { 
+				cbk(data);
 			} else { cbk(false); CP.exit = 1; }
-	    });	 
+		});	 
 	};
-
-
-	_f['write_download_failure'] = function(cbk) {
+	_f['ifanyovertime'] = function(cbk) {
 		var connection = mysql.createConnection(cfg0);
+		connection.connect();
+		var message = '';
+		var str = 'SELECT `vid`  FROM  `download_queue` WHERE  `status` = 9;'
+		connection.query(str, function (error, results, fields) {
+			connection.end();
+			if (error) {
+				cbk(false);
+			} else {
+				cbk(results[0]); 
+			}
+		});  
+	};
+	_f['process_download_failure_overtime'] = function(cbk) {
+		let new_cfg = cfg0;
+		new_cfg.multipleStatements = true;
+		var connection = mysql.createConnection(new_cfg);
 		connection.connect();
 		var message = '';
 		var str = 'INSERT INTO `download_failure` ' +
 		    '(`vid`, `source`, `code`, `video_info`, `message`) '+
 		    'SELECT `vid`, `source`, `code`, `info`, "Over 1 minute time limutation" FROM `download_queue` '+
-		    ' WHERE `status` = 9';
+		    ' WHERE `status` = 9; DELETE FROM `download_queue` WHERE `status` = 9; ' +
+		    'UPDATE `download_queue` SET `status` = 9 WHERE `holder_ip` = "' +  CP.data.IP + '" AND `status` = 1;'
 
 		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if (error) {
 				cbk(false);
 			} else {
-				cbk(results.affectedRows);
+				cbk(true);
 			}
 		});  
+	};
+	_f['notice_frontend0'] = function(cbk) {
+		if (!CP.data.ifanyovertime || CP.data.ifanyovertime.vid) {
+			cbk(false);
+		} else {
+			socketClient.sendToRoom(
+			    'video_' +  CP.data.ifanyovertime.vid,
+			    {reload:true},
+			    function(data) {
+				cbk(true);
+			    }
+			);
+		}
 	};	
-	_f['DELETE_download_queue'] = function(cbk) { /* --- clean overtime --- */
-		var connection = mysql.createConnection(cfg0);
-		connection.connect();
-		var str = 'DELETE FROM `download_queue` WHERE `status` = 9';
-		connection.query(str, function (error, results, fields) {
-			connection.end(); cbk(false);
-		});  
-	};
-	_f['mark_download_queue'] = function(cbk) { /* --- mark overtime --- */
-		var connection = mysql.createConnection(cfg0);
-		connection.connect();
-		var str = 'UPDATE `download_queue` SET `status` = 9 WHERE `holder_ip` = "' +  CP.data.IP + '" AND `status` = 1';
-		connection.query(str, function (error, results, fields) {
-			connection.end(); cbk(false);
-		});  
-	};
-
-	_f['start_one_from_download_queue'] = function(cbk) { /* --- pickup one from queue --- */
+	_f['start_one_from_download_queue'] = function(cbk) { 
+		// --- pickup one from queue --- 
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
 		var str = 'UPDATE  download_queue SET `holder_ip` = "' + CP.data.IP + '", `status` = 1 ' + 
 			' WHERE  `status` = 0 AND (`holder_ip` = "" OR `holder_ip` IS NULL) ORDER BY `created` ASC LIMIT 1';
-
 		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if ((results) && (results.affectedRows)) {
-				cbk(results.affectedRows);
+				cbk(true);
 			} else {
-				cbk(false); CP.exit = 1;
+				cbk(false);
 			}
 		});  
 	};
-	_f['current'] = function(cbk) { /* --- get the one from queue --- */
+	_f['current'] = function(cbk) { 
+		// --- get the one from queue --- 
 		var connection = mysql.createConnection(cfg0);
 		connection.connect();
 		var str = 'SELECT * FROM `download_queue` WHERE `holder_ip` = "' + CP.data.IP + '" AND `status` = 1';
@@ -114,7 +135,8 @@ socketClient.sendToRoom(
 			}
 		});  
 	};
-	_f['DIR'] = function(cbk) { /* create video path */
+	_f['DIR'] = function(cbk) { 
+		// create video path 
 		fp = new folderP();
 		fp.build(video_folder + CP.data.current.vid + '/video/', () => {
 			fp.build(video_folder + CP.data.current.vid + '/images/' , () => {
@@ -128,7 +150,8 @@ socketClient.sendToRoom(
 			});		
 		});
 	};
-	_f['downlod_video'] = function(cbk) {  /* downlod video */
+	_f['downlod_video'] = function(cbk) {  
+		// downlod video 
 		var url = decodeURIComponent(CP.data.current.code);
 		var video = ytdl(url, {quality:'highest'}, function(err) { });
 		video.pipe(fs.createWriteStream(CP.data.DIR.video +'video.mp4'));	
@@ -142,7 +165,7 @@ socketClient.sendToRoom(
 			cbk('ERR: CP.data.current.code');
 		});	
 	};
-
+	
 	_f['verifyFormat'] = function(cbk) {
 		var childProcess = require('child_process');
 		var f_video = CP.data.DIR.video +'video.mp4';
@@ -156,9 +179,11 @@ socketClient.sendToRoom(
 				});	
 			});	
 	};
-
+	
 	_f['conclution'] = function(cbk) {
-		var connection = mysql.createConnection(cfg0);
+		let new_cfg = cfg0;
+		new_cfg.multipleStatements = true;
+		var connection = mysql.createConnection(new_cfg);
 		connection.connect();
 		var info = (CP.data.current.info)?CP.data.current.info:'';
 		var json_info = {};
@@ -173,7 +198,8 @@ socketClient.sendToRoom(
 			    "'" + CP.data.current.vid + "'," +
 			    "'" +  CP.data.current.video_length + "'," +
 			    "'" +  CP.data.current.org_thumbnail + "'," +
-			    'NOW())';
+			    'NOW()); ';
+			    
 		} else {
 			var str = 'INSERT INTO `download_failure` ' +
 			    '(`vid`,`source`, `code`, `video_info`, `message`) VALUES (' +
@@ -181,40 +207,34 @@ socketClient.sendToRoom(
 			    "'" + CP.data.current.source + "'," +
 			    "'" + CP.data.current.code.replace(/\'/g, "\\\'") + "'," +
 			    "'" + info.replace(/\'/g, "\\\'") + "'," +
-			    "'Wrong video format!')";
+			    "'Wrong video format!');";
 
 		}
+		 str += 'DELETE FROM `download_queue`  WHERE `id` = "' + CP.data.current.id + '";'
 		connection.query(str, function (error, results, fields) {
 			connection.end();
 			if (error) {
-				cbk(str);
+				cbk(false);
 			} else {
-				if (results.affectedRows) {
-					cbk(true);
-				} else {
-					cbk(false);
-				}
-
+				cbk(true);
 			}
 		});  
 	};
-	_f['clean_download_queue'] = function(cbk) {
-		var connection = mysql.createConnection(cfg0);
-		connection.connect();
-		var str = 'DELETE FROM `download_queue`  WHERE `id` = "' + CP.data.current.id + '"';
-		connection.query(str, function (error, results, fields) {
-			connection.end();
+	_f['notice_frontend'] = function(cbk) {
+		socketClient.sendToRoom(
+		    'video_' +  CP.data.current.vid,
+		    {reload:true},
+		    function(data) {
 			cbk(true);
-		});  
+		    }
+		);
 	};
+	
 	CP.serial(_f,
 		function(data) {
 			let delta_time = new Date().getTime() - tm;
-			console.log(data);
-			if (delta_time < 50000 && (CP.data.current)) {
-				s();
-			} else {
-				process.exit(-1);
+			if (delta_time < 30000) {
+				setTimeout(function() { s(); }, 5000);
 			}	
 		},
 		53000
@@ -222,8 +242,5 @@ socketClient.sendToRoom(
 }
 s();
 
-/* --- code for cron watch ---*/
-delete require.cache[__dirname + '/watch_cron.inc.js'];
-let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
-    watchCron = new watch_cron_inc(__filename);
-watchCron.load('master', 60);
+
+

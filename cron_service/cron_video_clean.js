@@ -6,18 +6,27 @@ env.site_path = env.root_path + '/sites/master';
 env.config_path = '/var/qalet_config';
 
 var config = require(env.config_path + '/config.json');
+
+/* --- code for cron watch ---*/
+delete require.cache[__dirname + '/watch_cron.inc.js'];
+let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
+    watchCron = new watch_cron_inc(__filename);
+watchCron.load('master', 300);
+
 /* -------------*/
+/*
 delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
 var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-var socketClient = new socketNodeClient('https://' + config.root + '/');
+var socketClient = new socketNodeClient('https://' + config.root + '/', env);
 
 socketClient.sendToRoom(
-    'VID_NIU',
-    {x:new Date(), Y:91},
+    'CRON_REPORT',
+    {x:new Date(), Y:81},
     function(data) {
 	// res.send(data);
     }
 );
+*/
 /* -------------*/
 let pkg = {
     	mysql		: require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
@@ -26,7 +35,7 @@ let pkg = {
 	exec		: require('child_process').exec,
 	fs 		: require('fs')
 }; 
-/*
+
 let awsS3VideoAdmin = require(env.site_path + '/api/inc/awsS3Video/awsS3VideoAdmin.js');
 let tm = new Date().getTime();
 
@@ -35,20 +44,26 @@ function s() {
 	console.log('---- task start ----> ' +  delta_time0);	
 	var videoAdmin = new awsS3VideoAdmin(config, env, pkg, tm);	
 	 videoAdmin.delete(function(data) {
-		let delta_time = new Date().getTime() - tm;
-		console.log(data);
-		if (delta_time < 30000 && data !== 'finished') {
-			let delta_time0 = new Date().getTime() - tm;
-			console.log('---- task end ----> ' +  delta_time0);			
-			s();
-		}		
+		let delta_time = new Date().getTime() - tm, needcontinue = false;
+		if ((data) && (data.results)) {
+			for (o in data.results) {
+				if (data.results[o] !== false)	{
+					needcontinue = true;
+					break;
+				}
+			}
+		}
+		 
+		if (delta_time < 50000 && needcontinue) {
+			setTimeout(s, 6000);
+		} else {
+			console.log('exist to next session ');
+			process.exit(-1);
+			return true;			
+		}
 		
 	});
 }
 s();
-*/
-/* --- code for cron watch ---*/
-delete require.cache[__dirname + '/watch_cron.inc.js'];
-let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
-    watchCron = new watch_cron_inc(__filename);
-watchCron.load('master', 60);
+
+

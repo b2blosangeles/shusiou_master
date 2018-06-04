@@ -11,32 +11,6 @@ try {
 		componentDidUpdate:function() {
 			var me = this;	
 		},
-		io:function(list) {
-			let me = this;
-			return true;
-			let _itv = setInterval(function() {
-				if (!Root.socket || !Root.socket.id) {
-					return true;
-				}
-				if (!me.socket_id || me.socket_id  !== Root.socket.id) {
-					console.log(me.socket_id + '<-->' + Root.socket.id);
-					Root.socket.emit('createRoom', 'VID_NIU');
-					me.socket_id = Root.socket.id;
-					Root.socket.on('serverData', function(income) {
-						if (income._room === 'VID_NIU') {
-							console.log('Root.socket.id - ' + Root.socket.id + ' (' + income.data.Y + ')')
-						}
-					});				
-
-				}						
-			}, 1000);
-			
-			for (let i=0; i < list.length; i++) {
-				if (list[i].space_status === 1) {
-				//	Root.socket.emit('createRoom', 'VID_' + list[i].vid); 
-				}	
-			}
-		},
 		callEng:function() {
 			var me = this;
 			let engCfg = {
@@ -54,8 +28,29 @@ try {
 						list:(!EngR  || !EngR.getlist || !EngR.getlist.data) ? [] :
 						EngR.getlist.data},
 						function() {
-							me.io(EngR.getlist.data);
-							// Root.lib.alert(me, 'Data load success!', 'success', 3000);
+							Root.lib.loadSocketIO(me, {
+								resource:'/',
+								room:'CRON_REPORT',
+								onServerData : function(incomeData, socket) {
+									console.log('socket.id PP=> ' + socket.id + ' (' + incomeData.data.Y + ')')
+								}
+							});
+							let list = EngR.getlist.data;
+							
+							for (let i = 0; i < list.length; i++) {
+								if (list[i].space_status) continue;
+								Root.lib.loadSocketIO(me, {
+									resource:'/',
+									room:'video_' + list[i].vid,
+									onServerData : function(incomeData, socket) {
+										if ((incomeData.data) && (incomeData.data.reload)) {
+											me.callEng();
+											console.log('---reloaded!---');
+										}
+									}
+								});
+								console.log('video_' + list[i].vid);
+							}
 						});	
 				}
 				
