@@ -36,11 +36,8 @@ try {
 			    	Root.state.userInfo.roles: [];
 			
 			var m = [ 
-			//	{code:'what_to_study', router:'what_to_study'},
-			//	{code:'how_to_study', router:'how_to_study'},
 				{code:'public_courses', router:'public_courses'},
 				{code:'my_course', role:['learner'], router:'student/my_courses'},
-			//	{code:'menu_tuition', router:'student/my_qna'},
 				{code:'my_videos', router:'tutor/my_videos'},
 				{code:'my_curriculums', router:'tutor/my_curriculums'},
 				{code:'my_dashboard', router:'dashboard'}
@@ -48,8 +45,11 @@ try {
 			
 			return m.map(function (item) {
 				var role = me.role(item.router);
-				if  (me.inte_array(my_role,role) || me.inte_array(['*'],role))
-					return  <li><a className={me.isActive(item.code)} href={'/#/'+item.router}>{me.dictionary(item.code)}</a></li>
+				if  (me.inte_array(my_role,role) || me.inte_array(['*'],role)) {
+					return  (me.state.hash !== '/#/'+item.router) ?
+						(<li><a className={me.isActive(item.code)} href={'/#/'+item.router}>{me.dictionary(item.code)}</a></li>)
+						: (<span></span>)
+				} 
 			});		
 		},
 		docviwer:function(data) {
