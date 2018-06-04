@@ -51,7 +51,7 @@ switch(opt) {
 				for (var o in watch) {
 				    let t = (watch[o].mark) ? new Date(watch[o].mark).getTime() : null;
 				    let scheduled = watch[o].scheduled;
-				    if ((t) && (scheduled) && (new Date().getTime() - t) > (scheduled * 30 * 1000)) {
+				    if ((t) && (scheduled) && (new Date().getTime() - t) > (scheduled * 10 * 1000)) {
 					result_a.push(o);
 				    }
 				}
