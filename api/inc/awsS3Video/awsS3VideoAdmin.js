@@ -143,7 +143,7 @@
 				MaxKeys : 100,
 				Marker : Marker,
 				Prefix: space_dir
-			}, deleteList = [];
+			}, v=[], deleteList = [];
 			
 			me.s3.listObjects(params, function (err, data) {
 				if(err) {
