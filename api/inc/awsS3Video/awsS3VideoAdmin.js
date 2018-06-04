@@ -16,7 +16,7 @@
 					for (var i = 0; i < buckets.length;  i++) {
 						_f[buckets[i]] = (function(i) {
 								return function(cbk) {
-									me.scanAllBucketVideos(buckets[i], '', function(deleteList) {
+									me.scanAllBucketVideos(buckets[i], [], '', function(deleteList) {
 										console.log(deleteList);
 										cbk(true);
 										return true;
@@ -126,7 +126,7 @@
 			return true;
 		}	
 		
-		this.scanAllBucketVideos = function(bucket, Marker, callback) {
+		this.scanAllBucketVideos = function(bucket, deleteList, Marker, callback) {
 			let me = this;
 			let space_dir = 'videos/';
 			var params = { 
@@ -135,7 +135,7 @@
 				MaxKeys : 3,
 				Marker : Marker,
 				Prefix: space_dir
-			}, v=[], deleteList = [];
+			}, v=[];
 			
 			me.s3.listObjects(params, function (err, data) {
 				if(err) {
@@ -160,7 +160,7 @@
 							//if (deleteList.length > 2) callback();
 							//else {
 								if (data.NextMarker) {
-									me.scanAllBucketVideos(bucket, data.NextMarker, callback);
+									me.scanAllBucketVideos(bucket, deleteList, data.NextMarker, callback);
 								} else {
 									callback(deleteList);
 								}
