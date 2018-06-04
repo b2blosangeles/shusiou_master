@@ -43,7 +43,7 @@ try {
 			//	{code:'menu_tuition', router:'student/my_qna'},
 				{code:'my_videos', router:'tutor/my_videos'},
 				{code:'my_curriculums', router:'tutor/my_curriculums'},
-				{code:'my_message', router:'message'}
+				{code:'my_dashboard', router:'dashboard'}
 			];			
 			
 			return m.map(function (item) {
