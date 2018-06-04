@@ -1,5 +1,5 @@
 try {	
-    var MyMessage =  React.createClass({
+    var MyDashboard =  React.createClass({
         getInitialState: function() {
             let me = this;
             return {list:[], text:{}};
