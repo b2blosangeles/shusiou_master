@@ -5,7 +5,7 @@ try {
 			var me = this;
 			return {text:{}};
 		},	
-		componentDidUpdate:function() {
+		componentDidMount:function() {
 			var me = this;
 			$('.content_bg').find('video').attr('autoplay', true).attr('loop', true);
 			me.loadData(function() {
