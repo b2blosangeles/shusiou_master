@@ -10,7 +10,7 @@ try {
 			$('.content_bg').find('video').attr('autoplay', true).attr('loop', true);
 			setTimeout(me.loadAd(function() {
 				setTimeout(me.loadData);
-			}));	
+			}),1000);	
 		},
 		loadAd: function (cbk) {
 			var me = this;
