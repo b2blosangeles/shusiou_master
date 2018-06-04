@@ -11,7 +11,7 @@ try {
 			setTimeout(function() {
 				me.loadAd(function() {
 					setTimeout(me.loadData,1000);
-				})
+				}, 1000)
 			});	
 		},
 		loadAd: function (cbk) {
