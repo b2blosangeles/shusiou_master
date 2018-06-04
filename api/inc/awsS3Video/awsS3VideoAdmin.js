@@ -17,9 +17,6 @@
 						_f[buckets[i]] = (function(i) {
 								return function(cbk) {
 									me.scanAllBucketVideos(buckets[i], [], '', function(deleteList) {
-										console.log(deleteList);
-										cbk(true);
-										return true;
 										if (deleteList.length) {
 											me.removeVidFromSpace(buckets[i], deleteList[0],
 												function(removeVidFromSpaceData) {
@@ -153,18 +150,14 @@
 						}
 						me.findNeedToDelete(v, function(remove_list) {
 							deleteList = deleteList.concat(remove_list);
-							
-							console.log('deleteList--->');
-							console.log(deleteList);
-							
-							//if (deleteList.length > 2) callback();
-							//else {
+							if (deleteList.length > 1) callback();
+							else {
 								if (data.NextMarker) {
 									me.scanAllBucketVideos(bucket, deleteList, data.NextMarker, callback);
 								} else {
 									callback(deleteList);
 								}
-							//}
+							}
 						});
 					}
 				}
