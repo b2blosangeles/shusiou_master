@@ -9,7 +9,6 @@
 		*/
 		this.delete = function(delete_callback) {
 			let me = this, buckets = [];
-			me.deleteList = [];
 			me.s3.listBuckets({}, function (err, data) {
 				if (err) console.log(err, err.stack);
 				else {
@@ -20,12 +19,14 @@
 							buckets.push(data.Buckets[i].Name);
 						}
 					}
-					console.log(me.deleteList);
-					return true;
 					let CP = new pkg.crowdProcess(), _f = {};
 					for (var i = 0; i < buckets.length;  i++) {
 						_f[buckets[i]] = function(cbk) {
-							me.scanAllBucketVideos(buckets[i], '', function() {
+							me.scanAllBucketVideos(buckets[i], '', function(deleteList) {
+								console.log(deleteList);
+								cbk(true);
+								return true;
+								
 								if (me.deleteList.length) {
 									console.log(me.deleteList[0]);
 									me.removeVidFromSpace(buckets[i], me.deleteList[0],
@@ -140,30 +141,30 @@
 				MaxKeys : 100,
 				Marker : Marker,
 				Prefix: space_dir
-			}, v = [];
+			}, deleteList = [];
 			
 			me.s3.listObjects(params, function (err, data) {
 				if(err) {
 					console.log({err:err.message});
-					callback();
+					callback(deleteList);
 					return true;
 				} else {
 					
 					if (!data || !data.CommonPrefixes || !data.CommonPrefixes.length) {
-						callback();
+						callback(deleteList);
 					} else {
 						for (var i = 0; i < data.CommonPrefixes.length; i++) {
 							let prefix = data.CommonPrefixes[i].Prefix;
 							v.push('"' + prefix.replace(new RegExp('^videos/'), '').replace(new RegExp('/'), '') + '"')
 						}
 						me.findNeedToDelete(v, function(remove_list) {
-							me.deleteList = me.deleteList.concat(remove_list);
-							if (me.deleteList.length > 2) callback();
+							deleteList = deleteList.concat(remove_list);
+							if (deleteList.length > 2) callback();
 							else {
 								if (data.NextMarker) {
 									me.scanAllBucketVideos(bucket, data.NextMarker, callback);
 								} else {
-									callback();
+									callback(deleteList);
 								}
 							}
 						});
