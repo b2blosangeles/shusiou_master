@@ -54,7 +54,7 @@ function s() {
 			}
 		}
 		 
-		if (delta_time < 30000 && needcontinue) {
+		if (delta_time < 50000 && needcontinue) {
 			setTimeout(s, 6000);
 		} else {
 			console.log('exist to next session ');
