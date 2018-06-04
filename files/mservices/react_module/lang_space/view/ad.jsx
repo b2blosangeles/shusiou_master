@@ -8,11 +8,11 @@ try {
 		componentDidMount:function() {
 			var me = this;
 			$('.content_bg').find('video').attr('autoplay', true).attr('loop', true);
-			console.log('LoadA...');
-			setTimeout(me.loadData);
-			setTimeout(me.loadAd);	
+			setTimeout(me.loadAd(function() {
+				me.loadData();
+			}));	
 		},
-		loadAd: function () {
+		loadAd: function (cbk) {
 			var me = this;
 			let engCfg = {
 				request:{code:'getAdList', 
@@ -25,6 +25,7 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					me.setState({adlist:data.data});
+					cbk();
 					me.playVideo();
 				}
 			}
