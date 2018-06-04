@@ -1,10 +1,12 @@
 (function () { 
 	var obj =  function (config, env, pkg, tm) {
+		/*
 		this.getSpaceId = function(space) {
 			let patt = /https\:\/\/([^.]+)\./ig;
 			let r = patt.exec(space);
 			return r[1];
 		}
+		*/
 		this.delete = function(delete_callback) {
 			let me = this, buckets = [];
 			me.deleteList = [];
@@ -112,7 +114,7 @@
 			var params = { 
 				Bucket: bucket,
 				Delimiter: '/',
-				MaxKeys : 100,
+				MaxKeys : 3,
 				Marker : Marker,
 				Prefix: space_dir
 			}, v = [];
