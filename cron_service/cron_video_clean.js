@@ -40,14 +40,21 @@ let awsS3VideoAdmin = require(env.site_path + '/api/inc/awsS3Video/awsS3VideoAdm
 let tm = new Date().getTime();
 
 function s() {
-	return true;
 	let delta_time0 = new Date().getTime() - tm;
 	console.log('---- task start ----> ' +  delta_time0);	
 	var videoAdmin = new awsS3VideoAdmin(config, env, pkg, tm);	
 	 videoAdmin.delete(function(data) {
-		let delta_time = new Date().getTime() - tm;
-		console.log(data);
-		if (delta_time < 30000) {			
+		let delta_time = new Date().getTime() - tm, needcontinue = false;
+		if ((data) && (data.results)) {
+			for (o in data.results) {
+				if (data.results[o] !== false)	{
+					needcontinue = true;
+					break;
+				}
+			}
+		}
+		 
+		if (delta_time < 30000 && needcontinue) {
 			setTimeout(s, 6000);
 		} else {
 			console.log('exist to next session ');
@@ -58,3 +65,5 @@ function s() {
 	});
 }
 s();
+
+
