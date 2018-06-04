@@ -9,7 +9,7 @@ try {
 			var me = this;
 			$('.content_bg').find('video').attr('autoplay', true).attr('loop', true);
 			setTimeout(me.loadAd(function() {
-				me.loadData();
+				setTimeout(me.loadData);
 			}));	
 		},
 		loadAd: function (cbk) {
