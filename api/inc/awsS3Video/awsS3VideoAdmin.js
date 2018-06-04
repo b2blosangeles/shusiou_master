@@ -47,7 +47,7 @@
 			var params = { 
 				Bucket: bucket,
 				Delimiter: '',
-				MaxKeys : 100,
+				MaxKeys : 300,
 				Marker : '',
 				Prefix: space_dir
 			}, v = [];
