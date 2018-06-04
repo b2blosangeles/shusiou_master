@@ -17,6 +17,9 @@
 						_f[buckets[i]] = (function(i) {
 								return function(cbk) {
 									me.scanAllBucketVideos(buckets[i], '', function(deleteList) {
+										console.log(deleteList);
+										cbk(deleteList);
+										retutn true;
 										if (me.deleteList.length) {
 											console.log(me.deleteList[0]);
 											me.removeVidFromSpace(buckets[i], me.deleteList[0],
