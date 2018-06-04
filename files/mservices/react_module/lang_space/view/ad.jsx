@@ -8,8 +8,12 @@ try {
 		componentDidMount:function() {
 			var me = this;
 			$('.content_bg').find('video').attr('autoplay', true).attr('loop', true);
-			setTimeout(me.loadAd, 1000);
-			setTimeout(me.loadData, 1000);
+			setTimeout(function() {
+				me.loadAd(function() {
+					setTimeout(me.loadData);
+				});
+			}, 1000);
+			
 		},
 		loadAd: function (cbk) {
 			var me = this;
