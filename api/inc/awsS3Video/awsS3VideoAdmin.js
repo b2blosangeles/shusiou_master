@@ -23,6 +23,8 @@
 					for (var i = 0; i < buckets.length;  i++) {
 						me.scanAllBucketVideos(buckets[i], '', function(data) {
 							console.log(data);
+							console.log('---->');
+							console.log(me.deleteList);
 						});
 					}
 				}
