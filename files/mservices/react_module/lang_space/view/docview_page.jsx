@@ -49,13 +49,10 @@ try {
 								<div className="overlayer_box editor_box">
 								  <h3 className="display-3">{me.dictionary(me.state.title)}</h3>
 								  <p className="lead"></p>
-								  <hr className="my-4"/>
-								{/*
-								  <p>=={me.props.route.doc}==>{me.props.params.code}-{me.state.title}</p>
-								*/}  
-								<div dangerouslySetInnerHTML={{__html: me.state.body}} />
+								  <hr className="my-4"/> 
+								<p dangerouslySetInnerHTML={{__html: me.state.body}} />
 									
-									<div dangerouslySetInnerHTML={{__html: me.state.body}} />
+								<p dangerouslySetInnerHTML={{__html: me.state.body}} />
 									
 								</div>	
 							</div>								
