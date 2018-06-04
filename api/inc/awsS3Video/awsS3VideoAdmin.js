@@ -1,12 +1,5 @@
 (function () { 
 	var obj =  function (config, env, pkg, tm) {
-		/*
-		this.getSpaceId = function(space) {
-			let patt = /https\:\/\/([^.]+)\./ig;
-			let r = patt.exec(space);
-			return r[1];
-		}
-		*/
 		this.delete = function(delete_callback) {
 			let me = this, buckets = [];
 			me.s3.listBuckets({}, function (err, data) {
@@ -24,10 +17,6 @@
 						_f[buckets[i]] = (function(i) {
 								return function(cbk) {
 									me.scanAllBucketVideos(buckets[i], '', function(deleteList) {
-										console.log(deleteList);
-										cbk(true);
-										return true;
-
 										if (me.deleteList.length) {
 											console.log(me.deleteList[0]);
 											me.removeVidFromSpace(buckets[i], me.deleteList[0],
