@@ -278,6 +278,7 @@ try {
 			me.setState({ModalLoading: {box_style : {color:'#ffffff'}, hold:10, 
 				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}},
 				function() {
+					viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 					viewpoint.find('.ModalLoading_' + me.state.id).modal({backdrop:'static'});				    
 				    }	   
 			);
