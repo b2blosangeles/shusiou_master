@@ -139,10 +139,13 @@
 						}
 						me.findNeedToDelete(v, function(remove_list) {
 							me.deleteList = me.deleteList.concat(remove_list);
-							if (data.NextMarker) {
-								me.scanAllBucketVideos(bucket, data.NextMarker, callback);
-							} else {
-								callback();
+							if (me.deleteList.length > 3) callback();
+							else {
+								if (data.NextMarker) {
+									me.scanAllBucketVideos(bucket, data.NextMarker, callback);
+								} else {
+									callback();
+								}
 							}
 						});
 					}
