@@ -11,7 +11,7 @@ var config = require(env.config_path + '/config.json');
 delete require.cache[__dirname + '/watch_cron.inc.js'];
 let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
     watchCron = new watch_cron_inc(__filename);
-watchCron.load('master', 60);
+watchCron.load('master', 300);
 
 /* -------------*/
 /*
