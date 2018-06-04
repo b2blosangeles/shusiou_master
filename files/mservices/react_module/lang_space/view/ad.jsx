@@ -25,13 +25,13 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					me.setState({adlist:data.data});
-					cbk();
+					if (typeof cbk === 'function') cbk();
 					me.playVideo();
 				}
 			}
 			Root.lib.loadEng(me, engCfg);			
 		},
-		loadData: function () {
+		loadData: function (cbk) {
 			var me = this;
 			let engCfg = {
 				request:{code:'getShusiouText', 
@@ -44,6 +44,7 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					me.setState({text:data});
+					if (typeof cbk === 'function') cbk();
 				}
 			}
 			Root.lib.loadEng(me, engCfg);			
