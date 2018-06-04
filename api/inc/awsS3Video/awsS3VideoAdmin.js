@@ -110,7 +110,7 @@
 					cbk([]);
 				} else {
 					for (var i = 0; i < results.length; i++) {
-						exist_list[exist_list.length] =  results[i].vid;
+						exist_list[exist_list.length] =  results[i].vid + '';
 					}
 					for (var i = 0; i < list.length; i++) {
 						if (exist_list.indexOf(list[i].replace(/\"/ig, '')) === -1) {
