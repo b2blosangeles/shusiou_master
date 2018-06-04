@@ -47,7 +47,7 @@
 			var params = { 
 				Bucket: bucket,
 				Delimiter: '',
-				MaxKeys : 300,
+				MaxKeys : 100,
 				Marker : '',
 				Prefix: space_dir
 			}, v = [];
@@ -90,7 +90,7 @@
 			let me = this;
 			const AWS = require(env.site_path + '/api/inc/aws-sdk/node_modules/aws-sdk')
 			me.s3 = new AWS.S3({
-			    httpOptions: {timeout: 50000},		
+			    httpOptions: {timeout: 40000},		
 			    endpoint: new AWS.Endpoint(config.objectSpace.endpoint),
 			    accessKeyId: config.objectSpace.accessKeyId,
 			    secretAccessKey: config.objectSpace.secretAccessKey
