@@ -42,19 +42,17 @@ function s() {
 	console.log('---- task start ----> ' +  delta_time0);	
 	var videoAdmin = new awsS3VideoAdmin(config, env, pkg, tm);	
 	 videoAdmin.delete(
-		 function(data) {
-		 	console.log(data);
-		 }
-		 
-		 /*function(data) {
+		function(data) {
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
-		if (delta_time < 30000 && data !== 'finished') {
+		if (delta_time < 40000 && data !== 'finished') {
 			let delta_time0 = new Date().getTime() - tm;
 			console.log('---- task end ----> ' +  delta_time0);			
 			s();
 		} else {
 			console.log('exist to next session ');
+			process.exit(-1);
+			return true;			
 		}
 		
 	}*/);
