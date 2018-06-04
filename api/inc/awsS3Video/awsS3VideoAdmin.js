@@ -150,15 +150,8 @@
 							let prefix = data.CommonPrefixes[i].Prefix;
 							v.push('"' + prefix.replace(new RegExp('^videos/'), '').replace(new RegExp('/'), '') + '"')
 						}
-						console.log('---deleteList---1>');
-						console.log(deleteList);
 						me.findNeedToDelete(v, function(remove_list) {
-							console.log('---deleteList---2>');
-							
-							deleteList = deleteList.concat(remove_list);
-							console.log(deleteList);
-	
-							if (deleteList.length > 1) callback();
+							if (deleteList.length > 1) callback(deleteList);
 							else {
 								if (data.NextMarker) {
 									me.scanAllBucketVideos(bucket, deleteList, data.NextMarker, callback);
