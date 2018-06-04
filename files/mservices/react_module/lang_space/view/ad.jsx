@@ -30,7 +30,7 @@ try {
 			}
 			Root.lib.loadEng(me, engCfg);			
 		},
-		loadData: function (cbk) {
+		loadData: function () {
 			var me = this;
 			let engCfg = {
 				request:{code:'getShusiouText', 
@@ -43,7 +43,6 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					me.setState({text:data});
-					cbk();
 				}
 			}
 			Root.lib.loadEng(me, engCfg);			
