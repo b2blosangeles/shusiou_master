@@ -12,7 +12,7 @@ try {
 				me.loadAd(function() {
 					setTimeout(me.loadData);
 				});
-			}, 1000);
+			}, 100);
 			
 		},
 		loadAd: function (cbk) {
