@@ -45,7 +45,7 @@ function s() {
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
 		if (delta_time < 40000) {			
-			setTimeout(s, 3000);
+			setTimeout(s, 1000);
 		} else {
 			console.log('exist to next session ');
 			process.exit(-1);
