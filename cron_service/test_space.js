@@ -14,6 +14,7 @@ let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
 watchCron.load('master', 60);
 
 /* -------------*/
+/*
 delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
 var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
 var socketClient = new socketNodeClient('https://' + config.root + '/', env);
@@ -25,6 +26,7 @@ socketClient.sendToRoom(
 	// res.send(data);
     }
 );
+*/
 /* -------------*/
 let pkg = {
     	mysql		: require(env.site_path + '/api/inc/mysql/node_modules/mysql'),
