@@ -40,11 +40,11 @@
 			});
 			return true;
 		}	
-		this.removeVidFromSpace = function(space, vid, cbk) {
+		this.removeVidFromSpace = function(bucket, vid, cbk) {
 			let me = this;
 			let space_dir = 'videos/' + vid;
 			var params = { 
-				Bucket: me.getSpaceId(rec.space),
+				Bucket: bucket,
 				Delimiter: '',
 				MaxKeys : 300,
 				Marker : '',
@@ -62,7 +62,7 @@
 						for (var i = 0; i < data.Contents.length; i++) {
 							v.push({Key :  data.Contents[i].Key})
 						}
-						me.removeObjects(space, vid, v, cbk);
+						me.removeObjects(bucket, vid, v, cbk);
 					}
 				}
 			});	
@@ -163,10 +163,10 @@
 			return true;
 		}		
 		
-		this.removeObjects = function(space, vid, list, callback) {
+		this.removeObjects = function(bucket, vid, list, callback) {
 			let me = this;
 			var params = {
-				Bucket:  me.getSpaceId(space),
+				Bucket: bucket,
 				Delete: {Objects:list}
 			};
 			me.s3.deleteObjects(params, function(err, d) {
