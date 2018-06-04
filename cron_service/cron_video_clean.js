@@ -33,7 +33,7 @@ let pkg = {
 	exec		: require('child_process').exec,
 	fs 		: require('fs')
 }; 
-/*
+
 let awsS3VideoAdmin = require(env.site_path + '/api/inc/awsS3Video/awsS3VideoAdmin.js');
 let tm = new Date().getTime();
 
@@ -44,14 +44,14 @@ function s() {
 	 videoAdmin.delete(function(data) {
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
-		if (delta_time < 30000 && data !== 'finished') {
-			let delta_time0 = new Date().getTime() - tm;
-			console.log('---- task end ----> ' +  delta_time0);			
+		if (delta_time < 40000) {			
 			s();
-		}		
+		} else {
+			console.log('exist to next session ');
+			process.exit(-1);
+			return true;			
+		}
 		
 	});
 }
 s();
-*/
-
