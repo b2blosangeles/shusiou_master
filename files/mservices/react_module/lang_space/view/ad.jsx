@@ -9,25 +9,16 @@ try {
 			var me = this;
 			$('.content_bg').find('video').attr('autoplay', true).attr('loop', true);
 			
-			me.lodAdData();
-			
-			$.ajax({
-				url: _master_svr() + '/api/content_data/shusiou_data.api',
-				method: "POST",
-				dataType: "JSON",
-				data:{lang:null, group:['home_page']}
-			}).done(function(data) {
-				me.setState({text:data});
-			}).fail(function( jqXHR, textStatus ) {
-			});			
+			me.loadAd();
+			me.loadData();		
 		},
-		lodAdData: function () {
+		loadAd: function () {
 			var me = this;
 			let engCfg = {
 				request:{code:'getAdList', 
 					 url : _master_svr() + '/api/ad/get_default_ad.api', 
 					 method:'post', 
-					 dataType: "JSON"
+					 dataType: "JSON",
 					 data:{}
 				},
 				hold:500,
@@ -38,6 +29,23 @@ try {
 			}
 			Root.lib.loadEng(me, engCfg);			
 		},
+		loadData: function () {
+			var me = this;
+			let engCfg = {
+				request:{code:'getShusiouText', 
+					 url : _master_svr() + '/api/content_data/shusiou_data.api', 
+					 method:'post', 
+					 dataType: "JSON",
+					 data:{lang:null}
+				},
+				hold:500,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					me.setState({text:data});
+				}
+			}
+			Root.lib.loadEng(me, engCfg);			
+		},			    
 		dictionary:function(v) {
 			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
 			return this.props.route.env.dictionary(v);
