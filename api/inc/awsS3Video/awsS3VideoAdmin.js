@@ -127,7 +127,8 @@
 					return true;
 				} else {	
 					if (!data.CommonPrefixes.length) {
-						callback(me.deleteList);
+						console.log(me.deleteList);
+						// callback(me.deleteList);
 					} else {
 						for (var i = 0; i < data.CommonPrefixes.length; i++) {
 							let prefix = data.CommonPrefixes[i].Prefix;
@@ -135,7 +136,6 @@
 						}
 						me.findNeedToDelete(v, function(remove_list) {
 							me.deleteList = me.deleteList.concat(remove_list);
-							console.log(me.deleteList);
 							if (data.NextMarker) {
 								me.scanAllBucketVideos(bucket, data.NextMarker, callback);
 							}
