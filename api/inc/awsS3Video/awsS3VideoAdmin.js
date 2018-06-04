@@ -117,11 +117,7 @@
 							remove_list[remove_list.length] = list[i].replace(/\"/ig, '');
 						}					
 					}
-					console.log(exist_list);
-					console.log('remove_list--->');
-					console.log(remove_list);
-					cbk([]); 
-					// cbk(remove_list); 
+					cbk(remove_list); 
 				}	
 			});			
 			return true;
