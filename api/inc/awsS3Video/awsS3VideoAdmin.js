@@ -24,7 +24,14 @@
 					for (var i = 0; i < buckets.length;  i++) {
 						_f[buckets[i]] = function(cbk) {
 							me.scanAllBucketVideos(buckets[i], '', function() {
-								cbk(me.deleteList);
+								if (me.deleteList.length) {
+									me.removeVidFromSpace(buckets[i], me.deleteList[0],
+										function(removeVidFromSpaceData) {
+											cbk(removeVidFromSpaceData)
+										});
+								} else {
+									cbk(false);
+								}
 							});
 						}
 					}
