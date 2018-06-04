@@ -126,7 +126,8 @@
 					console.log({err:err.message});
 					callback(me.deleteList);
 					return true;
-				} else {	
+				} else {
+					console.log(data);
 					if (!data || !data.CommonPrefixes || !data.CommonPrefixes.length) {
 						console.log('---me.deleteList--->>');
 						console.log(me.deleteList);
