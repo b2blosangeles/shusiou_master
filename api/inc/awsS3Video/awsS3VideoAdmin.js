@@ -118,7 +118,7 @@
 			var params = { 
 				Bucket: bucket,
 				Delimiter: '/',
-				MaxKeys : 3,
+				MaxKeys : 100,
 				Marker : Marker,
 				Prefix: space_dir
 			}, v = [];
@@ -139,7 +139,7 @@
 						}
 						me.findNeedToDelete(v, function(remove_list) {
 							me.deleteList = me.deleteList.concat(remove_list);
-							if (me.deleteList.length > 3) callback();
+							if (me.deleteList.length > 2) callback();
 							else {
 								if (data.NextMarker) {
 									me.scanAllBucketVideos(bucket, data.NextMarker, callback);
