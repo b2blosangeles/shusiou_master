@@ -43,21 +43,49 @@ try {
         render: function() {
             var me = this;
             return (<div className="content_section">
-			{me.state.list.map((item) => {
-				return (
-					<div className="container" style={{'padding-top':'1em'}}>
-						<div class="row">
-							<div className="col-sm-12 col-lg-12 col-md-12">
-								<div className="overlayer_box homepage_box">
-								{localStorage.getItem('upload_' + item)}
-								</div>	
-							</div>
-						</div>
-					</div>
-				)
-			})}
-		    	<div className="content_bg opacity_bg"/>
-		    </div>)
+			<br/>
+			<div className="container">
+
+				<div className="col-sm-4 col-lg-4 col-md-4"> 
+					<div className="overlayer_box">
+						<h4 className="header">{me.dictionary('what_to_study')}</h4> 
+						<p className="overlayer_box_body" style={me.textStyle()}
+							dangerouslySetInnerHTML={{__html: me.getText('what_to_study')}} />
+						<p> <a href="JavaScript:vpid(0)" onClick={me.playVideo.bind(me,{id:1})}
+							    className="btn btn-md btn-danger bottom-adjust" >
+								{me.dictionary('more_detail')}</a>									
+						</p>
+					</div>	
+				</div>
+
+				<div className="col-sm-4 col-lg-4 col-md-4"> 
+					<div className="overlayer_box">
+						<h4 className="header">{me.dictionary('how_to_study')}</h4> 
+						<p className="overlayer_box_body"  style={me.textStyle()}
+							dangerouslySetInnerHTML={{__html: me.getText('how_to_study')}} />
+						<p> <a href="JavaScript:vpid(0)" onClick={me.playVideo.bind(me,{id:2})}
+							    className="btn btn-md btn-warning bottom-adjust" >
+								{me.dictionary('more_detail')}</a>
+						</p>
+					</div>	
+				</div>
+
+				<div className="col-sm-4 col-lg-4 col-md-4"> 
+					<div className="overlayer_box">
+						<h4 className="header">{me.dictionary('how_i_studied')}</h4> 
+						<p className="overlayer_box_body"  style={me.textStyle()}
+							dangerouslySetInnerHTML={{__html: me.getText('how_i_studied')}} />
+						<p> <a href="JavaScript:vpid(0)" onClick={me.playVideo.bind(me,{id:3})}
+							    className="btn btn-md btn-success bottom-adjust" >
+								{me.dictionary('more_detail')}</a>
+						</p>
+					</div>	
+				</div>						
+			</div>	
+			<div className="content_bg">
+				<video src="" className="align-middle" muted></video>
+			</div>
+		</div>)
 	}	
     });	
 	
