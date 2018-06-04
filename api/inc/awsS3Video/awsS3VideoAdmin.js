@@ -115,8 +115,8 @@
 						exist_list[exist_list.length] =  results[i].vid;
 					}
 					for (var i = 0; i < list.length; i++) {
-						if (exist_list.indexOf(list[i].replace('"', '')) === -1) {
-							remove_list[remove_list.length] = list[i].replace('"', '');
+						if (exist_list.indexOf(list[i].replace(/\"/ig, '')) === -1) {
+							remove_list[remove_list.length] = list[i].replace(/\"/ig, '');
 						}					
 					}
 					cbk(remove_list); 
