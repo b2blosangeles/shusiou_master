@@ -8,9 +8,9 @@ try {
 		componentDidMount:function() {
 			var me = this;
 			$('.content_bg').find('video').attr('autoplay', true).attr('loop', true);
-			
-			me.loadAd();
-			me.loadData();		
+			me.loadData(function() {
+				me.loadAd();
+			});		
 		},
 		loadAd: function () {
 			var me = this;
@@ -29,7 +29,7 @@ try {
 			}
 			Root.lib.loadEng(me, engCfg);			
 		},
-		loadData: function () {
+		loadData: function (cbk) {
 			var me = this;
 			let engCfg = {
 				request:{code:'getShusiouText', 
@@ -42,6 +42,7 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					me.setState({text:data});
+					cbk();
 				}
 			}
 			Root.lib.loadEng(me, engCfg);			
