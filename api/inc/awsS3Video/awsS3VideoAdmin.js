@@ -155,7 +155,7 @@
 						me.findNeedToDelete(v, function(remove_list) {
 							console.log('---deleteList---2>');
 							console.log(deleteList);
-							console.log(v);
+							console.log(remove_list);
 							deleteList = deleteList.concat(remove_list);
 							if (deleteList.length > 1) callback();
 							else {
