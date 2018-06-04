@@ -47,7 +47,7 @@ try {
 				var role = me.role(item.router);
 				if  (me.inte_array(my_role,role) || me.inte_array(['*'],role)) {
 					return  (me.state.hash !== '/#/'+item.router) ?
-						(<li><a className={me.isActive(item.code)} href={'#/'+item.router}>{me.dictionary(item.code)}</a></li>)
+						(<li><a className={me.isActive(item.code)} href={'#/'+item.router}>{me.dictionary(item.code)} || {'#/'+item.router}</a></li>)
 						: (<span></span>)
 				} 
 			});		
