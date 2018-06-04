@@ -41,7 +41,12 @@ function s() {
 	let delta_time0 = new Date().getTime() - tm;
 	console.log('---- task start ----> ' +  delta_time0);	
 	var videoAdmin = new awsS3VideoAdmin(config, env, pkg, tm);	
-	 videoAdmin.delete(/*function(data) {
+	 videoAdmin.delete(
+		 function(data) {
+		 	console.log(data);
+		 }
+		 
+		 /*function(data) {
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
 		if (delta_time < 30000 && data !== 'finished') {
