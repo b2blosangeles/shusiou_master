@@ -44,10 +44,19 @@ function s() {
 	console.log('---- task start ----> ' +  delta_time0);	
 	var videoAdmin = new awsS3VideoAdmin(config, env, pkg, tm);	
 	 videoAdmin.delete(function(data) {
-		let delta_time = new Date().getTime() - tm;
-		console.log(data);
-		if (delta_time < 40000) {			
-			// setTimeout(s, 1000);
+		let delta_time = new Date().getTime() - tm, needcontinue = false;
+		if ((data) && (data.results)) {
+			for (o in data.results) {
+				if (data.results[o] !== false)	{
+					needcontinue = true;
+					break;
+				}
+			}
+		}
+		 
+		if (delta_time < 40000 && needcontinue) {			
+			console.log('needcontinue');
+			//setTimeout(s, 1000);
 		} else {
 			console.log('exist to next session ');
 			process.exit(-1);
