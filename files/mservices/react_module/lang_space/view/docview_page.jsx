@@ -46,7 +46,7 @@ try {
 					<div className="container">
 						<div class="row">
 							<div className="col-sm-12 col-lg-12 col-md-12"> 
-								<div className="overlayer_box editor_box">
+								<div className="overlayer_box editor_box1">
 								  <h3 className="display-3">{me.dictionary(me.state.title)}</h3>
 								  <p className="lead"></p>
 								  <hr className="my-4"/> 
