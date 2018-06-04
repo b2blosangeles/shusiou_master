@@ -44,9 +44,7 @@ function s() {
 	 videoAdmin.delete(function(data) {
 		let delta_time = new Date().getTime() - tm;
 		console.log(data);
-		if (delta_time < 40000) {
-			let delta_time0 = new Date().getTime() - tm;
-			console.log('---- task end ----> ' +  delta_time0);			
+		if (delta_time < 40000) {			
 			s();
 		} else {
 			console.log('exist to next session ');
