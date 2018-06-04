@@ -129,21 +129,18 @@
 				} else {
 					
 					if (!data || !data.CommonPrefixes || !data.CommonPrefixes.length) {
-						console.log('---me.deleteList--->>');
-						console.log(me.deleteList);
 						callback(me.deleteList);
 					} else {
 						for (var i = 0; i < data.CommonPrefixes.length; i++) {
 							let prefix = data.CommonPrefixes[i].Prefix;
 							v.push('"' + prefix.replace(new RegExp('^videos/'), '').replace(new RegExp('/'), '') + '"')
 						}
-						console.log('--data---');
-						console.log(data);
 						me.findNeedToDelete(v, function(remove_list) {
 							me.deleteList = me.deleteList.concat(remove_list);
-							//console.log(me.deleteList);
 							if (data.NextMarker) {
 								me.scanAllBucketVideos(bucket, data.NextMarker, callback);
+							} else {
+								callback(me.deleteList);
 							}
 						});
 					}
