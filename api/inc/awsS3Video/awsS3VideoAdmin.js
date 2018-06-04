@@ -127,6 +127,7 @@
 					return true;
 				} else {	
 					if (!data.CommonPrefixes.length) {
+						console.log('---me.deleteList--->>');
 						console.log(me.deleteList);
 						// callback(me.deleteList);
 					} else {
@@ -136,6 +137,7 @@
 						}
 						me.findNeedToDelete(v, function(remove_list) {
 							me.deleteList = me.deleteList.concat(remove_list);
+							console.log(me.deleteList);
 							if (data.NextMarker) {
 								me.scanAllBucketVideos(bucket, data.NextMarker, callback);
 							}
