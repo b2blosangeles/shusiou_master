@@ -36,7 +36,7 @@ try {
 					 url : _master_svr() + '/api/content_data/shusiou_data.api', 
 					 method:'post', 
 					 dataType: "JSON",
-					 data:{lang:null}
+					 data:{lang:null, group:['home_page']}
 				},
 				hold:500,
 				setting: {timeout:6000},
