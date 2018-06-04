@@ -21,9 +21,7 @@
 						}
 					}
 					for (var i = 0; i < buckets.length;  i++) {
-						me.scanAllBucketVideos(buckets[i], '', function(data) {
-							console.log(data);
-							console.log('---->');
+						me.scanAllBucketVideos(buckets[i], '', function() {
 							console.log(me.deleteList);
 						});
 					}
