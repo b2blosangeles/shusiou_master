@@ -127,7 +127,7 @@
 					callback(me.deleteList);
 					return true;
 				} else {
-					console.log('--data---');
+					
 					if (!data || !data.CommonPrefixes || !data.CommonPrefixes.length) {
 						console.log('---me.deleteList--->>');
 						console.log(me.deleteList);
@@ -137,6 +137,8 @@
 							let prefix = data.CommonPrefixes[i].Prefix;
 							v.push('"' + prefix.replace(new RegExp('^videos/'), '').replace(new RegExp('/'), '') + '"')
 						}
+						console.log('--data---');
+						console.log(data);
 						me.findNeedToDelete(v, function(remove_list) {
 							me.deleteList = me.deleteList.concat(remove_list);
 							//console.log(me.deleteList);
