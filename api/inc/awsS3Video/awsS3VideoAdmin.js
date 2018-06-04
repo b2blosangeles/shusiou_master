@@ -100,7 +100,7 @@
 			});
 		}
 	
-		this.findNeedToDelete = function(list, deleteList, cbk) {
+		this.findNeedToDelete = function(list, cbk) {
 			let me = this, exist_list = [], remove_list = [];
 			var connection = pkg.mysql.createConnection(config.db);
 			connection.connect();
@@ -110,7 +110,7 @@
 				connection.end();
 				if (err) {
 					console.log(err.message);
-					cbk(deleteList, remove_list);
+					cbk(remove_list);
 				} else {
 					for (var i = 0; i < results.length; i++) {
 						exist_list[exist_list.length] =  results[i].vid;
@@ -120,7 +120,7 @@
 							remove_list[remove_list.length] = list[i].replace('"', '');
 						}					
 					}
-					cbk(deleteList, remove_list); 
+					cbk(remove_list); 
 				}	
 			});			
 			return true;
@@ -151,7 +151,7 @@
 							let prefix = data.CommonPrefixes[i].Prefix;
 							v.push('"' + prefix.replace(new RegExp('^videos/'), '').replace(new RegExp('/'), '') + '"')
 						}
-						me.findNeedToDelete(v, deleteList, function(deleteList, remove_list) {
+						me.findNeedToDelete(v, function(remove_list) {
 							deleteList = deleteList.concat(remove_list);
 							
 							console.log('deleteList--->');
