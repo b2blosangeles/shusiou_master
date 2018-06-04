@@ -57,7 +57,7 @@ try {
 							</div>						
 						</div>
 					</div>
-					<p/><p/>
+					<br/><br/><br/><br/>
 					<div className="content_bg opacity_bg"/>
 				</div>					
 				
