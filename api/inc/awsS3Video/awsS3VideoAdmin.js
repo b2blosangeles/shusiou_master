@@ -151,14 +151,15 @@
 							v.push('"' + prefix.replace(new RegExp('^videos/'), '').replace(new RegExp('/'), '') + '"')
 						}
 						me.findNeedToDelete(v, function(remove_list) {
-							if (deleteList.length > 1) callback(deleteList);
-							else {
+							deleteList = deleteList.concat(remove_list);	
+							//if (deleteList.length > 1) callback(deleteList);
+							//else {
 								if (data.NextMarker) {
 									me.scanAllBucketVideos(bucket, deleteList, data.NextMarker, callback);
 								} else {
 									callback(deleteList);
 								}
-							}
+							//}
 						});
 					}
 				}
