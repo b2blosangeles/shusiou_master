@@ -42,6 +42,7 @@ try {
 			var me = this;		
 			return (
 				<div className="content_section">
+					<div dangerouslySetInnerHTML={{__html: me.state.body}} />
 					<div className="container">
 						<div class="row">
 							<div className="col-sm-12 col-lg-12 col-md-12"> 
