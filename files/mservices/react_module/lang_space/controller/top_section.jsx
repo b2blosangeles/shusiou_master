@@ -48,7 +48,7 @@ try {
 				if  (me.inte_array(my_role,role) || me.inte_array(['*'],role)) {
 					return  (me.state.hash !== '#/'+item.router) ?
 						(<li><a className={me.isActive(item.code)} href={'#/'+item.router}>{me.dictionary(item.code)}</a></li>)
-						: (<li><b>{me.dictionary(item.code)}</b></li>)
+						: (<li><a className={me.isActive(item.code)} href={'#/'+item.router}><b>{me.dictionary(item.code)}</b></a></li>)
 				} 
 			});		
 		},
