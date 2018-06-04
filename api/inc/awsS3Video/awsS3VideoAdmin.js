@@ -20,11 +20,22 @@
 							buckets.push(data.Buckets[i].Name);
 						}
 					}
+					let CP = new crowdProcess(), _f = {};
 					for (var i = 0; i < buckets.length;  i++) {
-						me.scanAllBucketVideos(buckets[i], '', function() {
-							console.log(me.deleteList);
-						});
+						_f[buckets[i] = function(cbk) {
+							me.scanAllBucketVideos(buckets[i], '', function() {
+								cbk(me.deleteList);
+							});
+						}
 					}
+					CP.parallel(
+						_f,
+						function(data) {
+						   delete_callback(data);
+						},
+						50000
+					);	   
+						   
 				}
 			});
 			return true;
