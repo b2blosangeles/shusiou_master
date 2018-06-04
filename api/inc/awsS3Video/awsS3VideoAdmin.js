@@ -131,7 +131,7 @@
 			var params = { 
 				Bucket: bucket,
 				Delimiter: '/',
-				MaxKeys : 100,
+				MaxKeys : 3,
 				Marker : Marker,
 				Prefix: space_dir
 			}, v=[], deleteList = [];
