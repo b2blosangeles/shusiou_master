@@ -22,7 +22,7 @@
 					}
 					let CP = new crowdProcess(), _f = {};
 					for (var i = 0; i < buckets.length;  i++) {
-						_f[buckets[i] = function(cbk) {
+						_f[buckets[i]] = function(cbk) {
 							me.scanAllBucketVideos(buckets[i], '', function() {
 								cbk(me.deleteList);
 							});
