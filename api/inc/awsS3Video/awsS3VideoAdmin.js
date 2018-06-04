@@ -123,13 +123,14 @@
 			
 			me.s3.listObjects(params, function (err, data) {
 				if(err) {
-					cbk({err:err.message});
+					console.log({err:err.message});
+					callback(me.deleteList);
 					return true;
 				} else {	
 					if (!data || !data.CommonPrefixes || !data.CommonPrefixes.length) {
 						console.log('---me.deleteList--->>');
 						console.log(me.deleteList);
-						// callback(me.deleteList);
+						callback(me.deleteList);
 					} else {
 						for (var i = 0; i < data.CommonPrefixes.length; i++) {
 							let prefix = data.CommonPrefixes[i].Prefix;
