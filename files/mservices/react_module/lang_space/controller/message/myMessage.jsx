@@ -2,7 +2,7 @@ try {
     var MyMessage =  React.createClass({
         getInitialState: function() {
             let me = this;
-            return {list:[]};
+            return {list:[], text:{}};
         },
 	dictionary:function(v) {
 		if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
