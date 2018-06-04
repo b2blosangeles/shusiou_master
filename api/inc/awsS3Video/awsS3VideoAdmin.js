@@ -107,7 +107,7 @@
 				connection.end();
 				if (err) {
 					console.log(err.message);
-					cbk(remove_list);
+					cbk([]);
 				} else {
 					for (var i = 0; i < results.length; i++) {
 						exist_list[exist_list.length] =  results[i].vid;
@@ -117,7 +117,7 @@
 							remove_list[remove_list.length] = list[i].replace(/\"/ig, '');
 						}					
 					}
-					console.log(list);
+					console.log(exist_list);
 					cbk([]); 
 					// cbk(remove_list); 
 				}	
