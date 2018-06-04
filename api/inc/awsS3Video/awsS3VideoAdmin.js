@@ -150,7 +150,11 @@
 							let prefix = data.CommonPrefixes[i].Prefix;
 							v.push('"' + prefix.replace(new RegExp('^videos/'), '').replace(new RegExp('/'), '') + '"')
 						}
+						console.log('---deleteList---1>');
+						console.log(deleteList);
 						me.findNeedToDelete(v, function(remove_list) {
+							console.log('---deleteList---2>');
+							console.log(deleteList);
 							deleteList = deleteList.concat(remove_list);
 							if (deleteList.length > 1) callback();
 							else {
