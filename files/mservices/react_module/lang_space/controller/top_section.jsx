@@ -109,6 +109,10 @@ try {
 			window.addEventListener("hashchange", function() {
 				me.setState({hash:window.location.hash});
 			}, false);
+			
+			
+			console.log('me.state.hash-->');
+			console.log(me.state.hash);
 		},
 		componentDidUpdate:function(prevProps, prevState) {
 			var me = this;	
