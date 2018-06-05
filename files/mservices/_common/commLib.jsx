@@ -46,7 +46,6 @@ var _commLib = function () {
     } 
     this.runEng = function() {
 	let target = Root._EngC.target, engCfg = Root._EngC.engCfg;
-	_LibIndex++;
 	let ta = (target.existModal) ? target : Root,
 	    func = null, 
 	    id = new Date().getTime() + '_' + _LibIndex;
@@ -58,6 +57,7 @@ var _commLib = function () {
 		   console.log(data);
                 let me = target;
 		delete Root._EngC;
+		   console.log(me);
                func(data);
                delete ta['EngCbk_' + id];
                delete engCfg['EngCbk_' + id];
