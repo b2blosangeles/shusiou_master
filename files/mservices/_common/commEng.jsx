@@ -262,8 +262,10 @@ try {
 					me._itvEng = setInterval(
 						function() {
 							if (new Date().getTime() - eng.tm > eng.hold && 
-							    !(viewpoint.find("[class*='ModalLoading_' + me.state.id]").hasClass('in'))
+							    !(viewpoint.('.ModalLoading_' + me.state.id).hasClass('in'))
 							   ) {
+								console.log("viewpoint.('.ModalLoading_' + me.state.id).hasClass('in')");
+								console.log(viewpoint.('.ModalLoading_' + me.state.id).hasClass('in'));
 								me.loading();
 								clearInterval(me._itvEng);
 							}
