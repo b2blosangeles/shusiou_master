@@ -37,10 +37,10 @@ var _commLib = function () {
 	if (!Root._EngQ_ITV)  {
 		Root._EngQ_ITV = setInterval(
 			function() {
+				if (Root._EngC) return;
 				if (!Root._EngQ.length) {
 					clearInterval(Root._EngQ_ITV);
 				}
-				if (Root._EngC) return;
 				Root._EngC = Root._EngQ.shift();
 				//me.runEng();
 			}, 10
