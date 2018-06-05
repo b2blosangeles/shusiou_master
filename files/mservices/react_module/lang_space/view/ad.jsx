@@ -31,10 +31,11 @@ try {
 				hold:2000,
 				setting: {timeout:6000},
 				callBack: function(data) {
+					console.log(data);
 					me.setState({adlist:data.EngResult.getAdList.data, text:data.EngResult.getShusiouText.data});
 					me.playVideo();
 
-					console.log(data);
+					
 				}
 			}
 			Root.lib.loadEng(me, engCfg);			
