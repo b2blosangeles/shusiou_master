@@ -47,8 +47,8 @@ try {
 				var role = me.role(item.router);
 				if  (me.inte_array(my_role,role) || me.inte_array(['*'],role)) {
 					return  (me.state.hash !== '#/'+item.router) ?
-						(<li><a className={me.isActive(item.code)} href={'#/'+item.router}>{me.dictionary(item.code)}</a></li>)
-						: (<li><a><b>{me.dictionary(item.code)}</b></a></li>)
+						(<li><a className={me.isActive(item.code)} href={'#/'+item.router}>{Root.lib.dictionary(item.code)}</a></li>)
+						: (<li><a><b>{Root.lib.dictionary(item.code)}</b></a></li>)
 				} 
 			});		
 		},
@@ -122,7 +122,7 @@ try {
 					>{(Root.state.userInfo.email) ? Root.state.userInfo.email : 'Guest'}
 					<span className="caret"></span></a>
 					<ul className="dropdown-menu">
-						<li><a href="JavaScript:void(0);" onClick={Root.signOut.bind(me)}>{Root.lib('menu_logout')}</a></li>
+						<li><a href="JavaScript:void(0);" onClick={Root.signOut.bind(me)}>{Root.lib.dictionary('menu_logout')}</a></li>
 					</ul>	 
 				</li>   
 			
@@ -143,7 +143,7 @@ try {
 						<span className="icon-bar"></span>
 						<span className="icon-bar"></span>
 						  </button>
-						  <a className="navbar-brand" href="#"><b>{me.dictionary('site_legal_name')}</b></a>
+						  <a className="navbar-brand" href="#"><b>{Root.lib.dictionary('site_legal_name')}</b></a>
 						</div>
 
 						<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -157,7 +157,7 @@ try {
 							</li>							  
 							<li className="dropdown">
 							  <a href="JavaScript:void(0);" className="dropdown-toggle" data-toggle="dropdown" 
-								  role="button" aria-haspopup="true" aria-expanded="false">{Root.lib('menu_language')}<span className="caret"></span></a>
+								  role="button" aria-haspopup="true" aria-expanded="false">{Root.lib.dictionary('menu_language')}<span className="caret"></span></a>
 							  <ul className="dropdown-menu">
 								{
 									Object.keys(me.props.env.state.lang).map(function (key) {
