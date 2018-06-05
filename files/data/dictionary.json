@@ -156,5 +156,9 @@
 	add_video:{
 		cn:"添加视频",
 		en:"Add Video"
+	},
+	start_curriculum:{
+		cn:"开始教程",
+		en:"Start Curriculum"
 	}	
 }
