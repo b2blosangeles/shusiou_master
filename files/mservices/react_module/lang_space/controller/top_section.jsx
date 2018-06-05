@@ -79,7 +79,7 @@ try {
 			me.setState({ModalPlus: {type:'popup', style:'info', backdrop:{bg:'#ff0000', opacity:0.1},
 				body: me.docviwer({title:'title', body:'test body'})}});
 		},
-		*/
+		
 		lock:function(e) {
 			if ((e.target) && $(e.target) && ($(e.target)[0])) {
 				var obj = $(e.target);
@@ -91,7 +91,8 @@ try {
 				var obj = $(e.target);
 				obj.attr('disabled', false);
 			}
-		},	
+		},
+		*/
 		isActive:function(v) {
 			var k = this.state.hash;
 			if (v == k.replace(/\#\//,'')) {
