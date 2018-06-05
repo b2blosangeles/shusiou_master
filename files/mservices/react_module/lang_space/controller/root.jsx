@@ -30,7 +30,7 @@ try {
 				return this.state.c_lang;
 			},	
 			setLang: function(v) {
-				this.setState({c_lang: v});
+				Root.setState({c_lang: v});
 				// reactCookie.save('lang', v, { path: '/', maxAge: 3 });
 				reactCookie.save('lang', v, { path: '/'});
 			},
