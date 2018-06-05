@@ -276,7 +276,7 @@ try {
 		loading:function() {
 			var me = this;
 			console.log('=>>' + viewpoint.find("[class*='ModalLoading_']").length)
-					viewpoint.find("[class*='ModalLoading_']").modal('hide');
+					viewpoint.find("[class*='ModalLoading_']").modal({backdrop:'static'});
 			me.setState({ModalLoading: {box_style : {color:'#ffffff'}, hold:10, 
 				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}},
 				function() {
