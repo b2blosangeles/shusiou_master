@@ -43,7 +43,6 @@ var _commLib = function () {
 					return true;
 				}
 				Root._EngC = Root._EngQ.shift();
-				console.log(Root._EngC);
 				me.runEng();
 			}, 10
 		);
