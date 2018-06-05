@@ -201,5 +201,8 @@ var _commLib = function () {
 			}
 		}
 	}   
-    
+	this.dictionary = function(v) {
+		if  (!Root.state.dictionary[v]) return v;
+		return (!Root.state.dictionary[v][Root.state.c_lang])?Root.state.dictionary[v]['en']:Root.state.dictionary[v][Root.state.c_lang];
+	}
 };
