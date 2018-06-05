@@ -10,8 +10,33 @@ try {
 			$('.content_bg').find('video').attr('autoplay', true).attr('loop', true);
 			me.loadAd();
 			me.loadData();
+			me.loadBB();
 		},
-		loadAd: function (cbk) {
+		loadBB: function () {
+			var me = this;
+			let engCfg = {
+				Q:[{code:'getAdList', 
+					 url : _master_svr() + '/api/ad/get_default_ad.api', 
+					 method:'post', 
+					 dataType: "JSON",
+					 data:{}
+				},
+				{code:'getShusiouText', 
+					 url : _master_svr() + '/api/content_data/shusiou_data.api', 
+					 method:'post', 
+					 dataType: "JSON",
+					 data:{lang:null, group:['home_page']}
+				}
+				],
+				hold:2000,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					console.log(data);
+				}
+			}
+			Root.lib.loadEng(me, engCfg);			
+		},		
+		loadAd: function () {
 			var me = this;
 			let engCfg = {
 				request:{code:'getAdList', 
@@ -24,13 +49,12 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					me.setState({adlist:data.data});
-					if (typeof cbk === 'function') cbk();
 					me.playVideo();
 				}
 			}
 			Root.lib.loadEng(me, engCfg);			
 		},
-		loadData: function (cbk) {
+		loadData: function () {
 			var me = this;
 			let engCfg = {
 				request:{code:'getShusiouText', 
@@ -43,7 +67,6 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					me.setState({text:data});
-					if (typeof cbk === 'function') cbk();
 				}
 			}
 			Root.lib.loadEng(me, engCfg);			
