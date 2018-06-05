@@ -13,18 +13,19 @@ try {
 		loadData: function () {
 			var me = this;
 			let engCfg = {
-				Q:[{code:'getAdList', 
-					 url : _master_svr() + '/api/ad/get_default_ad.api', 
-					 method:'post', 
-					 dataType: "JSON",
-					 data:{}
-				},
-				{code:'getShusiouText', 
-					 url : _master_svr() + '/api/content_data/shusiou_data.api', 
-					 method:'post', 
-					 dataType: "JSON",
-					 data:{lang:null, group:['home_page']}
-				}
+				Q:[
+					{code:'getAdList', 
+						 url : _master_svr() + '/api/ad/get_default_ad.api', 
+						 method:'post', 
+						 dataType: "JSON",
+						 data:{}
+					},
+					{code:'getShusiouText', 
+						 url : _master_svr() + '/api/content_data/shusiou_data.api', 
+						 method:'post', 
+						 dataType: "JSON",
+						 data:{lang:null, group:['home_page']}
+					}
 				],
 				hold:2000,
 				setting: {timeout:6000},
