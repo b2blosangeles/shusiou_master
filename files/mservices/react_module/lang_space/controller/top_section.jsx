@@ -65,11 +65,11 @@ try {
 		},
 		setLang:function(v) {
 			Root.setLang(v);
-			$('title').html(Root.lib.dictionary('site_name'));
+			$(document).prop('title', Root.lib.dictionary('site_name'));
 		},				
 		componentDidMount:function() {
 			var me = this;
-			$('title').html(Root.lib.dictionary('site_name'));
+			$(document).prop('title', Root.lib.dictionary('site_name'));
 			window.addEventListener("hashchange", function() {
 				me.setState({hash:window.location.hash});
 			}, false);
