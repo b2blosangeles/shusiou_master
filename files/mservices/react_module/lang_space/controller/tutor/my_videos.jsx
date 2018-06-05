@@ -165,7 +165,7 @@ try {
 	
 								<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
 									<div className="video_thumbnail_icon_group">
-										<button type="button" className="btn btn-anger"
+										<button type="button" className="btn btn-danger"
 											onClick={me.videoInfo.bind(me,a)}>
 											<i className="fa fa-play" aria-hidden="true"></i> 
 											&nbsp;{Root.lib.dictionary('play_video')}
