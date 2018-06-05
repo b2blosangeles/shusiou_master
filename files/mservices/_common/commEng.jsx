@@ -261,7 +261,8 @@ try {
 					eng.hold = (!eng.hold && eng.hold !== 0) ? 1000 : eng.hold;
 					me._itvEng = setInterval(
 						function() {
-							if (new Date().getTime() - eng.tm > eng.hold) {
+							if (new Date().getTime() - eng.tm > eng.hold && 
+							    !(viewpoint.find("[class*='ModalLoading_']").hasClass('in'))) {
 								me.loading();
 								clearInterval(me._itvEng);
 							}
