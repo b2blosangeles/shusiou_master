@@ -104,14 +104,10 @@ try {
 		},				
 		componentDidMount:function() {
 			var me = this;
-			$('title').html(Room.lib.dictionary('site_name'));
+			$('title').html(Root.lib.dictionary('site_name'));
 			window.addEventListener("hashchange", function() {
 				me.setState({hash:window.location.hash});
 			}, false);
-		},
-		componentDidUpdate:function(prevProps, prevState) {
-			var me = this;	
-			
 		},
 		authItem:function() {
 			var me = this;
