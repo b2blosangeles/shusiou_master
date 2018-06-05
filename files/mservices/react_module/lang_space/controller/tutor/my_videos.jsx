@@ -163,7 +163,7 @@ try {
 										<button type="button" className="btn btn-danger"
 											onClick={me.videoInfo.bind(me,a)}>
 											<i className="fa fa-play" aria-hidden="true"></i> 
-											Play Video
+											&nbsp;{Root.lib.dictionary('play_video')}
 										</button>										
 									</div>
 									<_commObj code={'videoBgImage'}  
