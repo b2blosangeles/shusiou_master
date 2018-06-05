@@ -25,15 +25,10 @@ var _commLib = function () {
     	return(<span><_commWin parent={o} /><_commEng parent={o} /></span>)
     }
     this.loadEng = function(target, engCfg) {
-	let me = this;
-	/*    
-	let ta = (target.existModal) ? target : Root, me = this,
-	    func = null, 
-	    id = new Date().getTime() + '_' + _LibIndex;
-	*/    
+	let me = this; 
        	if (!Root._EngQ)  Root._EngQ = [],
 	Root._EngQ.push({target:target, engCfg:engCfg});
-	 
+	 console.log(Root._EngQ.length);
 	if (!Root._EngQ_ITV)  {
 		Root._EngQ_ITV = setInterval(
 			function() {
