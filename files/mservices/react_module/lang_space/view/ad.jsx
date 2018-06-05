@@ -27,7 +27,7 @@ try {
 					 dataType: "JSON",
 					 data:{}
 				},
-				hold:500,
+				hold:2000,
 				setting: {timeout:6000},
 				callBack: function(data) {
 					me.setState({adlist:data.data});
@@ -46,7 +46,7 @@ try {
 					 dataType: "JSON",
 					 data:{lang:null, group:['home_page']}
 				},
-				hold:500,
+				hold:2000,
 				setting: {timeout:6000},
 				callBack: function(data) {
 					me.setState({text:data});
