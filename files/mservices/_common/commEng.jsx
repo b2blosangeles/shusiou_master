@@ -263,7 +263,7 @@ try {
 						function() {
 							// .find("[class*='ModalLoading_']")
 							console.log("------')");
-								console.log(viewpoint.find("[class*='ModalLoading_']").hasClass('in'));
+								console.log(viewpoint.find("[class*='ModalLoading_']").length);
 							if ((new Date().getTime() - eng.tm > eng.hold) && 
 							    !viewpoint.find("[class*='ModalLoading_']").hasClass('in')
 							   ) {
