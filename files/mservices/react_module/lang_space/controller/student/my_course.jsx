@@ -70,7 +70,7 @@ try {
 												<button type="button" 
 													className="btn btn-success">
 													<i className="fa fa-rocket" aria-hidden="true"></i> 
-													&nbsp;&nbsp;{start_curriculum}
+													&nbsp;&nbsp;{Root.lib.dictionary('start_curriculum')}
 												</button>
 											</a>	
 										</div>										
