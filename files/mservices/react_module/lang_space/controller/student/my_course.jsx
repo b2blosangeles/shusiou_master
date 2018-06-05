@@ -6,7 +6,7 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			setTimeout(me.callEng);
+			me.callEng();
 		},
 		callEng:function() {
 			var me = this;
@@ -69,7 +69,7 @@ try {
 											<a href={'#/student/my_course/' + a.id}>
 												<button type="button" 
 													className="btn btn-success">
-													<i className="fa fa-play" aria-hidden="true"></i> 
+													<i className="fa fa-rocket" aria-hidden="true"></i> 
 													&nbsp;&nbsp;{start_curriculum}
 												</button>
 											</a>	
