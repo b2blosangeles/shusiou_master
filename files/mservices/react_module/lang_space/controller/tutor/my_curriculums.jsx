@@ -86,7 +86,7 @@ try {
 												<button type="button" 
 													className="btn btn-warning">
 													<i className="fa fa-pencil" aria-hidden="true"></i> 
-													&nbsp;&nbsp;Edit
+													&nbsp;&nbsp;{Root.lib.dictionary('edit_curriculum')}
 												</button>
 											</a>	
 										</div>										
