@@ -110,9 +110,7 @@ try {
 		},
 		componentDidUpdate:function(prevProps, prevState) {
 			var me = this;	
-			$('title').html(me.dictionary('site_name'));
-			if (JSON.stringify(prevState) !== JSON.stringify(me.state)) {
-			}
+			$('title').html(Root.lib.dictionary('site_name'));
 		},
 		authItem:function() {
 			var me = this;
