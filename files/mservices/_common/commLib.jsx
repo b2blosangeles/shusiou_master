@@ -26,9 +26,7 @@ var _commLib = function () {
     }
     this.loadEng = function(target, engCfg) {
 	let me = this; 
-	    alert('income');
-	    
-       	if (!Root._EngQ)  Root._EngQ = [],
+       	if (!Root._EngQ)  Root._EngQ = [];
 	Root._EngQ.push({target:target, engCfg:engCfg});
 	 console.log(Root._EngQ.length);
 	if (!Root._EngQ_ITV)  {
