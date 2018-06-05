@@ -64,8 +64,10 @@ try {
 			}
 		},
 		setLang:function(v) {
-			Root.setLang(v);
-			document.title = Root.lib.dictionary('site_name');
+			Root.setLang(v, function() {
+				document.title = Root.lib.dictionary('site_name');
+			});
+			
 		},				
 		componentDidMount:function() {
 			var me = this;
