@@ -70,7 +70,7 @@ try {
 						method:'post',
 						data: {cmd:'getAuthUser'}
 					},
-					hold:0,
+					hold:2000,
 					setting: {timeout:3000},
 					callBack: function(data) {
 						if (data.status === 'success') {
