@@ -57,42 +57,6 @@ try {
 				<Docviwer data={data}/>
 			)
 		},
-		/*
-		loading:function() {
-			var me = this;
-			me.setState({ModalLoading: {textcolor:'#000000', hold:1000, 
-				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24">'}});
-			setTimeout(
-				function() {
-					me.setState({ModalLoading: 'cancel'});	
-				}, 5000
-			)
-		},
-		alert:function() {
-			var me = this;
-			me.setState({ModalPlus: {type:'alert', body_class:'warning', 
-			 box_style:{border:'1px solid red'},
-			 message:'nice <span style="color:red">job</span> ok'}});	
-		},
-		popup:function() {
-			var me = this;
-			me.setState({ModalPlus: {type:'popup', style:'info', backdrop:{bg:'#ff0000', opacity:0.1},
-				body: me.docviwer({title:'title', body:'test body'})}});
-		},
-		
-		lock:function(e) {
-			if ((e.target) && $(e.target) && ($(e.target)[0])) {
-				var obj = $(e.target);
-				obj.attr('disabled', true);
-			}
-		},	
-		release:function(e) {
-			if ((e.target) && $(e.target) && ($(e.target)[0])) {
-				var obj = $(e.target);
-				obj.attr('disabled', false);
-			}
-		},
-		*/
 		isActive:function(v) {
 			var k = this.state.hash;
 			if (v == k.replace(/\#\//,'')) {
