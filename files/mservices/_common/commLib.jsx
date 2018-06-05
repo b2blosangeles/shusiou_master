@@ -58,6 +58,8 @@ var _commLib = function () {
        if (typeof engCfg.callBack === 'function') {
            func = engCfg.callBack;
 	   ta['EngCbk_' + id] = function(data) {
+		   console.log('---data--->');
+		   console.log(data);
                let me = target;
 		delete Root._EngC;
                func(data);
