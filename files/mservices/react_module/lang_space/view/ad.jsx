@@ -32,7 +32,7 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					me.setState({adlist:data.EngResult.getAdList.data, text:data.EngResult.getShusiouText.data});
-					
+					me.playVideo();
 
 					console.log(data);
 				}
