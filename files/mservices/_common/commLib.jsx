@@ -50,6 +50,7 @@ var _commLib = function () {
     } 
     this.runEng = function() {
 	let target = Root._EngC.target, engCfg = Root._EngC.engCfg;
+	_LibIndex++;
 	let ta = (target.existModal) ? target : Root,
 	    func = null, 
 	    id = new Date().getTime() + '_' + _LibIndex;
