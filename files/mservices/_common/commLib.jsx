@@ -25,10 +25,32 @@ var _commLib = function () {
     	return(<span><_commWin parent={o} /><_commEng parent={o} /></span>)
     }
     this.loadEng = function(target, engCfg) {
-	let me = this; 
+	let runEng = function(target, engCfg) {
+		let ta = (target.existModal) ? target : Root,
+		    func = null, 
+		    id = new Date().getTime() + '_' + _LibIndex;
+
+	       if (typeof engCfg.callBack === 'function') {
+		   func = engCfg.callBack;
+		   ta['EngCbk_' + id] = function(data) {
+			   console.log('===data--->');
+			   console.log(data);
+			let me = target;
+			delete Root._EngC;
+			   console.log(me);
+		       func(data);
+		       delete ta['EngCbk_' + id];
+		       delete engCfg['EngCbk_' + id];
+		       alert('EngCbk_' + id);
+		   }
+		   engCfg.callBack = 'EngCbk_' + id;
+		       console.log(engCfg.callBack);
+		}
+		ta.setState({_eng:engCfg});
+	    };
+	    
        	if (!Root._EngQ)  Root._EngQ = [];
 	Root._EngQ.push({target:target, engCfg:engCfg});
-	 console.log(Root._EngQ.length);
 	if (!Root._EngQ_ITV)  {
 		Root._EngQ_ITV = setInterval(
 			function() {
@@ -39,13 +61,12 @@ var _commLib = function () {
 					return true;
 				}
 				Root._EngC = Root._EngQ.shift();
-				me.runEng();
+				runEng(Root._EngC.target, engCfg = Root._EngC.engCfg);
 			}, 100
 		);
 	}
     } 
-    this.runEng = function() {
-	let target = Root._EngC.target, engCfg = Root._EngC.engCfg;
+    this.runEng = function(target, engCfg) {
 	let ta = (target.existModal) ? target : Root,
 	    func = null, 
 	    id = new Date().getTime() + '_' + _LibIndex;
