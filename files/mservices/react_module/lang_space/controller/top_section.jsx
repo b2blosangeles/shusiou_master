@@ -98,11 +98,7 @@ try {
 		},
 		setLang:function(v) {
 			this.props.env.setLang(v);
-		},		
-		dictionary:function(v) {
-			if (!this.props.env || !this.props.env.dictionary) return v;
-			return this.props.env.dictionary(v);
-		},		
+		},				
 		componentDidMount:function() {
 			var me = this;
 			$('title').html(me.dictionary('site_name'));
@@ -124,12 +120,12 @@ try {
 					>{(Root.state.userInfo.email) ? Root.state.userInfo.email : 'Guest'}
 					<span className="caret"></span></a>
 					<ul className="dropdown-menu">
-						<li><a href="JavaScript:void(0);" onClick={Root.signOut.bind(me)}>{me.dictionary('menu_logout')}</a></li>
+						<li><a href="JavaScript:void(0);" onClick={Root.signOut.bind(me)}>{Root.lib('menu_logout')}</a></li>
 					</ul>	 
 				</li>   
 			
 			) } else {return (
-				<li><a href="#/Signin">{me.dictionary('menu_login')}</a></li>
+				<li><a href="#/Signin">{Root.lib('menu_login')}</a></li>
 			)};
 		},		
 		render: function() {
@@ -159,7 +155,7 @@ try {
 							</li>							  
 							<li className="dropdown">
 							  <a href="JavaScript:void(0);" className="dropdown-toggle" data-toggle="dropdown" 
-								  role="button" aria-haspopup="true" aria-expanded="false">{me.dictionary('menu_language')}<span className="caret"></span></a>
+								  role="button" aria-haspopup="true" aria-expanded="false">{Root.lib('menu_language')}<span className="caret"></span></a>
 							  <ul className="dropdown-menu">
 								{
 									Object.keys(me.props.env.state.lang).map(function (key) {
