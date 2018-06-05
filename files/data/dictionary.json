@@ -140,5 +140,9 @@
 	menu_tuition:{
 		cn:"我的学费",
 		en:"Tuition"		
+	},
+	add_curriculum:{
+		cn:"添加教程",
+		en:"Add Curriculum"		
 	}
 }
