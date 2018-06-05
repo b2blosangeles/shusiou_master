@@ -100,7 +100,7 @@ try {
 			}
 		},
 		setLang:function(v) {
-			this.props.env.setLang(v);
+			Root.setLang(v);
 			$('title').html(Root.lib.dictionary('site_name'));
 		},				
 		componentDidMount:function() {
