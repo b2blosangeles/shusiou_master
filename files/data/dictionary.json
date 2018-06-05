@@ -148,5 +148,9 @@
 	edit_curriculum:{
 		cn:"编辑教程",
 		en:"Edit Curriculum"		
-	}	
+	},
+	play_video:{
+		cn:"播放视频",
+		en:"Play Video"
+	}
 }
