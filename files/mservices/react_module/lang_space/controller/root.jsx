@@ -30,7 +30,9 @@ try {
 				return this.state.c_lang;
 			},	
 			setLang: function(v) {
-				Root.setState({c_lang: v});
+				Root.setState({c_lang: v}, function() {
+					document.title = Root.lib.dictionary('site_name');
+				});
 				// reactCookie.save('lang', v, { path: '/', maxAge: 3 });
 				reactCookie.save('lang', v, { path: '/'});
 			},
