@@ -25,11 +25,14 @@ var _commLib = function () {
     	return(<span><_commWin parent={o} /><_commEng parent={o} /></span>)
     }
     this.loadEng = function(target, engCfg) {
+	let me = this;
+	/*    
 	let ta = (target.existModal) ? target : Root, me = this,
 	    func = null, 
 	    id = new Date().getTime() + '_' + _LibIndex;
+	*/    
        	if (!Root._EngQ)  Root._EngQ = [],
-	Root._EngQ.push({id:id, target:target, engCfg:engCfg});
+	Root._EngQ.push({target:target, engCfg:engCfg});
 	 
 	if (!Root._EngQ_ITV)  {
 		Root._EngQ_ITV = setInterval(
@@ -39,7 +42,7 @@ var _commLib = function () {
 				}
 				if (Root._EngC) return;
 				Root._EngC = Root._EngQ.shift();
-				me.runEng();
+				//me.runEng();
 			}, 10
 		);
 	}
