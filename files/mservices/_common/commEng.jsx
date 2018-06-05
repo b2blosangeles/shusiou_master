@@ -261,15 +261,7 @@ try {
 					eng.hold = (!eng.hold && eng.hold !== 0) ? 1000 : eng.hold;
 					me._itvEng = setInterval(
 						function() {
-							// .find("[class*='ModalLoading_']")
-							console.log("------')");
-								console.log(viewpoint.find("[class*='ModalLoading_']").length);
-							if ((new Date().getTime() - eng.tm > eng.hold) 
-							    && 
-							    !viewpoint.find("[class*='ModalLoading_']").hasClass('in')
-							   ) {
-								console.log("==>>hasClass('in')");
-								console.log(viewpoint.find("[class*='ModalLoading_']").hasClass('in'));
+							if (new Date().getTime() - eng.tm > eng.hold) {
 								me.loading();
 								clearInterval(me._itvEng);
 							}
@@ -284,7 +276,6 @@ try {
 		},
 		loading:function() {
 			var me = this;
-				console.log(viewpoint.find("[class*='ModalLoading_']").hasClass('in'));
 			me.setState({ModalLoading: {box_style : {color:'#ffffff'}, hold:10, 
 				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}},
 				function() {
