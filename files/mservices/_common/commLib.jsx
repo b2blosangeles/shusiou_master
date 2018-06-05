@@ -42,6 +42,7 @@ var _commLib = function () {
 					clearInterval(Root._EngQ_ITV);
 				}
 				Root._EngC = Root._EngQ.shift();
+				console.log(Root._EngC);
 				me.runEng();
 			}, 10
 		);
