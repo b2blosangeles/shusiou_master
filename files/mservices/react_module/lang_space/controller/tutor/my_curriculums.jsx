@@ -66,7 +66,7 @@ try {
 									<a href={'#/tutor/my_curriculum/new/'}>
 									<button type="button" 
 										className="btn btn-warning">
-										{Root.lib.dictionary('add_curriculum'}}
+										{Root.lib.dictionary('add_curriculum')}
 									</button>
 									</a>	
 								</div>
