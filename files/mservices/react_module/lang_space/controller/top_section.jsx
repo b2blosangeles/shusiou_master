@@ -62,10 +62,6 @@ try {
 			if (v == k.replace(/\#\//,'')) {
 				return 'active';
 			}
-		},
-		setLang:function(v) {
-			Root.setLang(v);
-			
 		},				
 		componentDidMount:function() {
 			var me = this;
@@ -120,10 +116,10 @@ try {
 								  role="button" aria-haspopup="true" aria-expanded="false">{Root.lib.dictionary('menu_language')}<span className="caret"></span></a>
 							  <ul className="dropdown-menu">
 								{
-									Object.keys(me.props.env.state.lang).map(function (key) {
-										if (key != me.props.env.state.c_lang) {
-											return  <li><a href="JavaScript:void(0);" onClick={me.setLang.bind(me,key)}>
-												{me.props.env.state.lang[key]}
+									Object.keys(Root.state.lang).map(function (key) {
+										if (key != Root.state.c_lang) {
+											return  <li><a href="JavaScript:void(0);" onClick={Root.setLang.bind(me,key)}>
+												{Root.state.lang[key]}
 											</a></li>
 										}
 									})					  
