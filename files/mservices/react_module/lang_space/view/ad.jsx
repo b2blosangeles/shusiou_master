@@ -8,8 +8,6 @@ try {
 		componentDidMount:function() {
 			var me = this;
 			$('.content_bg').find('video').attr('autoplay', true).attr('loop', true);
-			//me.loadAd();
-			//me.loadData();
 			me.loadBB();
 		},
 		loadBB: function () {
@@ -32,7 +30,7 @@ try {
 				setting: {timeout:6000},
 				callBack: function(data) {
 					console.log(data);
-					me.setState({adlist:data.EngReport.getAdList.data, text:data.EngReport.getShusiouText.data});
+					me.setState({adlist:data.EngReport.getAdList.data, text:data.EngReport.getShusiouText});
 					me.playVideo();
 
 					
@@ -40,24 +38,6 @@ try {
 			}
 			Root.lib.loadEng(me, engCfg);			
 		},		
-		loadAd: function () {
-			var me = this;
-			let engCfg = {
-				request:{code:'getAdList', 
-					 url : _master_svr() + '/api/ad/get_default_ad.api', 
-					 method:'post', 
-					 dataType: "JSON",
-					 data:{}
-				},
-				hold:2000,
-				setting: {timeout:6000},
-				callBack: function(data) {
-					me.setState({adlist:data.data});
-					me.playVideo();
-				}
-			}
-			Root.lib.loadEng(me, engCfg);			
-		},
 		loadData: function () {
 			var me = this;
 			let engCfg = {
