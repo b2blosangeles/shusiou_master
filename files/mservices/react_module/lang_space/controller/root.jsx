@@ -23,6 +23,9 @@ try {
 				for(var i=0; i < a.length; i++) { if (b.indexOf(a[i]) !== -1) return true;}
 				return false;
 			},
+			dictionary: function(v) {
+				return Root.lib.dictionary(v);
+			},
 			getCurrentLanguage: function() {
 				return this.state.c_lang;
 			},	
