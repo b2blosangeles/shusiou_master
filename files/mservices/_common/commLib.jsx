@@ -61,7 +61,7 @@ var _commLib = function () {
                func(data);
                delete ta['EngCbk_' + id];
                delete engCfg['EngCbk_' + id];
-	       
+	       alert('EngCbk_' + id);
 	   }
            engCfg.callBack = 'EngCbk_' + id;
 	       console.log(engCfg.callBack);
