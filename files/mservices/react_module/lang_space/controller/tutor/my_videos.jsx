@@ -150,9 +150,9 @@ try {
 						<div className="col-sm-4 col-lg-4 col-md-4"> 
 							<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
 								<div className="video_thumbnail_icon_group">
-									<button type="button" className="btn btn-success"
+									<button type="button" className="btn btn-warning"
 										onClick={me.videoAdmin.bind(me,'admin')}>
-										<i className="fa fa-play" aria-hidden="true"></i> 
+										<i className="fa fa-upload" aria-hidden="true"></i> 
 										&nbsp;{Root.lib.dictionary('add_video')}
 									</button>										
 								</div>					
@@ -165,7 +165,7 @@ try {
 	
 								<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
 									<div className="video_thumbnail_icon_group">
-										<button type="button" className="btn btn-warning"
+										<button type="button" className="btn btn-anger"
 											onClick={me.videoInfo.bind(me,a)}>
 											<i className="fa fa-play" aria-hidden="true"></i> 
 											&nbsp;{Root.lib.dictionary('play_video')}
