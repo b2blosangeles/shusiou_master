@@ -275,11 +275,11 @@ try {
 		},
 		loading:function() {
 			var me = this;
+			console.log('=>>' + viewpoint.find("[class*='ModalLoading_']").length)
+					//viewpoint.find("[class*='ModalLoading_']").hide();
 			me.setState({ModalLoading: {box_style : {color:'#ffffff'}, hold:10, 
 				message:'<img src="' + _master_svr() + '/images/loading_spin.gif" width="24">'}},
 				function() {
-					console.log('=>>' + viewpoint.find("[class*='ModalLoading_']").length)
-					//viewpoint.find("[class*='ModalLoading_']").hide();
 					viewpoint.find('.ModalLoading_' + me.state.id).modal({backdrop:'static'});				    
 				    }	   
 			);
