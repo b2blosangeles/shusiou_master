@@ -44,7 +44,7 @@ var _commLib = function () {
 				}
 				Root._EngC = Root._EngQ.shift();
 				me.runEng();
-			}, 10
+			}, 100
 		);
 	}
     } 
@@ -59,10 +59,11 @@ var _commLib = function () {
            func = engCfg.callBack;
 	   ta['EngCbk_' + id] = function(data) {
                let me = target;
+		delete Root._EngC;
                func(data);
                delete ta['EngCbk_' + id];
                delete engCfg['EngCbk_' + id];
-	       delete Root._EngC;
+	       
 	   }
            engCfg.callBack = 'EngCbk_' + id;
 	       console.log(engCfg.callBack);
