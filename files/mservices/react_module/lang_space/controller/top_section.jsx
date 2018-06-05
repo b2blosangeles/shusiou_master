@@ -127,7 +127,7 @@ try {
 				</li>   
 			
 			) } else {return (
-				<li><a href="#/Signin">{Root.lib('menu_login')}</a></li>
+				<li><a href="#/Signin">{Root.lib.dictionary('menu_login')}</a></li>
 			)};
 		},		
 		render: function() {
