@@ -8,8 +8,8 @@ try {
 		componentDidMount:function() {
 			var me = this;
 			$('.content_bg').find('video').attr('autoplay', true).attr('loop', true);
-			me.loadAd();
-			me.loadData();
+			//me.loadAd();
+			//me.loadData();
 			me.loadBB();
 		},
 		loadBB: function () {
@@ -31,6 +31,9 @@ try {
 				hold:2000,
 				setting: {timeout:6000},
 				callBack: function(data) {
+					me.setState({adlist:data.EngResult.getAdList.data, text:data.EngResult.getShusiouText.data});
+					
+
 					console.log(data);
 				}
 			}
