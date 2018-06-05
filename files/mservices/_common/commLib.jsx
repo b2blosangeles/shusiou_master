@@ -47,7 +47,7 @@ var _commLib = function () {
 		);
 	}
     } 
-    this.runEng = function(target, engCfg) {
+    this.runEng = function() {
 	let target = Root._EngC.target, engCfg = Root._EngC.engCfg;
 	let ta = (target.existModal) ? target : Root,
 	    func = null, 
