@@ -160,5 +160,21 @@
 	start_curriculum:{
 		cn:"开始教程",
 		en:"Start Curriculum"
-	}	
+	},
+	curriculum_name:{
+		cn:"教程名称",
+		en:"Curriculum Name"		
+	},
+	mother_language:{
+		cn:"学生母语",
+		en:"Mother Language"			
+	},
+	learning_language:{
+		cn:"学习语言",
+		en:"Learning Language"	
+	},
+	level: {
+		cn:"课程级别",
+		en:"Curriculum level"	
+	}
 }
