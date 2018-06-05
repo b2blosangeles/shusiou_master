@@ -19,10 +19,6 @@ try {
 					userInfo: {}
 				};
 			},			
-			dictionary: function(v) {
-				if  (!this.state.dictionary[v]) return v;
-				return (!this.state.dictionary[v][this.state.c_lang])?this.state.dictionary[v]['en']:this.state.dictionary[v][this.state.c_lang];
-			},
 			inte_array: function(a, b) {
 				for(var i=0; i < a.length; i++) { if (b.indexOf(a[i]) !== -1) return true;}
 				return false;
@@ -89,9 +85,6 @@ try {
 				var me = this;
 				me.getAuth();
 
-			},
-			componentDidUpdate:function(prevProps, prevState) {
-				var me = this;
 			},
 			requireAuth:function(nextState, replace) {
 				var me = this;
