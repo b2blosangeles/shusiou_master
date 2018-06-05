@@ -59,6 +59,7 @@ try {
 			
 			var _f = function(data) {
 				clearInterval(me._itvEng);
+				delete me._itvEng;
 				viewpoint.find('.ModalLoading_' + me.state.id).modal('hide');
 				me.props.parent.setState({_eng:null}, function() {
 					setTimeout(function() {
