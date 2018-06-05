@@ -100,17 +100,18 @@ try {
 		},
 		setLang:function(v) {
 			this.props.env.setLang(v);
+			$('title').html(Root.lib.dictionary('site_name'));
 		},				
 		componentDidMount:function() {
 			var me = this;
-			$('title').html(me.dictionary('site_name'));
+			$('title').html(Room.lib.dictionary('site_name'));
 			window.addEventListener("hashchange", function() {
 				me.setState({hash:window.location.hash});
 			}, false);
 		},
 		componentDidUpdate:function(prevProps, prevState) {
 			var me = this;	
-			$('title').html(Root.lib.dictionary('site_name'));
+			
 		},
 		authItem:function() {
 			var me = this;
