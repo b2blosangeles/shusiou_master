@@ -40,6 +40,7 @@ var _commLib = function () {
 				if (Root._EngC) return;
 				if (!Root._EngQ.length) {
 					clearInterval(Root._EngQ_ITV);
+					delete Root._EngQ_ITV;
 					return true;
 				}
 				Root._EngC = Root._EngQ.shift();
