@@ -8,9 +8,9 @@ try {
 		componentDidMount:function() {
 			var me = this;
 			$('.content_bg').find('video').attr('autoplay', true).attr('loop', true);
-			me.loadBB();
+			me.loadData();
 		},
-		loadBB: function () {
+		loadData: function () {
 			var me = this;
 			let engCfg = {
 				Q:[{code:'getAdList', 
@@ -33,31 +33,11 @@ try {
 					me.setState({adlist:data.EngReport.getAdList.data, text:data.EngReport.getShusiouText},
 						   function() {
 							me.playVideo();
-							});
-					
-
-					
+						});
 				}
 			}
 			Root.lib.loadEng(me, engCfg);			
-		},		
-		loadData: function () {
-			var me = this;
-			let engCfg = {
-				request:{code:'getShusiouText', 
-					 url : _master_svr() + '/api/content_data/shusiou_data.api', 
-					 method:'post', 
-					 dataType: "JSON",
-					 data:{lang:null, group:['home_page']}
-				},
-				hold:2000,
-				setting: {timeout:6000},
-				callBack: function(data) {
-					me.setState({text:data});
-				}
-			}
-			Root.lib.loadEng(me, engCfg);			
-		},			    
+		},				    
 		dictionary:function(v) {
 			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
 			return this.props.route.env.dictionary(v);
