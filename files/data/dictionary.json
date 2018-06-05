@@ -144,5 +144,9 @@
 	add_curriculum:{
 		cn:"添加教程",
 		en:"Add Curriculum"		
-	}
+	},
+	edit_curriculum:{
+		cn:"编辑教程",
+		en:"Edit Curriculum"		
+	}	
 }
