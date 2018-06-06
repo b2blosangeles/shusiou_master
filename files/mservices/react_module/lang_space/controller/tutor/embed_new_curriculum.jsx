@@ -171,7 +171,7 @@ try {
 							<label>{Root.lib.dictionary('level')}:</label>
 							<select className="form-control inpit-white-bg" 
 								onChange={me.valueChanged.bind(me, 'level')}>
-								<option value="">--Select Training Level--</option>
+								<option value="">--{Root.lib.dictionary('select_level')}--</option>
 								{me.state.levels.map(
 									function(level) {	
 										return (<option value={level.code}>{level.desc}</option>);
