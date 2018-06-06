@@ -176,5 +176,13 @@
 	level: {
 		cn:"课程级别",
 		en:"Curriculum level"	
-	}
+	},
+	save: {
+		cn:"保存",
+		en:"Save"	
+	},
+	cancel: {
+		cn:"撤消",
+		en:"Cancel"	
+	},	
 }
