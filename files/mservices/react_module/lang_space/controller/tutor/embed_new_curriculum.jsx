@@ -31,7 +31,7 @@ try {
 				callBack: function(data) {
 					if (data.status === 'success') {
 						me.setState({videoList:data.data}, function() {
-							Root.lib.alert(me, 'Data load success!', 'success', 1000);
+							Root.lib.alert(me, 'Data load success!', 'success');
 						});
 					} else {
 						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
