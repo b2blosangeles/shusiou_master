@@ -145,7 +145,7 @@ try {
 							<select className="form-control inpit-white-bg"
 								onChange={me.valueChanged.bind(me, 'mother_lang')}>
 								>
-								<option value="">--Select Mother Language--</option>
+								<option value="">--{Root.lib.dictionary('select_language')}--</option>
 								{me.state.langs.map(
 									function(lang) {	
 										return (<option value={lang.code}>{lang.desc}</option>);
@@ -158,7 +158,7 @@ try {
 							<label>{Root.lib.dictionary('learning_language')}:</label>
 							<select className="form-control inpit-white-bg" 
 								onChange={me.valueChanged.bind(me, 'learning_lang')}>
-								<option value="">--Select Learning Language--</option>
+								<option value="">--{Root.lib.dictionary('select_language')}--</option>
 								{me.state.langs.map(
 									function(lang) {
 										if (me.state.curriculum.mother_lang !=lang.code)	
