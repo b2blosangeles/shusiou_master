@@ -188,5 +188,9 @@
 	select_language: {
 		cn:"选择语言",
 		en:"Select Language"	
+	},
+	select_level: {
+		cn:"选择级别",
+		en:"Select Level"	
 	}
 }
