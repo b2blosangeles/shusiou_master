@@ -182,7 +182,7 @@ try {
 						<button className="btn btn-default btn_margin6"
 							onClick={this.cancelToSave.bind(this)}>{Root.lib.dictionary('cancel')}</button>	
 						{me.saveButton()}
-						{Root.lib.landingModal(me)}
+						{/*Root.lib.landingModal(me)*/}
 					</div>)
 		}
 	});
