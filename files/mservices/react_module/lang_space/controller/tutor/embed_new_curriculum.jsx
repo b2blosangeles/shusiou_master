@@ -75,9 +75,10 @@ try {
 			var me = this;
 			if (me.validation()) return (
 				<button className="btn btn-warning btn_margin6"
-					onClick={this.save.bind(this)}>Save</button>
+					onClick={this.save.bind(this)}>{Root.lib.dictionary('save')}</button>
 				)
-			else return (<button className="btn btn-warning btn_margin6" disabled>Save</button>)
+			else return (<button className="btn btn-warning btn_margin6" disabled>
+					{Root.lib.dictionary('save')}</button>)
 		},		
 		render: function() {
 			var me = this;
