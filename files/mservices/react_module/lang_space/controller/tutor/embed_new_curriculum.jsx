@@ -132,7 +132,7 @@ try {
 						
 						
 						<div className="form-group">
-							<label>Curriculum Name:</label>
+							<label>{Root.lib.dictionary('curriculum_name')}:</label>
 							<input type="text" className="form-control inpit-white-bg" 
 								value={me.state.curriculum.name}
 								onChange={this.valueChanged.bind(this, 'name')}
