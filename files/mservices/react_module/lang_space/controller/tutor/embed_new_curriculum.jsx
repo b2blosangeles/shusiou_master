@@ -82,7 +82,7 @@ try {
 		render: function() {
 			var me = this;
 				return (<div>
-						<h4>Add New Curriculum</h4> 
+						<h4>{Root.lib.dictionary('add_curriculum')}</h4> 
 						<div className="form-group">
 							<div className="dropdown">
 							 	<button className="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">  
@@ -140,7 +140,7 @@ try {
 						</div>						
 
 						<div className="form-group">
-							<label>Mother Language:</label>
+							<label>{Root.lib.dictionary('mother_language')}:</label>
 							<select className="form-control inpit-white-bg"
 								onChange={me.valueChanged.bind(me, 'mother_lang')}>
 								>
@@ -154,7 +154,7 @@ try {
 
 						
 						<div className="form-group">
-							<label>Learning Language:</label>
+							<label>{Root.lib.dictionary('learning_language')}:</label>
 							<select className="form-control inpit-white-bg" 
 								onChange={me.valueChanged.bind(me, 'learning_lang')}>
 								<option value="">--Select Learning Language--</option>
@@ -167,7 +167,7 @@ try {
 						</div>													
 
 						<div className="form-group">
-							<label>Level:</label>
+							<label>{Root.lib.dictionary('level')}:</label>
 							<select className="form-control inpit-white-bg" 
 								onChange={me.valueChanged.bind(me, 'level')}>
 								<option value="">--Select Training Level--</option>
