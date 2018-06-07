@@ -42,7 +42,7 @@ try {
 					
 					</div>)
 			} else {
-				return (<div>Embed_curriculum_preview 2</div>)
+				return (<div>Embed_curriculum_preview == {me.props.parent.state.curriculum.vid}</div>)
 			}
 		}
 	});
