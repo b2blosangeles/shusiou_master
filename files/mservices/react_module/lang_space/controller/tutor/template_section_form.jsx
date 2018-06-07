@@ -141,6 +141,17 @@ try {
 			</span>		
 			)	       
 		},
+		answerField: function(idx) {
+			var me = this;
+			return (
+			<span>
+				<p><input className="form-control inpit-white-bg" 
+					placeholder={'input text ' + idx} 
+					value={me.state.data[idx]}  onChange={me.handleChange.bind(me, idx)}  />
+				</p>					
+			</span>		
+			)	       
+		},		
 		acceptSection: function() {
 			let me = this;
 			let data = {section_id:me.props.section_id, tpl:me.state.c_tpl, data:me.state.data, c_section:me.state.c_section};
