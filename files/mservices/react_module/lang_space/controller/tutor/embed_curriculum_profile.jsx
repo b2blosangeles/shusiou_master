@@ -137,8 +137,8 @@ try {
 					</div>	
 
 					{Root.lib.dictionary('mother_language')}:{me.props.parent.state.curriculum.mother_lang} = 
-					Root.lib.dictionary('learning_language}:{me.props.parent.state.curriculum.learning_lang} - 
-					Root.lib.dictionary('level')}:{me.props.parent.state.curriculum.level}				
+					{Root.lib.dictionary('learning_language}:{me.props.parent.state.curriculum.learning_lang} - 
+					{Root.lib.dictionary('level')}:{me.props.parent.state.curriculum.level}				
 				</div>)
 		}
 	});	
