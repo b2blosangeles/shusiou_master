@@ -62,9 +62,24 @@ try {
 		render: function() {
 			var me = this;
 			return (<div>	
-					mother language:{me.props.parent.state.curriculum.mother_lang} = 
-					learning language:{me.props.parent.state.curriculum.learning_lang} - 
-					training level:{me.props.parent.state.curriculum.level}
+					<div>
+						{(!me.state.curriculum.published)?(<button type="button" onClick={me.handlePublished.bind(this)} 
+							className="btn btn-success btn_margin3">
+							<i className="fa fa-share" aria-hidden="true"></i> Publish</button>):
+							(<button type="button" onClick={me.handlePublished.bind(this)} 
+							className="btn btn-danger btn_margin3">
+							<i className="fa fa-share" aria-hidden="true"></i> Unpublish</button>)
+						}						
+						
+						
+						<button type="button" onClick={me.cancelToSave.bind(me)} 
+							className="btn btn-warning btn_margin3">Exit edit</button>
+
+						<button type="button" onClick={me.props.parent.deleteCurriculum.bind(me)} 
+							className="btn btn-warning btn_margin3">
+							<i className="fa fa-trash-o" aria-hidden="true"></i>  Delete Curriculum
+						</button>
+					</div>	
 					<div style={{'background-color':'lightyellow', 'color':'red', 'padding':'0.5em',
 						'display':(!me.state.error)?'none':'', 'border-radius': '0.5em'  
 						    }}>{me.state.error}</div>
@@ -121,25 +136,10 @@ try {
 						} 
 					</div>	
 					
-					<div>
-						{(!me.state.curriculum.published)?(<button type="button" onClick={me.handlePublished.bind(this)} 
-							className="btn btn-success btn_margin3">
-							<i className="fa fa-share" aria-hidden="true"></i> Publish</button>):
-							(<button type="button" onClick={me.handlePublished.bind(this)} 
-							className="btn btn-danger btn_margin3">
-							<i className="fa fa-share" aria-hidden="true"></i> Unpublish</button>)
-						}						
-						
-						
-						<button type="button" onClick={me.cancelToSave.bind(me)} 
-							className="btn btn-warning btn_margin3">Exit edit</button>
-
-						<button type="button" onClick={me.props.parent.deleteCurriculum.bind(me)} 
-							className="btn btn-warning btn_margin3">
-							<i className="fa fa-trash-o" aria-hidden="true"></i>  Delete Curriculum
-						</button>
-					</div>					
-					
+				
+					mother language:{me.props.parent.state.curriculum.mother_lang} = 
+					learning language:{me.props.parent.state.curriculum.learning_lang} - 
+					training level:{me.props.parent.state.curriculum.level}				
 				</div>)
 		}
 	});	
