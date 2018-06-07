@@ -189,10 +189,6 @@ try {
 			}
 			Root.lib.loadEng(me, engCfg);			
 		},
-		dictionary:function(v) {
-			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
-			return this.props.route.env.dictionary(v);
-		},
 		exitSection : function() {
 			this.setState({section : {},  section_id : null});			
 		},		
