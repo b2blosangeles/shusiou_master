@@ -35,7 +35,7 @@ try {
 				return (<div>Embed_curriculum_preview
 						<div>{me.props.params.opt}
 							<_commObj code={'videoImage'}  
-								data={{rec:me.props.parent.state.curriculum, width:'100%', ss:90, size:320}}/>
+								data={{rec:me.props.parent.state.curriculum, width:'100%', ss:340, size:180}}/>
 							{/*JSON.stringify(me.props.parent.state.curriculum)*/}
 							{/*
 							<h4>{me.props.parent.state.video.title}</h4>	
