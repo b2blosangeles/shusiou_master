@@ -34,6 +34,7 @@ try {
 			if (me.props.parent.state.curriculum.vid) {
 				return (<div>Embed_curriculum_preview
 						<div>{me.props.params.opt}
+							<h4>{me.props.parent.state.curriculum.title}</h4>
 							<_commObj code={'videoImage'}  
 								data={{rec:me.props.parent.state.curriculum, width:'100%', ss:340, size:180}}/>
 							{/*JSON.stringify(me.props.parent.state.curriculum)*/}
