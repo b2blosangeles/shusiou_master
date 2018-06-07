@@ -128,9 +128,13 @@ try {
 		},
 		textField: function(idx) {
 			var me = this;
-			return (<p><input className="form-control inpit-white-bg" 
+			return (
+			<span>
+				<p><input className="form-control inpit-white-bg" 
 				placeholder={'input text ' + idx} 
-				value={me.state.data[idx]}  onChange={me.handleChange.bind(me, idx)}  /></p>)	       
+				value={me.state.data[idx]}  onChange={me.handleChange.bind(me, idx)}  /></p>
+			</span>		
+			)	       
 		},
 		acceptSection: function() {
 			let me = this;
