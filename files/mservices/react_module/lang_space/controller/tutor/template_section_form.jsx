@@ -130,7 +130,7 @@ try {
 			var me = this;
 			return (
 			<span>
-				<p><input className="form-control inpit-white-bg" 
+				<p>{idx}==<input className="form-control inpit-white-bg" 
 					placeholder={'input text ' + idx} 
 					value={me.state.data[idx]}  onChange={me.handleChange.bind(me, idx)}  />
 				</p>
