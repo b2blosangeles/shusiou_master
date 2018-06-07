@@ -148,7 +148,11 @@ try {
 				<p><input className="form-control inpit-white-bg" 
 					placeholder={'input text ' + idx} 
 					value={me.state.data[idx]}  onChange={me.handleChange.bind(me, idx)}  />
-				</p>					
+				</p>
+				<p><input className="form-control inpit-white-bg" 
+					placeholder={'input text ' + idx} 
+					value={me.state.data[idx]}  onChange={me.handleChange.bind(me, idx)}  />
+				</p>
 			</span>		
 			)	       
 		},		
