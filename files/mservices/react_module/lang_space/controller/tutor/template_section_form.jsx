@@ -131,31 +131,6 @@ try {
 			if (idx === 'description') {
 				return (
 					<span>
-						<p><input className="form-control inpit-white-bg" 
-							placeholder={'input text ' + idx} 
-							value={me.state.data[idx]}  onChange={me.handleChange.bind(me, idx)}  />
-						</p>
-						<p><input className="form-control inpit-white-bg" 
-							placeholder={'input text ' + idx} 
-							value={me.state.data[idx]}  onChange={me.handleChange.bind(me, idx)}  />
-						</p>
-					</span>		
-				)			
-			} else {
-				return (
-					<span>
-						<p><input className="form-control inpit-white-bg" 
-							placeholder={'input text ' + idx} 
-							value={me.state.data[idx]}  onChange={me.handleChange.bind(me, idx)}  />
-						</p>				
-					</span>		
-				)
-			}
-		},
-		answerField: function(idx) {
-			var me = this;
-			return (
-			<span>
 <table className="table">
   <thead>
     <tr>
@@ -185,7 +160,33 @@ try {
       <td>@twitter</td>
     </tr>
   </tbody>
-</table>					
+</table>							
+						<p><input className="form-control inpit-white-bg" 
+							placeholder={'input text ' + idx} 
+							value={me.state.data[idx]}  onChange={me.handleChange.bind(me, idx)}  />
+						</p>
+						<p><input className="form-control inpit-white-bg" 
+							placeholder={'input text ' + idx} 
+							value={me.state.data[idx]}  onChange={me.handleChange.bind(me, idx)}  />
+						</p>
+					</span>		
+				)			
+			} else {
+				return (
+					<span>
+						<p><input className="form-control inpit-white-bg" 
+							placeholder={'input text ' + idx} 
+							value={me.state.data[idx]}  onChange={me.handleChange.bind(me, idx)}  />
+						</p>				
+					</span>		
+				)
+			}
+		},
+		answerField: function(idx) {
+			var me = this;
+			return (
+			<span>
+				
 				<p><input className="form-control inpit-white-bg" 
 					placeholder={'input text ' + idx} 
 					value={me.state.data[idx]}  onChange={me.handleChange.bind(me, idx)}  />
