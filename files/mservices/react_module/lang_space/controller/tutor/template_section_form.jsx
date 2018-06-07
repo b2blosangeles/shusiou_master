@@ -131,11 +131,11 @@ try {
 			if (idx === 'description') {
 				return (
 					<span>
-						<p>{idx}==<input className="form-control inpit-white-bg" 
+						<p><input className="form-control inpit-white-bg" 
 							placeholder={'input text ' + idx} 
 							value={me.state.data[idx]}  onChange={me.handleChange.bind(me, idx)}  />
 						</p>
-						<p>{idx}==<input className="form-control inpit-white-bg" 
+						<p><input className="form-control inpit-white-bg" 
 							placeholder={'input text ' + idx} 
 							value={me.state.data[idx]}  onChange={me.handleChange.bind(me, idx)}  />
 						</p>
@@ -144,7 +144,7 @@ try {
 			} else {
 				return (
 					<span>
-						<p>{idx}==<input className="form-control inpit-white-bg" 
+						<p><input className="form-control inpit-white-bg" 
 							placeholder={'input text ' + idx} 
 							value={me.state.data[idx]}  onChange={me.handleChange.bind(me, idx)}  />
 						</p>				
