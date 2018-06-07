@@ -36,7 +36,7 @@ try {
 						<div>{me.props.params.opt}
 							<_commObj code={'videoImage'}  
 								data={{rec:me.props.parent.state.curriculum, width:'100%', ss:90, size:320}}/>
-							{JSON.stringify(me.props.parent.state.curriculum)}
+							{/*JSON.stringify(me.props.parent.state.curriculum)*/}
 							{/*
 							<h4>{me.props.parent.state.video.title}</h4>	
 							<p><b>Video ID</b>:{me.props.parent.state.curriculum.vid}</p>  
