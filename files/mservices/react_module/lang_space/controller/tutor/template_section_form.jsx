@@ -136,7 +136,7 @@ try {
 						    <tr>
 						      <th scope="col"></th>
 						      <th scope="col">Answer</th>
-						      <th scope="col"><i className="fa fa-plus-square fa-2"></i></th>
+						      <th scope="col"><i className="fa fa-plus-square fa-3"></i></th>
 						    </tr>
 						  </thead>
 						  <tbody>
@@ -146,7 +146,7 @@ try {
 							placeholder={'input text ' + idx} 
 							value={me.state.data[idx]}  
 							onChange={me.handleChange.bind(me, idx)}/></td>
-						      <td> <i className="fa fa-trash fa-2"></i></td>
+						      <td> <i className="fa fa-trash fa-3"></i></td>
 						    </tr>
 						  </tbody>
 						</table>							
