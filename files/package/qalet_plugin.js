@@ -36,6 +36,7 @@
 			"/mservices/react_module/lang_space/view/docview_page.jsx",
 			"/mservices/react_module/lang_space/controller/tutor/template_follow_me.jsx",
 			"/mservices/react_module/lang_space/controller/tutor/template_section_form.jsx",
+			"/mservices/react_module/lang_space/controller/tutor/ArrayInput.jsx",
 			
 			"/mservices/react_module/lang_space/controller/tutor/embed_video_editor.jsx",
 			"/mservices/react_module/lang_space/controller/tutor/embed_new_curriculum.jsx",
