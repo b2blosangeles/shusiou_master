@@ -137,7 +137,6 @@ try {
 						      <th scope="col"></th>
 						      <th scope="col">answer</th>
 						      <th scope="col"></th>
-						      <th scope="col"></th>
 						    </tr>
 						  </thead>
 						  <tbody>
@@ -147,20 +146,10 @@ try {
 							placeholder={'input text ' + idx} 
 							value={me.state.data[idx]}  
 							onChange={me.handleChange.bind(me, idx)}/></td>
-						      <td><i className="fa fa-plus-square"></i></td>
-						      <td><i className="fa fa-trash"></i></td>
+						      <td><i className="fa fa-plus-square"></i> <i className="fa fa-trash"></i></td>
 						    </tr>
 						  </tbody>
 						</table>							
-						<p><input className="form-control inpit-white-bg" 
-							placeholder={'input text ' + idx} 
-							value={me.state.data[idx]}  
-							onChange={me.handleChange.bind(me, idx)}/>
-						</p>
-						<p><input className="form-control inpit-white-bg" 
-							placeholder={'input text ' + idx} 
-							value={me.state.data[idx]}  onChange={me.handleChange.bind(me, idx)}  />
-						</p>
 					</span>		
 				)			
 			} else {
