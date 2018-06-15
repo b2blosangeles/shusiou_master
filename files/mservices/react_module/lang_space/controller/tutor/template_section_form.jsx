@@ -134,21 +134,21 @@ try {
 						<table className="table">
 						  <thead>
 						    <tr>
-						      <th scope="col">#</th>
-						      <th scope="col">First</th>
-						      <th scope="col">Last</th>
-						      <th scope="col">Handle</th>
+						      <th scope="col"></th>
+						      <th scope="col">answer</th>
+						      <th scope="col"></th>
+						      <th scope="col"></th>
 						    </tr>
 						  </thead>
 						  <tbody>
 						    <tr>
-						      <th scope="row">1</th>
+						      <th scope="row"></th>
 						      <td><input className="form-control inpit-white-bg" 
 							placeholder={'input text ' + idx} 
 							value={me.state.data[idx]}  
 							onChange={me.handleChange.bind(me, idx)}/></td>
-						      <td><i className="fa fa-plus-circle"></i> fa-plus-circle</td>
-						      <td></td>
+						      <td><i className="fa fa-plus-square"></i></td>
+						      <td><i className="fa fa-trash"></i></td>
 						    </tr>
 						  </tbody>
 						</table>							
