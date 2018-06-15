@@ -147,7 +147,7 @@ try {
 							placeholder={'input text ' + idx} 
 							value={me.state.data[idx]}  
 							onChange={me.handleChange.bind(me, idx)}/></td>
-						      <td></td>
+						      <td><i className="fa fa-plus-circle"></i> fa-plus-circle</td>
 						      <td></td>
 						    </tr>
 						  </tbody>
