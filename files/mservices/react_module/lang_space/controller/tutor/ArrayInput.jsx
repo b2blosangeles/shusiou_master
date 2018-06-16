@@ -15,12 +15,15 @@ try {
 		addItem(event) {
 			var me = this;
 			me.state.data.push({});
-			me.setState({data:me.state.data})
-			alert(88);
+			me.setState({data:me.state.data});
 		},
 		deleteItem(idx, event) {
-			var me = this, v = me.state.data;
-			alert(idx);
+			var me = this, v = me.state.data, nv = [];
+			for (let i = 0; i < v.length; i++) {
+				if (i == idx) continue;
+				nv.push(v[i]);
+			}
+			me.setState({data:nv})
 		},		
 		render: function() {
 			var me = this;
@@ -43,7 +46,7 @@ try {
 					      <td><input className="form-control inpit-white-bg" 
 						placeholder={'input text ' + 'idx'} 
 						value={me.state.data['idx']}  
-						onChange={me.deleteItem.bind(me, 'idx')}/></td>
+						onChange={me.deleteItem.bind(me, idx)}/></td>
 					      <td> <i className="fa fa-trash" style={{"font-size":"1.5em"}}></i></td>
 					    </tr>)
 					 })	 
