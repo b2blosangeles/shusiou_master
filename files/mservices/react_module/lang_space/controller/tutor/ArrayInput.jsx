@@ -34,7 +34,7 @@ try {
 			  </thead>
 			  <tbody>
 				  {
-					    
+					 me.state.data.map(function(item, i){  
 					  return(<tr>
 					      <th scope="row"></th>
 					      <td><input className="form-control inpit-white-bg" 
