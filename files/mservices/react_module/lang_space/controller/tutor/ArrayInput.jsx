@@ -13,8 +13,9 @@ try {
 			var me = this;
 		},		
 		addItem(event) {
-			var me = this, v = me.state.data;
-			me.setState({data:v})
+			var me = this;
+			me.state.data.push({});
+			me.setState({data:me.state.data})
 		},
 		deleteItem(idx, event) {
 			var me = this, v = me.state.data;
