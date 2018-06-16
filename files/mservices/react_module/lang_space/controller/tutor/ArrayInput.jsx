@@ -3,12 +3,7 @@ try {
 		getInitialState: function() {
 			var me = this; 
 			return {
-				scriptLangs:[],
-				scriptList:[],
-				scriptListFilter:{},
-				script_id:0,
-				data:{},
-				c_tpl:{}
+				data:[]
 			};
 		},
 		componentDidMount:function() {
@@ -16,18 +11,15 @@ try {
 		},
 		componentDidUpdate:function(prePropos, prevState) {	
 			var me = this;
-		},
-		setStateData(idx, data) {
-			var me = this, v = (me.state.data) ? me.state.data : {};
-			v[idx] = data;
-			me.setState({data:v});
 		},		
-		handleChange(idx, event) {
-			var me = this;
-			if (event.target.type == 'text') {
-				me.setStateData(idx, event.target.value)
-			}
-		},									
+		addItem(event) {
+			var me = this, v = me.state.data;
+			me.setState({data:v})
+		},
+		deleteItem(idx, event) {
+			var me = this, v = me.state.data;
+			alert(idx);
+		},		
 		render: function() {
 			var me = this;
 			return (
@@ -41,14 +33,18 @@ try {
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr>
-			      <th scope="row"></th>
-			      <td><input className="form-control inpit-white-bg" 
-				placeholder={'input text ' + 'idx'} 
-				value={me.state.data['idx']}  
-				onChange={me.handleChange.bind(me, 'idx')}/></td>
-			      <td> <i className="fa fa-trash" style={{"font-size":"1.5em"}}></i></td>
-			    </tr>
+				  {
+					    
+					  return(<tr>
+					      <th scope="row"></th>
+					      <td><input className="form-control inpit-white-bg" 
+						placeholder={'input text ' + 'idx'} 
+						value={me.state.data['idx']}  
+						onChange={me.deleteItem.bind(me, 'idx')}/></td>
+					      <td> <i className="fa fa-trash" style={{"font-size":"1.5em"}}></i></td>
+					    </tr>)				  
+				  }
+
 			  </tbody>
 			</table>
 			)
