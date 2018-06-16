@@ -131,6 +131,8 @@ try {
 			if (idx === 'description') {
 				return (
 					<span>
+						<ArrayInput/>
+						<hr/>
 						<table className="table">
 						  <thead>
 						    <tr>
