@@ -16,6 +16,7 @@ try {
 			var me = this;
 			me.state.data.push({});
 			me.setState({data:me.state.data})
+			alert(88);
 		},
 		deleteItem(idx, event) {
 			var me = this, v = me.state.data;
