@@ -29,7 +29,7 @@ try {
 			      <th scope="col"></th>
 			      <th scope="col">Answer</th>
 			      <th scope="col"><i className="fa fa-plus-square" 
-						      onClick={me.addItem()}
+						      onClick={me.addItem.bind(me)}
 						      style={{"font-size":"1.5em"}}></i></th>
 			    </tr>
 			  </thead>
@@ -37,7 +37,7 @@ try {
 				  {
 					 me.state.data.map(function(item, idx){  
 					  return(<tr>
-					      <th scope="row"></th>
+					      <th scope="row">{idx}</th>
 					      <td><input className="form-control inpit-white-bg" 
 						placeholder={'input text ' + 'idx'} 
 						value={me.state.data['idx']}  
