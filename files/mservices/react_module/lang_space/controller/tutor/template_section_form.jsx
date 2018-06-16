@@ -130,30 +130,7 @@ try {
 			var me = this;
 			if (idx === 'description') {
 				return (
-					<span>
-						<ArrayInput/>
-						<hr/>
-						<table className="table">
-						  <thead>
-						    <tr>
-						      <th scope="col"></th>
-						      <th scope="col">Answer</th>
-						      <th scope="col"><i className="fa fa-plus-square"  
-									      style={{"font-size":"1.5em"}}></i></th>
-						    </tr>
-						  </thead>
-						  <tbody>
-						    <tr>
-						      <th scope="row"></th>
-						      <td><input className="form-control inpit-white-bg" 
-							placeholder={'input text ' + idx} 
-							value={me.state.data[idx]}  
-							onChange={me.handleChange.bind(me, idx)}/></td>
-						      <td> <i className="fa fa-trash" style={{"font-size":"1.5em"}}></i></td>
-						    </tr>
-						  </tbody>
-						</table>							
-					</span>		
+					<ArrayInput/>	
 				)			
 			} else {
 				return (
