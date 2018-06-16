@@ -31,11 +31,11 @@ try {
 			<table className="table">
 			  <thead>
 			    <tr>
-			      <th scope="col"></th>
-			      <th scope="col">Answer</th>
-			      <th scope="col"><i className="fa fa-plus-square" 
-						      onClick={me.addItem.bind(me)}
-						      style={{"font-size":"1.5em"}}></i></th>
+			      	<th scope="col"></th>
+			      	<th scope="col">Answer</th>
+			      	<th scope="col"><i className="fa fa-plus-square" onClick={me.addItem.bind(me)}
+						      style={{"font-size":"1.5em"}}></i>
+				</th>
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -45,9 +45,9 @@ try {
 					      <th scope="row">{idx}</th>
 					      <td><input className="form-control inpit-white-bg" 
 						placeholder={'input text ' + 'idx'} 
-						value={me.state.data['idx']}  
-						onChange={me.deleteItem.bind(me, idx)}/></td>
-					      <td> <i className="fa fa-trash" style={{"font-size":"1.5em"}}></i></td>
+						value={me.state.data['idx']}/></td>
+					      <td> <i className="fa fa-trash" style={{"font-size":"1.5em"}}
+							   onClick={me.deleteItem.bind(me, idx)}></i></td>
 					    </tr>)
 					 })	 
 				  }
