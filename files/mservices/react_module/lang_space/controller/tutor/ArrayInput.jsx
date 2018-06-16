@@ -43,7 +43,7 @@ try {
 						onChange={me.deleteItem.bind(me, 'idx')}/></td>
 					      <td> <i className="fa fa-trash" style={{"font-size":"1.5em"}}></i></td>
 					    </tr>)
-					 }	 
+					 })	 
 				  }
 
 			  </tbody>
