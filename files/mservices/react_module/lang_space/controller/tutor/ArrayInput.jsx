@@ -36,15 +36,13 @@ try {
 								<i className="fa fa-plus" style={{"font-size":"1.5em"}}
 								   onClick={me.addItem.bind(me)}></i>
 							</div>
-						</div>				
-					</div>					
-					<div className="content_section">
-					  {
+						</div>
+					  	{
 						 me.state.data.map(function(item, idx){  
 						  return(
 							<div className="container">
 								<div className="col-sm-1 col-lg-1 col-md-1">{idx}</div>
-								<div className="col-sm-11 col-lg-11 col-md-11">
+								<div className="col-sm-10 col-lg-10 col-md-10">
 								  <input className="form-control inpit-white-bg" 
 									placeholder={'input text ' + 'idx'} 
 									value={me.state.data['idx']}/>
@@ -56,7 +54,7 @@ try {
 							</div>
 							)
 						 })	 
-					  }					
+					  	}					
 					</div>
 					
 				</span>
