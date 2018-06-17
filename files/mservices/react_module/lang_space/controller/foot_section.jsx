@@ -118,7 +118,7 @@ try {
 		},
 		channel : function() {
 			let url = "https://dev.shusiou.win/voice.html";
-			positionedPopup(url, 'myWindow','700','300','100','200','yes');
+			positionedPopup(url, 'myWindow','700','300','400','400','yes');
 		},
 		render: function() {
 			var me = this;
