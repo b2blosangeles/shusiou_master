@@ -30,7 +30,7 @@ try {
 			return (
 				<span>
 					<div>
-						<div className="container">
+						<div className="container-fluid">
 							<div className="col-sm-11 col-lg-11 col-md-11"></div>
 							<div className="col-sm-1 col-lg-1 col-md-1">
 								<i className="fa fa-plus" style={{"font-size":"1.5em"}}
@@ -40,7 +40,7 @@ try {
 					  	{
 						 me.state.data.map(function(item, idx){  
 						  return(
-							<div className="container">
+							<div className="container-fluid">
 								<div className="col-sm-1 col-lg-1 col-md-1">{idx}</div>
 								<div className="col-sm-10 col-lg-10 col-md-10">
 								  <input className="form-control inpit-white-bg" 
