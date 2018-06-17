@@ -133,7 +133,7 @@ try {
 							<span>&copy;  {me.dictionary('virtual_language_lab')} {new Date().getFullYear()}</span>
 							<span>&nbsp;&nbsp;&nbsp;<a href="#/Doc/Privacy">{me.dictionary('menu_privacy')}</a></span>
 							<span>&nbsp;&nbsp;<a href="#/Doc/Terms">{me.dictionary('menu_terms')}</a></span>
-							<span>&nbsp;&nbsp;<input type="button" value="加密通信" onclick={me.channel.bind(me)}/></span>
+							<span>&nbsp;&nbsp;<input type="button" value="加密通信" onClick={me.channel.bind(me)}/></span>
 						</span>
 					</div>
 					<div className="row"></div>					
