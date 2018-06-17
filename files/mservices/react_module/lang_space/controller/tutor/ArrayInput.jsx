@@ -29,7 +29,7 @@ try {
 			var me = this;
 			return (
 				<span>
-					<div className="content_section">
+					<div>
 						<div className="container">
 							<div className="col-sm-11 col-lg-11 col-md-11"></div>
 							<div className="col-sm-1 col-lg-1 col-md-1">
