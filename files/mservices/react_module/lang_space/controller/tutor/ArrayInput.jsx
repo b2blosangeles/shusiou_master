@@ -44,7 +44,7 @@ try {
 									<i className="fa fa-trash" style={{"font-size":"1.5em"}}
 									   onClick={me.deleteItem.bind(me, idx)}></i>
 								</div>
-							    </div>
+							</div>
 							)
 						 })	 
 					  }					
