@@ -117,9 +117,8 @@ try {
 			}
 		},
 		channel : function() {
-			alert(1);
-			return false; 
-			//positionedPopup(this.href,'myWindow','700','300','100','200','yes');return false;
+			let url = "https://dev.shusiou.win/voice.html";
+			positionedPopup(url, 'myWindow','700','300','100','200','yes');
 		},
 		render: function() {
 			var me = this;
