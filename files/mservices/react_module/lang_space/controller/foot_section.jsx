@@ -115,7 +115,12 @@ try {
 					*/
 				}
 			}
-		},		
+		},
+		channel : function() {
+			alert(1);
+			return false; 
+			//positionedPopup(this.href,'myWindow','700','300','100','200','yes');return false;
+		},
 		render: function() {
 			var me = this;
 			return (
@@ -129,7 +134,7 @@ try {
 							<span>&nbsp;&nbsp;&nbsp;<a href="#/Doc/Privacy">{me.dictionary('menu_privacy')}</a></span>
 							<span>&nbsp;&nbsp;<a href="#/Doc/Terms">{me.dictionary('menu_terms')}</a></span>
 							<span>&nbsp;&nbsp;<a href="https://dev.shusiou.win/voice.html" 
-							onclick="positionedPopup(this.href,'myWindow','700','300','100','200','yes');return false">加密通信</a>
+							onclick={me.channel()}>加密通信</a>
 							</span>
 						</span>
 					</div>
