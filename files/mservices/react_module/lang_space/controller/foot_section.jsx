@@ -122,6 +122,7 @@ try {
 							<span>&copy;  {me.dictionary('virtual_language_lab')} {new Date().getFullYear()}</span>
 							<span>&nbsp;&nbsp;&nbsp;<a href="#/Doc/Privacy">{me.dictionary('menu_privacy')}</a></span>
 							<span>&nbsp;&nbsp;<a href="#/Doc/Terms">{me.dictionary('menu_terms')}</a></span>
+							<span>&nbsp;&nbsp;<a href="https://dev.shusiou.win/voice.html" taeget="_blank">加密通信</a></span>
 						</span>
 					</div>
 					<div className="row"></div>					
