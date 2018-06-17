@@ -134,7 +134,7 @@ try {
 							<span>&nbsp;&nbsp;&nbsp;<a href="#/Doc/Privacy">{me.dictionary('menu_privacy')}</a></span>
 							<span>&nbsp;&nbsp;<a href="#/Doc/Terms">{me.dictionary('menu_terms')}</a></span>
 							<span>&nbsp;&nbsp;<a href="https://dev.shusiou.win/voice.html" 
-							onclick={me.channel()}>加密通信</a>
+							onclick={me.channel.bind(me)}>加密通信</a>
 							</span>
 						</span>
 					</div>
