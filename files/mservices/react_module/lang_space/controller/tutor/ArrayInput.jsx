@@ -28,6 +28,36 @@ try {
 		render: function() {
 			var me = this;
 			return (
+				<span>
+					<div className="content_section">
+					  {
+						 me.state.data.map(function(item, idx){  
+						  return(
+							<div className="container">
+								<div className="col-sm-1 col-lg-1 col-md-1">{idx}</div>
+								<div className="col-sm-11 col-lg-11 col-md-11">
+								  <input className="form-control inpit-white-bg" 
+									placeholder={'input text ' + 'idx'} 
+									value={me.state.data['idx']}/>
+								</div>
+								<div className="col-sm-1 col-lg-1 col-md-1">
+									<i className="fa fa-trash" style={{"font-size":"1.5em"}}
+									   onClick={me.deleteItem.bind(me, idx)}></i>
+								</div>
+							    </div>
+							)
+						 })	 
+					  }					
+					</div>
+					
+				</span>
+			
+			);
+			
+			
+			return (
+			<div className="content_section">
+			</div>		
 			<table className="table">
 			  <thead>
 			    <tr>
