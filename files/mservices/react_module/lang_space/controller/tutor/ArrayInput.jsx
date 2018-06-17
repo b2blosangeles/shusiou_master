@@ -30,6 +30,15 @@ try {
 			return (
 				<span>
 					<div className="content_section">
+						<div className="container">
+							<div className="col-sm-11 col-lg-11 col-md-11"></div>
+							<div className="col-sm-1 col-lg-1 col-md-1">
+								<i className="fa fa-plus" style={{"font-size":"1.5em"}}
+								   onClick={me.addItem.bind(me)}></i>
+							</div>
+						</div>				
+					</div>					
+					<div className="content_section">
 					  {
 						 me.state.data.map(function(item, idx){  
 						  return(
