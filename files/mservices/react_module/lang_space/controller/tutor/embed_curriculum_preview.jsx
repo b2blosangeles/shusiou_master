@@ -31,18 +31,26 @@ try {
 		},		
 		render: function() {
 			var me = this;
-			if ((me.props.params.opt == 'new') && (me.props.parent.state.curriculum.vid)) {
+			if (me.props.parent.state.curriculum.vid) {
 				return (<div>Embed_curriculum_preview
 						<div>{me.props.params.opt}
+							<h4>{me.props.parent.state.curriculum.title}</h4>
+							<_commObj code={'videoImage'}  
+								data={{rec:me.props.parent.state.curriculum, width:'100%', ss:340, size:180}}/>
+							{/*JSON.stringify(me.props.parent.state.curriculum)*/}
+							{/*
 							<h4>{me.props.parent.state.video.title}</h4>	
 							<p><b>Video ID</b>:{me.props.parent.state.curriculum.vid}</p>  
 							<p><b>Video Length</b>:({me.props.parent.state.curriculum.video_length} Secs)</p>
 							<img src={me.videoImage(61, props.parent.state.curriculum)}/>
+							*/}
 						</div>	
 					
 					</div>)
 			} else {
-				return (<div>Embed_curriculum_preview 2</div>)
+				return (<div>Embed_curriculum_preview == {me.props.parent.state.curriculum.vid}
+					== {me.props.params.opt}
+					</div>)
 			}
 		}
 	});

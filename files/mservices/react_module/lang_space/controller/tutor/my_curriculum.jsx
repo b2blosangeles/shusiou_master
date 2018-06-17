@@ -189,10 +189,6 @@ try {
 			}
 			Root.lib.loadEng(me, engCfg);			
 		},
-		dictionary:function(v) {
-			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
-			return this.props.route.env.dictionary(v);
-		},
 		exitSection : function() {
 			this.setState({section : {},  section_id : null});			
 		},		
@@ -240,23 +236,6 @@ try {
 				}
 			}
 			Root.lib.loadEng(me, engCfg);
-		},		
-		getCurriculumById0: function(curriculum_id, cbk) {
-			var me = this;
-			me.props.route.env.engine({
-				url: _master_svr() + '/api/curriculum/myCurriculum.api',
-				method: "POST",
-				data: { cmd:'getCurriculumById',
-				       curriculum_id:curriculum_id,
-				      auth:me.props.route.env.state.auth},
-				dataType: "JSON"
-			}, function( data) {
-				if (typeof cbk == 'function') {
-					cbk(data);
-				}
-			},function( jqXHR, textStatus ) {
-				console.log( "Request failed: " + textStatus );
-			});
 		},	
 		handleTextChange:function(event){
 			this.setState({c_text: event.target.value});

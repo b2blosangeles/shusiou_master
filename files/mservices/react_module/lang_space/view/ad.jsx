@@ -8,27 +8,36 @@ try {
 		componentDidMount:function() {
 			var me = this;
 			$('.content_bg').find('video').attr('autoplay', true).attr('loop', true);
-			
-			$.ajax({
-				url: _master_svr() + '/api/ad/get_default_ad.api',
-				method: "POST",
-				dataType: "JSON"
-			}).done(function(data) {
-				me.setState({adlist:data.data});
-				me.playVideo();
-			}).fail(function( jqXHR, textStatus ) {
-			});
-			
-			$.ajax({
-				url: _master_svr() + '/api/content_data/shusiou_data.api',
-				method: "POST",
-				dataType: "JSON",
-				data:{lang:null, group:['home_page']}
-			}).done(function(data) {
-				me.setState({text:data});
-			}).fail(function( jqXHR, textStatus ) {
-			});			
+			me.loadData();
 		},
+		loadData: function () {
+			var me = this;
+			let engCfg = {
+				Q:[
+					{code:'getAdList', 
+						 url : _master_svr() + '/api/ad/get_default_ad.api', 
+						 method:'post', 
+						 dataType: "JSON",
+						 data:{}
+					},
+					{code:'getShusiouText', 
+						 url : _master_svr() + '/api/content_data/shusiou_data.api', 
+						 method:'post', 
+						 dataType: "JSON",
+						 data:{lang:null, group:['home_page']}
+					}
+				],
+				hold:2000,
+				setting: {timeout:6000},
+				callBack: function(data) {
+					me.setState({adlist:data.EngReport.getAdList.data, text:data.EngReport.getShusiouText},
+						   function() {
+							me.playVideo();
+						});
+				}
+			}
+			Root.lib.loadEng(me, engCfg);			
+		},				    
 		dictionary:function(v) {
 			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
 			return this.props.route.env.dictionary(v);

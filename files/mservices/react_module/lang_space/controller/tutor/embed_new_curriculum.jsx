@@ -31,7 +31,7 @@ try {
 				callBack: function(data) {
 					if (data.status === 'success') {
 						me.setState({videoList:data.data}, function() {
-							Root.lib.alert(me, 'Data load success!', 'success', 1000);
+							// Root.lib.alert(me, 'Data load success!', 'success', 1000);
 						});
 					} else {
 						Root.lib.alert(me, 'API Error: myCurriculum.api access error!', 'danger', 6000);
@@ -75,14 +75,15 @@ try {
 			var me = this;
 			if (me.validation()) return (
 				<button className="btn btn-warning btn_margin6"
-					onClick={this.save.bind(this)}>Save</button>
+					onClick={this.save.bind(this)}>{Root.lib.dictionary('save')}</button>
 				)
-			else return (<button className="btn btn-warning btn_margin6" disabled>Save</button>)
+			else return (<button className="btn btn-warning btn_margin6" disabled>
+					{Root.lib.dictionary('save')}</button>)
 		},		
 		render: function() {
 			var me = this;
 				return (<div>
-						<h4>Add New Curriculum</h4> 
+						<h4>{Root.lib.dictionary('add_curriculum')}</h4> 
 						<div className="form-group">
 							<div className="dropdown">
 							 	<button className="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">  
@@ -132,7 +133,7 @@ try {
 						
 						
 						<div className="form-group">
-							<label>Curriculum Name:</label>
+							<label>{Root.lib.dictionary('curriculum_name')}:</label>
 							<input type="text" className="form-control inpit-white-bg" 
 								value={me.state.curriculum.name}
 								onChange={this.valueChanged.bind(this, 'name')}
@@ -140,11 +141,11 @@ try {
 						</div>						
 
 						<div className="form-group">
-							<label>Mother Language:</label>
+							<label>{Root.lib.dictionary('mother_language')}:</label>
 							<select className="form-control inpit-white-bg"
 								onChange={me.valueChanged.bind(me, 'mother_lang')}>
 								>
-								<option value="">--Select Mother Language--</option>
+								<option value="">--{Root.lib.dictionary('select_language')}--</option>
 								{me.state.langs.map(
 									function(lang) {	
 										return (<option value={lang.code}>{lang.desc}</option>);
@@ -154,10 +155,10 @@ try {
 
 						
 						<div className="form-group">
-							<label>Learning Language:</label>
+							<label>{Root.lib.dictionary('learning_language')}:</label>
 							<select className="form-control inpit-white-bg" 
 								onChange={me.valueChanged.bind(me, 'learning_lang')}>
-								<option value="">--Select Learning Language--</option>
+								<option value="">--{Root.lib.dictionary('select_language')}--</option>
 								{me.state.langs.map(
 									function(lang) {
 										if (me.state.curriculum.mother_lang !=lang.code)	
@@ -167,10 +168,10 @@ try {
 						</div>													
 
 						<div className="form-group">
-							<label>Level:</label>
+							<label>{Root.lib.dictionary('level')}:</label>
 							<select className="form-control inpit-white-bg" 
 								onChange={me.valueChanged.bind(me, 'level')}>
-								<option value="">--Select Training Level--</option>
+								<option value="">--{Root.lib.dictionary('select_level')}--</option>
 								{me.state.levels.map(
 									function(level) {	
 										return (<option value={level.code}>{level.desc}</option>);
@@ -179,9 +180,9 @@ try {
 						</div>																			
 						
 						<button className="btn btn-default btn_margin6"
-							onClick={this.cancelToSave.bind(this)}>Cancel</button>	
+							onClick={this.cancelToSave.bind(this)}>{Root.lib.dictionary('cancel')}</button>	
 						{me.saveButton()}
-						{Root.lib.landingModal(me)}
+						{/*Root.lib.landingModal(me)*/}
 					</div>)
 		}
 	});

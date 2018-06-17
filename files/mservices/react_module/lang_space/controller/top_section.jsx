@@ -36,20 +36,20 @@ try {
 			    	Root.state.userInfo.roles: [];
 			
 			var m = [ 
-			//	{code:'what_to_study', router:'what_to_study'},
-			//	{code:'how_to_study', router:'how_to_study'},
 				{code:'public_courses', router:'public_courses'},
 				{code:'my_course', role:['learner'], router:'student/my_courses'},
-			//	{code:'menu_tuition', router:'student/my_qna'},
 				{code:'my_videos', router:'tutor/my_videos'},
 				{code:'my_curriculums', router:'tutor/my_curriculums'},
-				{code:'my_message', router:'message'}
+				{code:'my_dashboard', router:'dashboard'}
 			];			
 			
 			return m.map(function (item) {
 				var role = me.role(item.router);
-				if  (me.inte_array(my_role,role) || me.inte_array(['*'],role))
-					return  <li><a className={me.isActive(item.code)} href={'/#/'+item.router}>{me.dictionary(item.code)}</a></li>
+				if  (me.inte_array(my_role,role) || me.inte_array(['*'],role)) {
+					return  (me.state.hash !== '#/'+item.router) ?
+						(<li><a className={me.isActive(item.code)} href={'#/'+item.router}>{Root.lib.dictionary(item.code)}</a></li>)
+						: (<li><a><b>{Root.lib.dictionary(item.code)}</b></a></li>)
+				} 
 			});		
 		},
 		docviwer:function(data) {
@@ -57,64 +57,18 @@ try {
 				<Docviwer data={data}/>
 			)
 		},
-		loading:function() {
-			var me = this;
-			me.setState({ModalLoading: {textcolor:'#000000', hold:1000, 
-				message:'<img src="https://i.stack.imgur.com/oQ0tF.gif" width="24">'}});
-			setTimeout(
-				function() {
-					me.setState({ModalLoading: 'cancel'});	
-				}, 5000
-			)
-		},
-		alert:function() {
-			var me = this;
-			me.setState({ModalPlus: {type:'alert', body_class:'warning', 
-			 box_style:{border:'1px solid red'},
-			 message:'nice <span style="color:red">job</span> ok'}});	
-		},
-		popup:function() {
-			var me = this;
-			me.setState({ModalPlus: {type:'popup', style:'info', backdrop:{bg:'#ff0000', opacity:0.1},
-				body: me.docviwer({title:'title', body:'test body'})}});
-		},
-		lock:function(e) {
-			if ((e.target) && $(e.target) && ($(e.target)[0])) {
-				var obj = $(e.target);
-				obj.attr('disabled', true);
-			}
-		},	
-		release:function(e) {
-			if ((e.target) && $(e.target) && ($(e.target)[0])) {
-				var obj = $(e.target);
-				obj.attr('disabled', false);
-			}
-		},	
 		isActive:function(v) {
 			var k = this.state.hash;
 			if (v == k.replace(/\#\//,'')) {
 				return 'active';
 			}
-		},
-		setLang:function(v) {
-			this.props.env.setLang(v);
-		},		
-		dictionary:function(v) {
-			if (!this.props.env || !this.props.env.dictionary) return v;
-			return this.props.env.dictionary(v);
-		},		
+		},				
 		componentDidMount:function() {
 			var me = this;
-			$('title').html(me.dictionary('site_name'));
+			document.title = Root.lib.dictionary('site_name');
 			window.addEventListener("hashchange", function() {
 				me.setState({hash:window.location.hash});
 			}, false);
-		},
-		componentDidUpdate:function(prevProps, prevState) {
-			var me = this;	
-			$('title').html(me.dictionary('site_name'));
-			if (JSON.stringify(prevState) !== JSON.stringify(me.state)) {
-			}
 		},
 		authItem:function() {
 			var me = this;
@@ -124,12 +78,12 @@ try {
 					>{(Root.state.userInfo.email) ? Root.state.userInfo.email : 'Guest'}
 					<span className="caret"></span></a>
 					<ul className="dropdown-menu">
-						<li><a href="JavaScript:void(0);" onClick={Root.signOut.bind(me)}>{me.dictionary('menu_logout')}</a></li>
+						<li><a href="JavaScript:void(0);" onClick={Root.signOut.bind(me)}>{Root.lib.dictionary('menu_logout')}</a></li>
 					</ul>	 
 				</li>   
 			
 			) } else {return (
-				<li><a href="#/Signin">{me.dictionary('menu_login')}</a></li>
+				<li><a href="#/Signin">{Root.lib.dictionary('menu_login')}</a></li>
 			)};
 		},		
 		render: function() {
@@ -145,7 +99,7 @@ try {
 						<span className="icon-bar"></span>
 						<span className="icon-bar"></span>
 						  </button>
-						  <a className="navbar-brand" href="#"><b>{me.dictionary('site_legal_name')}</b></a>
+						  <a className="navbar-brand" href="#"><b>{Root.lib.dictionary('site_legal_name')}</b></a>
 						</div>
 
 						<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -159,13 +113,13 @@ try {
 							</li>							  
 							<li className="dropdown">
 							  <a href="JavaScript:void(0);" className="dropdown-toggle" data-toggle="dropdown" 
-								  role="button" aria-haspopup="true" aria-expanded="false">{me.dictionary('menu_language')}<span className="caret"></span></a>
+								  role="button" aria-haspopup="true" aria-expanded="false">{Root.lib.dictionary('menu_language')}<span className="caret"></span></a>
 							  <ul className="dropdown-menu">
 								{
-									Object.keys(me.props.env.state.lang).map(function (key) {
-										if (key != me.props.env.state.c_lang) {
-											return  <li><a href="JavaScript:void(0);" onClick={me.setLang.bind(me,key)}>
-												{me.props.env.state.lang[key]}
+									Object.keys(Root.state.lang).map(function (key) {
+										if (key != Root.state.c_lang) {
+											return  <li><a href="JavaScript:void(0);" onClick={Root.setLang.bind(me,key)}>
+												{Root.state.lang[key]}
 											</a></li>
 										}
 									})					  
@@ -184,4 +138,3 @@ try {
 } catch (err) {
 	console.log(err.message);
 }
-

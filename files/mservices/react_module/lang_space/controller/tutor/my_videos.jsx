@@ -60,10 +60,6 @@ try {
 		componentDidUpdate:function() {
 			var me = this;
 			Root.lib.routerPermission(Root.state.userInfo, me.props.route.permission);
-		},		
-		dictionary:function(v) {
-			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
-			return this.props.route.env.dictionary(v);
 		},
 		getCurrentLanguage: function() {
 			return this.props.route.env.getCurrentLanguage();	
@@ -153,9 +149,14 @@ try {
 					<div className="container">
 						<div className="col-sm-4 col-lg-4 col-md-4"> 
 							<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
-								<a href="JavaScript:void(0)" onClick={me.videoAdmin.bind(me,'admin')}>
+								<div className="video_thumbnail_icon_group">
+									<button type="button" className="btn btn-warning"
+										onClick={me.videoAdmin.bind(me,'admin')}>
+										<i className="fa fa-upload" aria-hidden="true"></i> 
+										&nbsp;{Root.lib.dictionary('add_video')}
+									</button>										
+								</div>					
 								<img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmAddStyle()} />
-								</a>	
 							</div>			
 						</div>
 						{me.state.list.map(function(a){ 
@@ -166,7 +167,8 @@ try {
 									<div className="video_thumbnail_icon_group">
 										<button type="button" className="btn btn-danger"
 											onClick={me.videoInfo.bind(me,a)}>
-											<i className="fa fa-play" aria-hidden="true"></i>
+											<i className="fa fa-play" aria-hidden="true"></i> 
+											&nbsp;{Root.lib.dictionary('play_video')}
 										</button>										
 									</div>
 									<_commObj code={'videoBgImage'}  

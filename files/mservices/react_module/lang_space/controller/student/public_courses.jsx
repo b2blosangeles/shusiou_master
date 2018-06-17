@@ -8,22 +8,7 @@ try {
 			var me = this;
 			setTimeout(me.callEng);
 			var str='test1[s]test2';
-			var a = str.split(/\[s\]/i);
-			Root.lib.loadSocketIO(me, {
-				resource:'/',
-				id : 'sanramon',
-				public : true, 
-				room:'room1',
-				onServerData : function(incomeData, socket) {
-					console.log(incomeData.data);
-					console.log('onServerData -- san ramon ' + socket.id);
-				}
-				/*,
-				onServerMessage: function(data) {
-						console.log('message coming!--' + me.rr);
-				}*/
-			});
-		
+			var a = str.split(/\[s\]/i);	
 		},
 		callEng:function() {
 			var me = this;
@@ -49,10 +34,6 @@ try {
 		componentDidUpdate:function() {
 			var me = this;	
 			Root.lib.routerPermission(Root.state.userInfo, me.props.route.permission);			
-		},		
-		dictionary:function(v) {
-			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
-			return this.props.route.env.dictionary(v);
 		},
 		getCurrentLanguage: function() {
 			return this.props.route.env.getCurrentLanguage();	
@@ -98,8 +79,8 @@ try {
 											<a href={'#/student/my_course/' + a.curriculum_id}>
 												<button type="button" 
 													className="btn btn-success">
-													<i className="fa fa-play" aria-hidden="true"></i> 
-													&nbsp;&nbsp;play
+													<i className="fa fa-rocket" aria-hidden="true"></i> 
+													&nbsp;&nbsp;{Root.lib.dictionary('start_curriculum')}
 												</button>
 											</a>	
 										</div>										

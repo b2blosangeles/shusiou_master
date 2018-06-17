@@ -6,7 +6,7 @@ try {
 		},	
 		componentDidMount:function() {
 			var me = this;
-			setTimeout(me.callEng);
+			me.callEng();
 		},
 		callEng:function() {
 			var me = this;
@@ -28,16 +28,6 @@ try {
 				}
 			}
 			Root.lib.loadEng(me, engCfg);
-		},
-		componentDidUpdate:function() {
-			var me = this;
-		},		
-		dictionary:function(v) {
-			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
-			return this.props.route.env.dictionary(v);
-		},
-		getCurrentLanguage: function() {
-			return this.props.route.env.getCurrentLanguage();	
 		},
 		getText:function(v) {
 			return this.state.text[v][this.getCurrentLanguage()];
@@ -79,8 +69,8 @@ try {
 											<a href={'#/student/my_course/' + a.id}>
 												<button type="button" 
 													className="btn btn-success">
-													<i className="fa fa-play" aria-hidden="true"></i> 
-													&nbsp;&nbsp;play
+													<i className="fa fa-rocket" aria-hidden="true"></i> 
+													&nbsp;&nbsp;{Root.lib.dictionary('start_curriculum')}
 												</button>
 											</a>	
 										</div>										

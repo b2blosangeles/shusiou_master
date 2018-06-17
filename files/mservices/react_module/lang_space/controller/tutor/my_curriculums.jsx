@@ -33,10 +33,6 @@ try {
 			var me = this;
 			Root.lib.routerPermission(Root.state.userInfo, me.props.route.permission);			
 		},		
-		dictionary:function(v) {
-			if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
-			return this.props.route.env.dictionary(v);
-		},
 		getCurrentLanguage: function() {
 			return this.props.route.env.getCurrentLanguage();	
 		},
@@ -70,7 +66,7 @@ try {
 									<a href={'#/tutor/my_curriculum/new/'}>
 									<button type="button" 
 										className="btn btn-warning">
-										Add Curriculum 
+										{Root.lib.dictionary('add_curriculum')}
 									</button>
 									</a>	
 								</div>
@@ -84,13 +80,13 @@ try {
 											{a.name}	
 										</div>
 										<_commObj code={'videoImage'}  
-											data={{rec:a, width:'100%', ss:90, size:320}}/>
+											data={{rec:a, width:'100%', ss:120, size:320}}/>
 										<div className="video_thumbnail_text">
 											<a href={'#/tutor/my_curriculum/edit/' + a.curriculum_id}>
 												<button type="button" 
 													className="btn btn-warning">
 													<i className="fa fa-pencil" aria-hidden="true"></i> 
-													&nbsp;&nbsp;Edit
+													&nbsp;&nbsp;{Root.lib.dictionary('edit_curriculum')}
 												</button>
 											</a>	
 										</div>										

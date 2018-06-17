@@ -45,17 +45,16 @@ try {
 					<div className="container">
 						<div class="row">
 							<div className="col-sm-12 col-lg-12 col-md-12"> 
-								<div className="overlayer_box editor_box">
+								<div className="overlayer_box editor_box1">
 								  <h3 className="display-3">{me.dictionary(me.state.title)}</h3>
 								  <p className="lead"></p>
-								  <hr className="my-4"/>
-								{/*
-								  <p>=={me.props.route.doc}==>{me.props.params.code}-{me.state.title}</p>
-								*/}  
-								<p dangerouslySetInnerHTML={{__html: me.state.body}} />									</div>	
-							</div>								
+								  <hr className="my-4"/> 
+								<p dangerouslySetInnerHTML={{__html: me.state.body}} />	
+								</div>	
+							</div>						
 						</div>
-					</div>	
+					</div>
+					<br/><br/><br/><br/>
 					<div className="content_bg opacity_bg"/>
 				</div>					
 				

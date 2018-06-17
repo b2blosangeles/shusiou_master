@@ -1,7 +1,7 @@
 
 try {
 	var shusiou_url = location.protocol+'//'+window.location.hostname;
-	if (location.protocol !== 'https:') {
+	if (location.protocol !== 'https:' && false) {
 		window.location.href = window.location.href.replace(shusiou_url, 'https://' + window.location.hostname);
 	} else {
 		var Root =  React.createClass({
@@ -19,19 +19,20 @@ try {
 					userInfo: {}
 				};
 			},			
-			dictionary: function(v) {
-				if  (!this.state.dictionary[v]) return v;
-				return (!this.state.dictionary[v][this.state.c_lang])?this.state.dictionary[v]['en']:this.state.dictionary[v][this.state.c_lang];
-			},
 			inte_array: function(a, b) {
 				for(var i=0; i < a.length; i++) { if (b.indexOf(a[i]) !== -1) return true;}
 				return false;
+			},
+			dictionary: function(v) {
+				return Root.lib.dictionary(v);
 			},
 			getCurrentLanguage: function() {
 				return this.state.c_lang;
 			},	
 			setLang: function(v) {
-				this.setState({c_lang: v});
+				Root.setState({c_lang: v}, function() {
+					document.title = Root.lib.dictionary('site_name');
+				});
 				// reactCookie.save('lang', v, { path: '/', maxAge: 3 });
 				reactCookie.save('lang', v, { path: '/'});
 			},
@@ -70,7 +71,7 @@ try {
 						method:'post',
 						data: {cmd:'getAuthUser'}
 					},
-					hold:0,
+					hold:2000,
 					setting: {timeout:3000},
 					callBack: function(data) {
 						if (data.status === 'success') {
@@ -89,9 +90,6 @@ try {
 				var me = this;
 				me.getAuth();
 
-			},
-			componentDidUpdate:function(prevProps, prevState) {
-				var me = this;
 			},
 			requireAuth:function(nextState, replace) {
 				var me = this;
@@ -117,7 +115,7 @@ try {
 					{route:'student/my_courses', role:['learner'],  auth:true, component:Mycourse},
 					{route:'student/my_course/:id', role:['*'],  auth:true, component:Mycoursebyid},
 
-					{route:'message', role:['teacher'],  auth:true, component:MyMessage},
+					{route:'dashboard', role:['*'],  auth:false, component:MyDashboard},
 					
 					{route:'Signin', role:['*'], auth:false, component:Signin},
 					{route:'Signup', role:['*'], auth:false, component:Signup},

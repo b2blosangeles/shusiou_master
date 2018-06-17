@@ -61,9 +61,9 @@
 		cn:"帮助",
 		en:"Help"	
 	},
-	my_message: {
-		cn:"系统信息",
-		en:"Message"	
+	my_dashboard: {
+		cn:"信息版块",
+		en:"Dashboard"	
 	},	
 	menu_testimony: {
 		cn:"成功案例",
@@ -140,5 +140,57 @@
 	menu_tuition:{
 		cn:"我的学费",
 		en:"Tuition"		
+	},
+	add_curriculum:{
+		cn:"添加教程",
+		en:"Add Curriculum"		
+	},
+	edit_curriculum:{
+		cn:"编辑教程",
+		en:"Edit Curriculum"		
+	},
+	play_video:{
+		cn:"播放视频",
+		en:"Play Video"
+	},
+	add_video:{
+		cn:"添加视频",
+		en:"Add Video"
+	},
+	start_curriculum:{
+		cn:"开始教程",
+		en:"Start Curriculum"
+	},
+	curriculum_name:{
+		cn:"教程名称",
+		en:"Curriculum Name"		
+	},
+	mother_language:{
+		cn:"学生母语",
+		en:"Mother Language"			
+	},
+	learning_language:{
+		cn:"学习语言",
+		en:"Learning Language"	
+	},
+	level: {
+		cn:"课程级别",
+		en:"Curriculum level"	
+	},
+	save: {
+		cn:"保存",
+		en:"Save"	
+	},
+	cancel: {
+		cn:"撤消",
+		en:"Cancel"	
+	},
+	select_language: {
+		cn:"选择语言",
+		en:"Select Language"	
+	},
+	select_level: {
+		cn:"选择级别",
+		en:"Select Level"	
 	}
 }
