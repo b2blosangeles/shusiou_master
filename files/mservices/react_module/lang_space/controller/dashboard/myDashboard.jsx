@@ -30,7 +30,7 @@ try {
 		Root.lib.loadSocketIO(me, {
 			resource: _comm_svr(),
 			public : true, 
-			room:'CRON_REPORT',
+			room:'CRON_REPORT_A',
 			onServerData : function(incomeData, socket) {
 				console.log(incomeData.data);
 				console.log('onServerData -- ' + ' === ' + socket.id);
