@@ -27,7 +27,7 @@ try {
         componentDidMount:function() {
           let me = this, i = 0;
 		Root.lib.loadSocketIO(me, {
-			resource:'/',
+			resource: _comm_svr(),
 			public : true, 
 			room:'room2',
 			onServerData : function(incomeData, socket) {
