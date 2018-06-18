@@ -9,11 +9,11 @@ var config = require(env.config_path + '/config.json');
 delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
 var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
 // var socketClient = new socketNodeClient('https://' + config.root + '/', env);
-var socketClient = new socketNodeClient('http://comm1.service.dev.shusiou.win/', env);
+var socketClient = new socketNodeClient('https://comm1.service.dev.shusiou.win/', env);
 
 socketClient.sendToRoom(
     'CRON_REPORT',
-    {x:new Date(), Y:88},
+    {x:new Date(), Y:818},
     function(data) {
 	// res.send(data);
     }
