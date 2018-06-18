@@ -13,7 +13,7 @@ var socketClient = new socketNodeClient('http://comm1.service.dev.shusiou.win/',
 
 socketClient.sendToRoom(
     'CRON_REPORT_A',
-    {x:new Date(), Y:818},
+    {x:new Date(), Y:818, from : 'http'},
     function(data) {
 	// res.send(data);
     }
