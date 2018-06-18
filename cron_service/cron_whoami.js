@@ -12,7 +12,7 @@ var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socket
 var socketClient = new socketNodeClient('http://comm1.service.dev.shusiou.win/', env);
 
 socketClient.sendToRoom(
-    'CRON_REPORT',
+    'CRON_REPORT_A',
     {x:new Date(), Y:818},
     function(data) {
 	// res.send(data);
