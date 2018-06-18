@@ -26,7 +26,7 @@ try {
 	},	    
         componentDidMount:function() {
           let me = this, i = 0;
-		console.log(_comm_svr());
+		console.log(_comm_svr()+ '====');
 		Root.lib.loadSocketIO(me, {
 			resource: _comm_svr(),
 			public : true, 
