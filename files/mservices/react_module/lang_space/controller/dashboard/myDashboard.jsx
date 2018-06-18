@@ -33,7 +33,7 @@ try {
 			room:'CRON_REPORT_A',
 			onServerData : function(incomeData, socket) {
 				console.log(incomeData.data);
-				console.log('onServerData -- ' + ' === ' + socket.id);
+				//console.log('onServerData -- ' + ' === ' + socket.id);
 			}
 			/*,
 			onServerMessage: function(data) {
