@@ -25,7 +25,7 @@ try {
 	playVideo: function() {
 	},
 	channel : function(socketid) {
-		let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
+		let url = "https://comm1.service.dev.shusiou.win/?room=" + socketid;
 		positionedPopup(url, 'myWindow','700','300','400','400','yes');
 	},
         componentDidMount:function() {
