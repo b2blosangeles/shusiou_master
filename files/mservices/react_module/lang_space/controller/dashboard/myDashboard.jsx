@@ -36,7 +36,7 @@ try {
 			public : true, 
 			room:'CRON_REPORT_A',
 			onServerData : function(incomeData, socket) {
-				me.channel(socket.id);
+			//	me.channel(socket.id);
 				console.log(incomeData.data);
 				//console.log('onServerData -- ' + ' === ' + socket.id);
 			}
