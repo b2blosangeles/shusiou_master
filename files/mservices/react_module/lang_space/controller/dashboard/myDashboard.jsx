@@ -23,7 +23,11 @@ try {
 		}
 	},
 	playVideo: function() {
-	},	    
+	},
+	channel : function(socketid) {
+		let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
+		positionedPopup(url, 'myWindow','700','300','400','400','yes');
+	},
         componentDidMount:function() {
           let me = this, i = 0;
 		console.log(_comm_svr()+ '====');
@@ -32,6 +36,7 @@ try {
 			public : true, 
 			room:'CRON_REPORT_A',
 			onServerData : function(incomeData, socket) {
+				me.channel(socket.id);
 				console.log(incomeData.data);
 				//console.log('onServerData -- ' + ' === ' + socket.id);
 			}
