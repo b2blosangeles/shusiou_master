@@ -90,7 +90,7 @@ try {
 					</div>	
 				</div>						
 			</div>	
-			<iframe src="https://comm1.service.dev.shusiou.win/?room=NB"></iframe> 
+			<iframe src="https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A"></iframe> 
 			<div className="content_bg">
 				<video src="" className="align-middle" muted></video>
 			</div>
