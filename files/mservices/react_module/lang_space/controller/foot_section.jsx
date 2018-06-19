@@ -117,7 +117,7 @@ try {
 			}
 		},
 		channel : function() {
-			let url = "https://comm1.service.dev.shusiou.win/";
+			let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
 			positionedPopup(url, 'myWindow','700','300','400','400','yes');
 		},
 		render: function() {
