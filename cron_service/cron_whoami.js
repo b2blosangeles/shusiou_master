@@ -10,7 +10,7 @@ delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient
 var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
 // var socketClient = new socketNodeClient('https://' + config.root + '/', env);
 
-var socketClient = new socketNodeClient('http://comm1.service.dev.shusiou.win/', env);
+var socketClient = new socketNodeClient('https://comm1.service.dev.shusiou.win/', env);
 
 socketClient.sendToRoom(
     'CRON_REPORT_A',
