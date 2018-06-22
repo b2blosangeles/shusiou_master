@@ -15,8 +15,9 @@ watchCron.load('master', 60);
 /* -------------*/
 delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
 var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-var socketClient = new socketNodeClient('https://' + config.root + '/', env);
-
+var socketClient = new socketNodeClient(
+	{link:'https://comm1.service.dev.shusiou.win/'}, 
+	env);
 socketClient.sendToRoom(
     'CRON_REPORT',
     {x:new Date(), Y:90},
