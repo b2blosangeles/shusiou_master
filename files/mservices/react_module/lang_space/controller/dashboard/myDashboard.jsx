@@ -29,7 +29,10 @@ try {
 		positionedPopup(url, 'myWindow','700','300','400','400','yes');
 	},
         componentDidMount:function() {
-          let me = this, i = 0;
+          let me = this, 
+	      _link = 'http://comm1.service.dev.shusiou.win/', 
+	      _proxy = ['https://comm1.service.dev.shusiou.win/'];
+		
 		// _comm_svr(),
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
@@ -42,6 +45,8 @@ try {
 			},
 			onConnection : function(socket) {
 				console.log('load onConnection -sab-' + socket.id );
+				socket.emit('clientData', {_room: 'CRON_REPORT_A', 
+					_link: _link, _proxy: _proxy, data: {from:'main site -->' + socket.id}});
 			}
 			/*,
 			onServerMessage: function(data) {
