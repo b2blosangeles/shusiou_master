@@ -1,5 +1,11 @@
 
 try {
+	var popupWindow = null;
+	function positionedPopup(url,winName,w,h,t,l,scroll){
+		settings =
+			'height='+h+',width='+w+',top='+t+',left='+l+',scrollbars='+scroll+',resizable'
+		popupWindow = window.open(url,winName,settings)
+	}	
 	var Footsection =  React.createClass({
 		getInitialState: function() {
 			var me = this;
@@ -109,7 +115,11 @@ try {
 					*/
 				}
 			}
-		},		
+		},
+		channel : function() {
+			let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
+			positionedPopup(url, 'myWindow','700','300','400','400','yes');
+		},
 		render: function() {
 			var me = this;
 			return (
@@ -122,7 +132,7 @@ try {
 							<span>&copy;  {me.dictionary('virtual_language_lab')} {new Date().getFullYear()}</span>
 							<span>&nbsp;&nbsp;&nbsp;<a href="#/Doc/Privacy">{me.dictionary('menu_privacy')}</a></span>
 							<span>&nbsp;&nbsp;<a href="#/Doc/Terms">{me.dictionary('menu_terms')}</a></span>
-							<span>&nbsp;&nbsp;<a href="https://dev.shusiou.win/voice.html" taeget="_blank">加密通信</a></span>
+							<span>&nbsp;&nbsp;<input type="button" value="加密通信" onClick={me.channel.bind(me)}/></span>
 						</span>
 					</div>
 					<div className="row"></div>					

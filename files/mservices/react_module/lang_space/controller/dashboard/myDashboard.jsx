@@ -23,16 +23,22 @@ try {
 		}
 	},
 	playVideo: function() {
-	},	    
+	},
+	channel : function(socketid) {
+		let url = "https://comm1.service.dev.shusiou.win/?room=" + socketid;
+		positionedPopup(url, 'myWindow','700','300','400','400','yes');
+	},
         componentDidMount:function() {
           let me = this, i = 0;
+		// _comm_svr(),
 		Root.lib.loadSocketIO(me, {
-			resource:'/',
+			resource: 'http://comm1.service.dev.shusiou.win/',
 			public : true, 
-			room:'room2',
+			room:'CRON_REPORT_A',
 			onServerData : function(incomeData, socket) {
+			//	me.channel(socket.id);
 				console.log(incomeData.data);
-				console.log('onServerData -- ' + ' === ' + socket.id);
+				//console.log('onServerData -- ' + ' === ' + socket.id);
 			}
 			/*,
 			onServerMessage: function(data) {
@@ -83,7 +89,7 @@ try {
 						</p>
 					</div>	
 				</div>						
-			</div>	
+			</div> 
 			<div className="content_bg">
 				<video src="" className="align-middle" muted></video>
 			</div>

@@ -5,19 +5,25 @@ env.config_path = '/var/qalet_config';
 var config = require(env.config_path + '/config.json');
 
 /* ----- test code --------*/
-/*
-delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
-var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-var socketClient = new socketNodeClient('https://' + config.root + '/', env);
+
+delete require.cache[env.root_path + '/package/socketNodeClient/socketNodeClient.js'];
+var socketNodeClient = require(env.root_path + '/package/socketNodeClient/socketNodeClient.js');
+
+var socketClient = new socketNodeClient(
+	{
+		link:'http://comm1.service.dev.shusiou.win/',
+		proxy:['https://comm1.service.dev.shusiou.win/']
+	}, 
+	env);
 
 socketClient.sendToRoom(
-    'CRON_REPORT',
-    {x:new Date(), Y:88},
+    'CRON_REPORT_A',
+    {x:new Date(), Y:919, from : 'http'},
     function(data) {
 	// res.send(data);
     }
 );
-*/
+
 /* -------------*/
 
 let pkg = {
