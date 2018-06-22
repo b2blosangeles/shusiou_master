@@ -34,9 +34,8 @@
 			},1000);			
 			me.socket.on('serverData', function(data) {
 				if ((data._room) && data._requestID === me.requestID) {
-					// me.socket.disconnect();
-					callback(data);
 					me.socket.close();
+					callback(data);
 					return true;
 				}
 			});		
