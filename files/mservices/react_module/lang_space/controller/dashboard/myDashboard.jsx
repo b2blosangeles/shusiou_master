@@ -31,8 +31,9 @@ try {
         componentDidMount:function() {
           let me = this, i = 0;
 		console.log(_comm_svr()+ '==2==');
+		// _comm_svr(),
 		Root.lib.loadSocketIO(me, {
-			resource: _comm_svr(),
+			resource: 'https://comm1.service.dev.shusiou.win/'
 			public : true, 
 			room:'CRON_REPORT_A',
 			onServerData : function(incomeData, socket) {
