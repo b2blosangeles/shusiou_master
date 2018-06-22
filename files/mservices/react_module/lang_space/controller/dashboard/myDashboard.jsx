@@ -29,15 +29,15 @@ try {
 		    _link = 'http://comm1.service.dev.shusiou.win/',
 		    _proxy = ['https://comm1.service.dev.shusiou.win/'];
 		
-		socket.emit('clientData', {_room: 'CRON_REPORT_A', 
-			_link: _link, _proxy: _proxy, 
-			data: {command: 'stop audio', sender:socket.id}});
+		setInterval(function() {
+			socket.emit('clientData', {_room: 'CRON_REPORT_A', 
+				_link: _link, _proxy: _proxy, 
+				data: {command: 'stop audio', sender:socket.id}});
+		}, 6000);	
 	},
 	    
         componentDidMount:function() {
           let me = this;
-		
-		// _comm_svr(),
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
 			public : true, 
@@ -50,10 +50,8 @@ try {
 				console.log(incomeData.data);
 				console.log('onServerData -- ' + ' === ' + socket.id);
 			},
-			onConnection : function(socket) {
-				setInterval(function() {
-					me.channel(socket);
-				}, 3000);
+			onConnection : function(socket) {				
+				me.channel(socket);
 			}
 			/*,
 			onServerMessage: function(data) {
