@@ -25,7 +25,9 @@
 			me.socket.on('connect', function(){
 				me.socket.emit('createRoom', room);
 				data.pp = 'PP';
-				me.socket.emit('clientData', {_room: room, _requestID:me.requestID, data: data});
+				me.socket.emit('clientData', {_room: room, 
+						_link: cfg.link, _proxy: ((cfg.proxy) ? cfg.proxy : null),
+						_requestID:me.requestID, data: data});
 			});
 			setTimeout(function() {   
 				me.socket.close();
