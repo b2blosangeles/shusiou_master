@@ -201,7 +201,7 @@ var _commLib = function () {
 				}	
 			});
 			if (typeof cfg.onServerMessage === 'function') {
-				obj.socket.on('serverData', cfg.onServerMessage);
+				obj.socket.on('serverMessage', cfg.onServerMessage);
 			}
 		}
 	}   
