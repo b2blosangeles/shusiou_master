@@ -6,8 +6,8 @@ var config = require(env.config_path + '/config.json');
 
 /* ----- test code --------*/
 
-delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
-var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+delete require.cache[env.root_path + '/packeg/socketNodeClient/socketNodeClient.js'];
+var socketNodeClient = require(env.root_path + '/packeg/socketNodeClient/socketNodeClient.js');
 
 var socketClient = new socketNodeClient(
 	{
@@ -18,7 +18,7 @@ var socketClient = new socketNodeClient(
 
 socketClient.sendToRoom(
     'CRON_REPORT_A',
-    {x:new Date(), Y:818, from : 'http'},
+    {x:new Date(), Y:989, from : 'http'},
     function(data) {
 	// res.send(data);
     }
