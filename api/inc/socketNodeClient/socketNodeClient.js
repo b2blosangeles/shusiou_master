@@ -6,7 +6,7 @@
 		me.connect = function () {
 			let me = this;
 			
-			let patt_https = /^https\:\/\//,  patt_http = /^http\:\/\//;
+			let patt_https = /^https\:\/\//i,  patt_http = /^http\:\/\//i;
 			
 			if (patt_https.test(cfg.link)) {
 				me.socket = me.io.connect(cfg.link, {secure: true, reconnect: true, rejectUnauthorized : false});
