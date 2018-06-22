@@ -5,7 +5,14 @@
 
 		me.connect = function () {
 			let me = this;
-			me.socket = me.io.connect(url, {secure: true, reconnect: true, rejectUnauthorized : false});
+			let patt_https = /^https\:\/\//,  patt_http = /^http\:\/\//;
+			
+			if (patt_https.test(url)) {
+				me.socket = me.io.connect(url, {secure: true, reconnect: true, rejectUnauthorized : false});
+			}
+			if (patt_http.test(url)) {
+				me.socket = me.io.connect(url);
+			}
 		}
 		me.sendToRoom = function (room, data, callback) {
 			let me = this;
