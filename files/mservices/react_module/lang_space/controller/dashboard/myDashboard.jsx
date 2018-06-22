@@ -30,7 +30,6 @@ try {
 	},
         componentDidMount:function() {
           let me = this, i = 0;
-		console.log(_comm_svr()+ '==3==');
 		// _comm_svr(),
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
