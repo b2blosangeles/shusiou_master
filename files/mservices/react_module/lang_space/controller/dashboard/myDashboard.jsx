@@ -41,7 +41,7 @@ try {
 				console.log('onServerData -- ' + ' === ' + socket.id);
 			},
 			onConnection : function(socket) {
-				console.log('load onConnection --' );
+				console.log('load onConnection --' + socket.id );
 			}
 			/*,
 			onServerMessage: function(data) {
