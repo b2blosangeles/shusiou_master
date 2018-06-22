@@ -192,11 +192,6 @@ var _commLib = function () {
 						//if (incomeData._room === cfg.room) {
 							cfg.onServerData(incomeData, obj.socket);
 						//}
-					});
-					obj.socket.on('clientData', function(incomeData) {
-						//if (incomeData._room === cfg.room) {
-							cfg.onServerData(incomeData, obj.socket);
-						//}
 					});					
 				}	
 			});
