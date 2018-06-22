@@ -18,7 +18,7 @@ var socketClient = new socketNodeClient(
 
 socketClient.sendToRoom(
     'CRON_REPORT_A',
-    {x:new Date(), Y:989, from : 'http'},
+    {x:new Date(), Y:919, from : 'http'},
     function(data) {
 	// res.send(data);
     }
