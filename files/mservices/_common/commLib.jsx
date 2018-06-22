@@ -167,7 +167,7 @@ var _commLib = function () {
 		//let obj = (!cfg.public) ? o : Root.socket[_id]; 
 		let obj = Root.socket[_id];
 		
-		if (!cfg.public) {
+		if (!cfg.publicId) {
 			o.componentWillUnmount = (function(o, componentWillUnmount) {
 				return function() {
 					if (typeof componentWillUnmount === 'function') {
@@ -178,8 +178,7 @@ var _commLib = function () {
 				}
 			})(o, o.componentWillUnmount);
 		}
-		if (!cfg.public && (obj.socket)) {
-			// console.log('o.socket.close();');
+		if (!cfg.publicId && (obj.socket)) {
 			obj.socket.close();
 		}
 		if (!obj.socket) {
