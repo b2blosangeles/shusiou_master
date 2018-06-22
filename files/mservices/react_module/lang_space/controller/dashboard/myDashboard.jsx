@@ -38,7 +38,7 @@ try {
 			onServerData : function(incomeData, socket) {
 			//	me.channel(socket.id);
 				console.log(incomeData.data);
-				//console.log('onServerData -- ' + ' === ' + socket.id);
+				console.log('onServerData -- ' + ' === ' + socket.id);
 			}
 			/*,
 			onServerMessage: function(data) {
