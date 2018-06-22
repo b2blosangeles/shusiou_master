@@ -14,7 +14,8 @@ watchCron.load('master', 60);
 /* --- code for cron watch  ---*/
 
 /* -------------*/
-var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+delete require.cache[env.root_path + '/package/socketNodeClient/socketNodeClient.js'];
+var socketNodeClient = require(env.root_path + '/package/socketNodeClient/socketNodeClient.js');
 var socketClient = new socketNodeClient(
 	{link:'https://comm1.service.dev.shusiou.win/'}, 
 	env);
