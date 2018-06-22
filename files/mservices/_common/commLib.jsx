@@ -193,6 +193,11 @@ var _commLib = function () {
 							cfg.onServerData(incomeData, obj.socket);
 						//}
 					});
+					obj.socket.on('clientData', function(incomeData) {
+						//if (incomeData._room === cfg.room) {
+							cfg.onServerData(incomeData, obj.socket);
+						//}
+					});					
 				}	
 			});
 			if (typeof cfg.onServerMessage === 'function') {
