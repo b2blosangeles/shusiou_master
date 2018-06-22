@@ -185,7 +185,7 @@ var _commLib = function () {
 		if (!obj.socket) {
 			obj.socket = io.connect(cfg.resource);
 			obj.socket.on('connect', function() {
-				console.log('--->connected -->' + obj.socket.id + '--' + cfg.room);
+				// console.log('--->connected -->' + obj.socket.id + '--' + cfg.room);
 				obj.socket.emit('createRoom', cfg.room);
 				if (typeof cfg.onServerData === 'function') {
 					obj.socket.on('serverData', function(incomeData) {
