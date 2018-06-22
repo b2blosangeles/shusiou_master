@@ -13,8 +13,8 @@ let watch_cron_inc = require(__dirname + '/watch_cron.inc.js'),
 watchCron.load('master', 60);
 
 /* -------------*/
-delete require.cache[env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js'];
-var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
+delete require.cache[env.root_path + '/package/socketNodeClient/socketNodeClient.js'];
+var socketNodeClient = require(env.root_path + '/package/socketNodeClient/socketNodeClient.js');
 var socketClient = new socketNodeClient(
 	{link:'https://comm1.service.dev.shusiou.win/'}, 
 	env);
