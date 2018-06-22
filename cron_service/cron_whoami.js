@@ -11,7 +11,10 @@ var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socket
 // var socketClient = new socketNodeClient('https://' + config.root + '/', env);
 
 var socketClient = new socketNodeClient(
-	{link:'http://comm1.service.dev.shusiou.win/'}, 
+	{
+		link:'http://comm1.service.dev.shusiou.win/',
+		proxy:['http://comm1.service.dev.shusiou.win/', 'https://comm1.service.dev.shusiou.win/']
+	}, 
 	env);
 
 socketClient.sendToRoom(
