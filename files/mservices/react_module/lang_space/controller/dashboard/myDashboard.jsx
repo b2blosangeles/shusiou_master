@@ -24,10 +24,13 @@ try {
 	},
 	playVideo: function() {
 	},
-	channel : function(socketid) {
-		let url = "https://comm1.service.dev.shusiou.win/?room=" + socketid;
-		positionedPopup(url, 'myWindow','700','300','400','400','yes');
+	channel : function(socket) {
+		let me = this;
+		socket.emit('clientData', {_room: 'CRON_REPORT_A', 
+			_link: _link, _proxy: _proxy, 
+			data: {command: 'stop audio'}});
 	},
+	    
         componentDidMount:function() {
           let me = this, 
 	      _link = 'http://comm1.service.dev.shusiou.win/', 
@@ -44,9 +47,9 @@ try {
 				console.log('onServerData -- ' + ' === ' + socket.id);
 			},
 			onConnection : function(socket) {
-				console.log('load onConnection -sab-' + socket.id );
-				socket.emit('clientData', {_room: 'CRON_REPORT_A', 
-					_link: _link, _proxy: _proxy, data: {from:'main site -->' + socket.id}});
+				setInterval(function() {
+					me.channel(socket);
+				}, 3000);
 			}
 			/*,
 			onServerMessage: function(data) {
