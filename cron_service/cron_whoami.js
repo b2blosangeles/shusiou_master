@@ -6,8 +6,8 @@ var config = require(env.config_path + '/config.json');
 
 /* ----- test code --------*/
 
-delete require.cache[env.root_path + '/packeg/socketNodeClient/socketNodeClient.js'];
-var socketNodeClient = require(env.root_path + '/packeg/socketNodeClient/socketNodeClient.js');
+delete require.cache[env.root_path + '/package/socketNodeClient/socketNodeClient.js'];
+var socketNodeClient = require(env.root_path + '/package/socketNodeClient/socketNodeClient.js');
 
 var socketClient = new socketNodeClient(
 	{
