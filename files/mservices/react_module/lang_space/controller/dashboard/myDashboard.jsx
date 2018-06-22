@@ -25,16 +25,17 @@ try {
 	playVideo: function() {
 	},
 	channel : function(socket) {
-		let me = this;
+		let me = this,
+		    _link = 'http://comm1.service.dev.shusiou.win/',
+		    _proxy = ['https://comm1.service.dev.shusiou.win/'];
+		
 		socket.emit('clientData', {_room: 'CRON_REPORT_A', 
 			_link: _link, _proxy: _proxy, 
 			data: {command: 'stop audio'}});
 	},
 	    
         componentDidMount:function() {
-          let me = this, 
-	      _link = 'http://comm1.service.dev.shusiou.win/', 
-	      _proxy = ['https://comm1.service.dev.shusiou.win/'];
+          let me = this;
 		
 		// _comm_svr(),
 		Root.lib.loadSocketIO(me, {
