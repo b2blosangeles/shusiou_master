@@ -29,8 +29,10 @@ socketClient.sendToRoom(
 /* ------------- */
 
 var sendToFrontendNotice = function(vid, cbk) {
-	var socketNodeClient = require(env.site_path + '/api/inc/socketNodeClient/socketNodeClient.js');
-	var socketClient = new socketNodeClient('https://' + config.root + '/', env);
+	var socketNodeClient = require(env.root_path + '/package/socketNodeClient/socketNodeClient.js');
+	var socketClient = new socketNodeClient(
+		{link:'https://comm1.service.dev.shusiou.win/'}, 
+		env);
 	// console.log('send message to video_' +  vid);
 	socketClient.sendToRoom(
 	    'video_' +  vid,
