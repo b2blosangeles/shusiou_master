@@ -1,17 +1,18 @@
 (function () { 
-	var obj =  function (url, env) {
+	var obj =  function (cfg, env) {
 		let me = this;
 		me.io = require(env.root_path + '/sites/master/api/inc/socket.io-client/node_modules/socket.io-client');
 
 		me.connect = function () {
 			let me = this;
+			
 			let patt_https = /^https\:\/\//,  patt_http = /^http\:\/\//;
 			
-			if (patt_https.test(url)) {
-				me.socket = me.io.connect(url, {secure: true, reconnect: true, rejectUnauthorized : false});
+			if (patt_https.test(cfg.link)) {
+				me.socket = me.io.connect(cfg.link, {secure: true, reconnect: true, rejectUnauthorized : false});
 			}
-			if (patt_http.test(url)) {
-				me.socket = me.io.connect(url);
+			if (patt_http.test(cfg.link)) {
+				me.socket = me.io.connect(cfg.link);
 			}
 		}
 		me.sendToRoom = function (room, data, callback) {
