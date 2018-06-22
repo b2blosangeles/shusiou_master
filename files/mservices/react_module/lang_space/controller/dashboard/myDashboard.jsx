@@ -31,7 +31,7 @@ try {
 		
 		socket.emit('clientData', {_room: 'CRON_REPORT_A', 
 			_link: _link, _proxy: _proxy, 
-			data: {command: 'stop audio'}});
+			data: {command: 'stop audio', sender:socket.id}});
 	},
 	    
         componentDidMount:function() {
@@ -43,6 +43,9 @@ try {
 			public : true, 
 			room:'CRON_REPORT_A',
 			onServerData : function(incomeData, socket) {
+				if (incomeData.data.sender ===  socket.id) {
+					return true;
+				}
 			//	me.channel(socket.id);
 				console.log(incomeData.data);
 				console.log('onServerData -- ' + ' === ' + socket.id);
