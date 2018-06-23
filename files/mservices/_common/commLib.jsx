@@ -156,7 +156,7 @@ var _commLib = function () {
     }
 
 	this.loadSocketIO = function(o, cfg) {
-		let _id = (cfg.id) ? (cfg.id + '_' + cfg.room) :
+		let _id = (cfg.publicId) ? cfg.publicId :
 		    (!o || !o.props || !o.props.route || !o.props.route.path) ? cfg.room : (o.props.route.path + '_' + cfg.room);
 
 		// console.log('_id =D=>' + _id);
