@@ -35,9 +35,8 @@ try {
 				data: {command: 'stop audio', sender:socket.id}});
 		}, 6000);	
 	},
-	    
-        componentDidMount:function() {
-          let me = this;
+        componentDidUpdate:function() {
+		let me = this;
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
 			publicId : null, 
@@ -58,7 +57,32 @@ try {
 					console.log('message coming!--' + me.rr);
 			}*/
 		});
-		
+
+		return true;
+        },	    
+        componentDidMount:function() {
+		let me = this;
+		Root.lib.loadSocketIO(me, {
+			resource: 'http://comm1.service.dev.shusiou.win/',
+			publicId : null, 
+			room:'CRON_REPORT_A',
+			onServerData : function(incomeData, socket) {
+				if (incomeData.data.sender ===  socket.id) {
+					return true;
+				}
+			//	me.channel(socket.id);
+				console.log(incomeData.data);
+				console.log('onServerData -- ' + ' === ' + socket.id);
+			},
+			onConnection : function(socket) {				
+				me.channel(socket);
+			}
+			/*,
+			onServerMessage: function(data) {
+					console.log('message coming!--' + me.rr);
+			}*/
+		});
+
 		return true;
         },
         render: function() {
