@@ -179,6 +179,7 @@ var _commLib = function () {
 			})(o, o.componentWillUnmount);
 		}
 		if (!cfg.publicId && (obj.socket)) {
+			console.log('====closed===');
 			obj.socket.close();
 		}
 		if (!obj.socket) {
