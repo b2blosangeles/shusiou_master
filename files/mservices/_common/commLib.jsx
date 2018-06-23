@@ -177,6 +177,7 @@ var _commLib = function () {
 					obj.socket.close();
 				}
 			})(o, o.componentWillUnmount);
+			console.log('====closed A===');
 		}
 		if (!cfg.publicId && (obj.socket)) {
 			console.log('====closed===');
