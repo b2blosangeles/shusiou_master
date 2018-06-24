@@ -38,7 +38,7 @@ try {
         componentDidUpdate:function(preProps, preState) {
 		let me = this;
 		//if (this.props.location !== preProps.location) {
-			console.log('===== componentDidUpdate =========' + JSON.stringisy(this.props.location) + ' vs ' + preProps.location);
+			console.log('===== componentDidUpdate =========' + JSON.stringify(this.props.location) + ' vs ' + preProps.location);
 		//}
 		return true;
 		
