@@ -37,9 +37,9 @@ try {
 	},
         componentDidUpdate:function(preProps, preState) {
 		let me = this;
-		if (this.props.location !== preProps.location) {
-			console.log('===== componentDidUpdate =========' + this.props.location);
-		}
+		//if (this.props.location !== preProps.location) {
+			console.log('===== componentDidUpdate =========' + this.props.location + ' vs ' + preProps.location);
+		//}
 		return true;
 		
 		Root.lib.loadSocketIO(me, {
