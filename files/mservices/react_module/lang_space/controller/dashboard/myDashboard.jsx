@@ -29,13 +29,14 @@ try {
 		    _link = 'http://comm1.service.dev.shusiou.win/',
 		    _proxy = ['https://comm1.service.dev.shusiou.win/'];
 		console.log('socket.id--' + socket.id);
-		setInterval(function() {
+		//setInterval(function() {
 			// socket.emit('clientData', {_room: 'CRON_REPORT_A', 
 			 socket.emit('clientData', {_socket: socket.id,
 				_link: _link, _proxy: _proxy, 
 				data: {command: 'stop audio', sender:socket.id}});
 				// data: {command: 'stop audio', sender:socket.id}});
-		}, 6000);	
+			console.log('socket.id-A-' + socket.id);
+		//}, 6000);	
 	},
         componentDidUpdate:function(preProps, preState) {
         },	    
