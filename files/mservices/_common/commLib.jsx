@@ -175,13 +175,16 @@ var _commLib = function () {
 					}
 					// console.log('---componentWillUnmount triggled ==' + _id);
 					obj.socket.close();
+					delete obj.socket;
 				}
 			})(o, o.componentWillUnmount);
 			console.log('====closed A===');
 		}
 		if (!cfg.publicId && (obj.socket)) {
 			console.log('====closed===');
+			
 			obj.socket.close();
+			delete obj.socket;
 		}
 		if (!obj.socket) {
 			console.log('MAGA===');
