@@ -31,7 +31,7 @@ try {
 		console.log('socket.id--' + socket.id);
 		//setInterval(function() {
 			// socket.emit('clientData', {_room: '/#xBmfsjCedzcNQEaCAADQ', 
-			socket.emit('clientData', {_socket: 'BmfsjCedzcNQEaCAADQ',
+			socket.emit('clientData', {_socket: 'xBmfsjCedzcNQEaCAADQ',
 				_link: _link, _proxy: _proxy, 
 				data: {command: 'stop audio', sender:socket.id}},
 				   function(error, message){
