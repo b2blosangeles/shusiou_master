@@ -32,7 +32,8 @@ try {
 		setInterval(function() {
 			socket.emit('clientData', {_room: 'CRON_REPORT_A', 
 				_link: _link, _proxy: _proxy, 
-				data: {command: 'stop audio', sender:socket.id}});
+				data: {command: 'stop audio', senderA:socket.id}});
+				// data: {command: 'stop audio', sender:socket.id}});
 		}, 6000);	
 	},
         componentDidUpdate:function(preProps, preState) {
@@ -41,8 +42,8 @@ try {
 		let me = this;
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
-			publicId : 'CRON_REPORT_A', 
-			room:'CRON_REPORT_A',
+			// publicId : 'CRON_REPORT_A', 
+			// room:'CRON_REPORT_A',
 			onServerData : function(incomeData, socket) {
 				if (incomeData.data.sender ===  socket.id) {
 					return true;
