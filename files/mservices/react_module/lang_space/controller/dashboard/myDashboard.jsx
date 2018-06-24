@@ -36,6 +36,7 @@ try {
 		}, 6000);	
 	},
         componentDidUpdate:function() {
+		console.log('===== componentDidUpdate =========');
 		return true;
 		let me = this;
 		Root.lib.loadSocketIO(me, {
