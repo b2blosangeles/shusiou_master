@@ -66,6 +66,7 @@ try {
 		return true;
         },	    
         componentDidMount:function() {
+		console.log('==A=== componentDidUpdate =========' + this.props.location.pathname + ' vs ' + preProps.location.pathname);
 		let me = this;
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
