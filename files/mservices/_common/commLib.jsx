@@ -187,9 +187,10 @@ var _commLib = function () {
 			delete obj.socket;
 		}
 		if (!obj.socket) {
-			console.log('MAGA===');
+			console.log('MAGA=build==');
 			obj.socket = io.connect(cfg.resource);
 			obj.socket.on('connect', function() {
+				console.log('MAGA=build== success');
 				console.log('--->connected -->' + obj.socket.id + '--' + cfg.room);
 				obj.socket.emit('createRoom', cfg.room);
 				if (typeof cfg.onServerData === 'function') {
