@@ -33,7 +33,7 @@ try {
 			// socket.emit('clientData', {_room: 'CRON_REPORT_A', 
 			 socket.emit('clientData', {_socket: socket.id,
 				_link: _link, _proxy: _proxy, 
-				data: {command: 'stop audio', senderA:socket.id}});
+				data: {command: 'stop audio', sender:socket.id}});
 				// data: {command: 'stop audio', sender:socket.id}});
 		}, 6000);	
 	},
@@ -46,9 +46,9 @@ try {
 			// publicId : 'CRON_REPORT_A', 
 			// room:'CRON_REPORT_A',
 			onServerData : function(incomeData, socket) {
-				if (incomeData.data.sender ===  socket.id) {
-					return true;
-				}
+			//	if (incomeData.data.sender ===  socket.id) {
+			//		return true;
+			//	}
 			//	me.channel(socket.id);
 				console.log(incomeData.data);
 				console.log('onServerData  ===> ' + socket.id);
