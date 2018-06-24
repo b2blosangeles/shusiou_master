@@ -33,7 +33,13 @@ try {
 			// socket.emit('clientData', {_room: 'CRON_REPORT_A', 
 			socket.emit('clientData', {_socket: socket.id,
 				_link: _link, _proxy: _proxy, 
-				data: {command: 'stop audio', sender:socket.id}});
+				data: {command: 'stop audio', sender:socket.id}},
+				   function(error, message){
+						 console.log('==niu ====');
+					    console.log(error);
+					    console.log(message);
+					}
+				   );
 				// data: {command: 'stop audio', sender:socket.id}});
 			console.log('socket.id-A-' + socket.id);
 		//}, 6000);	
