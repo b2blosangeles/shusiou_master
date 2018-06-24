@@ -117,7 +117,8 @@ try {
 			}
 		},
 		channel : function() {
-			let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
+			// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
+			let url = 'https://comm1.service.dev.shusiou.win/?socket=' + Root.audio_socket
 			positionedPopup(url, 'myWindow','700','300','400','400','yes');
 		},
 		render: function() {
