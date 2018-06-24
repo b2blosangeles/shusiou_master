@@ -33,16 +33,9 @@ try {
 			// socket.emit('clientData', {_room: '/#xBmfsjCedzcNQEaCAADQ', 
 			socket.emit('clientData', {_socket: socket.id,
 				_link: _link, _proxy: _proxy, 
-				data: {command: 'stop audio', sender:socket.id}},
-				   function(error, message){
-					alert(66);
-						 console.log('==niu ====');
-					    console.log(error);
-					    console.log(message);
-					}
-				   );
+				data: {command: 'stop audio', sender:socket.id}});
 				// data: {command: 'stop audio', sender:socket.id}});
-			console.log('socket.id-G-' + socket.id);
+			console.log('socket.id-H-' + socket.id);
 		//}, 6000);	
 	},
         componentDidUpdate:function(preProps, preState) {
