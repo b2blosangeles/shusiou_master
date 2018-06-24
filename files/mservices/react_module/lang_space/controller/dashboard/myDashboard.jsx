@@ -36,41 +36,13 @@ try {
 		}, 6000);	
 	},
         componentDidUpdate:function(preProps, preState) {
-		let me = this;
-		//if (this.props.location !== preProps.location) {
-			console.log('===== componentDidUpdate =========' + this.props.location.pathname + ' vs ' + preProps.location.pathname);
-		//}
-		return true;
-		
-		Root.lib.loadSocketIO(me, {
-			resource: 'http://comm1.service.dev.shusiou.win/',
-			publicId : 'CRON_REPORT_A', 
-			room:'CRON_REPORT_A',
-			onServerData : function(incomeData, socket) {
-				if (incomeData.data.sender ===  socket.id) {
-					return true;
-				}
-			//	me.channel(socket.id);
-				console.log(incomeData.data);
-				console.log('onServerData -- ' + ' === ' + socket.id);
-			},
-			onConnection : function(socket) {				
-				me.channel(socket);
-			}
-			/*,
-			onServerMessage: function(data) {
-					console.log('message coming!--' + me.rr);
-			}*/
-		});
-
-		return true;
         },	    
         componentDidMount:function() {
-		console.log('==A=== componentDidUpdate =========');
 		let me = this;
+		console.log('==B=== componentDidUpdate =========');
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
-			publicId : 'CRON_REPORT_A', 
+			publicId : null, 
 			room:'CRON_REPORT_A',
 			onServerData : function(incomeData, socket) {
 				if (incomeData.data.sender ===  socket.id) {
