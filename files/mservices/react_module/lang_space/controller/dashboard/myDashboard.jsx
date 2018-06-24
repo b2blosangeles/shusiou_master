@@ -36,7 +36,10 @@ try {
 		}, 6000);	
 	},
         componentDidUpdate:function() {
-		console.log('===== componentDidUpdate =========');
+		let me = this;
+		if (this.props.location !== prevProps.location) {
+			console.log('===== componentDidUpdate =========');
+		}
 		return true;
 		let me = this;
 		Root.lib.loadSocketIO(me, {
