@@ -35,7 +35,7 @@ try {
 				data: {command: 'stop audio', sender:socket.id}});
 		}, 6000);	
 	},
-        componentDidUpdate:function(prePropos, preState) {
+        componentDidUpdate:function(prevProps, preState) {
 		let me = this;
 		if (this.props.location !== prevProps.location) {
 			console.log('===== componentDidUpdate =========');
