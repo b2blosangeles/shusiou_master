@@ -159,12 +159,9 @@ var _commLib = function () {
 		let _id = (cfg.publicId) ? cfg.publicId :
 		    (!o || !o.props || !o.props.route || !o.props.route.path) ? cfg.room : (o.props.route.path + '_' + cfg.room);
 
-		// console.log('_id =D=>' + _id);
-
 		Root.socket = (Root.socket) ? Root.socket : {};
 		Root.socket[_id] = (Root.socket[_id]) ? Root.socket[_id] : {};
 
-		//let obj = (!cfg.public) ? o : Root.socket[_id]; 
 		let obj = Root.socket[_id];
 		
 		if (!cfg.publicId) {
@@ -173,31 +170,23 @@ var _commLib = function () {
 					if (typeof componentWillUnmount === 'function') {
 						componentWillUnmount();
 					}
-					// console.log('---componentWillUnmount triggled ==' + _id);
 					obj.socket.close();
 					delete obj.socket;
 				}
 			})(o, o.componentWillUnmount);
-			console.log('====closed A===');
 		}
 		if (!cfg.publicId && (obj.socket)) {
-			console.log('====closed===');
-			
 			obj.socket.close();
 			delete obj.socket;
 		}
 		if (!obj.socket) {
-			console.log('MAGA=build==');
 			obj.socket = io.connect(cfg.resource);
 			obj.socket.on('connect', function() {
 				console.log('MAGA=build== success');
-				console.log('--->connected -->' + obj.socket.id + '--' + cfg.room);
 				obj.socket.emit('createRoom', cfg.room);
 				if (typeof cfg.onServerData === 'function') {
 					obj.socket.on('serverData', function(incomeData) {
-						//if (incomeData._room === cfg.room) {
-							cfg.onServerData(incomeData, obj.socket);
-						//}
+						cfg.onServerData(incomeData, obj.socket);
 					});					
 				}
 				if (typeof cfg.onConnection === 'function') {
