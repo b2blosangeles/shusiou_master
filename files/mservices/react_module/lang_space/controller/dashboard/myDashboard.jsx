@@ -39,7 +39,6 @@ try {
         },	    
         componentDidMount:function() {
 		let me = this;
-		console.log('==B=== componentDidUpdate =========');
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
 			publicId : null, 
