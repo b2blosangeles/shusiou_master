@@ -35,13 +35,14 @@ try {
 				_link: _link, _proxy: _proxy, 
 				data: {command: 'stop audio', sender:socket.id}},
 				   function(error, message){
+					alert(66);
 						 console.log('==niu ====');
 					    console.log(error);
 					    console.log(message);
 					}
 				   );
 				// data: {command: 'stop audio', sender:socket.id}});
-			console.log('socket.id-A-' + socket.id);
+			console.log('socket.id-B-' + socket.id);
 		//}, 6000);	
 	},
         componentDidUpdate:function(preProps, preState) {
