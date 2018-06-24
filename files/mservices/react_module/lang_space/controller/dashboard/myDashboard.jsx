@@ -41,7 +41,7 @@ try {
 			console.log('===== componentDidUpdate =========' + this.props.location);
 		}
 		return true;
-		let me = this;
+		
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
 			publicId : 'CRON_REPORT_A', 
