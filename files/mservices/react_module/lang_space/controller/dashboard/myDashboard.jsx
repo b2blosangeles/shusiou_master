@@ -42,7 +42,7 @@ try {
 					}
 				   );
 				// data: {command: 'stop audio', sender:socket.id}});
-			console.log('socket.id-B-' + socket.id);
+			console.log('socket.id-C-' + socket.id);
 		//}, 6000);	
 	},
         componentDidUpdate:function(preProps, preState) {
