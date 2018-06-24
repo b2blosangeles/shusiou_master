@@ -31,7 +31,7 @@ try {
 		console.log('socket.id--' + socket.id);
 		//setInterval(function() {
 			// socket.emit('clientData', {_room: '/#xBmfsjCedzcNQEaCAADQ', 
-			socket.emit('clientData', {_socket: '/#IFLdy5zbEGOo_kbbAAAv',
+			socket.emit('clientData', {_socket: '/#'+socket.id,
 				_link: _link, _proxy: _proxy, 
 				data: {command: 'stop audio', sender:socket.id}},
 				   function(error, message){
@@ -42,7 +42,7 @@ try {
 					}
 				   );
 				// data: {command: 'stop audio', sender:socket.id}});
-			console.log('socket.id-F-' + socket.id);
+			console.log('socket.id-G-' + socket.id);
 		//}, 6000);	
 	},
         componentDidUpdate:function(preProps, preState) {
