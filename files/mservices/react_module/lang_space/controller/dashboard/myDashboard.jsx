@@ -56,6 +56,13 @@ try {
 			//	me.channel(socket.id);
 				console.log(incomeData);
 				console.log('onServerData  ===> ' + socket.id);
+				if (incomeData.data.code === 'qnaRequest') {
+					socket.emit('clientData', {_socket: incomeData.data.sender, _link: incomeData._link, 
+						_proxy: incomeData._proxy, 
+						data: {_sender: socket.id, _code : 'qnaRequest', niu:3}});	
+				}
+				
+				
 			},
 			onConnection : function(socket) {				
 				me.channel(socket);
