@@ -54,7 +54,7 @@ try {
 			//		return true;
 			//	}
 			//	me.channel(socket.id);
-				console.log(incomeData.data);
+				console.log(incomeData);
 				console.log('onServerData  ===> ' + socket.id);
 			},
 			onConnection : function(socket) {				
