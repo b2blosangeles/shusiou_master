@@ -27,7 +27,7 @@ try {
 	channel : function(socket) {
 		let me = this,
 		    _link = 'http://comm1.service.dev.shusiou.win/',
-		    _proxy = ['https://comm1.service.dev.shusiou.win/'];
+		    _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
 		Root.audio_socket = socket.id;
 		/*
 		console.log('socket.id--' + socket.id);
@@ -45,6 +45,7 @@ try {
         },	    
         componentDidMount:function() {
 		let me = this;
+		let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
 			//publicId : 'CRON_REPORT_A', 
@@ -58,7 +59,7 @@ try {
 				console.log('onServerData  ===> ' + socket.id);
 				if (incomeData.data.code === 'qnaRequest') {
 					socket.emit('clientData', {_socket: incomeData.data.sender, _link: incomeData._link, 
-						_proxy: incomeData._proxy, 
+						_proxy: _proxy, 
 						data: {_sender: socket.id, _code : 'qnaRequest', niu:3}});	
 				}
 				
