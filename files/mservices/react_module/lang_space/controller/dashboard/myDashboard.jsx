@@ -51,22 +51,11 @@ try {
 			//publicId : 'CRON_REPORT_A', 
 			//room:'CRON_REPORT_A',
 			onServerData : function(incomeData, socket) {
-			//	if (incomeData.data.sender ===  socket.id) {
-			//		return true;
-			//	}
-			//	me.channel(socket.id);
-				console.log(incomeData);
-				console.log('onServerData  ===> ' + socket.id);
-				console.log({_socket: incomeData.data._sender, _link: incomeData._link, 
-						_proxy: _proxy, 
-						data: {_sender: socket.id, _code : 'qnaRequest', niu:3}});
 				if (incomeData.data._code === 'qnaRequest') {
 					socket.emit('clientData', {_socket: incomeData.data._sender, _link: incomeData._link, 
 						_proxy: _proxy, 
 						data: {_sender: socket.id, _code : 'qnaRequest', niu:3}});	
 				}
-				
-				
 			},
 			onConnection : function(socket) {				
 				me.channel(socket);
