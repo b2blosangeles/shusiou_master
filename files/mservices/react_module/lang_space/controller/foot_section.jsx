@@ -4,7 +4,7 @@ try {
 	function positionedPopup(url,winName,w,h,t,l,scroll){
 		settings =
 			// 'height='+h+',width='+w+',top='+t+',left='+l+',scrollbars='+scroll+',resizable';
-			'height='+h+',width='+w+',top='+t+',left='+l+',toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=yes, copyhistory=no';
+			'height='+h+',width='+w+',top='+t+',left='+l+',toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no';
 		popupWindow = window.open(url,winName,settings)
 	}	
 	var Footsection =  React.createClass({
@@ -121,7 +121,7 @@ try {
 			if (!Root.audio_socket) return true;
 			// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
 			let url = 'https://comm1.service.dev.shusiou.win/?socket=' + Root.audio_socket
-			positionedPopup(url, '','10','10','1000','1000','yes');
+			positionedPopup(url, '','80','80','1000','1000','yes');
 		},
 		render: function() {
 			var me = this;
