@@ -3,7 +3,8 @@ try {
 	var popupWindow = null;
 	function positionedPopup(url,winName,w,h,t,l,scroll){
 		settings =
-			'height='+h+',width='+w+',top='+t+',left='+l+',menubar=no, status=no, scrollbars=no, menubar=no';
+			// 'height='+h+',width='+w+',top='+t+',left='+l+',scrollbars='+scroll+',resizable';
+			'height='+h+',width='+w+',top='+t+',left='+l+',directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no';
 		popupWindow = window.open(url,winName,settings)
 	}	
 	var Footsection =  React.createClass({
