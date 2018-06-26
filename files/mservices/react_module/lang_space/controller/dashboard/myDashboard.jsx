@@ -54,7 +54,9 @@ try {
 				if (incomeData.data._code === 'qnaRequest') {
 					socket.emit('clientData', {_socket: incomeData.data._sender, _link: incomeData._link, 
 						_proxy: _proxy, 
-						data: {connection: [socket.id, incomeData.data._sender], _code : 'resQnaRequest'}});	
+						data: {connection: [socket.id, incomeData.data._sender], _code : 'resQnaRequest',
+						      ping_id : incomeData.data.ping_id
+						      }});	
 				}
 			},
 			onConnection : function(socket) {				
