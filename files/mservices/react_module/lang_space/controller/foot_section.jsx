@@ -121,7 +121,7 @@ try {
 			if (!Root.audio_socket) return true;
 			// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
 			let url = 'https://comm1.service.dev.shusiou.win/?socket=' + Root.audio_socket
-			positionedPopup(url, '','80','80','0','0','yes');
+			positionedPopup(url, '','180','180','0','0','yes');
 		},
 		render: function() {
 			var me = this;
