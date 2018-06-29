@@ -170,7 +170,7 @@ var _commLib = function () {
 					if (typeof componentWillUnmount === 'function') {
 						componentWillUnmount();
 					}
-					if (typeof cfg.beforeDisConnection === 'function') {
+					if (typeof cfg.beforedisConnection === 'function') {
 						cfg.beforeDisConnection(obj.socket.id);
 					}					
 					obj.socket.close();
@@ -180,7 +180,7 @@ var _commLib = function () {
 		}
 		if (!cfg.publicId && (obj.socket)) {
 			if (typeof cfg.beforeDisConnection === 'function') {
-				cfg.beforeDisConnection(socket.id);
+				cfg.beforeDisconnection(obj.socket.id);
 			}
 			obj.socket.close();
 			delete obj.socket;
