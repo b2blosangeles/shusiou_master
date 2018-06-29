@@ -47,12 +47,6 @@ try {
 		let me = this;
 		let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
 
-		setTimeout(
-			function() {
-
-				
-			}, 1000
-		);
 		Root.lib.dependeceCall(
 			function() {
 				return (QNA)? true : false;
