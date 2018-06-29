@@ -49,10 +49,10 @@ try {
 
 		Root.lib.dependeceCall(
 			function() {
-				return (typeof _QNA === 'object') ? true : false;
+				return (typeof _QNA_ === 'object') ? true : false;
 			},
 			function() {
-				me.qna_server = new _QNA();	
+				me.qna_server = new _QNA_();	
 				me.qna_server.init({ 
 					master_socket_id: null, 
 					link : 'https://comm1.service.dev.shusiou.win/', 
