@@ -46,7 +46,7 @@ try {
         componentDidMount:function() {
 		let me = this;
 		let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
-		/*
+	
 		setTimeout(
 			function() {
 				let qna_server = new QNA();	
@@ -71,7 +71,7 @@ try {
 			}, 1000
 		);
 		return true;
-		*/	
+			
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
 			//publicId : 'CRON_REPORT_A', 
