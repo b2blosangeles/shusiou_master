@@ -24,35 +24,50 @@ try {
 	},
 	playVideo: function() {
 	},
-	channel : function(socketid) {
-		let url = "https://comm1.service.dev.shusiou.win/?room=" + socketid;
-		positionedPopup(url, 'myWindow','700','300','400','400','yes');
-	},
-        componentDidMount:function() {
-          let me = this, i = 0;
-		// _comm_svr(),
-		let qna1 = new QNA();
-		qna1.init({ 
-			master_socket_id: null, 
-			link : 'https://comm1.service.dev.shusiou.win/', 
-			proxy: ['http://comm1.service.dev.shusiou.win/', 'https://comm1.service.dev.shusiou.win/']
-		});		
+	channel : function(socket) {
+		let me = this,
+		    _link = 'http://comm1.service.dev.shusiou.win/',
+		    _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
+		Root.audio_socket = socket.id;
 		/*
+		console.log('socket.id--' + socket.id);
+		//setInterval(function() {
+			// socket.emit('clientData', {_room: '/#xBmfsjCedzcNQEaCAADQ', 
+			socket.emit('clientData', {_socket: socket.id,
+				_link: _link, _proxy: _proxy, 
+				data: {command: 'stop audio', sender:socket.id}});
+				// data: {command: 'stop audio', sender:socket.id}});
+			console.log('socket.id-H-' + socket.id);
+		//}, 6000);
+		*/
+	},
+        componentDidUpdate:function(preProps, preState) {
+        },	    
+        componentDidMount:function() {
+		let me = this;
+		let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
-			public : true, 
-			room:'CRON_REPORT_A',
+			//publicId : 'CRON_REPORT_A', 
+			//room:'CRON_REPORT_A',
 			onServerData : function(incomeData, socket) {
-			//	me.channel(socket.id);
-				console.log(incomeData.data);
-				//console.log('onServerData -- ' + ' === ' + socket.id);
+				if (incomeData.data._code === 'qnaRequest') {
+					socket.emit('clientData', {_socket: incomeData.data._sender, _link: incomeData._link, 
+						_proxy: _proxy, 
+						data: {connection: [socket.id, incomeData.data._sender], _code : 'resQnaRequest',
+						      ping_id : incomeData.data.ping_id
+						      }});	
+				}
+			},
+			onConnection : function(socket) {				
+				me.channel(socket);
 			}
 			/*,
 			onServerMessage: function(data) {
 					console.log('message coming!--' + me.rr);
 			}*/
 		});
-		*/
+
 		return true;
         },
         render: function() {
