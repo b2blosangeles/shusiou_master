@@ -78,7 +78,7 @@ try {
 			onConnection : function(socket) {
 			},
 			beforeDisConnection : function(socket) {
-				console.log('-- beforeDisConnection --->' socket.id);
+				console.log('-- beforeDisConnection --->' + socket.id);
 			},			
 			onServerData : function(incomeData, socket) {
 							
