@@ -2,6 +2,7 @@
 try {
 	var popupWindow = null;
 	function positionedPopup(url,winName,w,h,t,l,scroll){
+		if (popupWindow) popupWindow.close();
 		settings =
 			// 'height='+h+',width='+w+',top='+t+',left='+l+',scrollbars='+scroll+',resizable';
 			'height='+h+',width='+w+',top='+t+',left='+l+',toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no';
