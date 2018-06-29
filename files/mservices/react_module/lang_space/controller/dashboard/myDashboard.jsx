@@ -49,8 +49,8 @@ try {
 		
 		setTimeout(
 			function() {
-				let qna = new QNA();	
-				qna.init({ 
+				let qna_server = new QNA();	
+				qna_server.init({ 
 					master_socket_id: null, 
 					link : 'https://comm1.service.dev.shusiou.win/', 
 					proxy: ['http://comm1.service.dev.shusiou.win/', 
@@ -62,16 +62,7 @@ try {
 					onServerData : function(incomeData, socket) {
 						console.log('customized onServerData ');
 						console.log(incomeData);
-						qna.sendToClient({niu:'server got client message'}, incomeData.data._sender);
-						/*
-						if (incomeData.data._code === 'clientRequest') {
-							socket.emit('clientData', {_socket: incomeData.data._sender, _link: incomeData._link, 
-								_proxy: _proxy, 
-								data: {connection: [socket.id, incomeData.data._sender], _code : 'resQnaRequest',
-								      ping_id : incomeData.data.ping_id
-								      }});	
-						}
-						*/
+						qna_server.sendToClient({niu:'server got client message'}, incomeData.data._sender);
 					}
 				});
 				
