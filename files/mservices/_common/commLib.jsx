@@ -162,7 +162,7 @@ var _commLib = function () {
 					f();
 				}
 			}, 50);
-			
+	}		
 	this.loadSocketIO = function(o, cfg) {
 		let _id = (cfg.publicId) ? cfg.publicId :
 		    (!o || !o.props || !o.props.route || !o.props.route.path) ? cfg.room : (o.props.route.path + '_' + cfg.room);
