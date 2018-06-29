@@ -60,6 +60,7 @@ try {
 						Root.audio_socket = socket.id;
 					}, 
 					onServerData : function(incomeData, socket) {
+						console.log('customized onServerData ');
 						console.log(incomeData);
 						/*
 						if (incomeData.data._code === 'clientRequest') {
