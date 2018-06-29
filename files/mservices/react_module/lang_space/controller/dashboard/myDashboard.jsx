@@ -46,10 +46,10 @@ try {
         componentDidMount:function() {
 		let me = this;
 		let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
-
+		
 		Root.lib.dependeceCall(
 			function() {
-				return (typeof _QNA_ === 'object') ? true : false;
+				return (typeof _QNA_ === 'function' || typeof _QNA_ === 'object') ? true : false;
 			},
 			function() {
 				me.qna_server = new _QNA_();	
