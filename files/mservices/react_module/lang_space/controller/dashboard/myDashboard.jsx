@@ -46,7 +46,7 @@ try {
         componentDidMount:function() {
 		let me = this;
 		let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
-		/*
+
 		setTimeout(
 			function() {
 				let qna_server = new QNA();	
@@ -70,34 +70,16 @@ try {
 				
 			}, 1000
 		);
-		return true;
-		*/	
+			
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
 			//publicId : 'CRON_REPORT_A', 
 			//room:'CRON_REPORT_A',
 			onConnection : function(socket) {
-				console.log('------' + socket.id + '---------');
-				let qna_server = new QNA();	
-				qna_server.init({ 
-					master_socket_id: null, 
-					
-					link : 'https://comm1.service.dev.shusiou.win/', 
-					proxy: ['http://comm1.service.dev.shusiou.win/', 
-						'https://comm1.service.dev.shusiou.win/'],
-					onConnect : function(socket) {
-						// console.log(socket.id);
-						Root.audio_socket = socket.id;
-					}, 
-					onServerData : function(incomeData, socket) {
-						console.log('customized onServerData ');
-						console.log(incomeData);
-						console.log(qna_server.getClients());
-						qna_server.sendToClient({niu:'server got client message'}, incomeData.data._sender);
-						
-					}
-				});
 			},
+			afterDisConnection : function(socket) {
+				console.log('-- disconnected --->' socket.id);
+			},			
 			onServerData : function(incomeData, socket) {
 							
 				me.channel(socket);
