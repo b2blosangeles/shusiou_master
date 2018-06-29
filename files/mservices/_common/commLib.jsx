@@ -162,7 +162,6 @@ var _commLib = function () {
 					console.log('dependeceCall timeout ' + f.toString());
 				} else if (m()) {
 					clearInterval(_itv);
-					console.log('--w---' + new Date().getTime());
 					f();
 				}
 			}, 50);
