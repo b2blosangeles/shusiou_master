@@ -76,7 +76,7 @@ try {
 			resource: 'http://comm1.service.dev.shusiou.win/',
 			//publicId : 'CRON_REPORT_A', 
 			//room:'CRON_REPORT_A',
-			onServerData : function(incomeData, socket) {
+			onConnection : function(socket) {
 				console.log('------' + socket.id + '---------');
 				let qna_server = new QNA();	
 				qna_server.init({ 
@@ -98,7 +98,8 @@ try {
 					}
 				});
 			},
-			onConnection : function(socket) {				
+			onServerData : function(incomeData, socket) {
+							
 				me.channel(socket);
 			}
 		});
