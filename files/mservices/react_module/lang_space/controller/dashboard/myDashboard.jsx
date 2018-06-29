@@ -72,7 +72,14 @@ try {
 						}
 						*/
 					}
-				});				
+				});
+				
+				setTimeout(
+					function() {
+					qna.sendToClient({niu:'yes'});
+					}, 3000
+				);
+				
 			}, 1000
 		);
 		return true;
