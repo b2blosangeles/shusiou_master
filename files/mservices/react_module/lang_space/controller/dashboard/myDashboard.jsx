@@ -49,6 +49,15 @@ try {
 
 		setTimeout(
 			function() {
+
+				
+			}, 1000
+		);
+		Root.lib.dependeceCall(
+			function() {
+				return (QNA)? true : false;
+			},
+			function() {
 				me.qna_server = new QNA();	
 				me.qna_server.init({ 
 					master_socket_id: null, 
@@ -66,27 +75,26 @@ try {
 						me.qna_server.sendToClient({niu:'server got client message'}, incomeData.data._sender);
 						
 					}
+				});				
+				Root.lib.loadSocketIO(me, {
+					resource: 'http://comm1.service.dev.shusiou.win/',
+					//publicId : 'CRON_REPORT_A', 
+					//room:'CRON_REPORT_A',
+					onConnection : function(socket) {
+					},
+					beforeDisconnection : function(socket) {
+						delete Root.audio_socket;
+						me.qna_server.closeSocket();
+						console.log('-- beforeDisConnection --->' + socket.id);
+					},			
+					onServerData : function(incomeData, socket) {
+
+						me.channel(socket);
+					}
 				});
-				
-			}, 1000
-		);
-			
-		Root.lib.loadSocketIO(me, {
-			resource: 'http://comm1.service.dev.shusiou.win/',
-			//publicId : 'CRON_REPORT_A', 
-			//room:'CRON_REPORT_A',
-			onConnection : function(socket) {
-			},
-			beforeDisconnection : function(socket) {
-				delete Root.audio_socket;
-				me.qna_server.closeSocket();
-				console.log('-- beforeDisConnection --->' + socket.id);
-			},			
-			onServerData : function(incomeData, socket) {
-							
-				me.channel(socket);
 			}
-		});
+
+		);
 		
 		return true;
         },
