@@ -77,7 +77,7 @@ try {
 			//room:'CRON_REPORT_A',
 			onConnection : function(socket) {
 			},
-			beforeDisConnection : function(socket) {
+			beforeDisconnection : function(socket) {
 				console.log('-- beforeDisConnection --->' + socket.id);
 			},			
 			onServerData : function(incomeData, socket) {
