@@ -59,13 +59,13 @@ try {
 					proxy: ['http://comm1.service.dev.shusiou.win/', 
 						'https://comm1.service.dev.shusiou.win/'],
 					onConnect : function(socket) {
-						console.log(socket.id);
+					//	console.log(socket.id);
 						Root.audio_socket = socket.id;
 					}, 
 					onServerData : function(incomeData, socket) {
-						console.log('customized onServerData ');
-						console.log(incomeData);
-						console.log(me.qna_server.getClients());
+					//	console.log('customized onServerData ');
+					//	console.log(incomeData);
+					//	console.log(me.qna_server.getClients());
 						me.qna_server.sendToClient({niu:'server got client message'}, incomeData.data._sender);
 						
 					}
