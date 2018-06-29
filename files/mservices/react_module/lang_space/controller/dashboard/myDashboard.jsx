@@ -77,10 +77,11 @@ try {
 			//publicId : 'CRON_REPORT_A', 
 			//room:'CRON_REPORT_A',
 			onServerData : function(incomeData, socket) {
+				console.log('------' + socket.id + '---------');
 				let qna_server = new QNA();	
 				qna_server.init({ 
 					master_socket_id: null, 
-					socket : socket,
+					
 					link : 'https://comm1.service.dev.shusiou.win/', 
 					proxy: ['http://comm1.service.dev.shusiou.win/', 
 						'https://comm1.service.dev.shusiou.win/'],
