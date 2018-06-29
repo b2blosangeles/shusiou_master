@@ -170,12 +170,18 @@ var _commLib = function () {
 					if (typeof componentWillUnmount === 'function') {
 						componentWillUnmount();
 					}
+					if (typeof cfg.beforeDisConnection === 'function') {
+						cfg.beforeDisConnection(obj.socket.id);
+					}					
 					obj.socket.close();
 					delete obj.socket;
 				}
 			})(o, o.componentWillUnmount);
 		}
 		if (!cfg.publicId && (obj.socket)) {
+			if (typeof cfg.beforeDisConnection === 'function') {
+				cfg.beforeDisConnection(socket.id);
+			}
 			obj.socket.close();
 			delete obj.socket;
 		}
