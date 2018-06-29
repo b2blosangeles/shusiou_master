@@ -53,7 +53,7 @@ try {
 			proxy: ['http://comm1.service.dev.shusiou.win/', 'https://comm1.service.dev.shusiou.win/']
 		});
 		let qna1 = new QNA();		
-	/*	
+		/*	
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
 			//publicId : 'CRON_REPORT_A', 
@@ -70,10 +70,6 @@ try {
 			onConnection : function(socket) {				
 				me.channel(socket);
 			}
-		//	/*,
-		//	onServerMessage: function(data) {
-		//			console.log('message coming!--' + me.rr);
-		//	}*/
 		});
 		*/
 		return true;
