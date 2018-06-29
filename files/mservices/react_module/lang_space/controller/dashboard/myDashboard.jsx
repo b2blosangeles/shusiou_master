@@ -46,7 +46,7 @@ try {
         componentDidMount:function() {
 		let me = this;
 		let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
-		/*
+		
 		setTimeout(
 			function() {
 				let qna = new QNA();	
@@ -58,11 +58,20 @@ try {
 					onConnect : function(socket) {
 						console.log(socket.id);
 						Root.audio_socket = socket.id;
+					}, 
+					onServerData : function(incomeData, socket) {
+						if (incomeData.data._code === 'qnaRequest') {
+							socket.emit('clientData', {_socket: incomeData.data._sender, _link: incomeData._link, 
+								_proxy: _proxy, 
+								data: {connection: [socket.id, incomeData.data._sender], _code : 'resQnaRequest',
+								      ping_id : incomeData.data.ping_id
+								      }});	
+						}					
 					}
 				});				
 			}, 1000
 		);
-		*/
+		return true;
 			
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
