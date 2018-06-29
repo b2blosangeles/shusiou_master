@@ -31,6 +31,13 @@ try {
         componentDidMount:function() {
           let me = this, i = 0;
 		// _comm_svr(),
+		let qna1 = new QNA();
+		qna1.init({ 
+			master_socket_id: null, 
+			link : 'https://comm1.service.dev.shusiou.win/', 
+			proxy: ['http://comm1.service.dev.shusiou.win/', 'https://comm1.service.dev.shusiou.win/']
+		});		
+		/*
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
 			public : true, 
@@ -45,7 +52,7 @@ try {
 					console.log('message coming!--' + me.rr);
 			}*/
 		});
-		
+		*/
 		return true;
         },
         render: function() {
