@@ -46,15 +46,20 @@ try {
         componentDidMount:function() {
 		let me = this;
 		let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
-		let qna = new QNA();	
-		qna.init({ 
-			master_socket_id: null, 
-			link : 'https://comm1.service.dev.shusiou.win/', 
-			proxy: ['http://comm1.service.dev.shusiou.win/', 'https://comm1.service.dev.shusiou.win/'],
-			onConnection : function(socket) {
-				Root.audio_socket = socket.id;
-			}
-		});
+		setTimeout(
+			function() {
+				let qna = new QNA();	
+				qna.init({ 
+					master_socket_id: null, 
+					link : 'https://comm1.service.dev.shusiou.win/', 
+					proxy: ['http://comm1.service.dev.shusiou.win/', 'https://comm1.service.dev.shusiou.win/'],
+					onConnection : function(socket) {
+						Root.audio_socket = socket.id;
+					}
+				});				
+			}, 1000
+		);
+
 		/*	
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
