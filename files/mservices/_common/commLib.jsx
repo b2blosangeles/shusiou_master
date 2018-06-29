@@ -165,7 +165,7 @@ var _commLib = function () {
 					console.log('--w---' + new Date().getTime());
 					f();
 				}
-			}, 5);
+			}, 10);
 	}		
 	this.loadSocketIO = function(o, cfg) {
 		let _id = (cfg.publicId) ? cfg.publicId :
