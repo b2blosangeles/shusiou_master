@@ -60,6 +60,7 @@ try {
 						Root.audio_socket = socket.id;
 					}, 
 					onServerData : function(incomeData, socket) {
+						console.log(incomeData);
 						if (incomeData.data._code === 'qnaRequest') {
 							socket.emit('clientData', {_socket: incomeData.data._sender, _link: incomeData._link, 
 								_proxy: _proxy, 
