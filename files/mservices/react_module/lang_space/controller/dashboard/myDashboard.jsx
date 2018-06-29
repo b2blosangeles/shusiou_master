@@ -49,8 +49,8 @@ try {
 
 		setTimeout(
 			function() {
-				let qna_server = new QNA();	
-				qna_server.init({ 
+				me.qna_server = new QNA();	
+				me.qna_server.init({ 
 					master_socket_id: null, 
 					link : 'https://comm1.service.dev.shusiou.win/', 
 					proxy: ['http://comm1.service.dev.shusiou.win/', 
@@ -63,7 +63,7 @@ try {
 						console.log('customized onServerData ');
 						console.log(incomeData);
 						console.log(qna_server.getClients());
-						qna_server.sendToClient({niu:'server got client message'}, incomeData.data._sender);
+						me.qna_server.sendToClient({niu:'server got client message'}, incomeData.data._sender);
 						
 					}
 				});
@@ -79,7 +79,7 @@ try {
 			},
 			beforeDisconnection : function(socket) {
 				delete Root.audio_socket;
-				qna_server.closeSocket();
+				me.qna_server.closeSocket();
 				console.log('-- beforeDisConnection --->' + socket.id);
 			},			
 			onServerData : function(incomeData, socket) {
