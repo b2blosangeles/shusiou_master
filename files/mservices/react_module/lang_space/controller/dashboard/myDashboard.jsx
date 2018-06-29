@@ -78,6 +78,8 @@ try {
 			onConnection : function(socket) {
 			},
 			beforeDisconnection : function(socket) {
+				delete Root.audio_socket;
+				qna_server.closeSocket();
 				console.log('-- beforeDisConnection --->' + socket.id);
 			},			
 			onServerData : function(incomeData, socket) {
