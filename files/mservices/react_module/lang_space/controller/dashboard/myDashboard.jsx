@@ -49,7 +49,7 @@ try {
 
 		Root.lib.dependeceCall(
 			function() {
-				return (QNAA)? true : false;
+				return (!QNAA)? false : true;
 			},
 			function() {
 				me.qna_server = new QNA();	
