@@ -76,7 +76,7 @@ try {
 				
 				setTimeout(
 					function() {
-					qna.sendToClient({niu:'yes'});
+					qna.sendToClient({niu:'popi'});
 					}, 3000
 				);
 				
