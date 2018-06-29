@@ -154,15 +154,18 @@ var _commLib = function () {
        }
        return o;
     }
-	this.dependeceCall = function(m, f) {
-		let _itv = setInterval(
+	this.dependeceCall = function(m, f, timeout) {
+		let _s = new Date().getTime(), _itv = setInterval(
 			function() {
-				if (m()) {
+				if ((new Date().getTime() - _s) > ((timeout) ? timeout : 3000)) {
+					clearInterval(_itv);
+					console.log('dependeceCall timeout ' + f.toString());
+				} else if (m()) {
 					clearInterval(_itv);
 					console.log('--w---' + new Date().getTime());
 					f();
 				}
-			}, 10);
+			}, 5);
 	}		
 	this.loadSocketIO = function(o, cfg) {
 		let _id = (cfg.publicId) ? cfg.publicId :
