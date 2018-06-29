@@ -159,9 +159,10 @@ var _commLib = function () {
 			function() {
 				if (m()) {
 					clearInterval(_itv);
+					console.log('--w---' + new Date().getTime());
 					f();
 				}
-			}, 50);
+			}, 10);
 	}		
 	this.loadSocketIO = function(o, cfg) {
 		let _id = (cfg.publicId) ? cfg.publicId :
