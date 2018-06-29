@@ -52,10 +52,8 @@ try {
 				qna.init({ 
 					master_socket_id: null, 
 					link : 'https://comm1.service.dev.shusiou.win/', 
-					proxy: ['http://comm1.service.dev.shusiou.win/', 'https://comm1.service.dev.shusiou.win/'],
-					onConnect : function(socket) {
-						Root.audio_socket = socket.id;
-					}
+					proxy: ['http://comm1.service.dev.shusiou.win/', 
+						'https://comm1.service.dev.shusiou.win/']
 				});				
 			}, 1000
 		);
