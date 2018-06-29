@@ -46,6 +46,7 @@ try {
         componentDidMount:function() {
 		let me = this;
 		let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
+		/*
 		setTimeout(
 			function() {
 				let qna = new QNA();	
@@ -61,8 +62,8 @@ try {
 				});				
 			}, 1000
 		);
-
-		/*	
+		*/
+			
 		Root.lib.loadSocketIO(me, {
 			resource: 'http://comm1.service.dev.shusiou.win/',
 			//publicId : 'CRON_REPORT_A', 
@@ -80,7 +81,7 @@ try {
 				me.channel(socket);
 			}
 		});
-		*/
+		
 		return true;
         },
         render: function() {
