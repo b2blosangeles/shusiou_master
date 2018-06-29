@@ -62,7 +62,7 @@ try {
 					onServerData : function(incomeData, socket) {
 						console.log('customized onServerData ');
 						console.log(incomeData);
-						qna.sendToClient({niu:'server got client message'}, socket.id);
+						qna.sendToClient({niu:'server got client message'}, incomeData.data._sender);
 						/*
 						if (incomeData.data._code === 'clientRequest') {
 							socket.emit('clientData', {_socket: incomeData.data._sender, _link: incomeData._link, 
