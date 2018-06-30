@@ -214,7 +214,14 @@ var _commLib = function () {
 				obj.socket.on('serverMessage', cfg.onServerMessage);
 			}
 		}
-	}   
+	}
+	this.positionedPopup(url,winName,w,h,t,l,scroll){
+		if (Root._popupWindow) Root._popupWindow.close();
+		settings =
+			// 'height='+h+',width='+w+',top='+t+',left='+l+',scrollbars='+scroll+',resizable';
+			'height='+h+',width='+w+',top='+t+',left='+l+',toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no';
+		Root._popupWindow = window.open(url,winName,settings)
+	}		
 	this.dictionary = function(v) {
 		if  (!Root.state.dictionary[v]) return v;
 		return (!Root.state.dictionary[v][Root.state.c_lang])?Root.state.dictionary[v]['en']:Root.state.dictionary[v][Root.state.c_lang];
