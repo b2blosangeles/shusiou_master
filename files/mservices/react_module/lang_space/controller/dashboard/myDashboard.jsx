@@ -59,12 +59,9 @@ try {
 					proxy: ['http://comm1.service.dev.shusiou.win/', 
 						'https://comm1.service.dev.shusiou.win/'],
 					onConnect : function(socket) {
-					//	console.log(socket.id);
 						Root.audio_socket = socket.id;
 					}, 
 					onServerData : function(incomeData, socket) {
-						//console.log('customized onServerData ');
-						//console.log(incomeData);
 						me.qna_server.sendToClient({niu:'server got client message'}, incomeData.data._sender);
 						
 					}
@@ -84,61 +81,13 @@ try {
 						console.log('-- beforeDisConnection --->' + socket.id);
 					},			
 					onServerData : function(incomeData, socket) {
-
 						me.channel(socket);
 					}
 				});
 				
 			}
 
-		);		
-		/*
-		Root.lib.dependeceCall(
-			function() {
-				return (typeof _QNA_ === 'function' || typeof _QNA_ === 'object') ? true : false;
-			},
-			function() {
-				me.qna_server = new _QNA_();	
-				me.qna_server.init({ 
-					master_socket_id: null, 
-					link : 'https://comm1.service.dev.shusiou.win/', 
-					proxy: ['http://comm1.service.dev.shusiou.win/', 
-						'https://comm1.service.dev.shusiou.win/'],
-					onConnect : function(socket) {
-					//	console.log(socket.id);
-						Root.audio_socket = socket.id;
-					}, 
-					onServerData : function(incomeData, socket) {
-					//	console.log('customized onServerData ');
-					//	console.log(incomeData);
-						setTimeout(
-							function() {
-						console.log(me.qna_server.getClients());
-							}, 1000);
-						me.qna_server.sendToClient({niu:'server got client message'}, incomeData.data._sender);
-						
-					}
-				});				
-				Root.lib.loadSocketIO(me, {
-					resource: 'http://comm1.service.dev.shusiou.win/',
-					//publicId : 'CRON_REPORT_A', 
-					//room:'CRON_REPORT_A',
-					onConnection : function(socket) {
-					},
-					beforeDisconnection : function(socket) {
-						delete Root.audio_socket;
-						me.qna_server.closeSocket();
-						console.log('-- beforeDisConnection --->' + socket.id);
-					},			
-					onServerData : function(incomeData, socket) {
-
-						me.channel(socket);
-					}
-				});
-			}
-
 		);
-		*/
 		return true;
         },
         render: function() {
