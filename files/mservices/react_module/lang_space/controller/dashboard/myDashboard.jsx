@@ -69,7 +69,7 @@ try {
 						setTimeout(
 							function() {
 						console.log(me.qna_server.getClients());
-							}, 1000);
+							}, 6000);
 						me.qna_server.sendToClient({niu:'server got client message'}, incomeData.data._sender);
 						
 					}
