@@ -96,7 +96,7 @@ try {
 						<h4 className="header">{me.dictionary('public')}</h4> 
 						<p className="overlayer_box_body" style={me.textStyle()}
 							dangerouslySetInnerHTML={{__html: me.getText('what_to_study')}} />
-						<p> <a href="JavaScript:vpid(0)" onClick={me.playVideo.bind(me,'start')}
+						<p> <a href="JavaScript:void(0)" onClick={me.playVideo.bind(me,'start')}
 							    className="btn btn-md btn-danger bottom-adjust" >
 								{me.dictionary('start')}</a>									
 						</p>
@@ -108,7 +108,7 @@ try {
 						<h4 className="header">{me.dictionary('Private')}</h4> 
 						<p className="overlayer_box_body"  style={me.textStyle()}
 							dangerouslySetInnerHTML={{__html: me.getText('how_to_study')}} />
-						<p> <a href="JavaScript:vpid(0)" onClick={me.playVideo.bind(me,'stop')}
+						<p> <a href="JavaScript:void(0)" onClick={me.playVideo.bind(me,'stop')}
 							    className="btn btn-md btn-warning bottom-adjust" >
 								{me.dictionary('stop')}</a>
 						</p>
@@ -120,7 +120,7 @@ try {
 						<h4 className="header">{me.dictionary('Finance')}</h4> 
 						<p className="overlayer_box_body"  style={me.textStyle()}
 							dangerouslySetInnerHTML={{__html: me.getText('how_i_studied')}} />
-						<p> <a href="JavaScript:vpid(0)" onClick={me.playVideo.bind(me,{id:3})}
+						<p> <a href="JavaScript:void(0)" onClick={me.playVideo.bind(me,{id:3})}
 							    className="btn btn-md btn-success bottom-adjust" >
 								{me.dictionary('more_detail')}</a>
 						</p>
