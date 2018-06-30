@@ -23,7 +23,8 @@ try {
 		}
 	},
 	playVideo: function(code) {
-		me.qna_server.sendToClient({cmd:code, dt:new Date()},
+		let me = this;
+		me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
 	},
 	channel : function(socket) {
 		let me = this,
