@@ -63,17 +63,15 @@ try {
 						Root.audio_socket = socket.id;
 					}, 
 					onServerData : function(incomeData, socket) {
-						console.log('customized onServerData ');
-						console.log(incomeData);
-						setTimeout(
-							function() {
-						console.log(me.qna_server.getClients());
-							}, 6000);
+						//console.log('customized onServerData ');
+						//console.log(incomeData);
 						me.qna_server.sendToClient({niu:'server got client message'}, incomeData.data._sender);
 						
 					}
 				});
-				
+				setInterval(function() {
+					console.log(me.qna_server.getClients());
+				}, 6000);				
 				Root.lib.loadSocketIO(me, {
 					resource: 'http://comm1.service.dev.shusiou.win/',
 					//publicId : 'CRON_REPORT_A', 
