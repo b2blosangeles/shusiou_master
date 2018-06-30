@@ -67,7 +67,9 @@ try {
 					}
 				});
 				setInterval(function() {
-					console.log(me.qna_server.getClients());
+					if (me.qna_server.getClients().length) {
+						console.log(me.qna_server.getClients());
+					}
 				}, 6000);				
 				Root.lib.loadSocketIO(me, {
 					resource: 'http://comm1.service.dev.shusiou.win/',
