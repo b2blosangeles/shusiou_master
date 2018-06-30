@@ -29,17 +29,6 @@ try {
 		    _link = 'http://comm1.service.dev.shusiou.win/',
 		    _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
 		Root.audio_socket = socket.id;
-		/*
-		console.log('socket.id--' + socket.id);
-		//setInterval(function() {
-			// socket.emit('clientData', {_room: '/#xBmfsjCedzcNQEaCAADQ', 
-			socket.emit('clientData', {_socket: socket.id,
-				_link: _link, _proxy: _proxy, 
-				data: {command: 'stop audio', sender:socket.id}});
-				// data: {command: 'stop audio', sender:socket.id}});
-			console.log('socket.id-H-' + socket.id);
-		//}, 6000);
-		*/
 	},
         componentDidUpdate:function(preProps, preState) {
         },	    
@@ -83,7 +72,7 @@ try {
 						console.log('-- beforeDisConnection --->' + socket.id);
 					},			
 					onServerData : function(incomeData, socket) {
-						me.channel(socket);
+						// me.channel(socket);
 					}
 				});
 				
