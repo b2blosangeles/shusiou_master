@@ -61,7 +61,7 @@ try {
 						// console.log(me.qna_server.getClients());
 						me.qna_server.sendToClient({niu:'server got client message', dt:new Date()}, me.qna_server.getClients()[0]);
 					}
-				}, 3000);				
+				}, 1000);				
 				Root.lib.loadSocketIO(me, {
 					resource: 'http://comm1.service.dev.shusiou.win/',
 					publicId : 'CRON_REPORT_A', 
