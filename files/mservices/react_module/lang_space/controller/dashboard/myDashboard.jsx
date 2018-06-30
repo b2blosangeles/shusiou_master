@@ -47,6 +47,7 @@ try {
 		let me = this;
 		let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
 	
+		console.log('---componentDidMount---->' + new Date())
 		Root.lib.dependeceCall(
 			function() {
 				return (typeof _QNA_ === 'function' || typeof _QNA_ === 'object') ? true : false;
