@@ -63,8 +63,8 @@ try {
 						Root.audio_socket = socket.id;
 					}, 
 					onServerData : function(incomeData, socket) {
-					//	console.log('customized onServerData ');
-					//	console.log(incomeData);
+						console.log('customized onServerData ');
+						console.log(incomeData);
 						setTimeout(
 							function() {
 						console.log(me.qna_server.getClients());
