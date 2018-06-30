@@ -215,7 +215,7 @@ var _commLib = function () {
 			}
 		}
 	}
-	this.positionedPopup(url,winName,w,h,t,l,scroll){
+	this.positionedPopup = function (url,winName,w,h,t,l,scroll){
 		if (Root._popupWindow) Root._popupWindow.close();
 		settings =
 			// 'height='+h+',width='+w+',top='+t+',left='+l+',scrollbars='+scroll+',resizable';
