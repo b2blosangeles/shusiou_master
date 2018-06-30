@@ -95,7 +95,7 @@ try {
 			}
 
 		);		
-		
+		/*
 		Root.lib.dependeceCall(
 			function() {
 				return (typeof _QNA_ === 'function' || typeof _QNA_ === 'object') ? true : false;
@@ -141,7 +141,7 @@ try {
 			}
 
 		);
-		
+		*/
 		return true;
         },
         render: function() {
