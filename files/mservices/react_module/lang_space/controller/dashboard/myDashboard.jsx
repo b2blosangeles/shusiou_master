@@ -64,7 +64,7 @@ try {
 				}, 1000);				
 				Root.lib.loadSocketIO(me, {
 					resource: 'http://comm1.service.dev.shusiou.win/',
-					publicId : 'CRON_REPORT_A', 
+					// publicId : 'CRON_REPORT_A', 
 					//room:'CRON_REPORT_A',
 					onConnection : function(socket) {
 					},
