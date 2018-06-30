@@ -53,7 +53,8 @@ try {
 					onServerData : function(incomeData, socket) {
 						me.qna_server.sendToClient({niu:'server got client message'}, incomeData.data._sender);
 						
-					}
+					},
+					timeout :1999
 				});
 				setInterval(function() {
 					if (me.qna_server.getClients().length) {
