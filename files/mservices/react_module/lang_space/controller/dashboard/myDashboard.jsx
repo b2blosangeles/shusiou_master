@@ -52,7 +52,7 @@ try {
 					}, 
 					onServerData : function(incomeData, socket) {
 						
-						
+						console.log(incomeData.data.niu);
 					},
 					timeout :1999
 				});
