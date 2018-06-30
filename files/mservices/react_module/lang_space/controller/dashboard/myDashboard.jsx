@@ -22,7 +22,8 @@ try {
 			return {'font-size':'1em'}	
 		}
 	},
-	playVideo: function() {
+	playVideo: function(code) {
+		me.qna_server.sendToClient({cmd:code, dt:new Date()},
 	},
 	channel : function(socket) {
 		let me = this,
@@ -94,9 +95,9 @@ try {
 						<h4 className="header">{me.dictionary('public')}</h4> 
 						<p className="overlayer_box_body" style={me.textStyle()}
 							dangerouslySetInnerHTML={{__html: me.getText('what_to_study')}} />
-						<p> <a href="JavaScript:vpid(0)" onClick={me.playVideo.bind(me,{id:1})}
+						<p> <a href="JavaScript:vpid(0)" onClick={me.playVideo.bind(me,'start')}
 							    className="btn btn-md btn-danger bottom-adjust" >
-								{me.dictionary('more_detail')}</a>									
+								{me.dictionary('start')}</a>									
 						</p>
 					</div>	
 				</div>
@@ -106,9 +107,9 @@ try {
 						<h4 className="header">{me.dictionary('Private')}</h4> 
 						<p className="overlayer_box_body"  style={me.textStyle()}
 							dangerouslySetInnerHTML={{__html: me.getText('how_to_study')}} />
-						<p> <a href="JavaScript:vpid(0)" onClick={me.playVideo.bind(me,{id:2})}
+						<p> <a href="JavaScript:vpid(0)" onClick={me.playVideo.bind(me,'stop')}
 							    className="btn btn-md btn-warning bottom-adjust" >
-								{me.dictionary('more_detail')}</a>
+								{me.dictionary('stop')}</a>
 						</p>
 					</div>	
 				</div>
