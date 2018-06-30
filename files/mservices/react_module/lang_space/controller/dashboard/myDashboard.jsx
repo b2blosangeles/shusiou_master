@@ -65,7 +65,7 @@ try {
 					onServerData : function(incomeData, socket) {
 					//	console.log('customized onServerData ');
 					//	console.log(incomeData);
-					//	console.log(me.qna_server.getClients());
+						console.log(me.qna_server.getClients());
 						me.qna_server.sendToClient({niu:'server got client message'}, incomeData.data._sender);
 						
 					}
