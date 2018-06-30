@@ -51,7 +51,7 @@ try {
 						Root.audio_socket = socket.id;
 					}, 
 					onServerData : function(incomeData, socket) {
-						me.qna_server.sendToClient({niu:'server got client message'}, incomeData.data._sender);
+						
 						
 					},
 					timeout :1999
@@ -59,6 +59,7 @@ try {
 				setInterval(function() {
 					if (me.qna_server.getClients().length) {
 						console.log(me.qna_server.getClients());
+						me.qna_server.sendToClient({niu:'server got client message'}, me.qna_server.getClients()[0]);
 					}
 				}, 6000);				
 				Root.lib.loadSocketIO(me, {
