@@ -110,12 +110,6 @@ try {
 				}
 			}
 		},
-		channel : function() {
-			if (!Root.audio_socket) return true;
-			// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
-			let url = 'https://comm1.service.dev.shusiou.win/?socket=' + Root.audio_socket
-			Root.lib.positionedPopup(url, '','180','180','0','0','yes');
-		},
 		render: function() {
 			var me = this;
 			return (
@@ -128,7 +122,6 @@ try {
 							<span>&copy;  {me.dictionary('virtual_language_lab')} {new Date().getFullYear()}</span>
 							<span>&nbsp;&nbsp;&nbsp;<a href="#/Doc/Privacy">{me.dictionary('menu_privacy')}</a></span>
 							<span>&nbsp;&nbsp;<a href="#/Doc/Terms">{me.dictionary('menu_terms')}</a></span>
-							<span>&nbsp;&nbsp;<input type="button" value="加密通信" onClick={me.channel.bind(me)}/></span>
 						</span>
 					</div>
 					<div className="row"></div>					
