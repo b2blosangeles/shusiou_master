@@ -32,6 +32,12 @@ try {
 		    _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
 		Root.audio_socket = socket.id;
 	},
+	channelComm : function() {
+		if (!Root.audio_socket) return true;
+		// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
+		let url = 'https://comm1.service.dev.shusiou.win/?socket=' + Root.audio_socket
+		Root.positionedPopup(url, '','180','180','0','0','yes');
+	},
         componentDidUpdate:function(preProps, preState) {
         },	    
         componentDidMount:function() {
@@ -120,7 +126,7 @@ try {
 						<h4 className="header">{me.dictionary('Finance')}</h4> 
 						<p className="overlayer_box_body"  style={me.textStyle()}
 							dangerouslySetInnerHTML={{__html: me.getText('how_i_studied')}} />
-						<p> <a href="JavaScript:void(0)" onClick={me.playVideo.bind(me,{id:3})}
+						<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
 							    className="btn btn-md btn-success bottom-adjust" >
 								{me.dictionary('more_detail')}</a>
 						</p>
