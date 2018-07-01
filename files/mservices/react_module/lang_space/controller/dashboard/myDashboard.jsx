@@ -36,7 +36,7 @@ try {
 		if (!Root.audio_socket) return true;
 		// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
 		let url = 'https://comm1.service.dev.shusiou.win/?socket=' + Root.audio_socket
-		Root.positionedPopup(url, '','180','180','0','0','yes');
+		Root.lib.positionedPopup(url, '','180','180','0','0','yes');
 	},
         componentDidUpdate:function(preProps, preState) {
         },	    
