@@ -42,6 +42,9 @@ try {
 		Root.lib.positionedPopup(url, '','180','180','0','0','yes');
 	},
         componentDidUpdate:function(preProps, preState) {
+		let me = this;
+		console.log('me.state.audioChannel--->');
+		console.log(me.state.audioChannel);
         },	    
         componentDidMount:function() {
 		let me = this;
