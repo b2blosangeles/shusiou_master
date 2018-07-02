@@ -26,12 +26,14 @@ try {
 		let me = this;
 		me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
 	},
+	/*
 	channel : function(socket) {
 		let me = this,
 		    _link = 'http://comm1.service.dev.shusiou.win/',
 		    _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
 		Root.audio_socket = socket.id;
 	},
+	*/
 	channelComm : function() {
 		if (!Root.audio_socket) return true;
 		// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
