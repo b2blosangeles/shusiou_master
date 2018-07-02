@@ -166,7 +166,7 @@ try {
 				</div>
 			</div>)
 		}
-	});	
+	}});	
 } catch (err) {
 	  console.log(err.message);
 }
