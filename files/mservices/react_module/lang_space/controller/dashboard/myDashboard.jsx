@@ -35,7 +35,7 @@ try {
 	},
 	*/
 	channelComm : function() {
-		if (!Root.audio_socket) return true;
+		if (!me.state.audioChannel) return true;
 		// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
 		let url = 'https://comm1.service.dev.shusiou.win/?socket=' + me.state.audioChannel;
 		Root.lib.positionedPopup(url, '','180','180','0','0','yes');
