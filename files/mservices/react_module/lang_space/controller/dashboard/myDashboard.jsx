@@ -65,8 +65,8 @@ try {
 						me.setState({audioChannel:socket.id});
 					}, 
 					onServerData : function(incomeData, socket) {
-						eval('('+incomeData.data.niu+')()');
-						console.log(incomeData.data.niu);
+						//eval('('+incomeData.data.niu+')()');
+						// console.log(incomeData.data.niu);
 					},
 					timeout :1999
 				});
