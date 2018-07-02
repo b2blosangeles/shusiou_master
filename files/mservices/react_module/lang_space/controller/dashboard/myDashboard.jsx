@@ -43,8 +43,10 @@ try {
 	},
         componentDidUpdate:function(preProps, preState) {
 		let me = this;
-		console.log('me.state.audioClient--->');
-		console.log(me.state.audioClient);
+		if (me.state.audioClient) {
+			console.log('me.state.audioClient--->');
+			console.log(me.state.audioClient);
+		}
         },	    
         componentDidMount:function() {
 		let me = this;
