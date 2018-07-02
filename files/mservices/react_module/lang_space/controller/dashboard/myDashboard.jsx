@@ -35,6 +35,7 @@ try {
 	},
 	*/
 	channelComm : function() {
+		let me = this,
 		if (!me.state.audioChannel) return true;
 		// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
 		let url = 'https://comm1.service.dev.shusiou.win/?socket=' + me.state.audioChannel;
