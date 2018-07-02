@@ -120,9 +120,7 @@ try {
 					<video src="" className="align-middle" muted></video>
 				</div>
 			</div>)
-		}	
-	    });
-	else {
+		else
 		    return (<div className="content_section">
 				<br/>
 				<div className="container">
@@ -167,10 +165,7 @@ try {
 					<video src="" className="align-middle" muted></video>
 				</div>
 			</div>)
-		}	
-	    });	
-	}
-	
+	});	
 } catch (err) {
 	  console.log(err.message);
 }
