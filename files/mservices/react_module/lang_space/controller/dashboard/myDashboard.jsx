@@ -100,52 +100,76 @@ try {
         },
         render: function() {
             var me = this;
-            return (<div className="content_section">
-			<br/>
-			<div className="container">
-
-				<div className="col-sm-4 col-lg-4 col-md-4"> 
-					<div className="overlayer_box">
-						<h4 className="header">{me.dictionary('public')}</h4> 
-						<p className="overlayer_box_body" style={me.textStyle()}
-							dangerouslySetInnerHTML={{__html: me.getText('what_to_study')}} />
-						<p> <a href="JavaScript:void(0)" onClick={me.playVideo.bind(me,'start')}
-							    className="btn btn-md btn-danger bottom-adjust" >
-								{me.dictionary('start')}</a>									
-						</p>
-					</div>	
+	    if (me.state.audioClient) 
+		    return (<div className="content_section">
+				<br/>
+				<div className="container">
+					<div className="col-sm-4 col-lg-4 col-md-4"> 
+						<div className="overlayer_box">
+							<h4 className="header">{me.dictionary('Finance')}</h4> 
+							<p className="overlayer_box_body"  style={me.textStyle()}
+								dangerouslySetInnerHTML={{__html: me.getText('how_i_studied')}} />
+							<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
+								    className="btn btn-md btn-success bottom-adjust" >
+									{me.dictionary('Open Security Voice Channel')}</a>
+							</p>
+						</div>	
+					</div>						
+				</div> 
+				<div className="content_bg">
+					<video src="" className="align-middle" muted></video>
 				</div>
+			</div>)
+		}	
+	    });
+	else {
+		    return (<div className="content_section">
+				<br/>
+				<div className="container">
 
-				<div className="col-sm-4 col-lg-4 col-md-4"> 
-					<div className="overlayer_box">
-						<h4 className="header">{me.dictionary('Private')}</h4> 
-						<p className="overlayer_box_body"  style={me.textStyle()}
-							dangerouslySetInnerHTML={{__html: me.getText('how_to_study')}} />
-						<p> <a href="JavaScript:void(0)" onClick={me.playVideo.bind(me,'stop')}
-							    className="btn btn-md btn-warning bottom-adjust" >
-								{me.dictionary('stop')}</a>
-						</p>
-					</div>	
+					<div className="col-sm-4 col-lg-4 col-md-4"> 
+						<div className="overlayer_box">
+							<h4 className="header">{me.dictionary('public')}</h4> 
+							<p className="overlayer_box_body" style={me.textStyle()}
+								dangerouslySetInnerHTML={{__html: me.getText('what_to_study')}} />
+							<p> <a href="JavaScript:void(0)" onClick={me.playVideo.bind(me,'start')}
+								    className="btn btn-md btn-danger bottom-adjust" >
+									{me.dictionary('start')}</a>									
+							</p>
+						</div>	
+					</div>
+
+					<div className="col-sm-4 col-lg-4 col-md-4"> 
+						<div className="overlayer_box">
+							<h4 className="header">{me.dictionary('Private')}</h4> 
+							<p className="overlayer_box_body"  style={me.textStyle()}
+								dangerouslySetInnerHTML={{__html: me.getText('how_to_study')}} />
+							<p> <a href="JavaScript:void(0)" onClick={me.playVideo.bind(me,'stop')}
+								    className="btn btn-md btn-warning bottom-adjust" >
+									{me.dictionary('stop')}</a>
+							</p>
+						</div>	
+					</div>
+
+					<div className="col-sm-4 col-lg-4 col-md-4"> 
+						<div className="overlayer_box">
+							<h4 className="header">{me.dictionary('Finance')}</h4> 
+							<p className="overlayer_box_body"  style={me.textStyle()}
+								dangerouslySetInnerHTML={{__html: me.getText('how_i_studied')}} />
+							<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
+								    className="btn btn-md btn-success bottom-adjust" >
+									{me.dictionary('more_detail')}</a>
+							</p>
+						</div>	
+					</div>						
+				</div> 
+				<div className="content_bg">
+					<video src="" className="align-middle" muted></video>
 				</div>
-
-				<div className="col-sm-4 col-lg-4 col-md-4"> 
-					<div className="overlayer_box">
-						<h4 className="header">{me.dictionary('Finance')}</h4> 
-						<p className="overlayer_box_body"  style={me.textStyle()}
-							dangerouslySetInnerHTML={{__html: me.getText('how_i_studied')}} />
-						<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
-							    className="btn btn-md btn-success bottom-adjust" >
-								{me.dictionary('more_detail')}</a>
-						</p>
-					</div>	
-				</div>						
-			</div> 
-			<div className="content_bg">
-				<video src="" className="align-middle" muted></video>
-			</div>
-		</div>)
-	}	
-    });	
+			</div>)
+		}	
+	    });	
+	}
 	
 } catch (err) {
 	  console.log(err.message);
