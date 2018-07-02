@@ -65,8 +65,7 @@ try {
 					}, 
 					onServerData : function(incomeData, socket) {
 						//eval('('+incomeData.data.niu+')()');
-						console.log('---incomeData.data.clientMessage--->');
-						console.log(incomeData.data.clientMessage);
+						me.setState({audioClient:incomeData.data.clientMessage});
 					},
 					timeout :1999
 				});
