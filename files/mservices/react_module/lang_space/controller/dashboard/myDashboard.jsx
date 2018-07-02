@@ -36,18 +36,6 @@ try {
 	*/
 	channelComm : function() {
 		let me = this;
-		if (!me.state.audioChannel) return true;
-		// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
-		let url = 'https://comm1.service.dev.shusiou.win/?socket=' + me.state.audioChannel;
-		Root.lib.positionedPopup(url, '','180','180','0','0','yes');
-	},
-        componentDidUpdate:function(preProps, preState) {
-		let me = this;
-		console.log('me.state.audioChannel--->');
-		console.log(me.state.audioChannel);
-        },	    
-        componentDidMount:function() {
-		let me = this;
 		let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
 	
 		Root.lib.dependeceCall(
@@ -63,6 +51,8 @@ try {
 						'https://comm1.service.dev.shusiou.win/'],
 					onConnect : function(socket) {
 						me.setState({audioChannel:socket.id});
+						let url = 'https://comm1.service.dev.shusiou.win/?socket=' + me.state.audioChannel;
+						Root.lib.positionedPopup(url, '','180','180','0','0','yes');						
 					}, 
 					onServerData : function(incomeData, socket) {
 						//eval('('+incomeData.data.niu+')()');
@@ -94,7 +84,20 @@ try {
 				
 			}
 
-		);
+		);		
+		//if (!me.state.audioChannel) return true;
+		// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
+		// let url = 'https://comm1.service.dev.shusiou.win/?socket=' + me.state.audioChannel;
+		// Root.lib.positionedPopup(url, '','180','180','0','0','yes');
+	},
+        componentDidUpdate:function(preProps, preState) {
+		let me = this;
+		console.log('me.state.audioChannel--->');
+		console.log(me.state.audioChannel);
+        },	    
+        componentDidMount:function() {
+		let me = this;
+
 		return true;
         },
         render: function() {
