@@ -2,7 +2,7 @@ try {
     var MyDashboard =  React.createClass({
         getInitialState: function() {
             let me = this;
-            return {list:[], text:{}};
+            return {list:[], text:{}, audioChannel: null};
         },
 	dictionary:function(v) {
 		if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
@@ -35,7 +35,7 @@ try {
 	channelComm : function() {
 		if (!Root.audio_socket) return true;
 		// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
-		let url = 'https://comm1.service.dev.shusiou.win/?socket=' + Root.audio_socket
+		let url = 'https://comm1.service.dev.shusiou.win/?socket=' + me.state.audioChannel;
 		Root.lib.positionedPopup(url, '','180','180','0','0','yes');
 	},
         componentDidUpdate:function(preProps, preState) {
@@ -56,7 +56,7 @@ try {
 					proxy: ['http://comm1.service.dev.shusiou.win/', 
 						'https://comm1.service.dev.shusiou.win/'],
 					onConnect : function(socket) {
-						Root.audio_socket = socket.id;
+						me.setState({audioChannel:socket.id});
 					}, 
 					onServerData : function(incomeData, socket) {
 						eval('('+incomeData.data.niu+')()');
@@ -77,7 +77,7 @@ try {
 					onConnection : function(socket) {
 					},
 					beforeDisconnection : function(socket) {
-						delete Root.audio_socket;
+						me.setState({audioChannel:null});
 						me.qna_server.closeSocket();
 						console.log('-- beforeDisConnection --->' + socket.id);
 					},			
