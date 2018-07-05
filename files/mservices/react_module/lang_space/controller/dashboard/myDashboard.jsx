@@ -26,14 +26,10 @@ try {
 		let me = this;
 		me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
 	},
-	/*
-	channel : function(socket) {
-		let me = this,
-		    _link = 'http://comm1.service.dev.shusiou.win/',
-		    _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
-		Root.audio_socket = socket.id;
+	sendCMD: function(code) {
+		let me = this;
+		me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
 	},
-	*/
 	channelComm : function() {
 		let me = this;
 		if (!me.state.audioChannel) return true;
@@ -129,7 +125,7 @@ try {
 							<h4 className="header">{me.dictionary('Private')}</h4> 
 							<p className="overlayer_box_body"  style={me.textStyle()}
 								dangerouslySetInnerHTML={{__html: me.getText('how_to_study')}} />
-							<p> <a href="JavaScript:void(0)" onClick={me.playVideo.bind(me,'stop')}
+							<p> <a href="JavaScript:void(0)" onClick={me.sendCMD.bind(me,'pingbo')}
 								    className="btn btn-md btn-warning bottom-adjust" >
 									{me.dictionary('stop')}</a>
 							</p>
