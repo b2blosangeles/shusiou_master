@@ -62,7 +62,7 @@ try {
 						me.setState({audioChannel:socket.id});					
 					}, 
 					onServerData : function(incomeData, socket) {
-						//eval('('+incomeData.data.niu+')()');
+						console.log('==something coming===');
 						me.setState({audioClient:incomeData.data.clientMessage});
 					},
 					timeout :1999
