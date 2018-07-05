@@ -113,7 +113,6 @@ try {
 								    className="btn btn-md btn-success bottom-adjust" >
 									{me.dictionary('Open Security Voice Channel')}</a>
 							</p>
-							<i class="fa fa-microphone status_off" aria-hidden="true" style="font-size:5em;"></i>
 						</div>	
 										
 				</div> 
