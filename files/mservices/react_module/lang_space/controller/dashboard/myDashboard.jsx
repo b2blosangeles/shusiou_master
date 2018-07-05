@@ -104,7 +104,7 @@ try {
 		    return (<div className="content_section">
 				<br/>
 				<div className="container">
-					<div className="col-sm-4 col-lg-4 col-md-4"> 
+
 						<div className="overlayer_box">
 							<h4 className="header">{me.dictionary('Finance')}</h4> 
 							<p className="overlayer_box_body"  style={me.textStyle()}
@@ -114,11 +114,9 @@ try {
 									{me.dictionary('Open Security Voice Channel')}</a>
 							</p>
 						</div>	
-					</div>						
+										
 				</div> 
-				<div className="content_bg">
-					<video src="" className="align-middle" muted></video>
-				</div>
+				<div className="content_bg"></div>
 			</div>)
 	    } else {
 		    return (<div className="content_section">
