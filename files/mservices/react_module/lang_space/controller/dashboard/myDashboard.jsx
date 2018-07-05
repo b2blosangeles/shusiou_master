@@ -105,15 +105,13 @@ try {
 				<br/>
 				<div className="container">
 
-						<div className="overlayer_box">
-							<h4 className="header">{me.dictionary('Warning')}</h4> 
-							<p className="overlayer_box_body"  style={me.textStyle()}
-								dangerouslySetInnerHTML={{__html: me.getText('how_i_studied')}} />
-							<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
-								    className="btn btn-md btn-success bottom-adjust" >
-									{me.dictionary('Open Security Voice Channel')}</a>
-							</p>
-						</div>	
+					<div className="overlayer_box">
+						<h4 className="header">{me.dictionary('Warning')}</h4> 
+						<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
+							    className="btn btn-md btn-success bottom-adjust" >
+								{me.dictionary('Open Security Voice Channel')}</a>
+						</p>
+					</div>	
 										
 				</div> 
 				<div className="content_bg"></div>
