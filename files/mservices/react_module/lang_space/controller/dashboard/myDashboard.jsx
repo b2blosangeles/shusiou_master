@@ -40,7 +40,7 @@ try {
         componentDidUpdate:function(preProps, preState) {
 		let me = this;
 		if (me.state.audioClient) {
-			console.log('me.state.audioClient--->');
+			console.log('me.state.audioClient--->>');
 			console.log(me.state.audioClient);
 		}
         },	    
@@ -80,7 +80,7 @@ try {
 					},			
 					onServerData : function(incomeData, socket) {
 						console.log('----incomeData---->>');
-						console.log(incomeData.cmd);
+						//console.log(incomeData.cmd);
 					}
 				});
 				
