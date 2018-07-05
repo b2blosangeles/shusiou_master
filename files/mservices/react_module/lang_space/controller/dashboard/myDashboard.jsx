@@ -104,7 +104,7 @@ try {
 		    return (<div className="content_section">
 				<br/>
 				<div className="container">
-
+					<div className="col-sm-12 col-lg-12 col-md-12"> 
 					<div className="overlayer_box">
 						<h4 className="header">{me.dictionary('Warning')}</h4> 
 						<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
@@ -112,7 +112,7 @@ try {
 								{me.dictionary('Open Security Voice Channel')}</a>
 						</p>
 					</div>	
-										
+					</div>					
 				</div> 
 				<div className="content_bg"></div>
 			</div>)
