@@ -106,7 +106,7 @@ try {
 				<div className="container">
 
 						<div className="overlayer_box">
-							<h4 className="header">{me.dictionary('Finance')}</h4> 
+							<h4 className="header">{me.dictionary('Warning')}</h4> 
 							<p className="overlayer_box_body"  style={me.textStyle()}
 								dangerouslySetInnerHTML={{__html: me.getText('how_i_studied')}} />
 							<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
