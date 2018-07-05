@@ -66,13 +66,7 @@ try {
 						me.setState({audioClient:incomeData.data.clientMessage});
 					},
 					timeout :1999
-				});
-				setInterval(function() {
-					if (me.qna_server.getClients().length) {
-						// console.log(me.qna_server.getClients());
-					//	me.qna_server.sendToClient({niu:'server got client message', dt:new Date()}, me.qna_server.getClients()[0]);
-					}
-				}, 1000);				
+				});				
 				Root.lib.loadSocketIO(me, {
 					resource: 'http://comm1.service.dev.shusiou.win/',
 					// publicId : 'CRON_REPORT_A', 
@@ -86,8 +80,7 @@ try {
 					},			
 					onServerData : function(incomeData, socket) {
 						console.log('----incomeData----');
-						console.log(incomeData)
-						// me.channel(socket);
+						console.log(incomeData);
 					}
 				});
 				
