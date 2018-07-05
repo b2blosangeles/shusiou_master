@@ -130,7 +130,8 @@ try {
 								    className="btn btn-md btn-danger bottom-adjust" >
 									{me.dictionary('start')}</a>									
 							</p>
-							<i className="fa fa-microphone status_off" aria-hidden="true" style="font-size:5em;"></i><br/><br/>
+							<i className="fa fa-microphone status_off" 
+								aria-hidden="true" style={"font-size":"5em"}></i><br/><br/>
 						</div>	
 					</div>
 
