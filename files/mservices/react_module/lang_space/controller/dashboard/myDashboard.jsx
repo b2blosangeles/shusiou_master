@@ -79,7 +79,7 @@ try {
 						console.log('-- beforeDisConnection --->' + socket.id);
 					},			
 					onServerData : function(incomeData, socket) {
-						console.log('----incomeData---->');
+						console.log('----incomeData---->>');
 						console.log(incomeData.cmd);
 					}
 				});
