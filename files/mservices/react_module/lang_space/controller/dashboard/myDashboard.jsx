@@ -115,7 +115,9 @@ try {
 				<div className="container">
 					<div className="col-sm-4 col-lg-4 col-md-4"> 
 						<div className="overlayer_box">
-							<h4 className="header">{me.dictionary('Private')}</h4> 
+							<h4 className="header">{me.dictionary('Private')}
+							==={JSON.stringify(me.state.audioClient)}=
+							</h4> 
 							<p className="overlayer_box_body"  style={me.textStyle()}
 								dangerouslySetInnerHTML={{__html: me.getText('how_to_study')}} />
 							<p> <a href="JavaScript:void(0)" 
