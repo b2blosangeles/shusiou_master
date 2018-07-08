@@ -119,7 +119,7 @@ try {
 							<p className="overlayer_box_body"  style={me.textStyle()}
 								dangerouslySetInnerHTML={{__html: me.getText('how_to_study')}} />
 							<p> <a href="JavaScript:void(0)" 
-								    onClick={me.sendCMD.bind(me,'pingbo')}
+								    onClick={me.sendCMD.bind(me,'start')}
 								    className="btn btn-md btn-warning bottom-adjust" >
 									{me.dictionary('start')}</a>
 							</p>
