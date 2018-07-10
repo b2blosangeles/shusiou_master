@@ -11,9 +11,9 @@ try {
 		},
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
-			if (me.props.parent.state.socket_id !== preProps.parent.state.socket_id) {
+			//if (me.props.parent.state.socket_id !== preProps.parent.state.socket_id) {
 				console.log(me.props.parent.state.socket_id + '==vs===' + preProps.parent.state.socket_id);
-			}			
+			//}			
 			console.log('--kkkk--');
 		},
 		componentDidMount:function() {
