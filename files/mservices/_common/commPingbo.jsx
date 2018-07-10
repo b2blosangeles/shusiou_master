@@ -25,7 +25,7 @@ try {
 						proxy: ['http://comm1.service.dev.shusiou.win/', 
 							'https://comm1.service.dev.shusiou.win/'],
 						onConnect : function(socket) {
-							me.setState({socket_id:socket.id});				
+							me.props.parent.setState({socket_id:socket.id});				
 						}, 
 						onServerData : function(incomeData, socket) {
 							console.log('==something coming===>');
@@ -35,24 +35,7 @@ try {
 							}
 						},
 						timeout :1999
-					});				
-					Root.lib.loadSocketIO(me, {
-						resource: 'http://comm1.service.dev.shusiou.win/',
-						// publicId : 'CRON_REPORT_A', 
-						//room:'CRON_REPORT_A',
-						onConnection : function(socket) {
-						},
-						beforeDisconnection : function(socket) {
-							me.setState({audioChannel:null});
-							me.qna_server.closeSocket();
-							console.log('-- beforeDisConnection --->' + socket.id);
-						},			
-						onServerData : function(incomeData, socket) {
-							console.log('----incomeData---->>');
-							//console.log(incomeData.cmd);
-						}
 					});
-
 				}
 
 			);
