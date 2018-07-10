@@ -42,9 +42,9 @@ try {
 	},
 	channelComm : function() {
 		let me = this;
-		if (!me.state.audioChannel) return true;
+		if (!me.state.socket_id) return true;
 		// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
-		let url = 'https://comm1.service.dev.shusiou.win/?socket=' + me.state.audioChannel;
+		let url = 'https://comm1.service.dev.shusiou.win/?socket=' + me.state.socket_id;
 		Root.lib.positionedPopup(url, '','180','180','0','0','yes');
 	},
         componentDidUpdate:function(preProps, preState) {
