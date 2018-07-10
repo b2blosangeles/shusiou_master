@@ -49,7 +49,10 @@ try {
 	},
         componentDidUpdate:function(preProps, preState) {
 		let me = this;
-		console.log(preState.socket_id + '--vs--' + me.state.socket_id);
+		if (me.state.socket_id !== preState.socket_id) {
+			console.log(preState.socket_id + '--vs--' + me.state.socket_id);
+		}
+		
 		if (me.state.audioClient) {
 			console.log('me.state.audioClient--->>');
 			console.log(me.state.audioClient);
