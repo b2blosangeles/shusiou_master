@@ -114,11 +114,12 @@ try {
         render: function() {
             var me = this;
 	    if (!me.state.audioClient) {
-		    return (<div className="content_section"><_commPingbo/>
+		    return (<div className="content_section">
 				<br/>
 				<div className="container">
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
 					<div className="overlayer_box">
+						<_commPingbo/>==
 						<h4 className="header">{me.dictionary('Warning')}</h4> 
 						<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
 							    className="btn btn-md btn-success bottom-adjust" >
@@ -132,11 +133,12 @@ try {
 				<div className="content_bg"></div>
 			</div>)
 	    } else {
-		    return (<div className="content_section"><_commPingbo/>
+		    return (<div className="content_section">
 				<br/>
 				<div className="container">
 					<div className="col-sm-4 col-lg-4 col-md-4"> 
 						<div className="overlayer_box">
+							<_commPingbo/>==
 							<h4 className="header">{me.dictionary('Private')}
 								<br/>
 							{(me.state.audioClient.data) ? 
