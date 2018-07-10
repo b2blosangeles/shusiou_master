@@ -26,7 +26,7 @@ try {
 		let me = this;
 		setInterval(
 			function() {
-			//	console.log(me.state.pingbo);
+				console.log(me.state.pingbo_tm);
 			}, 1000
 		)
 		// me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
