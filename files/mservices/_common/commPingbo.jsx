@@ -18,24 +18,26 @@ try {
 					return (typeof _QNA_ === 'function' || typeof _QNA_ === 'object') ? true : false;
 				},
 				function() {
-					me.qna_server = new _QNA_();	
-					me.qna_server.init({ 
-						master_socket_id: null, 
-						link : 'https://comm1.service.dev.shusiou.win/', 
-						proxy: ['http://comm1.service.dev.shusiou.win/', 
-							'https://comm1.service.dev.shusiou.win/'],
-						onConnect : function(socket) {
-							me.props.parent.setState({socket_id:socket.id});				
-						}, 
-						onServerData : function(incomeData, socket) {
-							console.log('==something coming===>');
-							if (incomeData.data.clientMessage.cmd === 'pingbo'); {
-								me.setState({pingbo:incomeData.data.clientMessage.sender, 
-									     pingbo_tm: new Date().getTime()});
-							}
-						},
-						timeout :1999
-					});
+					if (!me.props.parent.qna_server) {
+						me.props.parent.qna_server = new _QNA_();	
+						me.props.parent.qna_server.init({ 
+							master_socket_id: null, 
+							link : 'https://comm1.service.dev.shusiou.win/', 
+							proxy: ['http://comm1.service.dev.shusiou.win/', 
+								'https://comm1.service.dev.shusiou.win/'],
+							onConnect : function(socket) {
+								me.props.parent.setState({socket_id:socket.id});				
+							}, 
+							onServerData : function(incomeData, socket) {
+								console.log('==something coming===>');
+								if (incomeData.data.clientMessage.cmd === 'pingbo'); {
+									me.props.parent.setState({pingbo:incomeData.data.clientMessage.sender, 
+										     pingbo_tm: new Date().getTime()});
+								}
+							},
+							timeout :1999
+						});
+					}
 				}
 
 			);
