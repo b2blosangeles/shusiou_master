@@ -52,7 +52,9 @@ try {
 		if (me.state.socket_id !== preState.socket_id) {
 			console.log(preState.socket_id + '--vs--' + me.state.socket_id);
 		}
-		
+		if (me.state.pingbo !== preState.pingbo) {
+			console.log(preState.pingbo + '--vs--' + me.state.pingbo);
+		}		
 		if (me.state.audioClient) {
 			console.log('me.state.audioClient--->>');
 			console.log(me.state.audioClient);
