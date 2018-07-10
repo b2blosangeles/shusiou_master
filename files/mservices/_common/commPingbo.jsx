@@ -57,7 +57,11 @@ try {
 							}, 
 							onServerData : function(incomeData, socket) {
 								console.log('==something coming===>');
-								if (incomeData.data.clientMessage.cmd === 'pingbo'); {
+								if (
+									incomeData.data.clientMessage.cmd === 'pingbo' 
+									&&
+								   	incomeData.data.clientMessage.sender
+								) {
 									me.setState({pingbo:incomeData.data.clientMessage.sender, 
 										     pingbo_tm: new Date().getTime()});
 								}
