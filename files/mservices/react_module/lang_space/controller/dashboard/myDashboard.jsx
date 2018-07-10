@@ -22,11 +22,10 @@ try {
 			return {'font-size':'1em'}	
 		}
 	},
-	    /*
-	playVideo: function(code) {
+	showData: function(data) {
 		let me = this;
-		me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
-	},*/
+		return (data === 'string') ? data : JSON.stringify(data);
+	},
 	sendCMD: function(code) {
 		let me = this;
 		me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
@@ -99,7 +98,7 @@ try {
 							<_commPingbo parent={me} />
 							<h4 className="header">{me.dictionary('Private')}
 								<br/>
-								={me.state.commData}=
+								={me.showData(me.state.commData)}=
 							{/*(me.state.audioClient.data) ? 
 							(me.state.audioClient.data + new Date().getTime()) : ''*/}
 							</h4> 
