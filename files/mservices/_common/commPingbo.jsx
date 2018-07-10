@@ -18,7 +18,7 @@ try {
 					if (new Date().getTime() - me.state.pingbo_tm > 3000 && (me.state.pingbo)) {
 						console.log(me.state.pingbo_tm);
 						if (me.state.pingbo) {
-							me.qna_server.sendToClient({cmd:'pingbo'}, me.state.pingbo);
+							me.props.parent.qna_server.sendToClient({cmd:'pingbo'}, me.state.pingbo);
 						}
 					}
 				}, 1000
