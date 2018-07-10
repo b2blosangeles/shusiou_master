@@ -141,8 +141,8 @@ try {
 							<_commPingbo/>==
 							<h4 className="header">{me.dictionary('Private')}
 								<br/>
-							{(me.state.audioClient.data) ? 
-							(me.state.audioClient.data + new Date().getTime()) : ''}
+							{/*(me.state.audioClient.data) ? 
+							(me.state.audioClient.data + new Date().getTime()) : ''*/}
 							</h4> 
 							<p className="overlayer_box_body"  style={me.textStyle()}
 								dangerouslySetInnerHTML={{__html: me.getText('how_to_study')}} />
