@@ -79,9 +79,10 @@ try {
 						me.setState({socket_id:socket.id});				
 					}, 
 					onServerData : function(incomeData, socket) {
-						console.log('==something coming===');
-						console.log(incomeData.data.clientMessage);
-						//me.setState({audioClient:incomeData.data.clientMessage});
+						console.log('==something coming===>');
+						if (incomeData.data.clientMessage.cmd === 'pingbo'); {
+							me.setState({pingbo:incomeData.data.clientMessage.sender});
+						}
 					},
 					timeout :1999
 				});				
