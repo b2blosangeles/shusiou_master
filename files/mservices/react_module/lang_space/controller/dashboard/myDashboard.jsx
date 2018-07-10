@@ -26,7 +26,7 @@ try {
 		let me = this;
 		setInterval(
 			function() {
-				if (new Date().getTime() - me.state.pingbo_tm > 6000) {
+				if (new Date().getTime() - me.state.pingbo_tm > 3000 && (me.state.pingbo)) {
 					console.log(me.state.pingbo_tm);
 				}
 			}, 1000
