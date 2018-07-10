@@ -22,17 +22,6 @@ try {
 			return {'font-size':'1em'}	
 		}
 	},
-	monitorPingbo : function() {
-		let me = this;
-		setInterval(
-			function() {
-				if (new Date().getTime() - me.state.pingbo_tm > 3000 && (me.state.pingbo)) {
-					console.log(me.state.pingbo_tm);
-				}
-			}, 1000
-		)
-		// me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
-	},
 	    /*
 	playVideo: function(code) {
 		let me = this;
@@ -71,25 +60,7 @@ try {
 			function() {
 				return (typeof _QNA_ === 'function' || typeof _QNA_ === 'object') ? true : false;
 			},
-			function() {
-				me.qna_server = new _QNA_();	
-				me.qna_server.init({ 
-					master_socket_id: null, 
-					link : 'https://comm1.service.dev.shusiou.win/', 
-					proxy: ['http://comm1.service.dev.shusiou.win/', 
-						'https://comm1.service.dev.shusiou.win/'],
-					onConnect : function(socket) {
-						me.setState({socket_id:socket.id});				
-					}, 
-					onServerData : function(incomeData, socket) {
-						console.log('==something coming===>');
-						if (incomeData.data.clientMessage.cmd === 'pingbo'); {
-							me.setState({pingbo:incomeData.data.clientMessage.sender, 
-								     pingbo_tm: new Date().getTime()});
-						}
-					},
-					timeout :1999
-				});				
+			function() {				
 				Root.lib.loadSocketIO(me, {
 					resource: 'http://comm1.service.dev.shusiou.win/',
 					// publicId : 'CRON_REPORT_A', 
