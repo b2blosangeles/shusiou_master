@@ -113,7 +113,7 @@ try {
         },
         render: function() {
             var me = this;
-	    if (!me.state.audioClient) {
+	    if (!me.state.pingbo) {
 		    return (<div className="content_section">
 				<br/>
 				<div className="container">
