@@ -2,7 +2,7 @@ try {
     var MyDashboard =  React.createClass({
         getInitialState: function() {
             let me = this;
-            return {list:[], text:{}, audioChannel: null, pingbo: '', socket_id:''};
+            return {list:[], text:{}, audioChannel: null, pingbo: '', socket_id:'', commData:''};
         },
 	dictionary:function(v) {
 		if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
@@ -99,6 +99,7 @@ try {
 							<_commPingbo parent={me} />
 							<h4 className="header">{me.dictionary('Private')}
 								<br/>
+								{me.state.commData}
 							{/*(me.state.audioClient.data) ? 
 							(me.state.audioClient.data + new Date().getTime()) : ''*/}
 							</h4> 
