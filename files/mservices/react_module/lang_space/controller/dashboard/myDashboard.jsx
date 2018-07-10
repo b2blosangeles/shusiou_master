@@ -22,10 +22,11 @@ try {
 			return {'font-size':'1em'}	
 		}
 	},
+	    /*
 	playVideo: function(code) {
 		let me = this;
 		me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
-	},
+	},*/
 	sendCMD: function(code) {
 		let me = this;
 		me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
