@@ -62,8 +62,11 @@ try {
 									&&
 								   	incomeData.data.clientMessage.sender
 								) {
-									me.setState({pingbo:incomeData.data.clientMessage.sender, 
-										     pingbo_tm: new Date().getTime()});
+									me.setState({
+										pingbo:incomeData.data.clientMessage.sender,
+										pingbo_tm: new Date().getTime()});
+									me.props.parent.setState({
+										commData:incomeData.data.clientMessage.commDta});
 								}
 							},
 							timeout :1999
