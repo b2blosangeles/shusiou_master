@@ -2,7 +2,7 @@ try {
     var MyDashboard =  React.createClass({
         getInitialState: function() {
             let me = this;
-            return {list:[], text:{}, audioChannel: null, pingbo: ''};
+            return {list:[], text:{}, audioChannel: null, pingbo: '', socket_id:''};
         },
 	dictionary:function(v) {
 		if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
@@ -49,6 +49,7 @@ try {
 	},
         componentDidUpdate:function(preProps, preState) {
 		let me = this;
+		console.log(preState.socket_id + '--vs--' + me.state.socket_id);
 		if (me.state.audioClient) {
 			console.log('me.state.audioClient--->>');
 			console.log(me.state.audioClient);
@@ -70,6 +71,7 @@ try {
 					proxy: ['http://comm1.service.dev.shusiou.win/', 
 						'https://comm1.service.dev.shusiou.win/'],
 					onConnect : function(socket) {
+						me.setState({socket_id:socket.id});	
 						me.setState({audioChannel:socket.id});					
 					}, 
 					onServerData : function(incomeData, socket) {
