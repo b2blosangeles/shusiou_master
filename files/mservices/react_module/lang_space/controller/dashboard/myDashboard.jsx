@@ -22,6 +22,15 @@ try {
 			return {'font-size':'1em'}	
 		}
 	},
+	monitorPingbo : function() {
+		let me = this;
+		setInterval(
+			function() {
+				console.log(me.state.pingbo);
+			}, 1000
+		)
+		// me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
+	},
 	    /*
 	playVideo: function(code) {
 		let me = this;
@@ -47,6 +56,7 @@ try {
         },	    
         componentDidMount:function() {
 		let me = this;
+		me.monitorPingbo();
 		let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
 		Root.lib.dependeceCall(
 			function() {
