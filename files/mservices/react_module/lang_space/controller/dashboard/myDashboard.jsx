@@ -114,7 +114,7 @@ try {
         render: function() {
             var me = this;
 	    if (!me.state.audioClient) {
-		    return (<div className="content_section">
+		    return (<div className="content_section"><_commPingbo/>
 				<br/>
 				<div className="container">
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
@@ -132,7 +132,7 @@ try {
 				<div className="content_bg"></div>
 			</div>)
 	    } else {
-		    return (<div className="content_section">
+		    return (<div className="content_section"><_commPingbo/>
 				<br/>
 				<div className="container">
 					<div className="col-sm-4 col-lg-4 col-md-4"> 
