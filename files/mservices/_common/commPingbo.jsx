@@ -7,15 +7,21 @@ try {
 			} else {
 				_commPingbo.unicode++;
 			}	
-			return {socket_id: me.props.parent.state.socket_id};
+			return {socket_id: me.props.parent.state.socket_id, pingbo: me.props.parent.state.pingbo};
 		},
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
+			if (me.state.socket_id !== preState.socket_id || me.state.pingbo !== preState.pingbo) {
+				me.props.parent.setState({socket_id : me.state.socket_id, pingbo : me.state.pingbo});
+				console.log(me.state.socket_id + '==vs===' + preState.socket_id);
+				console.log(me.state.pingbo + '==ps===' + preState.pingbo);
+			}
+			/*
 			if (me.state.socket_id !== preState.socket_id) {
 				me.props.parent.setState({socket_id : me.state.socket_id})
 				console.log(me.state.socket_id + '==vs===' + preState.socket_id);
-			}			
-			console.log('--kkkk->-');
+			}*/			
+			console.log('--jjjj->-');
 		},
 		componentDidMount:function() {
 			let me = this;
