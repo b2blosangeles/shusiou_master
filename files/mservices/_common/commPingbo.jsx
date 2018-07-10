@@ -7,8 +7,21 @@ try {
 			} else {
 				_commPingbo.unicode++;
 			}	
-			return {socket_id: me.props.parent.state.socket_id, pingbo: me.props.parent.state.pingbo};
+			return {socket_id: me.props.parent.state.socket_id, 
+				pingbo: me.props.parent.state.pingbo, 
+				pingbo_tm:new Date().getTime()};
 		},
+		monitorPingbo : function() {
+			let me = this;
+			setInterval(
+				function() {
+					if (new Date().getTime() - me.state.pingbo_tm > 3000 && (me.state.pingbo)) {
+						console.log(me.state.pingbo_tm);
+					}
+				}, 1000
+			)
+			// me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
+		},		
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
 			if (me.state.socket_id !== preState.socket_id || me.state.pingbo !== preState.pingbo) {
