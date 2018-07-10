@@ -2,7 +2,7 @@ try {
     var MyDashboard =  React.createClass({
         getInitialState: function() {
             let me = this;
-            return {list:[], text:{}, audioChannel: null, pingbo: '', socket_id:'', pingbo_tm:new Date().getTime()};
+            return {list:[], text:{}, audioChannel: null, pingbo: '', socket_id:''};
         },
 	dictionary:function(v) {
 		if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
