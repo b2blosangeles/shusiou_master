@@ -9,6 +9,10 @@ try {
 			}	
 			return {};
 		},
+		componentDidUpdate:function(preProps, preState) {
+			let me = this;
+			console.log('--kkkk--');
+		},
 		componentDidMount:function() {
 			let me = this;
 			// me.monitorPingbo();
