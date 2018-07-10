@@ -11,7 +11,7 @@ try {
 		},		
 		render: function() {
 			let me = this;
-			return (<span>_commPingbo </span>)
+			return (<span>_commPingbo -- {me.props.parent.state.pinbo_tm} </span>)
 		}
 	});	
 } catch (err) {
