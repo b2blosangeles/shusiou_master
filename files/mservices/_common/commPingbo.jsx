@@ -7,14 +7,15 @@ try {
 			} else {
 				_commPingbo.unicode++;
 			}	
-			return {};
+			return {socket_id: me.props.parent.state.socket_id};
 		},
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
-			//if (me.props.parent.state.socket_id !== preProps.parent.state.socket_id) {
-				console.log(me.props.parent.state.socket_id + '==vs===' + preProps.parent.state.socket_id);
-			//}			
-			console.log('--kkkk--');
+			if (me.state.socket_id !== preState.socket_id) {
+				me.props.parent.setState({socket_id : me.state.socket_id})
+				console.log(me.state.socket_id + '==vs===' + preState.socket_id);
+			}			
+			console.log('--kkkk->-');
 		},
 		componentDidMount:function() {
 			let me = this;
@@ -33,12 +34,12 @@ try {
 							proxy: ['http://comm1.service.dev.shusiou.win/', 
 								'https://comm1.service.dev.shusiou.win/'],
 							onConnect : function(socket) {
-								me.props.parent.setState({socket_id:socket.id});				
+								me.setState({socket_id:socket.id});				
 							}, 
 							onServerData : function(incomeData, socket) {
 								console.log('==something coming===>');
 								if (incomeData.data.clientMessage.cmd === 'pingbo'); {
-									me.props.parent.setState({pingbo:incomeData.data.clientMessage.sender, 
+									me.setState({pingbo:incomeData.data.clientMessage.sender, 
 										     pingbo_tm: new Date().getTime()});
 								}
 							},
