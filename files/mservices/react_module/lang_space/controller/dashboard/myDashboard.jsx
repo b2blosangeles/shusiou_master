@@ -37,20 +37,7 @@ try {
 		// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
 		let url = 'https://comm1.service.dev.shusiou.win/?socket=' + me.state.socket_id;
 		Root.lib.positionedPopup(url, '','180','180','0','0','yes');
-	},
-        componentDidUpdate:function(preProps, preState) {
-		let me = this;
-		if (me.state.socket_id !== preState.socket_id) {
-			console.log(preState.socket_id + '--vs--' + me.state.socket_id);
-		}
-		if (me.state.pingbo !== preState.pingbo) {
-			console.log(preState.pingbo + '--vv--' + me.state.pingbo + '===' + me.state.pingbo_tm);
-		}		
-		if (me.state.audioClient) {
-			console.log('me.state.audioClient--->>');
-			console.log(me.state.audioClient);
-		}
-        },	    
+	},	    
         componentDidMount:function() {
 		let me = this;
 		return true;
