@@ -2,7 +2,7 @@ try {
     var MyDashboard =  React.createClass({
         getInitialState: function() {
             let me = this;
-            return {list:[], text:{}, audioChannel: null, pingbo: '', socket_id:''};
+            return {list:[], text:{}, audioChannel: null, pingbo: '', socket_id:'', pingbo_tm:new Date().getTime()};
         },
 	dictionary:function(v) {
 		if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
@@ -53,7 +53,7 @@ try {
 			console.log(preState.socket_id + '--vs--' + me.state.socket_id);
 		}
 		if (me.state.pingbo !== preState.pingbo) {
-			console.log(preState.pingbo + '--vv--' + me.state.pingbo);
+			console.log(preState.pingbo + '--vv--' + me.state.pingbo + '===' + me.state.pingbo_tm);
 		}		
 		if (me.state.audioClient) {
 			console.log('me.state.audioClient--->>');
@@ -81,7 +81,8 @@ try {
 					onServerData : function(incomeData, socket) {
 						console.log('==something coming===>');
 						if (incomeData.data.clientMessage.cmd === 'pingbo'); {
-							me.setState({pingbo:incomeData.data.clientMessage.sender});
+							me.setState({pingbo:incomeData.data.clientMessage.sender, 
+								     pingbo_tm: new Date().getTime()});
 						}
 					},
 					timeout :1999
