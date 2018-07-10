@@ -99,7 +99,7 @@ try {
 							<_commPingbo parent={me} />
 							<h4 className="header">{me.dictionary('Private')}
 								<br/>
-								{me.state.commData}
+								={me.state.commData}=
 							{/*(me.state.audioClient.data) ? 
 							(me.state.audioClient.data + new Date().getTime()) : ''*/}
 							</h4> 
