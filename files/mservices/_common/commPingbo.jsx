@@ -46,6 +46,7 @@ try {
 		componentDidMount:function() {
 			let me = this;
 			me.monitorPingbo();
+			console.log('===--- join ---====');
 			let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
 			Root.lib.dependeceCall(
 				function() {
