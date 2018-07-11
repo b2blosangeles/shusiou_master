@@ -69,17 +69,12 @@ try {
 					<div className="col-sm-4 col-lg-4 col-md-4"> 
 						<div className="overlayer_box">
 							<_commPingbo parent={me} />
-							<h4 className="header">{me.dictionary('Private')}
-								<br/>
+							<h4 className="header">{me.dictionary('Private')}</h4>
 							 <a href="JavaScript:void(0)" 
 								    onClick={me.sendCMD.bind(me,'start')}
 								    className="btn btn-md btn-warning bottom-adjust" >
-									{me.dictionary('start')}</a>	
-							{/*(me.state.audioClient.data) ? 
-							(me.state.audioClient.data + new Date().getTime()) : ''*/}
-							</h4> 
-							<p className="overlayer_box_body"  style={me.textStyle()}
-								dangerouslySetInnerHTML={{__html: me.getText('how_to_study')}} />
+									{me.dictionary('start')}</a>
+							 
 							<p> <a href="JavaScript:void(0)" 
 								    onClick={me.sendCMD.bind(me,'start')}
 								    className="btn btn-md btn-warning bottom-adjust" >
