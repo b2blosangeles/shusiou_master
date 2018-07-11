@@ -39,6 +39,7 @@ try {
 	},
 	componentWillUnmount : function() {
 		let me = this;
+		me.setState({refreshComm:true});
 		console.log('===componentWillUnmount= >>> ===');
 	},	    
         componentDidMount:function() {
