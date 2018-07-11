@@ -34,7 +34,7 @@ try {
 				console.log(me.state.socket_id + '==vs===' + preState.socket_id);
 				console.log(me.state.pingbo + '==ps===' + preState.pingbo);
 			}			
-			//console.log('--jjjj->-');
+			console.log('--jjjj->-');
 		},
 		componentDidMount:function() {
 			let me = this;
