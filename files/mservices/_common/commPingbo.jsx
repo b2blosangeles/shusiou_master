@@ -14,7 +14,8 @@ try {
 		},
 		componentWillUnmount : function() {
 			let me = this;
-			console.log('===--- componentWillUnmount ---====');
+			console.log('===--- componentWillUnmount -2--====');
+			if (me.props.parent.qna_server) me.props.parent.qna_server.closeSocket();
 			//me.setState({pingbo : null});
 			if (me._itv) clearInterval(me._itv);
 		},
