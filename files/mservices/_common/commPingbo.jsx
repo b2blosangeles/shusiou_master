@@ -73,10 +73,11 @@ try {
 										v.commData = incomeData.data.clientMessage.commData;
 									}
 									me.setState(v);
+									/*
 									if (incomeData.data.clientMessage.commData) {
 										me.props.parent.setState({commData : 
 										incomeData.data.clientMessage.commData});
-									}
+									}*/
 								} else if (incomeData.data.clientMessage === null) {
 									me.setState({pingbo : null});
 								}
