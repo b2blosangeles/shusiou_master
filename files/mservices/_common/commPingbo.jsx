@@ -33,13 +33,8 @@ try {
 				me.props.parent.setState({socket_id : me.state.socket_id, pingbo : me.state.pingbo});
 				console.log(me.state.socket_id + '==vs===' + preState.socket_id);
 				console.log(me.state.pingbo + '==ps===' + preState.pingbo);
-			}
-			/*
-			if (me.state.socket_id !== preState.socket_id) {
-				me.props.parent.setState({socket_id : me.state.socket_id})
-				console.log(me.state.socket_id + '==vs===' + preState.socket_id);
-			}*/			
-			console.log('--jjjj->-');
+			}			
+			//console.log('--jjjj->-');
 		},
 		componentDidMount:function() {
 			let me = this;
