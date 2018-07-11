@@ -13,7 +13,7 @@ try {
 		},
 		componentWillUnmount : function() {
 			let me = this;
-			console.log('===componentWillUnmount====');
+			//console.log('===componentWillUnmount====');
 			if (me._itv) clearInterval(me._itv);
 		},
 		monitorPingbo : function() {
@@ -59,8 +59,8 @@ try {
 								me.setState({socket_id:socket.id});				
 							}, 
 							onServerData : function(incomeData, socket) {
-							//	console.log('==something coming===>');
-							//	console.log(incomeData.data);
+								console.log('==something coming===>');
+								console.log(incomeData.data);
 								let v = {};
 								if ((incomeData.data.clientMessage) && 
 								    incomeData.data.clientMessage.cmd === 'pingbo') {
@@ -70,7 +70,7 @@ try {
 									v.pingbo_tm = new Date().getTime();
 									me.setState(v);
 									me.props.parent.setState({commData : incomeData.data.clientMessage.commData});
-								} else if (ncomeData.data.clientMessage === null) {
+								} else if (incomeData.data.clientMessage === null) {
 									me.setState({pingbo : null});
 								}
 							},
