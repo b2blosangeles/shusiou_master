@@ -22,10 +22,6 @@ try {
 			return {'font-size':'1em'}	
 		}
 	},
-	showData: function(data) {
-		let me = this;
-		return (data === 'string') ? data : JSON.stringify(data);
-	},
 	sendCMD: function(code) {
 		let me = this;
 		me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
@@ -106,7 +102,7 @@ try {
 							{me._commPingbo()}
 							<h4 className="header">{me.dictionary('Private')}
 								<br/>
-								={me.showData(me.state.commData)}=
+								
 							{/*(me.state.audioClient.data) ? 
 							(me.state.audioClient.data + new Date().getTime()) : ''*/}
 							</h4> 
