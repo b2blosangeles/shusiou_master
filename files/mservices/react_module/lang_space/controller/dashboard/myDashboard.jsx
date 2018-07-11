@@ -37,10 +37,12 @@ try {
 		let url = 'https://comm1.service.dev.shusiou.win/?socket=' + me.state.socket_id;
 		Root.lib.positionedPopup(url, '','180','180','0','0','yes');
 	},
+	_commPingbo : function() {
+		let me = this;
+		return (<_commPingbo parent={me} />)
+	}, 
 	componentWillUnmount : function() {
 		let me = this;
-		me.setState({refreshComm:true});
-		console.log('===componentWillUnmount= >>> ===');
 	},	    
         componentDidMount:function() {
 		let me = this;
@@ -81,7 +83,7 @@ try {
 				<div className="container">
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
 					<div className="overlayer_box">
-						<_commPingbo parent={me} />
+						{me._commPingbo()}
 						<h4 className="header" >{me.dictionary('Warning')}</h4> 
 						<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
 							    className="btn btn-md btn-success bottom-adjust" >
@@ -100,7 +102,7 @@ try {
 				<div className="container">
 					<div className="col-sm-4 col-lg-4 col-md-4"> 
 						<div className="overlayer_box">
-							<_commPingbo parent={me} />
+							{me._commPingbo()}
 							<h4 className="header">{me.dictionary('Private')}
 								<br/>
 								={me.showData(me.state.commData)}=
