@@ -67,8 +67,8 @@ try {
 										v.pingbo = incomeData.data.clientMessage.sender;
 									}
 									v.pingbo_tm = new Date().getTime();
-									v.commData = incomeData.data.clientMessage.commData;
-									me.props.parent.setState(v);
+									me.setState(v);
+									me.props.parent.setState({commData : incomeData.data.clientMessage.commData});
 								}
 							},
 							timeout :1999
