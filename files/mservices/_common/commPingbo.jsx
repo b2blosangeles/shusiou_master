@@ -11,6 +11,9 @@ try {
 				pingbo: me.props.parent.state.pingbo, 
 				pingbo_tm:new Date().getTime()};
 		},
+		componentWillUnmount : function() {
+			console.log('===componentWillUnmount====');
+		},
 		monitorPingbo : function() {
 			let me = this;
 			me._itv = setInterval(
