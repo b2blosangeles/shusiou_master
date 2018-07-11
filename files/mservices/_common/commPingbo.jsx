@@ -88,7 +88,8 @@ try {
 		},		
 		render: function() {
 			let me = this;
-			return (<span>_commPingbo --> {me.props.parent.state.socket_id} </span>)
+			return (<span>_commPingbo --> {me.props.parent.state.socket_id} ==>
+					{me.props.parent.state.commData}</span>)
 		}
 	});	
 } catch (err) {
