@@ -36,6 +36,10 @@ try {
 		// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
 		let url = 'https://comm1.service.dev.shusiou.win/?socket=' + me.state.socket_id;
 		Root.lib.positionedPopup(url, '','180','180','0','0','yes');
+	},
+	componentWillUnmount : function() {
+		let me = this;
+		console.log('===componentWillUnmount= >>> ===');
 	},	    
         componentDidMount:function() {
 		let me = this;
