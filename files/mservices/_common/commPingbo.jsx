@@ -35,6 +35,7 @@ try {
 				//console.log(me.state.socket_id + '==vs===' + preState.socket_id);
 				//console.log(me.state.pingbo + '==ps===' + preState.pingbo);
 			}
+			console.log(me.props.parent.state.outdata);
 		},
 		componentDidMount:function() {
 			let me = this;
