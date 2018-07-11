@@ -2,11 +2,12 @@ try {
 	var _commPingbo = React.createClass({
 		getInitialState: function() {
 			var me = this;
+			/*
 			if (!_commPingbo.unicode || _commPingbo.unicode > 99999) {
 				_commPingbo.unicode = 1;
 			} else {
 				_commPingbo.unicode++;
-			}	
+			}*/	
 			return {socket_id: me.props.parent.state.socket_id, 
 				pingbo: me.props.parent.state.pingbo, 
 				pingbo_tm:new Date().getTime()};
