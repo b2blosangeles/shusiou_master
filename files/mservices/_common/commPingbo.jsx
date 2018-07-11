@@ -69,6 +69,9 @@ try {
 										v.pingbo = incomeData.data.clientMessage.sender;
 									}
 									v.pingbo_tm = new Date().getTime();
+									if (incomeData.data.clientMessage.commData) {
+										v.commData = incomeData.data.clientMessage.commData;
+									}
 									me.setState(v);
 									if (incomeData.data.clientMessage.commData) {
 										me.props.parent.setState({commData : 
@@ -89,7 +92,7 @@ try {
 		render: function() {
 			let me = this;
 			return (<span>_commPingbo --> {me.props.parent.state.socket_id} ==>
-					{me.props.parent.state.commData}</span>)
+					{me.state.commData}</span>)
 		}
 	});	
 } catch (err) {
