@@ -14,7 +14,7 @@ try {
 		},
 		componentWillUnmount : function() {
 			let me = this;
-			console.log('===componentWillUnmount====');
+			console.log('===--- componentWillUnmount ---====');
 			if (me._itv) clearInterval(me._itv);
 		},
 		monitorPingbo : function() {
