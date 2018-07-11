@@ -39,10 +39,11 @@ try {
 	},
 	_commPingbo : function() {
 		let me = this;
-		return (<_commPingbo parent={me} />)
+		return (me.state.refreshComm)?(<span/>):(<_commPingbo parent={me} />)
 	}, 
 	componentWillUnmount : function() {
 		let me = this;
+		me.setState({refreshComm:true});
 	},	    
         componentDidMount:function() {
 		let me = this;
