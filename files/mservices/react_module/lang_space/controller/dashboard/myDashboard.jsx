@@ -77,12 +77,12 @@ try {
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
 					<div className="overlayer_box">
 						<_commPingbo parent={me} />
-						<h4 className="header">{me.dictionary('Warning')}</h4> 
+						<h4 className="header" >{me.dictionary('Warning')}</h4> 
 						<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
 							    className="btn btn-md btn-success bottom-adjust" >
 								{me.dictionary('Open Security Voice Channel')}</a>
 						</p>
-						<i className="fa fa-microphone status_off" 
+						<i className="fa fa-microphone status_off" onClick={me.channelComm.bind(me)}
 								aria-hidden="true" style={{"font-size":"5em"}}></i><br/><br/>
 					</div>	
 					</div>					
