@@ -14,7 +14,7 @@ try {
 		},
 		componentWillUnmount : function() {
 			let me = this;
-			//console.log('===componentWillUnmount====');
+			console.log('===componentWillUnmount====');
 			if (me._itv) clearInterval(me._itv);
 		},
 		monitorPingbo : function() {
@@ -41,7 +41,6 @@ try {
 				//console.log(me.state.socket_id + '==vs===' + preState.socket_id);
 				//console.log(me.state.pingbo + '==ps===' + preState.pingbo);
 			}
-			console.log('=== ' + me.props.parking + ' ===');
 		},
 		componentDidMount:function() {
 			let me = this;
