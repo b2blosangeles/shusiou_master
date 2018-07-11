@@ -35,8 +35,8 @@ try {
 			let me = this;
 			if (me.state.socket_id !== preState.socket_id || me.state.pingbo !== preState.pingbo) {
 				me.props.parent.setState({socket_id : me.state.socket_id, pingbo : me.state.pingbo});
-				console.log(me.state.socket_id + '==vs===' + preState.socket_id);
-				console.log(me.state.pingbo + '==ps===' + preState.pingbo);
+				//console.log(me.state.socket_id + '==vs===' + preState.socket_id);
+				//console.log(me.state.pingbo + '==ps===' + preState.pingbo);
 			}
 		},
 		componentDidMount:function() {
@@ -56,7 +56,7 @@ try {
 							proxy: ['http://comm1.service.dev.shusiou.win/', 
 								'https://comm1.service.dev.shusiou.win/'],
 							onConnect : function(socket) {
-								console.log('---connnected---');
+							//	console.log('---connnected---');
 								me.setState({socket_id:socket.id});				
 							}, 
 							onServerData : function(incomeData, socket) {
