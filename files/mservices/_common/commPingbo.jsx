@@ -13,10 +13,11 @@ try {
 		},
 		monitorPingbo : function() {
 			let me = this;
-			setInterval(
+			me._itv = setInterval(
 				function() {
 					if (new Date().getTime() - me.state.pingbo_tm > 6000 && (me.state.pingbo)) {
 						me.props.parent.setState({pingbo : null});
+						console.log('GGG');
 					} else if (new Date().getTime() - me.state.pingbo_tm > 3000 && (me.state.pingbo)) {
 						console.log(me.state.pingbo_tm);
 						if (me.state.pingbo) {
