@@ -24,6 +24,8 @@ try {
 						if (me.state.pingbo) {
 							me.props.parent.qna_server.sendToClient({cmd:'pingbo'}, me.state.pingbo);
 						}
+					} else {
+						console.log('===niu===');
 					}
 				}, 1000
 			)
