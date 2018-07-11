@@ -53,6 +53,7 @@ try {
 							proxy: ['http://comm1.service.dev.shusiou.win/', 
 								'https://comm1.service.dev.shusiou.win/'],
 							onConnect : function(socket) {
+								console.log('---connnected---');
 								me.setState({socket_id:socket.id});				
 							}, 
 							onServerData : function(incomeData, socket) {
