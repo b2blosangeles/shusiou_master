@@ -23,19 +23,13 @@ try {
 				function() {
 					if (new Date().getTime() - me.state.pingbo_tm > 6000 && (me.state.pingbo)) {
 						me.setState({pingbo : null});
-						console.log('GGG');
 					} else if (new Date().getTime() - me.state.pingbo_tm > 3000 && (me.state.pingbo)) {
-						console.log(me.state.pingbo_tm);
-						console.log('HHH');
 						if (me.state.pingbo) {
 							me.props.parent.qna_server.sendToClient({cmd:'pingbo'}, me.state.pingbo);
 						}
-					} else {
-						console.log('===niu===');
-					}
+					} 
 				}, 1000
 			)
-			// me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
 		},		
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
