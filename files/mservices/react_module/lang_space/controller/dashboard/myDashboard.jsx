@@ -22,9 +22,9 @@ try {
 			return {'font-size':'1em'}	
 		}
 	},
-	sendCMD: function() {
+	sendOutData: function(data) {
 		let me = this;
-		me.setState({outData:new Date().getTime()})
+		me.setState({outData:data})
 		//me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
 	},
 	channelComm : function() {
@@ -71,7 +71,7 @@ try {
 							<_commPingbo parent={me} />
 							<h4 className="header">{me.dictionary('Private')}</h4>
 							 <a href="JavaScript:void(0)" 
-								    onClick={me.sendCMD.bind(me,'start')}
+								    onClick={me.sendOutData.bind(me,'sendOutData')}
 								    className="btn btn-md btn-warning" >
 									{me.dictionary('start')}</a>
 						</div>	
