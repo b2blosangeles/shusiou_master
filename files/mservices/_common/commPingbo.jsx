@@ -56,12 +56,11 @@ try {
 							proxy: ['http://comm1.service.dev.shusiou.win/', 
 								'https://comm1.service.dev.shusiou.win/'],
 							onConnect : function(socket) {
-							//	console.log('---connnected---');
 								me.setState({socket_id:socket.id});				
 							}, 
 							onServerData : function(incomeData, socket) {
-								console.log('==something coming===>');
-								console.log(incomeData.data);
+							//	console.log('==something coming===>');
+							//	console.log(incomeData.data);
 								let v = {};
 								if ((incomeData.data.clientMessage) && 
 								    incomeData.data.clientMessage.cmd === 'pingbo') {
@@ -71,6 +70,8 @@ try {
 									v.pingbo_tm = new Date().getTime();
 									me.setState(v);
 									me.props.parent.setState({commData : incomeData.data.clientMessage.commData});
+								} else if (ncomeData.data.clientMessage === null) {
+									me.setState({pingbo : null});
 								}
 							},
 							timeout :1999
