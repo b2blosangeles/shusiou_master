@@ -1,20 +1,13 @@
 try {
 	var _commPingbo = React.createClass({
 		getInitialState: function() {
-			var me = this;
-			/*
-			if (!_commPingbo.unicode || _commPingbo.unicode > 99999) {
-				_commPingbo.unicode = 1;
-			} else {
-				_commPingbo.unicode++;
-			}*/	
+			var me = this;	
 			return {socket_id: me.props.parent.state.socket_id, 
 				pingbo: me.props.parent.state.pingbo, 
 				pingbo_tm:new Date().getTime()};
 		},
 		componentWillUnmount : function() {
 			let me = this;
-			console.log('===--- componentWillUnmount -2--====');
 			if (me.props.parent.qna_server) me.props.parent.qna_server.closeSocket();
 			me.setState({pingbo : null});
 			if (me._itv) clearInterval(me._itv);
@@ -31,7 +24,6 @@ try {
 							me.props.parent.qna_server.sendToClient({cmd:'pingbo'}, me.state.pingbo);
 						}
 					} 
-					console.log(me.props.parent.props.location.pathname);
 					//me.setState({parent_location : me.props.parent.props.location.pathname});
 				}, 1000
 			)
@@ -47,16 +39,13 @@ try {
 		componentDidMount:function() {
 			let me = this;
 			me.monitorPingbo();
-			console.log('===--- join ---====');
 			let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
 			Root.lib.dependeceCall(
 				function() {
 					return (typeof _QNA_ === 'function' || typeof _QNA_ === 'object') ? true : false;
 				},
 				function() {
-					console.log('===--- join -2--====');
 					if (!me.props.parent.qna_server) {
-						console.log('===--- join 3--====');
 						me.props.parent.qna_server = new _QNA_();	
 						me.props.parent.qna_server.init({ 
 							master_socket_id: null, 
@@ -80,11 +69,6 @@ try {
 										v.commData = incomeData.data.clientMessage.commData;
 									}
 									me.setState(v);
-									/*
-									if (incomeData.data.clientMessage.commData) {
-										me.props.parent.setState({commData : 
-										incomeData.data.clientMessage.commData});
-									}*/
 								} else if (incomeData.data.clientMessage === null) {
 									me.setState({pingbo : null});
 								}
