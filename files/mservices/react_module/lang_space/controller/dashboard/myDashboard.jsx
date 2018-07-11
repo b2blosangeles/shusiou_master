@@ -44,33 +44,6 @@ try {
         componentDidMount:function() {
 		let me = this;
 		return true;
-		let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
-		Root.lib.dependeceCall(
-			function() {
-				return (typeof _QNA_ === 'function' || typeof _QNA_ === 'object') ? true : false;
-			},
-			function() {				
-				Root.lib.loadSocketIO(me, {
-					resource: 'http://comm1.service.dev.shusiou.win/',
-					// publicId : 'CRON_REPORT_A', 
-					//room:'CRON_REPORT_A',
-					onConnection : function(socket) {
-					},
-					beforeDisconnection : function(socket) {
-						me.setState({audioChannel:null});
-						me.qna_server.closeSocket();
-						console.log('-- beforeDisConnection --->' + socket.id);
-					},			
-					onServerData : function(incomeData, socket) {
-						console.log('----incomeData---->>');
-						//console.log(incomeData.cmd);
-					}
-				});
-				
-			}
-
-		);
-		return true;
         },
         render: function() {
             var me = this;
