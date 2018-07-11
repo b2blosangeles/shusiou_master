@@ -12,7 +12,9 @@ try {
 				pingbo_tm:new Date().getTime()};
 		},
 		componentWillUnmount : function() {
+			let me = this;
 			console.log('===componentWillUnmount====');
+			if (me._itv) clearInterval(me._itv);
 		},
 		monitorPingbo : function() {
 			let me = this;
