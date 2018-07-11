@@ -72,14 +72,8 @@ try {
 							<h4 className="header">{me.dictionary('Private')}</h4>
 							 <a href="JavaScript:void(0)" 
 								    onClick={me.sendCMD.bind(me,'start')}
-								    className="btn btn-md btn-warning bottom-adjust" >
+								    className="btn btn-md btn-warning" >
 									{me.dictionary('start')}</a>
-							 
-							<p> <a href="JavaScript:void(0)" 
-								    onClick={me.sendCMD.bind(me,'start')}
-								    className="btn btn-md btn-warning bottom-adjust" >
-									{me.dictionary('start')}</a>
-							</p>
 						</div>	
 					</div>					
 				</div> 
