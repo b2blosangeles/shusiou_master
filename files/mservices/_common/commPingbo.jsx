@@ -29,6 +29,8 @@ try {
 							me.props.parent.qna_server.sendToClient({cmd:'pingbo'}, me.state.pingbo);
 						}
 					} 
+					console.log(me.props.parent.props.location.pathname);
+					//me.setState({parent_location : me.props.parent.props.location.pathname});
 				}, 1000
 			)
 		},		
