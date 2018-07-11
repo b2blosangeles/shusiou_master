@@ -58,13 +58,15 @@ try {
 							onServerData : function(incomeData, socket) {
 								console.log('==something coming===>');
 								console.log(incomeData.data);
+								let v = {};
 								if ((incomeData.data.clientMessage) && 
 								    incomeData.data.clientMessage.cmd === 'pingbo') {
 									if (incomeData.data.clientMessage.sender) {
-										me.setState({pingbo:incomeData.data.clientMessage.sender});
+										v.pingbo = incomeData.data.clientMessage.sender;
 									}
-									me.setState({pingbo_tm: new Date().getTime()});
-									me.props.parent.setState({commData:incomeData.data.clientMessage.commData});
+									v.pingbo_tm = new Date().getTime();
+									v.commData = incomeData.data.clientMessage.commData;
+									me.props.parent.setState(v);
 								}
 							},
 							timeout :1999
