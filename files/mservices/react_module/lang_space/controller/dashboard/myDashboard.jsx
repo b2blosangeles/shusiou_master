@@ -22,9 +22,10 @@ try {
 			return {'font-size':'1em'}	
 		}
 	},
-	sendCMD: function(code) {
+	sendCMD: function() {
 		let me = this;
-		me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
+		me.setState({outData:new Date().getTime()})
+		//me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
 	},
 	channelComm : function() {
 		let me = this;
@@ -48,7 +49,7 @@ try {
 				<div className="container">
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
 					<div className="overlayer_box">
-						<_commPingbo parent={me} parking={me.props.location.pathname}/>
+						<_commPingbo parent={me}/>
 						<h4 className="header" >{me.dictionary('Warning')}</h4> 
 						<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
 							    className="btn btn-md btn-success bottom-adjust" >
@@ -67,10 +68,13 @@ try {
 				<div className="container">
 					<div className="col-sm-4 col-lg-4 col-md-4"> 
 						<div className="overlayer_box">
-							<_commPingbo parent={me} parking={me.props.location.pathname} />
+							<_commPingbo parent={me} />
 							<h4 className="header">{me.dictionary('Private')}
 								<br/>
-								
+							 <a href="JavaScript:void(0)" 
+								    onClick={me.sendCMD.bind(me,'start')}
+								    className="btn btn-md btn-warning bottom-adjust" >
+									{me.dictionary('start')}</a>	
 							{/*(me.state.audioClient.data) ? 
 							(me.state.audioClient.data + new Date().getTime()) : ''*/}
 							</h4> 
