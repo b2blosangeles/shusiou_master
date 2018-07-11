@@ -15,9 +15,9 @@ try {
 			let me = this;
 			setInterval(
 				function() {
-					if (new Date().getTime() - me.state.pingbo_tm > 6000 && (me.state.pingbo)) {
+					if (new Date().getTime() - me.state.pingbo_tm > 7000 && (me.state.pingbo)) {
 						me.props.parent.setState({pingbo : null});
-					} else if (new Date().getTime() - me.state.pingbo_tm > 3000 && (me.state.pingbo)) {
+					} else if (new Date().getTime() - me.state.pingbo_tm > 5000 && (me.state.pingbo)) {
 						console.log(me.state.pingbo_tm);
 						if (me.state.pingbo) {
 							me.props.parent.qna_server.sendToClient({cmd:'pingbo'}, me.state.pingbo);
