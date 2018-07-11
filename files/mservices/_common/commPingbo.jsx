@@ -69,7 +69,10 @@ try {
 									}
 									v.pingbo_tm = new Date().getTime();
 									me.setState(v);
-									me.props.parent.setState({commData : incomeData.data.clientMessage.commData});
+									if (incomeData.data.clientMessage.commData) {
+										me.props.parent.setState({commData : 
+										incomeData.data.clientMessage.commData});
+									}
 								} else if (incomeData.data.clientMessage === null) {
 									me.setState({pingbo : null});
 								}
