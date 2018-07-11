@@ -89,11 +89,15 @@ try {
 
 			);
 			return true;
+		},
+		showData: function(data) {
+			let me = this;
+			return (data === 'string') ? data : JSON.stringify(data);
 		},		
 		render: function() {
 			let me = this;
 			return (<span>_commPingbo --> {me.props.parent.state.socket_id} ==>
-					{me.state.commData}</span>)
+					{me.showData(me.state.commData)}</span>)
 		}
 	});	
 } catch (err) {
