@@ -56,7 +56,7 @@ try {
 								me.setState({socket_id:socket.id});				
 							}, 
 							onServerData : function(incomeData, socket) {
-								console.log('==something coming===>');
+								//console.log('==something coming===>');
 								//console.log(incomeData.data);
 								let v = {};
 								if ((incomeData.data.clientMessage) && 
