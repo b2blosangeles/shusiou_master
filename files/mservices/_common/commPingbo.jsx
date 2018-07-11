@@ -53,7 +53,9 @@ try {
 					return (typeof _QNA_ === 'function' || typeof _QNA_ === 'object') ? true : false;
 				},
 				function() {
+					console.log('===--- join -2--====');
 					if (!me.props.parent.qna_server) {
+						console.log('===--- join 3--====');
 						me.props.parent.qna_server = new _QNA_();	
 						me.props.parent.qna_server.init({ 
 							master_socket_id: null, 
