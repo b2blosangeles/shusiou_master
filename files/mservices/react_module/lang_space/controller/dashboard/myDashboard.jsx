@@ -24,7 +24,21 @@ try {
 	},
 	serverPush: function(data) {
 		let me = this;
-		me.setState({serverPush:data})
+		me.setState({serverPush:data});
+		let cfg = {
+			section: {
+				body : function() {
+					let ta = me, popid = new Date().getTime();
+					return (
+					<span>test</span>
+					);
+				}
+			},
+			box_class : 'modal-content',
+			popup_type : 'window',
+			close_icon : true
+		};
+		Root.lib.popupWin(me, cfg);
 	},
 	channelComm : function() {
 		let me = this;
