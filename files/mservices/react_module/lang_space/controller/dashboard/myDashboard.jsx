@@ -79,6 +79,7 @@ try {
 				<div className="content_bg">
 					<video src="" className="align-middle" muted></video>
 				</div>
+				{Root.lib.landingModal(me)}
 			</div>)
 		}
 	}});	
