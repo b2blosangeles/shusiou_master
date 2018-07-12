@@ -25,7 +25,6 @@ try {
 	serverPush: function(data) {
 		let me = this;
 		me.setState({serverPush:data});
-		return true;
 		let cfg = {
 			section: {
 				body : function() {
