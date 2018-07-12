@@ -56,7 +56,7 @@ try {
         },
 	render: function() {
 		var me = this;
-		return (<span>{me.render0()}===</span>)
+		return (<span>{me.render0()}==={Root.lib.landingModal(me)}</span>)
 	},
         render0: function() {
             var me = this;
@@ -65,7 +65,7 @@ try {
 				<br/>
 				<div className="container">
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
-					<div className="overlayer_box">
+					<div className="overlayer_box">llll
 						<_commPingbo parent={me}/>
 						<h4 className="header" >{me.dictionary('Warning')}</h4> 
 						<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
@@ -78,7 +78,7 @@ try {
 					</div>					
 				</div> 
 				<div className="content_bg"></div>
-				{Root.lib.landingModal(me)}
+				
 			</div>)
 	    } else {
 		    return (<div className="content_section">
@@ -98,7 +98,6 @@ try {
 				<div className="content_bg">
 					<video src="" className="align-middle" muted></video>
 				</div>
-				{Root.lib.landingModal(me)}
 			</div>)
 		}
 	}});	
