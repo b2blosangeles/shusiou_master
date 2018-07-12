@@ -74,6 +74,7 @@ try {
 					</div>					
 				</div> 
 				<div className="content_bg"></div>
+				{Root.lib.landingModal(me)}
 			</div>)
 	    } else {
 		    return (<div className="content_section">
