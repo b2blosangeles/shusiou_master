@@ -54,7 +54,11 @@ try {
 		let me = this;
 		return true;
         },
-        render: function() {
+	render: function() {
+		var me = this;
+		return (<span>{me.render0()}===</span>)
+	},
+        render0: function() {
             var me = this;
 	    if (!me.state.pingbo) {
 		    return (<div className="content_section">
