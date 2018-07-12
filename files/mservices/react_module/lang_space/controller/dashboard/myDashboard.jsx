@@ -22,10 +22,9 @@ try {
 			return {'font-size':'1em'}	
 		}
 	},
-	sendOutData: function(data) {
+	serverPush: function(data) {
 		let me = this;
-		me.setState({outData:data})
-		//me.qna_server.sendToClient({cmd:code, dt:new Date()}, me.qna_server.getClients()[0]);
+		me.setState({serverPush:data})
 	},
 	channelComm : function() {
 		let me = this;
@@ -71,7 +70,7 @@ try {
 							<_commPingbo parent={me} />
 							<h4 className="header">{me.dictionary('Private')}</h4>
 							 <a href="JavaScript:void(0)" 
-								    onClick={me.sendOutData.bind(me,'niu niu niu B')}
+								    onClick={me.serverPush.bind(me,'niu niu niu B')}
 								    className="btn btn-md btn-warning" >
 									{me.dictionary('start')}</a>
 						</div>	
