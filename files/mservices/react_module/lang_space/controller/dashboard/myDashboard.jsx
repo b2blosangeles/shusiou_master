@@ -57,7 +57,7 @@ try {
         },
 	render: function() {
 		var me = this;
-		return (<span>{me.render0()}==={Root.lib.landingModal(me)}</span>)
+		return (<span>{me.render0()}==={/*Root.lib.landingModal(me)*/}</span>)
 	},
         render0: function() {
             var me = this;
