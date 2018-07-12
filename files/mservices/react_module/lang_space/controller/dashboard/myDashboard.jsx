@@ -79,6 +79,7 @@ try {
 					</div>					
 				</div> 
 				<div className="content_bg"></div>
+				     {Root.lib.landingModal(me)}
 				
 			</div>)
 	    } else {
@@ -99,6 +100,7 @@ try {
 				<div className="content_bg">
 					<video src="" className="align-middle" muted></video>
 				</div>
+				    {Root.lib.landingModal(me)}
 			</div>)
 		}
 	}});	
