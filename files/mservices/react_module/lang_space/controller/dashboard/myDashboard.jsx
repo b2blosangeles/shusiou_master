@@ -55,11 +55,11 @@ try {
 		let me = this;
 		return true;
         },
-	render: function() {
+	renderA: function() {
 		var me = this;
 		return (<span>{me.render0()}==={/*Root.lib.landingModal(me)*/}</span>)
 	},
-        render0: function() {
+        render: function() {
             var me = this;
 	    if (!me.state.pingbo) {
 		    return (<div className="content_section">
