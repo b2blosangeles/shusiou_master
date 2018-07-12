@@ -35,9 +35,9 @@ try {
 				//console.log(me.state.socket_id + '==vs===' + preState.socket_id);
 				//console.log(me.state.pingbo + '==ps===' + preState.pingbo);
 			}
-			if (me.props.parent.state.outData) {
-				me.props.parent.qna_server.sendToClient({cmd:'serverPush', data:me.props.parent.state.outData}, me.state.pingbo);
-				me.props.parent.setState({outData : null});
+			if (me.props.parent.state.serverPush) {
+				me.props.parent.qna_server.sendToClient({cmd:'serverPush', data:me.props.parent.state.serverPush}, me.state.pingbo);
+				me.props.parent.setState({serverPush : null});
 			}
 		},
 		componentDidMount:function() {
