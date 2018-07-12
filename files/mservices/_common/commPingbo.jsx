@@ -36,7 +36,7 @@ try {
 				//console.log(me.state.pingbo + '==ps===' + preState.pingbo);
 			}
 			if (me.props.parent.state.outData) {
-				me.props.parent.qna_server.sendToClient({cmd:'sendFromServer', data:me.props.parent.state.outData}, me.state.pingbo);
+				me.props.parent.qna_server.sendToClient({cmd:'serverPush', data:me.props.parent.state.outData}, me.state.pingbo);
 				me.props.parent.setState({outData : null});
 			}
 		},
