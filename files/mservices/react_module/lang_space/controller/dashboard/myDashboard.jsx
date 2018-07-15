@@ -92,7 +92,7 @@ try {
 							<_commPingbo parent={me} />
 							<h4 className="header">{me.dictionary('Private')}</h4>
 							 <a href="JavaScript:void(0)" 
-								    onClick={me.serverPush.bind(me,['good', 'nice'])}
+								    onClick={me.serverPush.bind(me,'good')}
 								    className="btn btn-md btn-warning" >
 									{me.dictionary('start')}</a>
 						</div>	
