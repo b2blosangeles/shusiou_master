@@ -25,6 +25,7 @@ try {
 	serverPush: function(data) {
 		let me = this;
 		me.setState({serverPush:data});
+		/*
 		let cfg = {
 			section: {
 				body : function() {
@@ -39,6 +40,7 @@ try {
 			close_icon : true
 		};
 		Root.lib.popupWin(me, cfg);
+		*/
 	},
 	channelComm : function() {
 		let me = this;
