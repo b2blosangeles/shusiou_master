@@ -64,7 +64,12 @@ try {
 				 t = new Date().getSeconds() - s;
 				if (prog.indexOf(t) === -1) {
 					t = new Date().getSeconds() - s;
-					console.log('===componentDidMount===> ' + t);
+					if (t > MOVL) {
+						console.log(' === Game Over=== ');
+						clearInterval(_itv);
+					} else {
+						console.log('===componentDidMount===> ' + t);
+					}
 				} else {
 					locked = 1;
 					console.log(' locked => ' + t);
