@@ -55,6 +55,9 @@ try {
 	},	    
         componentDidMount:function() {
 		let me = this;
+		let _itv = setInterval(function(){
+			console.log('===componentDidMount===');
+		}, 2000);
 		return true;
         },
 	renderA: function() {
