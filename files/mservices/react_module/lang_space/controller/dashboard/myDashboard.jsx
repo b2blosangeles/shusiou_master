@@ -58,11 +58,17 @@ try {
 		let me = this;
 		let MOVL = 3600,
 		    movl = 0;
-		let prog = [80, 210, 689];
-		let s = Math.ceil(new Date().getTime() * 0.001) , t = 0, locked = 0;
-		let _itv = setInterval(function(){
+		let prog = [30, 80, 189];
+		let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
+		let _itv = setInterval(function(){ 
+			
+			if (!Math.ceil(new Date().getTime() * 0.001) - s) {
+				return true;
+			} else {
+				s = Math.ceil(new Date().getTime() * 0.001);
+			}
 			if (!me.state.locked) {
-				 t = Math.ceil(new Date().getTime() * 0.001) - s;
+				t++;
 				if (prog.indexOf(t) === -1) {
 					if (t > MOVL) {
 						console.log(' === Game Over=== ');
