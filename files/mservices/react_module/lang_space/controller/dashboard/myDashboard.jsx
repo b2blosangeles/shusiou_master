@@ -66,7 +66,7 @@ try {
 					t = new Date().getSeconds() - s;
 					console.log('===componentDidMount===> ' + t);
 				} else {
-					lock = 1;
+					locked = 1;
 					console.log(' locked => ' + t);
 				}
 			}
