@@ -63,7 +63,6 @@ try {
 			if (!locked) {
 				 t = new Date().getSeconds() - s;
 				if (prog.indexOf(t) === -1) {
-					t = new Date().getSeconds() - s;
 					if (t > MOVL) {
 						console.log(' === Game Over=== ');
 						clearInterval(_itv);
