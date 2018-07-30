@@ -2,7 +2,7 @@ try {
     var MyDashboard =  React.createClass({
         getInitialState: function() {
             let me = this;
-            return {list:[], text:{}, audioChannel: null, pingbo: '', socket_id:'', commData:''};
+            return {list:[], text:{}, audioChannel: null, pingbo: '', socket_id:'', commData:'', locked: false};
         },
 	dictionary:function(v) {
 		if (!this.props.route || !this.props.route.env ||!this.props.route.env.dictionary) return v;
@@ -45,6 +45,7 @@ try {
 	},
 	channelComm : function() {
 		let me = this;
+		me.setState({locked : false});
 		if (!me.state.socket_id) return true;
 		// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
 		let url = 'https://comm1.service.dev.shusiou.win/?socket=' + me.state.socket_id;
@@ -60,7 +61,7 @@ try {
 		let prog = [80, 210, 689];
 		let s = Math.ceil(new Date().getTime() * 0.001) , t = 0, locked = 0;
 		let _itv = setInterval(function(){
-			if (!locked) {
+			if (!me.state.locked) {
 				 t = Math.ceil(new Date().getTime() * 0.001) - s;
 				if (prog.indexOf(t) === -1) {
 					if (t > MOVL) {
@@ -70,7 +71,7 @@ try {
 						console.log('===componentDidMount===> ' + t);
 					}
 				} else {
-					locked = 1;
+					me.setState({locked : true});
 					console.log(' locked => ' + t);
 				}
 			}
