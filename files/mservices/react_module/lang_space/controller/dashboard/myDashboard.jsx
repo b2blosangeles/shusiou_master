@@ -57,10 +57,20 @@ try {
 		let me = this;
 		let MOVL = 3600,
 		    movl = 0;
-		let s = new Date().getSeconds() , t = 0;
+		let prog = [80, 210, 689];
+		let s = new Date().getSeconds() , t = 0, locked = 0;
 		let _itv = setInterval(function(){
-			t = new Date().getSeconds() - s
-			console.log('===componentDidMount===> ' + t);
+			if (!locked) {
+				 t = new Date().getSeconds() - s;
+				if (prog.indexOf(t) === -1) {
+					t = new Date().getSeconds() - s;
+					console.log('===componentDidMount===> ' + t);
+				} else {
+					lock = 1;
+					console.log(' locked => ' + t);
+				}
+			}
+			
 		}, 100);
 		return true;
         },
