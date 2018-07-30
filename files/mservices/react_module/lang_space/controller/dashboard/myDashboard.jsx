@@ -58,10 +58,10 @@ try {
 		let MOVL = 3600,
 		    movl = 0;
 		let prog = [80, 210, 689];
-		let s = new Date().getSeconds() , t = 0, locked = 0;
+		let s = Math.ceil(new Date().getTime() * 0.001) , t = 0, locked = 0;
 		let _itv = setInterval(function(){
 			if (!locked) {
-				 t = new Date().getSeconds() - s;
+				 t = Math.ceil(new Date().getTime() * 0.001) - s;
 				if (prog.indexOf(t) === -1) {
 					if (t > MOVL) {
 						console.log(' === Game Over=== ');
