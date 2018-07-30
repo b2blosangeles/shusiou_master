@@ -57,11 +57,11 @@ try {
 		let me = this;
 		let MOVL = 3600,
 		    movl = 0;
-		let s = new Date().getTime(), t = 0;
+		let s = new Date().getSeconds() , t = 0;
 		let _itv = setInterval(function(){
-			t = new Date().getTime() - s
+			t = new Date().getSeconds() - s
 			console.log('===componentDidMount===> ' + t);
-		}, 500);
+		}, 100);
 		return true;
         },
 	renderA: function() {
