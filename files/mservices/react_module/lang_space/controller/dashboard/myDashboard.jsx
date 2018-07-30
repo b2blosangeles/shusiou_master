@@ -55,9 +55,13 @@ try {
 	},	    
         componentDidMount:function() {
 		let me = this;
+		let MOVL = 3600,
+		    movl = 0;
+		let s = new Date().getTime(), t = 0;
 		let _itv = setInterval(function(){
-			console.log('===componentDidMount===');
-		}, 2000);
+			t = new Date().getTime() - s
+			console.log('===componentDidMount===> ' + t);
+		}, 500);
 		return true;
         },
 	renderA: function() {
