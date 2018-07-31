@@ -41,7 +41,6 @@ try {
 				me.props.parent.setState({serverPush : null});
 			}
 			if (me.state.commData_tm !== preState.commData_tm) {
-				console.log('===me.commPipe()===>');
 				me.commPipe();
 			}
 		},
