@@ -111,10 +111,7 @@ try {
 					<div className="overlayer_box">
 						<_commPingbo parent={me}/>
 						
-						<video id="shusiou_audio"  controls width="400">
-						  <source src="horse.ogg" type="audio/ogg"/>
-						Your browser does not support the audio element.
-						</video>						
+						<audio id="shusiou_audio"  width="400"  style={{display:'none'}}/>						
 						
 						<h4 className="header" >{me.dictionary('Warning')}</h4> 
 						<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
@@ -137,10 +134,7 @@ try {
 					<div className="col-sm-4 col-lg-4 col-md-4"> 
 						<div className="overlayer_box">
 							<_commPingbo parent={me} />
-						<video id="shusiou_audio"  controls width="400" style={{display:'none'}}>
-						  <source src="horse.ogg" type="audio/ogg"/>
-						Your browser does not support the audio element.
-						</video>							
+						<audio id="shusiou_audio"  width="400"  style={{display:'none'}}/>							
 							
 							<h4 className="header">{me.dictionary('Private')}</h4>
 							 <a href="JavaScript:void(0)" 
