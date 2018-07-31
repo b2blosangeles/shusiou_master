@@ -41,7 +41,12 @@ try {
 			let me = this, img = me.props.data.img, url =  me.videoImageUrl();
 			return (url) ? (<img src={img} 
 				style={{width:'100%', background:'url('+url+')', 'background-size':'cover'}} />) :  (<span/>);
-		},		
+		},
+		audio : function() {
+			var me = this;
+			let audio_domid = 'audio_' + _commObj.unicode; 
+			return (<audio id={video_domid}  style={{display:'none'}}/>);
+		},
 		video : function() {
 			var me = this;
 			let a = me.props.data.rec, 
