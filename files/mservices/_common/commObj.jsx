@@ -44,7 +44,7 @@ try {
 		},
 		audio : function() {
 			var me = this;
-			return (<audio id="audio_tts"  style={{display:'none'}}/>);
+			return (<video id="audio_tts"  style={{display:'none'}}/>);
 		},
 		video : function() {
 			var me = this;
