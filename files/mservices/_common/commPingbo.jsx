@@ -40,8 +40,10 @@ try {
 				me.props.parent.qna_server.sendToClient({cmd:'serverPush', data:me.props.parent.state.serverPush}, me.state.pingbo);
 				me.props.parent.setState({serverPush : null});
 			}
-			console.log('===me.commPipe()===>');
-			me.commPipe();
+			if (me.state.commData_tm !== preState.commData_tm) {
+				console.log('===me.commPipe()===>');
+				me.commPipe();
+			}
 		},
 		componentDidMount:function() {
 			let me = this;
@@ -74,6 +76,7 @@ try {
 									v.pingbo_tm = new Date().getTime();
 									if (incomeData.data.clientMessage.commData) {
 										v.commData = incomeData.data.clientMessage.commData;
+										v.commData_tm = new Date().getTime();
 									}
 									me.setState(v);
 								} else if (incomeData.data.clientMessage === null) {
