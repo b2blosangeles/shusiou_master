@@ -61,8 +61,7 @@ try {
 		let prog = [30, 80, 189];
 		let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 		let _itv = setInterval(function(){ 
-			
-			if (!Math.ceil(new Date().getTime() * 0.001) - s) {
+			if (Math.ceil(new Date().getTime() * 0.001) - s < 1) {
 				return true;
 			} else {
 				s = Math.ceil(new Date().getTime() * 0.001);
@@ -86,6 +85,7 @@ try {
 		return true;
         },
 	releaseHold : function(data) {
+		return (data === 'string') ? data : JSON.stringify(data);
 		console.log('===releaseHold===>');
 		console.log(data);
 	},
