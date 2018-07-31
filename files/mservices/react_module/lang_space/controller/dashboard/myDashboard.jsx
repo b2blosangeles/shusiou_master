@@ -55,7 +55,7 @@ try {
 	},	    
         componentDidMount:function() {
 		let me = this;
-		let MOVL = 3600,
+		let MOVL = 260,
 		    movl = 0;
 		let prog = [30, 80, 189];
 		let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
@@ -72,7 +72,7 @@ try {
 						console.log(' === Game Over=== ');
 						clearInterval(_itv);
 					} else {
-						console.log('===componentDidMount===> ' + t);
+					//	console.log('===componentDidMount===> ' + t);
 					}
 				} else {
 					me.setState({locked : true});
