@@ -92,7 +92,8 @@ try {
 		},
 		commPipe : function(data) {
 			let me = this;
-			if (!data.cmd) return false;
+			console.log(data);
+			if (!data || !data.cmd) return false;
 			if (typeof me.props.parent[data.cmd] === 'function') {
 				me.props.parent[data.cmd](data);
 			}
