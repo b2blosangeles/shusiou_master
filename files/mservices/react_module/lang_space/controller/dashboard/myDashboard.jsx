@@ -61,7 +61,7 @@ try {
 		let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 		
 		let text = "Good Job", lang = 'en-US';
-		text = '中国大陆';
+		text = '农家少年高烧赴考考上清华:贫困对我来说是历练';
 		lang = 'cmn-Hans-CN';
 		
 		$('#shusiou_audio').attr('src', _master_svr() + '/api/tts/google.api?str='+text + '&lang=' + lang).attr('autoplay', true);
