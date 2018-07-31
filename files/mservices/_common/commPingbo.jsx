@@ -88,7 +88,13 @@ try {
 		showData: function(data) {
 			let me = this;
 			return (data === 'string') ? data : JSON.stringify(data);
-		},		
+		},
+		commonPipe : function(data) {
+			let me = this;
+			if (typeof me.props.parent.commonFilter === 'function') {
+				me.props.parent.commonPipe(data);
+			}
+		},
 		render: function() {
 			let me = this;
 			return (<span>_commPingbo --> {me.props.parent.state.socket_id} ==>
