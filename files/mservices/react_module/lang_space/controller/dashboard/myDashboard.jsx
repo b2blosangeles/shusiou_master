@@ -59,6 +59,11 @@ try {
 		    movl = 0;
 		let prog = [30, 80, 189];
 		let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
+		
+		let text = "Good Job", lang = 'en';
+		$('#shusiou_audio').attr('src', '/api/tts/google.api?str='+text + '&lang=' + lang).attr('autoplay', true);
+		
+		
 		let _itv = setInterval(function(){ 
 			if (Math.ceil(new Date().getTime() * 0.001) - s < 1) {
 				return true;
@@ -101,6 +106,12 @@ try {
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
 					<div className="overlayer_box">
 						<_commPingbo parent={me}/>
+						
+						<video id="shusiou_audio"  controls width="400">
+						  <source src="horse.ogg" type="audio/ogg"/>
+						Your browser does not support the audio element.
+						</video>						
+						
 						<h4 className="header" >{me.dictionary('Warning')}</h4> 
 						<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
 							    className="btn btn-md btn-success bottom-adjust" >
@@ -122,6 +133,11 @@ try {
 					<div className="col-sm-4 col-lg-4 col-md-4"> 
 						<div className="overlayer_box">
 							<_commPingbo parent={me} />
+						<video id="shusiou_audio"  controls width="400">
+						  <source src="horse.ogg" type="audio/ogg"/>
+						Your browser does not support the audio element.
+						</video>							
+							
 							<h4 className="header">{me.dictionary('Private')}</h4>
 							 <a href="JavaScript:void(0)" 
 								    onClick={me.serverPush.bind(me,['good', 'nice', 'test'])}
