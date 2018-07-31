@@ -60,7 +60,7 @@ try {
 		let prog = [30, 80, 189];
 		let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 		
-		let text = "Good Job", lang = 'en';
+		let text = "Good Job", lang = 'en-US';
 		$('#shusiou_audio').attr('src', '/api/tts/google.api?str='+text + '&lang=' + lang).attr('autoplay', true);
 		
 		
