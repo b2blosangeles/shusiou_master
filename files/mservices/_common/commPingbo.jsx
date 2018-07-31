@@ -87,12 +87,14 @@ try {
 		},
 		showData: function(data) {
 			let me = this;
+			me.commPipe(data);
 			return (data === 'string') ? data : JSON.stringify(data);
 		},
-		releaseHold : function(data) {
+		commPipe : function(data) {
 			let me = this;
-			if (typeof me.props.parent.releaseHold === 'function') {
-				me.props.parent.releaseHold(data);
+			if (!data.cmd) return false;
+			if (typeof me.props.parent[data.cmd] === 'function') {
+				me.props.parent[data.cmd](data);
 			}
 		},
 		render: function() {
