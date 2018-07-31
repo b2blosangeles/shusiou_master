@@ -84,6 +84,7 @@ try {
 		return true;
         },
 	releaseHold : function(data) {
+		var me = this;
 		me.setState({locked : false});
 		return (data === 'string') ? data : JSON.stringify(data);
 	},
