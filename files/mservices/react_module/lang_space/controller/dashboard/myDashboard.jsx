@@ -45,7 +45,6 @@ try {
 	},
 	channelComm : function() {
 		let me = this;
-		me.setState({locked : false});
 		if (!me.state.socket_id) return true;
 		// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
 		let url = 'https://comm1.service.dev.shusiou.win/?socket=' + me.state.socket_id;
@@ -85,9 +84,8 @@ try {
 		return true;
         },
 	releaseHold : function(data) {
+		me.setState({locked : false});
 		return (data === 'string') ? data : JSON.stringify(data);
-		console.log('===releaseHold===>');
-		console.log(data);
 	},
 	renderA: function() {
 		var me = this;
