@@ -85,8 +85,8 @@ try {
 		}, 100);
 		return true;
         },
-	commonPipe : function(data) {
-		console.log('===data===>');
+	releaseHold : function(data) {
+		console.log('===releaseHold===>');
 		console.log(data);
 	},
 	renderA: function() {
