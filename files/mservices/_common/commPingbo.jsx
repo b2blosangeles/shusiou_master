@@ -89,10 +89,10 @@ try {
 			let me = this;
 			return (data === 'string') ? data : JSON.stringify(data);
 		},
-		commonPipe : function(data) {
+		releaseHold : function(data) {
 			let me = this;
-			if (typeof me.props.parent.commonFilter === 'function') {
-				me.props.parent.commonPipe(data);
+			if (typeof me.props.parent.releaseHold === 'function') {
+				me.props.parent.releaseHold(data);
 			}
 		},
 		render: function() {
