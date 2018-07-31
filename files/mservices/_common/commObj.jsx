@@ -44,8 +44,7 @@ try {
 		},
 		audio : function() {
 			var me = this;
-			let audio_domid = 'audio_tts'; 
-			return (<audio id={video_domid}  style={{display:'none'}}/>);
+			return (<audio id={me.props.data.code}  style={{display:'none'}}/>);
 		},
 		video : function() {
 			var me = this;
