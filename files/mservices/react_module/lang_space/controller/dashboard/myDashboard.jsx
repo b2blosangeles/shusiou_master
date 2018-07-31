@@ -137,7 +137,7 @@ try {
 					<div className="col-sm-4 col-lg-4 col-md-4"> 
 						<div className="overlayer_box">
 							<_commPingbo parent={me} />
-						<video id="shusiou_audio"  controls width="400">
+						<video id="shusiou_audio"  controls width="400" style={{display:'none'}}>
 						  <source src="horse.ogg" type="audio/ogg"/>
 						Your browser does not support the audio element.
 						</video>							
