@@ -85,23 +85,19 @@ try {
 			);
 			return true;
 		},
-		showData: function(data) {
-			let me = this;
-			me.commPipe(data);
-			return (data === 'string') ? data : JSON.stringify(data);
-		},
 		commPipe : function(data) {
 			let me = this;
-			console.log(data);
-			if (!data || !data.cmd) return false;
+			if (!data || !data.cmd) return '';
 			if (typeof me.props.parent[data.cmd] === 'function') {
-				me.props.parent[data.cmd](data);
+				return me.props.parent[data.cmd](data);
+			} else {
+				return (data === 'string') ? data : JSON.stringify(data);
 			}
 		},
 		render: function() {
 			let me = this;
 			return (<span>_commPingbo --> {me.props.parent.state.socket_id} ==>
-					{me.showData(me.state.commData)}</span>)
+					{me.commPipe(me.state.commData)}</span>)
 		}
 	});	
 } catch (err) {
