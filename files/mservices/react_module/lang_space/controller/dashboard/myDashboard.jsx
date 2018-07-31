@@ -52,7 +52,10 @@ try {
 	}, 
 	componentWillUnmount : function() {
 		let me = this;
-	},	    
+	},
+	playAudio: function(data) {
+		$('#shusiou_audio').attr('src', _master_svr() + '/api/tts/google.api?str='+data.text + '&lang=' + data.lang).attr('autoplay', true);
+	},
         componentDidMount:function() {
 		let me = this;
 		let MOVL = 260,
@@ -60,12 +63,10 @@ try {
 		let prog = [30, 80, 189];
 		let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 		
-		let text = "Good Job", lang = 'en-US';
-		text = '曲线救国，也许印度中国药业上去了，美国药价也能下来。穷人吃外国药，富人愿意多掏钱可以吃美国药。一样可以叫全民保险。';
-		lang = 'cmn-Hans-CN';
-		
-		$('#shusiou_audio').attr('src', _master_svr() + '/api/tts/google.api?str='+text + '&lang=' + lang).attr('autoplay', true);
-		
+		me.playAudio({
+			text: '曲线救国，也许印度中国药业上去了，美国药价也能下来。穷人吃外国药，富人愿意多掏钱可以吃美国药。一样可以叫全民保险。',
+			lang : 'cmn-Hans-CN'
+		});
 		
 		let _itv = setInterval(function(){ 
 			if (Math.ceil(new Date().getTime() * 0.001) - s < 1) {
