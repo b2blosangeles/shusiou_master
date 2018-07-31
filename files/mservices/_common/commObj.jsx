@@ -44,7 +44,7 @@ try {
 		},
 		audio : function() {
 			var me = this;
-			let audio_domid = 'audio_' + _commObj.unicode; 
+			let audio_domid = 'audio_tts'; 
 			return (<audio id={video_domid}  style={{display:'none'}}/>);
 		},
 		video : function() {
