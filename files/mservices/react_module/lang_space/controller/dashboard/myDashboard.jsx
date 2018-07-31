@@ -54,7 +54,7 @@ try {
 		let me = this;
 	},
 	playAudio: function(data) {
-		$('audio').attr('src', _master_svr() + '/api/tts/google.api?str='+data.text + '&lang=' + data.lang).attr('autoplay', true);
+		$('#audio_tts').attr('src', _master_svr() + '/api/tts/google.api?str='+data.text + '&lang=' + data.lang).attr('autoplay', true);
 	},
         componentDidMount:function() {
 		let me = this;
