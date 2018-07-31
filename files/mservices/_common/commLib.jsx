@@ -141,7 +141,11 @@ var _commLib = function () {
             else ms = '';
         return h + ':' + m + ':' + s + ' ' + ms;
     }
-    
+   
+    this.playTTS = function(data) {
+	$('audio').attr('src', _master_svr() + '/api/tts/google.api?str='+data.text + '&lang=' + data.lang).attr('autoplay', true);
+    }
+	
     this.obj2Json = function(o) {
        for (var item in o) {
           if (typeof o[item] === 'object') {
