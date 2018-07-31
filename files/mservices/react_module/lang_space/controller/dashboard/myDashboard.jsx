@@ -61,8 +61,8 @@ try {
 		let prog = [30, 80, 189];
 		let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 		
-		me.playTTS({
-			text: '曲线救国，也许印度中国药业上去了，美国药价也能下来。穷人吃外国药，富人愿意多掏钱可以吃美国药。一样可以叫全民保险。',
+		Root.lib.playTTS({
+			text: '一样可以叫全民保险。',
 			lang : 'cmn-Hans-CN'
 		});
 		
