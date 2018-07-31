@@ -32,6 +32,7 @@ try {
 			let me = this;
 			if (me.state.socket_id !== preState.socket_id || me.state.pingbo !== preState.pingbo) {
 				me.props.parent.setState({socket_id : me.state.socket_id, pingbo : me.state.pingbo});
+				
 				//console.log(me.state.socket_id + '==vs===' + preState.socket_id);
 				//console.log(me.state.pingbo + '==ps===' + preState.pingbo);
 			}
@@ -39,6 +40,8 @@ try {
 				me.props.parent.qna_server.sendToClient({cmd:'serverPush', data:me.props.parent.state.serverPush}, me.state.pingbo);
 				me.props.parent.setState({serverPush : null});
 			}
+			console.log('===me.commPipe()===>');
+			me.commPipe();
 		},
 		componentDidMount:function() {
 			let me = this;
@@ -85,19 +88,20 @@ try {
 			);
 			return true;
 		},
-		commPipe : function(data) {
+		commPipe : function() {
 			let me = this;
-			if (!data || !data.cmd) return '';
-			if (typeof me.props.parent[data.cmd] === 'function') {
-				return me.props.parent[data.cmd](data);
-			} else {
-				return (data === 'string') ? data : JSON.stringify(data);
-			}
+			if (!me.state.commData || !me.state.commData.cmd) return false;
+			if (typeof me.props.parent[me.state.commData.cmd] === 'function') {
+				me.props.parent[me.state.commData.cmd](data);
+			} 
+		},
+		showData : function(data) {
+			return (data === 'string') ? data : JSON.stringify(data);
 		},
 		render: function() {
 			let me = this;
 			return (<span>_commPingbo --> {me.props.parent.state.socket_id} ==>
-					{me.commPipe(me.state.commData)}</span>)
+					{me.showData(me.state.commData)}</span>)
 		}
 	});	
 } catch (err) {
