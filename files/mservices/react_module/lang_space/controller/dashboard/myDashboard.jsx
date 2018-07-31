@@ -85,6 +85,10 @@ try {
 		}, 100);
 		return true;
         },
+	commonPipe : function(data) {
+		console.log('===data===>');
+		console.log(data);
+	},
 	renderA: function() {
 		var me = this;
 		return (<span>{me.render0()}==={/*Root.lib.landingModal(me)*/}</span>)
