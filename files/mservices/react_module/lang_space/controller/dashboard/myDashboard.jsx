@@ -110,8 +110,7 @@ try {
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
 					<div className="overlayer_box">
 						<_commPingbo parent={me}/>
-						<_commObj  parent={me} data={{}} code={'audio'}/>
-
+						
 						<h4 className="header" >{me.dictionary('Warning')}</h4> 
 						<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
 							    className="btn btn-md btn-success bottom-adjust" >
@@ -132,8 +131,7 @@ try {
 				<div className="container">
 					<div className="col-sm-4 col-lg-4 col-md-4"> 
 						<div className="overlayer_box">
-							<_commPingbo parent={me} />
-							<_commObj  parent={me} data={{}} code={'audio'}/>						
+							<_commPingbo parent={me} />						
 							
 							<h4 className="header">{me.dictionary('Private')}</h4>
 							 <a href="JavaScript:void(0)" 
