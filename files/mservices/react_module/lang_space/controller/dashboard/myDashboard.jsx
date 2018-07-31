@@ -54,7 +54,7 @@ try {
 		let me = this;
 	},
 	playAudio: function(data) {
-		$('#shusiou_audio').attr('src', _master_svr() + '/api/tts/google.api?str='+data.text + '&lang=' + data.lang).attr('autoplay', true);
+		$('audio').attr('src', _master_svr() + '/api/tts/google.api?str='+data.text + '&lang=' + data.lang).attr('autoplay', true);
 	},
         componentDidMount:function() {
 		let me = this;
@@ -110,7 +110,7 @@ try {
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
 					<div className="overlayer_box">
 						<_commPingbo parent={me}/>
-						
+						<_commObj  parent={me} data={code:'audio'}/>
 						<audio id="shusiou_audio"  width="400"  style={{display:'none'}}/>						
 						
 						<h4 className="header" >{me.dictionary('Warning')}</h4> 
@@ -134,7 +134,7 @@ try {
 					<div className="col-sm-4 col-lg-4 col-md-4"> 
 						<div className="overlayer_box">
 							<_commPingbo parent={me} />
-						<audio id="shusiou_audio"  width="400"  style={{display:'none'}}/>							
+							<_commObj  parent={me} data={code:'audio'}/>							
 							
 							<h4 className="header">{me.dictionary('Private')}</h4>
 							 <a href="JavaScript:void(0)" 
