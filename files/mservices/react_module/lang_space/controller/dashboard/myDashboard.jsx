@@ -83,6 +83,8 @@ try {
 					Root.lib.playTTS({
 						text: '一样可以叫全民保险。',
 						lang : 'cmn-Hans-CN'
+					}, function() {
+						me.setState({locked : false});
 					});
 					console.log(' locked => ' + t);
 				}
