@@ -84,6 +84,11 @@ try {
 					if (t > MOVL) {
 						console.log(' === Game Over=== ');
 						clearInterval(_itv);
+						Root.lib.playTTS({
+							text: 'Game over',
+							lang : 'en-US'							
+							}, function() {
+						});						
 					} else {
 					//	console.log('===componentDidMount===> ' + t);
 					}
