@@ -58,6 +58,7 @@ try {
 		let me = this;
 		let MOVL = 10,
 		    movl = 0;
+		// https://cloud.google.com/speech-to-text/docs/languages
 		let prog = {'2' : {
 				text: '深圳打响楼市个人限卖第一枪',
 				lang : 'cmn-Hans-CN'
