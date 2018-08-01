@@ -61,10 +61,7 @@ try {
 		let prog = [30, 80, 189];
 		let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 		
-		Root.lib.playTTS({
-			text: '一样可以叫全民保险。',
-			lang : 'cmn-Hans-CN'
-		});
+		
 		
 		let _itv = setInterval(function(){ 
 			if (Math.ceil(new Date().getTime() * 0.001) - s < 1) {
@@ -83,6 +80,10 @@ try {
 					}
 				} else {
 					me.setState({locked : true});
+					Root.lib.playTTS({
+						text: '一样可以叫全民保险。',
+						lang : 'cmn-Hans-CN'
+					});
 					console.log(' locked => ' + t);
 				}
 			}
