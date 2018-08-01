@@ -59,15 +59,15 @@ try {
 		let MOVL = 10,
 		    movl = 0;
 		let prog = {'2' : {
-				text: '一样',
+				text: '深圳打响楼市个人限卖第一枪',
 				lang : 'cmn-Hans-CN'
 			}, 
 			'4' : {
-				text: '可以',
+				text: '中央定调下半年中国经济',
 				lang : 'cmn-Hans-CN'			
 			}, 
 			'8' : {
-				text: '保险',
+				text: '稳中有变',
 				lang : 'cmn-Hans-CN'			
 			}};
 		let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
