@@ -56,12 +56,21 @@ try {
 
         componentDidMount:function() {
 		let me = this;
-		let MOVL = 260,
+		let MOVL = 100,
 		    movl = 0;
-		let prog = [30, 80, 189];
+		let prog = {20 : {
+				text: '一样',
+				lang : 'cmn-Hans-CN'
+			}, 
+			40 : {
+				text: '可以',
+				lang : 'cmn-Hans-CN'			
+			}, 
+			89 : {
+				text: '保险',
+				lang : 'cmn-Hans-CN'			
+			}};
 		let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
-		
-		
 		
 		let _itv = setInterval(function(){ 
 			if (Math.ceil(new Date().getTime() * 0.001) - s < 1) {
@@ -71,7 +80,7 @@ try {
 			}
 			if (!me.state.locked) {
 				t++;
-				if (prog.indexOf(t) === -1) {
+				if (Object.keys(prog).indexOf(t) === -1) {
 					if (t > MOVL) {
 						console.log(' === Game Over=== ');
 						clearInterval(_itv);
@@ -80,10 +89,7 @@ try {
 					}
 				} else {
 					me.setState({locked : true});
-					Root.lib.playTTS({
-						text: '一样可以叫全民保险。',
-						lang : 'cmn-Hans-CN'
-					}, function() {
+					Root.lib.playTTS(prog[t], function() {
 						me.setState({locked : false});
 					});
 					console.log(' locked => ' + t);
