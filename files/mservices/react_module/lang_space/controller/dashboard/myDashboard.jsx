@@ -56,17 +56,17 @@ try {
 
         componentDidMount:function() {
 		let me = this;
-		let MOVL = 100,
+		let MOVL = 10,
 		    movl = 0;
-		let prog = {'20' : {
+		let prog = {'2' : {
 				text: '一样',
 				lang : 'cmn-Hans-CN'
 			}, 
-			'40' : {
+			'4' : {
 				text: '可以',
 				lang : 'cmn-Hans-CN'			
 			}, 
-			'89' : {
+			'8' : {
 				text: '保险',
 				lang : 'cmn-Hans-CN'			
 			}};
