@@ -58,15 +58,15 @@ try {
 		let me = this;
 		let MOVL = 100,
 		    movl = 0;
-		let prog = {20 : {
+		let prog = {'20' : {
 				text: '一样',
 				lang : 'cmn-Hans-CN'
 			}, 
-			40 : {
+			'40' : {
 				text: '可以',
 				lang : 'cmn-Hans-CN'			
 			}, 
-			89 : {
+			'89' : {
 				text: '保险',
 				lang : 'cmn-Hans-CN'			
 			}};
@@ -80,7 +80,7 @@ try {
 			}
 			if (!me.state.locked) {
 				t++;
-				if (Object.keys(prog).indexOf(t) === -1) {
+				if (Object.keys(prog).indexOf(t.toString()) === -1) {
 					if (t > MOVL) {
 						console.log(' === Game Over=== ');
 						clearInterval(_itv);
@@ -89,10 +89,10 @@ try {
 					}
 				} else {
 					me.setState({locked : true});
-					Root.lib.playTTS(prog[t], function() {
+					Root.lib.playTTS(prog[t.toString()], function() {
 						me.setState({locked : false});
 					});
-					console.log(' locked => ' + t);
+					console.log(' locked --> ' + t.toString());
 				}
 			}
 			
