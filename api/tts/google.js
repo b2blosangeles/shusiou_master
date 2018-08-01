@@ -66,7 +66,7 @@ _f['code_cache'] = function(cbk) {
 
 _f['create_cache'] = function(cbk) { 
 	var googleTTS = require(env.site_path + '/api/inc/google-tts-api/node_modules/google-tts-api/');
-	googleTTS(str, lang, 2)   // speed normal = 1 (default), slow = 0.24 
+	googleTTS(str, lang, 3)   // speed normal = 1 (default), slow = 0.24 
 	.then(function (url) {
 		var options = {
 			url: url,
