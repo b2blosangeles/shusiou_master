@@ -90,7 +90,7 @@ try {
 						console.log(' === Game Over=== ');
 						clearInterval(_itv);
 						Root.lib.playTTS({
-							text: 'Game over',
+							text: 'Good job',
 							lang : 'en-US'							
 							}, function() {
 						});						
