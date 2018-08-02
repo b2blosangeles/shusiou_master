@@ -67,6 +67,10 @@ try {
 				text: '中央定调下半年中国经济',
 				lang : 'cmn-Hans-CN'			
 			}, 
+			'6' : {
+				text: 'listen',
+				lang : 'en-US'			
+			}, 
 			'8' : {
 				text: '稳中有变',
 				lang : 'cmn-Hans-CN'			
