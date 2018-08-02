@@ -91,7 +91,7 @@ try {
 							}, function() {
 						});						
 					} else {
-					//	console.log('===componentDidMount===> ' + t);
+						console.log('===componentDidMount===> ' + t);
 					}
 				} else {
 					me.setState({locked : true});
