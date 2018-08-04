@@ -94,7 +94,7 @@ try {
 						console.log(' === Game Over=== ');
 						clearInterval(_itv);
 						Root.lib.playTTS([{
-							text: 'Good job',
+							text: 'Good job, nice job, thank you',
 							lang : 'en-US'							
 							}], function() {
 						});						
