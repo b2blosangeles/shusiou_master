@@ -152,7 +152,7 @@ var _commLib = function () {
 		var Q1 = data.text.split(',');
 		if (Q1.length > 1) {
 			Q.shift();
-			for (var i = 0, i < Q1.length; i++) {
+			for (let i = 0; i < Q1.length; i++) {
 				Q.unshift({text:Q1[i], lang:data.lang});
 			}
 			me.playTTS(Q, cbk);
