@@ -142,12 +142,21 @@ var _commLib = function () {
         return h + ':' + m + ':' + s + ' ' + ms;
     }
    
-    this.playTTS = function(data, cbk) {
-	$('audio').attr('src', _master_svr() + '/api/tts/google.api?str='+data.text + '&lang=' + data.lang).attr('autoplay', true);
-    	$("audio").unbind('ended').bind("ended", function() {
-		$("audio").unbind('ended')
-		cbk();
-	});
+    this.playTTS = function(Q, cbk) {
+	let me = this;
+	var data = Q[0];
+	if (!data) {
+		$("audio").unbind('ended').bind("ended", function() {
+			$("audio").unbind('ended')
+			cbk();
+		});
+		return true;
+	} else {
+		$('audio').attr('src', _master_svr() + '/api/tts/google.api?str='+data.text + '&lang=' + data.lang).attr('autoplay', true);
+		$("audio").unbind('ended').bind("ended", function() {
+			me.playTTS(Q.shift(), cbk);
+		});	
+	}
     }
 	
     this.obj2Json = function(o) {
