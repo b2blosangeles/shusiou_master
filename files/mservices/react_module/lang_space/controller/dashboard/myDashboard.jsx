@@ -63,7 +63,7 @@ try {
 				text: '深圳, 打响楼市个人, 限卖.第一枪',
 				lang : 'cmn-Hans-CN'
 			},{
-				text: '中国已安排最先进的海洋救助船',
+				text: '中国,已安排最先进的海洋救助船',
 				lang : 'cmn-Hans-CN'
 			}
 			], 
