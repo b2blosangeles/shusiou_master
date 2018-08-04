@@ -164,7 +164,7 @@ var _commLib = function () {
 					// me.playTTS(Q, cbk);
 					
 					setTimeout(
-						function() { me.playTTS(Q, cbk); }, 1000
+						function() { me.playTTS(Q, cbk); }, 500
 					)
 				} else {
 					$("audio").unbind('ended');
