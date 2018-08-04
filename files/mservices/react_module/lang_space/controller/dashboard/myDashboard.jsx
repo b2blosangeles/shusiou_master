@@ -62,7 +62,11 @@ try {
 		let prog = {'2' : [{
 				text: '深圳打响楼市个人限卖第一枪',
 				lang : 'cmn-Hans-CN'
-			}], 
+			},{
+				text: '中国已安排最先进的海洋救助船',
+				lang : 'cmn-Hans-CN'
+			}
+			], 
 			'4' : [{
 				text: '中央定调下半年中国经济',
 				lang : 'cmn-Hans-CN'			
