@@ -161,9 +161,11 @@ var _commLib = function () {
 			$("audio").unbind('ended').bind("ended", function() {
 				Q.shift();
 				if (Q.length) {
+					me.playTTS(Q, cbk);
+					/*
 					setTimeout(
 						function() { me.playTTS(Q, cbk); }, 1000
-					)
+					)*/
 				} else {
 					$("audio").unbind('ended');
 					cbk();
