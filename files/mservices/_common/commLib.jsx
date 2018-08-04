@@ -153,7 +153,7 @@ var _commLib = function () {
 		if (Q1.length > 1) {
 			Q.shift();
 			for (let i = 0; i < Q1.length; i++) {
-				Q.unshift({text:Q1[i], lang:data.lang});
+				Q.unshift({text:Q1[Q1.length - i - 1], lang:data.lang});
 			}
 			me.playTTS(Q, cbk);
 		} else {
