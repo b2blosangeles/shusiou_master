@@ -99,7 +99,7 @@ try {
 					}
 				} else {
 					me.setState({locked : true});
-					Root.lib.playTTS(prog[t.toString()][0], function() {
+					Root.lib.playTTS(prog[t.toString()], function() {
 						me.setState({locked : false});
 					});
 					console.log(' locked --> ' + t.toString());
