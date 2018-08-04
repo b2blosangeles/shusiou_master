@@ -146,15 +146,18 @@ var _commLib = function () {
 	let me = this;
 	var data = Q[0];
 	if (!data) {
-		$("audio").unbind('ended').bind("ended", function() {
-			$("audio").unbind('ended')
-			cbk();
-		});
+		cbk();
 		return true;
 	} else {
 		$('audio').attr('src', _master_svr() + '/api/tts/google.api?str='+data.text + '&lang=' + data.lang).attr('autoplay', true);
 		$("audio").unbind('ended').bind("ended", function() {
-			me.playTTS(Q.shift(), cbk);
+			let Q1 = Q.shift();
+			if (Q1.length) {
+				me.playTTS(Q1, cbk);
+			} else {
+				$("audio").unbind('ended');
+				cbk();
+			}
 		});	
 	}
     }
