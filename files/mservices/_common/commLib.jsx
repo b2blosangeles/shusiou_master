@@ -151,9 +151,9 @@ var _commLib = function () {
 	} else {
 		$('audio').attr('src', _master_svr() + '/api/tts/google.api?str='+data.text + '&lang=' + data.lang).attr('autoplay', true);
 		$("audio").unbind('ended').bind("ended", function() {
-			let Q1 = Q.shift();
-			if (Q1.length) {
-				me.playTTS(Q1, cbk);
+			Q.shift();
+			if (Q.length) {
+				me.playTTS(Q, cbk);
 			} else {
 				$("audio").unbind('ended');
 				cbk();
