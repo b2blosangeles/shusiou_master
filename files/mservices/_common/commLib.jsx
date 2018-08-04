@@ -149,7 +149,7 @@ var _commLib = function () {
 		cbk();
 		return true;
 	} else {
-		var Q1 = data.text.split(/\,|\;|\.|\?/);
+		var Q1 = data.text.split(/\,|\;|\.|\?/).filter(function(n){ return n.replace(/^\s+|\s+$/gm,'') != '' });
 		if (Q1.length > 1) {
 			Q.shift();
 			for (let i = 0; i < Q1.length; i++) {
