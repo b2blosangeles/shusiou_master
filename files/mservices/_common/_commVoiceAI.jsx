@@ -98,7 +98,7 @@ try {
 					me.voiceRecong(data, cbk)
 				}			
 			}
-		}
+		},
 		render: function() {
 			let me = this;
 			return (<span></span>)
