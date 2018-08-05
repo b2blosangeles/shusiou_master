@@ -10,7 +10,6 @@ try {
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
 			if (me.props.voiceObj != preProps.voiceObj) {
-				console.log(me.props.voiceObj + '===' + preProps.voiceObj);
 				me.playVoiceAI();
 			}
 		},
@@ -22,7 +21,6 @@ try {
 			let MOVL = 10,
 			    movl = 0;			
 			let prog = me.props.parent.state.voiceObj;
-			console.log(me.props.parent.state);
 			if (!prog) return true;
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 
