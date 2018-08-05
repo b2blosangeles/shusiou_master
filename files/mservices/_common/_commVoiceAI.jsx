@@ -59,7 +59,7 @@ try {
 			return true;
 		},
 		voiceRecong : function(recs, cbk) {
-			alert('JSON.stringify(recs)');
+			console.log('JSON.stringify(recs)');
 			cbk();
 		},
 		playTTS : function(Q, cbk) {
