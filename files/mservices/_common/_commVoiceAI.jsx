@@ -9,9 +9,15 @@ try {
 		},	
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
-			console.log(me.props.parent.voiceObj + '===' + preProps.voiceObj);
+			if (me.props.parent.voiceObj != preProps.voiceObj) {
+				console.log(me.props.parent.voiceObj + '===' + preProps.voiceObj);
+				me.playVoiceAI();
+			}
 		},
 		componentDidMount:function() {
+			let me = this;
+		},
+		playVoiceAI : function() {
 			let me = this;
 			let MOVL = 10,
 			    movl = 0;			
