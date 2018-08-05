@@ -36,7 +36,7 @@ try {
 						if (t > MOVL) {
 							console.log(' === Game Over=== ');
 							clearInterval(_itv);
-							Root.lib.playTTS([{
+							me.playTTS([{
 								text: 'Good job, nice job, thank you',
 								lang : 'en-US'							
 								}], function() {
@@ -47,7 +47,7 @@ try {
 					} else {
 						me.setState({locked : true});
 
-						Root.lib.playTTS(prog[t.toString()], function() {
+						me.playTTS(prog[t.toString()], function() {
 							me.setState({locked : false});
 						});
 
@@ -58,6 +58,47 @@ try {
 			}, 100);			
 			return true;
 		},
+		this.voiceRecong : function(recs, cbk) {
+			alert('JSON.stringify(recs)');
+			cbk();
+		},
+		this.playTTS : function(Q, cbk) {
+			let me = this;
+			var data = Q[0];
+			if (!data) {
+				cbk();
+				return true;
+			} else {
+				if (data.text) {
+					var Q1 = data.text.split(/\,|\;|\.|\?/).filter(function(n){ return n.replace(/^\s+|\s+$/gm,'') != '' });
+					if (Q1.length > 1) {
+						Q.shift();
+						for (let i = 0; i < Q1.length; i++) {
+							Q.unshift({text:Q1[Q1.length - i - 1], lang:data.lang});
+						}
+						me.playTTS(Q, cbk);
+					} else {
+
+						$('audio').attr('src', _master_svr() + '/api/tts/google.api?str='+data.text + '&lang=' + data.lang).attr('autoplay', true);
+						$("audio").unbind('ended').bind("ended", function() {
+							Q.shift();
+							if (Q.length) {
+								// me.playTTS(Q, cbk);
+
+								setTimeout(
+									function() { me.playTTS(Q, cbk); }, 500
+								)
+							} else {
+								$("audio").unbind('ended');
+								cbk();
+							}
+						});
+					}
+				} else {
+					me.voiceRecong(data, cbk)
+				}			
+			}
+		}
 		render: function() {
 			let me = this;
 			return (<span></span>)
