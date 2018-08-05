@@ -10,7 +10,7 @@ try {
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
 			if (me.props.voiceObj != preProps.voiceObj) {
-				console.log(me.props.parent.voiceObj + '===' + preProps.voiceObj);
+				console.log(me.props.voiceObj + '===' + preProps.voiceObj);
 				me.playVoiceAI();
 			}
 		},
