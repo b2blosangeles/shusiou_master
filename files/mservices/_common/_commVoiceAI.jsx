@@ -58,11 +58,11 @@ try {
 			}, 100);			
 			return true;
 		},
-		this.voiceRecong : function(recs, cbk) {
+		voiceRecong : function(recs, cbk) {
 			alert('JSON.stringify(recs)');
 			cbk();
 		},
-		this.playTTS : function(Q, cbk) {
+		playTTS : function(Q, cbk) {
 			let me = this;
 			var data = Q[0];
 			if (!data) {
