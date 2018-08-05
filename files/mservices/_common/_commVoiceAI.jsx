@@ -21,7 +21,7 @@ try {
 			let me = this;
 			let MOVL = 10,
 			    movl = 0;			
-			let prog = me.props.parent.state.VoiceObj;
+			let prog = me.props.parent.state.voiceObj;
 			console.log(me.props.parent.state);
 			if (!prog) return true;
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
