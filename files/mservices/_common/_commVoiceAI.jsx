@@ -12,6 +12,7 @@ try {
 		},
 		componentDidMount:function() {
 			let me = this;
+			alert('_commVoiceAI')
 			return true;
 		},
 		render: function() {
