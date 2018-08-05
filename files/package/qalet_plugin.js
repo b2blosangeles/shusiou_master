@@ -19,6 +19,7 @@
 			"/mservices/_common/commEng.jsx",
 			"/mservices/_common/commWin.jsx",
 			"/mservices/_common/commPingbo.jsx",
+			"/mservices/_common/_commVoiceAI.jsx",
 
 			"/mservices/react_module/lang_space/controller/shusiou_config.js",			
 			
