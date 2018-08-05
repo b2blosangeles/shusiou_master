@@ -141,7 +141,10 @@ var _commLib = function () {
             else ms = '';
         return h + ':' + m + ':' + s + ' ' + ms;
     }
-   
+    this.voiceRecong = function(recs, cbk) {
+    	alert(JSON.stringify(recs));
+	cbk();
+    }
     this.playTTS = function(Q, cbk) {
 	let me = this;
 	var data = Q[0];
@@ -149,29 +152,34 @@ var _commLib = function () {
 		cbk();
 		return true;
 	} else {
-		var Q1 = data.text.split(/\,|\;|\.|\?/).filter(function(n){ return n.replace(/^\s+|\s+$/gm,'') != '' });
-		if (Q1.length > 1) {
-			Q.shift();
-			for (let i = 0; i < Q1.length; i++) {
-				Q.unshift({text:Q1[Q1.length - i - 1], lang:data.lang});
-			}
-			me.playTTS(Q, cbk);
-		} else {
-			$('audio').attr('src', _master_svr() + '/api/tts/google.api?str='+data.text + '&lang=' + data.lang).attr('autoplay', true);
-			$("audio").unbind('ended').bind("ended", function() {
+		if (data.text) {
+			var Q1 = data.text.split(/\,|\;|\.|\?/).filter(function(n){ return n.replace(/^\s+|\s+$/gm,'') != '' });
+			if (Q1.length > 1) {
 				Q.shift();
-				if (Q.length) {
-					// me.playTTS(Q, cbk);
-					
-					setTimeout(
-						function() { me.playTTS(Q, cbk); }, 500
-					)
-				} else {
-					$("audio").unbind('ended');
-					cbk();
+				for (let i = 0; i < Q1.length; i++) {
+					Q.unshift({text:Q1[Q1.length - i - 1], lang:data.lang});
 				}
-			});
-		}
+				me.playTTS(Q, cbk);
+			} else {
+
+				$('audio').attr('src', _master_svr() + '/api/tts/google.api?str='+data.text + '&lang=' + data.lang).attr('autoplay', true);
+				$("audio").unbind('ended').bind("ended", function() {
+					Q.shift();
+					if (Q.length) {
+						// me.playTTS(Q, cbk);
+
+						setTimeout(
+							function() { me.playTTS(Q, cbk); }, 500
+						)
+					} else {
+						$("audio").unbind('ended');
+						cbk();
+					}
+				});
+			}
+		} else {
+			me.voiceRecong(data, cbk)
+		}			
 	}
     }
 	
