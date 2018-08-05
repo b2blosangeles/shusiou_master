@@ -106,15 +106,11 @@ try {
 					}
 				} else {
 					me.setState({locked : true});
-					let o = prog[t.toString()];
-					if (o.text) {
-						Root.lib.playTTS(o, function() {
-							me.setState({locked : false});
-						});
-					} else {
-						alert(o.rc);
+	
+					Root.lib.playTTS(prog[t.toString()], function() {
 						me.setState({locked : false});
-					}
+					});
+	
 					console.log(' locked --> ' + t.toString());
 				}
 			}
