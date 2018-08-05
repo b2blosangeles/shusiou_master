@@ -15,7 +15,7 @@ try {
 			let MOVL = 10,
 			    movl = 0;			
 			let prog = me.props.parent.state.VoiceObj;
-			
+			if (!prog) return true;
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 
 			let _itv = setInterval(function(){ 
