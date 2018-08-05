@@ -9,6 +9,7 @@ try {
 		},	
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
+			console.log(me.props.parent.voiceObj + '===' + preProps.voiceObj);
 		},
 		componentDidMount:function() {
 			let me = this;
