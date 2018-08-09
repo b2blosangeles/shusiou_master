@@ -55,7 +55,6 @@ try {
 	},
         componentDidUpdate:function(prePropos, preState) {
 		let me = this;
-		console.log('===componentDidUpdate===');
 		return true;
 		// https://cloud.google.com/speech-to-text/docs/languages
 		// VoiceObj
