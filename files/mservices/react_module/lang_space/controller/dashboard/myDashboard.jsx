@@ -89,7 +89,7 @@ try {
         },
         componentDidMount:function() {
 		let me = this;
-
+		console.log('===comein ===');
 		// https://cloud.google.com/speech-to-text/docs/languages
 		// VoiceObj
 		me.setState({voiceObj : {'2' : [{
