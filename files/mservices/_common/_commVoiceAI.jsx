@@ -7,6 +7,7 @@ try {
 		componentWillUnmount : function() {
 			let me = this;
 			clearInterval(me._itv);
+			delete me._itv;
 			//alert('===componentWillUnmount===');
 		},	
 		componentDidUpdate:function(preProps, preState) {
@@ -38,6 +39,7 @@ try {
 						if (t > MOVL) {
 							console.log(' === Game Over=== ');
 							clearInterval(me._itv);
+							delete me._itv;
 							me.playTTS([{
 								text: 'Good job, nice job, thank you',
 								lang : 'en-US'							
