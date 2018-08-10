@@ -5,8 +5,9 @@ try {
 			return {};
 		},
 		componentWillUnmount : function() {
-			alert('===componentWillUnmount===');
 			let me = this;
+			clearInterval(me._itv);
+			//alert('===componentWillUnmount===');
 		},	
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
@@ -25,7 +26,7 @@ try {
 			if (!prog) return true;
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 
-			let _itv = setInterval(function(){ 
+			me._itv = setInterval(function(){ 
 				if (Math.ceil(new Date().getTime() * 0.001) - s < 1) {
 					return true;
 				} else {
@@ -36,7 +37,7 @@ try {
 					if (Object.keys(prog).indexOf(t.toString()) === -1) {
 						if (t > MOVL) {
 							console.log(' === Game Over=== ');
-							clearInterval(_itv);
+							clearInterval(me._itv);
 							me.playTTS([{
 								text: 'Good job, nice job, thank you',
 								lang : 'en-US'							
