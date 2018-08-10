@@ -45,9 +45,9 @@ try {
 	},
 	channelComm : function() {
 		let me = this;
-		if (!me.state.socket_id) return true;
+		if (!Root.state.socket_id) return true;
 		// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
-		let url = 'https://comm1.service.dev.shusiou.win/?socket=' + me.state.socket_id;
+		let url = 'https://comm1.service.dev.shusiou.win/?socket=' + Root.state.socket_id;
 		Root.lib.positionedPopup(url, '','180','180','0','0','yes');
 	}, 
 	componentWillUnmount : function() {
