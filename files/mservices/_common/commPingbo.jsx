@@ -2,7 +2,7 @@ try {
 	var _commPingbo = React.createClass({
 		getInitialState: function() {
 			var me = this;	
-			return {socket_id: me.props.parent.state.socket_id, 
+			return {socket_id: Root.state.socket_id, 
 				pingbo: me.props.parent.state.pingbo, 
 				pingbo_tm:new Date().getTime()};
 		},
@@ -61,7 +61,7 @@ try {
 							proxy: ['http://comm1.service.dev.shusiou.win/', 
 								'https://comm1.service.dev.shusiou.win/'],
 							onConnect : function(socket) {
-								me.setState({socket_id:socket.id});				
+								Root.setState({socket_id:socket.id});				
 							}, 
 							onServerData : function(incomeData, socket) {
 								//console.log('==something coming===>');
