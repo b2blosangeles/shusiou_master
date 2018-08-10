@@ -5,6 +5,7 @@ try {
 			return {};
 		},
 		componentWillUnmount : function() {
+			alert('===componentWillUnmount===');
 			let me = this;
 		},	
 		componentDidUpdate:function(preProps, preState) {
