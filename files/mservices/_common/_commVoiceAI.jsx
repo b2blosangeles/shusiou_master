@@ -40,7 +40,7 @@ try {
 						if (t > MOVL) {
 							console.log(' === Game Over=== ');
 							clearInterval(me._itv);
-							me._stopplay = true;
+							// me._stopplay = true;
 							me.playTTS([{
 								text: 'Good job, nice job, thank you',
 								lang : 'en-US'							
