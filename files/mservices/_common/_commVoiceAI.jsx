@@ -48,7 +48,7 @@ try {
 						}
 					} else {
 						me.setState({locked : true});
-
+						
 						me.playTTS(prog[t.toString()], function() {
 							me.setState({locked : false});
 						});
@@ -67,6 +67,7 @@ try {
 		playTTS : function(Q, cbk) {
 			let me = this;
 			var data = Q[0];
+			if (!me._itv) return true;
 			if (!data) {
 				cbk();
 				return true;
