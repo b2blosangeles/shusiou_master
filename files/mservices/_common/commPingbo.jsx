@@ -2,13 +2,13 @@ try {
 	var _commPingbo = React.createClass({
 		getInitialState: function() {
 			var me = this;	
-			return {socket_id: Root.state.socket_id, 
-				pingbo: me.props.parent.state.pingbo, 
+			return {socket_id: Root.state.pingbo_id, 
+				pingbo: Root.state.pingbo, 
 				pingbo_tm:new Date().getTime()};
 		},
 		componentWillUnmount : function() {
 			let me = this;
-			if (me.props.parent.qna_server) me.props.parent.qna_server.closeSocket();
+			if (Root.qna_server) Root.qna_server.closeSocket();
 			me.setState({pingbo : null});
 			if (me._itv) clearInterval(me._itv);
 		},
@@ -21,7 +21,7 @@ try {
 						me.setState({pingbo : null});
 					} else if (new Date().getTime() - me.state.pingbo_tm > 3000 && (me.state.pingbo)) {
 						if (me.state.pingbo) {
-							me.props.parent.qna_server.sendToClient({cmd:'pingbo'}, me.state.pingbo);
+							Root.qna_server.sendToClient({cmd:'pingbo'}, me.state.pingbo);
 						}
 					} 
 					//me.setState({parent_location : me.props.parent.props.location.pathname});
@@ -31,13 +31,13 @@ try {
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
 			if (me.state.socket_id !== preState.socket_id || me.state.pingbo !== preState.pingbo) {
-				me.props.parent.setState({socket_id : me.state.socket_id, pingbo : me.state.pingbo});
+				Root.setState({pingbo_id : me.state.socket_id, pingbo : me.state.pingbo});
 				
 				//console.log(me.state.socket_id + '==vs===' + preState.socket_id);
 				//console.log(me.state.pingbo + '==ps===' + preState.pingbo);
 			}
 			if (me.props.parent.state.serverPush) {
-				me.props.parent.qna_server.sendToClient({cmd:'serverPush', data:me.props.parent.state.serverPush}, me.state.pingbo);
+				Root.qna_server.sendToClient({cmd:'serverPush', data:me.props.parent.state.serverPush}, me.state.pingbo);
 				me.props.parent.setState({serverPush : null});
 			}
 			if (me.state.commData_tm !== preState.commData_tm) {
@@ -53,15 +53,15 @@ try {
 					return (typeof _QNA_ === 'function' || typeof _QNA_ === 'object') ? true : false;
 				},
 				function() {
-					if (!me.props.parent.qna_server) {
-						me.props.parent.qna_server = new _QNA_();	
-						me.props.parent.qna_server.init({ 
+					if (!Root.qna_server) {
+						Root.qna_server = new _QNA_();	
+						Root.qna_server.init({ 
 							master_socket_id: null, 
 							link : 'https://comm1.service.dev.shusiou.win/', 
 							proxy: ['http://comm1.service.dev.shusiou.win/', 
 								'https://comm1.service.dev.shusiou.win/'],
 							onConnect : function(socket) {
-								Root.setState({socket_id:socket.id});				
+								Root.setState({pinbo_id:socket.id});				
 							}, 
 							onServerData : function(incomeData, socket) {
 								//console.log('==something coming===>');
@@ -102,7 +102,7 @@ try {
 		},
 		render: function() {
 			let me = this;
-			return (<span>_commPingbo --> {me.props.parent.state.socket_id} ==>
+			return (<span>_commPingbo --> {Root.pingbo_id} ==>
 					{me.showData(me.state.commData)}</span>)
 		}
 	});	
