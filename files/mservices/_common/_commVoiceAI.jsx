@@ -8,7 +8,7 @@ try {
 			let me = this;
 			clearInterval(me._itv);
 			me._stopplay = true;
-			//alert('===componentWillUnmount===');
+			console.log('===componentWillUnmount===');
 		},	
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
