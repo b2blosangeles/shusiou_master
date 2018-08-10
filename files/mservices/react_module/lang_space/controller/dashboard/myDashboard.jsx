@@ -131,7 +131,7 @@ try {
 					<div className="col-sm-4 col-lg-4 col-md-4"> 
 						<div className="overlayer_box">
 							<_commPingbo parent={me} />						
-							
+							<_commVoiceAI parent={me} voiceObj={me.state.voiceObj_tm}/>
 							<h4 className="header">{me.dictionary('Private')}</h4>
 							 <a href="JavaScript:void(0)" 
 								    onClick={me.serverPush.bind(me,['good', 'nice', 'test'])}
