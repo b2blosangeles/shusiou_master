@@ -107,7 +107,7 @@ try {
 		},
 		render: function() {
 			let me = this;
-			return (<span></span>)
+			return (<span>---</span>)
 		}
 	});	
 } catch (err) {
