@@ -7,7 +7,7 @@ try {
 		componentWillUnmount : function() {
 			let me = this;
 			clearInterval(me._itv);
-			delete me._itv;
+			me._stopplay = true;
 			//alert('===componentWillUnmount===');
 		},	
 		componentDidUpdate:function(preProps, preState) {
@@ -22,7 +22,8 @@ try {
 		playVoiceAI : function() {
 			let me = this;
 			let MOVL = 10,
-			    movl = 0;			
+			    movl = 0;	
+			me._stopplay = false;
 			let prog = me.props.parent.state.voiceObj;
 			if (!prog) return true;
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
@@ -39,7 +40,7 @@ try {
 						if (t > MOVL) {
 							console.log(' === Game Over=== ');
 							clearInterval(me._itv);
-							delete me._itv;
+							me._stopplay = true;
 							me.playTTS([{
 								text: 'Good job, nice job, thank you',
 								lang : 'en-US'							
@@ -69,7 +70,7 @@ try {
 		playTTS : function(Q, cbk) {
 			let me = this;
 			var data = Q[0];
-			if (!me._itv) return true;
+			if (me._stopplay) return true;
 			if (!data) {
 				cbk();
 				return true;
