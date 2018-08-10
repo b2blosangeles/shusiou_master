@@ -61,7 +61,7 @@ try {
 							proxy: ['http://comm1.service.dev.shusiou.win/', 
 								'https://comm1.service.dev.shusiou.win/'],
 							onConnect : function(socket) {
-								Root.setState({pinbo_id:socket.id});				
+								Root.setState({pingbo_id:socket.id});				
 							}, 
 							onServerData : function(incomeData, socket) {
 								//console.log('==something coming===>');
