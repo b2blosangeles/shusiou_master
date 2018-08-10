@@ -56,35 +56,6 @@ try {
         componentDidUpdate:function(prePropos, preState) {
 		let me = this;
 		return true;
-		// https://cloud.google.com/speech-to-text/docs/languages
-		// VoiceObj
-		me.setState({voiceObj : {'2' : [{
-				text: '深圳, 打响楼市个人, 限卖.第一枪',
-				lang : 'cmn-Hans-CN'
-			},{
-				text: '中国,已安排最先进的海洋救助船',
-				lang : 'cmn-Hans-CN'
-			},{
-				rc: 'good',
-				lang : 'en-US'
-			}
-			], 
-			'4' : [{
-				text: '中央定调下半年中国经济',
-				lang : 'cmn-Hans-CN'			
-			}], 
-			'6' : [{
-				text: 'listen',
-				lang : 'en-US'			
-			}], 
-			'8' : [{
-				text: '稳中有变',
-				lang : 'cmn-Hans-CN'			
-			}]},
-			voiceObj_tm : new Date().getTime()	    
-		});
-
-		return true;
         },
         componentDidMount:function() {
 		let me = this;
@@ -92,7 +63,7 @@ try {
 		// https://cloud.google.com/speech-to-text/docs/languages
 		// VoiceObj
 		me.setState({voiceObj : {'2' : [{
-				text: '深圳, 打响楼市个人, 限卖.第一枪',
+				text: '深圳打响楼市个人限卖.第一枪',
 				lang : 'cmn-Hans-CN'
 			},{
 				text: '中国,已安排最先进的海洋救助船',
