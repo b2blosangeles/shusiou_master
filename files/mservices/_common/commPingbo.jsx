@@ -64,22 +64,25 @@ try {
 								me.setState({socket_id:socket.id});				
 							}, 
 							onServerData : function(incomeData, socket) {
+								//console.log('==something coming===>');
+								//console.log(incomeData.data);
 								let v = {};
 								if ((incomeData.data.clientMessage) && 
-								    incomeData.data.clientMessage.cmd) {
+								    incomeData.data.clientMessage.cmd === 'pingbo') {
 									if (incomeData.data.clientMessage.sender) {
 										v.pingbo = incomeData.data.clientMessage.sender;
 									}
-									v.commDataCmd = incomeData.data.clientMessage.cmd;
 									v.pingbo_tm = new Date().getTime();
 									if (incomeData.data.clientMessage.commData) {
 										v.commData = incomeData.data.clientMessage.commData;
-										
 										v.commData_tm = new Date().getTime();
 									}
 									me.setState(v);
 								} else if (incomeData.data.clientMessage === null) {
 									me.setState({pingbo : null});
+								} else {
+									console.log(incomeData.data.clientMessage);
+									console.log('---niu---');
 								}
 							},
 							timeout :1999
@@ -92,9 +95,9 @@ try {
 		},
 		commPipe : function() {
 			let me = this;
-			if (!me.state.commData || !me.state.commDataCmd) return false;
-			if (typeof me.props.parent[me.state.commDataCmd] === 'function') {
-				me.props.parent[me.state.commDataCmd](me.state.commData);
+			if (!me.state.commData || !me.state.commData.cmd) return false;
+			if (typeof me.props.parent[me.state.commData.cmd] === 'function') {
+				me.props.parent[me.state.commData.cmd](me.state.commData);
 			} 
 		},
 		showData : function(data) {
