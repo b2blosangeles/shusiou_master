@@ -61,14 +61,7 @@ try {
 							proxy: ['http://comm1.service.dev.shusiou.win/', 
 								'https://comm1.service.dev.shusiou.win/'],
 							onConnect : function(socket) {
-								me.setState({socket_id:socket.id});
-								
-				//if (me.props.parent.state.pingbo_service) {
-				Root.qna_server.sendToClient({cmd:'serverPush', data:me.props.parent.state.pingbo_service}, me.state.pingbo);
-				console.log('===serverPush===');
-				me.props.parent.setState({serverPush : null});
-			//}								
-								
+								me.setState({socket_id:socket.id});		
 							}, 
 							onServerData : function(incomeData, socket) {
 								//console.log('==something coming===>');
