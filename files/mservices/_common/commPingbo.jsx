@@ -80,28 +80,7 @@ try {
 									me.setState(v);
 								} else if (incomeData.data.clientMessage === null) {
 									me.setState({pingbo : null});
-								}						
-								//console.log('==something coming===>');
-								//console.log(incomeData.data);
-								/*
-								let v = {};
-								if ((incomeData.data.clientMessage) && 
-								    incomeData.data.clientMessage.cmd === 'pingbo') {
-									if (incomeData.data.clientMessage.sender) {
-										v.pingbo = incomeData.data.clientMessage.sender;
-									}
-									v.pingbo_tm = new Date().getTime();
-									if (incomeData.data.clientMessage.commData) {
-										v.commData = incomeData.data.clientMessage.commData;
-										v.commData_tm = new Date().getTime();
-									}
-									me.setState(v);
-								} else if (incomeData.data.clientMessage === null) {
-									me.setState({pingbo : null});
-								} else {
-									console.log(incomeData.data.clientMessage);
-									console.log('---niu---');
-								}*/
+								}
 							},
 							timeout :1999
 						});
@@ -113,9 +92,6 @@ try {
 		},
 		commPipe : function() {
 			let me = this;
-			console.log('---me.state.commData--->');
-			console.log(me.state.commData);
-			console.log(me.state.commDataCmd);
 			if (!me.state.commData || !me.state.commDataCmd) return false;
 			if (typeof me.props.parent[me.state.commDataCmd] === 'function') {
 				me.props.parent[me.state.commDataCmd](me.state.commData);
