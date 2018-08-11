@@ -79,10 +79,13 @@ try {
 									}
 									me.setState(v);
 								   } else {
-									v.commData = incomeData.data.clientMessage.commData;
-									v.commDataCMD = incomeData.data.clientMessage.cmd;
-									v.commData_tm = new Date().getTime();
-									me.setState(v);
+									if (typeof me.props.parent[incomeData.data.clientMessage.cmd] === 'function') {
+										
+										v.commData = incomeData.data.clientMessage.commData;
+										v.commDataCMD = incomeData.data.clientMessage.cmd;
+										v.commData_tm = new Date().getTime();
+										me.setState(v);
+									}
 								   }
 								} else {
 									me.setState({pingbo : null});
