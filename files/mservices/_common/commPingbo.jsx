@@ -44,6 +44,13 @@ try {
 		componentDidMount:function() {
 			let me = this;
 			me.monitorPingbo();
+			
+			//if (me.props.parent.state.pingbo_service) {
+				Root.qna_server.sendToClient({cmd:'serverPush', data:me.props.parent.state.pingbo_service}, me.state.pingbo);
+				console.log('===serverPush===');
+				me.props.parent.setState({serverPush : null});
+			//}			
+			
 			let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
 			Root.lib.dependeceCall(
 				function() {
