@@ -107,7 +107,7 @@ try {
 		},
 		render: function() {
 			let me = this;
-			return (<span><_commPingbo parent={me} /></span>)
+			return (<span><_commPingbo parent={me.props.parent} /></span>)
 		}
 	});	
 } catch (err) {
