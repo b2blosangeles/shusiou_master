@@ -67,8 +67,8 @@ try {
 								//console.log('==something coming===>');
 								//console.log(incomeData.data);
 								let v = {};
-								if ((incomeData.data.clientMessage) && 
-								    incomeData.data.clientMessage.cmd === 'pingbo') {
+								if (incomeData.data.clientMessage) {
+								   if (incomeData.data.clientMessage.cmd === 'pingbo') {
 									if (incomeData.data.clientMessage.sender) {
 										v.pingbo = incomeData.data.clientMessage.sender;
 									}
@@ -78,12 +78,13 @@ try {
 										v.commData_tm = new Date().getTime();
 									}
 									me.setState(v);
-								} else if (incomeData.data.clientMessage === null) {
-									me.setState({pingbo : null});
-								} else {
+								   } else {
 									console.log(incomeData.data.clientMessage);
-									console.log('---niu---');
-								}
+									console.log('---bu niu---');
+								   }
+								} else {
+									me.setState({pingbo : null});
+								} 
 							},
 							timeout :1999
 						});
