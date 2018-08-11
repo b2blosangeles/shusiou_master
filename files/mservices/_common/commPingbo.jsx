@@ -102,7 +102,7 @@ try {
 		},
 		render: function() {
 			let me = this;
-			return (<span>_commPingbo --> {Root.state.pingbo_id} ==>{me.state.socket_id}
+			return (<span>_commPingbo --> {Root.state.pingbo_id} ==>>>{me.state.socket_id}
 					{me.showData(me.state.commData)}</span>)
 		}
 	});	
