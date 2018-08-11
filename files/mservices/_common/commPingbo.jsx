@@ -64,8 +64,24 @@ try {
 								me.setState({socket_id:socket.id});				
 							}, 
 							onServerData : function(incomeData, socket) {
+								let v = {};
+								if ((incomeData.data.clientMessage) && 
+								    incomeData.data.clientMessage.cmd) {
+									if (incomeData.data.clientMessage.sender) {
+										v.pingbo = incomeData.data.clientMessage.sender;
+									}
+									v.pingbo_tm = new Date().getTime();
+									if (incomeData.data.clientMessage.commData) {
+										v.commData = incomeData.data.clientMessage.commData;
+										v.commData_tm = new Date().getTime();
+									}
+									me.setState(v);
+								} else if (incomeData.data.clientMessage === null) {
+									me.setState({pingbo : null});
+								}						
 								//console.log('==something coming===>');
 								//console.log(incomeData.data);
+								/*
 								let v = {};
 								if ((incomeData.data.clientMessage) && 
 								    incomeData.data.clientMessage.cmd === 'pingbo') {
@@ -83,7 +99,7 @@ try {
 								} else {
 									console.log(incomeData.data.clientMessage);
 									console.log('---niu---');
-								}
+								}*/
 							},
 							timeout :1999
 						});
