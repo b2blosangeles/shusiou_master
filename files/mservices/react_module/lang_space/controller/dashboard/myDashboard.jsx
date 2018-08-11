@@ -99,6 +99,9 @@ try {
 		var me = this;
 		return (<span>{me.render0()}==={/*Root.lib.landingModal(me)*/}</span>)
 	},
+	ppp: function() {
+		console.log('===ppp===');
+	},
         render: function() {
             var me = this;
 	    if (!me.state.pingbo) {
