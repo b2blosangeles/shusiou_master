@@ -41,7 +41,8 @@ try {
 							console.log(' === Game Over=== ');
 							clearInterval(me._itv);
 							// me._stopplay = true;
-							Root.qna_server.sendToClient({cmd:'voicerecong'}, Root.state.pingbo);
+							Root.qna_server.sendToClient({cmd:'voicerecong'
+								voiceRecong:['good', 'nice']}, Root.state.pingbo);
 							me.playTTS([{
 								text: 'Good job, nice job, thank you',
 								lang : 'en-US'							
