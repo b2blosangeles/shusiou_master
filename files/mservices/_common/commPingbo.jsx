@@ -102,9 +102,9 @@ try {
 			let me = this;
 			console.log(me.state);
 			console.log('---bu bu bu niu---');
-			if (!me.state.commData || !me.state.commDataCMD) return false;
-			if (typeof me.props.parent[me.state.commDataCMD] === 'function') {
-				me.props.parent[me.state.commDataCMD](me.state.commData, 
+			if (!me.state.commData || !me.state.commData.cmd) return false;
+			if (typeof me.props.parent[me.state.commData.cmd] === 'function') {
+				me.props.parent[me.state.commData.cmd](me.state.commData, 
 					function(data) {
 						alert('niu');
 				});
