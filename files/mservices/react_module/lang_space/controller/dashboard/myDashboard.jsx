@@ -83,7 +83,7 @@ try {
 	sendPP : function() {
 		var me = this;
 			//if (me.props.parent.state.pingbo_service) {
-				Root.qna_server.sendToServer{cmd:'voiceRecong', data:me. state.pingbo_service}, me.state.pingbo);
+				Root.qna_server.sendToServer({cmd:'voiceRecong', data:me. state.pingbo_service});
 				console.log('===serverPush>>>1===');
 				//me.props.parent.setState({serverPush : null});
 			//}	
