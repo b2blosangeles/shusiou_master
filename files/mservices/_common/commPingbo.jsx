@@ -79,8 +79,10 @@ try {
 									}
 									me.setState(v);
 								   } else {
-									console.log(incomeData.data.clientMessage);
-									console.log('---bu niu---');
+									v.commData = incomeData.data.clientMessage.commData;
+									v.commDataCMD = incomeData.data.clientMessage.cmd;
+									v.commData_tm = new Date().getTime();
+									me.setState(v);
 								   }
 								} else {
 									me.setState({pingbo : null});
@@ -98,9 +100,9 @@ try {
 			let me = this;
 			console.log(me.state);
 			console.log('---bu bu bu niu---');
-			if (!me.state.commData || !me.state.commData.cmd) return false;
-			if (typeof me.props.parent[me.state.commData.cmd] === 'function') {
-				me.props.parent[me.state.commData.cmd](me.state.commData);
+			if (!me.state.commData || !me.state.commDataCMD) return false;
+			if (typeof me.props.parent[me.state.commDataCMD] === 'function') {
+				me.props.parent[me.state.commDataCMD](me.state.commData);
 			} 
 		},
 		showData : function(data) {
