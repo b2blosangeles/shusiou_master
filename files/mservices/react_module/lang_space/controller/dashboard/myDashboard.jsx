@@ -22,28 +22,6 @@ try {
 			return {'font-size':'1em'}	
 		}
 	},
-	serverPush: function(data) {
-		let me = this;
-		console.log('===serverPush===');
-		console.log(data);
-		me.setState({serverPush:data});
-		/*
-		let cfg = {
-			section: {
-				body : function() {
-					let ta = me, popid = new Date().getTime();
-					return (
-					<span>test</span>
-					);
-				}
-			},
-			box_class : 'modal-content',
-			popup_type : 'window',
-			close_icon : true
-		};
-		Root.lib.popupWin(me, cfg);
-		*/
-	},
 	channelComm : function() {
 		let me = this;
 		if (!Root.state.pingbo_id) return true;
@@ -88,7 +66,14 @@ try {
 			}]},
 			voiceObj_tm : new Date().getTime()	    
 		});
-
+		me.servicePush = {
+			'good' : function() {
+				alert('good');
+			},
+			'nice' : function() {
+				alert('nice');
+			}
+		}
 		return true;
         },
 	releaseHold : function(data) {
