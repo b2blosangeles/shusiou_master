@@ -85,9 +85,10 @@ try {
 		me.setState({locked : false});
 		return (data === 'string') ? data : JSON.stringify(data);
 	},
-	good: function(data) {
+	good: function(data, cbk) {
 		console.log('===good===>');
 		console.log(data);
+		if (typeof cbk === 'function') cbk(data);
 	},
         render: function() {
             var me = this;
