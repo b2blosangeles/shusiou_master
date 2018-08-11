@@ -33,8 +33,8 @@ try {
 			if (me.state.socket_id !== preState.socket_id || me.state.pingbo !== preState.pingbo) {
 				Root.setState({pingbo_id : me.state.socket_id, pingbo : me.state.pingbo});
 				
-				console.log(me.state.socket_id + '==vs===' + preState.socket_id);
-				console.log(me.state.pingbo + '==ps===' + preState.pingbo);
+				//console.log(me.state.socket_id + '==vs===' + preState.socket_id);
+				// console.log(me.state.pingbo + '==ps===' + preState.pingbo);
 			}
 			if (me.props.parent.state.serverPush) {
 				Root.qna_server.sendToClient({cmd:'serverPush', data:me.props.parent.state.serverPush}, me.state.pingbo);
