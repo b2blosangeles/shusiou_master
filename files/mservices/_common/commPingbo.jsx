@@ -15,7 +15,6 @@ try {
 		monitorPingbo : function() {
 			let me = this;
 			if (me._itv) clearInterval(me._itv);
-			return true;
 			me._itv = setInterval(
 				function() {
 					if (new Date().getTime() - me.state.pingbo_tm > 6000 && (me.state.pingbo)) {
@@ -34,8 +33,8 @@ try {
 			if (me.state.socket_id !== preState.socket_id || me.state.pingbo !== preState.pingbo) {
 				Root.setState({pingbo_id : me.state.socket_id, pingbo : me.state.pingbo});
 				
-				//console.log(me.state.socket_id + '==vs===' + preState.socket_id);
-				//console.log(me.state.pingbo + '==ps===' + preState.pingbo);
+				console.log(me.state.socket_id + '==vs===' + preState.socket_id);
+				console.log(me.state.pingbo + '==ps===' + preState.pingbo);
 			}
 			if (me.props.parent.state.serverPush) {
 				Root.qna_server.sendToClient({cmd:'serverPush', data:me.props.parent.state.serverPush}, me.state.pingbo);
