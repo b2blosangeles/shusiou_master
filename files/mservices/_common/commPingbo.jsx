@@ -53,7 +53,7 @@ try {
 					return (typeof _QNA_ === 'function' || typeof _QNA_ === 'object') ? true : false;
 				},
 				function() {
-					if (!Root.qna_server) {
+					if (!Root.qna_server || true) {
 						Root.qna_server = new _QNA_();	
 						Root.qna_server.init({ 
 							master_socket_id: null, 
