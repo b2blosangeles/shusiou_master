@@ -41,6 +41,15 @@ try {
 		console.log('===comein ===');
 		// https://cloud.google.com/speech-to-text/docs/languages
 		// VoiceObj
+		me.servicePush = {
+			'good' : function() {
+				alert('good');
+			},
+			'nice' : function() {
+				alert('nice');
+			}
+		}		
+		
 		me.setState({voiceObj : {'2' : [{
 				text: '深圳打响楼市个人限卖.第一枪',
 				lang : 'cmn-Hans-CN'
@@ -64,16 +73,10 @@ try {
 				text: '稳中有变',
 				lang : 'cmn-Hans-CN'			
 			}]},
+			pingbo_service: ['good', 'nice'],
 			voiceObj_tm : new Date().getTime()	    
 		});
-		me.servicePush = {
-			'good' : function() {
-				alert('good');
-			},
-			'nice' : function() {
-				alert('nice');
-			}
-		}
+
 		return true;
         },
 	releaseHold : function(data) {
