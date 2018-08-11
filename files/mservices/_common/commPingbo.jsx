@@ -45,11 +45,7 @@ try {
 			let me = this;
 			me.monitorPingbo();
 			
-			//if (me.props.parent.state.pingbo_service) {
-				Root.qna_server.sendToClient({cmd:'serverPush', data:me.props.parent.state.pingbo_service}, me.state.pingbo);
-				console.log('===serverPush===');
-				me.props.parent.setState({serverPush : null});
-			//}			
+		
 			
 			let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
 			Root.lib.dependeceCall(
@@ -65,7 +61,14 @@ try {
 							proxy: ['http://comm1.service.dev.shusiou.win/', 
 								'https://comm1.service.dev.shusiou.win/'],
 							onConnect : function(socket) {
-								me.setState({socket_id:socket.id});				
+								me.setState({socket_id:socket.id});
+								
+				//if (me.props.parent.state.pingbo_service) {
+				Root.qna_server.sendToClient({cmd:'serverPush', data:me.props.parent.state.pingbo_service}, me.state.pingbo);
+				console.log('===serverPush===');
+				me.props.parent.setState({serverPush : null});
+			//}								
+								
 							}, 
 							onServerData : function(incomeData, socket) {
 								//console.log('==something coming===>');
