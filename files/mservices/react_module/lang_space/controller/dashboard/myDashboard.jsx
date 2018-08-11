@@ -76,9 +76,17 @@ try {
 			pingbo_service: ['good', 'nice'],
 			voiceObj_tm : new Date().getTime()	    
 		});
+		
 
 		return true;
         },
+	sendPP : function() {
+			//if (me.props.parent.state.pingbo_service) {
+				Root.qna_server.sendToClient({cmd:'serverPush', data:me. state.pingbo_service}, me.state.pingbo);
+				console.log('===serverPush>>>===');
+				//me.props.parent.setState({serverPush : null});
+			//}	
+	},
 	releaseHold : function(data) {
 		var me = this;
 		me.setState({locked : false});
@@ -123,7 +131,7 @@ try {
 							<_commVoiceAI parent={me} voiceObj={me.state.voiceObj_tm}/>
 							<h4 className="header">{me.dictionary('Private')}</h4>
 							 <a href="JavaScript:void(0)" 
-								    onClick={me.serverPush.bind(me,['good', 'nice', 'test'])}
+								    onClick={me.sendPP.bind(me,['good', 'nice', 'test'])}
 								    className="btn btn-md btn-warning" >
 									{me.dictionary('start')}</a>
 						</div>	
