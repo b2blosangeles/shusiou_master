@@ -95,10 +95,6 @@ try {
 		me.setState({locked : false});
 		return (data === 'string') ? data : JSON.stringify(data);
 	},
-	renderA: function() {
-		var me = this;
-		return (<span>{me.render0()}==={/*Root.lib.landingModal(me)*/}</span>)
-	},
 	good: function(data) {
 		console.log('===good===>');
 		console.log(data);
