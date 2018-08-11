@@ -70,9 +70,11 @@ try {
 									if (incomeData.data.clientMessage.sender) {
 										v.pingbo = incomeData.data.clientMessage.sender;
 									}
+									v.commDataCmd = incomeData.data.clientMessage.cmd;
 									v.pingbo_tm = new Date().getTime();
 									if (incomeData.data.clientMessage.commData) {
 										v.commData = incomeData.data.clientMessage.commData;
+										
 										v.commData_tm = new Date().getTime();
 									}
 									me.setState(v);
@@ -113,10 +115,10 @@ try {
 			let me = this;
 			console.log('---me.state.commData--->');
 			console.log(me.state.commData);
-			console.log(me.state.commData.cmd);
-			if (!me.state.commData || !me.state.commData.cmd) return false;
-			if (typeof me.props.parent[me.state.commData.cmd] === 'function') {
-				me.props.parent[me.state.commData.cmd](me.state.commData);
+			console.log(me.state.commDataCmd);
+			if (!me.state.commData || !me.state.commDataCmd) return false;
+			if (typeof me.props.parent[me.state.commDataCmd] === 'function') {
+				me.props.parent[me.state.commDataCmd](me.state.commData);
 			} 
 		},
 		showData : function(data) {
