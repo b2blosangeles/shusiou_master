@@ -80,6 +80,9 @@ try {
 									me.setState(v);
 								} else if (incomeData.data.clientMessage === null) {
 									me.setState({pingbo : null});
+								} else {
+									console.log(incomeData.data.clientMessage);
+									console.log('---niu---');
 								}
 							},
 							timeout :1999
