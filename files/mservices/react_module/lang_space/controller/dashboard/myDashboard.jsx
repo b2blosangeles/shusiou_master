@@ -99,8 +99,9 @@ try {
 		var me = this;
 		return (<span>{me.render0()}==={/*Root.lib.landingModal(me)*/}</span>)
 	},
-	ppp: function() {
-		console.log('===ppp===');
+	ppp: function(data) {
+		console.log('===ppp===>');
+		console.log(data);
 	},
         render: function() {
             var me = this;
