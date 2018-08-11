@@ -9,7 +9,7 @@ try {
 		componentWillUnmount : function() {
 			let me = this;
 			if (Root.qna_server) Root.qna_server.closeSocket();
-			me.setState({pingbo : null});
+			me.setState({socket_id: null, pingbo : null});
 			if (me._itv) clearInterval(me._itv);
 		},
 		monitorPingbo : function() {
