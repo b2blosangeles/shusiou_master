@@ -83,14 +83,13 @@ try {
 	sendPP : function() {
 		var me = this;
 			//if (me.props.parent.state.pingbo_service) {
-		Root.qna_server.sendToClient({cmd:'pingbo'}, {cmd: 'pingbo', commData:{
-						cmd:'cmd', tm:new Date().getTime()}});
+		Root.qna_server.sendToClient({cmd:'voicerecong'}, Root.state.pingbo);
 		/* Root.qna_server.sendToServer({clientMessage: {cmd: 'pingbo', commData:{
 						cmd:'cmd', tm:new Date().getTime()}}});
 		
 				Root.qna_server.sendToServer({cmd:'voiceRecong', data:me. state.pingbo_service});
 				*/
-				console.log('===serverPush>>>1===');
+				console.log('===serverPush>>>1===' + Root.state.pingbo);
 				//me.props.parent.setState({serverPush : null});
 			//}	
 	},
