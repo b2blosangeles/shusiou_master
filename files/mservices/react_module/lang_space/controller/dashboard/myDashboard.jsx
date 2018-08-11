@@ -80,19 +80,6 @@ try {
 
 		return true;
         },
-	sendPP : function() {
-		var me = this;
-			//if (me.props.parent.state.pingbo_service) {
-		Root.qna_server.sendToClient({cmd:'voicerecong'}, Root.state.pingbo);
-		/* Root.qna_server.sendToServer({clientMessage: {cmd: 'pingbo', commData:{
-						cmd:'cmd', tm:new Date().getTime()}}});
-		
-				Root.qna_server.sendToServer({cmd:'voiceRecong', data:me. state.pingbo_service});
-				*/
-				console.log('===serverPush>>>1===' + Root.state.pingbo);
-				//me.props.parent.setState({serverPush : null});
-			//}	
-	},
 	releaseHold : function(data) {
 		var me = this;
 		me.setState({locked : false});
@@ -119,11 +106,6 @@ try {
 								{me.dictionary('Open Security Voice Channel')}</a>
 						</p>
 						
-						 <a href="JavaScript:void(0)" 
-								    onClick={me.sendPP.bind(me,['good', 'nice', 'test'])}
-								    className="btn btn-md btn-warning" >
-									{me.dictionary('start')}</a>
-						
 						<i className="fa fa-microphone status_off" onClick={me.channelComm.bind(me)}
 								aria-hidden="true" style={{"font-size":"5em"}}></i><br/><br/>
 					</div>	
@@ -142,10 +124,6 @@ try {
 							{/*<_commPingbo parent={me} />*/}					
 							<_commVoiceAI parent={me} voiceObj={me.state.voiceObj_tm}/>
 							<h4 className="header">{me.dictionary('Private')}</h4>
-							 <a href="JavaScript:void(0)" 
-								    onClick={me.sendPP.bind(me,['good', 'nice', 'test'])}
-								    className="btn btn-md btn-warning" >
-									{me.dictionary('start')}</a>
 						</div>	
 					</div>					
 				</div> 
