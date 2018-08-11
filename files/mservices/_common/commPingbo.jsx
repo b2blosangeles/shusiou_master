@@ -95,6 +95,7 @@ try {
 		},
 		commPipe : function() {
 			let me = this;
+			console.log(me.state);
 			if (!me.state.commData || !me.state.commData.cmd) return false;
 			if (typeof me.props.parent[me.state.commData.cmd] === 'function') {
 				me.props.parent[me.state.commData.cmd](me.state.commData);
