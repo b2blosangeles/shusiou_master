@@ -15,7 +15,7 @@ try {
 		monitorPingbo : function() {
 			let me = this;
 			if (me._itv) clearInterval(me._itv);
-			rerturn true;
+			return true;
 			me._itv = setInterval(
 				function() {
 					if (new Date().getTime() - me.state.pingbo_tm > 6000 && (me.state.pingbo)) {
