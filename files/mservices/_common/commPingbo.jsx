@@ -104,7 +104,10 @@ try {
 			console.log('---bu bu bu niu---');
 			if (!me.state.commData || !me.state.commDataCMD) return false;
 			if (typeof me.props.parent[me.state.commDataCMD] === 'function') {
-				me.props.parent[me.state.commDataCMD](me.state.commData);
+				me.props.parent[me.state.commDataCMD](me.state.commData, 
+					function(data) {
+						alert('niu');
+				});
 			} 
 		},
 		showData : function(data) {
