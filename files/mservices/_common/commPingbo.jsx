@@ -23,6 +23,7 @@ try {
 						if (me.state.pingbo) {
 							Root.qna_server.sendToClient({cmd:'pingbo'}, me.state.pingbo);
 						}
+						Root.qna_server.sendToClient({cmd:'pingbo', uu:1234}, me.state.pingbo);
 					} 
 					//me.setState({parent_location : me.props.parent.props.location.pathname});
 				}, 1000
