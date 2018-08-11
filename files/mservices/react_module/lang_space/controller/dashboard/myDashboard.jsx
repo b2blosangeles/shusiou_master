@@ -24,6 +24,7 @@ try {
 	},
 	serverPush: function(data) {
 		let me = this;
+		console.log('===serverPush===');
 		console.log(data);
 		me.setState({serverPush:data});
 		/*
