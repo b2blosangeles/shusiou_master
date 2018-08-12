@@ -44,8 +44,6 @@ try {
 			let me = this;
 			me.monitorPingbo();
 			
-		
-			
 			let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
 			Root.lib.dependeceCall(
 				function() {
@@ -106,7 +104,11 @@ try {
 			if (typeof me.props.parent[me.state.commData.cmd] === 'function') {
 				me.props.parent[me.state.commData.cmd](me.state.commData, 
 					function(data) {
-						alert('niu');
+						me.props.parking.playTTS([{
+							text: 'Good job, thank you',
+							lang : 'en-US'							
+							}], function() {
+						});
 				});
 			} 
 		},
