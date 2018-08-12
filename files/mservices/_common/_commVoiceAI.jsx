@@ -104,7 +104,11 @@ try {
 					Root.qna_server.sendToClient({cmd:'voiceRecong',voiceRecong: data.rc}, 
 						Root.state.pingbo);
 					me.props.parent.voiceRecong = function(data) {
-						alert(JSON.stringify(data));
+						me.props.parking.playTTS([{
+							text: data.cmd,
+							lang : 'en-US'							
+							}], function() {
+						});
 					}
 				} else {
 					me.voiceRecong(data, cbk)
