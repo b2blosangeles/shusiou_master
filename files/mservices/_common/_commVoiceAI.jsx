@@ -103,7 +103,9 @@ try {
 						});
 					}
 				} else if (data.rc) { 
-					alert(data.rc);
+					Root.qna_server.sendToClient({cmd:'voiceRecong'
+						,voiceRecong:[data.rc]}, Root.state.pingbo);
+					
 				} else {
 					me.voiceRecong(data, cbk)
 				}			
