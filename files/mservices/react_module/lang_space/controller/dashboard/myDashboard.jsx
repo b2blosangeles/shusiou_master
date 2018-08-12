@@ -73,7 +73,6 @@ try {
 				text: '稳中有变',
 				lang : 'cmn-Hans-CN'			
 			}]},
-			pingbo_service: ['good', 'nice'],
 			voiceObj_tm : new Date().getTime()	    
 		});
 		
@@ -84,16 +83,6 @@ try {
 		var me = this;
 		me.setState({locked : false});
 		return (data === 'string') ? data : JSON.stringify(data);
-	},
-	good: function(data, cbk) {
-		console.log('===good===>');
-		console.log(data);
-		if (typeof cbk === 'function') cbk(data);
-	},
-	nice: function(data, cbk) {
-		console.log('===good===>');
-		console.log(data);
-		if (typeof cbk === 'function') cbk(data);
 	},
         render: function() {
             var me = this;
