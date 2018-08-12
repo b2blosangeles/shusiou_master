@@ -104,7 +104,7 @@ try {
 					Root.qna_server.sendToClient({cmd:'voiceRecong',voiceRecong: data.rc}, 
 						Root.state.pingbo);
 					me.props.parent.voiceRecong = function(data) {
-						alert(JSON.stringfi(data));
+						alert(JSON.stringify(data));
 					}
 				} else {
 					me.voiceRecong(data, cbk)
