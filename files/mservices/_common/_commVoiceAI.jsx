@@ -21,7 +21,7 @@ try {
 		componentDidMount:function() {
 			let me = this;
 			setInterval(function(){ 
-				
+				console.log(Root.state.pingbo_id);
 			},1000);
 		},
 		playVoiceAI : function() {
