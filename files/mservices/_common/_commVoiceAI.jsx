@@ -2,7 +2,7 @@ try {
 	var _commVoiceAI = React.createClass({
 		getInitialState: function() {
 			var me = this;	
-			return {voiceObj : me.props.voiceObj};
+			return {voiceObj : Root.state.pingbo_id};
 		},
 		componentWillUnmount : function() {
 			let me = this;
@@ -22,7 +22,7 @@ try {
 			let me = this;
 			setInterval(function(){ 
 				
-			});
+			},1000);
 		},
 		playVoiceAI : function() {
 			let me = this;
