@@ -103,7 +103,9 @@ try {
 				} else if (data.rc) { 
 					Root.qna_server.sendToClient({cmd:'voiceRecong',voiceRecong: data.rc}, 
 						Root.state.pingbo);
-					
+					me.props.parent.voiceRecong = function(data) {
+						alert(JSON.stringfi(data));
+					}
 				} else {
 					me.voiceRecong(data, cbk)
 				}			
