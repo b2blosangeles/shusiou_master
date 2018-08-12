@@ -2,7 +2,7 @@ try {
 	var _commVoiceAI = React.createClass({
 		getInitialState: function() {
 			var me = this;	
-			return {};
+			return {voiceObj:me.props.voiceObj};
 		},
 		componentWillUnmount : function() {
 			let me = this;
