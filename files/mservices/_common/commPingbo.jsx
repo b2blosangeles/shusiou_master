@@ -104,6 +104,7 @@ try {
 			if (typeof me.props.parent[me.state.commData.cmd] === 'function') {
 				me.props.parent[me.state.commData.cmd](me.state.commData, 
 					function(data) {
+						console.log(data);
 						me.props.parking.playTTS([{
 							text: 'Good job, thank you',
 							lang : 'en-US'							
