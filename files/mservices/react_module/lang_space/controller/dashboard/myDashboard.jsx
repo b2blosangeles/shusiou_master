@@ -40,15 +40,7 @@ try {
 		let me = this;
 		console.log('===comein ===');
 		// https://cloud.google.com/speech-to-text/docs/languages
-		// VoiceObj
-		me.servicePush = {
-			'good' : function() {
-				alert('good');
-			},
-			'nice' : function() {
-				alert('nice');
-			}
-		}		
+		// VoiceObj		
 		
 		me.setState({voiceObj : {'2' : [{
 				text: '深圳打响楼市个人限卖.第一枪',
@@ -57,7 +49,7 @@ try {
 				text: '中国,已安排最先进的海洋救助船',
 				lang : 'cmn-Hans-CN'
 			},{
-				rc: ['good', 'nice', 'stupid'],
+				rc: ['good', 'nice', 'stupid', 'california'],
 				lang : 'en-US'
 			}
 			], 
