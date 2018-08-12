@@ -14,7 +14,7 @@ try {
 			let me = this;
 			console.log(me.voiceObj);
 			if (me.props.voiceObj != preProps.voiceObj && (me.props.voiceObj) ) {
-				console.log('===preProps.voiceObj===>>' + me.props.parent.state.voiceObj);
+				console.log('===preProps.voiceObj===>>' + Root.state.pingbo_id);
 				me.playVoiceAI();
 			}
 		},
