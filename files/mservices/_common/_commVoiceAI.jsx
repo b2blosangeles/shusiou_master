@@ -2,7 +2,7 @@ try {
 	var _commVoiceAI = React.createClass({
 		getInitialState: function() {
 			var me = this;	
-			return {voiceObj : Root.state.pingbo_id};
+			return {pingbo_id : Root.state.pingbo_id};
 		},
 		componentWillUnmount : function() {
 			let me = this;
@@ -12,7 +12,7 @@ try {
 		},	
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
-			console.log(me.voiceObj);
+			console.log(me.state.pingbo_id);
 			if (me.props.voiceObj != preProps.voiceObj && (me.props.voiceObj) ) {
 				console.log('===preProps.voiceObj===>>' + Root.state.pingbo_id);
 				me.playVoiceAI();
@@ -21,7 +21,7 @@ try {
 		componentDidMount:function() {
 			let me = this;
 			setInterval(function(){ 
-				console.log(Root.state.pingbo_id);
+				me.setState({pingbo_id : Root.state.pingbo_id});
 			},1000);
 		},
 		playVoiceAI : function() {
