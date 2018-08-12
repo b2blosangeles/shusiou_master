@@ -90,6 +90,11 @@ try {
 		console.log(data);
 		if (typeof cbk === 'function') cbk(data);
 	},
+	nice: function(data, cbk) {
+		console.log('===good===>');
+		console.log(data);
+		if (typeof cbk === 'function') cbk(data);
+	},
         render: function() {
             var me = this;
 	    if (!me.state.pingbo) {
