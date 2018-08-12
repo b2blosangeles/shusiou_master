@@ -106,7 +106,7 @@ try {
 					function(data) {
 						console.log(data);
 						me.props.parking.playTTS([{
-							text: 'Good job, thank you',
+							text: data.cmd,
 							lang : 'en-US'							
 							}], function() {
 						});
