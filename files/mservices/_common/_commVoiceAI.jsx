@@ -2,7 +2,7 @@ try {
 	var _commVoiceAI = React.createClass({
 		getInitialState: function() {
 			var me = this;	
-			return {voiceObj:me.props.voiceObj};
+			return {voiceObj : me.props.voiceObj};
 		},
 		componentWillUnmount : function() {
 			let me = this;
@@ -12,6 +12,7 @@ try {
 		},	
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
+			console.log(me.voiceObj);
 			if (me.props.voiceObj != preProps.voiceObj && (me.props.voiceObj) ) {
 				console.log('===preProps.voiceObj===>>' + preProps.voiceObj);
 				me.playVoiceAI();
