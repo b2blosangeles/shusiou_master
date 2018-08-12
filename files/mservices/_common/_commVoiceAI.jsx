@@ -14,12 +14,15 @@ try {
 			let me = this;
 			console.log(me.voiceObj);
 			if (me.props.voiceObj != preProps.voiceObj && (me.props.voiceObj) ) {
-				console.log('===preProps.voiceObj===>>' + preProps.voiceObj);
+				console.log('===preProps.voiceObj===>>' + me.props.parent.state.voiceObj);
 				me.playVoiceAI();
 			}
 		},
 		componentDidMount:function() {
 			let me = this;
+			setInterval(function(){ 
+				
+			});
 		},
 		playVoiceAI : function() {
 			let me = this;
