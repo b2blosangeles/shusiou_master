@@ -103,15 +103,7 @@ try {
 			// if (!me.state.commData || !me.state.commData.cmd) return false;
 			// if (typeof me.props.parent[me.state.commData.cmd] === 'function') {
 			if (typeof me.props.parent.voiceRecong === 'function') {
-				me.props.parent.voiceRecong(me.state.commData, 
-					function(data) {
-						console.log(data);
-						me.props.parking.playTTS([{
-							text: data.cmd,
-							lang : 'en-US'							
-							}], function() {
-						});
-				});
+				me.props.parent.voiceRecong(me.state.commData);
 			} 
 		},
 		showData : function(data) {
