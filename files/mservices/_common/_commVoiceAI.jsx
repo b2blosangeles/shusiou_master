@@ -101,15 +101,15 @@ try {
 						});
 					}
 				} else if (data.rc) { 
-					Root.qna_server.sendToClient({cmd:'voiceRecong',voiceRecong: data.rc}, 
-						Root.state.pingbo);
 					me.props.parent.voiceRecong = function(data) {
-						me.props.parking.playTTS([{
+						me.playTTS([{
 							text: data.cmd,
 							lang : 'en-US'							
 							}], function() {
 						});
 					}
+					Root.qna_server.sendToClient({cmd:'voiceRecong',voiceRecong: data.rc}, 
+						Root.state.pingbo);					
 				} else {
 					me.voiceRecong(data, cbk)
 				}			
