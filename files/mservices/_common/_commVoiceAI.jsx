@@ -102,6 +102,8 @@ try {
 							}
 						});
 					}
+				} else if (data.rc) { 
+					alert(data.rc);
 				} else {
 					me.voiceRecong(data, cbk)
 				}			
