@@ -41,8 +41,6 @@ try {
 							console.log(' === Game Over=== ');
 							clearInterval(me._itv);
 							// me._stopplay = true;
-							Root.qna_server.sendToClient({cmd:'voiceRecong'
-								,voiceRecong:['good', 'nice']}, Root.state.pingbo);
 							me.playTTS([{
 								text: 'Good job, nice job, thank you',
 								lang : 'en-US'							
@@ -103,8 +101,8 @@ try {
 						});
 					}
 				} else if (data.rc) { 
-					Root.qna_server.sendToClient({cmd:'voiceRecong'
-						,voiceRecong:[data.rc]}, Root.state.pingbo);
+					Root.qna_server.sendToClient({cmd:'voiceRecong',voiceRecong: data.rc}, 
+						Root.state.pingbo);
 					
 				} else {
 					me.voiceRecong(data, cbk)
