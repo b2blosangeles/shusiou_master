@@ -78,13 +78,14 @@ try {
 	},
         render: function() {
             var me = this;
-	    if (!me.state.pingbo) {
+	    if (!Root.state.pingbo) {
 		    return (<div className="content_section">
 				<br/>
 				<div className="container">
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
 					<div className="overlayer_box">
 						{/*<_commPingbo parent={me}/>*/}
+						=== NO pingbo ===
 						<_commVoiceAI parent={me} voiceObj={me.state.voiceObj_tm}/>
 						
 						<h4 className="header" >{me.dictionary('Warning')}</h4> 
