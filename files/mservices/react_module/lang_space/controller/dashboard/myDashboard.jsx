@@ -78,7 +78,7 @@ try {
 	},
         render: function() {
             var me = this;
-	    if (!Root.state.pingbo) {
+	    if (!Root.state.pingbo_id) {
 		    return (<div className="content_section">
 				<br/>
 				<div className="container">
