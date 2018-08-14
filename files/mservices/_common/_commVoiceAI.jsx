@@ -31,7 +31,6 @@ try {
 			    movl = 0;	
 			me._stopplay = false;
 			
-			
 			let prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
 			if (!prog) return true;
 			
@@ -83,7 +82,7 @@ try {
 				return true;
 			} else {
 				if (data.tts) {
-					var Q1 = data.text.split(/\,|\;|\.|\?/).filter(function(n){ return n.replace(/^\s+|\s+$/gm,'') != '' });
+					var Q1 = data.tts.split(/\,|\;|\.|\?/).filter(function(n){ return n.replace(/^\s+|\s+$/gm,'') != '' });
 					if (Q1.length > 1) {
 						Q.shift();
 						for (let i = 0; i < Q1.length; i++) {
