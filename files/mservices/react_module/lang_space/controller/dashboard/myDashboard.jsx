@@ -79,44 +79,26 @@ try {
 	microPhone: function() {
 		var me = this;
 		return (!Root.state.pingbo) ?
-		(<i className="fa fa-microphone status_off" onClick={me.channelComm.bind(me)}
-			aria-hidden="true" style={{"font-size":"5em"}}></i>) : (<span/>)
+		(<span>=== NO pingbo ===<i className="fa fa-microphone status_off" onClick={me.channelComm.bind(me)}
+			aria-hidden="true" style={{"font-size":"5em"}}></i></span>) : (<span/>)
 	},    
         render: function() {
             var me = this;
-	    return (!Root.state.pingbo || true) ?
-		    (<div className="content_section">
+	    return (<div className="content_section">
 				<br/>
 				<div className="container">
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
-					<div className="overlayer_box">
-						{/*<_commPingbo parent={me}/>*/}
-						=== NO pingbo ===
-						<_commVoiceAI parent={me} voiceObj={me.state.voiceObj_tm}/>
-						
-						<h4 className="header" >{me.dictionary('Warning')}</h4> 
-						<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
-							    className="btn btn-md btn-success bottom-adjust" >
-								{me.dictionary('Open Security Voice Channel')}</a>
-						</p>
-						{me.microPhone()}
-						<br/><br/>
-					</div>	
-					</div>					
-				</div> 
-				<div className="content_bg"></div>
-				     {Root.lib.landingModal(me)}
-				
-			</div>)
-	   	:
-	    (<div className="content_section">
-				<br/>
-				<div className="container">
-					<div className="col-sm-12 col-lg-12 col-md-12"> 
-					<div className="overlayer_box">
-						<_commVoiceAI parent={me} voiceObj={me.state.voiceObj_tm}/>
-						<h4 className="header" >{me.dictionary('Warning')}</h4> 
-					</div>	
+						<div className="overlayer_box">
+							<_commVoiceAI parent={me} voiceObj={me.state.voiceObj_tm}/>
+
+							<h4 className="header" >{me.dictionary('Warning')}</h4> 
+							<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
+								    className="btn btn-md btn-success bottom-adjust" >
+									{me.dictionary('Open Security Voice Channel')}</a>
+							</p>
+							{me.microPhone()}
+							<br/><br/>
+						</div>	
 					</div>					
 				</div> 
 				<div className="content_bg"></div>
