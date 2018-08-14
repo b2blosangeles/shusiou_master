@@ -8,7 +8,7 @@ try {
 			let me = this;
 			clearInterval(me._itv);
 			me._stopplay = true;
-			console.log('===componentWillUnmount===');
+			me.setState({locked : false});
 		},	
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
@@ -18,7 +18,6 @@ try {
 			if ((me.state.pingbo) && me.state.pingbo !== preState.pingbo) {
 				if (me.props.voiceObj) {
 					me.playVoiceAI();
-					console.log('funning >> ' + me.state.pingbo);
 				}
 			}			
 		},
