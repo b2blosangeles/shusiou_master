@@ -12,7 +12,8 @@ try {
 		},	
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
-			console.log(me.state.pingbo_id);
+			console.log('**** me.state.pingbo_id ****');
+			console.log(me.state.pingbo);
 			if (me.props.voiceObj != preProps.voiceObj && (me.props.voiceObj) ) {
 				
 				me.playVoiceAI();
