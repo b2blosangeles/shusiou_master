@@ -100,10 +100,8 @@ try {
 			let me = this;
 			console.log(me.state);
 			console.log('---bu bu bu niu---');
-			// if (!me.state.commData || !me.state.commData.cmd) return false;
-			// if (typeof me.props.parent[me.state.commData.cmd] === 'function') {
-			if (typeof me.props.parent.voiceRecong === 'function') {
-				me.props.parent.voiceRecong(me.state.commData);
+			if (typeof me.props.parent._voiceRecong === 'function') {
+				me.props.parent._voiceRecong(me.state.commData);
 			} 
 		},
 		showData : function(data) {
