@@ -48,11 +48,13 @@ try {
 			},{
 				text: '中国,已安排最先进的海洋救助船',
 				lang : 'cmn-Hans-CN'
-			},{
+			}/*,
+			{
 				rc: ['good', 'nice', 'stupid', 'california'],
 				lang : 'en-US'
-			}
+			}*/
 			], 
+			
 			'4' : [{
 				text: '中央定调下半年中国经济',
 				lang : 'cmn-Hans-CN'			
