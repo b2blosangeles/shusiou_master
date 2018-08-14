@@ -38,21 +38,24 @@ try {
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 
 			me._itv = setInterval(function(){ 
-				if (Math.ceil(new Date().getTime() * 0.001) - s < 1) {
-					return true;
-				} else {
-					s = Math.ceil(new Date().getTime() * 0.001);
-				}
-				if (!me.state.pingbo) {
+				if (!me.state.pingbo || me._stopplay) {
 					clearInterval(me._itv);
 					me.state.locked = false;
+					/*
 					me.playTTS([{
 						text: 'forced stop',
 						lang : 'en-US'							
 						}], function() {
 					});
+					*/
 					return true;
+				}				
+				if (Math.ceil(new Date().getTime() * 0.001) - s < 1) {
+					return true;
+				} else {
+					s = Math.ceil(new Date().getTime() * 0.001);
 				}
+
 				if (!me.state.locked) {
 					t++;
 					if (Object.keys(prog).indexOf(t.toString()) === -1) {
