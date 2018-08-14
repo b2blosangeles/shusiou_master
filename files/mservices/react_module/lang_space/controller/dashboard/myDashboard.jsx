@@ -43,26 +43,26 @@ try {
 		// VoiceObj		
 		
 		me.setState({voiceObj : {'2' : [{
-				text: '深圳打响楼市个人限卖.第一枪',
+				tts: '深圳打响楼市个人限卖.第一枪',
 				lang : 'cmn-Hans-CN'
 			},{
-				text: '中国,已安排最先进的海洋救助船',
+				tts: '中国,已安排最先进的海洋救助船',
 				lang : 'cmn-Hans-CN'
 			},{
-				text: 'please repeat',
+				tts: 'please repeat',
 				lang : 'en-US'			
 			},
 			{
-				rc: ['good', 'nice', 'stupid', 'california'],
+				sp: ['good', 'nice', 'stupid', 'california'],
 				lang : 'en-US'
 			}
 			],
 			'4' : [{
-				text: '中央定调下半年中国经济',
+				tts: '中央定调下半年中国经济',
 				lang : 'cmn-Hans-CN'			
 			}],  
 			'8' : [{
-				text: '稳中有变',
+				tts: '稳中有变',
 				lang : 'cmn-Hans-CN'			
 			}]},
 			voiceObj_tm : new Date().getTime()	    
