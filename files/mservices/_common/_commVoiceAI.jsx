@@ -60,11 +60,10 @@ try {
 					t++;
 					if (Object.keys(prog).indexOf(t.toString()) === -1) {
 						if (t > MOVL) {
-							console.log(' === Game Over=== ');
 							clearInterval(me._itv);
 							me._stopplay = true;
 							me.playTTS([{
-								text: 'Good job, nice job, thank you',
+								text: 'stream end, thank you',
 								lang : 'en-US'							
 								}], function() {
 							});						
@@ -77,7 +76,6 @@ try {
 						me.playTTS(prog[t.toString()], function() {
 							me.setState({locked : false});
 						});
-
 						console.log(' locked --> ' + t.toString());
 					}
 				}
@@ -85,10 +83,6 @@ try {
 			}, 100);			
 			return true;
 		},
-		//voiceRecong : function(recs, cbk) {
-		//	console.log('JSON.stringify(recs)');
-		//	cbk();
-		//},
 		playTTS : function(Q, cbk) {
 			let me = this;
 			var data = Q[0];
@@ -106,7 +100,6 @@ try {
 						}
 						me.playTTS(Q, cbk);
 					} else {
-
 						$('audio').attr('src', _master_svr() + '/api/tts/google.api?str='+data.text + '&lang=' + data.lang).attr('autoplay', true);
 						$("audio").unbind('ended').bind("ended", function() {
 							Q.shift();
