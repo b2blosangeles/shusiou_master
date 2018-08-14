@@ -78,8 +78,8 @@ try {
 	},
         render: function() {
             var me = this;
-	    if (!me.state.pingbo || true) {
-		    return (<div className="content_section">
+	    trturn (!me.state.pingbo) ?
+		    (<div className="content_section">
 				<br/>
 				<div className="container">
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
@@ -103,24 +103,21 @@ try {
 				     {Root.lib.landingModal(me)}
 				
 			</div>)
-	    } else {
-		    return (<div className="content_section">
+	   	:
+	    (<div className="content_section">
 				<br/>
 				<div className="container">
-					<div className="col-sm-4 col-lg-4 col-md-4"> 
-						<div className="overlayer_box">
-							{/*<_commPingbo parent={me} />*/}					
-							<_commVoiceAI parent={me} voiceObj={me.state.voiceObj_tm}/>
-							<h4 className="header">{me.dictionary('Private')}</h4>
-						</div>	
+					<div className="col-sm-12 col-lg-12 col-md-12"> 
+					<div className="overlayer_box">
+						<_commVoiceAI parent={me} voiceObj={me.state.voiceObj_tm}/>
+						<h4 className="header" >{me.dictionary('Warning')}</h4> 
+					</div>	
 					</div>					
 				</div> 
-				<div className="content_bg">
-					<video src="" className="align-middle" muted></video>
-				</div>
-				    {Root.lib.landingModal(me)}
+				<div className="content_bg"></div>
+				     {Root.lib.landingModal(me)}
+				
 			</div>)
-		}
 	}});	
 } catch (err) {
 	  console.log(err.message);
