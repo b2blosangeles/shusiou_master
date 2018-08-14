@@ -55,6 +55,15 @@ try {
 				} else {
 					s = Math.ceil(new Date().getTime() * 0.001);
 				}
+				if (!me.state.pingbo) {
+					clearInterval(me._itv);
+					me.playTTS([{
+						text: 'forced stop',
+						lang : 'en-US'							
+						}], function() {
+					});
+					return true;
+				}
 				if (!me.state.locked) {
 					t++;
 					if (Object.keys(prog).indexOf(t.toString()) === -1) {
