@@ -78,7 +78,7 @@ try {
 	},
         render: function() {
             var me = this;
-	    trturn (!me.state.pingbo) ?
+	    return (!me.state.pingbo) ?
 		    (<div className="content_section">
 				<br/>
 				<div className="container">
