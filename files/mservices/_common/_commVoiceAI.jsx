@@ -18,9 +18,10 @@ try {
 			}
 			if ((me.state.pingbo) && me.state.pingbo !== preState.pingbo) {
 				//if (me.props.voiceObj != preProps.voiceObj && (me.props.voiceObj) ) {
-
+				if (me.props.voiceObj) {
 					me.playVoiceAI();
 					console.log('funning >> ' + me.state.pingbo);
+				}
 				//}				
 				
 			}
