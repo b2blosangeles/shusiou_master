@@ -76,6 +76,13 @@ try {
 		me.setState({locked : false});
 		return (data === 'string') ? data : JSON.stringify(data);
 	},
+	microPhone: function() {
+		var me = this;
+		return
+		(<i className="fa fa-microphone status_off" onClick={me.channelComm.bind(me)}
+			aria-hidden="true" style={{"font-size":"5em"}}></i>)
+		    }	
+	},    
         render: function() {
             var me = this;
 	    return (!Root.state.pingbo || true) ?
@@ -93,11 +100,7 @@ try {
 							    className="btn btn-md btn-success bottom-adjust" >
 								{me.dictionary('Open Security Voice Channel')}</a>
 						</p>
-						{(function() { return
-							(<i className="fa fa-microphone status_off" onClick={me.channelComm.bind(me)}
-								aria-hidden="true" style={{"font-size":"5em"}}></i>)
-							    })()
-						}
+						{me.microPhone()}
 						<br/><br/>
 					</div>	
 					</div>					
