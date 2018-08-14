@@ -93,9 +93,10 @@ try {
 							    className="btn btn-md btn-success bottom-adjust" >
 								{me.dictionary('Open Security Voice Channel')}</a>
 						</p>
-						{
+						{(function() { return
 							(<i className="fa fa-microphone status_off" onClick={me.channelComm.bind(me)}
 								aria-hidden="true" style={{"font-size":"5em"}}></i>)
+							    })()
 						}
 						<br/><br/>
 					</div>	
