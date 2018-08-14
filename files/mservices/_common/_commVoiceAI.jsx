@@ -61,12 +61,12 @@ try {
 					if (Object.keys(prog).indexOf(t.toString()) === -1) {
 						if (t > MOVL) {
 							clearInterval(me._itv);
-							me._stopplay = true;
 							me.playTTS([{
 								text: 'stream end, thank you',
 								lang : 'en-US'							
 								}], function() {
-							});						
+							});
+							me._stopplay = true;
 						} else {
 							console.log('===componentDidMount===> ' + t);
 						}
