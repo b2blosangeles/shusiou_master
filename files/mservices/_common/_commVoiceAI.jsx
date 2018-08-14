@@ -24,12 +24,13 @@ try {
 				}				
 				
 			}
-			/*
+			
 			if (me.props.voiceObj != preProps.voiceObj && (me.props.voiceObj) ) {
-				
+				console.log('**** me.state.pingbo ****');
+				console.log(me.state.pingbo);
 				me.playVoiceAI();
 			}
-			*/
+			
 		},
 		componentDidMount:function() {
 			let me = this;
