@@ -19,7 +19,7 @@ try {
 				function() {
 					if (new Date().getTime() - me.state.pingbo_tm > 6000 && (me.state.pingbo)) {
 						me.setState({pingbo : null});
-					} else if (new Date().getTime() - me.state.pingbo_tm > 3000 && (me.state.pingbo)) {
+					} else if (new Date().getTime() - me.state.pingbo_tm > 2000 && (me.state.pingbo)) {
 						if (me.state.pingbo) {
 							Root.qna_server.sendToClient({cmd:'pingbo'}, me.state.pingbo);
 						}
