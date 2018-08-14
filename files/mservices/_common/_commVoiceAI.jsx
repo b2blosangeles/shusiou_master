@@ -17,19 +17,20 @@ try {
 				me.setState({pingbo : Root.state.pingbo});
 			}
 			if ((me.state.pingbo) && me.state.pingbo !== preState.pingbo) {
-				if (me.props.voiceObj != preProps.voiceObj && (me.props.voiceObj) ) {
+				//if (me.props.voiceObj != preProps.voiceObj && (me.props.voiceObj) ) {
 
 					me.playVoiceAI();
 					console.log('funning >> ' + me.state.pingbo);
-				}				
+				//}				
 				
 			}
-			
+			/*
 			if (me.props.voiceObj != preProps.voiceObj && (me.props.voiceObj) ) {
 				console.log('**** me.state.pingbo ****');
 				console.log(me.state.pingbo);
 				me.playVoiceAI();
 			}
+			*/
 			
 		},
 		componentDidMount:function() {
