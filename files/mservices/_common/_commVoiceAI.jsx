@@ -33,7 +33,8 @@ try {
 			
 			console.log('**** playVoiceAI  ****');
 			
-			let prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
+			let prog = me.props.parent.state.voiceObj;
+			    // JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
 
 			if (!prog) return true;
 			console.log('==prog==$$')
