@@ -31,13 +31,10 @@ try {
 			    movl = 0;	
 			me._stopplay = false;
 			
-			console.log('**** playVoiceAI  ****');
 			
 			let prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
-
 			if (!prog) return true;
-			console.log('==prog==$$')
-			console.log(prog)
+			
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 
 			me._itv = setInterval(function(){ 
@@ -85,10 +82,10 @@ try {
 			}, 100);			
 			return true;
 		},
-		voiceRecong : function(recs, cbk) {
-			console.log('JSON.stringify(recs)');
-			cbk();
-		},
+		//voiceRecong : function(recs, cbk) {
+		//	console.log('JSON.stringify(recs)');
+		//	cbk();
+		//},
 		playTTS : function(Q, cbk) {
 			let me = this;
 			var data = Q[0];
@@ -123,7 +120,7 @@ try {
 						});
 					}
 				} else if (data.rc) { 
-					me.props.parent.voiceRecong = function(data) {
+					me.props.parent._voiceRecong = function(data) {
 						me.playTTS([{
 							text: data.cmd,
 							lang : 'en-US'							
@@ -133,7 +130,7 @@ try {
 					Root.qna_server.sendToClient({cmd:'voiceRecong',voiceRecong: data.rc}, 
 						Root.state.pingbo);					
 				} else {
-					me.voiceRecong(data, cbk)
+					//me.voiceRecong(data, cbk)
 				}			
 			}
 		},
