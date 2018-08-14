@@ -12,28 +12,15 @@ try {
 		},	
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
-			console.log('**** me.state.pingbo_id ****');
-			// if ((Root.state.pingbo) && me.state.pingbo !== Root.state.pingbo) {
 			if (me.state.pingbo !== Root.state.pingbo) {
 				me.setState({pingbo : Root.state.pingbo});
 			}
 			if ((me.state.pingbo) && me.state.pingbo !== preState.pingbo) {
-				//if (me.props.voiceObj != preProps.voiceObj && (me.props.voiceObj) ) {
 				if (me.props.voiceObj) {
 					me.playVoiceAI();
 					console.log('funning >> ' + me.state.pingbo);
 				}
-				//}				
-				
-			}
-			/*
-			if (me.props.voiceObj != preProps.voiceObj && (me.props.voiceObj) ) {
-				console.log('**** me.state.pingbo ****');
-				console.log(me.state.pingbo);
-				me.playVoiceAI();
-			}
-			*/
-			
+			}			
 		},
 		componentDidMount:function() {
 			let me = this;
@@ -47,9 +34,10 @@ try {
 			console.log('**** playVoiceAI  ****');
 			
 			let prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
+
+			if (!prog) return true;
 			console.log('==prog==$$')
 			console.log(prog)
-			if (!prog) return true;
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 
 			me._itv = setInterval(function(){ 
@@ -60,6 +48,7 @@ try {
 				}
 				if (!me.state.pingbo) {
 					clearInterval(me._itv);
+					me.state.locked = false;
 					me.playTTS([{
 						text: 'forced stop',
 						lang : 'en-US'							
