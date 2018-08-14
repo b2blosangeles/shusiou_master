@@ -49,7 +49,7 @@ try {
 				text: '中国,已安排最先进的海洋救助船',
 				lang : 'cmn-Hans-CN'
 			},{
-				text: 'listen',
+				text: 'please repeat',
 				lang : 'en-US'			
 			},
 			{
