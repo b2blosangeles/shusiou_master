@@ -20,8 +20,9 @@ try {
 				if (me.props.voiceObj != preProps.voiceObj && (me.props.voiceObj) ) {
 
 					me.playVoiceAI();
+					console.log('funning >> ' + me.state.pingbo);
 				}				
-				console.log('funning ' + me.state.pingbo);
+				
 			}
 			/*
 			if (me.props.voiceObj != preProps.voiceObj && (me.props.voiceObj) ) {
