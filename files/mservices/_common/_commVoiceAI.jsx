@@ -41,6 +41,9 @@ try {
 			let MOVL = 10,
 			    movl = 0;	
 			me._stopplay = false;
+			
+			console.log('**** playVoiceAI  ****');
+			
 			let prog = me.props.parent.state.voiceObj;
 			if (!prog) return true;
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
