@@ -78,10 +78,9 @@ try {
 	},
 	microPhone: function() {
 		var me = this;
-		return
+		return (!Root.state.pingbo) ?
 		(<i className="fa fa-microphone status_off" onClick={me.channelComm.bind(me)}
-			aria-hidden="true" style={{"font-size":"5em"}}></i>)
-		    }	
+			aria-hidden="true" style={{"font-size":"5em"}}></i>) : (<span/>)
 	},    
         render: function() {
             var me = this;
