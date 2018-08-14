@@ -89,14 +89,12 @@ try {
 						}
 						me.playTTS(Q, cbk);
 					} else {
-						$('audio').attr('src', _master_svr() + '/api/tts/google.api?str='+data.text + '&lang=' + data.lang).attr('autoplay', true);
+						$('audio').attr('src', _master_svr() + '/api/tts/google.api?str='+data.tts + '&lang=' + data.lang).attr('autoplay', true);
 						$("audio").unbind('ended').bind("ended", function() {
 							Q.shift();
 							if (Q.length) {
-								// me.playTTS(Q, cbk);
-
 								setTimeout(
-									function() { me.playTTS(Q, cbk); }, 500
+									function() { me.playTTS(Q, cbk); }, 300
 								)
 							} else {
 								$("audio").unbind('ended');
