@@ -62,7 +62,7 @@ try {
 						if (t > MOVL) {
 							clearInterval(me._itv);
 							me.playTTS([{
-								text: 'stream end, thank you',
+								text: 'stream finished, thank you',
 								lang : 'en-US'							
 								}], function() {
 							});
