@@ -41,13 +41,6 @@ try {
 				if (!me.state.pingbo || me._stopplay) {
 					clearInterval(me._itv);
 					me.state.locked = false;
-					/*
-					me.playTTS([{
-						text: 'forced stop',
-						lang : 'en-US'							
-						}], function() {
-					});
-					*/
 					return true;
 				}				
 				if (Math.ceil(new Date().getTime() * 0.001) - s < 1) {
@@ -62,14 +55,12 @@ try {
 						if (t > MOVL) {
 							clearInterval(me._itv);
 							me.playTTS([{
-								text: 'stream finished, thank you',
+								tts: 'stream finished, thank you',
 								lang : 'en-US'							
 								}], function() {
 							});
 							me._stopplay = true;
-						} else {
-							console.log('===componentDidMount===> ' + t);
-						}
+						} 
 					} else {
 						me.setState({locked : true});
 						
@@ -91,12 +82,12 @@ try {
 				cbk();
 				return true;
 			} else {
-				if (data.text) {
+				if (data.tts) {
 					var Q1 = data.text.split(/\,|\;|\.|\?/).filter(function(n){ return n.replace(/^\s+|\s+$/gm,'') != '' });
 					if (Q1.length > 1) {
 						Q.shift();
 						for (let i = 0; i < Q1.length; i++) {
-							Q.unshift({text:Q1[Q1.length - i - 1], lang:data.lang});
+							Q.unshift({tts:Q1[Q1.length - i - 1], lang:data.lang});
 						}
 						me.playTTS(Q, cbk);
 					} else {
@@ -115,10 +106,10 @@ try {
 							}
 						});
 					}
-				} else if (data.rc) { 
+				} else if (data.sp) { 
 					me.props.parent._voiceRecong = function(data) {
 						me.playTTS([{
-							text: data.cmd,
+							tts: data.cmd,
 							lang : 'en-US'							
 							}], function() {
 						});
