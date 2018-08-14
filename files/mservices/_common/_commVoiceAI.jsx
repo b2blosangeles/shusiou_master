@@ -47,6 +47,8 @@ try {
 			console.log('**** playVoiceAI  ****');
 			
 			let prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
+			console.log('==prog==$$')
+			console.log(prog)
 			if (!prog) return true;
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 
