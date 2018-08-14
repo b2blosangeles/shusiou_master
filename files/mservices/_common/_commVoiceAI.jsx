@@ -13,11 +13,18 @@ try {
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
 			console.log('**** me.state.pingbo_id ****');
-			console.log(Root.state.pingbo);
+			if ((Root.state.pingbo) && me.state.pingbo !== Root.state.pingbo) {
+				me.setState({pingbo : Root.state.pingbo});
+			}
+			if ((me.state.pingbo) && me.state.pingbo !== preState.pingbo) {
+				console.log('funning ' + me.state.pingbo);
+			}
+			/*
 			if (me.props.voiceObj != preProps.voiceObj && (me.props.voiceObj) ) {
 				
 				me.playVoiceAI();
 			}
+			*/
 		},
 		componentDidMount:function() {
 			let me = this;
