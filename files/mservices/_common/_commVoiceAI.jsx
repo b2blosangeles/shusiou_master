@@ -47,7 +47,7 @@ try {
 				} else {
 					s = Math.ceil(new Date().getTime() * 0.001);
 				}
-				// Root.setState({stream : s});
+				Root.setState({stream : s});
 				if (!me.state.locked) {
 					t++;
 					if (Object.keys(prog).indexOf(t.toString()) === -1) {
