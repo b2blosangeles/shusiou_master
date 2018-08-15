@@ -110,7 +110,7 @@ try {
 							}], function() {
 						});
 					}
-					Root.qna_server.sendToClient({cmd:'voiceRecong',voiceRecong: data.rc}, 
+					Root.qna_server.sendToClient({cmd:'voiceRecong',voiceRecong: data.sp}, 
 						Root.state.pingbo);					
 				} else {
 					//me.voiceRecong(data, cbk)
