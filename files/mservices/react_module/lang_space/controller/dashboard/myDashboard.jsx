@@ -97,6 +97,7 @@ try {
 									{me.dictionary('Open Security Voice Channel')}</a>
 							</p>
 							{me.microPhone()}
+							http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001
 							<br/><br/>
 						</div>	
 					</div>					
