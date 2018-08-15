@@ -19,7 +19,8 @@ try {
 				if (me.props.voiceObj) {
 					me.playVoiceAI();
 				}
-			}			
+			}
+			console.log('Root.state.stream ->' + Root.state.stream);
 		},
 		componentDidMount:function() {
 			let me = this;
@@ -46,7 +47,7 @@ try {
 				} else {
 					s = Math.ceil(new Date().getTime() * 0.001);
 				}
-
+				Root.setState({stream : s});
 				if (!me.state.locked) {
 					t++;
 					if (Object.keys(prog).indexOf(t.toString()) === -1) {
