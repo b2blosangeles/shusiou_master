@@ -39,8 +39,12 @@ try {
 		},
 		componentDidMount:function() {
 			let me = this;
-				console.log('==JSON.parse(JSON.stringify(me.props.parent.state.voiceObj)==');
-				me.prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));				
+			setTimeout(
+				function() {
+					console.log('==JSON.parse(JSON.stringify(me.props.parent.state.voiceObj)==');
+					me.prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));	
+				}
+			);
 			me.vid = document.getElementById("myVideo"); 
 			me.vid.ontimeupdate = function(){
 				me.setState({stream : Math.floor(me.vid.currentTime)});
