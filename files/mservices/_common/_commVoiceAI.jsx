@@ -18,13 +18,10 @@ try {
 			}
 			if ((me.state.pingbo) && me.state.pingbo !== preState.pingbo) {
 				if (me.props.voiceObj) {
-					me.vid.removeEventListener('ontimeupdate', function(){
-						me.vid.addEventListener('ontimeupdate', function(){
-							console.log('===vid.currentTime===>');
-							console.log(me.vid.currentTime);
-						});
-					});
-					me.vid.pause(); me.vid.play();
+
+					me.vid.pause(); 
+					me.vid.currentTime = 0;
+					me.vid.play();
 					me.playVoiceAI();
 				}
 			}
@@ -33,6 +30,10 @@ try {
 		componentDidMount:function() {
 			let me = this;
 			me.vid = document.getElementById("myVideo"); 
+			me.vid.ontimeupdate = function(){
+				console.log('===vid.currentTime===>');
+				console.log(me.vid.currentTime);
+			});
 		},
 		playVoiceAI : function() {
 			let me = this;
