@@ -77,12 +77,13 @@ try {
 					if (Object.keys(prog).indexOf(t.toString()) === -1) {
 						if (t > MOVL) {
 							clearInterval(me._itv);
+							me.holdVideo();
 							me.playTTS([{
 								tts: 'stream finished, thank you',
 								lang : 'en-US'							
 								}], function() {
+									me.playVideo();
 							});
-							me.holdVideo();
 							me._stopplay = true;
 						} 
 					} else {
