@@ -149,6 +149,7 @@ try {
 							tts: data.cmd,
 							lang : 'en-US'							
 							}], function() {
+							cbk();
 						});
 					}
 					Root.qna_server.sendToClient({cmd:'voiceRecong',voiceRecong: data.sp}, 
