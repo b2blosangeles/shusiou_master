@@ -35,16 +35,19 @@ try {
 		},
 		componentDidMount:function() {
 			let me = this;
-			setTimeout(
-				function() {
-					me.prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));	
-				}
-			);
+			setTimeout(me.start);
 			me.vid = document.getElementById("myVideo"); 
 			me.vid.ontimeupdate = function(){
+				if (Math.floor(me.vid.currentTime) === 0) {
+					me.start();
+				}
 				me.setState({stream : Math.floor(me.vid.currentTime)});
 				
 			};
+		},
+		start() {
+			let me = this;
+			me.prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));		
 		},
 		holdVideo : function() {
 			let me = this;
