@@ -24,7 +24,7 @@ try {
 							console.log(vid.currentTime);
 						});
 					});
-					vid.pause().play();
+					vid.pause(); vid.play();
 					me.playVoiceAI();
 				}
 			}
