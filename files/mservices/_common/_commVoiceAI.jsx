@@ -70,7 +70,7 @@ try {
 						lang : 'en-US'							
 						}], function() {
 							me.playVideo(t);
-							// me._stopplay = true;
+							me._stopplay = true;
 					});
 					// me._stopplay = true;
 				} 
