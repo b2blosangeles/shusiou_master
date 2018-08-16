@@ -72,7 +72,7 @@ try {
 					// me._stopplay = true;
 				} 
 				*/
-			} else {
+			//} else {
 				me.setState({locked : true});
 				me.holdVideo();
 				console.log(me.prog[t.toString()]);
