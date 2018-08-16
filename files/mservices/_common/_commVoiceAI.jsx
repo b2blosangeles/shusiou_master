@@ -79,10 +79,11 @@ try {
 							clearInterval(me._itv);
 							me.holdVideo();
 							me.playTTS([{
-								tts: 'stream finished, thank you',
+								tts: 'stream finished, continue enjoy the viedeo, thank you',
 								lang : 'en-US'							
 								}], function() {
 									me.playVideo();
+									me._stopplay = false;
 							});
 							me._stopplay = true;
 						} 
