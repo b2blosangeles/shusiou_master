@@ -43,9 +43,9 @@ try {
 			let me = this;
 			me.vid.pause(); 
 		},
-		playVideo : function(startPoint) {
+		playVideo : function(nextPoint) {
 			let me = this;
-			me.vid.currentTime = (startPoint) ? startPoint : 0;
+			me.vid.currentTime = (nextPoint) ? (nextPoint + 1) : 0;
 			me.vid.play(); 
 		},
 		playVoiceAI : function() {
@@ -82,7 +82,7 @@ try {
 								tts: 'stream finished, continue enjoy the video, thank you',
 								lang : 'en-US'							
 								}], function() {
-									me.playVideo();
+									me.playVideo(t);
 									me._stopplay = true;
 							});
 							// me._stopplay = true;
@@ -93,7 +93,7 @@ try {
 						console.log(prog[t.toString()]);
 						me.playTTS(prog[t.toString()], function() {
 							me.setState({locked : false});
-							me.playVideo();
+							me.playVideo(t);
 						});
 						// console.log(' locked --> ' + t.toString());
 					}
