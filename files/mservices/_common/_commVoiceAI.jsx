@@ -25,9 +25,9 @@ try {
 					// me.playVoiceAI();
 				}
 			}
-			//if (Root.state.stream !== me.state.stream) {
-			//	me.setState({stream : Math.floor(Root.state.stream)});
-			//}
+			if (Root.state.stream !== me.state.stream) {
+				me.setState({stream : Math.floor(Root.state.stream)});
+			}
 			if (me.state.stream !== preState.stream) {
 				me.playVoiceAIUnit(me.state.stream);
 				console.log('Root.state.stream ->' + me.state.stream);
@@ -41,8 +41,7 @@ try {
 				if (Math.floor(me.vid.currentTime) === 0) {
 					me.start();
 				}
-				me.setState({stream : Math.floor(me.vid.currentTime)});
-				
+				Root.setState({stream : Math.floor(me.vid.currentTime)});
 			};
 		},
 		start() {
@@ -162,12 +161,12 @@ try {
 		render: function() {
 			let me = this;
 			return (<span><_commPingbo parent={me.props.parent} parking={me} />
-					<br/>
+					<br/>{me.state.currentText}<br/>
 					<video id="myVideo" width="320" height="240" controls>
 						<source src="http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001" type="video/mp4"/>
 					</video>
 					<br/>
-					{me.state.currentText}
+					<a>start</a> <a>stop</a>
 				</span>)
 		}
 	});	
