@@ -112,6 +112,7 @@ try {
 						}
 						me.playTTS(Q, cbk);
 					} else {
+						me.setState({currentText:data.tts});
 						$('audio').attr('src', _master_svr() + '/api/tts/google.api?str='+data.tts + '&lang=' + data.lang).attr('autoplay', true);
 						$("audio").unbind('ended').bind("ended", function() {
 							Q.shift();
@@ -146,7 +147,9 @@ try {
 					<br/>
 					<video id="myVideo" width="320" height="240" controls>
 						<source src="http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001" type="video/mp4"/>
-					</video>				
+					</video>
+					<br/>
+					{me.srtate.currentText}
 				</span>)
 		}
 	});	
