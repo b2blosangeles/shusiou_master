@@ -48,7 +48,7 @@ try {
 			me.vid.currentTime = (nextPoint) ? (nextPoint + 1) : 0;
 			me.vid.play(); 
 		},
-		playVoiceAI0 : function(t) {
+		playVoiceAIUnit : function(t) {
 			let me = this;
 			let prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
 			if (!prog) return true;
@@ -101,7 +101,7 @@ try {
 				}
 				if (!me.state.locked) {
 					t++;
-					me.playVoiceAI0(t);
+					me.playVoiceAIUnit(t);
 				}
 
 			}, 100);			
