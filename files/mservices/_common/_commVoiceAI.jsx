@@ -78,6 +78,7 @@ try {
 				console.log(me.prog[t.toString()]);
 				me.playTTS(me.prog[t.toString()], function() {
 					me.setState({locked : false});
+					/*
 					if (Object.keys(me.prog).length === 1) {
 						me.playTTS([{
 							tts: 'stream finished, continue enjoy the video, thank you',
@@ -88,9 +89,10 @@ try {
 							// me._stopplay = true;
 						});						
 					} else {
+					*/
 						delete me.prog[t.toString()];
 						me.playVideo(t);
-					}
+					//}
 				});
 			}
 		},		
