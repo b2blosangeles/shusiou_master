@@ -49,6 +49,7 @@ try {
 				if (!me.state.pingbo || me._stopplay) {
 					clearInterval(me._itv);
 					me.state.locked = false;
+					me.vid.pause();
 					return true;
 				}				
 				if (Math.ceil(new Date().getTime() * 0.001) - s < 1) {
@@ -67,6 +68,7 @@ try {
 								lang : 'en-US'							
 								}], function() {
 							});
+							me.vid.pause();
 							me._stopplay = true;
 						} 
 					} else {
