@@ -42,22 +42,22 @@ try {
 		// https://cloud.google.com/speech-to-text/docs/languages
 		// VoiceObj		
 		
-		me.setState({voiceObj : {'8' : [{
-				length: 2,
-				tts: '深圳打响楼市个人限卖.第一枪',
-				lang : 'cmn-Hans-CN'
-			},{
-				tts: '中国,已安排最先进的海洋救助船',
-				lang : 'cmn-Hans-CN'
-			},{
-				tts: 'please repeat',
-				lang : 'en-US'			
-			}			
-			/*,			
-			{
-				sp: ['good', 'nice', 'stupid', 'california'],
-				lang : 'en-US'
-			}*/
+		me.setState({voiceObj : {'8' : [
+				{
+					length: 2,
+					tts: '深圳打响楼市个人限卖.第一枪',
+					lang : 'cmn-Hans-CN'
+				},{
+					tts: '中国,已安排最先进的海洋救助船',
+					lang : 'cmn-Hans-CN'
+				},{
+					tts: 'please repeat',
+					lang : 'en-US'			
+				},			
+				{
+					sp: ['good', 'nice', 'stupid', 'california'],
+					lang : 'en-US'
+				}
 			],
 			'12' : [{
 				tts: '中央定调下半年中国经济',
