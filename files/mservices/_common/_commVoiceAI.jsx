@@ -15,6 +15,8 @@ try {
 			let me = this;
 			if (me.state.pingbo !== Root.state.pingbo) {
 				me.setState({pingbo : Root.state.pingbo});
+				me.prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
+				if (!me.prog) return true;
 			}
 			if ((me.state.pingbo) && me.state.pingbo !== preState.pingbo) {
 				if (me.props.voiceObj) {
@@ -35,9 +37,6 @@ try {
 		},
 		componentDidMount:function() {
 			let me = this;
-			
-			me.prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
-			if (!me.prog) return true;	
 			
 			me.vid = document.getElementById("myVideo"); 
 			me.vid.ontimeupdate = function(){
