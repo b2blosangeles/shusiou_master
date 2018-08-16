@@ -58,27 +58,12 @@ try {
 		playVoiceAIUnit : function(t) {
 			let me = this;
 			if (Object.keys(me.prog).indexOf(t.toString()) !== -1) {
-				/*
-				if (!Object.keys(me.prog).length) {
-					clearInterval(me._itv);
-					me.holdVideo();
-					me.playTTS([{
-						tts: 'stream finished, continue enjoy the video, thank you',
-						lang : 'en-US'							
-						}], function() {
-							me.playVideo(t);
-							me._stopplay = true;
-					});
-					// me._stopplay = true;
-				} 
-				*/
-			//} else {
 				me.setState({locked : true});
 				me.holdVideo();
 				console.log(me.prog[t.toString()]);
 				me.playTTS(me.prog[t.toString()], function() {
 					me.setState({locked : false});
-					/*
+					
 					if (Object.keys(me.prog).length === 1) {
 						me.playTTS([{
 							tts: 'stream finished, continue enjoy the video, thank you',
@@ -89,10 +74,9 @@ try {
 							// me._stopplay = true;
 						});						
 					} else {
-					*/
 						delete me.prog[t.toString()];
 						me.playVideo(t);
-					//}
+					}
 				});
 			}
 		},		
