@@ -50,6 +50,7 @@ try {
 		},
 		playVoiceAIUnit : function(t) {
 			let me = this;
+			let MOVL = 30;
 			let prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
 			if (!prog) return true;
 			if (Object.keys(prog).indexOf(t.toString()) === -1) {
@@ -57,7 +58,7 @@ try {
 					clearInterval(me._itv);
 					me.holdVideo();
 					me.playTTS([{
-						tts: 'stream finished, continue enjoy the video, thank you',
+						tts: 'no stream finished, continue enjoy the video, thank you',
 						lang : 'en-US'							
 						}], function() {
 							me.playVideo(t);
@@ -78,8 +79,7 @@ try {
 		},		
 		playVoiceAI : function() {
 			let me = this;
-			let MOVL = 30,
-			    movl = 0;	
+				
 			me._stopplay = false;
 			
 			let prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
