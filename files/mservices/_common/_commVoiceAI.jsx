@@ -58,13 +58,12 @@ try {
 					clearInterval(me._itv);
 					me.holdVideo();
 					me.playTTS([{
-						tts: 'no stream finished, continue enjoy the video, thank you',
+						tts: 'stream has finished, continue enjoy the video, thank you',
 						lang : 'en-US'							
 						}], function() {
 							me.playVideo(t);
 							me._stopplay = true;
 					});
-					// me._stopplay = true;
 				} 
 			} else {
 				me.setState({locked : true});
