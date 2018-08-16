@@ -28,7 +28,7 @@ try {
 			//	me.setState({stream : Math.floor(Root.state.stream)});
 			//}
 			if (me.state.stream !== preState.stream) {
-				me.playVoiceAIUnit(me.state.stream);
+				// me.playVoiceAIUnit(me.state.stream);
 				console.log('Root.state.stream ->' + me.state.stream);
 			}
 		},
@@ -53,6 +53,7 @@ try {
 		},
 		playVoiceAIUnit : function(t) {
 			let me = this;
+			
 			if (Object.keys(me.prog).indexOf(t.toString()) === -1) {
 				if (!Object.keys(me.prog).length) {
 					// clearInterval(me._itv);
