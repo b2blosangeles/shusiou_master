@@ -2,7 +2,7 @@ try {
 	var _commVoiceAI = React.createClass({
 		getInitialState: function() {
 			var me = this;	
-			return {};
+			return {currentText:''};
 		},
 		componentWillUnmount : function() {
 			let me = this;
