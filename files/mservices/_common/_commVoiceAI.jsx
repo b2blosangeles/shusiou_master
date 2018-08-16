@@ -51,6 +51,7 @@ try {
 			me.vid.currentTime = (nextPoint) ? (nextPoint + 1) : 0;
 			me.vid.play(); 
 		},
+		/*
 		playVoiceAIUnit : function(t) {
 			let me = this;
 			
@@ -77,7 +78,7 @@ try {
 				});
 			}
 		},
-		/*
+		
 		playVoiceAI : function() {
 			let me = this;
 				
