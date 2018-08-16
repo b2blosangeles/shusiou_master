@@ -9,6 +9,7 @@ try {
 			clearInterval(me._itv);
 			me._stopplay = true;
 			me.setState({locked : false});
+			me.vid.pause();
 		},	
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
@@ -17,14 +18,13 @@ try {
 			}
 			if ((me.state.pingbo) && me.state.pingbo !== preState.pingbo) {
 				if (me.props.voiceObj) {
-					let vid = document.getElementById("myVideo"); 
-					vid.removeEventListener('ontimeupdate', function(){
-						vid.addEventListener('ontimeupdate', function(){
+					me.vid.removeEventListener('ontimeupdate', function(){
+						me.vid.addEventListener('ontimeupdate', function(){
 							console.log('===vid.currentTime===>');
-							console.log(vid.currentTime);
+							console.log(me.vid.currentTime);
 						});
 					});
-					vid.pause(); vid.play();
+					me.vid.pause(); me.vid.play();
 					me.playVoiceAI();
 				}
 			}
@@ -32,6 +32,7 @@ try {
 		},
 		componentDidMount:function() {
 			let me = this;
+			me.vid = document.getElementById("myVideo"); 
 		},
 		playVoiceAI : function() {
 			let me = this;
