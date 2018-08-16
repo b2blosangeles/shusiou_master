@@ -35,6 +35,10 @@ try {
 		},
 		componentDidMount:function() {
 			let me = this;
+			
+			me.prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
+			if (!me.prog) return true;	
+			
 			me.vid = document.getElementById("myVideo"); 
 			me.vid.ontimeupdate = function(){
 				me.setState({stream : Math.floor(me.vid.currentTime)});
