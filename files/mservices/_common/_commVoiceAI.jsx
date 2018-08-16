@@ -18,10 +18,13 @@ try {
 			if ((me.state.pingbo) && me.state.pingbo !== preState.pingbo) {
 				if (me.props.voiceObj) {
 					let vid = document.getElementById("myVideo"); 
-					vid.ontimeupdate = function() {
-						console.log(vid.currentTime);	
-					}
-					vid.play();
+					vid.removeEventListener('ontimeupdate', function(){
+						vid.addEventListener('ontimeupdate', function(){
+							console.log('===vid.currentTime===>');
+							console.log(vid.currentTime);
+						});
+					});
+					vid.pause().play();
 					me.playVoiceAI();
 				}
 			}
