@@ -33,7 +33,7 @@ try {
 			me.vid.ontimeupdate = function(){
 				console.log('===vid.currentTime===>');
 				console.log(me.vid.currentTime);
-			});
+			};
 		},
 		playVoiceAI : function() {
 			let me = this;
