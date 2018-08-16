@@ -56,11 +56,11 @@ try {
 		},
 		playVoiceAIUnit : function(t) {
 			let me = this;
-			let MOVL = 30;
+			//let MOVL = 30;
 			//let prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
 			// if (!prog) return true;
 			if (Object.keys(me.prog).indexOf(t.toString()) === -1) {
-				if (t > MOVL) {
+				if (!Object.keys(me.prog).length) {
 				//	clearInterval(me._itv);
 					me.holdVideo();
 					me.playTTS([{
@@ -78,6 +78,7 @@ try {
 				console.log(me.prog[t.toString()]);
 				me.playTTS(me.prog[t.toString()], function() {
 					me.setState({locked : false});
+					delete me.prog[t.toString()];
 					me.playVideo(t);
 				});
 				// console.log(' locked --> ' + t.toString());
