@@ -42,7 +42,7 @@ try {
 		// https://cloud.google.com/speech-to-text/docs/languages
 		// VoiceObj		
 		
-		me.setState({voiceObj : {'2' : [{
+		me.setState({voiceObj : {'8' : [{
 				tts: '深圳打响楼市个人限卖.第一枪',
 				lang : 'cmn-Hans-CN'
 			},{
@@ -57,11 +57,11 @@ try {
 				lang : 'en-US'
 			}
 			],
-			'4' : [{
+			'12' : [{
 				tts: '中央定调下半年中国经济',
 				lang : 'cmn-Hans-CN'			
 			}],  
-			'8' : [{
+			'18' : [{
 				tts: '稳中有变',
 				lang : 'cmn-Hans-CN'			
 			}]},
