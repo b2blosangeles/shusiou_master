@@ -43,6 +43,7 @@ try {
 		// VoiceObj		
 		
 		me.setState({voiceObj : {'8' : [{
+				length: 2,
 				tts: '深圳打响楼市个人限卖.第一枪',
 				lang : 'cmn-Hans-CN'
 			},{
@@ -51,9 +52,8 @@ try {
 			},{
 				tts: 'please repeat',
 				lang : 'en-US'			
-			}
-						/*,
-						
+			}			
+			/*,			
 			{
 				sp: ['good', 'nice', 'stupid', 'california'],
 				lang : 'en-US'
@@ -67,6 +67,9 @@ try {
 				tts: '稳中有变',
 				lang : 'cmn-Hans-CN'			
 			}]},
+			afterScript : {
+			
+			},    
 			voiceObj_tm : new Date().getTime()	    
 		});
 		
@@ -94,12 +97,6 @@ try {
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
 						<div className="overlayer_box">
 							<_commVoiceAI parent={me} voiceObj={me.state.voiceObj_tm}/>
-
-							<h4 className="header" >{me.dictionary('Warning')}</h4> 
-							<p> <a href="JavaScript:void(0)" onClick={me.channelComm.bind(me)}
-								    className="btn btn-md btn-success bottom-adjust" >
-									{me.dictionary('Open Security Voice Channel')}</a>
-							</p>
 							{me.microPhone()}							
 							<br/><br/>
 						</div>	
