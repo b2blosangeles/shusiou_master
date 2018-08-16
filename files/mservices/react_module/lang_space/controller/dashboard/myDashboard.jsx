@@ -81,10 +81,7 @@ try {
 		return (!Root.state.pingbo) ?
 		(<span><i className="fa fa-microphone status_off" onClick={me.channelComm.bind(me)}
 			aria-hidden="true" style={{"font-size":"5em"}}></i></span>) : 
-		(<span>
-			<video id="myVideo" width="320" height="240" controls>
-			  <source src="http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001" type="video/mp4"/>
-			</video>			
+		(<span>			
 		</span>)
 	},    
         render: function() {
@@ -102,6 +99,9 @@ try {
 									{me.dictionary('Open Security Voice Channel')}</a>
 							</p>
 							{me.microPhone()}
+							<video id="myVideo" width="320" height="240" controls>
+							  <source src="http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001" type="video/mp4"/>
+							</video>							
 							<br/><br/>
 						</div>	
 					</div>					
