@@ -18,7 +18,6 @@ try {
 			}
 			if ((me.state.pingbo) && me.state.pingbo !== preState.pingbo) {
 				if (me.props.voiceObj) {
-
 					me.vid.pause(); 
 					me.vid.currentTime = 0;
 					me.vid.play();
@@ -35,10 +34,12 @@ try {
 		},
 		componentDidMount:function() {
 			let me = this;
+			me.prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
+			if (!me.prog) return true;
+			
 			me.vid = document.getElementById("myVideo"); 
 			me.vid.ontimeupdate = function(){
 				me.setState({stream : Math.floor(me.vid.currentTime)});
-				
 			};
 		},
 		holdVideo : function() {
@@ -52,11 +53,8 @@ try {
 		},
 		playVoiceAIUnit : function(t) {
 			let me = this;
-			let MOVL = 30;
-			let prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
-			if (!prog) return true;
-			if (Object.keys(prog).indexOf(t.toString()) === -1) {
-				if (t > MOVL) {
+			if (Object.keys(me.prog).indexOf(t.toString()) === -1) {
+				if (!Object.keys(me.prog).length) {
 					clearInterval(me._itv);
 					me.holdVideo();
 					me.playTTS([{
@@ -71,12 +69,12 @@ try {
 			} else {
 				me.setState({locked : true});
 				me.holdVideo();
-				console.log(prog[t.toString()]);
-				me.playTTS(prog[t.toString()], function() {
+				console.log(me.prog[t.toString()]);
+				me.playTTS(me.prog[t.toString()], function() {
 					me.setState({locked : false});
 					me.playVideo(t);
+					delete me.prog[t];
 				});
-				// console.log(' locked --> ' + t.toString());
 			}
 		},		
 		playVoiceAI : function() {
