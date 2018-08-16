@@ -51,11 +51,13 @@ try {
 			},{
 				tts: 'please repeat',
 				lang : 'en-US'			
-			},
+			}
+						/*,
+						
 			{
 				sp: ['good', 'nice', 'stupid', 'california'],
 				lang : 'en-US'
-			}
+			}*/
 			],
 			'12' : [{
 				tts: '中央定调下半年中国经济',
