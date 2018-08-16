@@ -14,6 +14,7 @@ try {
 		componentDidUpdate:function(preProps, preState) {
 			let me = this;
 			if (me.props.parent !== preProps.parent) {
+				console.log('==JSON.parse(JSON.stringify(me.props.parent.state.voiceObj)==');
 				me.prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));			
 			}
 			if (me.state.pingbo !== Root.state.pingbo) {
