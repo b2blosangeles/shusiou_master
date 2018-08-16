@@ -45,7 +45,7 @@ try {
 		},
 		playVoiceAI : function() {
 			let me = this;
-			let MOVL = 10,
+			let MOVL = 30,
 			    movl = 0;	
 			me._stopplay = false;
 			
@@ -58,7 +58,7 @@ try {
 				if (!me.state.pingbo || me._stopplay) {
 					clearInterval(me._itv);
 					me.state.locked = false;
-					me.vid.pause();
+					me.holdVideo();
 					return true;
 				}				
 				if (Math.ceil(new Date().getTime() * 0.001) - s < 1) {
@@ -77,7 +77,7 @@ try {
 								lang : 'en-US'							
 								}], function() {
 							});
-							me.vid.pause();
+							me.holdVideo();
 							me._stopplay = true;
 						} 
 					} else {
