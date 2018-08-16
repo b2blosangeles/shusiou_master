@@ -55,7 +55,7 @@ try {
 			let me = this;
 			if (Object.keys(me.prog).indexOf(t.toString()) === -1) {
 				if (!Object.keys(me.prog).length) {
-					clearInterval(me._itv);
+					// clearInterval(me._itv);
 					me.holdVideo();
 					me.playTTS([{
 						tts: 'stream has finished, continue enjoy the video, thank you',
@@ -72,10 +72,11 @@ try {
 				me.playTTS(me.prog[t.toString()], function() {
 					me.setState({locked : false});
 					me.playVideo(t);
-					delete me.prog[t];
+					delete me.prog[t.toString()];
 				});
 			}
-		},		
+		},
+		/*
 		playVoiceAI : function() {
 			let me = this;
 				
@@ -106,6 +107,7 @@ try {
 			}, 100);			
 			return true;
 		},
+		*/
 		playTTS : function(Q, cbk) {
 			let me = this;
 			var data = Q[0];
