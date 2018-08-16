@@ -37,7 +37,6 @@ try {
 			let me = this;
 			setTimeout(
 				function() {
-					console.log('==JSON.parse(JSON.stringify(me.props.parent.state.voiceObj)==');
 					me.prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));	
 				}
 			);
@@ -58,12 +57,9 @@ try {
 		},
 		playVoiceAIUnit : function(t) {
 			let me = this;
-			//let MOVL = 30;
-			//let prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
-			// if (!prog) return true;
 			if (Object.keys(me.prog).indexOf(t.toString()) === -1) {
 				if (!Object.keys(me.prog).length) {
-				//	clearInterval(me._itv);
+					clearInterval(me._itv);
 					me.holdVideo();
 					me.playTTS([{
 						tts: 'stream finished, continue enjoy the video, thank you',
@@ -83,7 +79,6 @@ try {
 					delete me.prog[t.toString()];
 					me.playVideo(t);
 				});
-				// console.log(' locked --> ' + t.toString());
 			}
 		},		
 		playVoiceAI : function() {
