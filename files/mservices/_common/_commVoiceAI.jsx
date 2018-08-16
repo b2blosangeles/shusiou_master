@@ -83,7 +83,7 @@ try {
 					} else {
 						me.setState({locked : true});
 						me.holdVideo();
-						console.log(prog[t.toString());
+						console.log(prog[t.toString()]);
 						me.playTTS(prog[t.toString()], function() {
 							me.setState({locked : false});
 							me.playVideo();
