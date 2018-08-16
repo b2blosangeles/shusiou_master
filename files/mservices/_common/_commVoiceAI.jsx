@@ -25,7 +25,12 @@ try {
 					me.playVoiceAI();
 				}
 			}
-			console.log('Root.state.stream ->' + Root.state.stream);
+			if (Root.state.stream !== me.state.stream) {
+				me.setState({stream : Root.state.stream});
+			}
+			if (me.state.stream !== preState.stream) {
+				console.log('Root.state.stream ->' + me.state.stream);
+			}
 		},
 		componentDidMount:function() {
 			let me = this;
