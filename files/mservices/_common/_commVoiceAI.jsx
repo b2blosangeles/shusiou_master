@@ -35,6 +35,14 @@ try {
 				console.log(me.vid.currentTime);
 			};
 		},
+		holdVideo : function() {
+			let me = this;
+			me.vid.pause(); 
+		},
+		playVideo : function() {
+			let me = this;
+			me.vid.play(); 
+		},
 		playVoiceAI : function() {
 			let me = this;
 			let MOVL = 10,
@@ -74,9 +82,10 @@ try {
 						} 
 					} else {
 						me.setState({locked : true});
-						
+						me.holdVideo();
 						me.playTTS(prog[t.toString()], function() {
 							me.setState({locked : false});
+							me.playVideo();
 						});
 						console.log(' locked --> ' + t.toString());
 					}
