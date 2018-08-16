@@ -18,6 +18,7 @@ try {
 			}
 			if ((me.state.pingbo) && me.state.pingbo !== preState.pingbo) {
 				if (me.props.voiceObj) {
+
 					me.vid.pause(); 
 					me.vid.currentTime = 0;
 					me.vid.play();
@@ -28,18 +29,16 @@ try {
 			//	me.setState({stream : Math.floor(Root.state.stream)});
 			//}
 			if (me.state.stream !== preState.stream) {
-				// me.playVoiceAIUnit(me.state.stream);
+				me.playVoiceAIUnit(me.state.stream);
 				console.log('Root.state.stream ->' + me.state.stream);
 			}
 		},
 		componentDidMount:function() {
 			let me = this;
-			// me.prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
-			// if (!me.prog) return true;
-			
 			me.vid = document.getElementById("myVideo"); 
 			me.vid.ontimeupdate = function(){
 				me.setState({stream : Math.floor(me.vid.currentTime)});
+				
 			};
 		},
 		holdVideo : function() {
@@ -51,34 +50,35 @@ try {
 			me.vid.currentTime = (nextPoint) ? (nextPoint + 1) : 0;
 			me.vid.play(); 
 		},
-		/*
 		playVoiceAIUnit : function(t) {
 			let me = this;
-			
-			if (Object.keys(me.prog).indexOf(t.toString()) === -1) {
-				if (!Object.keys(me.prog).length) {
-					// clearInterval(me._itv);
+			let MOVL = 30;
+			let prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
+			if (!prog) return true;
+			if (Object.keys(prog).indexOf(t.toString()) === -1) {
+				if (t > MOVL) {
+					clearInterval(me._itv);
 					me.holdVideo();
 					me.playTTS([{
-						tts: 'stream has finished, continue enjoy the video, thank you',
+						tts: 'no stream finished, continue enjoy the video, thank you',
 						lang : 'en-US'							
 						}], function() {
 							me.playVideo(t);
 							me._stopplay = true;
 					});
+					// me._stopplay = true;
 				} 
 			} else {
 				me.setState({locked : true});
 				me.holdVideo();
-				console.log(me.prog[t.toString()]);
-				me.playTTS(me.prog[t.toString()], function() {
+				console.log(prog[t.toString()]);
+				me.playTTS(prog[t.toString()], function() {
 					me.setState({locked : false});
 					me.playVideo(t);
-					delete me.prog[t.toString()];
 				});
+				// console.log(' locked --> ' + t.toString());
 			}
-		},
-		
+		},		
 		playVoiceAI : function() {
 			let me = this;
 				
@@ -109,7 +109,6 @@ try {
 			}, 100);			
 			return true;
 		},
-		*/
 		playTTS : function(Q, cbk) {
 			let me = this;
 			var data = Q[0];
