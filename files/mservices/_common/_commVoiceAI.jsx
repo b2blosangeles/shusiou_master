@@ -83,9 +83,9 @@ try {
 								lang : 'en-US'							
 								}], function() {
 									me.playVideo();
-									me._stopplay = false;
+									me._stopplay = true;
 							});
-							me._stopplay = true;
+							// me._stopplay = true;
 						} 
 					} else {
 						me.setState({locked : true});
