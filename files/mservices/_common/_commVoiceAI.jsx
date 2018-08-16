@@ -48,6 +48,34 @@ try {
 			me.vid.currentTime = (nextPoint) ? (nextPoint + 1) : 0;
 			me.vid.play(); 
 		},
+		playVoiceAI0 : function(t) {
+			let me = this;
+			let prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
+			if (!prog) return true;
+			if (Object.keys(prog).indexOf(t.toString()) === -1) {
+				if (t > MOVL) {
+					clearInterval(me._itv);
+					me.holdVideo();
+					me.playTTS([{
+						tts: 'stream finished, continue enjoy the video, thank you',
+						lang : 'en-US'							
+						}], function() {
+							me.playVideo(t);
+							me._stopplay = true;
+					});
+					// me._stopplay = true;
+				} 
+			} else {
+				me.setState({locked : true});
+				me.holdVideo();
+				console.log(prog[t.toString()]);
+				me.playTTS(prog[t.toString()], function() {
+					me.setState({locked : false});
+					me.playVideo(t);
+				});
+				// console.log(' locked --> ' + t.toString());
+			}
+		},		
 		playVoiceAI : function() {
 			let me = this;
 			let MOVL = 30,
@@ -71,32 +99,9 @@ try {
 				} else {
 					s = Math.ceil(new Date().getTime() * 0.001);
 				}
-				Root.setState({stream : t});
 				if (!me.state.locked) {
 					t++;
-					if (Object.keys(prog).indexOf(t.toString()) === -1) {
-						if (t > MOVL) {
-							clearInterval(me._itv);
-							me.holdVideo();
-							me.playTTS([{
-								tts: 'stream finished, continue enjoy the video, thank you',
-								lang : 'en-US'							
-								}], function() {
-									me.playVideo(t);
-									me._stopplay = true;
-							});
-							// me._stopplay = true;
-						} 
-					} else {
-						me.setState({locked : true});
-						me.holdVideo();
-						console.log(prog[t.toString()]);
-						me.playTTS(prog[t.toString()], function() {
-							me.setState({locked : false});
-							me.playVideo(t);
-						});
-						// console.log(' locked --> ' + t.toString());
-					}
+					me.playVoiceAI0(t);
 				}
 
 			}, 100);			
