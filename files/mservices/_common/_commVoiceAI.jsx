@@ -25,9 +25,9 @@ try {
 					me.playVoiceAI();
 				}
 			}
-			if (Root.state.stream !== me.state.stream) {
-				me.setState({stream : Root.state.stream});
-			}
+			//if (Root.state.stream !== me.state.stream) {
+			//	me.setState({stream : Math.floor(Root.state.stream)});
+			//}
 			if (me.state.stream !== preState.stream) {
 				console.log('Root.state.stream ->' + me.state.stream);
 			}
@@ -36,16 +36,16 @@ try {
 			let me = this;
 			me.vid = document.getElementById("myVideo"); 
 			me.vid.ontimeupdate = function(){
-				console.log('===vid.currentTime===>');
-				console.log(me.vid.currentTime);
+				me.setState({stream : Math.floor(me.vid.currentTime)});
 			};
 		},
 		holdVideo : function() {
 			let me = this;
 			me.vid.pause(); 
 		},
-		playVideo : function() {
+		playVideo : function(startPoint) {
 			let me = this;
+			me.vid.currentTime = (startPoint) ? startPoint : 0;
 			me.vid.play(); 
 		},
 		playVoiceAI : function() {
