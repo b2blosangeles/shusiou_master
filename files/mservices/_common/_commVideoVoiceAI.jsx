@@ -35,6 +35,7 @@ try {
 		},
 		componentDidMount:function() {
 			let me = this;
+			me.set({main_video : 'main_video_' + new Date().getTime()});
 			setTimeout(me.start);
 		},
 		isSpeachRecongnise : function() {
@@ -56,7 +57,7 @@ try {
 				return true;
 			} else {
 				me.script = JSON.parse(JSON.stringify(me.props.parent.state.script));
-				me.vidObj = $("#myVideo")[0]; 
+				me.vidObj = $('#' + me.state.main_video)[0]; 
 				me.vid = me.vidObj[0];
 				me.vidObj.attr("src", me.props.parent.state.videoUrl);
 				me.vid.ontimeupdate = function(){
@@ -96,9 +97,9 @@ try {
 		},
 		videoBox: function() {
 			var me = this;
-			return (<video src="" id="myVideo" width="320" height="240" controls style={me.videoStatus()}>
+			return (<span>{me.state.main_video}<video src="" id={me.state.main_video} width="320" height="240" controls style={me.videoStatus()}>
 					{/*<source src={me.video} type="video/mp4"/>*/}
-			</video>) 
+			</video></span>) 
 		},
 		playVoiceAIUnit : function(t) {
 			let me = this;
