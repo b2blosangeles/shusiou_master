@@ -137,7 +137,7 @@ try {
 				if (!me.state.pingbo || me._stopplay) {
 					clearInterval(me._itv);
 					me.state.locked = false;
-					me.holdVideo();
+					if (me.vid) me.holdVideo();
 					return true;
 				}				
 				if (Math.ceil(new Date().getTime() * 0.001) - s < 1) {
