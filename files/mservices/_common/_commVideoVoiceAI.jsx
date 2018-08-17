@@ -86,7 +86,7 @@ try {
 		},
 		video: function() {
 			var me = this;
-			return (<video id="myVideo" width="320" height="240" controls>
+			return (<video id="myVideo" width="320" height="240" controls style={display:'none'}>
 			<source src="http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001" type="video/mp4"/>
 			</video>) 
 		},
