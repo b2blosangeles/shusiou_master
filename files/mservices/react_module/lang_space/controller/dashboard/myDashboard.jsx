@@ -52,7 +52,7 @@ try {
 					lang : 'cmn-Hans-CN'
 				},			
 				{
-					tts: 'please repeat',
+					//tts: 'please repeat',
 					sp: ['good', 'nice', 'stupid', 'california'],
 					v : {
 						Y : {
