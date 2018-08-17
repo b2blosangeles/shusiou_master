@@ -42,7 +42,7 @@ try {
 		// https://cloud.google.com/speech-to-text/docs/languages
 		// VoiceObj		
 		
-		me.setState({voiceObj : {'8' : [
+		me.setState({script : {'8' : [
 				{
 					length: 2,
 					tts: '深圳打响楼市个人限卖.第一枪',
