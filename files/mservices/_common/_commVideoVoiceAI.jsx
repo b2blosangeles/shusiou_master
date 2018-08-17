@@ -55,7 +55,7 @@ try {
 				return true;
 			} else {
 				me.script = JSON.parse(JSON.stringify(me.props.parent.state.script));
-				me.vidObj = $('#' + me.state.main_video); 
+				me.vidObj = $('#' + Root.state.main_video); 
 				me.vid = me.vidObj[0];
 				me.vidObj.attr("src", me.props.parent.state.videoUrl);
 				me.vid.ontimeupdate = function(){
