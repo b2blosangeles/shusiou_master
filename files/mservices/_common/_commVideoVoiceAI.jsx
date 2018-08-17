@@ -33,7 +33,7 @@ try {
 		},
 		componentDidMount:function() {
 			let me = this;
-			me.setState({main_video : 'main_video_' + new Date().getTime()});
+			Root.setState({main_video : 'main_video_' + new Date().getTime()});
 			setTimeout(me.start);
 		},
 		isSpeachRecongnise : function() {
@@ -97,7 +97,7 @@ try {
 		videoBox: function() {
 			var me = this;
 			return (<div className="content_bg">
-				<video src="" id={me.state.main_video} controls>
+				<video src="" id={Root.state.main_video} controls>
 					
 				</video>
 				</div>)
@@ -223,7 +223,7 @@ try {
 			return (<span><_commPingbo parent={me.props.parent} parking={me} />
 					<br/>{me.state.currentText}
 					<br/>
-					{me.videoBox()}
+					{/*me.videoBox()*/}
 					<br/>
 					{me.microPhone()}							
 					<br/><br/>
