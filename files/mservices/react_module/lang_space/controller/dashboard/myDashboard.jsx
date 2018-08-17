@@ -68,7 +68,7 @@ try {
 			afterScript : {
 			
 			},    
-			script_tm : new Date().getTime()	    
+			_tm : new Date().getTime()	    
 		});
 		
 
@@ -86,7 +86,7 @@ try {
 				<div className="container">
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
 						<div className="overlayer_box">
-							<_commVideoVoiceAI parent={me} TM={me.state.script_tm}/>
+							<_commVideoVoiceAI parent={me} TM={me.state._tm}/>
 						</div>	
 					</div>					
 				</div> 
