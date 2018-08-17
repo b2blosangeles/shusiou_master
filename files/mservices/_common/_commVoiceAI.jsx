@@ -51,6 +51,7 @@ try {
 					if (script.sp) return true;
 					for (var o in script) {
 						if (typeof script[o] === 'object') {
+							console.log(script[o]);
 							return SR(script[o]);
 						}
 					}
