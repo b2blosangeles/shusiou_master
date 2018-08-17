@@ -63,7 +63,7 @@ try {
 				}
 				Root.setState({stream : Math.floor(me.vid.currentTime)});
 			};	
-			me.vid.on("hide", function() { 
+			$("#myVideo").on("hide", function() { 
 			    console.log("browser page has been hidden");
 			});
 			console.log('isSpeachRecongnise=--==>' + me.isSpeachRecongnise())
