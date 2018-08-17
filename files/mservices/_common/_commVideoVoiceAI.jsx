@@ -18,7 +18,6 @@ try {
 			}
 			if ((me.state.pingbo) && me.state.pingbo !== preState.pingbo) {
 				if (me.vid) {
-
 					me.vid.pause(); 
 					me.vid.currentTime = 0;
 					me.vid.play();
@@ -91,7 +90,7 @@ try {
 			let me = this;
 			return (!Root.state.pingbo && (me.isSpeachRecongnise())) ? {display:'none'} : {display:null}
 		},
-		video: function() {
+		videoBox: function() {
 			var me = this;
 			return (<video id="myVideo" width="320" height="240" controls style={me.videoStatus()}>
 			<source src={me.video} type="video/mp4"/>
@@ -201,7 +200,7 @@ try {
 			return (<span><_commPingbo parent={me.props.parent} parking={me} />
 					<br/>{me.state.currentText}
 					<br/>
-					{me.video()}
+					{me.videoBox()}
 					<br/>
 					{me.microPhone()}							
 					<br/><br/>
