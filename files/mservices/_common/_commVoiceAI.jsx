@@ -45,7 +45,7 @@ try {
 			};
 		},
 		isSpeachRecongnise : function() {
-			let me = this, script = me.props.parent.state.voiceObj;
+			let me = this, script = me.props.parent.state.script;
 			function SR(script) {
 				if (typeof script === 'object') {
 					for (var o in script) {
@@ -57,8 +57,8 @@ try {
 		},
 		start() {
 			let me = this;
-			me.prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
-			console.log('isSpeachRecongnise===>' + me.isSpeachRecongnise())
+			me.prog = JSON.parse(JSON.stringify(me.props.parent.state.script));
+			console.log('isSpeachRecongnise=++==>' + me.isSpeachRecongnise())
 		},
 		holdVideo : function() {
 			let me = this;
@@ -98,9 +98,6 @@ try {
 			let me = this;
 				
 			me._stopplay = false;
-			
-			let prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
-			if (!prog) return true;
 			
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 
