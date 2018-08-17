@@ -55,7 +55,7 @@ try {
 			me.videoUrl = me.props.parent.state.videoUrl;
 			console.log(me.videoUrl);
 			me.vid = $("#myVideo")[0]; 
-			$("#myVideo").attr("src", me.videoUrl);
+			// $("#myVideo").attr("src", me.videoUrl);
 			// me.vid.src = 'http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001';
 			me.vid.ontimeupdate = function(){
 				if (Math.floor(me.vid.currentTime) === 0) {
@@ -95,7 +95,7 @@ try {
 		},
 		videoBox: function() {
 			var me = this;
-			return (<video id="myVideo" width="320" height="240" controls style={me.videoStatus()}>
+			return (<video src="http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001" id="myVideo" width="320" height="240" controls style={me.videoStatus()}>
 					{/*<source src={me.video} type="video/mp4"/>*/}
 			</video>) 
 		},
