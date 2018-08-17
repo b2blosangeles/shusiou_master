@@ -49,18 +49,14 @@ try {
 			function SR(script) {
 				if (typeof script === 'object') {
 					if (script.sp) return true;
-					else {
-						for (var o in script) {
-							console.log('===script[o]===>' + typeof script[o] + '===' + o);
-								console.log(script[o]);
-							if (typeof script[o] === 'object') {
-								if (SR(script[o])) return true;
-							}
+					else for (var o in script) {
+						if (typeof script[o] === 'object') {
+							if (SR(script[o])) return true;
 						}
 					}
 				} 		
 			}
-			return SR(script);
+			return (SR(script)) ? true : false;
 		},
 		start() {
 			let me = this;
