@@ -58,6 +58,7 @@ try {
 		start() {
 			let me = this;
 			me.script = JSON.parse(JSON.stringify(me.props.parent.state.script));
+			me.video = me.props.parent.state.video;
 			console.log('isSpeachRecongnise=++==>' + me.isSpeachRecongnise())
 		},
 		holdVideo : function() {
@@ -91,7 +92,7 @@ try {
 		video: function() {
 			var me = this;
 			return (<video id="myVideo" width="320" height="240" controls style={me.videoStatus()}>
-			<source src="http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001" type="video/mp4"/>
+			<source src={me.video} type="video/mp4"/>
 			</video>) 
 		},
 		playVoiceAIUnit : function(t) {
