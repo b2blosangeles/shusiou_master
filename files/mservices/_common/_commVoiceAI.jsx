@@ -44,9 +44,22 @@ try {
 				Root.setState({stream : Math.floor(me.vid.currentTime)});
 			};
 		},
+		isSpeachRecongnise : function() {
+			let me = this, script = me.props.parent.state.voiceObj;
+			if (script) {
+				for (var o in script) {
+					if (script[o].sp) {
+						return true;
+					}
+				}
+			} else {
+				return false;
+			}
+		},
 		start() {
 			let me = this;
-			me.prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));		
+			me.prog = JSON.parse(JSON.stringify(me.props.parent.state.voiceObj));
+			console.log('isSpeachRecongnise===>' + me.isSpeachRecongnise())
 		},
 		holdVideo : function() {
 			let me = this;
