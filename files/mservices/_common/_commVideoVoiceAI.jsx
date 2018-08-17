@@ -124,13 +124,14 @@ try {
 		},		
 		UIschedule : function() {
 			let me = this;
-			//console.log('UIschedule');
+			console.log('UIschedule 1');
 			//return true;
 			me._stopplay = false;
 			
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 
 			me._itv = setInterval(function(){ 
+				console.log('UIschedule 2');
 				if (!me.state.pingbo || me._stopplay) {
 					clearInterval(me._itv);
 					me.state.locked = false;
