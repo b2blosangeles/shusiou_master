@@ -53,8 +53,9 @@ try {
 			let me = this;
 			me.script = JSON.parse(JSON.stringify(me.props.parent.state.script));
 			me.video = me.props.parent.state.video;
-			me.vid = document.getElementById("myVideo"); 
-			me.vid.src = 'http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001';
+			me.vid = $("#myVideo")[0]; 
+			$("#myVideo").attr("src", me.video);
+			// me.vid.src = 'http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001';
 			me.vid.ontimeupdate = function(){
 				if (Math.floor(me.vid.currentTime) === 0) {
 					me.start();
