@@ -18,6 +18,7 @@ try {
 			}
 			if ((me.state.pingbo) && me.state.pingbo !== preState.pingbo) {
 				if (me.vid) {
+					me.vid.src = me.video;
 					me.vid.pause(); 
 					me.vid.currentTime = 0;
 					me.vid.play();
