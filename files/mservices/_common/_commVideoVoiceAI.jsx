@@ -21,7 +21,6 @@ try {
 					me.vid.pause(); 
 					me.vid.currentTime = 0;
 					me.vid.play();
-					// me.playVoiceAI();
 				} else {
 					me.UIschedule();
 				}
@@ -125,8 +124,8 @@ try {
 		},		
 		UIschedule : function() {
 			let me = this;
-			console.log('UIschedule');
-			return true;
+			//console.log('UIschedule');
+			//return true;
 			me._stopplay = false;
 			
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
