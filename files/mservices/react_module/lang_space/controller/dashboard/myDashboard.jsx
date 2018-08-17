@@ -22,13 +22,6 @@ try {
 			return {'font-size':'1em'}	
 		}
 	},
-	channelComm : function() {
-		let me = this;
-		if (!Root.state.pingbo_id) return true;
-		// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
-		let url = 'https://comm1.service.dev.shusiou.win/?socket=' + Root.state.pingbo_id;
-		Root.lib.positionedPopup(url, '','280','280','0','0','yes');
-	}, 
 	componentWillUnmount : function() {
 		let me = this;
 	},
@@ -88,15 +81,7 @@ try {
 		var me = this;
 		me.setState({locked : false});
 		return (data === 'string') ? data : JSON.stringify(data);
-	},
-	microPhone: function() {
-		var me = this;
-		return (!Root.state.pingbo) ?
-		(<span><i className="fa fa-microphone status_off" onClick={me.channelComm.bind(me)}
-			aria-hidden="true" style={{"font-size":"5em"}}></i></span>) : 
-		(<span>			
-		</span>)
-	},    
+	}, 
         render: function() {
             var me = this;
 	    return (<div className="content_section">
@@ -105,8 +90,6 @@ try {
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
 						<div className="overlayer_box">
 							<_commVoiceAI parent={me} voiceObj={me.state.voiceObj_tm}/>
-							{me.microPhone()}							
-							<br/><br/>
 						</div>	
 					</div>					
 				</div> 
