@@ -52,20 +52,12 @@ try {
 		start() {
 			let me = this;
 			me.script = JSON.parse(JSON.stringify(me.props.parent.state.script));
-			me.videoUrl = me.props.parent.state.videoUrl;
-			console.log(me.videoUrl);
-			me.vid = $("#myVideo")[0]; 
-			$("#myVideo").attr("src", me.videoUrl);
-			// me.vid.src = 'http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001';
+			me.vidObj = $("#myVideo")[0]; 
+			me.vid = me.vidObj[0];
+			me.vidObj.attr("src", me.props.parent.state.videoUrl);
 			me.vid.ontimeupdate = function(){
-				if (Math.floor(me.vid.currentTime) === 0) {
-				//	me.start();
-				}
 				Root.setState({stream : Math.floor(me.vid.currentTime)});
-			};	
-			$("#myVideo").on("hide", function() { 
-			    console.log("browser page has been hidden");
-			});
+			};
 			console.log('isSpeachRecongnise=--==>' + me.isSpeachRecongnise())
 		},
 		holdVideo : function() {
