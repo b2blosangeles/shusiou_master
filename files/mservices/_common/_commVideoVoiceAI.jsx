@@ -112,12 +112,12 @@ try {
 							lang : 'en-US'							
 						}], function() {
 							delete me.script[t.toString()];
-							it (me.vid) me.playVideo(t);
+							if (me.vid) me.playVideo(t);
 							// me._stopplay = true;
 						});						
 					} else {
 						delete me.script[t.toString()];
-						it (me.vid) me.playVideo(t);
+						if (me.vid) me.playVideo(t);
 					}
 				});
 			}
