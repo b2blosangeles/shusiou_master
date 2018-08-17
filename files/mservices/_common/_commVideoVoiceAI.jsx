@@ -63,7 +63,7 @@ try {
 				me.vid.ontimeupdate = function(){
 					Root.setState({stream : Math.floor(me.vid.currentTime)});
 				};
-				console.log('isSpeachRecongnise=--==>' + me.isSpeachRecongnise())
+				/* console.log('isSpeachRecongnise=--==>' + me.isSpeachRecongnise()) */
 			}
 		},
 		holdVideo : function() {
