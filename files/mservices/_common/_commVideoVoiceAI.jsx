@@ -116,7 +116,9 @@ try {
 						}], function() {
 							delete me.script[t.toString()];
 							if (me.vid) me.playVideo(t);
-							// me._stopplay = true;
+							if (!me.vid) {
+								me._stopplay = true;
+							}	
 						});						
 					} else {
 						delete me.script[t.toString()];
@@ -135,14 +137,11 @@ try {
 
 			me._itv = setInterval(function(){ 
 				console.log('UIschedule 2');
-				/*
-				if (!me.state.pingbo || me._stopplay) {
+				if (me._stopplay) {
 					clearInterval(me._itv);
 					me.state.locked = false;
-					if (me.vid) me.holdVideo();
 					return true;
 				}
-				*/
 				if (Math.ceil(new Date().getTime() * 0.001) - s < 1) {
 					return true;
 				} else {
