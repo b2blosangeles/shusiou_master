@@ -54,8 +54,7 @@ try {
 							console.log('===script[o]===>' + typeof script[o]);
 								console.log(script[o]);
 							if (typeof script[o] === 'object') {
-								
-								return SR(script[o]);
+								SR(script[o]);
 							}
 						}
 					}
