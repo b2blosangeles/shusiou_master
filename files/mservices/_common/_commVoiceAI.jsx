@@ -49,11 +49,13 @@ try {
 			function SR(script) {
 				if (typeof script === 'object') {
 					if (script.sp) return true;
-					for (var o in script) {
-						if (typeof script[o] === 'object') {
-							console.log('===script[o]===>');
-							console.log(script[o]);
-							return SR(script[o]);
+					else {
+						for (var o in script) {
+							if (typeof script[o] === 'object') {
+								console.log('===script[o]===>');
+								console.log(script[o]);
+								return SR(script[o]);
+							}
 						}
 					}
 					//return false;
