@@ -1,5 +1,5 @@
 try {
-	var _commVoiceAI = React.createClass({
+	var _commVideoVoiceAI = React.createClass({
 		getInitialState: function() {
 			var me = this;	
 			return {currentText:''};
