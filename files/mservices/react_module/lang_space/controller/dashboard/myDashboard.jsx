@@ -93,7 +93,7 @@ try {
 					</div>					
 				</div> 
 				<div className="content_bg">
-			    		<video src="" id={Root.state.main_video} controls></video>
+			    		<video src="" id={Root.state.main_video}></video>
 			    	</div>
 				     {Root.lib.landingModal(me)}
 				
