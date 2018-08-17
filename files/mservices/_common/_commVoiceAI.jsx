@@ -51,7 +51,7 @@ try {
 					if (script.sp) return true;
 					else {
 						for (var o in script) {
-							console.log('===script[o]===>');
+							console.log('===script[o]===>' + typeof script[o]);
 								console.log(script[o]);
 							if (typeof script[o] === 'object') {
 								
