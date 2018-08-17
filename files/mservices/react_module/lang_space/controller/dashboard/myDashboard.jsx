@@ -50,12 +50,20 @@ try {
 				},{
 					tts: '中国,已安排最先进的海洋救助船',
 					lang : 'cmn-Hans-CN'
-				},{
-					tts: 'please repeat',
-					lang : 'en-US'			
 				},			
 				{
+					tts: 'please repeat',
 					sp: ['good', 'nice', 'stupid', 'california'],
+					v : {
+						Y : {
+							tts: '很好',
+							lang : 'cmn-Hans-CN'
+						},
+						N: {
+							tts: '不对, 请重试',
+							lang : 'cmn-Hans-CN'
+						}
+					},
 					lang : 'en-US'
 				}
 			],
