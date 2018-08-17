@@ -89,7 +89,7 @@ try {
 				<div className="container">
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
 						<div className="overlayer_box">
-							<_commVoiceAI parent={me} voiceObj={me.state.voiceObj_tm}/>
+							<_commVideoVoiceAI parent={me} voiceObj={me.state.voiceObj_tm}/>
 						</div>	
 					</div>					
 				</div> 
