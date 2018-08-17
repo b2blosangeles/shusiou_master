@@ -54,12 +54,12 @@ try {
 							return SR(script[o]);
 						}
 					}
-					return false;
+					//return false;
 				} else {
-					return false;
+					//return false;
 				}			
 			}
-
+			return SR(script);
 		},
 		start() {
 			let me = this;
