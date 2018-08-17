@@ -74,7 +74,7 @@ try {
 			if (Object.keys(me.script).indexOf(t.toString()) !== -1) {
 				me.setState({locked : true});
 				me.holdVideo();
-				console.log(me.prog[t.toString()]);
+				console.log(me.script[t.toString()]);
 				me.playTTS(me.script[t.toString()], function() {
 					me.setState({locked : false});
 					
