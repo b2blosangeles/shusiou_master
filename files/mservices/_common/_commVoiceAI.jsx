@@ -78,7 +78,7 @@ try {
 		},
 		microPhone: function() {
 			var me = this;
-			return (!Root.state.pingbo) ?
+			return (!Root.state.pingbo && (me.isSpeachRecongnise())) ?
 			(<span><i className="fa fa-microphone status_off" onClick={me.channelComm.bind(me)}
 				aria-hidden="true" style={{"font-size":"5em"}}></i></span>) : 
 			(<span>			
