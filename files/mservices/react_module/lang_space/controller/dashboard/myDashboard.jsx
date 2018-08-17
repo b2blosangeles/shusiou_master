@@ -53,7 +53,7 @@ try {
 				},			
 				{
 					tts: 'please repeat',
-					sp: ['good', 'nice', 'stupid', 'california'],
+					spn: ['good', 'nice', 'stupid', 'california'],
 					v : {
 						Y : {
 							tts: '很好',
