@@ -48,6 +48,7 @@ try {
 			let me = this, script = me.props.parent.state.voiceObj;
 			if (script) {
 				for (var o in script) {
+					console.log(typeof script[o].sp)
 					if (script[o].sp) {
 						return true;
 					}
