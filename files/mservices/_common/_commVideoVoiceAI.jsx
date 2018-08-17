@@ -85,6 +85,7 @@ try {
 			</span>)
 		},
 		videoStatus: function() {
+			let me = this;
 			return (!Root.state.pingbo && (me.isSpeachRecongnise())) ? {display:'none'} : {display:null}
 		},
 		video: function() {
