@@ -95,7 +95,7 @@ try {
 		videoBox: function() {
 			var me = this;
 			return (<video id="myVideo" width="320" height="240" controls style={me.videoStatus()}>
-					{/*<source src={me.video} type="video/mp4"/>*/
+					{/*<source src={me.video} type="video/mp4"/>*/}
 			</video>) 
 		},
 		playVoiceAIUnit : function(t) {
