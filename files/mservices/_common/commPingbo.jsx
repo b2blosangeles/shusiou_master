@@ -98,8 +98,6 @@ try {
 		},
 		commPipe : function() {
 			let me = this;
-			console.log(me.state);
-			console.log('---bu bu bu niu---');
 			if (typeof me.props.parent._voiceRecong === 'function') {
 				me.props.parent._voiceRecong(me.state.commData);
 			} 
