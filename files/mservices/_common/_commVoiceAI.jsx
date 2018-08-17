@@ -46,16 +46,20 @@ try {
 		},
 		isSpeachRecongnise : function() {
 			let me = this, script = me.props.parent.state.voiceObj;
-			if (script) {
-				for (var o in script) {
-					console.log(typeof script[o])
-					if (script[o].sp) {
-						return true;
+			function SR(script) {
+				if (typeof script === 'object') {
+					if (script.sp) return true;
+					for (var o in script) {
+						if (typeof script[o] === 'object') {
+							return SR(script[o]);
+						}
 					}
-				}
-			} else {
-				return false;
+					return false;
+				} else {
+					return false;
+				}			
 			}
+
 		},
 		start() {
 			let me = this;
