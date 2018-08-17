@@ -58,10 +58,7 @@ try {
 							}
 						}
 					}
-					//return false;
-				} else {
-					//return false;
-				}			
+				} 		
 			}
 			return SR(script);
 		},
