@@ -23,7 +23,7 @@ try {
 					me.vid.play();
 					// me.playVoiceAI();
 				} else {
-					console.log('UIschedule');
+					me.UIschedule();
 				}
 			}
 			if (Root.state.stream !== me.state.stream) {
@@ -123,9 +123,10 @@ try {
 				});
 			}
 		},		
-		playVoiceAI : function() {
+		UIschedule : function() {
 			let me = this;
-				
+			console.log('UIschedule');
+			return true;
 			me._stopplay = false;
 			
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
