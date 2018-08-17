@@ -101,7 +101,7 @@ try {
 			let me = this;
 			if (Object.keys(me.script).indexOf(t.toString()) !== -1) {
 				me.setState({locked : true});
-				me.holdVideo();
+				it (me.vid) me.holdVideo();
 				console.log(me.script[t.toString()]);
 				me.playTTS(me.script[t.toString()], function() {
 					me.setState({locked : false});
@@ -112,12 +112,12 @@ try {
 							lang : 'en-US'							
 						}], function() {
 							delete me.script[t.toString()];
-							me.playVideo(t);
+							it (me.vid) me.playVideo(t);
 							// me._stopplay = true;
 						});						
 					} else {
 						delete me.script[t.toString()];
-						me.playVideo(t);
+						it (me.vid) me.playVideo(t);
 					}
 				});
 			}
