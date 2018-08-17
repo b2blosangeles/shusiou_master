@@ -92,7 +92,7 @@ try {
 		videoStatus: function() {
 			let me = this;
 			if (!Root.state.pingbo && (me.isSpeachRecongnise()) && (me.vid)) me.vid.pause();
-			return (!Root.state.pingbo && (me.isSpeachRecongnise())) ? {display:'none'} : {display:null}
+			return (!me.vid || (!Root.state.pingbo && (me.isSpeachRecongnise()))) ? {display:'none'} : {display:null}
 		},
 		videoBox: function() {
 			var me = this;
