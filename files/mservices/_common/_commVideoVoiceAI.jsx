@@ -35,7 +35,7 @@ try {
 		},
 		componentDidMount:function() {
 			let me = this;
-			me.set({main_video : 'main_video_' + new Date().getTime()});
+			me.setState({main_video : 'main_video_' + new Date().getTime()});
 			setTimeout(me.start);
 		},
 		isSpeachRecongnise : function() {
