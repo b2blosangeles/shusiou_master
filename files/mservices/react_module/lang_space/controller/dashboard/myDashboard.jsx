@@ -32,7 +32,9 @@ try {
 		// https://cloud.google.com/speech-to-text/docs/languages
 		// VoiceObj		
 		
-		me.setState({script : {'8' : [
+		me.setState({
+			video: 'http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001',
+			script : {'8' : [
 				{
 					length: 2,
 					tts: '深圳打响楼市个人限卖.第一枪',
@@ -42,8 +44,8 @@ try {
 					lang : 'cmn-Hans-CN'
 				},			
 				{
-					// tts: 'please repeat',
-					sp: ['good', 'nice', 'stupid', 'california'],
+					tts: 'please repeat',
+					//sp: ['good', 'nice', 'stupid', 'california'],
 					v : {
 						Y : {
 							tts: '很好',
