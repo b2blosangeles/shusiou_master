@@ -51,6 +51,7 @@ try {
 		start() {
 			let me = this;
 			if (!me.props.parent.state.videoUrl) {
+				me.script = JSON.parse(JSON.stringify(me.props.parent.state.script));
 				me.UIschedule();
 				return true;
 			} else {
