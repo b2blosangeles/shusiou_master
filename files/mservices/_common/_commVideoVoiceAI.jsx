@@ -101,7 +101,7 @@ try {
 			let me = this;
 			if (Object.keys(me.script).indexOf(t.toString()) !== -1) {
 				me.setState({locked : true});
-				it (me.vid) me.holdVideo();
+				if (me.vid) me.holdVideo();
 				console.log(me.script[t.toString()]);
 				me.playTTS(me.script[t.toString()], function() {
 					me.setState({locked : false});
