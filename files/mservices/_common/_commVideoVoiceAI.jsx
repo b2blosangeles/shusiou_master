@@ -110,16 +110,17 @@ try {
 					me.setState({locked : false});
 					
 					if (Object.keys(me.script).length === 1) {
-						me.playTTS([{
-							tts: 'stream finished, continue enjoy the video, thank you',
-							lang : 'en-US'							
-						}], function() {
-							delete me.script[t.toString()];
-							if (me.vid) me.playVideo(t);
-							if (!me.vid) {
-								me._stopplay = true;
-							}	
-						});						
+						if (!me.vid) {
+							me._stopplay = true;
+						} else {
+							me.playTTS([{
+								tts: 'stream finished, continue enjoy the video, thank you',
+								lang : 'en-US'							
+							}], function() {
+								delete me.script[t.toString()];
+								if (me.vid) me.playVideo(t);
+							});
+						}
 					} else {
 						delete me.script[t.toString()];
 						if (me.vid) me.playVideo(t);
