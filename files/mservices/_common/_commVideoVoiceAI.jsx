@@ -21,8 +21,6 @@ try {
 					me.vid.pause(); 
 					me.vid.currentTime = 0;
 					me.vid.play();
-				} else {
-					me.UIschedule();
 				}
 			}
 			if (Root.state.stream !== me.state.stream) {
@@ -63,6 +61,7 @@ try {
 				me.vid.ontimeupdate = function(){
 					Root.setState({stream : Math.floor(me.vid.currentTime)});
 				};
+				me.playVideo(0);
 				/* console.log('isSpeachRecongnise=--==>' + me.isSpeachRecongnise()) */
 			}
 		},
