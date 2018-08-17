@@ -18,7 +18,6 @@ try {
 			}
 			if ((me.state.pingbo) && me.state.pingbo !== preState.pingbo) {
 				if (me.vid) {
-					me.vid.src = me.video;
 					me.vid.pause(); 
 					me.vid.currentTime = 0;
 					me.vid.play();
@@ -38,13 +37,6 @@ try {
 		componentDidMount:function() {
 			let me = this;
 			setTimeout(me.start);
-			me.vid = document.getElementById("myVideo"); 
-			me.vid.ontimeupdate = function(){
-				if (Math.floor(me.vid.currentTime) === 0) {
-					me.start();
-				}
-				Root.setState({stream : Math.floor(me.vid.currentTime)});
-			};
 		},
 		isSpeachRecongnise : function() {
 			let me = this, script = me.props.parent.state.script;
@@ -61,7 +53,15 @@ try {
 			let me = this;
 			me.script = JSON.parse(JSON.stringify(me.props.parent.state.script));
 			me.video = me.props.parent.state.video;
-			console.log('isSpeachRecongnise=++==>' + me.isSpeachRecongnise())
+			me.vid = document.getElementById("myVideo"); 
+			me.vid.src = me.video;
+			me.vid.ontimeupdate = function(){
+				if (Math.floor(me.vid.currentTime) === 0) {
+					me.start();
+				}
+				Root.setState({stream : Math.floor(me.vid.currentTime)});
+			};			
+			console.log('isSpeachRecongnise=--==>' + me.isSpeachRecongnise())
 		},
 		holdVideo : function() {
 			let me = this;
