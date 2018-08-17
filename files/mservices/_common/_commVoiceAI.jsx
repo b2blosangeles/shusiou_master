@@ -47,14 +47,14 @@ try {
 		isSpeachRecongnise : function() {
 			let me = this, script = me.props.parent.state.voiceObj;
 			function SR(script) {
-				if (typeof script === 'object') {
+				//if (typeof script === 'object') {
 					for (var o in script) {
 						if (o === 'sp') return true;
 						if (typeof script[o] === 'object') {
 							if (SR(script[o])) return true;
 						}
 					}
-				} 		
+				//} 		
 			}
 			return (SR(script)) ? true : false;
 		},
