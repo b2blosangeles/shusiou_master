@@ -109,8 +109,8 @@ try {
 		},
 		render: function() {
 			let me = this;
-			return (<span>_commPingbo --> {Root.state.pingbo_id} ==>>>{me.state.socket_id} *** {Root.state.pingbo}
-					{me.showData(me.state.commData)}</span>)
+			return (<span>{/*_commPingbo --> {Root.state.pingbo_id} ==>>>{me.state.socket_id} *** {Root.state.pingbo}
+					{me.showData(me.state.commData)} */}</span>)
 		}
 	});	
 } catch (err) {
