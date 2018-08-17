@@ -69,6 +69,21 @@ try {
 			me.vid.currentTime = (nextPoint) ? (nextPoint + 1) : 0;
 			me.vid.play(); 
 		},
+		channelComm : function() {
+			let me = this;
+			if (!Root.state.pingbo_id) return true;
+			// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
+			let url = 'https://comm1.service.dev.shusiou.win/?socket=' + Root.state.pingbo_id;
+			Root.lib.positionedPopup(url, '','280','280','0','0','yes');
+		},
+		microPhone: function() {
+			var me = this;
+			return (!Root.state.pingbo) ?
+			(<span><i className="fa fa-microphone status_off" onClick={me.channelComm.bind(me)}
+				aria-hidden="true" style={{"font-size":"5em"}}></i></span>) : 
+			(<span>			
+			</span>)
+		},		
 		playVoiceAIUnit : function(t) {
 			let me = this;
 			if (Object.keys(me.script).indexOf(t.toString()) !== -1) {
@@ -176,6 +191,8 @@ try {
 						<source src="http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001" type="video/mp4"/>
 					</video>
 					<br/>
+					{me.microPhone()}							
+					<br/><br/>
 					<a>start</a> <a>stop</a>
 				</span>)
 		}
