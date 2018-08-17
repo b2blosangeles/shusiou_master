@@ -94,6 +94,7 @@ try {
 		},
 		videoStatus: function() {
 			let me = this;
+			if (!Root.state.pingbo && (me.isSpeachRecongnise())) me.vid.pause();
 			return (!Root.state.pingbo && (me.isSpeachRecongnise())) ? {display:'none'} : {display:null}
 		},
 		videoBox: function() {
