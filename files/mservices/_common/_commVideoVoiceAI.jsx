@@ -17,13 +17,15 @@ try {
 				me.setState({pingbo : Root.state.pingbo});
 			}
 			if ((me.state.pingbo) && me.state.pingbo !== preState.pingbo) {
-				//if (me.props.voiceObj) {
+				if (me.vid) {
 
 					me.vid.pause(); 
 					me.vid.currentTime = 0;
 					me.vid.play();
 					// me.playVoiceAI();
-				//}
+				} else {
+					console.log('UIschedule');
+				}
 			}
 			if (Root.state.stream !== me.state.stream) {
 				me.setState({stream : Math.floor(Root.state.stream)});
