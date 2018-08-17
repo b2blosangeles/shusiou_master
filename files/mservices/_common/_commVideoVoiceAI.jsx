@@ -50,8 +50,10 @@ try {
 		},
 		start() {
 			let me = this;
-			if (!me.props.parent.state.videoUrl) return true;
-			else {
+			if (!me.props.parent.state.videoUrl) {
+				me.UIschedule();
+				return true;
+			} else {
 				me.script = JSON.parse(JSON.stringify(me.props.parent.state.script));
 				me.vidObj = $("#myVideo")[0]; 
 				me.vid = me.vidObj[0];
