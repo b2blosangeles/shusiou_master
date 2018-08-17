@@ -51,14 +51,17 @@ try {
 		},
 		start() {
 			let me = this;
-			me.script = JSON.parse(JSON.stringify(me.props.parent.state.script));
-			me.vidObj = $("#myVideo")[0]; 
-			me.vid = me.vidObj[0];
-			me.vidObj.attr("src", me.props.parent.state.videoUrl);
-			me.vid.ontimeupdate = function(){
-				Root.setState({stream : Math.floor(me.vid.currentTime)});
-			};
-			console.log('isSpeachRecongnise=--==>' + me.isSpeachRecongnise())
+			if (!me.props.parent.state.videoUrl) return true;
+			else {
+				me.script = JSON.parse(JSON.stringify(me.props.parent.state.script));
+				me.vidObj = $("#myVideo")[0]; 
+				me.vid = me.vidObj[0];
+				me.vidObj.attr("src", me.props.parent.state.videoUrl);
+				me.vid.ontimeupdate = function(){
+					Root.setState({stream : Math.floor(me.vid.currentTime)});
+				};
+				console.log('isSpeachRecongnise=--==>' + me.isSpeachRecongnise())
+			}
 		},
 		holdVideo : function() {
 			let me = this;
