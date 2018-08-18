@@ -65,7 +65,7 @@ try {
 				return true;
 			} else {
 				me.script = JSON.parse(JSON.stringify(me.props.parent.state.script));
-				me.videoPosition = me.props.parent.state.videoPosition;
+				me.videoSetting = me.props.parent.state.videoSetting;
 				me.vboxid = 'main_video_' + new Date().getTime();
 				if (me.videoSetting !== 'bg') {
 					me.setState({videoSetting : me.videoSetting, vboxid : me.vboxid}, me.setVideoEvent);
