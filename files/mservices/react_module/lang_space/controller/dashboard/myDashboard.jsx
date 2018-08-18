@@ -36,7 +36,7 @@ try {
 		
 		me.setState({
 			// videoUrl: 'http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001',
-			videoSetting : 'bg',
+			videoPosition : {width:480, height:320},
 			script : {'8' : [
 				{
 					length: 3,
