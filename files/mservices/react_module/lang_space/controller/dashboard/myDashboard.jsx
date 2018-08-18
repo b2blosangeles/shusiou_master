@@ -26,6 +26,8 @@ try {
 		let me = this;
 		return true;
         },
+	    
+	    
         componentDidMount:function() {
 		let me = this;
 		console.log('===comein ===');
@@ -73,7 +75,8 @@ try {
 			_tm : new Date().getTime()	    
 		});
 		
-
+		console.log('---me.state.script-->');
+		console.log(me.state.script);
 		return true;
         },
 	releaseHold : function(data) {
