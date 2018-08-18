@@ -67,10 +67,10 @@ try {
 				me.script = JSON.parse(JSON.stringify(me.props.parent.state.script));
 				me.videoPosition = me.props.parent.state.videoPosition;
 				me.vboxid = 'main_video_' + new Date().getTime();
-				if (me.videoPosition !== 'bg') {
-					me.setState({existVideo : true, vboxid : me.vboxid}, me.setVideoEvent);
+				if (me.videoSetting !== 'bg') {
+					me.setState({videoSetting : me.videoSetting, vboxid : me.vboxid}, me.setVideoEvent);
 				} else {
-					me.setState({existVideo : null, vboxid : null});
+					me.setState({videoSetting : null, vboxid : null});
 					$('.content_bg').html('<video src="" id="' + me.vboxid + '"></video>');
 					me.setVideoEvent();
 				}
@@ -107,8 +107,12 @@ try {
 		},
 		videoBox: function() {
 			var me = this;
-			if (!me.state.vboxid || !me.state.existVideo) return (<span>==>>>===</span>)
-			else return (<video src="" id={me.state.vboxid}  width="320" height="240" controls></video>)
+			if (!me.state.vboxid || !me.state.videoSetting) return (<span></span>)
+			else return (<video src="" id={me.state.vboxid}  
+					     width={(me.state.videoSetting.width) ? me.state.videoSetting.width : 320} 
+					     height={(me.state.videoSetting.height) ? me.state.videoSetting.height : 240}  
+					     controls>
+				</video>)
 		},		
 		playVoiceAIUnit : function(t) {
 			let me = this;
