@@ -68,9 +68,9 @@ try {
 				me.videoPosition = me.props.parent.state.videoPosition;
 				me.vboxid = 'main_video_' + new Date().getTime();
 				if (me.videoPosition !== 'bg') {
-					me.setState({vboxid : me.vboxid}, me.setVideoEvent);
+					me.setState({existVideo : true, vboxid : me.vboxid}, me.setVideoEvent);
 				} else {
-					me.setState({vboxid : null});
+					me.setState({existVideo : null, vboxid : null});
 					$('.content_bg').html('<video src="" id="' + me.vboxid + '"></video>');
 					me.setVideoEvent();
 				}
@@ -107,21 +107,8 @@ try {
 		},
 		videoBox: function() {
 			var me = this;
-			if (!me.state.vboxid) return (<span>==>>>===</span>)
+			if (!me.state.vboxid || !me.state.existVideo) return (<span>==>>>===</span>)
 			else return (<video src="" id={me.state.vboxid}  width="320" height="240" controls></video>)
-		},
-		videoBox1: function() {
-			var me = this;
-			/*
-			return (<div className="content_bg">
-				<video src="" id={me.state.main_video} width="320" height="240" controls style={me.videoStatus()}>
-					
-				</video>
-				</div>)*/
-			
-			return (<video src="" id={me.state.main_video} width="320" height="240" controls style={me.videoStatus()}>
-				{/*<source src={me.video} type="video/mp4"/>*/}	
-			</video>) 
 		},		
 		playVoiceAIUnit : function(t) {
 			let me = this;
