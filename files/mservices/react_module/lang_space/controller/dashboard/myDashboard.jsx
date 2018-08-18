@@ -38,14 +38,16 @@ try {
 			videoUrl: 'http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001',
 			script : {'8' : [
 				{
-					length: 2,
+					length: 3,
 					tts: '深圳打响楼市个人限卖.第一枪',
 					lang : 'cmn-Hans-CN'
 				},{
+					length: 2,
 					tts: '中国,已安排最先进的海洋救助船',
 					lang : 'cmn-Hans-CN'
 				},			
 				{
+					length: 2,
 					tts: 'please repeat',
 					//sp: ['good', 'nice', 'stupid', 'california'],
 					v : {
@@ -62,10 +64,12 @@ try {
 				}
 			],
 			'12' : [{
+				length: 2,
 				tts: '中央定调下半年中国经济',
 				lang : 'cmn-Hans-CN'			
 			}],  
 			'18' : [{
+				length: 2,
 				tts: '稳中有变',
 				lang : 'cmn-Hans-CN'			
 			}]},
