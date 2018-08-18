@@ -69,9 +69,9 @@ try {
 			let me = this;
 			me.vid.pause(); 
 		},
-		playVideo : function(nextPoint) {
+		playVideo : function(length) {
 			let me = this;
-			me.vid.currentTime = (nextPoint) ? (nextPoint + 1) : 0;
+			me.vid.currentTime += (length) ? length : 0;
 			me.vid.play(); 
 		},
 		channelComm : function() {
