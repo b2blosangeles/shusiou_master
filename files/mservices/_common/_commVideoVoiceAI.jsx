@@ -231,7 +231,7 @@ try {
 			return (<span><_commPingbo parent={me.props.parent} parking={me} />
 					<br/>{me.state.currentText}
 					<br/>
-					{/*me.videoBox()*/}
+					{me.videoBox()}
 					<br/>
 					{me.microPhone()}							
 					<br/><br/>
