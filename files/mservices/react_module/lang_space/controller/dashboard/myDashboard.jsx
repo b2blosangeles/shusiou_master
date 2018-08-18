@@ -103,9 +103,7 @@ try {
 						</div>	
 					</div>					
 				</div> 
-				<div className="content_bg">
-			    		<video src="" id={Root.state.main_video}></video>
-			    	</div>
+				<div className="content_bg"></div>
 				     {Root.lib.landingModal(me)}
 				
 			</div>)
