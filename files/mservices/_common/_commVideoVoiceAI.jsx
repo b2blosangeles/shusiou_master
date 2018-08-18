@@ -28,7 +28,7 @@ try {
 			}
 			if (me.state.stream !== preState.stream) {
 				me.playVoiceAIUnit(me.state.stream);
-				console.log('Root.state.stream ->' + me.state.stream);
+				//console.log('Root.state.stream ->' + me.state.stream);
 			}
 		},
 		componentDidMount:function() {
