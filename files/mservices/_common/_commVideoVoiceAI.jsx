@@ -33,7 +33,7 @@ try {
 		},
 		componentDidMount:function() {
 			let me = this;
-			Root.setState({main_video : 'main_video_' + new Date().getTime()});
+			
 			setTimeout(me.start);
 		},
 		isSpeachRecongnise : function() {
@@ -55,6 +55,9 @@ try {
 				return true;
 			} else {
 				me.script = JSON.parse(JSON.stringify(me.props.parent.state.script));
+				me.videoPosition = me.props.parent.state.videoPosition;
+				Root.setState({main_video : 'main_video_' + new Date().getTime()});
+				alert($('.content_bg').length);
 				me.vidObj = $('#' + Root.state.main_video); 
 				me.vid = me.vidObj[0];
 				me.vidObj.attr("src", me.props.parent.state.videoUrl);
@@ -96,9 +99,9 @@ try {
 		},
 		videoBox: function() {
 			var me = this;
+			//if 
 			return (<div className="content_bg">
-				<video src="" id={Root.state.main_video} controls>
-					
+				<video src="" id={Root.state.main_video} controls>	
 				</video>
 				</div>)
 		},
