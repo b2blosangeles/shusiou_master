@@ -66,7 +66,7 @@ try {
 			} else {
 				me.script = JSON.parse(JSON.stringify(me.props.parent.state.script));
 				me.vboxid = 'main_video_' + new Date().getTime();
-				if (typeof me.props.parent.state.videoSetting !== 'object') {
+				if (typeof me.props.parent.state.videoSetting === 'object') {
 					me.setState({videoSetting : me.props.parent.state.videoSetting, vboxid : me.vboxid}, me.setVideoEvent);
 				} else {
 					me.setState({videoSetting : null, vboxid : null});
