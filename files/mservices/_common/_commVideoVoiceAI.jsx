@@ -47,7 +47,17 @@ try {
 			}
 			return (SR(script)) ? true : false;
 		},
-		start() {
+		setVideoEvent : function() {
+			let me = this;
+			me.vidObj = $('#' + me.vboxid); 
+			me.vid = me.vidObj[0];
+			me.vidObj.attr("src", me.props.parent.state.videoUrl);
+			me.vid.ontimeupdate = function(){
+				Root.setState({stream : Math.floor(me.vid.currentTime)});
+			};
+			me.playVideo(0);		
+		},
+		start: function() {
 			let me = this;
 			if (!me.props.parent.state.videoUrl) {
 				me.script = JSON.parse(JSON.stringify(me.props.parent.state.script));
@@ -56,16 +66,14 @@ try {
 			} else {
 				me.script = JSON.parse(JSON.stringify(me.props.parent.state.script));
 				me.videoPosition = me.props.parent.state.videoPosition;
-				Root.setState({main_video : 'main_video_' + new Date().getTime()});
-				alert($('.content_bg').length);
-				me.vidObj = $('#' + Root.state.main_video); 
-				me.vid = me.vidObj[0];
-				me.vidObj.attr("src", me.props.parent.state.videoUrl);
-				me.vid.ontimeupdate = function(){
-					Root.setState({stream : Math.floor(me.vid.currentTime)});
-				};
-				me.playVideo(0);
-				/* console.log('isSpeachRecongnise=--==>' + me.isSpeachRecongnise()) */
+				me.vboxid = 'main_video_' + new Date().getTime();
+				if (me.videoPosition !== 'bg') {
+					me.setState({vboxid : me.vboxid}, me.setVideoEvent);
+				} else {
+					me.setState({vboxid : null});
+					$('.content_bg').html('<video src="" id="' + me.vboxid + '"></video>');
+					me.setVideoEvent();
+				}
 			}
 		},
 		holdVideo : function() {
@@ -99,11 +107,8 @@ try {
 		},
 		videoBox: function() {
 			var me = this;
-			//if 
-			return (<div className="content_bg">
-				<video src="" id={Root.state.main_video} controls>	
-				</video>
-				</div>)
+			if (!me.state.vboxid) return (<span>==>>>===</span>)
+			else return (<video src="" id={me.state.vboxid}  width="320" height="240" controls></video>)
 		},
 		videoBox1: function() {
 			var me = this;
