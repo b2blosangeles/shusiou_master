@@ -74,7 +74,8 @@ try {
 				lang : 'cmn-Hans-CN'			
 			}]};
 		
-		var list  = Object.keys(v).filter(function(v) { return !isNaN(v); }).map(parseFloat).sort();		
+		var list  = Object.keys(v).filter(function(v) { return !isNaN(v); }).map(parseFloat)
+				.sort(function(a, b) { return a > b});		
 		
 		console.log(list);
 		
