@@ -132,7 +132,7 @@ try {
 					me.setState({locked : false});
 					if (Object.keys(me.timeLine).length === 1) {
 						me.playTTS([{
-							tts: 'text quque finished',
+							tts: '',
 							lang : 'en-US'							
 						}], function() {
 							delete me.timeLine[t.toString()];
