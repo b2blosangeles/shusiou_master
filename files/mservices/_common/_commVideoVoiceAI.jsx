@@ -168,6 +168,7 @@ try {
 			console.log('=======> ');
 			console.log(me.timeLine);
 			for (let t in me.timeLine) {
+				console.log('=== inside ==> ')
 				Root.setState({timeLine : t});
 				console.log(t);
 				setTimeout(me.UIschedule, 1000);
