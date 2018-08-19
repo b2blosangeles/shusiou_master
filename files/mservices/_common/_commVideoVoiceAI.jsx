@@ -60,7 +60,12 @@ try {
 		start: function() {
 			let me = this;
 			if (!me.props.parent.state.videoUrl) {
-				me.script = JSON.parse(JSON.stringify(me.props.parent.state.script));
+				me.script = me.props.parent.state.script;
+				me.timeLine  = Object.keys(me.script).filter(function(v) { return !isNaN(v); })
+					.map(parseFloat)
+					.sort(function(a, b) { return a > b});
+				console.log('me.timeLine ');
+				console.log(me.timeLine);
 				me.UIschedule();
 				return true;
 			} else {
