@@ -32,8 +32,9 @@ try {
 		let me = this;
 		console.log('===comein ===');
 		// https://cloud.google.com/speech-to-text/docs/languages
-		// VoiceObj		
-		
+		// VoiceObj
+
+
 		
 		var v = {'8' : [
 				{
@@ -72,7 +73,15 @@ try {
 				tts: '稳中有变',
 				lang : 'cmn-Hans-CN'			
 			}]};
-		console.log(v);
+		
+		var list  = Object.keys[v].sort(function(a, b)
+		{
+			var x=a[1].toLowerCase(),
+				y=b[1].toLowerCase();
+			return x<y ? -1 : x>y ? 1 : 0;
+		});		
+		
+		console.log(list);
 		
 		me.setState({
 			videoUrl: 'http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001',
