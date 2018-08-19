@@ -28,12 +28,10 @@ try {
 			}
 			if (me.state.timeLine !== preState.timeLine) {
 				me.playVoiceAIUnit(me.state.timeLine);
-				//console.log('Root.state.stream ->' + me.state.stream);
 			}
 		},
 		componentDidMount:function() {
 			let me = this;
-			
 			setTimeout(me.start);
 		},
 		isSpeachRecongnise : function() {
@@ -53,8 +51,6 @@ try {
 			me.vid = me.vidObj[0];
 			me.vidObj.attr("src", me.props.parent.state.videoUrl);
 			me.vid.ontimeupdate = function(){
-				//console.log('----Math.floor(me.vid.currentTime * 2) * 0.5--->');
-				//console.log(Math.floor(me.vid.currentTime * 2) * 0.5)
 				let v = Math.floor(me.vid.currentTime * 2) * 0.5;
 				if (Root.state.timeLine !== v) {
 					Root.setState({timeLine : v});
@@ -70,8 +66,6 @@ try {
 				Object.keys(me.script).filter(function(v) { return !isNaN(v); })
 					.sort(function(a, b) { return parseFloat(a) > parseFloat(b)})
 					.map(function(v, idx) { me.timeLine[idx.toString()] = me.script[v];});
-				console.log('me.timeLine ---> ');
-				console.log(me.timeLine);
 				me.UIschedule();
 				return true;
 			} else {
@@ -81,8 +75,6 @@ try {
 					.sort(function(a, b) { return parseFloat(a) > parseFloat(b)})
 					.map(function(v) { 
 						me.timeLine[(Math.floor(parseFloat(v) * 2) * 0.5).toString()] = me.script[v];});
-				console.log('me.timeLine ');
-				console.log(me.timeLine);
 				me.vboxid = 'main_video_' + new Date().getTime();
 				if (typeof me.props.parent.state.videoSetting === 'object') {
 					me.setState({videoSetting : me.props.parent.state.videoSetting, vboxid : me.vboxid}, me.setVideoEvent);
@@ -136,7 +128,6 @@ try {
 			if (Object.keys(me.timeLine).indexOf(t.toString()) !== -1) {
 				me.setState({locked : true});
 				if (me.vid) me.holdVideo();
-				console.log(me.timeLine[t.toString()]);
 				me.playTTS(me.timeLine[t.toString()], function() {
 					me.setState({locked : false});
 					if (Object.keys(me.timeLine).length === 1) {
