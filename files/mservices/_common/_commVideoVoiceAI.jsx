@@ -209,8 +209,6 @@ try {
 					{me.videoBox()}
 					<br/>
 					{me.microPhone()}							
-					<br/><br/>
-					<a>start</a> <a>stop</a>
 				</span>)
 		}
 	});	
