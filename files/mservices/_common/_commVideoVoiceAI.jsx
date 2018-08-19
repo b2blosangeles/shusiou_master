@@ -60,17 +60,16 @@ try {
 		},
 		start: function() {
 			let me = this;
+			me.script = me.props.parent.state.script;
+			me.afterScript = me.props.parent.state.afterScript;
+			me.timeLine = {}
 			if (!me.props.parent.state.videoUrl) {
-				me.script = me.props.parent.state.script;
-				me.timeLine = {}
 				Object.keys(me.script).filter(function(v) { return !isNaN(v); })
 					.sort(function(a, b) { return parseFloat(a) > parseFloat(b)})
 					.map(function(v, idx) { me.timeLine[idx.toString()] = me.script[v];});
 				me.UIschedule();
 				return true;
 			} else {
-				me.script = me.props.parent.state.script;
-				me.afterScript = me.props.parent.state.afterScript;
 				me.timeLine = {}
 				Object.keys(me.script).filter(function(v) { return !isNaN(v); })
 					.sort(function(a, b) { return parseFloat(a) > parseFloat(b)})
