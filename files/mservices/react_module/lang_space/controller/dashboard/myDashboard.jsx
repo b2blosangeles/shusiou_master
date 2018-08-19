@@ -75,7 +75,7 @@ try {
 			}]};
 		
 		var list  = Object.keys(v).filter(function(v) { return !isNaN(v); }).sort(function(a, b) {
-			return b > a;
+			return parseFloat(b) > parseFloat(a);
 		});		
 		
 		console.log(list);
