@@ -207,9 +207,18 @@ try {
 				}			
 			}
 		},
+		showSection : function() {
+			let me = this;
+			if (me.state.currentText) {
+				return {display: ''}
+			} else {
+				return {display: 'none'}
+			}
+		},
 		render: function() {
 			let me = this;
-			return (<div className="overlayer_box"><_commPingbo parent={me.props.parent} parking={me} />
+			return (<div className="overlayer_box" style={me.showSection()}>
+					<_commPingbo parent={me.props.parent} parking={me} />
 					<br/>{me.state.currentText}
 					<br/>
 					{me.videoBox()}
