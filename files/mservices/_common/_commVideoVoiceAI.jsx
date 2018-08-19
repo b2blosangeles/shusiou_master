@@ -153,7 +153,7 @@ try {
 						}
 					} else {
 						delete me.timeLine[t];
-						if (me.vid) me.playVideo(t);
+						if (me.vid) me.playVideo(t, 1);
 					}
 				});
 			}
@@ -164,7 +164,7 @@ try {
 			//return true;
 			me._stopplay = false;
 			
-			for (vart in me.timeLine) {
+			for (var t in me.timeLine) {
 				me.playVoiceAIUnit(t);
 			}
 			rerturn true;
