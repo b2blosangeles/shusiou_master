@@ -168,8 +168,9 @@ try {
 			console.log('=======> ');
 			console.log(me.timeLine);
 			for (let t in me.timeLine) {
+				Root.setState({timeLine : v});
 				console.log(t);
-				me.playVoiceAIUnit(t);
+			//	me.playVoiceAIUnit(t);
 				return true;
 			}
 		},
