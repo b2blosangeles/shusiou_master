@@ -53,8 +53,8 @@ try {
 			me.vid = me.vidObj[0];
 			me.vidObj.attr("src", me.props.parent.state.videoUrl);
 			me.vid.ontimeupdate = function(){
-				console.log('----Math.floor(me.vid.currentTime * 2) * 0.5--->');
-				console.log(Math.floor(me.vid.currentTime * 2) * 0.5)
+				//console.log('----Math.floor(me.vid.currentTime * 2) * 0.5--->');
+				//console.log(Math.floor(me.vid.currentTime * 2) * 0.5)
 				let v = Math.floor(me.vid.currentTime * 2) * 0.5;
 				if (Root.state.timeLine !== v) {
 					Root.setState({timeLine : Math.floor(me.vid.currentTime * 2) * 0.5});
@@ -78,7 +78,7 @@ try {
 				me.timeLine  = Object.keys(me.script).filter(function(v) { return !isNaN(v); })
 					.sort(function(a, b) { return parseFloat(a) > parseFloat(b)})
 					.map(function(v) { 
-						let o = {}; o[Math.floor(parseFloat(v) * 2) * 0.5] = v;
+						let o = {}; o[Math.floor(parseFloat(v) * 2) * 0.5] = me.script[v];
 						return o});
 
 				console.log('me.timeLine ');
