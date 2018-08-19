@@ -74,11 +74,8 @@ try {
 				lang : 'cmn-Hans-CN'			
 			}]};
 		
-		var list  = Object.keys(v).sort(function(a, b)
-		{
-			var x=a[1].toLowerCase(),
-				y=b[1].toLowerCase();
-			return x<y ? -1 : x>y ? 1 : 0;
+		var list  = Object.keys(v).sort(function(a, b) {
+			return b > a;
 		});		
 		
 		console.log(list);
