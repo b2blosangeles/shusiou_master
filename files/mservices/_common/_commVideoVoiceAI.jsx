@@ -99,7 +99,7 @@ try {
 		},
 		playVideo : function(t, length) {
 			let me = this;
-			me.vid.currentTime = t + ((length) ? length : 0);
+			me.vid.currentTime = t + ((length) ? length : 0.5);
 			me.vid.play(); 
 		},
 		channelComm : function() {
