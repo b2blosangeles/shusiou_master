@@ -130,8 +130,9 @@ try {
 				if (me.vid) me.holdVideo();
 				me.playTTS(me.timeLine[t.toString()], function() {
 					me.setState({locked : false});
-					delete me.timeLine[t.toString()];
+					
 					if (Object.keys(me.timeLine).length === 1) {
+						delete me.timeLine[t.toString()];
 						me.playTTS([{
 							tts: 'queue completed',
 							lang : 'en-US'							
@@ -139,6 +140,7 @@ try {
 							if (me.vid) me.playVideo(t);
 						});
 					} else {
+						delete me.timeLine[t.toString()];
 						if (me.vid) me.playVideo(t);
 					}
 				});
