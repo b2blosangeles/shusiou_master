@@ -72,7 +72,7 @@ try {
 					.map(function(v, idx) { me.timeLine[idx.toString()] = me.script[v];});
 				console.log('me.timeLine ---> ');
 				console.log(me.timeLine);
-				me.UIschedule();
+				//me.UIschedule();
 				return true;
 			} else {
 				me.script = me.props.parent.state.script;
