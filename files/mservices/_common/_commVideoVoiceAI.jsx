@@ -167,7 +167,7 @@ try {
 			for (var t in me.timeLine) {
 				me.playVoiceAIUnit(t);
 			}
-			rerturn true;
+			return true;
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 
 			console.log(me.timeLine);
