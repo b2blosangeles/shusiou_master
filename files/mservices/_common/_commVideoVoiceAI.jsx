@@ -70,6 +70,7 @@ try {
 				return true;
 			} else {
 				me.script = me.props.parent.state.script;
+				me.afterScript = me.props.parent.state.afterScript;
 				me.timeLine = {}
 				Object.keys(me.script).filter(function(v) { return !isNaN(v); })
 					.sort(function(a, b) { return parseFloat(a) > parseFloat(b)})
@@ -131,12 +132,12 @@ try {
 				me.playTTS(me.timeLine[t.toString()], function() {
 					me.setState({locked : false});
 					
-					if (Object.keys(me.timeLine).length === 1) {
-						delete me.timeLine[t.toString()];
+					if (Object.keys(me.timeLine).length === 1 && (me.afterScript)) {
 						me.playTTS([{
-							tts: 'queue completed',
+							tts: me.afterScript.tts,
 							lang : 'en-US'							
 						}], function() {
+							delete me.timeLine[t.toString()];
 							if (me.vid) me.playVideo(t);
 						});
 					} else {
