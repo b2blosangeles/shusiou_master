@@ -167,12 +167,14 @@ try {
 			me._stopplay = false;
 			console.log('=======> ');
 			console.log(me.timeLine);
-			for (let t in me.timeLine) {
-				console.log('=== inside ==> ')
-				Root.setState({timeLine : t});
-				console.log(t);
-				setTimeout(me.UIschedule, 1000);
-				return true;
+			if (Object.key(me.timeLine).length) {
+				for (let t in me.timeLine) {
+					console.log('=== inside ==> ')
+					Root.setState({timeLine : t});
+					console.log(t);
+					setTimeout(me.UIschedule, 1000);
+					return true;
+				}
 			}
 		},
 		playTTS : function(Q, cbk) {
