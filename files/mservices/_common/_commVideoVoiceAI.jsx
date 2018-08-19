@@ -132,7 +132,7 @@ try {
 					me.setState({locked : false});
 					
 					if (Object.keys(me.timeLine).length === 1 && (me.afterScript)) {
-						if (tts: me.afterScript.tts) {
+						if (me.afterScript.tts) {
 							me.playTTS([{
 								tts: me.afterScript.tts,
 								lang : me.afterScript.lang							
