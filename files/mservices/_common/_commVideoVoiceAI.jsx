@@ -164,10 +164,11 @@ try {
 			//return true;
 			me._stopplay = false;
 			
-			for (var t in me.timeLine) {
+			for (let t in me.timeLine) {
 				me.playVoiceAIUnit(t);
 			}
 			return true;
+			/*
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 
 			console.log(me.timeLine);
@@ -191,6 +192,7 @@ try {
 
 			}, 100);			
 			return true;
+			*/
 		},
 		playTTS : function(Q, cbk) {
 			let me = this;
