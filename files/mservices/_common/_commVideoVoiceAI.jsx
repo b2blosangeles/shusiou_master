@@ -130,16 +130,15 @@ try {
 				if (me.vid) me.holdVideo();
 				me.playTTS(me.timeLine[t.toString()], function() {
 					me.setState({locked : false});
+					delete me.timeLine[t.toString()];
 					if (Object.keys(me.timeLine).length === 1) {
 						me.playTTS([{
 							tts: '',
 							lang : 'en-US'							
 						}], function() {
-							delete me.timeLine[t.toString()];
 							if (me.vid) me.playVideo(t);
 						});
 					} else {
-						delete me.timeLine[t.toString()];
 						if (me.vid) me.playVideo(t);
 					}
 				});
@@ -149,7 +148,7 @@ try {
 			let me = this;
 			me._stopplay = false;
 			if (Object.keys(me.timeLine).length) {
-				// console.log('=== inside ==> ' + Object.keys(me.timeLine)[0]);
+				console.log('=== inside ***> ' + Object.keys(me.timeLine)[0]);
 				Root.setState({timeLine : Object.keys(me.timeLine)[0]});
 				setTimeout(me.UIschedule, 2000);
 			}
