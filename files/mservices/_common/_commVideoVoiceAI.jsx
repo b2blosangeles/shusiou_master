@@ -67,10 +67,10 @@ try {
 			if (!me.props.parent.state.videoUrl) {
 				me.script = me.props.parent.state.script;
 				me.timeLine  = Object.keys(me.script).filter(function(v) { return !isNaN(v); })
-					.map(function(v) { return Math.floor(parseFloat(v) * 2) * 0.5 })
-					.sort(function(a, b) { return a > b});
-				console.log('me.timeLine ');
-				console.log(me.timeLine);
+					.sort(function(a, b) { return parseFloat(a) > parseFloat(b)})
+					.map(function(v) { 
+						let o = {}; o[Math.floor(parseFloat(v) * 2) * 0.5] = me.script[v];
+						return o});
 				me.UIschedule();
 				return true;
 			} else {
