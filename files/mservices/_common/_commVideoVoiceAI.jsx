@@ -135,7 +135,7 @@ try {
 					if (Object.keys(me.timeLine).length === 1 && (me.afterScript)) {
 						me.playTTS([{
 							tts: me.afterScript.tts,
-							lang : 'en-US'							
+							lang : me.afterScript.lang							
 						}], function() {
 							delete me.timeLine[t.toString()];
 							if (me.vid) me.playVideo(t);
