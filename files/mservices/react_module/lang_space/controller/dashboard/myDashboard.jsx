@@ -36,7 +36,7 @@ try {
 
 
 		
-		var v = {'88' : [
+		var v = {'8.8' : [
 				{
 					length: 3,
 					tts: '深圳打响楼市个人限卖.第一枪',
@@ -63,7 +63,7 @@ try {
 					lang : 'en-US'
 				}
 			],
-			'12' : [{
+			'2' : [{
 				length: 2,
 				tts: '中央定调下半年中国经济',
 				lang : 'cmn-Hans-CN'			
