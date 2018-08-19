@@ -98,8 +98,8 @@ try {
 			let me = this, w = 180, h = 180;
 			if (!Root.state.pingbo_id) return true;
 			// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
-			var left = (screen.width/2)-(w/2);
-  			var top = (screen.height/2)-(h/2);
+			var left = (screen.width)-(w);
+  			var top = 0;
 			let url = 'https://comm1.service.dev.shusiou.win/?socket=' + Root.state.pingbo_id;
 			Root.lib.positionedPopup(url, '', w, h, top, left ,'yes');
 		}, 
