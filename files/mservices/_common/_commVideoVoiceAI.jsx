@@ -210,9 +210,9 @@ try {
 		showSection : function() {
 			let me = this;
 			if (me.state.currentText) {
-				return {display: '', 'min-height': '48px'}
+				return {display: '', 'min-height': '64px'}
 			} else {
-				return {display: 'none', 'min-height': '48px'}
+				return {display: 'none', 'min-height': '64px'}
 			}
 		},
 		render: function() {
