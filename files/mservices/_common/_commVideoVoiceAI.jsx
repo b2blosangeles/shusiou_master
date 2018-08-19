@@ -209,13 +209,13 @@ try {
 		},
 		render: function() {
 			let me = this;
-			return (<span><_commPingbo parent={me.props.parent} parking={me} />
+			return (<div className="overlayer_box"><_commPingbo parent={me.props.parent} parking={me} />
 					<br/>{me.state.currentText}
 					<br/>
 					{me.videoBox()}
 					<br/>
 					{me.microPhone()}							
-				</span>)
+				</div>)
 		}
 	});	
 } catch (err) {
