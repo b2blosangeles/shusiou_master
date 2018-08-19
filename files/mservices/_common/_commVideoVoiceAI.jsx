@@ -133,30 +133,20 @@ try {
 		},		
 		playVoiceAIUnit : function(t) {
 			let me = this;
-			console.log('playVoiceAIUnit ** '  + t);
-			console.log(me.timeLine[t]);
-			
 			if (Object.keys(me.timeLine).indexOf(t.toString()) !== -1) {
 				me.setState({locked : true});
 				if (me.vid) me.holdVideo();
 				console.log(me.timeLine[t.toString()]);
 				me.playTTS(me.timeLine[t.toString()], function() {
 					me.setState({locked : false});
-					
 					if (Object.keys(me.timeLine).length === 1) {
-						/*
-						if (!me.vid) {
-							me._stopplay = true;
+						me.playTTS([{
+							tts: 'text quque finished',
+							lang : 'en-US'							
+						}], function() {
 							delete me.timeLine[t.toString()];
-						} else {*/
-							me.playTTS([{
-								tts: 'text quque finished',
-								lang : 'en-US'							
-							}], function() {
-								delete me.timeLine[t.toString()];
-								if (me.vid) me.playVideo(t);
-							});
-						//}
+							if (me.vid) me.playVideo(t);
+						});
 					} else {
 						delete me.timeLine[t.toString()];
 						if (me.vid) me.playVideo(t);
@@ -167,8 +157,6 @@ try {
 		UIschedule : function() {
 			let me = this;
 			me._stopplay = false;
-			console.log('=======> ');
-			console.log(me.timeLine);
 			if (Object.keys(me.timeLine).length) {
 				console.log('=== inside ==> ' + Object.keys(me.timeLine)[0]);
 				Root.setState({timeLine : Object.keys(me.timeLine)[0]});
