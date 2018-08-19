@@ -152,12 +152,12 @@ try {
 								lang : 'en-US'							
 							}], function() {
 								delete me.timeLine[t.toString()];
-								if (me.vid) me.playVideo(t, 1);
+								if (me.vid) me.playVideo(t);
 							});
 						}
 					} else {
 						delete me.timeLine[t.toString()];
-						if (me.vid) me.playVideo(t, 1);
+						if (me.vid) me.playVideo(t);
 					}
 				});
 			}
