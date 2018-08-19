@@ -168,13 +168,9 @@ try {
 			console.log('=======> ');
 			console.log(me.timeLine);
 			if (Object.keys(me.timeLine).length) {
-				for (let t in me.timeLine) {
-					console.log('=== inside ==> ')
-					Root.setState({timeLine : t});
-					console.log(t);
-					setTimeout(me.UIschedule, 1000);
-					return true;
-				}
+				console.log('=== inside ==> ' + Object.keys(me.timeLine)[0]);
+				Root.setState({timeLine : Object.keys(me.timeLine)[0]});
+				setTimeout(me.UIschedule, 2000);
 			}
 		},
 		playTTS : function(Q, cbk) {
