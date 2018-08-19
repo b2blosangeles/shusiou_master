@@ -53,7 +53,9 @@ try {
 			me.vid = me.vidObj[0];
 			me.vidObj.attr("src", me.props.parent.state.videoUrl);
 			me.vid.ontimeupdate = function(){
-				Root.setState({stream : Math.floor(me.vid.currentTime)});
+				console.log('----Math.floor(me.vid.currentTime * 2) * 0.5--->');
+				console.log(Math.floor(me.vid.currentTime * 2) * 0.5)
+				Root.setState({stream : Math.floor(me.vid.currentTime * 2) * 0.5});
 			};
 			me.playVideo(0);		
 		},
