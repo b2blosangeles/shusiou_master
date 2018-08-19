@@ -129,7 +129,7 @@ try {
 				me.setState({locked : true});
 				if (me.vid) me.holdVideo();
 				me.playTTS(me.timeLine[t.toString()], function() {
-					me.setState({locked : false});
+					me.setState({locked : false, currentText:null});
 					
 					if (Object.keys(me.timeLine).length === 1 && (me.afterScript)) {
 						if (me.afterScript.tts) {
@@ -182,7 +182,7 @@ try {
 							Q.shift();
 							if (Q.length) {
 								setTimeout(
-									function() { me.playTTS(Q, cbk); }, 300
+									function() { me.playTTS(Q, cbk); }, 500
 								)
 							} else {
 								$("audio").unbind('ended');
