@@ -101,7 +101,7 @@ try {
 			var left = (screen.width)-(w);
   			var top = 0;
 			let url = 'https://comm1.service.dev.shusiou.win/?socket=' + Root.state.pingbo_id;
-			Root.lib.positionedPopup(url, '', w, h, top, left ,'yes');
+			Root.lib.positionedPopup(url, '', w, h, left, top, 'yes');
 		}, 
 		microPhone: function() {
 			var me = this;
