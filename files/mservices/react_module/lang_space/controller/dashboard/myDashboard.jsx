@@ -73,7 +73,7 @@ try {
 			afterScript : {
 				tts: '内容完成',
 				lang : 'cmn-Hans-CN',
-				continue : false
+				continuePlay : false
 			},    
 			_tm : new Date().getTime()	    
 		});
@@ -90,13 +90,13 @@ try {
 				<br/>
 				<div className="container">
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
-						<div className="overlayer_box">
+						PPP
 							<_commVideoVoiceAI parent={me} TM={me.state._tm}/>
-						</div>	
+
 					</div>					
 				</div> 
 				<div className="content_bg"></div>
-				     {Root.lib.landingModal(me)}
+				{Root.lib.landingModal(me)}
 				
 			</div>)
 	}});	
