@@ -161,8 +161,10 @@ try {
 		UIschedule : function() {
 			let me = this;
 			me._stopplay = false;
+			console.log('=======> ');
 			console.log(me.timeLine);
 			for (let t in me.timeLine) {
+				console.log(t);
 				me.playVoiceAIUnit(t);
 			}
 		},
