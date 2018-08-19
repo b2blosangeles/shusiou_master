@@ -133,7 +133,7 @@ try {
 					delete me.timeLine[t.toString()];
 					if (Object.keys(me.timeLine).length === 1) {
 						me.playTTS([{
-							tts: '',
+							tts: 'queue completed',
 							lang : 'en-US'							
 						}], function() {
 							if (me.vid) me.playVideo(t);
