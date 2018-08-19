@@ -66,9 +66,10 @@ try {
 			let me = this;
 			if (!me.props.parent.state.videoUrl) {
 				me.script = me.props.parent.state.script;
-				me.timeLine  = Object.keys(me.script).filter(function(v) { return !isNaN(v); })
+				me.timeLine = {}
+				Object.keys(me.script).filter(function(v) { return !isNaN(v); })
 					.sort(function(a, b) { return parseFloat(a) > parseFloat(b)})
-					.map(function(v) { return me.script[v]; });
+					.map(function(v) { me.timeLine[Math.floor(parseFloat(v) * 2) * 0.5] = me.script[v];});
 				console.log('me.timeLine ---> ');
 				console.log(me.timeLine);
 				me.UIschedule();
@@ -78,8 +79,7 @@ try {
 				me.timeLine = {}
 				Object.keys(me.script).filter(function(v) { return !isNaN(v); })
 					.sort(function(a, b) { return parseFloat(a) > parseFloat(b)})
-					.map(function(v) { me.timeLine[Math.floor(parseFloat(v) * 2) * 0.5] = me.script[v];
-						return v});
+					.map(function(v) { me.timeLine[Math.floor(parseFloat(v) * 2) * 0.5] = me.script[v];});
 				console.log('me.timeLine ');
 				console.log(me.timeLine);
 				me.vboxid = 'main_video_' + new Date().getTime();
@@ -96,9 +96,9 @@ try {
 			let me = this;
 			me.vid.pause(); 
 		},
-		playVideo : function(length) {
+		playVideo : function(t, length) {
 			let me = this;
-			me.vid.currentTime += (length) ? length : 0;
+			me.vid.currentTime = t + ((length) ? length : 1);
 			me.vid.play(); 
 		},
 		channelComm : function() {
@@ -132,14 +132,14 @@ try {
 		},		
 		playVoiceAIUnit : function(t) {
 			let me = this;
-			if (Object.keys(me.script).indexOf(t.toString()) !== -1) {
+			if (Object.keys(me.timeLine).indexOf(t) !== -1) {
 				me.setState({locked : true});
 				if (me.vid) me.holdVideo();
-				console.log(me.script[t.toString()]);
-				me.playTTS(me.script[t.toString()], function() {
+				console.log(me.timeLine[t]);
+				me.playTTS(me.timeLine[t], function() {
 					me.setState({locked : false});
 					
-					if (Object.keys(me.script).length === 1) {
+					if (Object.keys(me.timeLine).length === 1) {
 						if (!me.vid) {
 							me._stopplay = true;
 						} else {
@@ -147,12 +147,12 @@ try {
 								tts: 'stream finished, continue enjoy the video, thank you',
 								lang : 'en-US'							
 							}], function() {
-								delete me.script[t.toString()];
-								if (me.vid) me.playVideo(t);
+								delete me.timeLine[t];
+								if (me.vid) me.playVideo(t, 1);
 							});
 						}
 					} else {
-						delete me.script[t.toString()];
+						delete me.timeLine[t];
 						if (me.vid) me.playVideo(t);
 					}
 				});
@@ -179,8 +179,8 @@ try {
 					s = Math.ceil(new Date().getTime() * 0.001);
 				}
 				if (!me.state.locked) {
-					t++;
 					me.playVoiceAIUnit(t);
+					t++;
 				}
 
 			}, 100);			
