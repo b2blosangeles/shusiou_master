@@ -71,7 +71,8 @@ try {
 				lang : 'cmn-Hans-CN'			
 			}]},
 			afterScript : {
-			
+				tts: 'queue completed',
+				lang : 'en-US'
 			},    
 			_tm : new Date().getTime()	    
 		});
