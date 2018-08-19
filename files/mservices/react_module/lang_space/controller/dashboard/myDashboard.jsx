@@ -31,7 +31,7 @@ try {
         componentDidMount:function() {
 		let me = this;
 		me.setState({
-			// videoUrl: 'http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001',
+			videoUrl: 'http://node1.service.dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001',
 			//videoSetting : {width:480, height:320},
 			script : {'18.8' : [
 				{
@@ -72,7 +72,8 @@ try {
 			}]},
 			afterScript : {
 				tts: '内容完成',
-				lang : 'cmn-Hans-CN'
+				lang : 'cmn-Hans-CN',
+				continue : false
 			},    
 			_tm : new Date().getTime()	    
 		});
