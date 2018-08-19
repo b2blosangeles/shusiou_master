@@ -79,20 +79,19 @@ try {
 		});
 		return true;
         },
+	/*
 	releaseHold : function(data) {
 		var me = this;
 		me.setState({locked : false});
 		return (data === 'string') ? data : JSON.stringify(data);
-	}, 
+	}, */
         render: function() {
             var me = this;
 	    return (<div className="content_section">
 				<br/>
 				<div className="container">
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
-						PPP
-							<_commVideoVoiceAI parent={me} TM={me.state._tm}/>
-
+						<_commVideoVoiceAI parent={me} TM={me.state._tm}/>
 					</div>					
 				</div> 
 				<div className="content_bg"></div>
