@@ -99,7 +99,7 @@ try {
 		},
 		playVideo : function(t, length) {
 			let me = this;
-			me.vid.currentTime = t + ((length) ? length : 0.5);
+			me.vid.currentTime = t + ((length) ? length : 0);
 			me.vid.play(); 
 		},
 		channelComm : function() {
@@ -167,7 +167,7 @@ try {
 			me._stopplay = false;
 			console.log('=======> ');
 			console.log(me.timeLine);
-			if (Object.key(me.timeLine).length) {
+			if (Object.keys(me.timeLine).length) {
 				for (let t in me.timeLine) {
 					console.log('=== inside ==> ')
 					Root.setState({timeLine : t});
