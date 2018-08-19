@@ -132,13 +132,18 @@ try {
 					me.setState({locked : false});
 					
 					if (Object.keys(me.timeLine).length === 1 && (me.afterScript)) {
-						me.playTTS([{
-							tts: me.afterScript.tts,
-							lang : me.afterScript.lang							
-						}], function() {
+						if (tts: me.afterScript.tts) {
+							me.playTTS([{
+								tts: me.afterScript.tts,
+								lang : me.afterScript.lang							
+							}], function() {
+								delete me.timeLine[t.toString()];
+								if ((me.vid)  && (me.afterScript.continuePlay))  me.playVideo(t);
+							});
+						} else {
 							delete me.timeLine[t.toString()];
-							if (me.vid) me.playVideo(t);
-						});
+							if ((me.vid)  && (me.afterScript.continuePlay))  me.playVideo(t);				
+						}
 					} else {
 						delete me.timeLine[t.toString()];
 						if (me.vid) me.playVideo(t);
