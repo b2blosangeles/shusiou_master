@@ -164,8 +164,12 @@ try {
 			//return true;
 			me._stopplay = false;
 			
+			
+			
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 
+			console.log(me.timeLine);
+			
 			me._itv = setInterval(function(){ 
 				console.log('UIschedule 2');
 				if (me._stopplay) {
