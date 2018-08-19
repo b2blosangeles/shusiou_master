@@ -72,7 +72,7 @@ try {
 					.map(function(v, idx) { me.timeLine[idx.toString()] = me.script[v];});
 				console.log('me.timeLine ---> ');
 				console.log(me.timeLine);
-				//me.UIschedule();
+				me.UIschedule();
 				return true;
 			} else {
 				me.script = me.props.parent.state.script;
@@ -134,7 +134,7 @@ try {
 		playVoiceAIUnit : function(t) {
 			let me = this;
 			console.log('playVoiceAIUnit ** '  + t);
-			console.log(Object.keys(me.timeLine));
+			console.log(me.timeLine[t]);
 			
 			if (Object.keys(me.timeLine).indexOf(t.toString()) !== -1) {
 				me.setState({locked : true});
