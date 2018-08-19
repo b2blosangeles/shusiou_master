@@ -73,7 +73,7 @@ try {
 			afterScript : {
 				tts: '内容完成',
 				lang : 'cmn-Hans-CN',
-				continuePlay : false
+				continuePlay : true
 			},    
 			_tm : new Date().getTime()	    
 		});
