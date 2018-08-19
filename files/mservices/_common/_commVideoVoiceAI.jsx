@@ -160,39 +160,11 @@ try {
 		},		
 		UIschedule : function() {
 			let me = this;
-			console.log('UIschedule 1');
-			//return true;
 			me._stopplay = false;
-			
+			console.log(me.timeLine);
 			for (let t in me.timeLine) {
 				me.playVoiceAIUnit(t);
 			}
-			return true;
-			/*
-			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
-
-			console.log(me.timeLine);
-			
-			me._itv = setInterval(function(){ 
-				console.log('UIschedule 2');
-				if (me._stopplay) {
-					clearInterval(me._itv);
-					me.state.locked = false;
-					return true;
-				}
-				if (Math.ceil(new Date().getTime() * 0.001) - s < 1) {
-					return true;
-				} else {
-					s = Math.ceil(new Date().getTime() * 0.001);
-				}
-				if (!me.state.locked) {
-					me.playVoiceAIUnit(t);
-					t++;
-				}
-
-			}, 100);			
-			return true;
-			*/
 		},
 		playTTS : function(Q, cbk) {
 			let me = this;
