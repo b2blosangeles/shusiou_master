@@ -144,18 +144,19 @@ try {
 					me.setState({locked : false});
 					
 					if (Object.keys(me.timeLine).length === 1) {
+						/*
 						if (!me.vid) {
 							me._stopplay = true;
 							delete me.timeLine[t.toString()];
-						} else {
+						} else {*/
 							me.playTTS([{
-								tts: 'stream finished, continue enjoy the video, thank you',
+								tts: 'text quque finished',
 								lang : 'en-US'							
 							}], function() {
 								delete me.timeLine[t.toString()];
 								if (me.vid) me.playVideo(t);
 							});
-						}
+						//}
 					} else {
 						delete me.timeLine[t.toString()];
 						if (me.vid) me.playVideo(t);
