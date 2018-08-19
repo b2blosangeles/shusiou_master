@@ -74,13 +74,7 @@ try {
 			
 			},    
 			_tm : new Date().getTime()	    
-		}, function() {
-			console.log('---me.state.script-->');
-			console.log(me.state.script);		
-		
 		});
-		
-
 		return true;
         },
 	releaseHold : function(data) {
