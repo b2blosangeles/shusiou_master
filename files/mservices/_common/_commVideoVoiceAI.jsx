@@ -135,11 +135,11 @@ try {
 			console.log('playVoiceAIUnit ** '  + 't');
 			console.log(Object.keys(me.timeLine));
 			
-			if (Object.keys(me.timeLine).indexOf(t) !== -1) {
+			if (Object.keys(me.timeLine).indexOf(t.toString()) !== -1) {
 				me.setState({locked : true});
 				if (me.vid) me.holdVideo();
-				console.log(me.timeLine[t]);
-				me.playTTS(me.timeLine[t], function() {
+				console.log(me.timeLine[t.toString()]);
+				me.playTTS(me.timeLine[t.toString()], function() {
 					me.setState({locked : false});
 					
 					if (Object.keys(me.timeLine).length === 1) {
@@ -150,12 +150,12 @@ try {
 								tts: 'stream finished, continue enjoy the video, thank you',
 								lang : 'en-US'							
 							}], function() {
-								delete me.timeLine[t];
+								delete me.timeLine[t.toString()];
 								if (me.vid) me.playVideo(t, 1);
 							});
 						}
 					} else {
-						delete me.timeLine[t];
+						delete me.timeLine[t.toString()];
 						if (me.vid) me.playVideo(t, 1);
 					}
 				});
