@@ -76,7 +76,7 @@ try {
 			} else {
 				me.script = me.props.parent.state.script;
 				me.timeLine  = Object.keys(me.script).filter(function(v) { return !isNaN(v); })
-					.map(parseFloat)
+					.map(function(v) { return Math.floor(parseFloat(v) * 2) * 0.5 })
 					.sort(function(a, b) { return a > b});
 				console.log('me.timeLine ');
 				console.log(me.timeLine);
