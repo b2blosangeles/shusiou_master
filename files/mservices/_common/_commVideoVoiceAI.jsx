@@ -170,6 +170,7 @@ try {
 			for (let t in me.timeLine) {
 				console.log(t);
 				me.playVoiceAIUnit(t);
+				return true;
 			}
 		},
 		playTTS : function(Q, cbk) {
