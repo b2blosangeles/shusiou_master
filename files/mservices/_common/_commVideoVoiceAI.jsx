@@ -146,6 +146,7 @@ try {
 					if (Object.keys(me.timeLine).length === 1) {
 						if (!me.vid) {
 							me._stopplay = true;
+							delete me.timeLine[t.toString()];
 						} else {
 							me.playTTS([{
 								tts: 'stream finished, continue enjoy the video, thank you',
