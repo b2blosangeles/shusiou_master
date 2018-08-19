@@ -132,6 +132,9 @@ try {
 		},		
 		playVoiceAIUnit : function(t) {
 			let me = this;
+			console.log('playVoiceAIUnit ** '  + 't');
+			console.log(Object.keys(me.timeLine));
+			
 			if (Object.keys(me.timeLine).indexOf(t) !== -1) {
 				me.setState({locked : true});
 				if (me.vid) me.holdVideo();
