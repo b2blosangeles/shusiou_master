@@ -170,7 +170,7 @@ try {
 			for (let t in me.timeLine) {
 				Root.setState({timeLine : t});
 				console.log(t);
-			//	me.playVoiceAIUnit(t);
+				setTimeout(me.UIschedule, 1000);
 				return true;
 			}
 		},
