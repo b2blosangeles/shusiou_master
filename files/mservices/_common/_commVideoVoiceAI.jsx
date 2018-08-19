@@ -69,7 +69,7 @@ try {
 				me.timeLine = {}
 				Object.keys(me.script).filter(function(v) { return !isNaN(v); })
 					.sort(function(a, b) { return parseFloat(a) > parseFloat(b)})
-					.map(function(v) { me.timeLine[Math.floor(parseFloat(v) * 2) * 0.5] = me.script[v];});
+					.map(function(v, idx) { me.timeLine[idx] = me.script[v];});
 				console.log('me.timeLine ---> ');
 				console.log(me.timeLine);
 				me.UIschedule();
