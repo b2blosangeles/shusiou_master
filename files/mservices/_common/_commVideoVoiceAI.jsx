@@ -23,11 +23,11 @@ try {
 					me.vid.play();
 				}
 			}
-			if (Root.state.stream !== me.state.stream) {
-				me.setState({stream : Math.floor(Root.state.stream)});
+			if (Root.state.timeLine !== me.state.timeLine) {
+				me.setState({timeLine : Root.state.timeLine});
 			}
-			if (me.state.stream !== preState.stream) {
-				me.playVoiceAIUnit(me.state.stream);
+			if (me.state.timeLine !== preState.timeLine) {
+				me.playVoiceAIUnit(me.state.timeLine);
 				//console.log('Root.state.stream ->' + me.state.stream);
 			}
 		},
