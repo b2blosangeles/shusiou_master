@@ -32,7 +32,7 @@ try {
 		},
 		componentDidMount:function() {
 			let me = this;
-			setTimeout(me.start);
+			setTimeout(me.start, 1000);
 		},
 		isSpeachRecongnise : function() {
 			let me = this, script = me.props.parent.state.script;
