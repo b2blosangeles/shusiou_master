@@ -149,7 +149,7 @@ try {
 			let me = this;
 			me._stopplay = false;
 			if (Object.keys(me.timeLine).length) {
-				console.log('=== inside ==> ' + Object.keys(me.timeLine)[0]);
+				// console.log('=== inside ==> ' + Object.keys(me.timeLine)[0]);
 				Root.setState({timeLine : Object.keys(me.timeLine)[0]});
 				setTimeout(me.UIschedule, 2000);
 			}
