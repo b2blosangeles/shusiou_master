@@ -219,7 +219,7 @@ try {
 			let me = this;
 			return (<div className="overlayer_box" style={me.showSection()}>
 					<_commPingbo parent={me.props.parent} parking={me} />
-					<br/>{me.state.currentText}
+					<h4>{me.state.currentText}</h4>
 					<br/>
 					{me.videoBox()}
 					<br/>
