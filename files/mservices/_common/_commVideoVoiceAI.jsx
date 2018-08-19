@@ -137,6 +137,7 @@ try {
 								tts: me.afterScript.tts,
 								lang : me.afterScript.lang							
 							}], function() {
+								me.setState({currentText:null});
 								delete me.timeLine[t.toString()];
 								if ((me.vid)  && (me.afterScript.continuePlay))  me.playVideo(t);
 							});
