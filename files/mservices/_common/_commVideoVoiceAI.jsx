@@ -164,8 +164,10 @@ try {
 			//return true;
 			me._stopplay = false;
 			
-			
-			
+			for (vart in me.timeLine) {
+				me.playVoiceAIUnit(t);
+			}
+			rerturn true;
 			let  s = Math.ceil(new Date().getTime() * 0.001), t = 0, locked = 0;
 
 			console.log(me.timeLine);
