@@ -68,15 +68,15 @@ try {
 				me.script = me.props.parent.state.script;
 				me.timeLine  = Object.keys(me.script).filter(function(v) { return !isNaN(v); })
 					.sort(function(a, b) { return parseFloat(a) > parseFloat(b)})
-					.map(function(v) { 
-						let o = {}; o[Math.floor(parseFloat(v) * 2) * 0.5] = me.script[v];
-						return o});
+					.map(function(v) { return me.script[v]; });
+				console.log('me.timeLine ---> ');
+				console.log(me.timeLine);
 				me.UIschedule();
 				return true;
 			} else {
 				me.script = me.props.parent.state.script;
 				me.timeLine = {}
-				let timeLine  = Object.keys(me.script).filter(function(v) { return !isNaN(v); })
+				Object.keys(me.script).filter(function(v) { return !isNaN(v); })
 					.sort(function(a, b) { return parseFloat(a) > parseFloat(b)})
 					.map(function(v) { me.timeLine[Math.floor(parseFloat(v) * 2) * 0.5] = me.script[v];
 						return v});
