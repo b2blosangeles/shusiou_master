@@ -36,7 +36,7 @@ try {
 
 
 		
-		var v = {'8' : [
+		var v = {'88' : [
 				{
 					length: 3,
 					tts: '深圳打响楼市个人限卖.第一枪',
@@ -74,7 +74,7 @@ try {
 				lang : 'cmn-Hans-CN'			
 			}]};
 		
-		var list  = Object.keys(v).sort(function(a, b) {
+		var list  = Object.keys(v).filter(function(v) { return !isNaN(v); }).sort(function(a, b) {
 			return b > a;
 		});		
 		
