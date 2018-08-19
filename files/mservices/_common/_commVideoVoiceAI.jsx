@@ -57,7 +57,7 @@ try {
 				//console.log(Math.floor(me.vid.currentTime * 2) * 0.5)
 				let v = Math.floor(me.vid.currentTime * 2) * 0.5;
 				if (Root.state.timeLine !== v) {
-					Root.setState({timeLine : Math.floor(me.vid.currentTime * 2) * 0.5});
+					Root.setState({timeLine : v});
 				}
 			};
 			me.playVideo(0);		
