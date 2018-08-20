@@ -212,7 +212,8 @@ try {
 		},
 		showSection : function() {
 			let me = this;
-			if (!me.state.currentText && !me.isSpeachRecongnise()) {
+			// if (!me.state.currentText && !me.isSpeachRecongnise()) {
+			if (!me.state.currentText) {
 				return {display: 'none', 'min-height': '80px'}
 			} else {
 				return {display: '', 'min-height': '80px'}
