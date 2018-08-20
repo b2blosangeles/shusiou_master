@@ -224,7 +224,7 @@ try {
 					{/*<_commPingbo parent={me.props.parent} parking={me} />*/}
 					<h3>{me.state.currentText}</h3>
 					{me.videoBox()}
-					{me.microPhone()}							
+					{/*me.microPhone()*/}							
 				</div>)
 		}
 	});	
