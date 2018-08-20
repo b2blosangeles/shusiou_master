@@ -44,7 +44,7 @@ try {
 			let me = this;
 			me.monitorPingbo();
 			
-			let _proxy = ['https://comm1.service.dev.shusiou.win/', 'http://comm1.service.dev.shusiou.win/'];
+			let _proxy = ['https://comm1_dev.shusiou.win/', 'http://comm1_dev.shusiou.win/'];
 			Root.lib.dependeceCall(
 				function() {
 					return (typeof _QNA_ === 'function' || typeof _QNA_ === 'object') ? true : false;
@@ -54,9 +54,9 @@ try {
 						Root.qna_server = new _QNA_();	
 						Root.qna_server.init({ 
 							master_socket_id: null, 
-							link : 'https://comm1.service.dev.shusiou.win/', 
-							proxy: ['http://comm1.service.dev.shusiou.win/', 
-								'https://comm1.service.dev.shusiou.win/'],
+							link : 'https://comm1_dev.shusiou.win/', 
+							proxy: ['http://comm1_dev.shusiou.win/', 
+								'https://comm1_dev.shusiou.win/'],
 							onConnect : function(socket) {
 								me.setState({socket_id:socket.id});		
 							}, 
