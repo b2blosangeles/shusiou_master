@@ -94,6 +94,7 @@ try {
 			me.vid.currentTime = t + ((length) ? length : 0);
 			me.vid.play(); 
 		},
+		/*
 		channelComm : function() {
 			let me = this, w = 80, h = 80;
 			if (!Root.state.pingbo_id) return true;
@@ -103,7 +104,8 @@ try {
 			let url = 'https://comm1_dev.shusiou.win/?socket=' + Root.state.pingbo_id;
 			Root.lib.positionedPopup(url, '', w, h, top, left,'yes');
 			Root._popupWindow.blur();
-		}, 
+		}, */
+		/*
 		microPhone: function() {
 			var me = this;
 			return (!Root.state.pingbo && (me.isSpeachRecongnise())) ?
@@ -112,6 +114,7 @@ try {
 			(<span>			
 			</span>)
 		},
+		*/
 		videoStatus: function() {
 			let me = this;
 			if (!Root.state.pingbo && (me.isSpeachRecongnise()) && (me.vid)) me.vid.pause();
@@ -203,8 +206,10 @@ try {
 							cbk();
 						});
 					}
+					/*
 					Root.qna_server.sendToClient({cmd:'voiceRecong',voiceRecong: data.sp}, 
-						Root.state.pingbo);					
+						Root.state.pingbo);	
+						*/
 				} else {
 					//me.voiceRecong(data, cbk)
 				}			
