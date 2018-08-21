@@ -226,13 +226,15 @@ try {
 		},
 		render: function() {
 			let me = this;
-			return (<div className="overlayer_box" style={me.showSection()}>
+			return (<span>
 					<iframe src="http://comm1_dev.shusiou.win/?type=SR"></iframe>
-					{/*<_commPingbo parent={me.props.parent} parking={me} />*/}
-					<h3>{me.state.currentText}</h3>
-					{me.videoBox()}
-					{/*me.microPhone()*/}							
-				</div>)
+					<div className="overlayer_box" style={me.showSection()}>
+						{/*<_commPingbo parent={me.props.parent} parking={me} />*/}
+						<h3>{me.state.currentText}</h3>
+						{me.videoBox()}
+						{/*me.microPhone()*/}							
+					</div>
+				</span>)
 		}
 	});	
 } catch (err) {
