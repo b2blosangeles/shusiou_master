@@ -33,7 +33,7 @@ try {
 		componentDidMount:function() {
 			let me = this;
 			setTimeout(me.start, 1000);
-			$('#niu').html('<iframe src="//comm1_dev.shusiou.win/?type=SR"  allow="geolocation *;"></iframe>');
+			$('#niu').html('<iframe src="//comm1_dev.shusiou.win/?type=SR"  allow="geolocation; microphone; camera"></iframe>');
 		},
 		isSpeachRecongnise : function() {
 			let me = this, script = me.props.parent.state.script;
