@@ -33,13 +33,23 @@ try {
 		componentDidMount:function() {
 			let me = this;
 			setTimeout(me.start, 1000);
+			/* --- commnucation io ---*/
+			me._p = new _PINGBALL_('p');
 			
-			let p = new _PINGBALL_('p');
-			let room = p.socket.id + '_' + new Date().getTime();
 			let comm_svr = _comm_svr().replace(/^\/\//, '');
-			p.sendToRoom(p.socket.id + '', null, function(data) {
-				me.setState({commlink:'/api/IframPlugin.api?code=SR&commlink=' + comm_svr + '&room=' + room});
+			me._p.init({ 
+				link : '//' + comm_svr + '/',
+				onConnect : function(socket) {
+					let room = socket.id + '_' + new Date().getTime();
+					me_p.sendToRoom(room, null, function(data) {
+						me.setState({commlink:'/api/IframPlugin.api?code=SR&commlink=' + comm_svr + '&room=' + room});
+					});
+				}, 
+				onClientMessage : function(incomeData) {
+					console.log('---onClientMessage--->');
+					console.log(incomeData);
 			});
+
 		},
 		isSpeachRecongnise : function() {
 			let me = this, script = me.props.parent.state.script;
@@ -101,27 +111,6 @@ try {
 			me.vid.currentTime = t + ((length) ? length : 0);
 			me.vid.play(); 
 		},
-		/*
-		channelComm : function() {
-			let me = this, w = 80, h = 80;
-			if (!Root.state.pingbo_id) return true;
-			// let url = "https://comm1.service.dev.shusiou.win/?room=CRON_REPORT_A";
-			var left = (screen.width) - w;
-  			var top = 0;
-			let url = 'https://comm1_dev.shusiou.win/?socket=' + Root.state.pingbo_id;
-			Root.lib.positionedPopup(url, '', w, h, top, left,'yes');
-			Root._popupWindow.blur();
-		}, */
-		/*
-		microPhone: function() {
-			var me = this;
-			return (!Root.state.pingbo && (me.isSpeachRecongnise())) ?
-			(<span><i className="fa fa-microphone status_off" onClick={me.channelComm.bind(me)}
-				aria-hidden="true" style={{"font-size":"5em"}}></i></span>) : 
-			(<span>			
-			</span>)
-		},
-		*/
 		videoStatus: function() {
 			let me = this;
 			if (!Root.state.pingbo && (me.isSpeachRecongnise()) && (me.vid)) me.vid.pause();
