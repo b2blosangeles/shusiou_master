@@ -33,7 +33,7 @@ try {
 		componentDidMount:function() {
 			let me = this;
 			setTimeout(me.start, 1000);
-			me.setState({commlink'/api/IframPlugin.api?code=SR&commsvr=comm1_dev.shusiou.win&room=pinklady'});
+			me.setState({commlink:'/api/IframPlugin.api?code=SR&commsvr=comm1_dev.shusiou.win&room=pinklady'});
 		},
 		isSpeachRecongnise : function() {
 			let me = this, script = me.props.parent.state.script;
