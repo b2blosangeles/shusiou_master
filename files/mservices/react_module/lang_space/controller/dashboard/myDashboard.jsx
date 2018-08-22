@@ -46,7 +46,7 @@ try {
 				{
 					length: 2,
 					//tts: 'please repeat',
-					sp: ['good', 'nice', 'stupid', 'california'],
+					sr: ['good', 'nice', 'stupid', 'california'],
 					v : {
 						Y : {
 							tts: '很好',
