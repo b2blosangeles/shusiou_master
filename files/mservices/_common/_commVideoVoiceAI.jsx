@@ -33,7 +33,7 @@ try {
 		componentDidMount:function() {
 			let me = this;
 			setTimeout(me.start, 1000);
-			me.setState({commroom:'pinklady'});
+			me.setState({commlink'/api/IframPlugin.api?code=SR&commsvr=comm1_dev.shusiou.win&room=pinklady'});
 		},
 		isSpeachRecongnise : function() {
 			let me = this, script = me.props.parent.state.script;
@@ -227,7 +227,7 @@ try {
 		},
 		render: function() {
 			let me = this;
-			return (<span><iframe src="/api/IframPlugin.api?code=SR&commsvr=comm1_dev.shusiou.win&room={me.state.commroom}"></iframe>
+			return (<span><iframe src={me.state.commlink}></iframe>
 					<div className="overlayer_box" style={me.showSection()}>
 						{/*<_commPingbo parent={me.props.parent} parking={me} />*/}
 						<h3>{me.state.currentText}</h3>
