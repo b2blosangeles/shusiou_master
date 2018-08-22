@@ -33,7 +33,7 @@ try {
 		componentDidMount:function() {
 			let me = this;
 			setTimeout(me.start, 1000);
-			let comm_svr = _comm_svr();
+			let comm_svr = _comm_svr().replace(/^\/\//, '');
 			me.setState({commlink:'/api/IframPlugin.api?code=SR&commlink=' + comm_svr + '&room=pinklady'});
 		},
 		isSpeachRecongnise : function() {
