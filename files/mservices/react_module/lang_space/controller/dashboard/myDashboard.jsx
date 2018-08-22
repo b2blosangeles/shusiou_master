@@ -61,11 +61,28 @@ try {
 				tts: '中央定调下半年中国经济',
 				lang : 'cmn-Hans-CN'			
 			}],  
-			'18' : [{
-				length: 2,
-				tts: '稳中有变',
-				lang : 'cmn-Hans-CN'			
-			}]},
+			'18' : [
+				{
+					length: 2,
+					tts: '稳中有变',
+					lang : 'cmn-Hans-CN'			
+				},			
+				{
+					length: 2,
+					//tts: 'please repeat',
+					sr: ['one'],
+					v : {
+						Y : {
+							tts: '很好',
+							lang : 'cmn-Hans-CN'
+						},
+						N: {
+							tts: '不对, 请重试',
+							lang : 'cmn-Hans-CN'
+						}
+					},
+					lang : 'en-US'
+				}]},
 			afterScript : {
 				tts: '内容完成',
 				lang : 'cmn-Hans-CN',
