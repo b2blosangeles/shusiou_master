@@ -38,10 +38,6 @@ try {
 					length: 3,
 					tts: '深圳打响楼市个人限卖.第一枪',
 					lang : 'cmn-Hans-CN'
-				},{
-					length: 2,
-					tts: '中国,已安排最先进的海洋救助船',
-					lang : 'cmn-Hans-CN'
 				},			
 				{
 					length: 2,
