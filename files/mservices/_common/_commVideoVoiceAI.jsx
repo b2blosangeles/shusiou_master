@@ -33,8 +33,13 @@ try {
 		componentDidMount:function() {
 			let me = this;
 			setTimeout(me.start, 1000);
+			
+			let p = new _PINGBALL_('p');
+			let room = p.socket.id + '_' + new Date().getTime();
 			let comm_svr = _comm_svr().replace(/^\/\//, '');
-			me.setState({commlink:'/api/IframPlugin.api?code=SR&commlink=' + comm_svr + '&room=pinklady'});
+			p.sendToRoom(p.socket.id + '', null, function(data) {
+				me.setState({commlink:'/api/IframPlugin.api?code=SR&commlink=' + comm_svr + '&room=' + room});
+			});
 		},
 		isSpeachRecongnise : function() {
 			let me = this, script = me.props.parent.state.script;
