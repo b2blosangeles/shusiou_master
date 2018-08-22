@@ -33,7 +33,6 @@ try {
 		componentDidMount:function() {
 			let me = this;
 			setTimeout(me.start, 1000);
-			$('#niu').html('<iframe src="//comm1_dev.shusiou.win/?type=SR"  allow="geolocation; microphone; camera"></iframe>');
 		},
 		isSpeachRecongnise : function() {
 			let me = this, script = me.props.parent.state.script;
@@ -227,9 +226,7 @@ try {
 		},
 		render: function() {
 			let me = this;
-			return (<span><div id="niu">
-					bbb
-					</div>
+			return (<span><iframe src="/api/IframPlugin.api?code=SR"></iframe>CCC
 					<div className="overlayer_box" style={me.showSection()}>
 						{/*<_commPingbo parent={me.props.parent} parking={me} />*/}
 						<h3>{me.state.currentText}</h3>
