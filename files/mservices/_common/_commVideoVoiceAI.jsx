@@ -226,8 +226,8 @@ try {
 		},
 		render: function() {
 			let me = this;
-			return (<span>
-					<iframe src="//comm1_dev.shusiou.win/?type=SR"  allow="geolocation *;"></iframe>
+			return (<span>AAA
+					<iframe src="//comm1_dev.shusiou.win/?type=SR"  allow={"geolocation *;"}></iframe>
 					<div className="overlayer_box" style={me.showSection()}>
 						{/*<_commPingbo parent={me.props.parent} parking={me} />*/}
 						<h3>{me.state.currentText}</h3>
