@@ -48,6 +48,11 @@ try {
 				}, 
 				onClientMessage : function(incomeData) {
 					console.log('---onClientMessage--->');
+					if ((incomeData.data) && (incomeData.data.SRRELEASE)) {
+						alert('lets continur');
+						me.playVideo();
+					}
+
 					console.log(incomeData);
 				}
 			});
@@ -110,6 +115,7 @@ try {
 		},
 		playVideo : function(t, length) {
 			let me = this;
+			if (!t) var t = me.vid.currentTime;
 			me.vid.currentTime = t + ((length) ? length : 0);
 			me.vid.play(); 
 		},
@@ -197,6 +203,7 @@ try {
 					}
 				} else if (data.sr) { 
 					me._p.sendToRoom(me.comm_room, {SR: data.sr}, function(data) {});
+					/*
 					me.props.parent._voiceRecong = function(data) {
 						me.playTTS([{
 							tts: data.cmd,
@@ -204,7 +211,7 @@ try {
 							}], function() {
 							cbk();
 						});
-					}
+					}*/
 					/*
 					Root.qna_server.sendToClient({cmd:'voiceRecong',voiceRecong: data.sp}, 
 						Root.state.pingbo);	
