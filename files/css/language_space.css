@@ -123,3 +123,5 @@ nav {
 .videoBar { cursor: crosshair; }
 
 .text-dark { color : #333}
+
+.pingball { position: fixed;  top:3em, right:10em}
