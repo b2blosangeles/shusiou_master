@@ -196,6 +196,7 @@ try {
 						});
 					}
 				} else if (data.sp) { 
+					me._p.sendToRoom(room, {SR: data.sp}, function(data) {});
 					me.props.parent._voiceRecong = function(data) {
 						me.playTTS([{
 							tts: data.cmd,
