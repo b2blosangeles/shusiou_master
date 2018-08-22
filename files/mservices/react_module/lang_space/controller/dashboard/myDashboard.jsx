@@ -42,7 +42,7 @@ try {
 				{
 					length: 2,
 					//tts: 'please repeat',
-					sr: ['good', 'nice', 'stupid', 'california'],
+					sr: ['good'],
 					v : {
 						Y : {
 							tts: '很好',
@@ -56,11 +56,28 @@ try {
 					lang : 'en-US'
 				}
 			],
-			'12' : [{
+			'12' : [
+				{
 				length: 2,
 				tts: '中央定调下半年中国经济',
 				lang : 'cmn-Hans-CN'			
-			}],  
+				},{
+					length: 2,
+					//tts: 'please repeat',
+					sr: ['nice'],
+					v : {
+						Y : {
+							tts: '很好',
+							lang : 'cmn-Hans-CN'
+						},
+						N: {
+							tts: '不对, 请重试',
+							lang : 'cmn-Hans-CN'
+						}
+					},
+					lang : 'en-US'
+				}			
+			],  
 			'18' : [
 				{
 					length: 2,
