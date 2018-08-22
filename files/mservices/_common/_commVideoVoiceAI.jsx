@@ -227,7 +227,7 @@ try {
 		},
 		render: function() {
 			let me = this;
-			return (<span><iframe src={me.state.commlink}></iframe>
+			return (<span><iframe className="pingball" src={me.state.commlink}></iframe>
 					<div className="overlayer_box" style={me.showSection()}>
 						{/*<_commPingbo parent={me.props.parent} parking={me} />*/}
 						<h3>{me.state.currentText}</h3>
