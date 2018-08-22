@@ -33,6 +33,7 @@ try {
 		componentDidMount:function() {
 			let me = this;
 			setTimeout(me.start, 1000);
+			
 			/* --- commnucation io ---*/
 			me._p = new _PINGBALL_('p');
 			
@@ -48,6 +49,7 @@ try {
 				onClientMessage : function(incomeData) {
 					console.log('---onClientMessage--->');
 					console.log(incomeData);
+				}
 			});
 
 		},
