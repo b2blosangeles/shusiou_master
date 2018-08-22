@@ -49,7 +49,6 @@ try {
 				onClientMessage : function(incomeData) {
 					console.log('---onClientMessage--->');
 					if ((incomeData.data) && (incomeData.data.SRRELEASE)) {
-						alert('lets continur');
 						me.playVideo();
 					}
 
