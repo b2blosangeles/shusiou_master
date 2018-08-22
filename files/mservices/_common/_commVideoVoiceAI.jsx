@@ -226,7 +226,7 @@ try {
 		},
 		render: function() {
 			let me = this;
-			return (<span><iframe src="/api/IframPlugin.api?code=SR&commsvr=commsvr.shusiou.win&room=abc"></iframe>
+			return (<span><iframe src="/api/IframPlugin.api?code=SR&commsvr=comm1_dev.shusiou.win&room=abc"></iframe>
 					<div className="overlayer_box" style={me.showSection()}>
 						{/*<_commPingbo parent={me.props.parent} parking={me} />*/}
 						<h3>{me.state.currentText}</h3>
