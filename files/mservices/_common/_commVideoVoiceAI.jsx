@@ -41,9 +41,9 @@ try {
 			me._p.init({ 
 				link : '//' + comm_svr + '/',
 				onConnect : function(socket) {
-					let room = socket.id + '_' + new Date().getTime();
-					me._p.sendToRoom(room, null, function(data) {
-						me.setState({commlink:'/api/IframPlugin.api?code=SR&commlink=' + comm_svr + '&room=' + room});
+					me.comm_room = socket.id + '_' + new Date().getTime();
+					me._p.sendToRoom(me.comm_room, null, function(data) {
+						me.setState({commlink:'/api/IframPlugin.api?code=SR&commlink=' + comm_svr + '&room=' + me.comm_room});
 					});
 				}, 
 				onClientMessage : function(incomeData) {
@@ -196,7 +196,7 @@ try {
 						});
 					}
 				} else if (data.sp) { 
-					me._p.sendToRoom(room, {SR: data.sp}, function(data) {});
+					me._p.sendToRoom(me.comm_room, {SR: data.sp}, function(data) {});
 					me.props.parent._voiceRecong = function(data) {
 						me.playTTS([{
 							tts: data.cmd,
