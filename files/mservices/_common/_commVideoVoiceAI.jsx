@@ -115,7 +115,7 @@ try {
 		},
 		playVideo : function(t, length) {
 			let me = this;
-			if (!t) var t = me.vid.currentTime;
+			if (typeof t === 'undefined') var t = me.vid.currentTime;
 			me.vid.currentTime = t + ((length) ? length : 0);
 			me.vid.play(); 
 		},
