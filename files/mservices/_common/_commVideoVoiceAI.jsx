@@ -195,8 +195,8 @@ try {
 							}
 						});
 					}
-				} else if (data.sp) { 
-					me._p.sendToRoom(me.comm_room, {SR: data.sp}, function(data) {});
+				} else if (data.sr) { 
+					me._p.sendToRoom(me.comm_room, {SR: data.sr}, function(data) {});
 					me.props.parent._voiceRecong = function(data) {
 						me.playTTS([{
 							tts: data.cmd,
