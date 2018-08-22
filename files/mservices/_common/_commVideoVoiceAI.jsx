@@ -42,7 +42,7 @@ try {
 				link : '//' + comm_svr + '/',
 				onConnect : function(socket) {
 					let room = socket.id + '_' + new Date().getTime();
-					me_p.sendToRoom(room, null, function(data) {
+					me._p.sendToRoom(room, null, function(data) {
 						me.setState({commlink:'/api/IframPlugin.api?code=SR&commlink=' + comm_svr + '&room=' + room});
 					});
 				}, 
