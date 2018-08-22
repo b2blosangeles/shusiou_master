@@ -36,7 +36,7 @@ try {
 			script : {'2' : [
 				{
 					length: 3,
-					tts: '深圳打响楼市个人限卖.第一枪',
+					tts: '深圳打响楼市个人限卖第一枪',
 					lang : 'cmn-Hans-CN'
 				},			
 				{
