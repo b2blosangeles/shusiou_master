@@ -51,22 +51,24 @@ try {
 						me.playVideo();
 						return true;
 					}
-					var auto_voice = [];
-					if ((incomeData.data) && (incomeData.data.SRERROR === 'NoVoiceTimeout')) {
-						auto_voice = [{tts: 'we can not detect your voice. please try again',
-							      lang : 'en-US'}]
-					}
-					if ((incomeData.data) && (incomeData.data.SRERROR === 'VoiceWrong')) {
-						auto_voice = [{tts: 'Wrong',
-							      lang : 'en-US'}]
-					}						
-					me.playTTS(auto_voice, function() {
-						setTimeout(
-							function() {
-								me.playVoiceAIUnit(me.t);
-							}, 1000);
+					if ((incomeData.data) && (incomeData.data.SRERROR)) 
+						var auto_voice = [];
+						if (incomeData.data.SRERROR === 'NoVoiceTimeout') {
+							auto_voice = [{tts: 'we can not detect your voice. please try again',
+								      lang : 'en-US'}]
+						}
+						if (incomeData.data.SRERROR === 'VoiceWrong') {
+							auto_voice = [{tts: 'Wrong',
+								      lang : 'en-US'}]
+						}						
+						me.playTTS(auto_voice, function() {
+							setTimeout(
+								function() {
+									me.playVoiceAIUnit(me.t);
+								}, 1000);
 
-					});
+						});
+					}
 				}
 			});
 
