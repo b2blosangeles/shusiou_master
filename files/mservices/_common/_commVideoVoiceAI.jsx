@@ -47,12 +47,12 @@ try {
 					});
 				}, 
 				onClientMessage : function(incomeData) {
-					console.log('---onClientMessage--->');
 					if ((incomeData.data) && (incomeData.data.SRRELEASE)) {
 						me.playVideo();
 					}
-
-					console.log(incomeData);
+					if ((incomeData.data) && (incomeData.data.SRERROR)) {
+						alert('SRERROR')
+					}
 				}
 			});
 
