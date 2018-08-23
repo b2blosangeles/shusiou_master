@@ -51,7 +51,8 @@ try {
 						me.playVideo();
 					}
 					if ((incomeData.data) && (incomeData.data.SRERROR)) {
-						alert('SRERROR')
+						console.log(' ==== SRERROR ====');
+						console.log(incomeData.data.SRERROR)
 					}
 				}
 			});
