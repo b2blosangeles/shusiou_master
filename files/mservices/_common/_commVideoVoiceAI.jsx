@@ -63,7 +63,7 @@ try {
 								      lang : 'en-US'}]
 						}
 						if (incomeData.data.SRERROR === 'VoiceWrong') {
-							auto_voice = [{tts: 'right, you said ',
+							auto_voice = [{tts: 'wrong, you said ',
 								      lang : 'en-US'}, 
 								      {tts: incomeData.data.voice[0],
 								      lang : 'en-US'},
