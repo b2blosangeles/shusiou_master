@@ -219,7 +219,7 @@ try {
 							Q.shift();
 							if (Q.length) {
 								setTimeout(
-									function() { me.playTTS(Q, cbk); }, 500
+									function() { me.playTTS(Q, cbk); }, 200
 								)
 							} else {
 								$("audio").unbind('ended');
