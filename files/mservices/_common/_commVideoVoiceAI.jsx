@@ -59,6 +59,7 @@ try {
 							tts: 'try again',
 							lang : 'en-US'							
 						}], function() {
+							me.playVoiceAIUnit(me.t);
 							console.log('==== repeat =====>');
 						});						
 						
@@ -144,6 +145,7 @@ try {
 		},		
 		playVoiceAIUnit : function(t) {
 			let me = this;
+			me.t = t;
 			if (Object.keys(me.timeLine).indexOf(t.toString()) !== -1) {
 				me.setState({locked : true});
 				if (me.vid) me.holdVideo();
