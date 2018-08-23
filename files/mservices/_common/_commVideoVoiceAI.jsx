@@ -61,6 +61,10 @@ try {
 							auto_voice = [{tts: 'Wrong',
 								      lang : 'en-US'}]
 						}
+						if (incomeData.data.SRERROR === 'NoSpeech') {
+							auto_voice = [{tts: 'No Speech detected',
+								      lang : 'en-US'}]
+						}
 						if (auto_voice.length) {
 							me.playTTS(auto_voice, function() {
 								setTimeout(
