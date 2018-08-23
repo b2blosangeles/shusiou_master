@@ -51,7 +51,7 @@ try {
 						me.playVideo();
 						return true;
 					}
-					if ((incomeData.data) && (incomeData.data.SRERROR)) 
+					if ((incomeData.data) && (incomeData.data.SRERROR)) {
 						var auto_voice = [];
 						if (incomeData.data.SRERROR === 'NoVoiceTimeout') {
 							auto_voice = [{tts: 'we can not detect your voice. please try again',
