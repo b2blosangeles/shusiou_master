@@ -66,8 +66,13 @@ try {
 								      lang : 'en-US'}]
 						}
 						if (incomeData.data.SRERROR === 'VoiceWrong') {
-							auto_voice = [{tts: 'Wrong',
-								      lang : 'en-US'}]
+							auto_voice = [{tts: 'Wrong, you said voice ',
+								      lang : 'en-US'}, 
+								      {tts: incomeData.data.voice[0],
+								      lang : 'en-US'},
+								     {tts: 'is not acceptable ',
+								      lang : 'en-US'}
+								     ]
 						}
 						if (incomeData.data.SRERROR === 'NoSpeech') {
 							auto_voice = [{tts: 'No Speech detected',
