@@ -70,7 +70,7 @@ try {
 								      lang : 'en-US'}, 
 								      {tts: incomeData.data.voice[0],
 								      lang : 'en-US'},
-								     {tts: 'is not acceptable ',
+								     {tts: 'is not acceptable, Please try again',
 								      lang : 'en-US'}
 								     ]
 						}
