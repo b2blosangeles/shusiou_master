@@ -52,7 +52,7 @@ try {
 					}
 					if ((incomeData.data) && (incomeData.data.SRERROR)) {
 						console.log(' ==== SRERROR ====');
-						console.log(incomeData.data.SRERROR)
+						console.log(incomeData.data.SRERROR.SpeechRecognitionError.error)
 					}
 				}
 			});
