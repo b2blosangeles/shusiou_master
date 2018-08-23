@@ -60,14 +60,16 @@ try {
 						if (incomeData.data.SRERROR === 'VoiceWrong') {
 							auto_voice = [{tts: 'Wrong',
 								      lang : 'en-US'}]
-						}						
-						me.playTTS(auto_voice, function() {
-							setTimeout(
-								function() {
-									me.playVoiceAIUnit(me.t);
-								}, 1000);
+						}
+						if (auto_voice.length) {
+							me.playTTS(auto_voice, function() {
+								setTimeout(
+									function() {
+										me.playVoiceAIUnit(me.t);
+									}, 1000);
 
-						});
+							});
+						}
 					}
 				}
 			});
