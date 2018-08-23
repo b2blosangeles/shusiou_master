@@ -67,7 +67,7 @@ try {
 								      lang : 'en-US'}, 
 								      {tts: incomeData.data.voice[0],
 								      lang : 'en-US'},
-								     {tts: 'is not incorrect, Please try again',
+								     {tts: 'is incorrect, Please try again',
 								      lang : 'en-US'}
 								     ]
 						}
