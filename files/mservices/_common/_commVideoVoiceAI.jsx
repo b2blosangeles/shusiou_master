@@ -53,17 +53,14 @@ try {
 					}
 					var auto_voice = '';
 					if ((incomeData.data) && (incomeData.data.SRERROR === 'NoVoiceTimeout')) {
-						auto_voice = {text: 'we can not detect your voice. please try again',
-							      lang : 'en-US';
+						auto_voice = [{tts: 'we can not detect your voice. please try again',
+							      lang : 'en-US'}]
 					}
 					if ((incomeData.data) && (incomeData.data.SRERROR === 'VoiceWrong')) {
-						auto_voice = {text: 'we can not detect your voice. please try again',
-							      lang : 'en-US';
+						auto_voice = [{tts: 'Wrong',
+							      lang : 'en-US'}]
 					}						
-					me.playTTS([{
-						tts: auto_voice.text,
-						lang : auto_voice.lang							
-					}], function() {
+					me.playTTS([auto_voice], function() {
 						setTimeout(
 							function() {
 								me.playVoiceAIUnit(me.t);
