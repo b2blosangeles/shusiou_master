@@ -56,7 +56,7 @@ try {
 							console.log(incomeData.data.SRERROR.SpeechRecognitionError)
 						}
 						me.playTTS([{
-							tts: 'try again',
+							tts: 'we can not detect your voice. please try again',
 							lang : 'en-US'							
 						}], function() {
 							me.playVoiceAIUnit(me.t);
