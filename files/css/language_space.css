@@ -124,5 +124,5 @@ nav {
 
 .text-dark { color : #333}
 
-.pingball { position: fixed;  top:5em; right:1em; z-index: 100; border-radius: 0.5em;
+.pingball { position: fixed;  bottom:3.6em; right:1em; z-index: 100; border-radius: 0.5em; border:1px solid #666; color:#666;
 width:60px; height:60px; border:0px; background-color: rgba(252,248,227,0.3); }
