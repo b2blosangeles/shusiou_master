@@ -57,6 +57,9 @@ try {
 						return true;
 					}
 					if ((incomeData.data) && (incomeData.data.SRERROR)) {
+						console.log('---incomeData.data.SRERROR--->');
+						console.log(incomeData.data.SRERROR);
+						return true;
 						var auto_voice = [];
 						if (incomeData.data.SRERROR === 'NoVoiceTimeout') {
 							auto_voice = [{tts: 'we can not detect your voice. please try again',
