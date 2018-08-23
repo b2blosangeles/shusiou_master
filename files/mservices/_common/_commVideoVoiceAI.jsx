@@ -55,6 +55,13 @@ try {
 						if (incomeData.data.SRERROR.SpeechRecognitionError) {
 							console.log(incomeData.data.SRERROR.SpeechRecognitionError)
 						}
+						me.playTTS([{
+							tts: 'try again',
+							lang : 'en-US'							
+						}], function() {
+							alert('continue');
+						});						
+						
 					}
 				}
 			});
