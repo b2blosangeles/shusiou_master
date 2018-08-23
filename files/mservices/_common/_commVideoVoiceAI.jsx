@@ -48,7 +48,7 @@ try {
 				}, 
 				onClientMessage : function(incomeData) {
 					if ((incomeData.data) && (incomeData.data.SRRELEASE)) {
-						var auto_voice = [{tts: 'good job, lets continue',
+						var auto_voice = [{tts: 'good job, lets continue ',
 								      lang : 'en-US'}];
 						me.playTTS(auto_voice, function() {
 							me.playVideo();
@@ -57,26 +57,19 @@ try {
 						return true;
 					}
 					if ((incomeData.data) && (incomeData.data.SRERROR)) {
-						console.log('---incomeData.data.SRERROR--->');
-						console.log(incomeData.data.SRERROR);
-						// return true;
 						var auto_voice = [];
 						if (incomeData.data.SRERROR === 'NoVoiceTimeout') {
-							auto_voice = [{tts: 'we can not detect your voice. please try again',
+							auto_voice = [{tts: 'we can not recongnized your voice. please try again',
 								      lang : 'en-US'}]
 						}
 						if (incomeData.data.SRERROR === 'VoiceWrong') {
-							auto_voice = [{tts: 'Wrong, you said voice ',
+							auto_voice = [{tts: 'Wrong, you said ',
 								      lang : 'en-US'}, 
 								      {tts: incomeData.data.voice[0],
 								      lang : 'en-US'},
-								     {tts: 'is not acceptable, Please try again',
+								     {tts: 'is not incorrect, Please try again',
 								      lang : 'en-US'}
 								     ]
-						}
-						if (incomeData.data.SRERROR === 'NoSpeech') {
-							auto_voice = [{tts: 'No Speech detected',
-								      lang : 'en-US'}]
 						}
 						if (auto_voice.length) {
 							me.playTTS(auto_voice, function() {
