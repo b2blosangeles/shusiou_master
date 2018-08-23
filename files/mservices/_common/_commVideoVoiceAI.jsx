@@ -51,7 +51,7 @@ try {
 						me.playVideo();
 						return true;
 					}
-					var auto_voice = '';
+					var auto_voice = [];
 					if ((incomeData.data) && (incomeData.data.SRERROR === 'NoVoiceTimeout')) {
 						auto_voice = [{tts: 'we can not detect your voice. please try again',
 							      lang : 'en-US'}]
@@ -60,7 +60,7 @@ try {
 						auto_voice = [{tts: 'Wrong',
 							      lang : 'en-US'}]
 					}						
-					me.playTTS([auto_voice], function() {
+					me.playTTS(auto_voice, function() {
 						setTimeout(
 							function() {
 								me.playVoiceAIUnit(me.t);
