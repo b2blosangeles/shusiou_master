@@ -51,8 +51,10 @@ try {
 						me.playVideo();
 					}
 					if ((incomeData.data) && (incomeData.data.SRERROR)) {
-						console.log(' ==== SRERROR ====>>');
-						if (incomeData.data.SRERROR.SpeechRecognitionError) console.log(incomeData.data.SRERROR.SpeechRecognitionError.error)
+						console.log(' ==== SRERROR ===>=>>');
+						if (incomeData.data.SRERROR.SpeechRecognitionError) {
+							console.log(incomeData.data.SRERROR.SpeechRecognitionError)
+						}
 					}
 				}
 			});
