@@ -49,21 +49,27 @@ try {
 				onClientMessage : function(incomeData) {
 					if ((incomeData.data) && (incomeData.data.SRRELEASE)) {
 						me.playVideo();
+						return true;
 					}
-					if ((incomeData.data) && (incomeData.data.SRERROR)) {
-						console.log(' ==== SRERROR ===>=>>');
-						if (incomeData.data.SRERROR.SpeechRecognitionError) {
-							console.log(incomeData.data.SRERROR.SpeechRecognitionError)
-						}
-						me.playTTS([{
-							tts: 'we can not detect your voice. please try again',
-							lang : 'en-US'							
-						}], function() {
-							me.playVoiceAIUnit(me.t);
-							console.log('==== repeat =====>');
-						});						
-						
+					var auto_voice = '';
+					if ((incomeData.data) && (incomeData.data.SRERROR === 'NoVoiceTimeout')) {
+						auto_voice = {text: 'we can not detect your voice. please try again',
+							      lang : 'en-US';
 					}
+					if ((incomeData.data) && (incomeData.data.SRERROR === 'VoiceWrong')) {
+						auto_voice = {text: 'we can not detect your voice. please try again',
+							      lang : 'en-US';
+					}						
+					me.playTTS([{
+						tts: auto_voice.text,
+						lang : auto_voice.lang							
+					}], function() {
+						setTimeout(
+							function() {
+								me.playVoiceAIUnit(me.t);
+							}, 1000);
+
+					});
 				}
 			});
 
