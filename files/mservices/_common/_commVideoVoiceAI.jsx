@@ -59,7 +59,7 @@ try {
 							tts: 'try again',
 							lang : 'en-US'							
 						}], function() {
-							alert('continue');
+							console.log('==== repeat =====>');
 						});						
 						
 					}
