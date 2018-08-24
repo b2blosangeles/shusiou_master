@@ -32,7 +32,7 @@ try {
 		},
 		componentDidMount:function() {
 			let me = this;
-			setTimeout(me.start, 1000);
+			setTimeout(me.start);
 			
 			/* --- commnucation io ---*/
 			me._p = new _PINGBALL_('p');
