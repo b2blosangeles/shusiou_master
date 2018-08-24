@@ -32,6 +32,7 @@ try {
 		},
 		componentDidMount:function() {
 			let me = this;
+			me.timeLine = {}
 			setTimeout(me.start);
 			
 			/* --- commnucation io ---*/
