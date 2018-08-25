@@ -117,7 +117,7 @@ try {
 				A[A.length] = parseInt(me.state.track.s) + i * 0.5;
 			}
 			return A.map(function(a,idx){
-				if (idx < 8 || idx > A.length - 8)  return (<span>
+				if (idx < 8 || idx >= A.length - 8)  return (<span>
 					<_commObj code={'videoImage'}  
 					data={{ rec:me.video, ss:A[idx], size:90, width:90, click:function() {
 								alert('niu');
