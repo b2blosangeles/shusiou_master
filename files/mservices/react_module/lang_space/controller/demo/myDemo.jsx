@@ -40,17 +40,17 @@ try {
 			//videoSetting : {width:480, height:320},
 			script : {'84.5' : [
 				{
-					length: 3,
-					tts: '深圳打响楼市个人限卖第一枪',
+					length: 90,
+					tts: '天底下没人能在两百米距离命中它',
 					lang : 'cmn-Hans-CN'
 				},			
 				{
 					length: 2,
 					//tts: 'please repeat',
-					sr: ['good'],
+					sr: ['天底下没人能在两百米距离命中它'],
 					v : {
 						Y : {
-							tts: '很好',
+							tts: '天底下没人能在两百米距离命中它',
 							lang : 'cmn-Hans-CN'
 						},
 						N: {
@@ -58,7 +58,7 @@ try {
 							lang : 'cmn-Hans-CN'
 						}
 					},
-					lang : 'en-US'
+					lang : 'cn-ZH'
 				}
 			]},
 			afterScript : {
