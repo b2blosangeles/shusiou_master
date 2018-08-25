@@ -229,7 +229,7 @@ try {
 						});
 					}
 				} else if (data.sr) { 
-					me._p.sendToRoom(me.comm_room, {SR: data.sr}, function(data) {});
+					me._p.sendToRoom(me.comm_room, {SR: data.sr, lang: data.lang}, function(data) {});
 					/*
 					me.props.parent._voiceRecong = function(data) {
 						me.playTTS([{
