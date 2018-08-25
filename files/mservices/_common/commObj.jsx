@@ -25,15 +25,16 @@ try {
 		videoImage : function() {
 			var me = this, 
 			    url = me.videoImageUrl(), width = (me.props.data.width) ? me.props.data.width : '',
-			    classname = 'videoImage_' + _commObj.unicode;
+			   style = (me.props.data.style) ? {},
+			    classname = 'videoImage_' + _commObj.unicode; 
 			
 			if (!url) return (<span/>);
 			var def = (width) ? 
 				(<img src={_master_svr() + '/images/empty_default.png'} className={classname} width={width} />) :
 				(<img src={_master_svr() + '/images/empty_default.png'} className={classname} />) 
 			var img = (width) ? 
-				(<img src={url} width={width}  style={{display:'none'}} onLoad={me.showVideoImage.bind(me, url, classname)} />) :
-				(<img src={url} style={{display:'none'}} onLoad={me.showVideoImage.bind(me, url, classname)} />) 
+				(<img src={url} width={width}  style={style} onLoad={me.showVideoImage.bind(me, url, classname)} />) :
+				(<img src={url} style={style} onLoad={me.showVideoImage.bind(me, url, classname)} />) 
 			
 			return (<span>{img}{def}</span>);
 		},
