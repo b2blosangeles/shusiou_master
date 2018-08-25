@@ -41,13 +41,13 @@ try {
 			script : {'2' : [
 				{
 					length: 6,
-					tts: '天底下没人能在两百米距离命中它',
+					tts: '天底下没人能在200米距离命中它',
 					lang : 'cmn-Hans-CN'
 				},			
 				{
 					length: 2,
 					//tts: 'please repeat',
-					sr: ['天底下'],
+					sr: ['天底下没人能在200米距离命中它'],
 					v : {
 						Y : {
 							tts: '天底下没人能在两百米距离命中它',
