@@ -120,7 +120,8 @@ try {
 				if (idx < 8 || idx >= A.length - 8)  return (<span>
 					<_commObj code={'videoImage'}  
 					data={{ rec:me.video, ss:A[idx], size:90, width:90, 
-								style:{margin:'2px', width:'88px'}, click:function() {
+								style:{margin:'2px', width:'88px', display:'none'}, 
+						click:function() {
 								alert('niu');
 							}}}/>
 				</span>)
