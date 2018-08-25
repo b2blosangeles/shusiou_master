@@ -69,7 +69,7 @@ try {
 			return (
 				<table id="video_bar" width="100%" height="16" style={{'border':'1px solid #ddd'}}><tr>
 				{X.map(function(x, idx) {
-					if (me.sections) {
+					if (me.sections.length) {
 						for (var j = 0; j < me.sections.length; j++) {
 							if (!me.sections[j] || !me.sections[j].data) continue;	
 							let s = parseFloat(me.sections[j].data.track.s),
