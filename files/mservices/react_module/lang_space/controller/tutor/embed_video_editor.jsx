@@ -84,15 +84,15 @@ try {
 								}
 							}
 						}
-					} else  {
-						let s = parseFloat(me.state.track.s),
-							    t = parseFloat(me.state.track.t);
-						if (idx >= Math.round(n * s / video_length ) && 
-							    idx < Math.round((n * s + n * t) / video_length)) {
-							return (<td width="1" style={{'background-color':'green'}}
-							onClick={me.clickTime.bind(me,idx)} className="videoBar"
-							></td>)
-						}
+					}
+						
+					let s = parseFloat(me.state.track.s),
+						    t = parseFloat(me.state.track.t);
+					if (idx >= Math.round(n * s / video_length ) && 
+						    idx < Math.round((n * s + n * t) / video_length)) {
+						return (<td width="1" style={{'background-color':'green'}}
+						onClick={me.clickTime.bind(me,idx)} className="videoBar"
+						></td>)
 					}
 					return (<td width="1" style={{'background-color':'lightyellow'}}
 							onClick={me.clickTime.bind(me,idx)} className="videoBar"
