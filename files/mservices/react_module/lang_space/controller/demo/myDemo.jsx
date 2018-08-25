@@ -33,6 +33,8 @@ try {
 	    
         componentDidMount:function() {
 		let me = this;
+		var vid = me.props.params['id'];
+		alert(vid);
 		me.setState({
 			videoUrl: '//node1_dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=1808090000000001',
 			//videoSetting : {width:480, height:320},
