@@ -96,6 +96,7 @@ try {
 							return (<td width="1" style={{'background-color':'lightyellow'}}
 							onClick={me.clickTime.bind(me,idx)} className="videoBar"
 							></td>)
+						}
 					}
 					
 				})}
