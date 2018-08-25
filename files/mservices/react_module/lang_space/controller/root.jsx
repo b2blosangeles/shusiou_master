@@ -116,6 +116,7 @@ try {
 					{route:'student/my_course/:id', role:['*'],  auth:true, component:Mycoursebyid},
 
 					{route:'demo', role:['*'],  auth:false, component:MyDemo},
+					{route:'demo/:id', role:['*'],  auth:false, component:MyDemo},
 					
 					{route:'Signin', role:['*'], auth:false, component:Signin},
 					{route:'Signup', role:['*'], auth:false, component:Signup},
