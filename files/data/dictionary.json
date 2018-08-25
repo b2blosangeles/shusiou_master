@@ -61,9 +61,9 @@
 		cn:"帮助",
 		en:"Help"	
 	},
-	my_dashboard: {
-		cn:"信息版块",
-		en:"Dashboard"	
+	my_demo: {
+		cn:"演示",
+		en:"Demos"	
 	},	
 	menu_testimony: {
 		cn:"成功案例",
