@@ -93,7 +93,7 @@ try {
 							onClick={me.clickTime.bind(me,idx)} className="videoBar"
 							></td>)
 						} else {
-							return (<td width="1" style={{'background-color':'lightyellow'}}
+							return (<td width="1" style={{'background-color':'pink'}}
 							onClick={me.clickTime.bind(me,idx)} className="videoBar"
 							></td>)
 						}
