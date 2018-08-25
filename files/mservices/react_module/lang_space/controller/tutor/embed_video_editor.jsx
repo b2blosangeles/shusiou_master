@@ -85,8 +85,8 @@ try {
 							}
 						}
 					} else  {
-						let s = parseFloat(me.section.track.s),
-							    t = parseFloat(me.section.track.t);
+						let s = parseFloat(me.track.s),
+							    t = parseFloat(me.track.t);
 						if (idx >= Math.round(n * s / video_length ) && 
 							    idx < Math.round((n * s + n * t) / video_length)) {
 							return (<td width="1" style={{'background-color':'green'}}
