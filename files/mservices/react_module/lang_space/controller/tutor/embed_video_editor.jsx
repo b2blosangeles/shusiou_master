@@ -68,24 +68,36 @@ try {
 			console.log(me.state);
 			return (
 				<table id="video_bar" width="100%" height="16" style={{'border':'1px solid #ddd'}}><tr>
-				{X.map(function(x, idx) {	
-					for (var j = 0; j < me.sections.length; j++) {
-						if (!me.sections[j] || !me.sections[j].data) continue;	
-						let s = parseFloat(me.sections[j].data.track.s),
-						    t = parseFloat(me.sections[j].data.track.t);
+				{X.map(function(x, idx) {
+					if (me.sections) {
+						for (var j = 0; j < me.sections.length; j++) {
+							if (!me.sections[j] || !me.sections[j].data) continue;	
+							let s = parseFloat(me.sections[j].data.track.s),
+							    t = parseFloat(me.sections[j].data.track.t);
 
-						if (idx >= Math.round(n * s / video_length ) && 
-						    idx < Math.round((n * s + n * t) / video_length)) {
-							if (me.sections[j].section_id == me.state.section_id) {
-								return (<td width="1" style={{'background-color':'green'}}></td>)
-							} else {
-								return (<td width="1" style={{'background-color':'red'}}></td>)
+							if (idx >= Math.round(n * s / video_length ) && 
+							    idx < Math.round((n * s + n * t) / video_length)) {
+								if (me.sections[j].section_id == me.state.section_id) {
+									return (<td width="1" style={{'background-color':'green'}}></td>)
+								} else {
+									return (<td width="1" style={{'background-color':'red'}}></td>)
+								}
 							}
 						}
+					} else  {
+						let s = parseFloat(me.section.track.s),
+							    t = parseFloat(me.section.track.t);
+						if (idx >= Math.round(n * s / video_length ) && 
+							    idx < Math.round((n * s + n * t) / video_length)) {
+							return (<td width="1" style={{'background-color':'green'}}
+							onClick={me.clickTime.bind(me,idx)} className="videoBar"
+							></td>)
+						} else {
+							return (<td width="1" style={{'background-color':'lightyellow'}}
+							onClick={me.clickTime.bind(me,idx)} className="videoBar"
+							></td>)
 					}
-					return (<td width="1" style={{'background-color':'lightyellow'}}
-						onClick={me.clickTime.bind(me,idx)} className="videoBar"
-						></td>)
+					
 				})}
 				<td width="*" style={{'background-color':'#ddd'}}></td>	
 				</tr></table>
