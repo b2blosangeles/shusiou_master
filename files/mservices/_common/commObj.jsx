@@ -25,7 +25,7 @@ try {
 		videoImage : function() {
 			var me = this, 
 			    url = me.videoImageUrl(), width = (me.props.data.width) ? me.props.data.width : '',
-			   style = (me.props.data.style) ? {},
+			   style = (me.props.data.style) ? me.props.data.style : {},
 			    classname = 'videoImage_' + _commObj.unicode; 
 			
 			if (!url) return (<span/>);
