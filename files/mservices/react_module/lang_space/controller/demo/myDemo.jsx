@@ -38,7 +38,7 @@ try {
 		me.setState({
 			videoUrl: '//node1_dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=' + me.vid,
 			//videoSetting : {width:480, height:320},
-			script : {'21' : [
+			script : {'121' : [
 				{
 					length: 3,
 					tts: '深圳打响楼市个人限卖第一枪',
@@ -60,30 +60,8 @@ try {
 					},
 					lang : 'en-US'
 				}
-			],
-			'12' : [
-				{
-				length: 2,
-				tts: '中央定调下半年中国经济',
-				lang : 'cmn-Hans-CN'			
-				},{
-					length: 2,
-					//tts: 'please repeat',
-					sr: ['nice'],
-					v : {
-						Y : {
-							tts: '很好',
-							lang : 'cmn-Hans-CN'
-						},
-						N: {
-							tts: '不对, 请重试',
-							lang : 'cmn-Hans-CN'
-						}
-					},
-					lang : 'en-US'
-				}			
-			],  
-			'18' : [
+			], 
+			'480' : [
 				{
 					length: 2,
 					tts: '稳中有变',
