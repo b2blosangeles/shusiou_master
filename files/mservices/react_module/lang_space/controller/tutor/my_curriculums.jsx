@@ -80,7 +80,8 @@ try {
 											{a.name}	
 										</div>
 										<_commObj code={'videoImage'}  
-											data={{rec:a, width:'100%', ss:120, size:320}}/>
+											data={{rec:a, width:'100%', ss:120, 
+												style: {width:'100%'}}}/>
 										<div className="video_thumbnail_text">
 											<a href={'#/tutor/my_curriculum/edit/' + a.curriculum_id}>
 												<button type="button" 
