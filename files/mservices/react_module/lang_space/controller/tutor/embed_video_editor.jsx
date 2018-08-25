@@ -119,7 +119,7 @@ try {
 			return A.map(function(a,idx){
 				if (idx < 8 || idx > A.length - 8)  return (<span>
 					<_commObj code={'videoImage'}  
-					data={{ rec:me.video, ss:A[idx], size:90, click:function() {
+					data={{ rec:me.video, ss:A[idx], size:90, width:90, click:function() {
 								alert('niu');
 							}}}/>
 				</span>)
