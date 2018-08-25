@@ -38,9 +38,9 @@ try {
 		me.setState({
 			videoUrl: '//node1_dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=' + me.vid,
 			//videoSetting : {width:480, height:320},
-			script : {'84.5' : [
+			script : {'8' : [
 				{
-					length: 90,
+					length: 6,
 					tts: '天底下没人能在两百米距离命中它',
 					lang : 'cmn-Hans-CN'
 				},			
@@ -58,7 +58,7 @@ try {
 							lang : 'cmn-Hans-CN'
 						}
 					},
-					lang : 'cn-ZH'
+					lang : 'cmn-Hans-CN'
 				}
 			]},
 			afterScript : {
