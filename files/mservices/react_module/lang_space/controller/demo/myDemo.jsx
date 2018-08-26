@@ -42,6 +42,7 @@ try {
         componentDidMount:function() {
 		let me = this;
 		me.vid = me.props.params['id'];
+		if (me.vid) me.setState({vid:me.vid});
 		var s_data = {
 			'1808250000000002' :{'84.5' : [
 					{
@@ -140,6 +141,7 @@ try {
 	}, */
         render: function() {
             var me = this;
+		if (me.state.vid)
 	    return (<div className="content_section">
 				<br/>
 				<div className="container">
@@ -151,6 +153,17 @@ try {
 				{Root.lib.landingModal(me)}
 				
 			</div>)
+		else {
+		
+			return (<span>
+				<div className="container">	
+					<div className="col-sm-6 col-lg-6 col-md-6">
+					</div>
+					<div className="col-sm-6 col-lg-6 col-md-6">
+					</div>
+				</div>	
+			<span>)
+		}
 	}});	
 } catch (err) {
 	  console.log(err.message);
