@@ -294,6 +294,7 @@ try {
 						<h3>{me.state.currentText}</h3>
 						{me.sectionBox()}
 						{me.videoBox()}
+						{me.state.sectionText}
 						{/*me.microPhone()*/}							
 					</div>
 				</span>)
