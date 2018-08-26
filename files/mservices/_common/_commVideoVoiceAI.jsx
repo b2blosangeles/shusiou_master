@@ -162,8 +162,8 @@ try {
 		sectionBox: function() {
 			var me = this;
 			return (<video src="" id="sectionBox"  
-					     width={(me.state.videoSetting.width) ? me.state.videoSetting.width : 320} 
-					     height={(me.state.videoSetting.height) ? me.state.videoSetting.height : 240}  
+					     width="320" 
+					     height="240"  
 					     controls>
 				</video>)
 		},		
