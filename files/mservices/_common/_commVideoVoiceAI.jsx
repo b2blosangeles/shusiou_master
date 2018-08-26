@@ -214,8 +214,7 @@ try {
 				return true;
 			} else {
 				if (data.section) {
-					$('#sectionBox').show();
-					// alert('play section');
+					me.setState({section:1})
 				} else if (data.tts) {
 					var Q1 = data.tts.split(/\,|\;|\.|\?/).filter(function(n){ return n.replace(/^\s+|\s+$/gm,'') != '' });
 					if (Q1.length > 1) {
@@ -262,7 +261,7 @@ try {
 		showSection : function() {
 			let me = this;
 			// if (!me.state.currentText && !me.isSpeachRecongnise()) {
-			if (!me.state.currentText) {
+			if (!me.state.currentText && !me.state.section) {
 				return {display: 'none', 'min-height': '80px'}
 			} else {
 				return {display: '', 'min-height': '80px'}
