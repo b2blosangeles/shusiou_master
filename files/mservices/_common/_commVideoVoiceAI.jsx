@@ -161,11 +161,15 @@ try {
 		},
 		sectionBox: function() {
 			var me = this;
-			return (<video src="" id="sectionBox"  
+			if (sectionUrl) {
+				return (<video src={me.state.sectionUrl} id="sectionBox"  
 					     width="320" 
 					     height="240"  
 					     controls>
-				</video>)
+					</video>)
+			} else {
+				return (<span></span>)
+			}
 		},		
 		playVoiceAIUnit : function(t) {
 			let me = this;
@@ -214,7 +218,7 @@ try {
 				return true;
 			} else {
 				if (data.section) {
-					me.setState({section:1})
+					me.setState({sectionUrl: me.props.parent.state.videoUrl})
 				} else if (data.tts) {
 					var Q1 = data.tts.split(/\,|\;|\.|\?/).filter(function(n){ return n.replace(/^\s+|\s+$/gm,'') != '' });
 					if (Q1.length > 1) {
@@ -261,7 +265,7 @@ try {
 		showSection : function() {
 			let me = this;
 			// if (!me.state.currentText && !me.isSpeachRecongnise()) {
-			if (!me.state.currentText && !me.state.section) {
+			if (!me.state.currentText && !me.state.sectionUrl) {
 				return {display: 'none', 'min-height': '80px'}
 			} else {
 				return {display: '', 'min-height': '80px'}
