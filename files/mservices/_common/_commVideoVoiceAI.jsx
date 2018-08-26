@@ -158,6 +158,14 @@ try {
 					     height={(me.state.videoSetting.height) ? me.state.videoSetting.height : 240}  
 					     controls>
 				</video>)
+		},
+		sectionBox: function() {
+			var me = this;
+			return (<video src="" id="sectionBox"  
+					     width={(me.state.videoSetting.width) ? me.state.videoSetting.width : 320} 
+					     height={(me.state.videoSetting.height) ? me.state.videoSetting.height : 240}  
+					     controls>
+				</video>)
 		},		
 		playVoiceAIUnit : function(t) {
 			let me = this;
@@ -206,6 +214,7 @@ try {
 				return true;
 			} else {
 				if (data.section) {
+					$('#sectionBox').show();
 					alert('play section');
 				} else if (data.tts) {
 					var Q1 = data.tts.split(/\,|\;|\.|\?/).filter(function(n){ return n.replace(/^\s+|\s+$/gm,'') != '' });
@@ -265,6 +274,7 @@ try {
 					<div className="overlayer_box" style={me.showSection()}>
 						{/*<_commPingbo parent={me.props.parent} parking={me} />*/}
 						<h3>{me.state.currentText}</h3>
+						{me.sectionBox()}
 						{me.videoBox()}
 						{/*me.microPhone()*/}							
 					</div>
