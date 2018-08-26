@@ -28,7 +28,6 @@
 			"/mservices/react_module/lang_space/controller/top_section.jsx",
 			"/mservices/react_module/lang_space/controller/help_popup.jsx",	
 			
-			"/mservices/react_module/lang_space/controller/dashboard/myDashboard.jsx",
 			"/mservices/react_module/lang_space/controller/demo/myDemo.jsx",
 			"/mservices/react_module/lang_space/controller/demo/myDemos.jsx",
 			
