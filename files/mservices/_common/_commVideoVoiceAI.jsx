@@ -52,7 +52,6 @@ try {
 						var auto_voice = [{tts: 'good job, lets continue ',
 								      lang : 'en-US'}];
 						me.playTTS(auto_voice, function() {			
-							me.setState({sectionUrl: null,sectionText :null});
 							me.playVideo();
 						});
 						
@@ -197,7 +196,10 @@ try {
 						}
 					} else {
 						delete me.timeLine[t.toString()];
-						if (me.vid) me.playVideo(t);
+						if (me.vid) {
+							me.playVideo(t);
+							me.setState({sectionUrl: null,sectionText :null});
+						}
 					}
 				});
 			}
