@@ -42,28 +42,50 @@ try {
         componentDidMount:function() {
 		let me = this;
 		me.vid = me.props.params['id'];
-		// 1808090000000001
+		var s_data = {
+			'1808250000000002' :{'84.5' : [
+					{
+						length: 6,
+						sectionText: '天底下没人能在200米距离命中它',
+						section: true
+					},				
+					{
+						length: 6,
+						tts: 'please follow the sentense',
+
+						lang : 'en-US'
+					},			
+					{
+						length: 2,
+						sr: ['天底下没人能在200米距离命中它'],
+						lang : 'cmn-Hans-CN'
+					}
+				]},
+			'1808250000000003' :{'30' : [
+					{
+						length: 5,
+						sectionText: '天底下没人能在200米距离命中它',
+						section: true
+					},				
+					{
+						length: 5,
+						tts: 'please follow the sentense',
+
+						lang : 'en-US'
+					},			
+					{
+						length: 2,
+						sr: ['天底下没人能在200米距离命中它'],
+						lang : 'cmn-Hans-CN'
+					}
+				]},		
+		
+		}
+		
 		me.setState({
 			videoUrl: me.getVideoUrl(),
 			//videoSetting : {width:480, height:320},
-			script : {'84.5' : [
-				{
-					length: 6,
-					sectionText: '天底下没人能在200米距离命中它',
-					section: true
-				},				
-				{
-					length: 6,
-					tts: 'please follow the sentense',
-					
-					lang : 'en-US'
-				},			
-				{
-					length: 2,
-					sr: ['天底下没人能在200米距离命中它'],
-					lang : 'cmn-Hans-CN'
-				}
-			]},
+			script : s_data[me.vid],
 			afterScript : {
 				tts: '内容完成',
 				lang : 'cmn-Hans-CN',
