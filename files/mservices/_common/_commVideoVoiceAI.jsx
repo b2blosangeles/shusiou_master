@@ -161,7 +161,7 @@ try {
 		},
 		sectionBox: function() {
 			var me = this;
-			if (sectionUrl) {
+			if (me.state.sectionUrl) {
 				return (<video src={me.state.sectionUrl} id="sectionBox"  
 					     width="320" 
 					     height="240"  
