@@ -218,7 +218,8 @@ try {
 				return true;
 			} else {
 				if (data.section) {
-					me.setState({sectionUrl: me.props.parent.getSectionUrl(me.t, data.length)});
+					me.setState({sectionUrl: me.props.parent.getSectionUrl(me.t, data.length),
+						    sectionText : data.sectionText});
 					setTimeout(
 						function() {
 							$("#sectionBox").unbind('ended').bind("ended", function() {
