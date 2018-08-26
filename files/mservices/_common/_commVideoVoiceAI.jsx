@@ -221,11 +221,19 @@ try {
 					me.setState({sectionUrl: me.props.parent.getSectionUrl(me.t, data.length)});
 					setTimeout(
 						function() {
+							$("#sectionBox").unbind('ended').bind("ended", function() {
+								Q.shift();
+								if (Q.length) {
+									setTimeout(
+										function() { me.playTTS(Q, cbk); }, 200
+									)
+								} else {
+									$("#sectionBox").unbind('ended');
+									cbk();
+								}
+							});						
 							$('#sectionBox')[0].play();
-						
-						}
-					
-					);
+						});
 				} else if (data.tts) {
 					var Q1 = data.tts.split(/\,|\;|\.|\?/).filter(function(n){ return n.replace(/^\s+|\s+$/gm,'') != '' });
 					if (Q1.length > 1) {
