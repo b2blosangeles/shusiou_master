@@ -60,18 +60,7 @@ try {
 				},			
 				{
 					length: 2,
-					//tts: 'please repeat',
 					sr: ['天底下没人能在200米距离命中它'],
-					v : {
-						Y : {
-							tts: '天底下没人能在两百米距离命中它',
-							lang : 'cmn-Hans-CN'
-						},
-						N: {
-							tts: '不对, 请重试',
-							lang : 'cmn-Hans-CN'
-						}
-					},
 					lang : 'cmn-Hans-CN'
 				}
 			]},
