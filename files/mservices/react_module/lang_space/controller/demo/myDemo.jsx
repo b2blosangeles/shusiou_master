@@ -62,23 +62,60 @@ try {
 					}
 				]},
 			'1808250000000003' :{'30' : [
-					{
-						length: 5,
-						sectionText: '我找你就是给我弄个官当当',
-						section: true
-					},				
-					{
-						length: 5,
-						tts: 'please follow',
+						{
+							length: 5,
+							sectionText: '我找你就是给我弄个官当当',
+							section: true
+						},				
+						{
+							length: 5,
+							tts: 'please follow',
 
-						lang : 'en-US'
-					},			
-					{
-						length: 2,
-						sr: ['我找你就是给我弄个官当当'],
-						lang : 'cmn-Hans-CN'
-					}
-				]},		
+							lang : 'en-US'
+						},			
+						{
+							length: 2,
+							sr: ['我找你就是给我弄个官当当'],
+							lang : 'cmn-Hans-CN'
+						}
+					],	
+					'212' : [
+						{
+							length: 7,
+							sectionText: '多大算大你面前都是大官',
+							section: true
+						},				
+						{
+							length:7,
+							tts: 'please follow',
+
+							lang : 'en-US'
+						},			
+						{
+							length: 7,
+							sr: ['多大算大你面前都是大官'],
+							lang : 'cmn-Hans-CN'
+						}
+					],
+					'410' : [
+						{
+							length: 3,
+							sectionText: '快快快摘下来',
+							section: true
+						},				
+						{
+							length: 3,
+							tts: 'please follow',
+
+							lang : 'en-US'
+						},			
+						{
+							length: 3,
+							sr: ['快快快摘下来'],
+							lang : 'cmn-Hans-CN'
+						}
+					]
+				},		
 		
 		}
 		
