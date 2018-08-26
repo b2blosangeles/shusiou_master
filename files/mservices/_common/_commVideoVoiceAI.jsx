@@ -205,7 +205,9 @@ try {
 				cbk();
 				return true;
 			} else {
-				if (data.tts) {
+				if (data.section) {
+					alert('play section');
+				} else if (data.tts) {
 					var Q1 = data.tts.split(/\,|\;|\.|\?/).filter(function(n){ return n.replace(/^\s+|\s+$/gm,'') != '' });
 					if (Q1.length > 1) {
 						Q.shift();
