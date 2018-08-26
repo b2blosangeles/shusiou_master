@@ -54,7 +54,7 @@ try {
 				{
 					length: 6,
 					tts: 'please follow the sentense',
-					lang : 'cmn-Hans-CN'
+					lang : 'en-US'
 				},			
 				{
 					length: 2,
