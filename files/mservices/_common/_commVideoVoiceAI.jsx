@@ -218,7 +218,7 @@ try {
 				return true;
 			} else {
 				if (data.section) {
-					me.setState({sectionUrl: me.props.parent.state.videoUrl})
+					me.setState({sectionUrl: me.props.parent.getSectionUrl(1, 10)})
 				} else if (data.tts) {
 					var Q1 = data.tts.split(/\,|\;|\.|\?/).filter(function(n){ return n.replace(/^\s+|\s+$/gm,'') != '' });
 					if (Q1.length > 1) {
