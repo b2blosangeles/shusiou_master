@@ -18,7 +18,7 @@ try {
 					    <div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
 						<img src={me.newAddThumbnail(1)} style={{width:'100%'}}/>
 						<div className="video_thumbnail_text pull-right">
-							<a href={'#/demo/1808250000000002'}>
+							<a href={'#/demo/1808260000000002'}>
 							<button type="button" 
 								className="btn btn-warning">
 								{Root.lib.dictionary('demo 1')}
@@ -32,7 +32,7 @@ try {
 					    <div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
 						<img src={me.newAddThumbnail(2)} style={{width:'100%'}}/>
 						<div className="video_thumbnail_text pull-right">
-							<a href={'#/demo/1808250000000003'}>
+							<a href={'#/demo/1808260000000001'}>
 							<button type="button" 
 								className="btn btn-warning">
 								{Root.lib.dictionary('demo 2')}
