@@ -143,8 +143,8 @@ try {
 			let me = this;
 			setTimeout(
 				function() {
-					me.setState({sectionUrl: null,sectionText :null});
-			},1000);
+					me.setState({sectionUrl: null,sectionText :null, currentText : null});
+			},10);
 			if (typeof t === 'undefined') var t = me.vid.currentTime;
 			me.vid.currentTime = t + ((length) ? length : 0);
 			me.vid.play(); 
