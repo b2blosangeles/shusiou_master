@@ -30,13 +30,21 @@ try {
 		let me = this;
 
 	},		    
-	    
+	getVideoUrl : function() {
+		let me = this;
+		return '//' + _node_svr() + '/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=' + me.vid;
+	},    
+	getSectionUrl : function(ss, t) {
+		let me = this;
+		return '//' + _node_svr() + '/api/video/pipe.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=+ me.vid + 
+			'&ss=' + s+ '&t=' + t;
+	},  
         componentDidMount:function() {
 		let me = this;
 		me.vid = me.props.params['id'];
 		// 1808090000000001
 		me.setState({
-			videoUrl: '//node1_dev.shusiou.win/api/video/pipe_stream.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=' + me.vid,
+			videoUrl: me.getVideoUrl();
 			//videoSetting : {width:480, height:320},
 			script : {'2' : [
 				{
