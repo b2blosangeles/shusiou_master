@@ -44,7 +44,7 @@ try {
 		me.vid = me.props.params['id'];
 		// 1808090000000001
 		me.setState({
-			videoUrl: me.getVideoUrl();
+			videoUrl: me.getVideoUrl(),
 			//videoSetting : {width:480, height:320},
 			script : {'2' : [
 				{
