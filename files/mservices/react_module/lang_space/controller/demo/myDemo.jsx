@@ -36,8 +36,8 @@ try {
 	},    
 	getSectionUrl : function(ss, t) {
 		let me = this;
-		return '//' + _node_svr() + '/api/video/pipe.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=+ me.vid + 
-			'&ss=' + s+ '&t=' + t;
+		return '//' + _node_svr() + '/api/video/pipe.api?space=https://shusiouwin-dev-1.s3.wasabisys.com/&video_fn=' + 
+			me.vid + '&ss=' + s+ '&t=' + t;
 	},  
         componentDidMount:function() {
 		let me = this;
