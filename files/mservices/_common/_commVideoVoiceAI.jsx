@@ -51,7 +51,8 @@ try {
 					if ((incomeData.data) && (incomeData.data.SRRELEASE)) {
 						var auto_voice = [{tts: 'good job, lets continue ',
 								      lang : 'en-US'}];
-						me.playTTS(auto_voice, function() {
+						me.playTTS(auto_voice, function() {			
+							me.setState({sectionUrl: null,sectionText :null});
 							me.playVideo();
 						});
 						
@@ -176,9 +177,6 @@ try {
 			me.t = t;
 			if (Object.keys(me.timeLine).indexOf(t.toString()) !== -1) {
 				me.setState({locked : true});
-				
-				me.setState({sectionUrl: null,sectionText :null});
-				
 				if (me.vid) me.holdVideo();
 				me.playTTS(me.timeLine[t.toString()], function() {
 					me.setState({locked : false, currentText:null});
