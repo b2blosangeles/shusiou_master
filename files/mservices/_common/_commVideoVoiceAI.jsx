@@ -188,11 +188,17 @@ try {
 							}], function() {
 								me.setState({currentText:null});
 								delete me.timeLine[t.toString()];
-								if ((me.vid)  && (me.afterScript.continuePlay))  me.playVideo(t);
+								if ((me.vid)  && (me.afterScript.continuePlay)) {
+									me.playVideo(t);
+									me.setState({sectionUrl: null,sectionText :null});
+								}
 							});
 						} else {
 							delete me.timeLine[t.toString()];
-							if ((me.vid)  && (me.afterScript.continuePlay))  me.playVideo(t);				
+							if ((me.vid)  && (me.afterScript.continuePlay)) {
+								me.playVideo(t);
+								me.setState({sectionUrl: null,sectionText :null});
+							}
 						}
 					} else {
 						delete me.timeLine[t.toString()];
