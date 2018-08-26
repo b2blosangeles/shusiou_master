@@ -53,7 +53,7 @@ try {
 				},				
 				{
 					length: 6,
-					tts: '请重复',
+					tts: 'please follow the sentense',
 					lang : 'cmn-Hans-CN'
 				},			
 				{
