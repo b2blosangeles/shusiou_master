@@ -191,21 +191,18 @@ try {
 								delete me.timeLine[t.toString()];
 								if ((me.vid)  && (me.afterScript.continuePlay)) {
 									me.playVideo(t);
-									me.setState({sectionUrl: null,sectionText :null});
 								}
 							});
 						} else {
 							delete me.timeLine[t.toString()];
 							if ((me.vid)  && (me.afterScript.continuePlay)) {
 								me.playVideo(t);
-								me.setState({sectionUrl: null,sectionText :null});
 							}
 						}
 					} else {
 						delete me.timeLine[t.toString()];
 						if (me.vid) {
 							me.playVideo(t);
-							me.setState({sectionUrl: null,sectionText :null});
 						}
 					}
 				});
@@ -270,19 +267,6 @@ try {
 					}
 				} else if (data.sr) { 
 					me._p.sendToRoom(me.comm_room, {SR: data.sr, lang: data.lang}, function(data) {});
-					/*
-					me.props.parent._voiceRecong = function(data) {
-						me.playTTS([{
-							tts: data.cmd,
-							lang : 'en-US'							
-							}], function() {
-							cbk();
-						});
-					}*/
-					/*
-					Root.qna_server.sendToClient({cmd:'voiceRecong',voiceRecong: data.sp}, 
-						Root.state.pingbo);	
-						*/
 				} else {
 					//me.voiceRecong(data, cbk)
 				}			
