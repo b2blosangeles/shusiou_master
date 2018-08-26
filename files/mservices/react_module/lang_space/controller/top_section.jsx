@@ -40,7 +40,7 @@ try {
 				{code:'my_course', role:['learner'], router:'student/my_courses'},
 				{code:'my_videos', router:'tutor/my_videos'},
 				{code:'my_curriculums', router:'tutor/my_curriculums'},
-				{code:'my_demo', router:'demo'}
+				{code:'my_demo', router:'demos'}
 			];			
 			
 			return m.map(function (item) {
