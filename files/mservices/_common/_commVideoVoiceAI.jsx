@@ -215,7 +215,7 @@ try {
 			} else {
 				if (data.section) {
 					$('#sectionBox').show();
-					alert('play section');
+					// alert('play section');
 				} else if (data.tts) {
 					var Q1 = data.tts.split(/\,|\;|\.|\?/).filter(function(n){ return n.replace(/^\s+|\s+$/gm,'') != '' });
 					if (Q1.length > 1) {
