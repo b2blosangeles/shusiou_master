@@ -218,7 +218,14 @@ try {
 				return true;
 			} else {
 				if (data.section) {
-					me.setState({sectionUrl: me.props.parent.getSectionUrl(me.t, data.length)})
+					me.setState({sectionUrl: me.props.parent.getSectionUrl(me.t, data.length)});
+					setTimeout(
+						function() {
+							$('#sectionBox').play();
+						
+						}
+					
+					);
 				} else if (data.tts) {
 					var Q1 = data.tts.split(/\,|\;|\.|\?/).filter(function(n){ return n.replace(/^\s+|\s+$/gm,'') != '' });
 					if (Q1.length > 1) {
