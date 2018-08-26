@@ -46,7 +46,7 @@ try {
 		me.setState({
 			videoUrl: me.getVideoUrl(),
 			//videoSetting : {width:480, height:320},
-			script : {'4.5' : [
+			script : {'14.5' : [
 				{
 					length: 6,
 					section: true
