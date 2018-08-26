@@ -49,11 +49,13 @@ try {
 			script : {'84.5' : [
 				{
 					length: 6,
+					sectionText: '天底下没人能在200米距离命中它',
 					section: true
 				},				
 				{
 					length: 6,
 					tts: 'please follow the sentense',
+					
 					lang : 'en-US'
 				},			
 				{
