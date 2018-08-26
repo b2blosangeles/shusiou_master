@@ -46,14 +46,14 @@ try {
 		me.setState({
 			videoUrl: me.getVideoUrl(),
 			//videoSetting : {width:480, height:320},
-			script : {'84.5' : [
+			script : {'4.5' : [
 				{
 					length: 6,
 					section: true
 				},				
 				{
 					length: 6,
-					tts: '天底下没人能在200米距离命中它',
+					tts: '请重复',
 					lang : 'cmn-Hans-CN'
 				},			
 				{
