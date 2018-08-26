@@ -44,7 +44,7 @@ try {
 		me.vid = me.props.params['id'];
 		if (me.vid) me.setState({vid:me.vid});
 		var s_data = {
-			'1808250000000002' :{'84.5' : [
+			'1808260000000001' :{'84.5' : [
 					{
 						length: 6,
 						sectionText: '天底下没人能在200米距离命中它',
@@ -62,7 +62,7 @@ try {
 						lang : 'cmn-Hans-CN'
 					}
 				]},
-			'1808250000000003' :{'30' : [
+			'1808260000000002' :{'30' : [
 						{
 							length: 5,
 							sectionText: '我找你就是给我弄个官当',
