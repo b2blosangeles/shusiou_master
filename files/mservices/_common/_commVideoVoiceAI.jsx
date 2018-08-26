@@ -49,7 +49,7 @@ try {
 				}, 
 				onClientMessage : function(incomeData) {
 					if ((incomeData.data) && (incomeData.data.SRRELEASE)) {
-						var auto_voice = [{tts: 'good job, lets continue ',
+						var auto_voice = [{tts: 'good job',
 								      lang : 'en-US'}];
 						me.playTTS(auto_voice, function() {			
 							me.playVideo();
