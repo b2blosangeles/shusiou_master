@@ -160,7 +160,7 @@ try {
 							<a href="#/demo/1808250000000003">1808250000000003</a>
 						</div>
 					</div>	
-				<span>)
+				</span>)
 		}});	
 } catch (err) {
 	  console.log(err.message);
