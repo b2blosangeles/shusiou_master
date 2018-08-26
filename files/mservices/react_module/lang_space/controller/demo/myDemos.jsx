@@ -4,6 +4,10 @@ try {
             let me = this;
             return {};
         },
+	newAddThumbnail:function(t) {
+		var url = _master_svr() + '/images/teacher_1.jpg';
+		return url;
+	},
         render: function() {
             var me = this;
 	    return (<div className="content_section">
