@@ -11,8 +11,9 @@ try {
         render: function() {
             var me = this;
 	    return (<div className="content_section">
+			    <br/><br/>
 				<div className="container"> 
-				    <div className="col-sm-6 col-lg-6 col-md-6">
+				    <div className="col-sm-4 col-lg-4 col-md-4">
 					    <div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
 						<img src={me.newAddThumbnail()} style={{width:'100%'}}/>
 						<div className="video_thumbnail_text pull-right">
@@ -25,7 +26,7 @@ try {
 						</div>
 					</div>
 				    </div>
-				    <div className="col-sm-6 col-lg-6 col-md-6">
+				    <div className="col-sm-4 col-lg-4 col-md-4">
 					    <div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
 						<img src={me.newAddThumbnail()} style={{width:'100%'}}/>
 						<div className="video_thumbnail_text pull-right">
