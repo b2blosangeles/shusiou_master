@@ -221,7 +221,7 @@ try {
 					me.setState({sectionUrl: me.props.parent.getSectionUrl(me.t, data.length)});
 					setTimeout(
 						function() {
-							$('#sectionBox').play();
+							$('#sectionBox')[0].play();
 						
 						}
 					
