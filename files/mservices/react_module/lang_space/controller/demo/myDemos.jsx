@@ -2,15 +2,7 @@ try {
     var MyDemos =  React.createClass({
         getInitialState: function() {
             let me = this;
-        },
-        componentDidUpdate:function(prePropos, preState) {
-		let me = this;
-		return true;
-        },
-	componentWillUnmount : function() {
-		let me = this;
-
-	},		    
+        },	    
         render: function() {
             var me = this;
 	    return  (<span>
