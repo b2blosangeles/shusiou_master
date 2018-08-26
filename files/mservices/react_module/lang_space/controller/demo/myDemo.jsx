@@ -65,7 +65,7 @@ try {
 			'1808250000000003' :{'30' : [
 						{
 							length: 5,
-							sectionText: '我找你就是给我弄个官当当',
+							sectionText: '我找你就是给我弄个官当',
 							section: true
 						},				
 						{
@@ -76,7 +76,7 @@ try {
 						},			
 						{
 							length: 2,
-							sr: ['我找你就是给我弄个官当当'],
+							sr: ['我找你就是给我弄个官当'],
 							lang : 'cmn-Hans-CN'
 						}
 					],	
