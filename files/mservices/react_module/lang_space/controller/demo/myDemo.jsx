@@ -161,7 +161,7 @@ try {
 						</div>
 					</div>	
 				<span>)
-		
+		}
 		}});	
 } catch (err) {
 	  console.log(err.message);
