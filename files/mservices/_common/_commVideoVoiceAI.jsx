@@ -141,7 +141,10 @@ try {
 		},
 		playVideo : function(t, length) {
 			let me = this;
-			me.setState({sectionUrl: null,sectionText :null});
+			setTimeout(
+				function() {
+					me.setState({sectionUrl: null,sectionText :null});
+			},1000);
 			if (typeof t === 'undefined') var t = me.vid.currentTime;
 			me.vid.currentTime = t + ((length) ? length : 0);
 			me.vid.play(); 
