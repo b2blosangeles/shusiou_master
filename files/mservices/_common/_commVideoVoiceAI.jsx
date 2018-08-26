@@ -184,7 +184,7 @@ try {
 				me.playTTS(me.timeLine[t.toString()], function() {
 					me.setState({locked : false, currentText:null});
 					
-					if (Object.keys(me.timeLine).length === 1 && (me.afterScript)) {
+					if (Object.keys(me.timeLine).length === 1) {
 						if (me.afterScript.tts) {
 							me.playTTS([{
 								tts: me.afterScript.tts,
