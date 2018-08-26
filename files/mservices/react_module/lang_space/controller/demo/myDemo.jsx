@@ -64,18 +64,18 @@ try {
 			'1808250000000003' :{'30' : [
 					{
 						length: 5,
-						sectionText: '天底下没人能在200米距离命中它',
+						sectionText: '我找你就是给我弄个官当当',
 						section: true
 					},				
 					{
 						length: 5,
-						tts: 'please follow the sentense',
+						tts: 'please follow',
 
 						lang : 'en-US'
 					},			
 					{
 						length: 2,
-						sr: ['天底下没人能在200米距离命中它'],
+						sr: ['我找你就是给我弄个官当当'],
 						lang : 'cmn-Hans-CN'
 					}
 				]},		
