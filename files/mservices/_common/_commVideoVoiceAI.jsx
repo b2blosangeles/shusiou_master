@@ -165,7 +165,7 @@ try {
 				return (<video src={me.state.sectionUrl} id="sectionBox"  
 					     width="320" 
 					     height="240"  
-					     controls autoplay>
+					     autoplay>
 					</video>)
 			} else {
 				return (<span></span>)
