@@ -141,8 +141,7 @@ try {
 	}, */
         render: function() {
             var me = this;
-		if (me.state.vid)
-	    return (<div className="content_section">
+	    return (me.state.vid) ? (<div className="content_section">
 				<br/>
 				<div className="container">
 					<div className="col-sm-12 col-lg-12 col-md-12"> 
@@ -152,21 +151,18 @@ try {
 				<div className="content_bg"></div>
 				{Root.lib.landingModal(me)}
 				
-			</div>)
-		else {
+			</div>) : (<span>
+					<div className="container">	
+						<div className="col-sm-6 col-lg-6 col-md-6">
+							<a href="#/demo/1808250000000002">1808250000000002</a>
+						</div>
+						<div className="col-sm-6 col-lg-6 col-md-6">
+							<a href="#/demo/1808250000000003">1808250000000003</a>
+						</div>
+					</div>	
+				<span>)
 		
-			return (<span>
-				<div className="container">	
-					<div className="col-sm-6 col-lg-6 col-md-6">
-						<a href="#/demo/1808250000000002">1808250000000002</a>
-					</div>
-					<div className="col-sm-6 col-lg-6 col-md-6">
-						<a href="#/demo/1808250000000003">1808250000000003</a>
-					</div>
-				</div>	
-			<span>)
-		}
-	}});	
+		}});	
 } catch (err) {
 	  console.log(err.message);
 }
