@@ -41,6 +41,10 @@ try {
 			script : {'84.5' : [
 				{
 					length: 6,
+					section: true
+				},				
+				{
+					length: 6,
 					tts: '天底下没人能在200米距离命中它',
 					lang : 'cmn-Hans-CN'
 				},			
