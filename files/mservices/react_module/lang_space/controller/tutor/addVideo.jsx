@@ -43,7 +43,7 @@ try {
 						return (<span>niu</span>)
 					}
 				});
-				return return (<mybbq/>)
+				return (<mybbq/>)
 			},
 			'pull_youtube': function() {
 				return 'Pull YouTube'
