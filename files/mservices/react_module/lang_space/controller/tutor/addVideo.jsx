@@ -147,49 +147,7 @@ try {
 				<div className="content_section">	
 					<br/>
 					<div className="container">
-						<div className="col-sm-4 col-lg-4 col-md-4"> 
-							<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
-								<div className="video_thumbnail_icon_group">
-									<button type="button" className="btn btn-warning"
-										onClick={me.videoAdmin.bind(me,'admin')}>
-										<i className="fa fa-upload" aria-hidden="true"></i> 
-										&nbsp;{Root.lib.dictionary('add_video')}
-									</button>										
-								</div>					
-								<img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmAddStyle()} />
-							</div>			
-						</div>
-						{me.state.list.map(function(a){ 
-							if (a.space_status === 1) return(
-							<div className="col-sm-4 col-lg-4 col-md-4"> 
-	
-								<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
-									<div className="video_thumbnail_icon_group">
-										<button type="button" className="btn btn-danger"
-											onClick={me.videoInfo.bind(me,a)}>
-											<i className="fa fa-play" aria-hidden="true"></i> 
-											&nbsp;{Root.lib.dictionary('play_video')}
-										</button>										
-									</div>
-									<_commObj code={'videoBgImage'}  
-										data={{img: _master_svr() + '/images/film_bg.png', 
-										rec:a, ss:90, size:320}}/>
-								</div>
-
-							</div>							
-							)
-							else return(
-							<div className="col-sm-4 col-lg-4 col-md-4"> 
-								<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
-									<img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmThumbnail(a.org_thumbnail)} />	
-									<div className="video_thumbnail_text video_thumbnail_text_bg pull-right">
-										<i className="fa fa-info-circle"></i> {(a.message)?a.message:'Processing ...'}
-									</div>
-								</div>
-
-							</div>							
-							);							
-						})}							
+						Add Video							
 					</div>						
 
 					<br/><br/><br/><br/>
