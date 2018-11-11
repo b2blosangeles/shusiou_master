@@ -16,7 +16,28 @@ try {
 					<br/>
 					<div className="container">
 						<div className="col-sm-12 col-lg-12 col-md-12">
+							
+							
+							
+							
 							<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
+							
+<ul className="nav">
+  <li className="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li className="nav-item">
+    <a className="nav-link" href="#">Link</a>
+  </li>
+  <li className="nav-item">
+    <a className="nav-link" href="#">Link</a>
+  </li>
+  <li className="nav-item">
+    <a className="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>								
+								
+								
 								<a className="btn btn-success" 
 									href={'#/tutor/addVideo'}>
 									{Root.lib.dictionary('upload video')}
