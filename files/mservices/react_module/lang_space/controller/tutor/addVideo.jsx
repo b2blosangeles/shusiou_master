@@ -1,8 +1,4 @@
-try {					var _commObjmybbq =  React.createClass({
-					render: function() {
-						return (<span>niu</span>)
-					}
-				});
+try {					
 	var addVideo =  React.createClass({
 		getInitialState: function() {
 			var me = this;
@@ -42,7 +38,11 @@ try {					var _commObjmybbq =  React.createClass({
 		},
 		OptionBody : {
 			'upload_video': function() {
-
+					var _commObjmybbq =  React.createClass({
+					render: function() {
+						return (<span>niubb</span>)
+					}
+				});
 				return (<_commObjmybbq/>)
 			},
 			'pull_youtube': function() {
@@ -54,6 +54,7 @@ try {					var _commObjmybbq =  React.createClass({
 		},
 		showOptionBody : function() {
 			var me = this;
+			
 			return (!me.state.option) ? '' : 
 				(<div className="overlayer_box homepage_box" style={{'margin-top': '0.5em'}}>
 					{(!me.OptionBody[me.state.option]) ? '' : me.OptionBody[me.state.option]()}			
