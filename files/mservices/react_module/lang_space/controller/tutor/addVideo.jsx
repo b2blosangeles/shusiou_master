@@ -20,7 +20,7 @@ try {
 							</a>)
 							: (<a className="btn btn-success" 
 							       onClick={me.loadOption.bind(me, m.code)}
-								href={'javaScript: void(0);'} style={{'margin':'0.2em'}}>
+								href={'javaScript: void(0);'}>
 								{Root.lib.dictionary(m.code)}
 							</a>)
 					})}
