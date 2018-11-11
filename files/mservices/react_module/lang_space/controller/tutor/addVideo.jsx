@@ -15,9 +15,9 @@ try {
 			return (<span>
 					{me.state.options.map(function(m){ 
 						return  (m.code === me.state.option)? 
-							(<a className="btn btn-default disabled" href={'javaScript: void(0);'} style={{'margin':'0.2em'}}>
+							(<button className="btn btn-default disabled" style={{'margin':'0.2em'}}>
 								{Root.lib.dictionary(m.code)}
-							</a>)
+							</button>)
 							: (<a className="btn btn-success" style={{'margin':'0.2em'}}
 							       onClick={me.loadOption.bind(me, m.code) }
 								href={'javaScript: void(0);'}>
