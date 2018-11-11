@@ -17,7 +17,7 @@ try {
 						return  (m.code === me.state.option)? 
 							(<span></span>)
 							: (<a className="btn btn-success" 
-							       onClick={me.loadModule.bind(me, m.code)}
+							       onClick={me.loadOption.bind(me, m.code)}
 								href={'javaScript: void(0);'} style={{'margin':'0.2em'}}>
 								{Root.lib.dictionary(m.code)}
 							</a>)
@@ -30,14 +30,14 @@ try {
 					</a>			
 				</span>);		
 		},
-		loadModule : function(code) {
+		loadOption : function(code) {
 			var me = this;
 			me.setState({option:code});
 		},
-		upload_video : function() {
+		showOptionBody : function(code) {
 			var me = this;
-			return 'upload_video ==='
-		},
+			return code + '====';
+		},		
 		closeAdmin:function(v) {
 			var me = this;
 			me.setState({ModalPlus:'cancel'});
@@ -56,7 +56,7 @@ try {
 									'padding':'0.5em', 'min-height':'36em'}}>
 								{me.showMenu()}
 								<br/>
-								{(me[me.state.option]) ? me[me.state.option]() : '' }
+								{me.showOptionBody()}
 							</div>	
 							
 						</div>
