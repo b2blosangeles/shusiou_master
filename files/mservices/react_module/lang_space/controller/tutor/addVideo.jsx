@@ -38,7 +38,7 @@ try {
 		},
 		showOptionBody : function() {
 			var me = this;
-			return (<div className="overlayer_box homepage_box">
+			return (<div className="overlayer_box homepage_box" style={{'margin-top': '0px'}}>
 					{me.state.option}			
 				</div>);				
 		},		
