@@ -12,7 +12,7 @@ try {
 		},
 		showMenu : function()  {
 			var me = this;
-			return (<span>
+			return (<div className="overlayer_box homepage_box">
 					{me.state.options.map(function(m){ 
 						return  (m.code === me.state.option)? 
 							(<a className="btn btn-default disabled" href={'javaScript: void(0);'} style={{'margin':'0.2em'}}>
@@ -30,7 +30,7 @@ try {
 						&nbsp;{Root.lib.dictionary('backTo')}
 						{Root.lib.dictionary('my_videos')}
 					</a>			
-				</span>);		
+				</div>);		
 		},
 		loadOption : function(code) {
 			var me = this;
