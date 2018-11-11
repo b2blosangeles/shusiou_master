@@ -45,7 +45,7 @@
 			"/mservices/react_module/lang_space/controller/tutor/popup_my_video_admin.jsx",
 			"/mservices/react_module/lang_space/controller/tutor/popup_my_video_info.jsx",
 			"/mservices/react_module/lang_space/controller/tutor/my_videos.jsx",
-			
+			"/mservices/react_module/lang_space/controller/tutor/addVideo.jsx",
 			
 			"/mservices/react_module/lang_space/controller/student/public_courses.jsx",
 			"/mservices/react_module/lang_space/controller/student/my_course.jsx",
