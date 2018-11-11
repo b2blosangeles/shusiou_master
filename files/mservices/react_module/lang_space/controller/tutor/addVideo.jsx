@@ -14,11 +14,13 @@ try {
 			var me = this;
 			return (<span>
 					{me.state.options.map(function(m){ 
-					return(<a className="btn btn-success" 
-						       onClick={me.loadModule.bind(me, m.code)}
-							href={'javaScript: void(0);'} style={{'margin':'0.2em'}}>
-							{Root.lib.dictionary(m.code)}
-						</a>)
+						return  (m.code === me.state.option)? 
+							(<span></span>)
+							: (<a className="btn btn-success" 
+							       onClick={me.loadModule.bind(me, m.code)}
+								href={'javaScript: void(0);'} style={{'margin':'0.2em'}}>
+								{Root.lib.dictionary(m.code)}
+							</a>)
 					})}
 					<a className="btn btn-warning pull-right" 
 						href={'#/tutor/my_videos'} style={{'margin':'0.2em'}}>
@@ -30,7 +32,7 @@ try {
 		},
 		loadModule : function(code) {
 			var me = this;
-			alert(code);
+			me.setState({option:code})
 		},
 		closeAdmin:function(v) {
 			var me = this;
