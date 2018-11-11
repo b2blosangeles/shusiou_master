@@ -55,8 +55,10 @@ try {
 								style={{'margin-bottom':'1em', 
 									'padding':'0.5em', 'min-height':'36em'}}>
 								{me.showMenu()}
+								<br/>
+								{(me[me.state.option]) ? me[me.state.option]() : '' }
 							</div>	
-							{(me[me.state.option]) ? me[me.state.option]() : '' }
+							
 						</div>
 						
 					</div>						
