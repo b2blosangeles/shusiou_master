@@ -147,7 +147,8 @@ try {
 				<div className="content_section">	
 					<br/>
 					<div className="container">
-						Add Video							
+						<div className="col-sm-12 col-lg-12 col-md-12">
+						</div>
 					</div>						
 
 					<br/><br/><br/><br/>
