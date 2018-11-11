@@ -39,7 +39,10 @@ try {
 		OptionBody : {
 			'upload_video': function() {
 				return 'Upload Video'
-			}
+			},
+			'pull_youtube': function() {
+				return 'Pull YouTube'
+			}			
 		},
 		showOptionBody : function() {
 			var me = this;
