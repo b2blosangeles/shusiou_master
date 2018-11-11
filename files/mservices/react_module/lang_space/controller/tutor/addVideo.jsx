@@ -17,17 +17,17 @@ try {
 					<div className="container">
 						<div className="col-sm-12 col-lg-12 col-md-12">
 							<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
-								<button className="btn btn-success" 
+								<button type="button" className="btn btn-success" 
 									href={'#/tutor/addVideo'}>
 									{Root.lib.dictionary('upload video')}
 								</button>
 								
-								<button className="btn btn-success" 
+								<button type="button" className="btn btn-success" 
 									href={'#/tutor/addVideo'}>
 									{Root.lib.dictionary('pull video from youtube')}
 								</button>
 								
-								<button className="btn btn-warning" 
+								<button type="button" className="btn btn-warning" 
 									href={'#/tutor/my_videos'}>{Root.lib.dictionary('my_videos')}
 								</button>
 							</div>	
