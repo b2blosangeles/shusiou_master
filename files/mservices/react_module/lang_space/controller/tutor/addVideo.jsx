@@ -29,7 +29,9 @@ try {
 								</a>
 								&nbsp;
 								<a className="btn btn-warning" 
-									href={'#/tutor/my_videos'}>{Root.lib.dictionary('my_videos')}
+									href={'#/tutor/my_videos'}>
+									{Root.lib.dictionary('backTo')}
+									{Root.lib.dictionary('my_videos')}
 								</a>
 							</div>	
 						</div>
