@@ -103,7 +103,7 @@ try {
 				</p>
 			</p>)
 		},
-		renderA:function() {
+		render:function() {
 			var me = this;
 			if (!me.state.vid) return me.pullingYoutube();	
 			else return (
@@ -150,7 +150,7 @@ try {
 				</div>	
 			</p>);
 		},		
-		render:function() {
+		renderA:function() {
 			var me = this;
 			if (!me.state.methiod) return (
 				<span>select method</span>
