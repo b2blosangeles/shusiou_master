@@ -36,11 +36,16 @@ try {
 			var me = this;
 			me.setState({option:code});
 		},
+		OptionBody : {
+			'upload_video': function() {
+				return 'Upload Video'
+			}
+		},
 		showOptionBody : function() {
 			var me = this;
 			return (!me.state.option) ? '' : 
 				(<div className="overlayer_box homepage_box" style={{'margin-top': '0.5em'}}>
-					{me.state.option}			
+					{(!me.OptionBody[me.state.option]) ? '' : me.OptionBody[me.state.option]()}			
 				</div>);				
 		},		
 		closeAdmin:function(v) {
