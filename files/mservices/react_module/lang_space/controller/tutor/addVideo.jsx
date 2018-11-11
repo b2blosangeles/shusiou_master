@@ -14,9 +14,9 @@ try {
 			var me = this;
 			{me.state.options.map(function(m){ 					
 				return(<a className="btn btn-success" 
-						href={'#/tutor/addVideo'}>
+						href={'#/tutor/addVideo'} style={{'margin':'0.5em'}}>
 						<i className="fa fa-upload" aria-hidden="true"></i>
-						&nbsp;{Root.lib.dictionary('me.code)}
+						&nbsp;{Root.lib.dictionary(m.code)}
 					</a>)	
 			})};		
 		},
