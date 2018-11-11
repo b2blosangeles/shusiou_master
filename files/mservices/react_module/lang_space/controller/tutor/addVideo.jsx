@@ -17,7 +17,7 @@ try {
 					<div className="container">
 						<div className="col-sm-12 col-lg-12 col-md-12">
 							<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
-							<a href={'#/tutor/my_videos'}>Add Video</a>
+							<a href={'#/tutor/my_videos'}>{Root.lib.dictionary('my_videos')}</a>
 							</div>	
 						</div>
 					</div>						
