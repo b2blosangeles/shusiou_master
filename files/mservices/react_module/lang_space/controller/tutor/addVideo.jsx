@@ -42,6 +42,9 @@ try {
 			},
 			'pull_youtube': function() {
 				return 'Pull YouTube'
+			},
+			'add_shared_video': function() {
+				return 'Add Shared Video'
 			}			
 		},
 		showOptionBody : function() {
