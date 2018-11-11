@@ -1,4 +1,8 @@
-try {	
+try {					var mybbq =  React.createClass({
+					render: function() {
+						return (<span>niu</span>)
+					}
+				});
 	var addVideo =  React.createClass({
 		getInitialState: function() {
 			var me = this;
@@ -38,11 +42,7 @@ try {
 		},
 		OptionBody : {
 			'upload_video': function() {
-				var mybbq =  React.createClass({
-					render: function() {
-						return (<span>niu</span>)
-					}
-				});
+
 				return (<mybbq/>)
 			},
 			'pull_youtube': function() {
