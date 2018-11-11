@@ -12,7 +12,7 @@ try {
 		},
 		showMenu : function()  {
 			var me = this;
-			return (<div className="overlayer_box homepage_box" style={{'margin':'0em'}}>
+			return (<div>
 					{me.state.options.map(function(m){ 
 						return  (m.code === me.state.option)? 
 							(<a className="btn btn-default disabled" href={'javaScript: void(0);'} style={{'margin':'0.2em'}}>
@@ -38,7 +38,9 @@ try {
 		},
 		showOptionBody : function() {
 			var me = this;
-			return me.state.option;
+			return (<div className="overlayer_box homepage_box">
+					{me.state.option}			
+				</div>);				
 		},		
 		closeAdmin:function(v) {
 			var me = this;
