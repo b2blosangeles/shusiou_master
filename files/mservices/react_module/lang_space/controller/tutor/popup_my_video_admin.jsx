@@ -69,12 +69,9 @@ try {
 		videoUpload : function() {
 			return (<span>upload...</span>);
 		},
-		render:function() {
+		pullingYoutube : function () {
 			var me = this;
-			return me.videoUpload();
-			
-			if (!me.state.vid) return (
-			<p  style={{'padding':'1em'}}>				
+			return (<p  style={{'padding':'1em'}}>				
 				<h5>Pulling YouTube Video --- Upload video</h5>	
 				<div className="input-group">
 				  <input type="text" className="form-control" placeholder="Input YouTube link" 
@@ -87,7 +84,11 @@ try {
 				<p>
 					<h5>Or pulling a shared videos</h5>
 				</p>
-			</p>);	
+			</p>)
+		},
+		render:function() {
+			var me = this;
+			if (!me.state.vid) return me.pullingYoutube();	
 			else return (
 			<p style={{'padding':'1em'}}>						
 				<div >	
