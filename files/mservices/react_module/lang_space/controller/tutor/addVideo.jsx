@@ -21,22 +21,26 @@ try {
 									'padding':'0.5em', 'min-height':'36em'}}>
 								<a className="btn btn-success" 
 									href={'#/tutor/addVideo'}>
-									{Root.lib.dictionary('upload_video')}
+									<i className="fa fa-upload" aria-hidden="true"></i>
+									&nbsp;{Root.lib.dictionary('upload_video')}
 								</a>
 								&nbsp;
 								<a className="btn btn-success" 
 									href={'#/tutor/addVideo'}>
-									{Root.lib.dictionary('pull_youtube')}
+									<i className="fa fa-upload" aria-hidden="true"></i>
+									&nbsp;{Root.lib.dictionary('pull_youtube')}
 								</a>
 								&nbsp;
 								<a className="btn btn-success" 
 									href={'#/tutor/addVideo'}>
-									{Root.lib.dictionary('add_shared_video')}
+									<i className="fa fa-upload" aria-hidden="true"></i>
+									&nbsp;{Root.lib.dictionary('add_shared_video')}
 								</a>
 								&nbsp;								
 								<a className="btn btn-warning pull-right" 
 									href={'#/tutor/my_videos'}>
-									{Root.lib.dictionary('backTo')}
+									<i className="fa fa-upload" aria-hidden="true"></i>
+									&nbsp;{Root.lib.dictionary('backTo')}
 									{Root.lib.dictionary('my_videos')}
 								</a>
 							</div>	
