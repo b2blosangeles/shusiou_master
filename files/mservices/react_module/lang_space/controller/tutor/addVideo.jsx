@@ -17,29 +17,19 @@ try {
 					<div className="container">
 						<div className="col-sm-12 col-lg-12 col-md-12">
 							<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
-								<nav aria-label={"breadcrumb"}>
-								  <ol class={"breadcrumb"}>
-								    <li className="breadcrumb-item"><a href="#">Home</a></li>
-								    <li className="breadcrumb-item active" 
-									    aria-current={"page"}>Library</li>
-								  </ol>
-								</nav>
-															
-								
-								
-								<a className="btn btn-success" 
+								<button className="btn btn-success" 
 									href={'#/tutor/addVideo'}>
 									{Root.lib.dictionary('upload video')}
-								</a>
+								</button>
 								
-								<a className="btn btn-success" 
+								<button className="btn btn-success" 
 									href={'#/tutor/addVideo'}>
 									{Root.lib.dictionary('pull video from youtube')}
-								</a>
+								</button>
 								
-								<a className="btn btn-warning" 
+								<button className="btn btn-warning" 
 									href={'#/tutor/my_videos'}>{Root.lib.dictionary('my_videos')}
-								</a>
+								</button>
 							</div>	
 						</div>
 					</div>						
