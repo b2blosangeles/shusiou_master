@@ -15,7 +15,7 @@ try {
 			return (<span>
 					{me.state.options.map(function(m){ 
 						return  (m.code === me.state.option)? 
-							(<button className="btn btn-default disabled" style={{'margin':'0.2em'}}>
+							(<button className="btn btn-default" style={{'margin':'0.2em'}}>
 								{Root.lib.dictionary(m.code)}
 							</button>)
 							: (<a className="btn btn-success" style={{'margin':'0.2em'}}
