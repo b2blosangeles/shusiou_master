@@ -2,7 +2,19 @@ try {
 	var addVideo =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			return {opt:'', list:[]};
+			return {
+				options: [
+					{code: 'upload_video'},
+					{code: 'pull_youtube'},
+					{code: 'add_shared_video'}
+				],
+				opt:'', list:[]};
+		},
+		showMenu : function()  {
+			var me = this;
+			{me.state.options.map(function(m){ 					
+				return(<span>{m.code}</span>)	
+			})};		
 		},
 		closeAdmin:function(v) {
 			var me = this;
@@ -16,9 +28,13 @@ try {
 					<br/>
 					<div className="container">
 						<div className="col-sm-12 col-lg-12 col-md-12">
+							
 							<div className="overlayer_box homepage_box" 
 								style={{'margin-bottom':'1em', 
 									'padding':'0.5em', 'min-height':'36em'}}>
+								
+								{me.showMenu()}===
+								
 								<a className="btn btn-success" 
 									href={'#/tutor/addVideo'}>
 									<i className="fa fa-upload" aria-hidden="true"></i>
