@@ -22,9 +22,9 @@ try {
 							
 							<div className="overlayer_box homepage_box" style={{'margin-bottom':'1em', 'padding':'0.5em'}}>
 								<nav aria-label={"breadcrumb"}>
-								  <ol class={"breadcrumb}">
+								  <ol class={"breadcrumb"}>
 								    <li className="breadcrumb-item"><a href="#">Home</a></li>
-								    <li className="breadcrumb-item active" aria-current="page">Library</li>
+								    <li className="breadcrumb-item active" aria-current={"page"}>Library</li>
 								  </ol>
 								</nav>
 															
