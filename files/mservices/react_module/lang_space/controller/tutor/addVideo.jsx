@@ -27,19 +27,19 @@ try {
 								&nbsp;
 								<a className="btn btn-success" 
 									href={'#/tutor/addVideo'}>
-									<i className="fa fa-upload" aria-hidden="true"></i>
+									<i className="fa fa-cloud-download" aria-hidden="true"></i>
 									&nbsp;{Root.lib.dictionary('pull_youtube')}
 								</a>
 								&nbsp;
 								<a className="btn btn-success" 
 									href={'#/tutor/addVideo'}>
-									<i className="fa fa-upload" aria-hidden="true"></i>
+									<i className="fa fa-plus-square" aria-hidden="true"></i>
 									&nbsp;{Root.lib.dictionary('add_shared_video')}
 								</a>
 								&nbsp;								
 								<a className="btn btn-warning pull-right" 
 									href={'#/tutor/my_videos'}>
-									<i className="fa fa-upload" aria-hidden="true"></i>
+									<i className="fa fa-undo" aria-hidden="true"></i>
 									&nbsp;{Root.lib.dictionary('backTo')}
 									{Root.lib.dictionary('my_videos')}
 								</a>
