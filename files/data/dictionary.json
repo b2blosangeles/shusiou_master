@@ -192,5 +192,13 @@
 	select_level: {
 		cn:"选择级别",
 		en:"Select Level"	
-	}
+	},
+	upload_video: {
+		cn:"上传视频",
+		en:"Upload Video"	
+	},
+	pull_youtube: {
+		cn:"从 YouTube 抓取视频",
+		en:"Pulling from YouTube"	
+	}	
 }
