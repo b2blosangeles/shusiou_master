@@ -12,6 +12,7 @@ try {
 		},
 		showMenu : function()  {
 			var me = this;
+			return JSON.stringify(me.state) + '***';
 			{me.state.options.map(function(m){ 					
 				return(<a className="btn btn-success" 
 						href={'#/tutor/addVideo'} style={{'margin':'0.5em'}}>
