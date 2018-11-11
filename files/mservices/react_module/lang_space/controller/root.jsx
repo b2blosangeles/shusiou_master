@@ -110,7 +110,8 @@ try {
 					{route:'tutor/my_curriculum/:opt/', role:['teacher'],  auth:true, component:MyCurriculumById},
 					{route:'tutor/my_curriculum/:opt/:id', role:['teacher'],  auth:true, component:MyCurriculumById},
 					{route:'tutor/my_videos', role:['teacher'],  auth:true, component:My_videos},
-
+					{route:'tutor/addVideo', role:['teacher'],  auth:true, component:addVideo},
+					
 					{route:'public_courses', role:['*'], component:PublicCourses},
 					{route:'student/my_courses', role:['learner'],  auth:true, component:Mycourse},
 					{route:'student/my_course/:id', role:['*'],  auth:true, component:Mycoursebyid},
