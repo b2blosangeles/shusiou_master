@@ -13,7 +13,11 @@ try {
 		showMenu : function()  {
 			var me = this;
 			{me.state.options.map(function(m){ 					
-				return(<span>{m.code}</span>)	
+				return(<a className="btn btn-success" 
+						href={'#/tutor/addVideo'}>
+						<i className="fa fa-upload" aria-hidden="true"></i>
+						&nbsp;{Root.lib.dictionary('me.code)}
+					</a>)	
 			})};		
 		},
 		closeAdmin:function(v) {
