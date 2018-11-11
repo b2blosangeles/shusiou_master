@@ -154,7 +154,13 @@ try {
 										onClick={me.videoAdmin.bind(me,'admin')}>
 										<i className="fa fa-upload" aria-hidden="true"></i> 
 										&nbsp;{Root.lib.dictionary('add_video')}
-									</button>										
+									</button>
+									
+									<button type="button" className="btn btn-success"
+										href={'#/tutor/addVideo'}>
+										<i className="fa fa-upload" aria-hidden="true"></i> 
+										&nbsp;{Root.lib.dictionary('add_video')}
+									</button>									
 								</div>					
 								<img src={ _master_svr() + '/images/film_bg.png'} style={me.bgFilmAddStyle()} />
 							</div>			
