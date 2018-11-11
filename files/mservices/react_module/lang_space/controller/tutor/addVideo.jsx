@@ -36,9 +36,9 @@ try {
 			var me = this;
 			me.setState({option:code});
 		},
-		showOptionBody : function(code) {
+		showOptionBody : function() {
 			var me = this;
-			return code + '====';
+			return me.state.option;
 		},		
 		closeAdmin:function(v) {
 			var me = this;
