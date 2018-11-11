@@ -18,8 +18,8 @@ try {
 							(<a className="btn btn-default disabled" href={'javaScript: void(0);'} style={{'margin':'0.2em'}}>
 								{Root.lib.dictionary(m.code)}
 							</a>)
-							: (<a className="btn btn-success" 
-							       onClick={me.loadOption.bind(me, m.code)}
+							: (<a className="btn btn-success" style={{'margin':'0.2em'}}
+							       onClick={me.loadOption.bind(me, m.code) }
 								href={'javaScript: void(0);'}>
 								{Root.lib.dictionary(m.code)}
 							</a>)
