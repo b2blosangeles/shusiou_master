@@ -53,9 +53,7 @@ try {
 					<div className="container">
 						<div className="col-sm-12 col-lg-12 col-md-12 overlayer_box homepage_box">
 							
-							<div className="overlayer_box homepage_box" 
-								style={{'margin-bottom':'1em', 
-									'padding':'0.5em', 'min-height':'36em'}}>
+							<div style={{'margin':'0.5em', 'min-height':'36em'}}>
 								{me.showMenu()}
 								<br/><br/>
 								{me.showOptionBody()}
