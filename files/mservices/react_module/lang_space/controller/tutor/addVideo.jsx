@@ -12,14 +12,21 @@ try {
 		},
 		showMenu : function()  {
 			var me = this;
-			return (<span>{me.state.options.map(function(m){ 
-				return(<a className="btn btn-success" 
-						href={'#/tutor/addVideo'} style={{'margin':'0.5em'}}>
-						<i className="fa fa-upload" aria-hidden="true"></i>
-						&nbsp;{Root.lib.dictionary(m.code)}
-					</a>)
-				})
-					}</span>);		
+			return (<span>
+					{me.state.options.map(function(m){ 
+					return(<a className="btn btn-success" 
+							href={'#/tutor/addVideo'} style={{'margin':'0.2em'}}>
+							<i className="fa fa-upload" aria-hidden="true"></i>
+							&nbsp;{Root.lib.dictionary(m.code)}
+						</a>)
+					})}
+					<a className="btn btn-warning pull-right" 
+						href={'#/tutor/my_videos'} style={{'margin':'0.2em'}}>
+						<i className="fa fa-undo" aria-hidden="true"></i>
+						&nbsp;{Root.lib.dictionary('backTo')}
+						{Root.lib.dictionary('my_videos')}
+					</a>			
+				</span>);		
 		},
 		closeAdmin:function(v) {
 			var me = this;
@@ -37,33 +44,7 @@ try {
 							<div className="overlayer_box homepage_box" 
 								style={{'margin-bottom':'1em', 
 									'padding':'0.5em', 'min-height':'36em'}}>
-								
-								{me.showMenu()}===
-								
-								<a className="btn btn-success" 
-									href={'#/tutor/addVideo'}>
-									<i className="fa fa-upload" aria-hidden="true"></i>
-									&nbsp;{Root.lib.dictionary('upload_video')}
-								</a>
-								&nbsp;
-								<a className="btn btn-success" 
-									href={'#/tutor/addVideo'}>
-									<i className="fa fa-cloud-download" aria-hidden="true"></i>
-									&nbsp;{Root.lib.dictionary('pull_youtube')}
-								</a>
-								&nbsp;
-								<a className="btn btn-success" 
-									href={'#/tutor/addVideo'}>
-									<i className="fa fa-plus-square" aria-hidden="true"></i>
-									&nbsp;{Root.lib.dictionary('add_shared_video')}
-								</a>
-								&nbsp;								
-								<a className="btn btn-warning pull-right" 
-									href={'#/tutor/my_videos'}>
-									<i className="fa fa-undo" aria-hidden="true"></i>
-									&nbsp;{Root.lib.dictionary('backTo')}
-									{Root.lib.dictionary('my_videos')}
-								</a>
+								{me.showMenu()}
 							</div>	
 						</div>
 					</div>						
