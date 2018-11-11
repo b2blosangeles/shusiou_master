@@ -15,7 +15,8 @@ try {
 			return (<span>
 					{me.state.options.map(function(m){ 
 					return(<a className="btn btn-success" 
-							href={'#/tutor/addVideo'} style={{'margin':'0.2em'}}>
+						       onClick={me.loadModule.bind(me, m.code)}
+							href={'javaScript: void(0);'} style={{'margin':'0.2em'}}>
 							<i className="fa fa-upload" aria-hidden="true"></i>
 							&nbsp;{Root.lib.dictionary(m.code)}
 						</a>)
@@ -27,6 +28,9 @@ try {
 						{Root.lib.dictionary('my_videos')}
 					</a>			
 				</span>);		
+		},
+		loadModule : function(code) {
+			alert(code);
 		},
 		closeAdmin:function(v) {
 			var me = this;
