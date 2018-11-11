@@ -17,8 +17,7 @@ try {
 					return(<a className="btn btn-success" 
 						       onClick={me.loadModule.bind(me, m.code)}
 							href={'javaScript: void(0);'} style={{'margin':'0.2em'}}>
-							<i className="fa fa-upload" aria-hidden="true"></i>
-							&nbsp;{Root.lib.dictionary(m.code)}
+							{Root.lib.dictionary(m.code)}
 						</a>)
 					})}
 					<a className="btn btn-warning pull-right" 
