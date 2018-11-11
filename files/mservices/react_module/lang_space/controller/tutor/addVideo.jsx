@@ -38,7 +38,8 @@ try {
 		},
 		showOptionBody : function() {
 			var me = this;
-			return (<div className="overlayer_box homepage_box" style={{'margin-top': '0.5em'}}>
+			return (!me.state.option) ? '' : 
+				(<div className="overlayer_box homepage_box" style={{'margin-top': '0.5em'}}>
 					{me.state.option}			
 				</div>);				
 		},		
