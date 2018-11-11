@@ -28,7 +28,7 @@ try {
 									{Root.lib.dictionary('pull_youtube')}
 								</a>
 								&nbsp;
-								<a className="btn btn-warning" 
+								<a className="btn btn-warning pull-right" 
 									href={'#/tutor/my_videos'}>
 									{Root.lib.dictionary('backTo')}
 									{Root.lib.dictionary('my_videos')}
