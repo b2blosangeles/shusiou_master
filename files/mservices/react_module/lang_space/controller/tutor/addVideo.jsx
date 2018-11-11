@@ -17,7 +17,7 @@ try {
 					<div className="container">
 						<div className="col-sm-12 col-lg-12 col-md-12">
 							<div className="overlayer_box homepage_box" 
-								style={{'margin-bottom':'1em', 'padding':'0.5em', 'min-height':'200px'}}>
+								style={{'margin-bottom':'1em', 'padding':'0.5em', 'min-height':'20em'}}>
 								<a className="btn btn-success" 
 									href={'#/tutor/addVideo'}>
 									{Root.lib.dictionary('upload video')}
