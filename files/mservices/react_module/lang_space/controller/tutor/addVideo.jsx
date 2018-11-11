@@ -13,7 +13,8 @@ try {
 		showMenu : function()  {
 			var me = this;
 			return JSON.stringify(me.state.options) + '***';
-			{me.state.options.map(function(m){ 					
+			{me.state.options.map(function(m){ 
+				return m.code;
 				return(<a className="btn btn-success" 
 						href={'#/tutor/addVideo'} style={{'margin':'0.5em'}}>
 						<i className="fa fa-upload" aria-hidden="true"></i>
