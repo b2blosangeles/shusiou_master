@@ -2,7 +2,7 @@ try {
 	var My_video_admin =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			return {video_url:'', vid:'', error:'', list:[]};
+			return {video_url:'', vid:'', error:'', list:[], method: ''};
 		},
 		initState:function() {
 			this.setState({video_url:'', vid:'', title:'', length_seconds:0,thumbnail_url:'', error:''});			
@@ -66,9 +66,13 @@ try {
 			}			
 			Root.lib.loadEng(me, engCfg);
 		},		
-	
+		videoUpload : function() {
+			return (<span>upload...</span>);
+		},
 		render:function() {
 			var me = this;
+			return me.videoUpload();
+			
 			if (!me.state.vid) return (
 			<p  style={{'padding':'1em'}}>				
 				<h5>Pulling YouTube Video --- Upload video</h5>	
