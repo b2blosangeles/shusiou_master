@@ -29,6 +29,7 @@ try {
 				</span>);		
 		},
 		loadModule : function(code) {
+			var me = this;
 			alert(code);
 		},
 		closeAdmin:function(v) {
