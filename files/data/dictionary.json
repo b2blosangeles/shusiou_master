@@ -201,6 +201,10 @@
 		cn:"从 YouTube 抓取视频",
 		en:"Pulling from YouTube"	
 	},
+	add_shared_video: {
+		cn:"添加分享视频",
+		en:"Add Shared Video"	
+	},
 	backTo: {
 		cn:"返回",
 		en:"Back "	
