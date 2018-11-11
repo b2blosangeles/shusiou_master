@@ -8,7 +8,7 @@ try {
 					{code: 'pull_youtube'},
 					{code: 'add_shared_video'}
 				],
-				opt:'', list:[]};
+				option:'', list:[]};
 		},
 		showMenu : function()  {
 			var me = this;
@@ -32,7 +32,11 @@ try {
 		},
 		loadModule : function(code) {
 			var me = this;
-			me.setState({option:code})
+			me.setState({option:code});
+		},
+		upload_video : function() {
+			var me = this;
+			return 'upload_video ==='
 		},
 		closeAdmin:function(v) {
 			var me = this;
@@ -53,6 +57,7 @@ try {
 								{me.showMenu()}
 							</div>	
 						</div>
+						{(me[me.state.option]) ? me[me.state.option]() : '' }
 					</div>						
 
 					<br/><br/><br/><br/>
