@@ -28,6 +28,11 @@ try {
 									{Root.lib.dictionary('pull_youtube')}
 								</a>
 								&nbsp;
+								<a className="btn btn-success" 
+									href={'#/tutor/addVideo'}>
+									{Root.lib.dictionary('add_exist')}
+								</a>
+								&nbsp;								
 								<a className="btn btn-warning pull-right" 
 									href={'#/tutor/my_videos'}>
 									{Root.lib.dictionary('backTo')}
