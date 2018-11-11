@@ -20,12 +20,12 @@ try {
 								style={{'margin-bottom':'1em', 'padding':'0.5em', 'min-height':'20em'}}>
 								<a className="btn btn-success" 
 									href={'#/tutor/addVideo'}>
-									{Root.lib.dictionary('upload video')}
+									{Root.lib.dictionary('upload_video')}
 								</a>
 								&nbsp;
 								<a className="btn btn-success" 
 									href={'#/tutor/addVideo'}>
-									{Root.lib.dictionary('pull video from youtube')}
+									{Root.lib.dictionary('pull_youtube')}
 								</a>
 								&nbsp;
 								<a className="btn btn-warning" 
