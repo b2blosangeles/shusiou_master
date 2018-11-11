@@ -12,7 +12,7 @@ try {
 		},
 		showMenu : function()  {
 			var me = this;
-			return (<div>
+			return (<span>
 					{me.state.options.map(function(m){ 
 						return  (m.code === me.state.option)? 
 							(<a className="btn btn-default disabled" href={'javaScript: void(0);'} style={{'margin':'0.2em'}}>
@@ -30,7 +30,7 @@ try {
 						&nbsp;{Root.lib.dictionary('backTo')}
 						{Root.lib.dictionary('my_videos')}
 					</a>			
-				</div>);		
+				</span>);		
 		},
 		loadOption : function(code) {
 			var me = this;
@@ -57,7 +57,6 @@ try {
 							
 							<div style={{'margin':'0em', 'min-height':'36em'}}>
 								{me.showMenu()}
-								<br/><br/>
 								{me.showOptionBody()}
 							</div>	
 							
