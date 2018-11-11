@@ -200,5 +200,9 @@
 	pull_youtube: {
 		cn:"从 YouTube 抓取视频",
 		en:"Pulling from YouTube"	
+	},
+	backTo: {
+		cn:"返回",
+		en:"Back "	
 	}	
 }
