@@ -86,7 +86,24 @@ try {
 				</p>
 			</p>)
 		},
-		render:function() {
+		selectFromMatrix : function () {
+			var me = this;
+			return (<p  style={{'padding':'1em'}}>				
+				<h5>Pulling YouTube Video --- Upload video</h5>	
+				<div className="input-group">
+				  <input type="text" className="form-control" placeholder="Input YouTube link" 
+					  value={me.state.video_url}
+					  onChange={this.handleChange.bind(this)}
+					  aria-describedby="basic-addon2"/>
+				  <div className={me.videoUrlSubmitable()} onClick={me.videoUrlDecode.bind(me)}>Submit</div>
+				</div>
+				<hr/>
+				<p>
+					<h5>Or pulling a shared videos</h5>
+				</p>
+			</p>)
+		},
+		renderA:function() {
 			var me = this;
 			if (!me.state.vid) return me.pullingYoutube();	
 			else return (
@@ -132,6 +149,13 @@ try {
 				})()}
 				</div>	
 			</p>);
+		},		
+		render:function() {
+			var me = this;
+			if (!me.state.methiod) return (
+				<span>select method</span>
+			);	
+
 		}
 	});
 } catch (err) {
