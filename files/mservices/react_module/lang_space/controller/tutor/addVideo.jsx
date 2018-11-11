@@ -1,4 +1,4 @@
-try {					var mybbq =  React.createClass({
+try {					var _commObjmybbq =  React.createClass({
 					render: function() {
 						return (<span>niu</span>)
 					}
@@ -43,7 +43,7 @@ try {					var mybbq =  React.createClass({
 		OptionBody : {
 			'upload_video': function() {
 
-				return (<mybbq/>)
+				return (<_commObjmybbq/>)
 			},
 			'pull_youtube': function() {
 				return 'Pull YouTube'
