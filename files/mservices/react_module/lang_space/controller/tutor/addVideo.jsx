@@ -38,7 +38,12 @@ try {
 		},
 		OptionBody : {
 			'upload_video': function() {
-				return 'Upload Video'
+				var mybbq =  React.createClass({
+					render: function() {
+						return (<span>niu</span>)
+					}
+				});
+				return return (<mybbq/>)
 			},
 			'pull_youtube': function() {
 				return 'Pull YouTube'
