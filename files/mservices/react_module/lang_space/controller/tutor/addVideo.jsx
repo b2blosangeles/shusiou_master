@@ -30,7 +30,7 @@ try {
 								&nbsp;
 								<a className="btn btn-success" 
 									href={'#/tutor/addVideo'}>
-									{Root.lib.dictionary('add_exist')}
+									{Root.lib.dictionary('add_shared_video')}
 								</a>
 								&nbsp;								
 								<a className="btn btn-warning pull-right" 
