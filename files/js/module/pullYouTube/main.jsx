@@ -33,6 +33,8 @@ React.createClass({
                                 console.log(data);
                              //   data.data.code = code;
                                 me.setState(data.data);
+                                console.log(me.state);
+                                console.log('---me.state--->end');
                         }
                 }			
                 Root.lib.loadEng(me, engCfg);
