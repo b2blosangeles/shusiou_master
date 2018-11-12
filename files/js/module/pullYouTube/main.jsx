@@ -20,6 +20,7 @@ React.createClass({
                 var me = this;
                 me.setState({video_url:e.target.value});
         },  
+        /*
         p2p: function(data) {
                 var me = this;	
                 if (data) {
@@ -32,7 +33,7 @@ React.createClass({
                // console.log(me.state);
               //  console.log('---me.state--->end 7 xxx vme');
         },
-
+        */
         
         videoUrlDecode:function() {
                 var me = this, code = me.state.video_url;		
@@ -47,10 +48,12 @@ React.createClass({
                         callBack: function(data) {
                                 console.log(data.data);
                              //   data.data.code = code;
+                                me.props.parent.setState({vid: data.dat.vid}, function() { 
+                                    console.log('---me.state--->end 8kk --->' + me.props.parent.state.vid);
+                                });
+                             //   me.p2p(data.data);
                                 
-                                me.p2p(data.data);
-                                
-                                }
+                          }
                 }
                 console.log(me.state);
                 console.log('---me.state--->end taXXXXX');
@@ -83,7 +86,7 @@ React.createClass({
                 </p>)
         },       
         render: function() {
-          var me = this;
-          return  (!me.state.vid) ? (<span>{me.pullingYoutube()}</span>) : (<span>{me.youtubeInfo()}</span>)
+          var me = this, parent = me.props.parent;
+          return  (!parent.state.vid) ? (<span>{me.pullingYoutube()}</span>) : (<span>{me.youtubeInfo()}</span>)
         }
 });
