@@ -36,7 +36,9 @@ React.createClass({
                                 console.log(ta.state);
                                 console.log('---me.state--->end ta');
                                 }})(me)
-                }			
+                }
+                console.log(ta.state);
+                console.log('---me.state--->end taA');
                 Root.lib.loadEng(me, engCfg);
         },
         videoUrlValidation:function(){
