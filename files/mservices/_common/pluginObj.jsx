@@ -6,7 +6,7 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
-			me.setState({url : _master_svr() + '/api/video/pipe_stream.api?tm= + new Date().getTime()});
+			me.setState({url : _master_svr() + '/api/video/pipe_stream.api?tm=' + new Date().getTime()});
 		},
 		render: function() {
 			var me = this;
