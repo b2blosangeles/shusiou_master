@@ -31,20 +31,14 @@ try {
 		},
 		render: function() {
 			var me = this;
-			//if (me.state.success === false) {
-			//	return  (<span>Loading Failure!</span>)
-			//} else if (me._asyncModule) {
-				//var v = new me._asyncModule({}); {v.render()}  value={'5678'} aria-describedby="basic-addon2"
-				return  (<span>
-					 <input type="text" className="form-control" placeholder="Input YouTube link" 
-                                  		aria-describedby="basic-addon2"
-                                  	/>      
-                             <hr/>   
-					
-					</span>)
-			//} else {
-			//	return  (<span>Loading ...</span>)
-			//}
+			if (me.state.success === false) {
+				return  (<span>Loading Failure!</span>)
+			} else if (me._asyncModule) {
+				var v = new me._asyncModule({}); // {v.render()}  value={'5678'} aria-describedby="basic-addon2"
+				return  (<span>{v.render()} </span>)
+			} else {
+				return  (<span>Loading ...</span>)
+			}
 		}
 	});	
 } catch (err) {
