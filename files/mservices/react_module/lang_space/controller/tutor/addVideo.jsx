@@ -7,7 +7,7 @@ try {
 					{code: 'pull_youtube', url : '/files/js/module/pullYouTube/main.jsx'},
 					{code: 'add_shared_video', url : '/files/js/module/addSharedVideo/main.jsx'}
 				];
-			return {option:'', list:[]};
+			return {option:''};
 		},
 		showMenu : function()  {
 			var me = this;
