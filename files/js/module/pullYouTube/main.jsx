@@ -32,7 +32,9 @@ React.createClass({
                         callBack: function(data) {
                                 console.log(data.data);
                              //   data.data.code = code;
-                                me.setState(data.data);
+                                me.setState(data.data, function() {
+                                        console.log(me.state);
+                                });
                                 console.log(me.state);
                                 console.log('---me.state--->end');
                         }
