@@ -13,16 +13,13 @@ try {
 			    var me = this;
 			    return {niu:new Date().toString()}
 			  },
-				sp : function() {
-					return '7788'
-				},
 			  render: function() {
 			    var me = this;
 			    return  (<span>{me.state.niu}</span>)
 			  }
 			});	
 			var v = new _v();
-			me.setState({disp : v.sp()});
+			me.setState({disp : v.render()});
 			/*
 			$.get(url, function(data, status){
 				console.log(data);
