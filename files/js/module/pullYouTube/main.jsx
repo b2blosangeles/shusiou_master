@@ -33,6 +33,7 @@ React.createClass({
                                 console.log(data.data);
                              //   data.data.code = code;
                                 me.setState(data.data, function() {
+                                        console.log('---me.state--->sss');
                                         console.log(me.state);
                                 });
                                 console.log(me.state);
