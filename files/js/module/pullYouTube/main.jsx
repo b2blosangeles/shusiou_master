@@ -20,7 +20,7 @@ React.createClass({
         handleChange:function(e) {
                 var me = this;
                 me.setState({video_url:e.target.value});
-                console.log(e.target.value);
+                console.log(e.target.value + '===>' + me.state.video_url);
         },        
         videoUrlDecode:function() {
                 var me = this, code = me.state.video_url;		
