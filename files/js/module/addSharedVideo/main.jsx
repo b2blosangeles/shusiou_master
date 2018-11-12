@@ -1,5 +1,3 @@
-
-
 React.createClass({
         getInitialState: function() {
           var me = this;
