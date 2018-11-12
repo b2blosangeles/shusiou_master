@@ -14,9 +14,14 @@ try {
 				    var me = this;
 				    return {niu:new Date().toString()}
 				  },
+					pp: function() {
+						alert(pp);
+					},
 				  render: function() {
 				    var me = this;
-				    return  (<span>{me.state.niu}</span>)
+				    return  (<span>{me.state.niu}
+					    <a onClick={me.pp.bind(me) >test</a>
+					    </span>)
 				  }
 				});
 				console.log(url);
