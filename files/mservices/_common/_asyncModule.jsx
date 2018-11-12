@@ -37,9 +37,9 @@ try {
 				
 				// return  (<span><NNBB parent={me.props.parent}/></span>)
 				try {
-					//var _asyncOBJ = new Function(decodeURIComponent(me._asyncModule));
-					var _asyncOBJ = {};
-					eval('_asyncOBJ = ' + decodeURIComponent(me._asyncModule));
+					var _asyncOBJ = new Function(decodeURIComponent(me._asyncModule));
+					//var _asyncOBJ = {};
+					//eval('_asyncOBJ = ' + decodeURIComponent(me._asyncModule));
 					return  (<span><_asyncOBJ parent={me.props.parent}/></span>)
 				} catch (err) {
 					return  (<span>Script Error: {err.message}</span>)
