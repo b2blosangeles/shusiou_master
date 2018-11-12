@@ -13,7 +13,7 @@ try {
 			return {};
 		},	
 		render: function() {
-				return  (<span>_pluinObj</span>)
+				return  (<span>{me.props.obj}</span>)
 		}
 	});	
 } catch (err) {
