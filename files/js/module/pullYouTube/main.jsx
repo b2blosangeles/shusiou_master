@@ -19,6 +19,7 @@ React.createClass({
         handleChange:function(e) {
                 var me = this;
                 me.setState({video_url:e.target.value});
+                console.log(777);
         },        
         videoUrlDecode:function() {
                 var me = this, code = me.state.video_url;		
