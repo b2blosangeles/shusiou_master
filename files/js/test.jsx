@@ -1,4 +1,3 @@
-// alert(77889);
 var _v = React.createClass({
   getInitialState: function() {
     var me = this;
