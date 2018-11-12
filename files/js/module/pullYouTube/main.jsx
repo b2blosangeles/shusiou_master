@@ -22,9 +22,12 @@ React.createClass({
         },  
         p2p: function(data) {
                 var me = this;	
-                if (data) me.setState({data}, function() {
-                        console.log('---me.state--->end 8 vme');
-                });
+                if (data) {
+                        //me.setState({data}, function() {
+                        me.props.parent.setState({vid: data.vid}, function() { 
+                        console.log('---me.state--->end 8kk vme');
+                        });
+                }
                 console.log('---data 6');
                 console.log(data);
                 console.log(me.state);
