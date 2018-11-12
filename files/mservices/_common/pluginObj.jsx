@@ -2,6 +2,7 @@ try {
 	var _pluginObj = React.createClass({
 		getInitialState: function() {
 			var me = this;
+			var url = _node_svr() + '/api/video/pipe_stream.api';
       /*
 			if (!_commObj.unicode || _commObj.unicode > 99999) {
 				_commObj.unicode = 1;
@@ -10,11 +11,11 @@ try {
 			}	
 		//	console.log(_commObj.unicode);
     */
-			return {};
+			return {url :  url };
 		},	
 		render: function() {
 			var me = this;
-			return  (<span>{me.props.obj}</span>)
+			return  (<span>{me.state.url}</span>)
 		}
 	});	
 } catch (err) {
