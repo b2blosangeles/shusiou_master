@@ -9,7 +9,7 @@ try {
 			console.log('====componentDidMount====');
 			me.loadCode();
 		},		
-		componentDidUpdate:function(prevState, prevProps) {
+		componentDidUpdate:function(prevProps, prevState) {
 			var me = this;
 			if (me.props.url !== prevProps.url) { 
 			// if (!prevProps.url) { 
