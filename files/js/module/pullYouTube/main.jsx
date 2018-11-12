@@ -46,10 +46,11 @@ React.createClass({
         }, 
         pullingYoutube : function () {
                 var me = this;
+                // value={'12234'}
                 return (<p  style={{'padding':'1em'}}>				
 
                           <input type="text" className="form-control" placeholder="Input YouTube link" 
-                                  value={'12234'}
+                                  
                                   aria-describedby="basic-addon2"/>      
                              <hr/>   
                                 
