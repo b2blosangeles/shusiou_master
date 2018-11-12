@@ -63,6 +63,7 @@ try {
                 if (data) {
 			me.vid = data.vid;
 			console.log('kkk===' + data.vid);
+			me.render();
 		}
 			/* me.setState({vid : data.vid}, function() {
                         console.log('---me.state--->end 81 vme');
