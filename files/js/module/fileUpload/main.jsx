@@ -11,8 +11,6 @@ React.createClass({
           var me = this;
           return  (<span>
                          File Upload <a onClick={me.pp.bind(me)} >Go Back</a>
-                          <hr/>
-                          <ASYNCOBJ/>
                  </span>)
         }
 });
