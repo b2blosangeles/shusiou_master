@@ -60,9 +60,13 @@ try {
         },  
         p2p: function(data) {
                 var me = this;	
-                if (data) me.setState({vid : data.vid}, function() {
+                if (data) {
+			me.vid = data.vid;
+		}
+			/* me.setState({vid : data.vid}, function() {
                         console.log('---me.state--->end 81 vme');
-                });
+                	});
+			*/
                 console.log('---data 6');
                 console.log(data);
                 console.log(me.state);
@@ -130,7 +134,7 @@ try {
 					//var _asyncOBJ = {};
 					//eval('_asyncOBJ = ' + decodeURIComponent(me._asyncModule));
 					//var bs = _asyncOBJ();
-					return  (<span><_asyncOBJ parent={me.props.parent}/></span>)
+					return  (<span>{me.vid}==<_asyncOBJ parent={me.props.parent}/></span>)
 					//return  (<span><bs/></span>)
 				} catch (err) {
 					return  (<span>Script Error: {err.message}</span>)
