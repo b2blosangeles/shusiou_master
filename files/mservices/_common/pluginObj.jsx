@@ -8,7 +8,7 @@ try {
 			var me = this;
 			var url = _master_svr() + me.props.url + '?tm=' + new Date().getTime();
 
-			me._v = React.createClass({
+			var _v = React.createClass({
 			  getInitialState: function() {
 			    var me = this;
 			    return {niu:new Date().toString()}
@@ -18,7 +18,7 @@ try {
 			    return  (<span>{'me.state.niu'}</span>)
 			  }
 			});			
-			me.setState({url :url});
+			me.setState({disp :(<_v/>)});
 			/*
 			$.get(url, function(data, status){
 				console.log(data);
@@ -37,8 +37,7 @@ try {
 		},
 		render: function() {
 			var me = this;
-			var _v = me._v;
-			return  (<span><_v/></span>)
+			return  (<span>{me.state.disp}</span>)
 		}
 	});	
 } catch (err) {
