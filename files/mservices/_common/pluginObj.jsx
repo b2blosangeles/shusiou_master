@@ -9,7 +9,6 @@ try {
 			var url = _master_svr() + '/api/JSXhub.api?url=' + encodeURIComponent(me.props.url) + 
 			    	'&tm=' + new Date().getTime();
 			$.get(url, function(data, status){
-				console.log(decodeURIComponent(data.code));
 				if (data.success)  {
 					eval(decodeURIComponent(data.code));
 					me.setState({success: true, update : new Date().getTime()});
@@ -18,7 +17,6 @@ try {
 				}
 				
 			});
-			
 		},
 		render: function() {
 			var me = this;
