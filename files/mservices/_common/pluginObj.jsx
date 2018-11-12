@@ -8,7 +8,7 @@ try {
 			var me = this;
 			var url = _master_svr() + me.props.url + '?tm=' + new Date().getTime();
 			$.get(url, function(data, status){
-				console.logl(data);
+				console.log(data);
 				me.setState({url :'data'});
 			});
 			/*
