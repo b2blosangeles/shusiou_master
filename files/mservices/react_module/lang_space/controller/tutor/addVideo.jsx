@@ -56,7 +56,8 @@ try {
 							return  (<span>pk</span>)
 						},
 						render: function() {
-								return  (<span>{me.state.niu}/span>)
+							var me = this;
+							return  (<span>{me.state.niu}/span>)
 						}
 					});
 				// return (<_v/>)
