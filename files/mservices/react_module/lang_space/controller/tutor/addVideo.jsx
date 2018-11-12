@@ -17,11 +17,10 @@ try {
 							(<button className="btn btn-default" style={{'margin':'0.2em'}}>
 								{Root.lib.dictionary(m.code)}
 							</button>)
-							: (<a className="btn btn-success" style={{'margin':'0.2em'}}
-							       onClick={me.loadOption.bind(me, m.code) }
-								href={'javaScript: void(0);'}>
+							: (<button className="btn btn-success" style={{'margin':'0.2em'}}
+							       onClick={me.loadOption.bind(me, m.code) }>
 								{Root.lib.dictionary(m.code)}
-							</a>)
+							</button>)
 					})}
 					<a className="btn btn-warning pull-right" 
 						href={'#/tutor/my_videos'} style={{'margin':'0.2em'}}>
