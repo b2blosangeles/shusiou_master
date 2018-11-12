@@ -18,7 +18,10 @@ React.createClass({
         handleChange:function(e) {
                 var me = this;
                 me.setState({video_url:e.target.value});
-        },        
+        },  
+        p2p: function() {
+                alert('p2p');
+        },
         videoUrlDecode:function() {
                 var me = this, code = me.state.video_url;		
                 let engCfg = {
