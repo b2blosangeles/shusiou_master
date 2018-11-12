@@ -59,7 +59,6 @@ React.createClass({
         render: function() {
           var me = this;
           return  (<span><input type="text" className="form-control" placeholder="Input YouTube link" 
-                                  value={'12234'}
-                                  aria-describedby="basic-addon2"/></span>)
+                                  value={'888'}/></span>)
         }
 });
