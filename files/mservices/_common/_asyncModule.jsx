@@ -124,9 +124,10 @@ var NNBB = React.createClass({
 			if (me.state.success === false) {
 				return  (<span>Script Error: {me._asyncModuleErr}</span>)
 			} else if (me.state._asyncModule) {
-				return  (<span><NNBB parent={me.props.parent}/></span>)
+				// return  (<span><NNBB parent={me.props.parent}/></span>)
 				try {
-					eval('var _asyncOBJ = ' + decodeURIComponent(me.state._asyncModule));
+					var _asyncOBJ = {};
+					eval('_asyncOBJ = ' + decodeURIComponent(me.state._asyncModule));
 					return  (<span><_asyncOBJ parent={me.props.parent}/></span>)
 				} catch (err) {
 					return  (<span>Script Error: {err.message}</span>)
