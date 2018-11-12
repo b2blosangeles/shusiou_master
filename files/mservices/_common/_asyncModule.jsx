@@ -38,7 +38,7 @@ try {
 					// var _asyncOBJ = new Function(decodeURIComponent(me._asyncModule));
 					// var _asyncOBJ = {};
 					eval('var _asyncOBJ = ' + decodeURIComponent(me._asyncModule));
-					return  (<span>{me.vid}==<_asyncOBJ parent={me.props.parent}/></span>)
+					return  (<span>{me.vid}==<_asyncOBJ parent={me}/></span>)
 				} catch (err) {
 					return  (<span>Script Error: {err.message}</span>)
 				}
