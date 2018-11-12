@@ -16,6 +16,7 @@ try {
 		},
 		loadCode : function() {
 			var me = this;
+			return true;
 			var url = _master_svr() + '/api/JSXhub.api?url=' + encodeURIComponent(me.props.url) + 
 			    	'&tm=' + new Date().getTime();
 			$.get(url, function(data, status){
