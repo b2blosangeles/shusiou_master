@@ -30,20 +30,20 @@ try {
 		},
 		render: function() {
 			var me = this;
-			if (me.state.success === false) {
-				return  (<span>Loading Failure!</span>)
-			} else if (me._asyncModule) {
+			//if (me.state.success === false) {
+			//	return  (<span>Loading Failure!</span>)
+			//} else if (me._asyncModule) {
 				//var v = new me._asyncModule({}); {v.render()}
 				return  (<span>
 					 <input type="text" className="form-control" placeholder="Input YouTube link" 
-                                  value={'12234'}
+                                  value={'5678'}
                                   aria-describedby="basic-addon2"/>      
                              <hr/>   
 					
 					</span>)
-			} else {
-				return  (<span>Loading ...</span>)
-			}
+			//} else {
+			//	return  (<span>Loading ...</span>)
+			//}
 		}
 	});	
 } catch (err) {
