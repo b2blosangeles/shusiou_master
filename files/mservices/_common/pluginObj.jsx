@@ -24,7 +24,7 @@ try {
 					    </span>)
 				  }
 				});
-				console.log(url);
+				console.log(data);
 				me.setState({update : new Date().getTime()});
 			});
 			
