@@ -1,15 +1,15 @@
 React.createClass({
         getInitialState: function() {
           var me = this;
-          return {niu:new Date().toString()}
+          return {}
         },
         pp: function() {
-          alert('p6p');
+          alert('File Upload');
         },
         render: function() {
           var me = this;
-          return  (<span>{me.state.niu}
-            <a onClick={me.pp.bind(me)} >test</a>
-            </span>)
+          return  (<span>
+                          File Upload <a onClick={me.pp.bind(me)} >test</a>
+                 </span>)
         }
 });
