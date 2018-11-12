@@ -52,16 +52,13 @@ try {
 				    */
 							return {niu:'1234'};
 						},
-						pk : function() {
-							return  (<span>pk</span>)
-						},
 						render: function() {
 							var me = this;
 							return  (<span>{'me.state.niu'}/span>)
 						}
 					});
-				// return (<_v/>)
-				return (<_pluginObj obj={(<_v/>)} />)
+				return (<_v/>)
+				// return (<_pluginObj obj={(<_v/>)} />)
 			},
 			'pull_youtube': function() {
 				return 'Pull YouTube'
