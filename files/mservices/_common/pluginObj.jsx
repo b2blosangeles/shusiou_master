@@ -21,7 +21,7 @@ try {
 			setTimeout(
 				function() {
 					me.setState({url : url});
-				}, 1200
+				}, 6200
 			);
 			
 			/*
@@ -43,7 +43,7 @@ try {
 		render: function() {
 			var me = this;
 			if (me._v) {
-				var v = me._v();
+				var v = new me._v();
 				return  (<span>{v.render()}</span>)
 			} else {
 				return  (<span>NONO</span>)
