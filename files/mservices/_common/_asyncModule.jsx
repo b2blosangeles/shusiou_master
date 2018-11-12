@@ -32,7 +32,7 @@ try {
 		render: function() {
 			var me = this;
 			if (me.state.success === false) {
-				return  (<span>Loading Failure! {me._asyncModuleErr}</span>)
+				return  (<span>Script Error! {me._asyncModuleErr}</span>)
 			} else if (me._asyncModule) {
 				// eval('var ASYNCOBJ = ' + me._asyncModule);
 				eval('var ASYNCOBJ = ' + decodeURIComponent(me._asyncModule));
