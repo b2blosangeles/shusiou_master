@@ -15,7 +15,7 @@ try {
 			  },
 			  render: function() {
 			    var me = this;
-			    return  (<span>{'me.state.niu'}</span>)
+			    return  (<span>{me.state.niu}</span>)
 			  }
 			});			
 			me.setState({disp :(<_v/>)});
