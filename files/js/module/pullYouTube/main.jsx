@@ -12,7 +12,7 @@ React.createClass({
         componentDidUpdate:function(prePropos, preState) {
                 var me = this;
                 if (prePropos.id != me.props.id) {
-                        me.setState({video_url:'', vid:'', error:'', list:[]});
+              //          me.setState({video_url:'', vid:'', error:'', list:[]});
                 }
         },
         handleChange:function(e) {
