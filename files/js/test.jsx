@@ -4,7 +4,7 @@ React.createClass({
           return {niu:new Date().toString()}
         },
         pp: function() {
-          alert('p2p');
+          alert('p6p');
         },
         render: function() {
           var me = this;
