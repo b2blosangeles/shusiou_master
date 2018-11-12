@@ -21,10 +21,11 @@ React.createClass({
         },  
         p2p: function() {
                 var me = this;	
-                me.setState("vidd", "data.data.vid");
-              //  alert('p2p');
+                me.setState({"vidd": "data.data.vid"}, function() {
+                        console.log('---me.state--->end 8 vme');
+                });
                 console.log(me.state);
-                                console.log('---me.state--->end 6 vme');
+                console.log('---me.state--->end 7 vme');
         },
         videoUrlDecode:function() {
                 var me = this, code = me.state.video_url;		
