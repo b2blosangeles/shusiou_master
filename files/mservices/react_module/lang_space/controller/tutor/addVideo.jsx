@@ -35,6 +35,9 @@ try {
 			var me = this;
 			me.setState({option:code});
 		},
+		test : function() {
+			return 'BBWQ';
+		},
 		showOptionBody : function() {
 			var me = this;
 			for (var i = 0; i < me.options.length; i++) {
