@@ -23,7 +23,7 @@ try {
 					me._asyncModule = data.code;
 					me.setState({success: true, update : new Date().getTime()});
 				} else {
-					console.log(data);
+					me._asyncModuleErr = data.err;
 					me.setState({success: false, update : new Date().getTime()});
 				}
 				
@@ -32,7 +32,7 @@ try {
 		render: function() {
 			var me = this;
 			if (me.state.success === false) {
-				return  (<span>Loading Failure!</span>)
+				return  (<span>Loading Failure! {me._asyncModuleErr}</span>)
 			} else if (me._asyncModule) {
 				// eval('var ASYNCOBJ = ' + me._asyncModule);
 				eval('var ASYNCOBJ = ' + decodeURIComponent(me._asyncModule));
