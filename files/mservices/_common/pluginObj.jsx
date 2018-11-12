@@ -15,12 +15,12 @@ try {
 				    return {niu:new Date().toString()}
 				  },
 					pp: function() {
-						alert(pp);
+						alert('pp');
 					},
 				  render: function() {
 				    var me = this;
 				    return  (<span>{me.state.niu}
-					    <a onClick={me.pp.bind(me) >test</a>
+					    <a onClick={me.pp.bind(me)} >test</a>
 					    </span>)
 				  }
 				});
