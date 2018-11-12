@@ -59,7 +59,6 @@ React.createClass({
         },        
         render: function() {
           var me = this;
-          return  (<span><input type="text" className="form-control" placeholder="Input YouTube link" 
-                           /></span>)
+          return  (<span>{me.pullingYoutube()}</span>)
         }
 });
