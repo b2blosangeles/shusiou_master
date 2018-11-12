@@ -9,8 +9,10 @@ React.createClass({
         },
         render: function() {
           var me = this;
-          return  (<span><ASYNCOBJ/>
+          return  (<span>
                          File Upload <a onClick={me.pp.bind(me)} >Go Back</a>
+                          <hr/>
+                          <ASYNCOBJ/>
                  </span>)
         }
 });
