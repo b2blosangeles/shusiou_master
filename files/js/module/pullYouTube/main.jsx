@@ -32,8 +32,8 @@ React.createClass({
                         callBack: function(data) {
                                 console.log(data.data);
                              //   data.data.code = code;
-                                me.props.parent.setState({vid: data.dat.vid}, function() { 
-                                    console.log('---me.state--->end 8kk --->' + me.props.parent.state.vid);
+                                me.props.parent.setState({vid: data.data.vid}, function() { 
+                                    console.log('---me.state--->end 666 --->' + me.props.parent.state.vid);
                                 });
                              //   me.p2p(data.data);
                                 
