@@ -19,13 +19,7 @@ try {
 			    return  (<span>{me.state.niu}</span>)
 			  }
 			});	
-			setTimeout(
-				function() {
-					me.setState({url : url});
-				}, 1200
-			);
-			
-			
+
 			$.get(url, function(data, status){
 				console.log(data);
 				me.setState({url : url});
