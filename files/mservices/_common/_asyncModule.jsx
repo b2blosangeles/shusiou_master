@@ -33,7 +33,7 @@ try {
 			if (me.state.success === false) {
 				return  (<span>Loading Failure!</span>)
 			} else if (me._asyncModule) {
-				var v = new me._asyncModule();
+				var v = new me._asyncModule({niu: 1});
 				return  (<span>{v.render()}</span>)
 			} else {
 				return  (<span>Loading ...</span>)
