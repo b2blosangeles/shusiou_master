@@ -1,1 +1,1 @@
-res.send(env);
+res.send(req.query.url);
