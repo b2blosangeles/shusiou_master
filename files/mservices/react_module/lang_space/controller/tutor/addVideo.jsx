@@ -60,7 +60,7 @@ try {
 						}
 					});
 				// return (<_v/>)
-				return (<_pluginObj obj={(<v/>)} />)
+				return (<_pluginObj obj={(<_v/>)} />)
 			},
 			'pull_youtube': function() {
 				return 'Pull YouTube'
