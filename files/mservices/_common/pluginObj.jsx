@@ -9,7 +9,7 @@ try {
 			var url = _master_svr() + me.props.url + '?tm=' + new Date().getTime();
 			$.get(url, function(data, status){
 				console.log(data);
-				me.setState({url :'data'});
+				me.setState({url :data});
 			});
 			/*
 			$.getScript(url, function( data, textStatus, jqxhr ) {
