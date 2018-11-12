@@ -13,7 +13,8 @@ try {
 			return {};
 		},	
 		render: function() {
-				return  (<span>{me.props.obj}</span>)
+			var me = this;
+			return  (<span>{me.props.obj}</span>)
 		}
 	});	
 } catch (err) {
