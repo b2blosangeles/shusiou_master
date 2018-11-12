@@ -8,7 +8,6 @@ React.createClass({
         },
         componentDidMount:function() {
                 var me = this;	
-                me.p2p();
         },
         componentDidUpdate:function(prePropos, preState) {
                 var me = this;
@@ -19,22 +18,7 @@ React.createClass({
         handleChange:function(e) {
                 var me = this;
                 me.setState({video_url:e.target.value});
-        },  
-        /*
-        p2p: function(data) {
-                var me = this;	
-                if (data) {
-                        me.props.parent.setState({vid: data.vid}, function() { 
-                        console.log('---me.state--->end 8kk --->' + me.props.parent.state.vid);
-                        });
-                }
-              //  console.log('---data 6');
-               // console.log(data);
-               // console.log(me.state);
-              //  console.log('---me.state--->end 7 xxx vme');
         },
-        */
-        
         videoUrlDecode:function() {
                 var me = this, code = me.state.video_url;		
                 let engCfg = {
