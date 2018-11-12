@@ -18,8 +18,12 @@ try {
 			    return  (<span>{me.state.niu}</span>)
 			  }
 			});	
+			setTimeout(
+				function() {
+					me.setState({url : url});
+				}, 1200
+			);
 			
-			// me.setState({disp : v.render()});
 			/*
 			$.get(url, function(data, status){
 				console.log(data);
