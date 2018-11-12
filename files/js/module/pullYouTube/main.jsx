@@ -58,7 +58,6 @@ React.createClass({
                                   aria-describedby="basic-addon2"/>
                           <div className={me.videoUrlSubmitable()} onClick={me.videoUrlDecode.bind(me)}>Submit</div>
                         </div>
-                        <hr/>=={me.state.video_url}== 
                 </p>)
         },        
         render: function() {
