@@ -9,7 +9,7 @@ React.createClass({
         render: function() {
           var me = this;
           return  (<span>
-                          File Upload <a onClick={me.pp.bind(me)} >test</a>
+                          {me.props.niu} -- File Upload <a onClick={me.pp.bind(me)} >test</a>
                  </span>)
         }
 });
