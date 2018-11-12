@@ -58,7 +58,7 @@ React.createClass({
                                   aria-describedby="basic-addon2"/>
                           <div className={me.videoUrlSubmitable()} onClick={me.videoUrlDecode.bind(me)}>Submit</div>
                         </div>
-                        <hr/>{me.state.video_url} <hr/>
+                        <hr/>=={me.state.video_url}== <hr/>
                                 
                         <p>
                                 <h5>Or pulling a shared videos</h5>
