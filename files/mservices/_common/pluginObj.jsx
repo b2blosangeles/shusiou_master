@@ -14,7 +14,7 @@ try {
 		},	
 		render: function() {
 			var me = this;
-			return  (<span>{me.props.obj}</span>)
+			return  {me.props.obj}
 		}
 	});	
 } catch (err) {
