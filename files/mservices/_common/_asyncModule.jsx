@@ -24,8 +24,8 @@ var NNBB = React.createClass({
         },  
         p2p: function(data) {
                 var me = this;	
-                if (data) me.setState({data}, function() {
-                        console.log('---me.state--->end 8 vme');
+                if (data) me.setState({vid: data.vid}, function() {
+                        console.log('---me.state--->end 8 ---' + data.vid);
                 });
                 console.log('---data 6');
                 console.log(data);
@@ -45,10 +45,10 @@ var NNBB = React.createClass({
                         hold:500,
                         setting: {timeout:6000},
                         callBack: function(data) {
-                                console.log(data.data);
+                              //  console.log(data);
                              //   data.data.code = code;
                                 
-                                me.p2p(data.data.data);
+                                me.p2p(data.data);
                                 
                                 }
                 }
