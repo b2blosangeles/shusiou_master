@@ -13,7 +13,7 @@ try {
 			var me = this;
 			if (me.props.url !== prevProps.url) { 
 				console.log('==PP==componentDidUpdate====');
-				// me.loadCode();
+				me.loadCode();
 			}	
 		},
 		loadCode : function() {
