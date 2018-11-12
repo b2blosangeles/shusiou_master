@@ -2,18 +2,17 @@ try {
 	var addVideo =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			return {
-				options: [
+			me.options = [
 					{code: 'upload_video'},
 					{code: 'pull_youtube'},
 					{code: 'add_shared_video'}
-				],
-				option:'', list:[]};
+				];
+			return {option:'', list:[]};
 		},
 		showMenu : function()  {
 			var me = this;
 			return (<span>
-					{me.state.options.map(function(m){ 
+					{me.options.map(function(m){ 
 						return  (m.code === me.state.option)? 
 							(<button className="btn btn-default" style={{'margin':'0.2em'}}>
 								{Root.lib.dictionary(m.code)}
