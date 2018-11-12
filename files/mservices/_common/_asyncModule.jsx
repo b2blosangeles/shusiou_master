@@ -61,8 +61,6 @@ try {
         p2p: function(data) {
                 var me = this;	
                 if (data) {
-			me.vid = data.vid;
-			console.log('kkk===' + data.vid);
 			me.props.parent.setState({vid : data.vid});
 			
 		}
