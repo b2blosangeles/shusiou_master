@@ -36,18 +36,20 @@ try {
 			var me = this;
 			me.setState({option:code});
 		},
-		OptionBody : {
-			'upload_video': function() {
-				var me = this;
-				return (<_asyncModule url={'/files/js/module/fileUpload/main.jsx'} parent={me} />)
-			},
-			'pull_youtube': function() {
-				var me = this;
-				return (<_asyncModule url={'/files/js/module/pullYouTube/main.jsx'} parent={me} />)
-			},
-			'add_shared_video': function() {
-				var me = this;
-				return (<_asyncModule url={'/files/js/module/addSharedVideo/main.jsx'} parent={me} />)
+		OptionBody : function() {
+			var me = this;
+			switch (me.state.option) {
+				case 'upload_video' :
+					return (<_asyncModule url={'/files/js/module/fileUpload/main.jsx'} />)
+					break;
+				case 'pull_youtube' :
+					return (<_asyncModule url={'/files/js/module/pullYouTube/main.jsx'} />)
+					break;
+				case 'add_shared_video' :
+					return (<_asyncModule url={'/files/js/module/addSharedVideo/main.jsx'} /)
+					break;					
+				default : 
+					return (<span />)
 			}			
 		},
 		showOptionBody : function() {
@@ -55,7 +57,7 @@ try {
 			
 			return (!me.state.option) ? '' : 
 				(<div className="overlayer_box homepage_box" style={{'margin-top': '0.5em'}}>
-					{(!me.OptionBody[me.state.option]) ? '' : me.OptionBody[me.state.option]()}
+					{me.OptionBody()}
 					
 				</div>);				
 		},		
