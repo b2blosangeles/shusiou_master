@@ -56,7 +56,13 @@ React.createClass({
                           <div className={me.videoUrlSubmitable()} onClick={me.videoUrlDecode.bind(me)}>Submit</div>
                         </div>
                 </p>)
-        },        
+        },
+        youtubeInfo : function () {
+                var me = this;
+                return (<p  style={{'padding':'1em'}}>				
+                        <h5>YouTube Video INFO</h5>	
+                </p>)
+        },       
         render: function() {
           var me = this;
           return  (<span>{me.pullingYoutube()}</span>)
