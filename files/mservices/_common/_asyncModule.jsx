@@ -4,7 +4,7 @@ try {
 			var me = this;
 			return {};
 		},
-		componentDidMount:function() {
+		componentDidUpdate:function() {
 			var me = this;
 			var url = _master_svr() + '/api/JSXhub.api?url=' + encodeURIComponent(me.props.url) + 
 			    	'&tm=' + new Date().getTime();
