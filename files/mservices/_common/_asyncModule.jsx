@@ -20,8 +20,8 @@ try {
 			    	'&tm=' + new Date().getTime();
 			$.get(url, function(data, status){
 				if (data.success)  {
+					me._asyncModule = data.code;
 					console.log(data.code);
-					eval(decodeURIComponent(data.code));
 					me.setState({success: true, update : new Date().getTime()});
 				} else {
 					console.log(data);
@@ -35,7 +35,7 @@ try {
 			if (me.state.success === false) {
 				return  (<span>Loading Failure!</span>)
 			} else if (me._asyncModule) {
-				var ASYNCOBJ = me._asyncModule;
+				eval('var ASYNCOBJ = ' + decodeURIComponent(data.code));
 				return  (<span><ASYNCOBJ/></span>)
 			} else {
 				return  (<span>Loading ...</span>)
