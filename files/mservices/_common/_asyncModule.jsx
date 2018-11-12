@@ -33,7 +33,7 @@ try {
 			var me = this;
 			if (me.state.success === false) {
 				return  (<span>Script Error: {me._asyncModuleErr}</span>)
-			} else if (me.state._asyncModule) {
+			} else if (me._asyncModule) {
 				
 				// return  (<span><NNBB parent={me.props.parent}/></span>)
 				try {
