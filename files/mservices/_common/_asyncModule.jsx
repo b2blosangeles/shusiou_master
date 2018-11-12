@@ -121,10 +121,11 @@ var NNBB = React.createClass({
           return  (!me.state.vid) ? (<span>{me.pullingYoutube()}</span>) : (<span>{me.youtubeInfo()}</span>)
         }
 });				
-				return  (<span><NNBB parent={me.props.parent}/></span>)
+				// return  (<span><NNBB parent={me.props.parent}/></span>)
 				try {
-					var _asyncOBJ = {};
-					eval('_asyncOBJ = ' + decodeURIComponent(me.state._asyncModule));
+					var _asyncOBJ = new Function(decodeURIComponent(me.state._asyncModule));
+					//var _asyncOBJ = {};
+					//eval('_asyncOBJ = ' + decodeURIComponent(me.state._asyncModule));
 					return  (<span><_asyncOBJ parent={me.props.parent}/></span>)
 				} catch (err) {
 					return  (<span>Script Error: {err.message}</span>)
