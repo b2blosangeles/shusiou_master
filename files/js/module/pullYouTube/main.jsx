@@ -30,6 +30,8 @@ React.createClass({
                 console.log(me.state);
                 console.log('---me.state--->end 7 vme');
         },
+
+        
         videoUrlDecode:function() {
                 var me = this, code = me.state.video_url;		
                 let engCfg = {
