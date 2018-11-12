@@ -35,7 +35,7 @@ try {
 			if (me.state.success === false) {
 				return  (<span>Loading Failure!</span>)
 			} else if (me._asyncModule) {
-				var v = new me._asyncModule({parent: me.props.parent});
+				var v = new me._asyncModule({url: me.props.url, parent: me.props.parent});
 				return  (<span>{v.render()}</span>)
 			} else {
 				return  (<span>Loading ...</span>)
