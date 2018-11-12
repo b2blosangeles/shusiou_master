@@ -4,6 +4,11 @@ try {
 			var me = this;
 			return {};
 		},
+		componentDidMount:function(prevState, prevProps) {
+			var me = this;
+			console.log('==kk==' + me.props.url);
+
+		},		
 		componentDidUpdate:function(prevState, prevProps) {
 			var me = this;
 			console.log('me.props.url === prevProps.url');
