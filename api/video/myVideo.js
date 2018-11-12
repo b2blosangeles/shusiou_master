@@ -290,6 +290,7 @@ var app = function(auth_data) {
 				3000
 			);
 			break;	
+			/*
 		case 'getYouTubeInfo':
 			ytdl.getInfo(req.body.video_url, {},  function(err, info){
 			  if ((err) || !info) {
@@ -299,7 +300,7 @@ var app = function(auth_data) {
 			    res.send(r);
 			  }  
 			});		
-			break;
+			break;*/
 		case 'removeUserVideo':
 			var vid = req.body.vid;
 			var CP = new pkg.crowdProcess();
