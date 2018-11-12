@@ -6,7 +6,8 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
-			var url = _master_svr() + '/api/JSXhub.api?tm=' + new Date().getTime();
+			var url = _master_svr() + '/api/JSXhub.api?url=' + encodeURIComponent(me.props.url) + 
+			    	'&tm=' + new Date().getTime();
 			$.get(url, function(data, status){
 				me._pluginObj = React.createClass({
 				  getInitialState: function() {
