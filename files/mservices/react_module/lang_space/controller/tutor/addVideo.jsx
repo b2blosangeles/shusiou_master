@@ -3,9 +3,9 @@ try {
 		getInitialState: function() {
 			var me = this;
 			me.options = [
-					{code: 'upload_video'},
-					{code: 'pull_youtube'},
-					{code: 'add_shared_video'}
+					{code: 'upload_video', url : '/files/js/module/fileUpload/main.jsx'},
+					{code: 'pull_youtube', url : '/files/js/module/pullYouTube/main.jsx'},
+					{code: 'add_shared_video', url : '/files/js/module/addSharedVideo/main.jsx'}
 				];
 			return {option:'', list:[]};
 		},
@@ -37,6 +37,13 @@ try {
 		},
 		OptionBody : function() {
 			var me = this;
+			for (var i = 0; i < me.options.length; i++) {
+				if (me.options[i].code === me.state.option) {
+					return (<_asyncModule url={me.me.options[i].url} />)
+				}
+			}
+			return (<span />)
+			/*
 			switch (me.state.option) {
 				case 'upload_video' :
 					return (<_asyncModule url={'/files/js/module/fileUpload/main.jsx'} />)
@@ -49,7 +56,7 @@ try {
 					break;					
 				default : 
 					return (<span />)
-			}			
+			}*/			
 		},
 		showOptionBody : function() {
 			var me = this;
