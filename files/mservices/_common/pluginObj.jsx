@@ -21,7 +21,7 @@ try {
 			setTimeout(
 				function() {
 					me.setState({url : url});
-				}, 6200
+				}, 1200
 			);
 			
 			/*
