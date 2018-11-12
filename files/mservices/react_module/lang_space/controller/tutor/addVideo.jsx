@@ -40,17 +40,16 @@ try {
 			'upload_video': function() {
 				var me = this;
 				var _v = React.createClass({
-						getInitialState: function() {
-							var me = this;
-							return {niu:'1234'}
-						},
-						render: function() {
-							var me = this;
-							return  (<span>{'me.state.niu'}/span>)
-						}
-					});
+					getInitialState: function() {
+						var me = this;
+						return {}
+					},
+					render: function() {
+						var me = this;
+						return  (<span>{'me.state.niu'}/span>)
+					}
+				});
 				return (<_v/>)
-				/* return (<_pluginObj obj={(<_v/>)} /> */
 			},
 			'pull_youtube': function() {
 				return 'Pull YouTube'
