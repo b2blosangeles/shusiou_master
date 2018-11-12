@@ -20,11 +20,12 @@ React.createClass({
                 var me = this;
                 me.setState({video_url:e.target.value});
         },  
-        p2p: function() {
+        p2p: function(data) {
                 var me = this;	
                 me.setState({"vidd": "data.data.vid"}, function() {
                         console.log('---me.state--->end 8 vme');
                 });
+                console.log(data);
                 console.log(me.state);
                 console.log('---me.state--->end 7 vme');
         },
@@ -42,7 +43,7 @@ React.createClass({
                                 console.log(data.data);
                              //   data.data.code = code;
                                 
-                                me.p2p();
+                                me.p2p(data.data);
                                 
                                 }
                 }
