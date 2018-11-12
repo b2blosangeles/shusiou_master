@@ -42,7 +42,7 @@ React.createClass({
                                 console.log(data.data);
                              //   data.data.code = code;
                                 
-                                ta.p2p();
+                                me.p2p();
                                 
                                 }
                 }
