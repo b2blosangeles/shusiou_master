@@ -37,7 +37,7 @@ try {
 		},
 		goBackMyVideos : function() {
 			var me = this;
-			me.props.history.push('/tutor/my_videos')
+			window.location.href = '#/tutor/my_videos';
 		},
 		showOptionBody : function() {
 			var me = this;
