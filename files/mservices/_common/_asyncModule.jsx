@@ -6,12 +6,14 @@ try {
 		},
 		componentDidMount:function(prevState, prevProps) {
 			var me = this;
-			me.loadCode();
+			console.log('====componentDidMount====');
+			//me.loadCode();
 		},		
 		componentDidUpdate:function(prevState, prevProps) {
 			var me = this;
 			if (me.props.url !== prevProps.url) { 
-				me.loadCode();
+				console.log('==PP==componentDidUpdate====');
+				// me.loadCode();
 			}	
 		},
 		loadCode : function() {
