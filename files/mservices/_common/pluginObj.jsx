@@ -10,32 +10,21 @@ try {
 			    	'&tm=' + new Date().getTime();
 			$.get(url, function(data, status){
 				console.log(decodeURIComponent(data.code));
-				eval(decodeURIComponent(data.code));
-				/*
-				me._pluginObj = React.createClass({
-				  getInitialState: function() {
-				    var me = this;
-				    return {niu:new Date().toString()}
-				  },
-					pp: function() {
-						alert('pp');
-					},
-				  render: function() {
-				    var me = this;
-				    return  (<span>{me.state.niu}
-					    <a onClick={me.pp.bind(me)} >test</a>
-					    </span>)
-				  }
-				});
-				*/
-				console.log(data);
-				me.setState({update : new Date().getTime()});
+				if (data.success)  {
+					eval(decodeURIComponent(data.code));
+					me.setState({success: true, update : new Date().getTime()});
+				} else {
+					me.setState({success: false, update : new Date().getTime()});
+				}
+				
 			});
 			
 		},
 		render: function() {
 			var me = this;
-			if (me._pluginObj) {
+			if (me.state.success === false) {
+				return  (<span>Loading Failure!</span>)
+			} else if (me._pluginObj) {
 				var v = new me._pluginObj();
 				return  (<span>{v.render()}</span>)
 			} else {
