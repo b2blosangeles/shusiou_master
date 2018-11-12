@@ -20,8 +20,9 @@ try {
 			    var me = this;
 			    return  (<span>{me.state.niu}</span>)
 			  }
-			});			
-			me.setState({disp : _v.sp()});
+			});	
+			var v = new _v();
+			me.setState({disp : v.sp()});
 			/*
 			$.get(url, function(data, status){
 				console.log(data);
