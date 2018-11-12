@@ -63,7 +63,8 @@ try {
                 if (data) {
 			me.vid = data.vid;
 			console.log('kkk===' + data.vid);
-			me.render();
+			me.props.parent.setState({vid : data.vid}
+			
 		}
 			/* me.setState({vid : data.vid}, function() {
                         console.log('---me.state--->end 81 vme');
@@ -108,7 +109,7 @@ try {
         pullingYoutube : function () {
                 var me = this;
                 return (<p  style={{'padding':'1em'}}>				
-                        <h5>YouTube Video URL</h5>	
+                        <h5>YouTube Video URL =={me.state.vid}==</h5>	
                         <div className="input-group">
                           <input type="text" className="form-control" placeholder="Input YouTube link" 
                                   value={me.state.video_url}
