@@ -39,7 +39,7 @@ try {
 			var me = this;
 			for (var i = 0; i < me.options.length; i++) {
 				if (me.options[i].code === me.state.option) {
-					return (<_asyncModule url={me.me.options[i].url} />)
+					return (<_asyncModule url={me.options[i].url} />)
 				}
 			}
 			return (<span />)
