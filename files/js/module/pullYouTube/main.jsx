@@ -1,7 +1,20 @@
 React.createClass({
         getInitialState: function() {
-          var me = this;
-          return {}
+                var me = this;
+                return {video_url:'', vid:'', error:'', list:[], method: ''};
+        },
+        initState:function() {
+                this.setState({video_url:'', vid:'', title:'', length_seconds:0,thumbnail_url:'', error:''});			
+        },
+        componentDidMount:function() {
+                var me = this;	
+        },
+        componentDidUpdate:function(prePropos, preState) {
+                var me = this;
+                if (prePropos.id != me.props.id) {
+                //	console.log(prePropos.id + '=======' + me.props.id);
+                        me.setState({video_url:'', vid:'', error:'', list:[]});
+                }
         },
         handleChange:function(e) {
                 var me = this;
