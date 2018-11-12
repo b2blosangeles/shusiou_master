@@ -20,7 +20,11 @@ React.createClass({
                 me.setState({video_url:e.target.value});
         },  
         p2p: function() {
+                var me = this;	
+                me.setState({"vidd" : "data.data.vid"});
                 alert('p2p');
+                console.log(me.state);
+                                console.log('---me.state--->end me');
         },
         videoUrlDecode:function() {
                 var me = this, code = me.state.video_url;		
@@ -35,10 +39,9 @@ React.createClass({
                         callBack: (function(ta) { return function(data) {
                                 console.log(data.data);
                              //   data.data.code = code;
-                                ta.setState({"vidd" : "data.data.vid"});
+                                
                                 ta.p2p();
-                                console.log(ta.state);
-                                console.log('---me.state--->end ta');
+                                
                                 }})(me)
                 }
                 console.log(me.state);
