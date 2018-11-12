@@ -22,9 +22,10 @@ React.createClass({
         },  
         p2p: function(data) {
                 var me = this;	
-                me.setState({"vidd": "data.data.vid"}, function() {
+                if (data) me.setState({data}, function() {
                         console.log('---me.state--->end 8 vme');
                 });
+                console.log('---data 6');
                 console.log(data);
                 console.log(me.state);
                 console.log('---me.state--->end 7 vme');
