@@ -43,7 +43,7 @@ try {
 				var _v = React.createClass({
 					getInitialState: function() {
 						var me = this;
-						return {}
+						return {niu:new Date()}
 					},
 					render: function() {
 						var me = this;
