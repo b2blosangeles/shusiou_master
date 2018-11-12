@@ -39,7 +39,7 @@ try {
 		OptionBody : {
 			'upload_video': function() {
 				var me = this;
-				/*
+				
 				var _v = React.createClass({
 					getInitialState: function() {
 						var me = this;
@@ -47,10 +47,10 @@ try {
 					},
 					render: function() {
 						var me = this;
-						return  (<span>{'me.state.niu'}/span>)
+						return  (<span>{'me.state.niu'}</span>)
 					}
-				});*/
-				return '(<_v/>)'
+				});
+				return (<_v/>)
 			},
 			'pull_youtube': function() {
 				return 'Pull YouTube'
