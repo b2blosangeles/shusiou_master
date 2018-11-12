@@ -43,7 +43,7 @@ try {
 			for (var i = 0; i < me.options.length; i++) {
 				if (me.options[i].code === me.state.option) {
 					return (<div className="overlayer_box homepage_box" style={{'margin-top': '0.5em'}}>
-						<_asyncModule url={me.options[i].url} parent={me} />
+						<_asyncModule url={me.options[i].url} parent={me} />=={i}==
 					</div>)
 				}
 			}
