@@ -129,7 +129,9 @@ try {
 					// var _asyncOBJ = new Function(decodeURIComponent(me._asyncModule));
 					//var _asyncOBJ = {};
 					//eval('_asyncOBJ = ' + decodeURIComponent(me._asyncModule));
-					return  (<span><_asyncOBJ parent={me.props.parent}/></span>)
+					var bs = new _asyncOBJ();
+					// return  (<span><_asyncOBJ parent={me.props.parent}/></span>)
+					return  (<span>{bs.render()}></span>)
 				} catch (err) {
 					return  (<span>Script Error: {err.message}</span>)
 				}
