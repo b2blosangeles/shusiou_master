@@ -21,7 +21,7 @@ try {
 			$.get(url, function(data, status){
 				if (data.success)  {
 					me._asyncModule = data.code;
-					me.setState({success: true, update : new Date().getTime()});
+					me.setState({success: true, update : new Date().getTime(), _asyncModule: data.code});
 				} else {
 					me._asyncModuleErr = data.err;
 					me.setState({success: false, update : new Date().getTime()});
@@ -33,9 +33,9 @@ try {
 			var me = this;
 			if (me.state.success === false) {
 				return  (<span>Script Error: {me._asyncModuleErr}</span>)
-			} else if (me._asyncModule) {
+			} else if (me.state._asyncModule) {
 				try {
-					eval('var _asyncOBJ = ' + decodeURIComponent(me._asyncModule));
+					eval('var _asyncOBJ = ' + decodeURIComponent(me.state._asyncModule));
 					return  (<span><_asyncOBJ parent={me.props.parent}/></span>)
 				} catch (err) {
 					return  (<span>Script Error: {err.message}</span>)
