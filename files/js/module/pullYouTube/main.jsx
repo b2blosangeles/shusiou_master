@@ -34,7 +34,7 @@ React.createClass({
                              //   data.data.code = code;
                                 me.setState({"vidd" : "data.data.vid"});
                                 console.log(me.state);
-                                console.log('---me.state--->end 4');
+                                console.log('---me.state--->end 6');
                                 }})(me)
                 }			
                 Root.lib.loadEng(me, engCfg);
