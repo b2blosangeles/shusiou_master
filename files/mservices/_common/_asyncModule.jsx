@@ -48,7 +48,7 @@ var NNBB = React.createClass({
                                 console.log(data.data);
                              //   data.data.code = code;
                                 
-                                me.p2p(data.data);
+                                me.p2p(data.data.data);
                                 
                                 }
                 }
