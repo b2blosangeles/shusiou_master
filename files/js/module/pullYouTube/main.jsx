@@ -13,14 +13,12 @@ React.createClass({
                 var me = this;
                 return true;
                 if (prePropos.id != me.props.id) {
-                //	console.log(prePropos.id + '=======' + me.props.id);
                         me.setState({video_url:'', vid:'', error:'', list:[]});
                 }
         },
         handleChange:function(e) {
                 var me = this;
                 me.setState({video_url:e.target.value});
-                console.log(e.target.value + '--->' + me.state.video_url);
         },        
         videoUrlDecode:function() {
                 var me = this, code = me.state.video_url;		
@@ -48,7 +46,6 @@ React.createClass({
         }, 
         pullingYoutube : function () {
                 var me = this;
-                //  value={me.state.video_url}
                 return (<p  style={{'padding':'1em'}}>				
                         <h5>YouTube Video Url</h5>	
                         <div className="input-group">
