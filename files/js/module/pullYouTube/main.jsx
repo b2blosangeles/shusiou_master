@@ -51,6 +51,11 @@ React.createClass({
                         <div className="input-group">
                           <input type="text" className="form-control" placeholder="Input YouTube link" 
                                   value={me.state.video_url}
+                                  aria-describedby="basic-addon2"/>      
+                             <hr/>   
+                                
+                          <input type="text" className="form-control" placeholder="Input YouTube link" 
+                                  value={me.state.video_url}
                                   onChange={this.handleChange.bind(this)}
                                   aria-describedby="basic-addon2"/>
                           <div className={me.videoUrlSubmitable()} onClick={me.videoUrlDecode.bind(me)}>Submit</div>
