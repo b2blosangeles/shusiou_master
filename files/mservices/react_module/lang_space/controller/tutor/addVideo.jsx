@@ -39,24 +39,13 @@ try {
 		OptionBody : {
 			'upload_video': function() {
 				var me = this;
-				
-				var _v = React.createClass({
-					getInitialState: function() {
-						var me = this;
-						return {niu:new Date().toString()}
-					},
-					render: function() {
-						var me = this;
-						return  (<span>{me.state.niu}</span>)
-					}
-				});
-				return (<_asyncModule url={'/files/js/test.jsx'} />)
+				return (<_asyncModule url={'/files/js/module/fileUpload/main.jsx'} />)
 			},
 			'pull_youtube': function() {
-				return 'Pull YouTube'
+				return (<_asyncModule url={'/files/js/module/pullYouTube/main.jsx'} />)
 			},
 			'add_shared_video': function() {
-				return 'Add Shared Video'
+				return (<_asyncModule url={'/files/js/module/addSharedVideo/main.jsx'} />)
 			}			
 		},
 		showOptionBody : function() {
