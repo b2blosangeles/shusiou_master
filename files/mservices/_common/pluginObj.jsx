@@ -9,7 +9,7 @@ try {
 			// var url = _master_svr() + me.props.url + '?tm=' + new Date().getTime();
 			var url = _master_svr() + '/api/JSXhub.api?tm=' + new Date().getTime();
 			
-			me._v = React.createClass({
+			me._pluginObj = React.createClass({
 			  getInitialState: function() {
 			    var me = this;
 			    return {niu:new Date().toString()}
@@ -26,23 +26,14 @@ try {
 				
 			});
 			
-			/*
-			$.getScript(url, function( data, textStatus, jqxhr ) {
-			  console.log( data ); // Data returned
-			  console.log( textStatus ); // Success
-			  console.log( jqxhr.status ); // 200
-			  console.log( "Load was performed." );
-			});
-			*/
-			
 		},
 		render: function() {
 			var me = this;
-			if (me._v) {
-				var v = new me._v();
+			if (me._pluginObj) {
+				var v = new me._pluginObj();
 				return  (<span>{v.render()}</span>)
 			} else {
-				return  (<span>NONO</span>)
+				return  (<span>Loading ...</span>)
 			}
 		}
 	});	
