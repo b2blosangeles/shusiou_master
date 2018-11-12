@@ -39,7 +39,7 @@ try {
 		OptionBody : {
 			'upload_video': function() {
 				var me = this;
-				var v = React.createClass({
+				var _v = React.createClass({
 						getInitialState: function() {
 							var me = this;
 				      /*
@@ -59,7 +59,7 @@ try {
 								return  (<span>vvv</span>)
 						}
 					});
-				return (<v/>)
+				return (<_v/>)
 				//return (<_pluginObj obj={(<v/>)} />)
 			},
 			'pull_youtube': function() {
