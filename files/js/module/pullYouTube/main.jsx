@@ -1,7 +1,7 @@
 React.createClass({
         getInitialState: function() {
                 var me = this;
-                return {video_url:'', vid:'', error:'', list:[], method: ''};
+                return {video_url:'', vid:'', error:'', list:[], method: 'rr'};
         },
         initState:function() {
            //     this.setState({video_url:'', vid:'', title:'', length_seconds:0,thumbnail_url:'', error:''});			
