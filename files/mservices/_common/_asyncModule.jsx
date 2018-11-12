@@ -6,17 +6,11 @@ try {
 		},
 		componentDidMount:function(prevState, prevProps) {
 			var me = this;
-			console.log('====componentDidMount====');
 			me.loadCode();
 		},		
 		componentDidUpdate:function(prevProps, prevState) {
 			var me = this;
 			if (me.props.url !== prevProps.url) { 
-			// if (!prevProps.url) { 
-				console.log('==PP==componentDidUpdate====');
-				console.log(me.props.url);
-				console.log(prevProps.url);
-				console.log('==PP========================');
 				me.loadCode();
 			}	
 		},
