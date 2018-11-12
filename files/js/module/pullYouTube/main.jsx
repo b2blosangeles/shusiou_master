@@ -28,7 +28,7 @@ React.createClass({
                 console.log('---data 6');
                 console.log(data);
                 console.log(me.state);
-                console.log('---me.state--->end 7 vme');
+                console.log('---me.state--->end 7 xxx vme');
         },
 
         
