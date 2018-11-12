@@ -47,7 +47,7 @@ React.createClass({
         pullingYoutube : function () {
                 var me = this;
                 return (<p  style={{'padding':'1em'}}>				
-                        <h5>YouTube Video Url</h5>	
+                        <h5>YouTube Video URL</h5>	
                         <div className="input-group">
                           <input type="text" className="form-control" placeholder="Input YouTube link" 
                                   value={me.state.video_url}
