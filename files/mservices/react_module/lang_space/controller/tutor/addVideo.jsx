@@ -39,12 +39,7 @@ try {
 		OptionBody : {
 			'upload_video': function() {
 				var me = this;
-				var _commObjmybbq =  React.createClass({
-					render: function() {
-						return (<span>niubbe</span>)
-					}
-				});
-				return (<_commObjmybbq/>)
+				return (<_pluginObj/>)
 			},
 			'pull_youtube': function() {
 				return 'Pull YouTube'
