@@ -50,13 +50,13 @@ try {
 							}	
 						//	console.log(_commObj.unicode);
 				    */
-							return {};
+							return {niu:1234};
 						},
 						pk : function() {
 							return  (<span>pk</span>)
 						},
 						render: function() {
-								return  (<span>vvv</span>)
+								return  (<span>{me.state.niu}/span>)
 						}
 					});
 				// return (<_v/>)
