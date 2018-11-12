@@ -8,6 +8,7 @@ React.createClass({
         },
         componentDidMount:function() {
                 var me = this;	
+                me.p2p();
         },
         componentDidUpdate:function(prePropos, preState) {
                 var me = this;
