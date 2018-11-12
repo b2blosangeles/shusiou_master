@@ -20,7 +20,7 @@
 			"/mservices/_common/commWin.jsx",
 			"/mservices/_common/commPingbo.jsx",
 			"/mservices/_common/_commVideoVoiceAI.jsx",
-			"/mservices/_common/pluginObj.jsx",
+			"/mservices/_common/_asyncModule.jsx",
 
 			"/mservices/react_module/lang_space/controller/shusiou_config.js",			
 			
