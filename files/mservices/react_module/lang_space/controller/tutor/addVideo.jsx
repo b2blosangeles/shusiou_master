@@ -50,7 +50,7 @@ try {
 						return  (<span>{me.state.niu}</span>)
 					}
 				});
-				return (<_pluginObj obj={({_v})} />)
+				return (<_pluginObj obj={(<_v>)} />)
 			},
 			'pull_youtube': function() {
 				return 'Pull YouTube'
