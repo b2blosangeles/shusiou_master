@@ -35,42 +35,19 @@ try {
 			var me = this;
 			me.setState({option:code});
 		},
-		OptionBody : function() {
+		showOptionBody : function() {
 			var me = this;
 			for (var i = 0; i < me.options.length; i++) {
 				if (me.options[i].code === me.state.option) {
-					return (<_asyncModule url={me.options[i].url} />)
+					return (
+						<div className="overlayer_box homepage_box" style={{'margin-top': '0.5em'}
+							<_asyncModule url={me.options[i].url} />
+						</div>);
+					)
 				}
 			}
-			return (<span />)
-			/*
-			switch (me.state.option) {
-				case 'upload_video' :
-					return (<_asyncModule url={'/files/js/module/fileUpload/main.jsx'} />)
-					break;
-				case 'pull_youtube' :
-					return (<_asyncModule url={'/files/js/module/pullYouTube/main.jsx'} />)
-					break;
-				case 'add_shared_video' :
-					return (<_asyncModule url={'/files/js/module/addSharedVideo/main.jsx'} />)
-					break;					
-				default : 
-					return (<span />)
-			}*/			
-		},
-		showOptionBody : function() {
-			var me = this;
-			
-			return (!me.state.option) ? '' : 
-				(<div className="overlayer_box homepage_box" style={{'margin-top': '0.5em'}}>
-					{me.OptionBody()}
-					
-				</div>);				
-		},		
-		closeAdmin:function(v) {
-			var me = this;
-			me.setState({ModalPlus:'cancel'});
-		},							
+			return (<span />)			
+		},									
 		render: function() {
 			var me = this;
 			
@@ -91,7 +68,6 @@ try {
 
 					<br/><br/><br/><br/>
 					<div className="content_bg opacity_bg"/>
-					{Root.lib.landingModal(me)}
 				</div>
 			);
 		}
