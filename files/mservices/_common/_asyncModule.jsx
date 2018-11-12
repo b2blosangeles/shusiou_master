@@ -35,7 +35,7 @@ try {
 			if (me.state.success === false) {
 				return  (<span>Loading Failure!</span>)
 			} else if (me._asyncModule) {
-				eval('var ASYNCOBJ = ' + decodeURIComponent(data.code));
+				eval('var ASYNCOBJ = ' + decodeURIComponent(me._asyncModule));
 				return  (<span><ASYNCOBJ/></span>)
 			} else {
 				return  (<span>Loading ...</span>)
