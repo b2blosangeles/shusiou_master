@@ -38,22 +38,12 @@ try {
 		},
 		OptionBody : {
 			'upload_video': function() {
+				var me = this;
 				var _commObjmybbq =  React.createClass({
 					render: function() {
-						return (<span>niubb</span>)
+						return (<span>niubbe</span>)
 					}
 				});
-				setTimeout(
-					function() {
-						_commObjmybbq =  React.createClass({
-							render: function() {
-								return (<span>niucc</span>)
-							}
-						})						
-						console.log(9999);
-					}, 1000
-				
-				);
 				return (<_commObjmybbq/>)
 			},
 			'pull_youtube': function() {
