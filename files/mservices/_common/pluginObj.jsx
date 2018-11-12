@@ -8,7 +8,7 @@ try {
 			var me = this;
 			var url = _master_svr() + me.props.url + '?tm=' + new Date().getTime();
 
-			var _v = React.createClass({
+			me._v = React.createClass({
 			  getInitialState: function() {
 			    var me = this;
 			    return {niu:new Date().toString()}
@@ -18,7 +18,7 @@ try {
 			    return  (<span>{me.state.niu}</span>)
 			  }
 			});	
-			var v = new _v();
+			var v = me._v();
 			me.setState({disp : v.render()});
 			/*
 			$.get(url, function(data, status){
