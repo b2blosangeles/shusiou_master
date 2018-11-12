@@ -9,7 +9,9 @@ try {
 			var url = _master_svr() + '/api/JSXhub.api?url=' + encodeURIComponent(me.props.url) + 
 			    	'&tm=' + new Date().getTime();
 			$.get(url, function(data, status){
+				console.log(decodeURIComponent(data.code));
 				eval(decodeURIComponent(data.code));
+				/*
 				me._pluginObj = React.createClass({
 				  getInitialState: function() {
 				    var me = this;
@@ -25,6 +27,7 @@ try {
 					    </span>)
 				  }
 				});
+				*/
 				console.log(data);
 				me.setState({update : new Date().getTime()});
 			});
