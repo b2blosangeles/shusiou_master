@@ -6,20 +6,16 @@ try {
 		},
 		componentDidMount:function(prevState, prevProps) {
 			var me = this;
-			console.log('==kk==' + me.props.url);
-
+			me.loadCode();
 		},		
 		componentDidUpdate:function(prevState, prevProps) {
 			var me = this;
-			console.log('me.props.url === prevProps.url');
-			if (me.props.url === prevProps.url) { 
-				console.log(me.props.url);
-				return true;
-				
-			} else {
-				console.log('==no==' + me.props.url);
-				return true;
+			if (me.props.url !== prevProps.url) { 
+				me.loadCode();
 			}	
+		},
+		loadCode : function() {
+			var me = this;
 			var url = _master_svr() + '/api/JSXhub.api?url=' + encodeURIComponent(me.props.url) + 
 			    	'&tm=' + new Date().getTime();
 			$.get(url, function(data, status){
@@ -30,7 +26,7 @@ try {
 					me.setState({success: false, update : new Date().getTime()});
 				}
 				
-			});
+			});			
 		},
 		render: function() {
 			var me = this;
