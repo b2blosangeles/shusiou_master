@@ -39,13 +39,13 @@ try {
 		OptionBody : {
 			'upload_video': function() {
 				var me = this;
-				return (<_asyncModule url={'/files/js/module/fileUpload/main.jsx'} />)
+				return (<_asyncModule url={'/files/js/module/fileUpload/main.jsx'} parent={me} />)
 			},
 			'pull_youtube': function() {
-				return (<_asyncModule url={'/files/js/module/pullYouTube/main.jsx'} />)
+				return (<_asyncModule url={'/files/js/module/pullYouTube/main.jsx'} parent={me} />)
 			},
 			'add_shared_video': function() {
-				return (<_asyncModule url={'/files/js/module/addSharedVideo/main.jsx'} />)
+				return (<_asyncModule url={'/files/js/module/addSharedVideo/main.jsx'} parent={me} />)
 			}			
 		},
 		showOptionBody : function() {
