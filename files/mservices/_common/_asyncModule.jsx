@@ -20,6 +20,7 @@ try {
 			    	'&tm=' + new Date().getTime();
 			$.get(url, function(data, status){
 				if (data.success)  {
+					console.log(data.code);
 					eval(decodeURIComponent(data.code));
 					me.setState({success: true, update : new Date().getTime()});
 				} else {
