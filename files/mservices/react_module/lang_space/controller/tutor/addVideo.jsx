@@ -39,7 +39,24 @@ try {
 		OptionBody : {
 			'upload_video': function() {
 				var me = this;
-				return (<_pluginObj/>)
+				var v = React.createClass({
+						getInitialState: function() {
+							var me = this;
+				      /*
+							if (!_commObj.unicode || _commObj.unicode > 99999) {
+								_commObj.unicode = 1;
+							} else {
+								_commObj.unicode++;
+							}	
+						//	console.log(_commObj.unicode);
+				    */
+							return {};
+						},	
+						render: function() {
+								return  (<span>vvv</span>)
+						}
+					});	
+				return (<_pluginObj obj=v />)
 			},
 			'pull_youtube': function() {
 				return 'Pull YouTube'
