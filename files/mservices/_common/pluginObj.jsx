@@ -6,24 +6,19 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
-			// var url = _master_svr() + me.props.url + '?tm=' + new Date().getTime();
 			var url = _master_svr() + '/api/JSXhub.api?tm=' + new Date().getTime();
-			
-			me._pluginObj = React.createClass({
-			  getInitialState: function() {
-			    var me = this;
-			    return {niu:new Date().toString()}
-			  },
-			  render: function() {
-			    var me = this;
-			    return  (<span>{me.state.niu}</span>)
-			  }
-			});	
-
 			$.get(url, function(data, status){
-				console.log(data);
-				me.setState({url : url});
-				
+				me._pluginObj = React.createClass({
+				  getInitialState: function() {
+				    var me = this;
+				    return {niu:new Date().toString()}
+				  },
+				  render: function() {
+				    var me = this;
+				    return  (<span>{me.state.niu}</span>)
+				  }
+				});
+				me.setState({update : new Date().getTime()});
 			});
 			
 		},
