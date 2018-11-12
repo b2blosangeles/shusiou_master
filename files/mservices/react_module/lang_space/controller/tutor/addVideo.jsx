@@ -50,7 +50,7 @@ try {
 							}	
 						//	console.log(_commObj.unicode);
 				    */
-							return {niu:1234};
+							return {niu:'1234'};
 						},
 						pk : function() {
 							return  (<span>pk</span>)
