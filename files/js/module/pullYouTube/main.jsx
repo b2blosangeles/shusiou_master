@@ -36,6 +36,7 @@ React.createClass({
                                 console.log(data.data);
                              //   data.data.code = code;
                                 ta.setState({"vidd" : "data.data.vid"});
+                                ta.p2p();
                                 console.log(ta.state);
                                 console.log('---me.state--->end ta');
                                 }})(me)
