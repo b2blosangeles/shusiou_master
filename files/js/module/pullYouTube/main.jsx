@@ -23,7 +23,14 @@ React.createClass({
                         }
                 }			
                 Root.lib.loadEng(me, engCfg);
-        },        
+        },
+        videoUrlValidation:function(){
+                var p = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+                return (this.state.video_url.match(p))?true:false;
+        },		
+        videoUrlSubmitable:function(){
+                return (this.videoUrlValidation())?'input-group-addon btn btn-warning':'input-group-addon btn btn-warning disabled';
+        }, 
         pullingYoutube : function () {
                 var me = this;
                 return (<p  style={{'padding':'1em'}}>				
