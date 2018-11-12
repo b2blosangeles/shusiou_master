@@ -1,4 +1,4 @@
-var _v = React.createClass({
+React.createClass({
   getInitialState: function() {
     var me = this;
     return {niu:new Date().toString()}
