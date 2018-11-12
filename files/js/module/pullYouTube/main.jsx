@@ -65,6 +65,6 @@ React.createClass({
         },       
         render: function() {
           var me = this;
-          return  (<span>{me.pullingYoutube()}</span>)
+          return  (!me.state.vid) ? (<span>{me.pullingYoutube()}</span>) : (<span>{me.youtubeInfo()}</span>)
         }
 });
