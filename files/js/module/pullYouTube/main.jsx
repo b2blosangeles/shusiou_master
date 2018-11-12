@@ -24,7 +24,7 @@ React.createClass({
                 var me = this;	
                 if (data) {
                         me.props.parent.setState({vid: data.vid}, function() { 
-                        console.log('---me.state--->end 8kk vme');
+                        console.log('---me.state--->end 8kk vme' + data.vid);
                         });
                 }
                 console.log('---data 6');
