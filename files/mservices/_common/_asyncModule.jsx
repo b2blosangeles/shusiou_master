@@ -11,13 +11,13 @@ try {
 		},		
 		componentDidUpdate:function(prevState, prevProps) {
 			var me = this;
-			if (me.props.url !== prevProps.url) { 
+			//if (me.props.url !== prevProps.url) { 
 				console.log('==PP==componentDidUpdate====');
 				console.log(me.props.url);
 				console.log(prevProps.url);
 				console.log('==PP========================');
 				// me.loadCode();
-			}	
+			//}	
 		},
 		loadCode : function() {
 			var me = this;
