@@ -21,7 +21,7 @@ try {
 			$.get(url, function(data, status){
 				if (data.success)  {
 					me._asyncModule = data.code;
-					me.setState({success: true, update : new Date().getTime(), _asyncModule: data.code});
+					me.setState({success: true, update : new Date().getTime()});
 				} else {
 					me._asyncModuleErr = data.err;
 					me.setState({success: false, update : new Date().getTime()});
@@ -123,7 +123,7 @@ var NNBB = React.createClass({
 });				
 				// return  (<span><NNBB parent={me.props.parent}/></span>)
 				try {
-					var _asyncOBJ = new Function(decodeURIComponent(me.state._asyncModule));
+					var _asyncOBJ = new Function(decodeURIComponent(me._asyncModule));
 					//var _asyncOBJ = {};
 					//eval('_asyncOBJ = ' + decodeURIComponent(me.state._asyncModule));
 					return  (<span><_asyncOBJ parent={me.props.parent}/></span>)
