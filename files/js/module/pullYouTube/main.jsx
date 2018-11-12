@@ -24,13 +24,13 @@ React.createClass({
                 var me = this;	
                 if (data) {
                         me.props.parent.setState({vid: data.vid}, function() { 
-                        console.log('---me.state--->end 8kk vme' + data.vid);
+                        console.log('---me.state--->end 8kk --->' + me.props.parent.state.vid);
                         });
                 }
-                console.log('---data 6');
-                console.log(data);
-                console.log(me.state);
-                console.log('---me.state--->end 7 xxx vme');
+              //  console.log('---data 6');
+               // console.log(data);
+               // console.log(me.state);
+              //  console.log('---me.state--->end 7 xxx vme');
         },
 
         
@@ -66,7 +66,7 @@ React.createClass({
         pullingYoutube : function () {
                 var me = this;
                 return (<p  style={{'padding':'1em'}}>				
-                        <h5>YouTube Video URL ===> {me.props.parent.vid}===</h5>	
+                        <h5>YouTube Video URL ===> {me.props.parent.state.vid}===</h5>	
                         <div className="input-group">
                           <input type="text" className="form-control" placeholder="Input YouTube link" 
                                   value={me.state.video_url}
