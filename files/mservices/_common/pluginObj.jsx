@@ -19,7 +19,7 @@ try {
 			  }
 			});	
 			
-			me.setState({disp : v.render()});
+			// me.setState({disp : v.render()});
 			/*
 			$.get(url, function(data, status){
 				console.log(data);
