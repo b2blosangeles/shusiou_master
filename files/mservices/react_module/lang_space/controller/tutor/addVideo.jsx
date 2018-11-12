@@ -50,7 +50,7 @@ try {
 							}	
 						//	console.log(_commObj.unicode);
 				    */
-							return {niu:'1234'};
+							return {niu:'1234'}
 						},
 						render: function() {
 							var me = this;
