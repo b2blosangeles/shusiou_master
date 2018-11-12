@@ -1,5 +1,5 @@
 try {
-	var _pluinObj = React.createClass({
+	var _pluginObj = React.createClass({
 		getInitialState: function() {
 			var me = this;
       /*
