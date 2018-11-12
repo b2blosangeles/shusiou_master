@@ -18,7 +18,7 @@ try {
 			    return  (<span>{me.state.niu}</span>)
 			  }
 			});	
-			var v = me._v();
+			
 			me.setState({disp : v.render()});
 			/*
 			$.get(url, function(data, status){
@@ -38,7 +38,12 @@ try {
 		},
 		render: function() {
 			var me = this;
-			return  (<span>{me.state.disp}</span>)
+			if (me._v) {
+				var v = me._v();
+				return  (<span>{v.render()}</span>)
+			} else {
+				return  (<span>NONO</span>)
+			}
 		}
 	});	
 } catch (err) {
