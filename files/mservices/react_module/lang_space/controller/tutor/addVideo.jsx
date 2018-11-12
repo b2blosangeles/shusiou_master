@@ -59,7 +59,7 @@ try {
 								return  (<span>vvv</span>)
 						}
 					});	
-				return (<_pluginObj obj={v} />)
+				return (<_pluginObj obj=v />)
 			},
 			'pull_youtube': function() {
 				return 'Pull YouTube'
