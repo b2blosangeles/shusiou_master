@@ -132,8 +132,8 @@ try {
 				// return  (<span><NNBB parent={me.props.parent}/></span>)
 				try {
 					// var _asyncOBJ = new Function(decodeURIComponent(me._asyncModule));
-					//var _asyncOBJ = {};
-					//eval('_asyncOBJ = ' + decodeURIComponent(me._asyncModule));
+					var _asyncOBJ = {};
+					eval('_asyncOBJ = ' + decodeURIComponent(me._asyncModule));
 					//var bs = _asyncOBJ();
 					return  (<span>{me.vid}==<_asyncOBJ parent={me.props.parent}/></span>)
 					//return  (<span><bs/></span>)
