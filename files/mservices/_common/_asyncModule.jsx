@@ -6,7 +6,13 @@ try {
 		},
 		componentDidUpdate:function(prevState, prevProps) {
 			var me = this;
+			console.log('me.props.url === prevProps.url');
 			if (me.props.url === prevProps.url) return true;
+				console.log(me.props.url);
+			else {
+				console.log('==no==' + me.props.url);
+				return true;
+			}	
 			var url = _master_svr() + '/api/JSXhub.api?url=' + encodeURIComponent(me.props.url) + 
 			    	'&tm=' + new Date().getTime();
 			$.get(url, function(data, status){
