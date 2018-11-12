@@ -24,6 +24,7 @@ try {
 					eval(decodeURIComponent(data.code));
 					me.setState({success: true, update : new Date().getTime()});
 				} else {
+					console.log(data);
 					me.setState({success: false, update : new Date().getTime()});
 				}
 				
