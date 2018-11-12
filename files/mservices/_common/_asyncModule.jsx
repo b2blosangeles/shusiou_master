@@ -7,9 +7,11 @@ try {
 		componentDidUpdate:function(prevState, prevProps) {
 			var me = this;
 			console.log('me.props.url === prevProps.url');
-			if (me.props.url === prevProps.url) return true;
+			if (me.props.url === prevProps.url) { 
 				console.log(me.props.url);
-			else {
+				return true;
+				
+			} else {
 				console.log('==no==' + me.props.url);
 				return true;
 			}	
