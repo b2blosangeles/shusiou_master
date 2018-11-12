@@ -38,13 +38,13 @@ React.createClass({
                         },
                         hold:500,
                         setting: {timeout:6000},
-                        callBack: (function(ta) { return function(data) {
+                        callBack: function(data) {
                                 console.log(data.data);
                              //   data.data.code = code;
                                 
                                 ta.p2p();
                                 
-                                }})(me)
+                                }
                 }
                 console.log(me.state);
                 console.log('---me.state--->end taA');
