@@ -4,12 +4,13 @@ React.createClass({
           return {}
         },
         pp: function() {
-          alert('File Upload');
+                var me = this;
+                me.props.parent.goBackMyVideos();
         },
         render: function() {
           var me = this;
           return  (<span>
-                          {me.props.parent.test()} -- File Upload <a onClick={me.pp.bind(me)} >test</a>
+                         File Upload <a onClick={me.pp.bind(me)} >Go Back</a>
                  </span>)
         }
 });
