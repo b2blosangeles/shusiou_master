@@ -35,8 +35,9 @@ try {
 			var me = this;
 			me.setState({option:code});
 		},
-		test : function() {
-			return 'BBWQ';
+		goBackMyVideos : function() {
+			var me = this;
+			me.props.history.push('/tutor/my_videos')
 		},
 		showOptionBody : function() {
 			var me = this;
