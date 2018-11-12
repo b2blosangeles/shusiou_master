@@ -58,6 +58,8 @@ React.createClass({
         },        
         render: function() {
           var me = this;
-          return  (<span>{me.pullingYoutube()}</span>)
+          return  (<span><input type="text" className="form-control" placeholder="Input YouTube link" 
+                                  value={'12234'}
+                                  aria-describedby="basic-addon2"/></span>)
         }
 });
