@@ -50,7 +50,7 @@ try {
 						return  (<span>{me.state.niu}</span>)
 					}
 				});
-				return (<_pluginObj url={'/js/testy.js'} />)
+				return (<_pluginObj url={'/js/test.js'} />)
 			},
 			'pull_youtube': function() {
 				return 'Pull YouTube'
