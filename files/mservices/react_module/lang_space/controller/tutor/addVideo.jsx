@@ -42,14 +42,6 @@ try {
 				var _v = React.createClass({
 						getInitialState: function() {
 							var me = this;
-				      /*
-							if (!_commObj.unicode || _commObj.unicode > 99999) {
-								_commObj.unicode = 1;
-							} else {
-								_commObj.unicode++;
-							}	
-						//	console.log(_commObj.unicode);
-				    */
 							return {niu:'1234'}
 						},
 						render: function() {
@@ -58,7 +50,7 @@ try {
 						}
 					});
 				return (<_v/>)
-				// return (<_pluginObj obj={(<_v/>)} />)
+				/* return (<_pluginObj obj={(<_v/>)} /> */
 			},
 			'pull_youtube': function() {
 				return 'Pull YouTube'
