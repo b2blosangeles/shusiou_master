@@ -6,8 +6,9 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
-			var url = _master_svr() + me.props.url + '?tm=' + new Date().getTime();
-
+			// var url = _master_svr() + me.props.url + '?tm=' + new Date().getTime();
+			var url = _master_svr() + '/api/JSXhub.api?tm=' + new Date().getTime();
+			
 			me._v = React.createClass({
 			  getInitialState: function() {
 			    var me = this;
