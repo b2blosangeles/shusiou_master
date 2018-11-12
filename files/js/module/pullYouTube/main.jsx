@@ -3,12 +3,6 @@ React.createClass({
                 var me = this;
                 return {video_url:'',  error:'', list:[], method: new Date().getTime()};
         },
-        initState:function() {
-           //     this.setState({video_url:'', vid:'', title:'', length_seconds:0,thumbnail_url:'', error:''});			
-        },
-        componentDidMount:function() {
-                var me = this;	
-        },
         componentDidUpdate:function(prePropos, preState) {
                 var me = this;
                 if (prePropos.id != me.props.id) {
@@ -34,13 +28,9 @@ React.createClass({
                              //   data.data.code = code;
                                 me.props.parent.setState({vid: data.data.vid}, function() { 
                                     console.log('---me.state--->end 666 --->' + me.props.parent.state.vid);
-                                });
-                             //   me.p2p(data.data);
-                                
+                                });        
                           }
                 }
-                console.log(me.state);
-                console.log('---me.state--->end taXXXXX');
                 Root.lib.loadEng(me, engCfg);
         },
         videoUrlValidation:function(){
