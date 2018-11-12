@@ -23,7 +23,6 @@ React.createClass({
         p2p: function(data) {
                 var me = this;	
                 if (data) {
-                        //me.setState({data}, function() {
                         me.props.parent.setState({vid: data.vid}, function() { 
                         console.log('---me.state--->end 8kk vme');
                         });
@@ -67,7 +66,7 @@ React.createClass({
         pullingYoutube : function () {
                 var me = this;
                 return (<p  style={{'padding':'1em'}}>				
-                        <h5>YouTube Video URL</h5>	
+                        <h5>YouTube Video URL ===> {me.props.parent.vid}===</h5>	
                         <div className="input-group">
                           <input type="text" className="form-control" placeholder="Input YouTube link" 
                                   value={me.state.video_url}
