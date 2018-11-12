@@ -22,8 +22,8 @@ try {
 			var me = this;
 			if (me.state.success === false) {
 				return  (<span>Loading Failure!</span>)
-			} else if (me._pluginObj) {
-				var v = new me._pluginObj();
+			} else if (me._asyncModule) {
+				var v = new me._asyncModule();
 				return  (<span>{v.render()}</span>)
 			} else {
 				return  (<span>Loading ...</span>)
