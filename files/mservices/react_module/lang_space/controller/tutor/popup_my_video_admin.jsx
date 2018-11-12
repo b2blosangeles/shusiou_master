@@ -105,7 +105,7 @@ try {
 		},
 		render:function() {
 			var me = this;
-			if (!me.state.vid) return me.pullingYoutube();	
+			if (!me.vid) return me.pullingYoutube();	
 			else return (
 			<p style={{'padding':'1em'}}>						
 				<div >	
