@@ -47,7 +47,7 @@ React.createClass({
         pullingYoutube : function () {
                 var me = this;
                 return (<p  style={{'padding':'1em'}}>				
-                        <h5>Pulling YouTube Video --- Upload video</h5>	
+                        <h5>Pulling YouTube Video</h5>	
                         <div className="input-group">
                           <input type="text" className="form-control" placeholder="Input YouTube link" 
                                   value={me.state.video_url}
@@ -63,8 +63,6 @@ React.createClass({
         },        
         render: function() {
           var me = this;
-          return  (<span>
-                          {me.pullingYoutube()}
-                 </span>)
+          return  (<span>{me.pullingYoutube()}</span>)
         }
 });
