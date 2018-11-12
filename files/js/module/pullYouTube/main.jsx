@@ -4,7 +4,7 @@ React.createClass({
                 return {video_url:'', vid:'', error:'', list:[], method: ''};
         },
         initState:function() {
-                this.setState({video_url:'', vid:'', title:'', length_seconds:0,thumbnail_url:'', error:''});			
+           //     this.setState({video_url:'', vid:'', title:'', length_seconds:0,thumbnail_url:'', error:''});			
         },
         componentDidMount:function() {
                 var me = this;	
