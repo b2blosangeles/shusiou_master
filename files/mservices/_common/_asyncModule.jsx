@@ -35,8 +35,8 @@ try {
 				return  (<span>Script Error: {me._asyncModuleErr}</span>)
 			} else if (me._asyncModule) {
 				try {
-					eval('var ASYNCOBJ = ' + decodeURIComponent(me._asyncModule));
-					return  (<span><ASYNCOBJ/></span>)
+					eval('var _asyncModule = ' + decodeURIComponent(me._asyncModule));
+					return  (<span><_asyncModule/></span>)
 				} catch (err) {
 					return  (<span>Script Error: {err.message}</span>)
 				}
