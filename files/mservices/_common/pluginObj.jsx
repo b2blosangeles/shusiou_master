@@ -15,7 +15,7 @@ try {
 		},
 		componentDidMount:function() {
 			var me = this;
-			me.setState({url : new Date()});
+			me.setState({url : new Date().toString()});
 		},
 		render: function() {
 			var me = this;
