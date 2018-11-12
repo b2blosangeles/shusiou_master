@@ -5,7 +5,7 @@ qaletBabel.jsx2js(fn, function(err, v) {
        if (err) {
               res.send({success: false, err:err.message})
        } else {
-              res.send({success: true, code: encodeURIComponent('me._asyncModule = ' + v.code)});
+              res.send({success: true, code: encodeURIComponent(v.code)});
        }
 });
 
