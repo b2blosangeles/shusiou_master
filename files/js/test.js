@@ -1,3 +1,5 @@
+alert(7788);
+/*
 var _v = React.createClass({
   getInitialState: function() {
     var me = this;
@@ -8,3 +10,4 @@ var _v = React.createClass({
     return  (<span>{me.state.niu}</span>)
   }
 });
+*/
