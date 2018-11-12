@@ -8,17 +8,17 @@ try {
 			var me = this;
 			var url = _master_svr() + me.props.url + '?tm=' + new Date().getTime();
 
-var _v = React.createClass({
-  getInitialState: function() {
-    var me = this;
-    return {niu:new Date().toString()}
-  },
-  render: function() {
-    var me = this;
-    return  (<span>{me.state.niu}</span>)
-  }
-});			
-	me.setState({url :(<_v/>)});		
+			me._v = React.createClass({
+			  getInitialState: function() {
+			    var me = this;
+			    return {niu:new Date().toString()}
+			  },
+			  render: function() {
+			    var me = this;
+			    return  (<span>{me.state.niu}</span>)
+			  }
+			});			
+			me.setState({url :url});		
 			$.get(url, function(data, status){
 				console.log(data);
 				
@@ -35,7 +35,8 @@ var _v = React.createClass({
 		},
 		render: function() {
 			var me = this;
-			return  (<span>{me.state.url}</span>)
+			var _v = me._v;
+			return  (<span><_v/></span>)
 		}
 	});	
 } catch (err) {
