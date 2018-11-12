@@ -37,7 +37,7 @@ try {
 				//var v = new me._asyncModule({}); {v.render()}  value={'5678'} aria-describedby="basic-addon2"
 				return  (<span>
 					 <input type="text" className="form-control" placeholder="Input YouTube link" 
-                                  		alue={'569978'} 
+                                  		value={'569978'} 
                                   	/>      
                              <hr/>   
 					
