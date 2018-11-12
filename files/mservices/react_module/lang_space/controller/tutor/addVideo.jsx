@@ -47,7 +47,7 @@ try {
 					},
 					render: function() {
 						var me = this;
-						return  (<span>{me.state.niu}</span>)
+						return  (<span>{'me.state.niu'}</span>)
 					}
 				});
 				return (<_pluginObj obj={(<_v/>)} />)
