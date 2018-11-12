@@ -30,7 +30,8 @@ React.createClass({
                         hold:500,
                         setting: {timeout:6000},
                         callBack: function(data) {
-                                data.data.code = code;
+                                console.log(data);
+                             //   data.data.code = code;
                                 me.setState(data.data);
                         }
                 }			
