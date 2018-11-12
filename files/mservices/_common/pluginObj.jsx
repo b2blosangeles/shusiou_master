@@ -18,11 +18,13 @@ try {
 			    return  (<span>{me.state.niu}</span>)
 			  }
 			});			
-			me.setState({url :url});		
+			me.setState({url :url});
+			/*
 			$.get(url, function(data, status){
 				console.log(data);
 				
 			});
+			*/
 			/*
 			$.getScript(url, function( data, textStatus, jqxhr ) {
 			  console.log( data ); // Data returned
