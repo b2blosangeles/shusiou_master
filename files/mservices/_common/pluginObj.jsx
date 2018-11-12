@@ -19,6 +19,7 @@ try {
 				    return  (<span>{me.state.niu}</span>)
 				  }
 				});
+				console.log(url);
 				me.setState({update : new Date().getTime()});
 			});
 			
