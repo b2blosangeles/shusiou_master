@@ -29,12 +29,12 @@ React.createClass({
                         },
                         hold:500,
                         setting: {timeout:6000},
-                        callBack: (function(me) { return function(data) {
+                        callBack: (function(ta) { return function(data) {
                                 console.log(data.data);
                              //   data.data.code = code;
-                                me.setState({"vidd" : "data.data.vid"});
-                                console.log(me.state);
-                                console.log('---me.state--->end 6');
+                                ta.setState({"vidd" : "data.data.vid"});
+                                console.log(ta.state);
+                                console.log('---me.state--->end ta');
                                 }})(me)
                 }			
                 Root.lib.loadEng(me, engCfg);
