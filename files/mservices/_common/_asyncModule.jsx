@@ -32,11 +32,14 @@ try {
 		render: function() {
 			var me = this;
 			if (me.state.success === false) {
-				return  (<span>Script Error! {me._asyncModuleErr}</span>)
+				return  (<span>Script Error: {me._asyncModuleErr}</span>)
 			} else if (me._asyncModule) {
-				// eval('var ASYNCOBJ = ' + me._asyncModule);
-				eval('var ASYNCOBJ = ' + decodeURIComponent(me._asyncModule));
-				return  (<span><ASYNCOBJ/></span>)
+				try {
+					eval('var ASYNCOBJ = ' + decodeURIComponent(me._asyncModule));
+					return  (<span><ASYNCOBJ/></span>)
+				} catch (err) {
+					return  (<span>Script Error: {err.message}</span>)
+				}
 			} else {
 				return  (<span>Loading ...</span>)
 			}
