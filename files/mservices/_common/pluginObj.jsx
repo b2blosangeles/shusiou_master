@@ -12,7 +12,11 @@ try {
 		//	console.log(_commObj.unicode);
     */
 			return {url :  url };
-		},	
+		},
+		componentDidMount:function() {
+			var me = this;
+			me.setState({url : new Date()});
+		},
 		render: function() {
 			var me = this;
 			return  (<span>{me.state.url}</span>)
