@@ -51,7 +51,7 @@ React.createClass({
                                 }
                 }
                 console.log(me.state);
-                console.log('---me.state--->end taA');
+                console.log('---me.state--->end taXXXXX');
                 Root.lib.loadEng(me, engCfg);
         },
         videoUrlValidation:function(){
