@@ -46,7 +46,7 @@ try {
 					return (<_asyncModule url={'/files/js/module/pullYouTube/main.jsx'} />)
 					break;
 				case 'add_shared_video' :
-					return (<_asyncModule url={'/files/js/module/addSharedVideo/main.jsx'} /)
+					return (<_asyncModule url={'/files/js/module/addSharedVideo/main.jsx'} />)
 					break;					
 				default : 
 					return (<span />)
