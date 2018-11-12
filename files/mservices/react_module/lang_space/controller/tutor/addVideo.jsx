@@ -51,7 +51,10 @@ try {
 						//	console.log(_commObj.unicode);
 				    */
 							return {};
-						},	
+						},
+						pk : function() {
+							return  (<span>pk</span>)
+						}
 						render: function() {
 								return  (<span>vvv</span>)
 						}
