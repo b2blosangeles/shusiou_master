@@ -1,5 +1,5 @@
 try {
-	var _pluginObj = React.createClass({
+	var _asyncModule = React.createClass({
 		getInitialState: function() {
 			var me = this;
 			return {};
