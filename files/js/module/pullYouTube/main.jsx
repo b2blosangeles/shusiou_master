@@ -18,6 +18,7 @@ React.createClass({
         },
         niuniu : function(o) {
                 var me = this;
+                alert(888);
                 me.setState({videof:'e.target.value'});
                 
         },
