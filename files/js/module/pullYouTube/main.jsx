@@ -18,10 +18,10 @@ React.createClass({
         },
         niuniu : function(o) {
                 var me = this;
-                alert(777);
+                alert(777666);
                 o.setState({videof:'e.target.value'});
-		console.log(o.state);
-                
+		console.log('---o.state---');
+                console.log(o.state);
         },
         videoUrlDecode:function() {
                 var me = this, code = me.state.video_url;		
