@@ -39,12 +39,10 @@ try {
 				return  (<span>Script Error: {me._asyncModuleErr}</span>)
 			} else if (me._asyncModule) {
 				try {
-					// var _asyncOBJ = new Function(decodeURIComponent(me._asyncModule));
-					// var _asyncOBJ = {};
 					eval('var _asyncOBJ = ' + decodeURIComponent(me._asyncModule));
 					return  (<span>
 							<_asyncOBJ parent={me}/>
-							{Root.lib.landingModal(me)}
+							{/*Root.lib.landingModal(me)*/}
 						</span>)
 				} catch (err) {
 					return  (<span>Script Error: {err.message}</span>)
