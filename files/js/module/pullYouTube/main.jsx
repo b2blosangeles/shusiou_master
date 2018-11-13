@@ -1,7 +1,7 @@
 React.createClass({
         getInitialState: function() {
                 var me = this;
-                return {video_url:'',  error:'', list:[], method: new Date().getTime()};
+                return {video_url:'',  videof: '', error:'', list:[], method: new Date().getTime()};
         },
         componentDidUpdate:function(prePropos, preState) {
                 var me = this;
