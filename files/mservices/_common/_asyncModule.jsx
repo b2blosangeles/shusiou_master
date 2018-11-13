@@ -14,21 +14,6 @@ try {
 				me.loadCode();
 			}	
 		},
-		dataEngine : function(engCfg, obj) {
-			var me = this;
-			engCfg.callBack = function() {
-				alert(9988);
-				obj.niuniu();
-			}
-		//	Root.lib.loadEng(me, engCfg);
-			
-			setTimeout(
-				function() {
-					obj.niuniu();
-					console.log('called niuniu roof');
-				}, 3000
-			);			
-		},
 		loadCode : function() {
 			var me = this;
 			var url = _master_svr() + '/api/JSXhub.api?url=' + encodeURIComponent(me.props.url) + 
