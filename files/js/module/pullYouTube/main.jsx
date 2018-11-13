@@ -31,14 +31,14 @@ React.createClass({
                         },
                         hold:500,
                         setting: {timeout:6000},
-                        callBack: function(data) {
+                        callBack: (function(me) { return function(data) {
                                 console.log(data.data);
                              //   data.data.code = code;
                                 me.niuniu(me);
                                 me.props.parent.setState({vid: data.data.vid}, function() { 
-                                    console.log('---me.state--->end 666 --->' + me.props.parent.state.vid);
+                                    console.log('--==me.state--->end 666 --->' + me.props.parent.state.vid);
                                 });        
-                          }
+                          }})(me)
                 }
                 
                 Root.lib.loadEng(me, engCfg);
