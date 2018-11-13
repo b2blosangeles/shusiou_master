@@ -127,7 +127,10 @@ React.createClass({
         render: function() {
           var me = this;
           return  (<span>
-                         File Upload <a onClick={me.pp.bind(me)} >Go Back</a>
+                         File Upload 
+                         <button className="btn btn-success" onClick={me.pp.bind(me)}>
+                                 Go Back
+                         </button>
                  </span>)
         }
 });
