@@ -42,7 +42,7 @@ try {
 					// var _asyncOBJ = new Function(decodeURIComponent(me._asyncModule));
 					// var _asyncOBJ = {};
 					eval('var _asyncOBJ = ' + decodeURIComponent(me._asyncModule));
-					return  (<span>{
+					return  (<span>
 							<_asyncOBJ parent={me}/>
 							{Root.lib.landingModal(me)}
 						</span>)
