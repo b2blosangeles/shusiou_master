@@ -11,6 +11,7 @@ React.createClass({
                me.init();
         },        
         init : function() {
+                var meObj = this;
                 var DropBox = function(_setting) {
 
                     this.holder = _setting.holder;
@@ -153,7 +154,7 @@ React.createClass({
                                 var blob = me.file.slice( pos, pos + me.slice_size);
                                 var size_done = pos + me.slice_size - 1; 
                                 var percent_done = Math.min(Math.floor( ( size_done / me.file.size ) * 100 ), 100);
-                                   me.setState({percentDone: percent_done + '%'}); 
+                                   meObj.setState({percentDone: percent_done + '%'}); 
                                 (_setting.progress) ? _setting.progress(me.upload_M, me.file.name, percent_done) : '';
 
                                 me.reader.onloadend = function( event ) {
