@@ -45,7 +45,8 @@ React.createClass({
                 
                 setTimeout(
                         function() {
-                                 me.niuniu(me);
+                                 me.niuniu();
+                                console.log('called niuniu');
                         }, 3000
                 );
                 
