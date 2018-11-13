@@ -67,8 +67,8 @@ React.createClass({
         render: function() {
           	var me = this;
 		return (<span>				
-				{(!parent.state.vid) ? me.pullingYoutube() : me.youtubeInfo()}
-				{Root.lib.landingModal(me)}
+			{(!me.state.vid) ? me.pullingYoutube() : me.youtubeInfo()}
+			{Root.lib.landingModal(me)}
                 	</span>)
         }
 });
