@@ -52,7 +52,7 @@ var _commLib = function () {
 								   console.log('===taa===' + 'EngCbk_' + id);
 								let me = _target;
 								delete Root._EngC;
-							       func(data);
+							       func(data, _target);
 							       delete ta['EngCbk_' + id];
 							       delete engCfg['EngCbk_' + id];
 							   }
