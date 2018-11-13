@@ -292,7 +292,7 @@ React.createClass({
                           <hr/>
                         <form>
                            <p id="dbi-upload-progress">Please select a file and click "Upload" to continue.</p>
-                           <input id="dbi-file-upload" type="file" name="dbi_import_file" multiple /><br><br>
+                           <input id="dbi-file-upload" type="file" name="dbi_import_file" multiple /><br/><br/>
                            <input id="dbi-file-upload-submit" class="button button-primary" type="button" value="Upload" />
 
                         </form>
