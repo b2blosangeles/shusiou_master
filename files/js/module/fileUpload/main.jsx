@@ -306,7 +306,11 @@ React.createClass({
                                   <p>Drag an image from your desktop on to the drop zone above to see the browser both render the preview, but also upload automatically to this server.</p>
                                   <br/><hr/>
                                       <a id="dbi-file-upload-submit" href="Javascript:void(0)">test</a>
-                                      <hr/><br/>
+                                      <hr/>
+                          <div class="progress" style="height: 20px;">
+                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                                        <hr/><br/>
                                 <div id = "upload_result"></div>
                                 <div id = "upload_mitrix"></div>                        
                  </span>)
