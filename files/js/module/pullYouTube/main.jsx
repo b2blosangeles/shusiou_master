@@ -56,7 +56,7 @@ React.createClass({
 			      dataType: 'JSON',
 			      success: function(resultData) { 
 				      console.log(resultData);
-				      alert("Save Complete") 
+				      me.niuniu(); 
 			      }
 			})	
 		
