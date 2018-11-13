@@ -43,11 +43,9 @@ var _commLib = function () {
 					    func = null, 
 					    id = new Date().getTime() + '_' + _LibIndex;
 					
-					console.log('===ta===');
 				       if (typeof engCfg.callBack === 'function') {
 					   func = engCfg.callBack;
 					   ta['EngCbk_' + id] = function(data) {
-								console.log('===tcc===' + 'EngCbk_' + id);
 								let me = target;
 								delete Root._EngC;
 							       func(data);
