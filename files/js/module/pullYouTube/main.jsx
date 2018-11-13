@@ -1,9 +1,12 @@
 React.createClass({
-        getInitialState: function() {
+        getInitialState : function() {
                 var me = this;
                 return {video_url:'',  videof: '', error:'', list:[], method: new Date().getTime()};
         },
-        componentDidUpdate:function(prePropos, preState) {
+	initState : function() {
+		this.setState({video_url:'', vid:'', title:'', length_seconds:0,thumbnail_url:'', error:''});			
+	},	
+        componentDidUpdate : function(prePropos, preState) {
                 var me = this;
                 // console.log('===parent changed ====');
                 // console.log(me.state);
@@ -11,15 +14,15 @@ React.createClass({
               //          me.setState({video_url:'', vid:'', error:'', list:[]});
                 }
         },
-	close_admin:function(){
+	close_admin : function(){
 		var me = this;  
 		// Root.lib.closePopupWin(me);
 	},	
-        handleChange:function(e) {
+        handleChange : function(e) {
                 var me = this;
                 me.setState({video_url:e.target.value});
         },
-	videoUrlSubmit:function(){
+	videoUrlSubmit : function(){
 		var me = this;
 		let engCfg = {
 			request:{code:'videoUrlSubmit', 
@@ -95,29 +98,12 @@ React.createClass({
 								&nbsp;
 								<button type="button" 
 									className="btn btn-default" 
-									onClick={me.close_admin.bind(me)}>
+									onClick={me.initState.bind(me)}>
 								Cancel</button>
 							</p>
 						</div>	
 					</div>
 				</div>
-				<div className="download_matrix">
-				{(function() {
-					if (me.state.list) {	
-						return me.state.list.map(function (item) { 
-							if (item == 1) {
-								return  (<i className="fa fa-square text-success" aria-hidden="true"></i>)
-							} else if (item == 9)  {
-								return  (<i className="fa fa-square text-warning" aria-hidden="true"></i>)
-							} else {
-								return  (<i className="fa fa-square-o" aria-hidden="true"></i>)
-							} 
-						})
-					} else {
-						return  (<span>connection ...</span>)
-					}
-				})()}
-				</div>	
 			</p>)
         },       
         render: function() {
