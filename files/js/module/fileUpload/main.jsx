@@ -245,7 +245,7 @@ React.createClass({
                      $('#upload_mitrix' ).html(str);
                 } 
 
-                $( document ).ready(function() {  
+                setTimeout(function() {  
 
                     var D = new DropBox({
                                     holder : $('body')[0],
@@ -275,8 +275,8 @@ React.createClass({
 
                     });
                     D.init();
-                    console.log('===D23===');   
-                });  
+                    console.log('===D211===');   
+                }, 2000);  
 
              // =================   
                 
