@@ -26,8 +26,7 @@ React.createClass({
                         hold:500,
                         setting: {timeout:6000},
                         callBack: function(data) {
-				//     console.log(data.data);
-				me.setState(data.data}); 
+				me.setState(data.data); 
 			}
                 }
 		Root.lib.loadEng(me, engCfg);
