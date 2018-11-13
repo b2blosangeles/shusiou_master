@@ -14,6 +14,10 @@ React.createClass({
                 var me = this;
                 me.setState({video_url:e.target.value});
         },
+        niuniu : function() {
+                var me = this;
+                  me.setState({videof:'e.target.value'});
+        },
         videoUrlDecode:function() {
                 var me = this, code = me.state.video_url;		
                 let engCfg = {
@@ -33,7 +37,7 @@ React.createClass({
                                 });        
                           }
                 }
-                me.setState({videof:'e.target.value'});
+                me.niuniu();
                 Root.lib.loadEng(me, engCfg);
         },
         videoUrlValidation:function(){
