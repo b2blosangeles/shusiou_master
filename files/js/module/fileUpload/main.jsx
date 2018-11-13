@@ -291,7 +291,7 @@ React.createClass({
                           <hr/>
                                 <div id="holder">
                                   </div> 
-                                  <p id="upload" class="hidden"><label>Drag & drop not supported, but you can still upload via this input field:<br><input type="file"></label></p>
+                                  <p id="upload" class="hidden"><label>Drag & drop not supported, but you can still upload via this input field:<br/><input type="file"/></label></p>
                                   <p id="filereader">File API & FileReader API not supported</p>
                                   <p id="formdata">XHR2's FormData is not supported</p>
                                   <p id="progress">XHR2's upload progress isn't supported</p>
