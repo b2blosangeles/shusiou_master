@@ -5,8 +5,8 @@ React.createClass({
         },
         componentDidUpdate:function(prePropos, preState) {
                 var me = this;
-                console.log('===parent changed ====');
-                console.log(me.state);
+                // console.log('===parent changed ====');
+                // console.log(me.state);
                 if (prePropos.id != me.props.id) {
               //          me.setState({video_url:'', vid:'', error:'', list:[]});
                 }
@@ -26,13 +26,8 @@ React.createClass({
                         hold:500,
                         setting: {timeout:6000},
                         callBack: function(data) {
-                                console.log(data.data);
-                               me.setState({vid: data.data.vid});
-                                console.log(data);
-                                console.log('called niuniu taGGG');
-                               // me.props.parent.setState({vid: data.data.vid}, function() { 
-                                 //   console.log('--==me.state--->end 666 --->' + me.props.parent.state.vid);
-                               // });        
+                           //     console.log(data.data);
+                               me.setState({vid: data.data.vid});       
                           }
                 }
                 
