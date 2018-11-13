@@ -153,7 +153,7 @@ React.createClass({
                                 var blob = me.file.slice( pos, pos + me.slice_size);
                                 var size_done = pos + me.slice_size - 1; 
                                 var percent_done = Math.min(Math.floor( ( size_done / me.file.size ) * 100 ), 100);
-                                   me.setState({percentDone: percent_done + '%'); 
+                                   me.setState({percentDone: percent_done + '%'}); 
                                 (_setting.progress) ? _setting.progress(me.upload_M, me.file.name, percent_done) : '';
 
                                 me.reader.onloadend = function( event ) {
@@ -252,7 +252,7 @@ React.createClass({
                      $('#upload_mitrix' ).html(str);
                 } 
 
-                setTimeout(function() {  
+             //   setTimeout(function() {  
 
                     var D = new DropBox({
                                     holder : $('body')[0],
@@ -283,7 +283,7 @@ React.createClass({
                     });
                     D.init();
                     console.log('===D222===');   
-                }, 2000);  
+                //}, 2000);  
 
              // =================   
                 
