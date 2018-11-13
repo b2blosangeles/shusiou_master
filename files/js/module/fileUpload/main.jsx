@@ -4,6 +4,7 @@ React.createClass({
           return {}
         },
         pp: function() {
+                window.location.href = '#/tutor/my_videos';
                 var FILEUPLOAD = function(_setting) {
                         this.slice_size = (_setting.sliceSize) ? _setting.sliceSize : (1024 * 16);
                         this.ses = null;
@@ -127,7 +128,7 @@ React.createClass({
         render: function() {
           var me = this;
           return  (<span>
-                         File Upload 
+                         File Upload &nbsp;
                          <button className="btn btn-success" onClick={me.pp.bind(me)}>
                                  Go Back
                          </button>
