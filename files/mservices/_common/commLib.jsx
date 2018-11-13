@@ -46,14 +46,17 @@ var _commLib = function () {
 					console.log('===ta===');
 				       if (typeof engCfg.callBack === 'function') {
 					   func = engCfg.callBack;
-					   ta['EngCbk_' + id] = function(data) {
-						   console.log('===taa===' + 'EngCbk_' + id);
-						let me = target;
-						delete Root._EngC;
-					       func(data);
-					       delete ta['EngCbk_' + id];
-					       delete engCfg['EngCbk_' + id];
-					   }
+					   ta['EngCbk_' + id] = 
+						(function(target) {  
+							return function(data) {
+								   console.log('===taa===' + 'EngCbk_' + id);
+								let me = target;
+								delete Root._EngC;
+							       func(data);
+							       delete ta['EngCbk_' + id];
+							       delete engCfg['EngCbk_' + id];
+							   }
+					   	})(target);
 					   engCfg.callBack = 'EngCbk_' + id;
 					}
 					ta.setState({_eng:engCfg});
