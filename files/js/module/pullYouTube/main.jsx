@@ -80,7 +80,7 @@ React.createClass({
         youtubeInfo : function () {
                 var me = this;
                 return (
-			<p style={{'padding':'1em'}}> ===> {me.state.vid}===						
+			<p style={{'padding':'1em'}}>						
 				<div >	
 					<div style={{float:'left', padding:'1em'}}> 
 						<img src={me.state.thumbnail_url}/>
