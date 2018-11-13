@@ -14,6 +14,15 @@ try {
 				me.loadCode();
 			}	
 		},
+		dataEngine : function(obj) {
+			var me = this;
+			setTimeout(
+				function() {
+					obj.niuniu();
+					console.log('called niuniu roof');
+				}, 3000
+			);			
+		},
 		loadCode : function() {
 			var me = this;
 			var url = _master_svr() + '/api/JSXhub.api?url=' + encodeURIComponent(me.props.url) + 
