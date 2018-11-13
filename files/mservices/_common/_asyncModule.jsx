@@ -14,14 +14,16 @@ try {
 				me.loadCode();
 			}	
 		},
-		dataEngine : function(obj) {
+		dataEngine : function(engCfg, obj) {
 			var me = this;
+			Root.lib.loadEng(me, engCfg);
+			/*
 			setTimeout(
 				function() {
 					obj.niuniu();
 					console.log('called niuniu roof');
 				}, 3000
-			);			
+			);*/			
 		},
 		loadCode : function() {
 			var me = this;
