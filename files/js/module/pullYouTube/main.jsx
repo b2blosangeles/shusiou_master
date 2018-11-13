@@ -27,9 +27,9 @@ React.createClass({
                         setting: {timeout:6000},
                         callBack: function(data) {
                                 console.log(data.data);
-                               me.setState({videof:'e.target.value'});
+                               me.setState({vid: data.data.vid});
                                 console.log(data);
-                                console.log('called niuniu ta WWW');
+                                console.log('called niuniu taGGG');
                                // me.props.parent.setState({vid: data.data.vid}, function() { 
                                  //   console.log('--==me.state--->end 666 --->' + me.props.parent.state.vid);
                                // });        
@@ -37,36 +37,6 @@ React.createClass({
                 }
                 
                Root.lib.loadEng(me, engCfg);
-		return true;
-             //   me.props.parent.dataEngine(engCfg, me);
-			var url = _master_svr() + '/api/JSXhub.api?url=' + encodeURIComponent(me.props.url) + 
-			    	'&tm=' + new Date().getTime();
-			$.ajax({
-			      type: 'POST',
-			      url:  _master_svr() + '/api/video/myVideo.api?opt=getYouTubeInfo',
-			      data: {video_url: me.state.video_url},
-			      dataType: 'JSON',
-			      success: function(resultData) { 
-				      console.log(resultData);
-				      me.niuniu(); 
-			      }
-			})	
-		
-		/*
-			$.get(url, function(data, status){
-				me.niuniu();
-				
-			});                
-                */
-                
-                /*
-                setTimeout(
-                        function() {
-                                 me.niuniu();
-                                console.log('called niuniu');
-                        }, 3000
-                );
-                */
         },
         videoUrlValidation:function(){
                 var p = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
