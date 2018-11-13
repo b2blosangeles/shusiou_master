@@ -27,6 +27,7 @@ React.createClass({
                         callBack: function(data) {
                                 console.log(data.data);
                              //   data.data.code = code;
+                                me.setState({videof:'e.target.value'});
                                 me.props.parent.setState({vid: data.data.vid}, function() { 
                                     console.log('---me.state--->end 666 --->' + me.props.parent.state.vid);
                                 });        
