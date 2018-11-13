@@ -209,7 +209,7 @@ React.createClass({
                         }  
                         this.upload = function() {
                             var me = this;
-                                
+                             console.log('===== this.upload A =====' + _setting.UploadServer);    
                             me.threads = (_setting.threads) ? _setting.threads : 1;
                             me.reader = new FileReader();
                             me.file = _setting.file;
