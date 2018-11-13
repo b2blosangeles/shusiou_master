@@ -90,6 +90,7 @@ React.createClass({
                                         file: files[i],
                                         sliceSize : (_setting.sliceSize) ? _setting.sliceSize : 1024 * 16,
                                         threads : (_setting.threads) ? _setting.threads : 5,
+                                        UploadServer : _setting.UploadServer,
                                         progress : function(M, sourceFn, percent_done) {
                                              _setting.progress(M, sourceFn, percent_done);
                                         },
@@ -281,7 +282,7 @@ React.createClass({
 
                     });
                     D.init();
-                    console.log('===D211===');   
+                    console.log('===D222===');   
             //    }, 2000);  
 
              // =================   
