@@ -43,7 +43,7 @@ var _commLib = function () {
 					    func = null, 
 					    id = new Date().getTime() + '_' + _LibIndex;
 					ta = target;
-					confole.log('===ta===');
+					console.log('===ta===');
 				       if (typeof engCfg.callBack === 'function') {
 					   func = engCfg.callBack;
 					   ta['EngCbk_' + id] = function(data) {
