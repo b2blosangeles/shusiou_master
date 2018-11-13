@@ -20,14 +20,14 @@ try {
 				alert(9988);
 				obj.niuniu();
 			}
-			Root.lib.loadEng(me, engCfg);
-			/*
+		//	Root.lib.loadEng(me, engCfg);
+			
 			setTimeout(
 				function() {
 					obj.niuniu();
 					console.log('called niuniu roof');
 				}, 3000
-			);*/			
+			);			
 		},
 		loadCode : function() {
 			var me = this;
