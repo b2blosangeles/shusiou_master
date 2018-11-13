@@ -16,9 +16,9 @@ React.createClass({
                 var me = this;
                 me.setState({video_url:e.target.value});
         },
-        niuniu : function() {
-                var me = this;
-                  me.setState({videof:'e.target.value'});
+        niuniu : function(o) {
+                // var me = this;
+                  o.setState({videof:'e.target.value'});
                 
         },
         videoUrlDecode:function() {
@@ -34,7 +34,7 @@ React.createClass({
                         callBack: function(data) {
                                 console.log(data.data);
                              //   data.data.code = code;
-                                me.niuniu();
+                                me.niuniu(me);
                                 me.props.parent.setState({vid: data.data.vid}, function() { 
                                     console.log('---me.state--->end 666 --->' + me.props.parent.state.vid);
                                 });        
