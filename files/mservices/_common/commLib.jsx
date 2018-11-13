@@ -47,10 +47,10 @@ var _commLib = function () {
 				       if (typeof engCfg.callBack === 'function') {
 					   func = engCfg.callBack;
 					   ta['EngCbk_' + id] = 
-						(function(target) {  
+						(function(_target) {  
 							return function(data) {
 								   console.log('===taa===' + 'EngCbk_' + id);
-								let me = target;
+								let me = _target;
 								delete Root._EngC;
 							       func(data);
 							       delete ta['EngCbk_' + id];
