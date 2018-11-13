@@ -16,6 +16,9 @@ try {
 		},
 		dataEngine : function(engCfg, obj) {
 			var me = this;
+			engCfg.callBack = function() {
+				alert(9988);
+			}
 			Root.lib.loadEng(me, engCfg);
 			/*
 			setTimeout(
