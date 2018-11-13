@@ -31,12 +31,13 @@ React.createClass({
                         },
                         hold:500,
                         setting: {timeout:6000},
-                        callBack: (function(me) { return function(data) {
+                        callBack: (function(ta) { return function(data) {
                                 console.log(data.data);
                               //  alert(999);
                              //   data.data.code = code;
-                               me.niuniu(me);
-                                console.log('called niuniu HHH');
+                               ta.niuniu(ta);
+                                console.log(data);
+                                console.log('called niuniu ta HHH');
                                // me.props.parent.setState({vid: data.data.vid}, function() { 
                                  //   console.log('--==me.state--->end 666 --->' + me.props.parent.state.vid);
                                // });        
