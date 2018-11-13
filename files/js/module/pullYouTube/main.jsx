@@ -27,7 +27,7 @@ React.createClass({
                         setting: {timeout:6000},
                         callBack: function(data) {
 				//     console.log(data.data);
-				me.setState({vid: data.data.vid}); 
+				me.setState(data.data}); 
 			}
                 }
 		Root.lib.loadEng(me, engCfg);
@@ -56,9 +56,49 @@ React.createClass({
         },
         youtubeInfo : function () {
                 var me = this;
-                return (<p  style={{'padding':'1em'}}>				
-                        <h5>YouTube Video INFO</h5>	
-                </p>)
+                return (
+			<p style={{'padding':'1em'}}>						
+				<div >	
+					<div style={{float:'left', padding:'1em'}}> 
+						<img src={me.state.thumbnail_url}/>
+					</div>					
+					<div> 
+						<div>
+							<h4>{me.state.title}</h4>	
+							<p><b>Video ID</b>:{me.state.vid}</p>  
+							<p><b>Video Length</b>:({me.state.length_seconds} Secs)</p>
+							<p>
+								<button type="button" 
+									className="btn btn-warning" 
+									onClick={me.videoUrlSubmit.bind(me)}>
+								Pulling this video</button>
+								&nbsp;
+								<button type="button" 
+									className="btn btn-default" 
+									onClick={me.close_admin.bind(me)}>
+								Cancel</button>
+							</p>
+						</div>	
+					</div>
+				</div>
+				<div className="download_matrix">
+				{(function() {
+					if (me.state.list) {	
+						return me.state.list.map(function (item) { 
+							if (item == 1) {
+								return  (<i className="fa fa-square text-success" aria-hidden="true"></i>)
+							} else if (item == 9)  {
+								return  (<i className="fa fa-square text-warning" aria-hidden="true"></i>)
+							} else {
+								return  (<i className="fa fa-square-o" aria-hidden="true"></i>)
+							} 
+						})
+					} else {
+						return  (<span>connection ...</span>)
+					}
+				})()}
+				</div>	
+			</p>)
         },       
         render: function() {
           	var me = this;
