@@ -11,6 +11,10 @@ React.createClass({
               //          me.setState({video_url:'', vid:'', error:'', list:[]});
                 }
         },
+	close_admin:function(){
+		var me = this;  
+		// Root.lib.closePopupWin(me);
+	},	
         handleChange:function(e) {
                 var me = this;
                 me.setState({video_url:e.target.value});
