@@ -38,6 +38,7 @@ var _commLib = function () {
 				}
 				Root._EngC = Root._EngQ.shift();
 				(function(target, engCfg) {
+					if (target.existModal) console.log('====target.existModal====');
 					let ta = (target.existModal) ? target : Root,
 					    func = null, 
 					    id = new Date().getTime() + '_' + _LibIndex;
