@@ -32,17 +32,17 @@ React.createClass({
                         },
                         hold:500,
                         setting: {timeout:6000},
-                        callBack: (function(ta) { return function(data) {
+                        callBack: function(data) {
                                 console.log(data.data);
-                                alert(999);
+                                alert(9991);
                              //   data.data.code = code;
-                               ta.niuniu();
+                               me.niuniu();
                                 console.log(data);
                                 console.log('called niuniu ta HHH');
                                // me.props.parent.setState({vid: data.data.vid}, function() { 
                                  //   console.log('--==me.state--->end 666 --->' + me.props.parent.state.vid);
                                // });        
-                          }})(me)
+                          }
                 }
                 
                Root.lib.loadEng(me, engCfg);
