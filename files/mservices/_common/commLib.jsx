@@ -42,7 +42,7 @@ var _commLib = function () {
 					let ta = (target.existModal) ? target : Root,
 					    func = null, 
 					    id = new Date().getTime() + '_' + _LibIndex;
-					ta = target;
+					
 					console.log('===ta===');
 				       if (typeof engCfg.callBack === 'function') {
 					   func = engCfg.callBack;
