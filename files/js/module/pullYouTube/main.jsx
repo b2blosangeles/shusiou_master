@@ -20,6 +20,7 @@ React.createClass({
                 var me = this;
                 alert(777);
                 me.setState({videof:'e.target.value'});
+		console.log(me.state);
                 
         },
         videoUrlDecode:function() {
