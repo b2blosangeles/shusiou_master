@@ -33,16 +33,17 @@ React.createClass({
                         setting: {timeout:6000},
                         callBack: (function(me) { return function(data) {
                                 console.log(data.data);
+                                alert(999);
                              //   data.data.code = code;
-                                me.niuniu(me);
-                                me.props.parent.setState({vid: data.data.vid}, function() { 
-                                    console.log('--==me.state--->end 666 --->' + me.props.parent.state.vid);
-                                });        
+                               // me.niuniu(me);
+                               // me.props.parent.setState({vid: data.data.vid}, function() { 
+                                 //   console.log('--==me.state--->end 666 --->' + me.props.parent.state.vid);
+                               // });        
                           }})(me)
                 }
                 
                // Root.lib.loadEng(me, engCfg);
-                me.props.parent.dataEngine(me);
+                me.props.parent.dataEngine(me, engCfg);
                 /*
                 setTimeout(
                         function() {
