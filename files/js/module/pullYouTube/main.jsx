@@ -16,12 +16,9 @@ React.createClass({
                 var me = this;
                 me.setState({video_url:e.target.value});
         },
-        niuniu : function(o) {
+        niuniu : function() {
                 var me = this;
-                alert(9988);
-                o.setState({videof:'e.target.value'});
-		console.log('---o.state---');
-                console.log(o.state);
+                me.setState({videof:'e.target.value'});
         },
         videoUrlDecode:function() {
                 var me = this, code = me.state.video_url;		
@@ -35,11 +32,9 @@ React.createClass({
                         setting: {timeout:6000},
                         callBack: function(data) {
                                 console.log(data.data);
-                                alert(9999);
-                             //   data.data.code = code;
                                me.niuniu(me);
                                 console.log(data);
-                                console.log('called niuniu ta HHH');
+                                console.log('called niuniu ta WWW');
                                // me.props.parent.setState({vid: data.data.vid}, function() { 
                                  //   console.log('--==me.state--->end 666 --->' + me.props.parent.state.vid);
                                // });        
