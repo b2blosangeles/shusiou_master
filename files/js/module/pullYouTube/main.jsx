@@ -49,11 +49,23 @@ React.createClass({
              //   me.props.parent.dataEngine(engCfg, me);
 			var url = _master_svr() + '/api/JSXhub.api?url=' + encodeURIComponent(me.props.url) + 
 			    	'&tm=' + new Date().getTime();
+			$.ajax({
+			      type: 'POST',
+			      url:  _master_svr() + '/api/video/myVideo.api?opt=getYouTubeInfo',
+			      data: {video_url: me.state.video_url},
+			      dataType: 'JSON',
+			      success: function(resultData) { 
+				      console.log(resultData);
+				      alert("Save Complete") 
+			      }
+			})	
+		
+		/*
 			$.get(url, function(data, status){
 				me.niuniu();
 				
 			});                
-                
+                */
                 
                 /*
                 setTimeout(
