@@ -15,6 +15,23 @@ React.createClass({
                 var me = this;
                 me.setState({video_url:e.target.value});
         },
+	videoUrlSubmit:function(){
+		var me = this;
+		let engCfg = {
+			request:{code:'videoUrlSubmit', 
+				 url :  _master_svr() + '/api/video/myVideo.api?opt=add', 
+				 method:'post', 
+				 data:{code: me.state.code}
+			},
+			hold:500,
+			setting: {timeout:6000},
+			callBack: function(data) {
+				Root.lib.closePopupWin(me.props.parent);
+				me.props.parent.callEng();
+			}
+		}			
+		Root.lib.loadEng(me, engCfg);
+	},	
         videoUrlDecode:function() {
                 var me = this, code = me.state.video_url;		
                 let engCfg = {
