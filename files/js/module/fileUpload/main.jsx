@@ -167,7 +167,6 @@ React.createClass({
 
                        this.ajaxUpload = function(pos, dt) {
                            var me = this;
-                               console.log('===== this.upload =====' + _setting.UploadServer);
                            $.ajax({
                               type: "POST",
                               url: _setting.UploadServer,
@@ -252,7 +251,7 @@ React.createClass({
                      $('#upload_mitrix' ).html(str);
                 } 
 
-              //  setTimeout(function() {  
+                setTimeout(function() {  
 
                     var D = new DropBox({
                                     holder : $('body')[0],
@@ -283,7 +282,7 @@ React.createClass({
                     });
                     D.init();
                     console.log('===D222===');   
-            //    }, 2000);  
+                }, 2000);  
 
              // =================   
                 
