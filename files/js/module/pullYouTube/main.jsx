@@ -64,7 +64,7 @@ React.createClass({
         pullingYoutube : function () {
                 var me = this;
                 return (<p  style={{'padding':'1em'}}>				
-                        <h5>YouTube Video URL ===> {me.state.vid}===</h5>	
+                        <h5>YouTube Video URL</h5>	
                         <div className="input-group">
                           <input type="text" className="form-control" placeholder="Input YouTube link" 
                                   value={me.state.video_url}
@@ -77,7 +77,7 @@ React.createClass({
         youtubeInfo : function () {
                 var me = this;
                 return (
-			<p style={{'padding':'1em'}}>						
+			<p style={{'padding':'1em'}}> ===> {me.state.vid}===						
 				<div >	
 					<div style={{float:'left', padding:'1em'}}> 
 						<img src={me.state.thumbnail_url}/>
