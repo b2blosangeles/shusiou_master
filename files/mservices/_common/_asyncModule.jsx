@@ -14,6 +14,9 @@ try {
 				me.loadCode();
 			}	
 		},
+		dataEngine : function() {
+			var me = this;			
+		},		
 		loadCode : function() {
 			var me = this;
 			var url = _master_svr() + '/api/JSXhub.api?url=' + encodeURIComponent(me.props.url) + 
