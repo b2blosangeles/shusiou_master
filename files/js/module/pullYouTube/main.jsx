@@ -43,7 +43,7 @@ React.createClass({
                 }
                 
                // Root.lib.loadEng(me, engCfg);
-                me.props.parent.dataEngine(me, engCfg);
+                me.props.parent.dataEngine(engCfg, me);
                 /*
                 setTimeout(
                         function() {
