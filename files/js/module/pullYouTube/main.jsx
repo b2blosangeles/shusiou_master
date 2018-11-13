@@ -65,7 +65,7 @@ React.createClass({
                 </p>)
         },       
         render: function() {
-          	var me = this, parent = me.props.parent;
+          	var me = this;
 		return (<span>				
 				{(!parent.state.vid) ? me.pullingYoutube() : me.youtubeInfo()}
 				{Root.lib.landingModal(me)}
