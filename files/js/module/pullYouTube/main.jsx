@@ -34,13 +34,13 @@ React.createClass({
                         callBack: function(data) {
                                 console.log(data.data);
                              //   data.data.code = code;
-                                
+                                me.niuniu();
                                 me.props.parent.setState({vid: data.data.vid}, function() { 
                                     console.log('---me.state--->end 666 --->' + me.props.parent.state.vid);
                                 });        
                           }
                 }
-                me.niuniu();
+                
                 Root.lib.loadEng(me, engCfg);
         },
         videoUrlValidation:function(){
