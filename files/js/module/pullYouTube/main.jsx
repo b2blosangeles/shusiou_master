@@ -25,10 +25,10 @@ React.createClass({
                         },
                         hold:500,
                         setting: {timeout:6000},
-                        callBack: (function(me) { return function(data) {
+                        callBack: (function(ta) { return function(data) {
                            			//     console.log(data.data);
-                              	 		me.setState({vid: data.data.vid}); 
-						alert(888);
+                              	 		ta.setState({vid: data.data.vid}); 
+						alert(88998);
 					}
                           	})(me)
                 }
