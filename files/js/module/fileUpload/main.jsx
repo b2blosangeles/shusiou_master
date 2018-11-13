@@ -217,8 +217,70 @@ React.createClass({
                         }        
                     }
                
-                var me = this;
+           //     var me = this;
           //      me.props.parent.goBackMyVideos();
+             var uploadResult = {};
+             function showResult() {
+                  str = '';
+                  for(k in uploadResult) {
+                       if (uploadResult[k].src) {
+                            str += k + ':<img src="' + uploadResult[k].src + '" width="300" /><br/>';
+                       } else {
+                            str += k + ' Completed: ' + uploadResult[k].perc + '%<br>';
+                       }
+                  }
+                  $('#upload_result' ).html(str);
+             }   
+             function showMatrix(v) {
+                  str = '';
+                  for(k in v) {
+                       if (v[k] === 'D') {
+                            str += '*';
+                       } else if  (v[k] === '') { 
+                            str += '';
+                       }else {
+                            str += '.';
+                       }
+                  }
+                  $('#upload_mitrix' ).html(str);
+             }        
+
+             $('#dbi-file-upload-submit').on( 'click', function(event) {
+                 event.preventDefault();
+                  uploadResult = {}
+                 var files = $('#dbi-file-upload' )[0].files; 
+                 up = [];
+                 for (var i = 0; i < files.length; i++) {
+                    up[i] = new FILEUPLOAD(
+                        {
+                            file: files[i],
+                            sliceSize : 1024 * 16,
+                            threads : 5,
+                            progress : function(M, sourceFn, percent_done) {
+                                 if (!uploadResult[sourceFn]) uploadResult[sourceFn] = {};
+                                 uploadResult[sourceFn]['perc'] = percent_done;
+                                 showResult();
+                                 showMatrix(M);
+                                 //console.log(me.upload_M);
+                            },
+                            done : function(M, sourceFn, data) {
+                                 $("#dbi-file-upload").val('');
+                                 if (!uploadResult[sourceFn]) uploadResult[sourceFn] = {};
+                                 uploadResult[sourceFn].src = '/api/sendup.api?fn=' + data.fn + '&nocache=' + new Date().getTime();
+                                 showResult();
+                                 showMatrix(M);
+                            },
+                            error : function() {
+                                 $('#upload_result' ).html('Upload failure!!!');
+                            }
+                        }
+                      )
+                     up[i].upload();
+                 }
+             });
+                     
+             // =================   
+                
         },
         render: function() {
           var me = this;
@@ -227,6 +289,16 @@ React.createClass({
                          <button className="btn btn-success" onClick={me. goBackMyVideos.bind(me)}>
                                  Go Back
                          </button>
+                          <hr/>
+                        <form>
+                           <p id="dbi-upload-progress">Please select a file and click "Upload" to continue.</p>
+                           <input id="dbi-file-upload" type="file" name="dbi_import_file" multiple /><br><br>
+                           <input id="dbi-file-upload-submit" class="button button-primary" type="button" value="Upload" />
+
+                        </form>
+                        <br/><hr/><br/>
+                        <div id = "upload_result"></div>
+                        <div id = "upload_mitrix"></div>                          
                  </span>)
         }
 });
