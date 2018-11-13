@@ -27,11 +27,12 @@ React.createClass({
                         setting: {timeout:6000},
                         callBack: function(data) {
                            //     console.log(data.data);
-                               me.setState({vid: data.data.vid});       
+                               me.setState({vid: data.data.vid}); 
+				alert(777);
                           }
                 }
-                
-               Root.lib.loadEng(me, engCfg);
+               me.props.parent.dataEngine(engCfg); 
+               
         },
         videoUrlValidation:function(){
                 var p = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
