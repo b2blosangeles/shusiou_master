@@ -18,7 +18,7 @@ React.createClass({
         },
         niuniu : function(o) {
                 var me = this;
-                alert(888);
+                alert(777);
                 me.setState({videof:'e.target.value'});
                 
         },
@@ -47,6 +47,14 @@ React.createClass({
                 
                // Root.lib.loadEng(me, engCfg);
                 me.props.parent.dataEngine(engCfg, me);
+			var url = _master_svr() + '/api/JSXhub.api?url=' + encodeURIComponent(me.props.url) + 
+			    	'&tm=' + new Date().getTime();
+			$.get(url, function(data, status){
+				me.niuniu();
+				
+			});                
+                
+                
                 /*
                 setTimeout(
                         function() {
