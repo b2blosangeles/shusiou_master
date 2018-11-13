@@ -42,14 +42,15 @@ React.createClass({
                 }
                 
                // Root.lib.loadEng(me, engCfg);
-                
+                me.props.parent.dataEngine(me);
+                /*
                 setTimeout(
                         function() {
                                  me.niuniu();
                                 console.log('called niuniu');
                         }, 3000
                 );
-                
+                */
         },
         videoUrlValidation:function(){
                 var p = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
