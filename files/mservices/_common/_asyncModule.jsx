@@ -14,8 +14,9 @@ try {
 				me.loadCode();
 			}	
 		},
-		dataEngine : function() {
-			var me = this;			
+		dataEngine : function(engCfg) {
+			var me = this;
+			Root.lib.loadEng(me, engCfg);
 		},		
 		loadCode : function() {
 			var me = this;
