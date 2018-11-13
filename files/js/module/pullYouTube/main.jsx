@@ -25,12 +25,10 @@ React.createClass({
                         },
                         hold:500,
                         setting: {timeout:6000},
-                        callBack: (function(ta) { return function(data) {
-                           			//     console.log(data.data);
-                              	 		ta.setState({vid: data.data.vid}); 
-						alert(88998);
-					}
-                          	})(me)
+                        callBack: function(data) {
+				//     console.log(data.data);
+				me.setState({vid: data.data.vid}); 
+			}
                 }
 		Root.lib.loadEng(me, engCfg);
                // me.props.parent.dataEngine(engCfg); 
