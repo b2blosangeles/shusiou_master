@@ -12,7 +12,10 @@ React.createClass({
         },
         handleChange:function(e) {
                 var me = this;
-                me.setState({video_url:e.target.value});
+                me.setState({video_url:e.target.value}, function() {
+                        me.setState({videof:'e.target.value'});
+                });
+                
         },
         videoUrlDecode:function() {
                 var me = this, code = me.state.video_url;		
