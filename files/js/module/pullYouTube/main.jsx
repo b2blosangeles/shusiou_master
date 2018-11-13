@@ -17,8 +17,8 @@ React.createClass({
                 me.setState({video_url:e.target.value});
         },
         niuniu : function(o) {
-                // var me = this;
-                  o.setState({videof:'e.target.value'});
+                var me = this;
+                me.setState({videof:'e.target.value'});
                 
         },
         videoUrlDecode:function() {
@@ -41,7 +41,14 @@ React.createClass({
                           }})(me)
                 }
                 
-                Root.lib.loadEng(me, engCfg);
+               // Root.lib.loadEng(me, engCfg);
+                
+                setTimeout(
+                        function() {
+                                 me.niuniu(me);
+                        }, 3000
+                );
+                
         },
         videoUrlValidation:function(){
                 var p = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
