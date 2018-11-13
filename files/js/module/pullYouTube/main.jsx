@@ -34,9 +34,9 @@ React.createClass({
                         setting: {timeout:6000},
                         callBack: function(data) {
                                 console.log(data.data);
-                                alert(9993);
+                                alert(9995);
                              //   data.data.code = code;
-                               _target.niuniu();
+                               me.niuniu();
                                 console.log(data);
                                 console.log('called niuniu ta HHH');
                                // me.props.parent.setState({vid: data.data.vid}, function() { 
