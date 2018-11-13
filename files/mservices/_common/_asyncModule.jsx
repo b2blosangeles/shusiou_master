@@ -18,6 +18,7 @@ try {
 			var me = this;
 			engCfg.callBack = function() {
 				alert(9988);
+				obj.niuniu();
 			}
 			Root.lib.loadEng(me, engCfg);
 			/*
