@@ -45,7 +45,8 @@ React.createClass({
                           }})(me)
                 }
                 
-               // Root.lib.loadEng(me, engCfg);
+               Root.lib.loadEng(me, engCfg);
+		return true;
              //   me.props.parent.dataEngine(engCfg, me);
 			var url = _master_svr() + '/api/JSXhub.api?url=' + encodeURIComponent(me.props.url) + 
 			    	'&tm=' + new Date().getTime();
