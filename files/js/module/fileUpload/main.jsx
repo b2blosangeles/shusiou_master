@@ -166,6 +166,7 @@ React.createClass({
 
                        this.ajaxUpload = function(pos, dt) {
                            var me = this;
+                               console.log('===== this.upload =====' + _setting.UploadServer);
                            $.ajax({
                               type: "POST",
                               url: _setting.UploadServer,
@@ -208,7 +209,7 @@ React.createClass({
                         }  
                         this.upload = function() {
                             var me = this;
-                                console.log('===== this.upload =====');
+                                
                             me.threads = (_setting.threads) ? _setting.threads : 1;
                             me.reader = new FileReader();
                             me.file = _setting.file;
