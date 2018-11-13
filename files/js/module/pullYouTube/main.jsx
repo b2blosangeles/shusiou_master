@@ -6,6 +6,8 @@ React.createClass({
         componentDidUpdate:function(prePropos, preState) {
                 var me = this;
                 console.log('===parent changed ====');
+                console.log('----me.state--->');
+                console.log(me.state);
                 if (prePropos.id != me.props.id) {
               //          me.setState({video_url:'', vid:'', error:'', list:[]});
                 }
@@ -17,8 +19,7 @@ React.createClass({
         niuniu : function() {
                 var me = this;
                   me.setState({videof:'e.target.value'});
-                console.log('----me.state--->');
-                console.log(me.state);
+                
         },
         videoUrlDecode:function() {
                 var me = this, code = me.state.video_url;		
