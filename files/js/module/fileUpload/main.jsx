@@ -6,6 +6,10 @@ React.createClass({
         goBackMyVideos: function() {
                 window.location.href = '#/tutor/my_videos';
         },
+        componentDidMount:function() {
+               var me = this;
+               me.init();
+        },        
         init : function() {
                 var DropBox = function(_setting) {
 
