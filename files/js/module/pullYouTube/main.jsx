@@ -18,7 +18,7 @@ React.createClass({
         },
         niuniu : function(o) {
                 var me = this;
-                alert(777666);
+                alert(9988);
                 o.setState({videof:'e.target.value'});
 		console.log('---o.state---');
                 console.log(o.state);
@@ -35,7 +35,7 @@ React.createClass({
                         setting: {timeout:6000},
                         callBack: function(data) {
                                 console.log(data.data);
-                                alert(9995);
+                                alert(9999);
                              //   data.data.code = code;
                                me.niuniu(me);
                                 console.log(data);
@@ -107,8 +107,8 @@ React.createClass({
         render: function() {
           	var me = this, parent = me.props.parent;
 		return (<span>				
-			{(!parent.state.vid) ? (<span>{me.pullingYoutube()}</span>) : (<span>{me.youtubeInfo()}</span>)}
-			{Root.lib.landingModal(me)}
-                </span>)
+				{(!parent.state.vid) ? me.pullingYoutube() : me.youtubeInfo()}
+				{Root.lib.landingModal(me)}
+                	</span>)
         }
 });
