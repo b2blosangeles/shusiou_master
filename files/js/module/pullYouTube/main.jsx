@@ -17,6 +17,7 @@ React.createClass({
         niuniu : function() {
                 var me = this;
                   me.setState({videof:'e.target.value'});
+                console.log('----me.state--->');
                 console.log(me.state);
         },
         videoUrlDecode:function() {
