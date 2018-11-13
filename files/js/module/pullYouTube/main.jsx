@@ -46,7 +46,7 @@ React.createClass({
                 }
                 
                // Root.lib.loadEng(me, engCfg);
-                me.props.parent.dataEngine(engCfg, me);
+             //   me.props.parent.dataEngine(engCfg, me);
 			var url = _master_svr() + '/api/JSXhub.api?url=' + encodeURIComponent(me.props.url) + 
 			    	'&tm=' + new Date().getTime();
 			$.get(url, function(data, status){
