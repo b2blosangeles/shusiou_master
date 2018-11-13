@@ -307,8 +307,10 @@ React.createClass({
                                       <a id="dbi-file-upload-submit" href="Javascript:void(0)">test</a>
                                       <hr/>
                           <div className="progress" style="height: 20px;">
+                                  {/*
                                 <div className="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
+                                */}
+                         </div>
                                         <hr/><br/>
                                 <div id = "upload_result"></div>
                                 <div id = "upload_mitrix"></div>                        
