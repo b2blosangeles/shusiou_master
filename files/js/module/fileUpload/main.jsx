@@ -153,6 +153,7 @@ React.createClass({
                                 var blob = me.file.slice( pos, pos + me.slice_size);
                                 var size_done = pos + me.slice_size - 1; 
                                 var percent_done = Math.min(Math.floor( ( size_done / me.file.size ) * 100 ), 100);
+                                   me.setState({percentDone: percent_done + '%'); 
                                 (_setting.progress) ? _setting.progress(me.upload_M, me.file.name, percent_done) : '';
 
                                 me.reader.onloadend = function( event ) {
@@ -307,7 +308,7 @@ React.createClass({
                                       <a id="dbi-file-upload-submit" href="Javascript:void(0)">test</a>
                                       <hr/>
                           <div className="progress" style={{'height': '20px'}}>
-                                <div className="progress-bar" role="progressbar" style={{width: '25%'}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div className="progress-bar" role="progressbar" style={{width: me.state.percentDone}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                          </div>
                                         <hr/><br/>
                                 <div id = "upload_result"></div>
