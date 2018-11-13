@@ -219,66 +219,65 @@ React.createClass({
                
            //     var me = this;
           //      me.props.parent.goBackMyVideos();
-             var uploadResult = {};
-             function showResult() {
-                  str = '';
-                  for(k in uploadResult) {
-                       if (uploadResult[k].src) {
-                            str += k + ':<img src="' + uploadResult[k].src + '" width="300" /><br/>';
-                       } else {
-                            str += k + ' Completed: ' + uploadResult[k].perc + '%<br>';
-                       }
-                  }
-                  $('#upload_result' ).html(str);
-             }   
-             function showMatrix(v) {
-                  str = '';
-                  for(k in v) {
-                       if (v[k] === 'D') {
-                            str += '*';
-                       } else if  (v[k] === '') { 
-                            str += '';
-                       }else {
-                            str += '.';
-                       }
-                  }
-                  $('#upload_mitrix' ).html(str);
-             }        
+                 var uploadResult = {};
+                function showResult() {
+                     str = '';
+                     for(k in uploadResult) {
+                          if (uploadResult[k].src) {
+                               str += k + ':<img src="' + uploadResult[k].src + '" width="300" /><br/>';
+                          } else {
+                               str += k + ' Completed: ' + uploadResult[k].perc + '%<br>';
+                          }
+                     }
+                     $('#upload_result' ).html(str);
+                }   
+                function showMatrix(v) {
+                     str = '';
+                     for(k in v) {
+                          if (v[k] === 'D') {
+                               str += '*';
+                          } else if  (v[k] === '') { 
+                               str += '';
+                          }else {
+                               str += '.';
+                          }
+                     }
+                     $('#upload_mitrix' ).html(str);
+                } 
 
-             $('#dbi-file-upload-submit').on( 'click', function(event) {
-                 event.preventDefault();
-                  uploadResult = {}
-                 var files = $('#dbi-file-upload' )[0].files; 
-                 up = [];
-                 for (var i = 0; i < files.length; i++) {
-                    up[i] = new FILEUPLOAD(
-                        {
-                            file: files[i],
-                            sliceSize : 1024 * 16,
-                            threads : 5,
-                            progress : function(M, sourceFn, percent_done) {
-                                 if (!uploadResult[sourceFn]) uploadResult[sourceFn] = {};
-                                 uploadResult[sourceFn]['perc'] = percent_done;
-                                 showResult();
-                                 showMatrix(M);
-                                 //console.log(me.upload_M);
-                            },
-                            done : function(M, sourceFn, data) {
-                                 $("#dbi-file-upload").val('');
-                                 if (!uploadResult[sourceFn]) uploadResult[sourceFn] = {};
-                                 uploadResult[sourceFn].src = '/api/sendup.api?fn=' + data.fn + '&nocache=' + new Date().getTime();
-                                 showResult();
-                                 showMatrix(M);
-                            },
-                            error : function() {
-                                 $('#upload_result' ).html('Upload failure!!!');
-                            }
-                        }
-                      )
-                     up[i].upload();
-                 }
-             });
-                     
+                $( document ).ready(function() {  
+
+                    var D = new DropBox({
+                                    holder : $('body')[0],
+                                    basket : $('#holder')[0],
+                                    sliceSize : 1024 * 64,
+                                    threads : 3,
+                                    progress : function(M, sourceFn, percent_done) {
+                                         if (!uploadResult[sourceFn]) uploadResult[sourceFn] = {};
+                                         uploadResult[sourceFn]['perc'] = percent_done;
+                                         showResult();
+                                         showMatrix(M);
+                                    },
+                                    UploadServer : '/api/upload.api',
+                                    done : function(M, sourceFn, data) {
+                                         $("#dbi-file-upload").val('');
+                                         if (!uploadResult[sourceFn]) uploadResult[sourceFn] = {};
+                                         uploadResult[sourceFn].src = '/api/sendup.api?fn=' + data.fn + '&nocache=' + new Date().getTime();
+                                         showResult();
+                                         showMatrix(M);
+                                    },
+                                    error : function() {
+                                         $('#upload_result' ).html('Upload failure!!!');
+                                    },       
+                                    submitTrigger : $('#dbi-file-upload-submit')
+                                    // 'auto'
+                                    // 
+
+                    });
+                    D.init();
+                    console.log('===D23===');   
+                });  
+
              // =================   
                 
         },
@@ -290,15 +289,19 @@ React.createClass({
                                  Go Back
                          </button>
                           <hr/>
-                        <form>
-                           <p id="dbi-upload-progress">Please select a file and click "Upload" to continue.</p>
-                           <input id="dbi-file-upload" type="file" name="dbi_import_file" multiple /><br/><br/>
-                           <input id="dbi-file-upload-submit" class="button button-primary" type="button" value="Upload" />
-
-                        </form>
-                        <br/><hr/><br/>
-                        <div id = "upload_result"></div>
-                        <div id = "upload_mitrix"></div>                          
+                                <div id="holder">
+                                  </div> 
+                                  <p id="upload" class="hidden"><label>Drag & drop not supported, but you can still upload via this input field:<br><input type="file"></label></p>
+                                  <p id="filereader">File API & FileReader API not supported</p>
+                                  <p id="formdata">XHR2's FormData is not supported</p>
+                                  <p id="progress">XHR2's upload progress isn't supported</p>
+                                  <p>Upload progress: <progress id="uploadprogress" max="100" value="0">0</progress></p>
+                                  <p>Drag an image from your desktop on to the drop zone above to see the browser both render the preview, but also upload automatically to this server.</p>
+                                  <br/><hr/>
+                                      <a id="dbi-file-upload-submit" href="Javascript:void(0)">test</a>
+                                      <hr/><br/>
+                                <div id = "upload_result"></div>
+                                <div id = "upload_mitrix"></div>                        
                  </span>)
         }
 });
