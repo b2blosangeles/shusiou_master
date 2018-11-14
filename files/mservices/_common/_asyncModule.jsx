@@ -34,7 +34,7 @@ try {
 				},
 				error : function(xhr, textStatus, error) { 
 					alert("Something went wrong"); 
-				});
+				}
 			});
 			/*
 			$.get(url, function(data, status){
