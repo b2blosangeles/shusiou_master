@@ -20,8 +20,6 @@ try {
 		},		
 		loadCode : function() {
 			var me = this;
-			var url = _master_svr() + '/api/JSXhub.api?url=' + encodeURIComponent(me.props.url) + 
-			    	'&tm=' + new Date().getTime();
 			$.ajax({
 				type: 'POST',
 				url: _master_svr() + '/api/JSXhub.api',
@@ -37,18 +35,7 @@ try {
 					me._asyncModuleErr = error;
 					me.setState({success: false, update : new Date().getTime()})
 				}
-			});
-			/*
-			$.get(url, function(data, status){
-				if (data.success)  {
-					me._asyncModule = data.code;
-					me.setState({success: true, update : new Date().getTime()});
-				} else {
-					me._asyncModuleErr = data.err;
-					me.setState({success: false, update : new Date().getTime()});
-				}
-				
-			});	*/		
+			});		
 		},
 		render: function() {
 			var me = this;
