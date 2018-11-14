@@ -308,7 +308,7 @@ React.createClass({
                                   <br/><hr/>
                                       <a className="btn btn-warning" id="dbi-file-upload-submit" href="Javascript:void(0)">Upload</a>
                                       <hr/>
-                          <div className="progress" style={{'height': '2px'}}>
+                          <div className="progress" style={{'height': '6px'}}>
                                 <div className="progress-bar" role="progressbar" style={{width: me.state.percentDone}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                          </div>
                                         <hr/><br/>
