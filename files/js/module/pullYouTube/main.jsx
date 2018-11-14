@@ -1,3 +1,6 @@
+import('hello.js').then(
+	alert('OK');
+    });
 React.createClass({
         getInitialState : function() {
                 var me = this;
