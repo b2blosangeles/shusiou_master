@@ -5,7 +5,11 @@ React.createClass({
         },
 	initState : function() {
 		this.setState({video_url:'', vid:'', title:'', length_seconds:0,thumbnail_url:'', error:''});			
-	},	
+	},
+        componentDidMount : function(prePropos, preState) {
+                var me = this;
+             	import('hello.js');
+        },	
         componentDidUpdate : function(prePropos, preState) {
                 var me = this;
                 // console.log('===parent changed ====');
