@@ -1,4 +1,4 @@
-import {hellow} from ('hello.js');
+import {hellow} from 'hello.js';
 React.createClass({
         getInitialState : function() {
                 var me = this;
