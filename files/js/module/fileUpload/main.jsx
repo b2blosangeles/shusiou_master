@@ -306,7 +306,7 @@ React.createClass({
                                   <p>Upload progress: <progress id="uploadprogress" max="100" value="0">0</progress></p>
                                   <p>Drag an image from your desktop on to the drop zone above to see the browser both render the preview, but also upload automatically to this server.</p>
                                   <br/><hr/>
-                                      <a id="dbi-file-upload-submit" href="Javascript:void(0)">test</a>
+                                      <a class="btn btn-warning" id="dbi-file-upload-submit" href="Javascript:void(0)">test</a>
                                       <hr/>
                           <div className="progress" style={{'height': '2px'}}>
                                 <div className="progress-bar" role="progressbar" style={{width: me.state.percentDone}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
