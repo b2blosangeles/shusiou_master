@@ -29,11 +29,13 @@ try {
 				dataType: 'JSON',
 				timeout: (2 * 1000),
 				success: function(resultData){
-					me._asyncModule = data.code;
+					me._asyncModule = resultData.code;
 					me.setState({success: true, update : new Date().getTime()});
 				},
 				error : function(xhr, textStatus, error) { 
-					alert("Something went wrong"); 
+					alert("Something went wrong");
+					me._asyncModuleErr = error;
+					me.setState({success: false, update : new Date().getTime()})
 				}
 			});
 			/*
