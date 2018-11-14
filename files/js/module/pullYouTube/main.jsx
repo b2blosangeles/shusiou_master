@@ -1,4 +1,4 @@
-import('hello.js');
+include('hello.js');
 React.createClass({
         getInitialState : function() {
                 var me = this;
