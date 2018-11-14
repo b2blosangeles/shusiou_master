@@ -22,6 +22,21 @@ try {
 			var me = this;
 			var url = _master_svr() + '/api/JSXhub.api?url=' + encodeURIComponent(me.props.url) + 
 			    	'&tm=' + new Date().getTime();
+			$.ajax({
+				type: 'POST',
+				url: _master_svr() + '/api/JSXhub.api',
+				data: {url : me.props.url},
+				dataType: 'JSON',
+				timeout: (2 * 1000),
+				success: function(resultData){
+					me._asyncModule = data.code;
+					me.setState({success: true, update : new Date().getTime()});
+				},
+				error : function(xhr, textStatus, error) { 
+					alert("Something went wrong"); 
+				});
+			});
+			/*
 			$.get(url, function(data, status){
 				if (data.success)  {
 					me._asyncModule = data.code;
@@ -31,7 +46,7 @@ try {
 					me.setState({success: false, update : new Date().getTime()});
 				}
 				
-			});			
+			});	*/		
 		},
 		render: function() {
 			var me = this;
