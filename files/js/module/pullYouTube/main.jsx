@@ -1,3 +1,4 @@
+import('hello.js');
 React.createClass({
         getInitialState : function() {
                 var me = this;
@@ -8,7 +9,7 @@ React.createClass({
 	},
         componentDidMount : function(prePropos, preState) {
                 var me = this;
-             	import('hello.js');
+             	
         },	
         componentDidUpdate : function(prePropos, preState) {
                 var me = this;
