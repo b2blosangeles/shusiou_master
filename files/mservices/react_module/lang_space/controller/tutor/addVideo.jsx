@@ -42,7 +42,6 @@ try {
 		},
 		loadOption : function(code) {
 			var me = this;
-			alert(code);
 			me.setState({option:code});
 		},
 		goBackMyVideos : function() {
