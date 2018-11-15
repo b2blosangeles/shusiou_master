@@ -6,7 +6,7 @@ try {
 		},
 		componentDidMount:function(prevState, prevProps) {
 			var me = this;
-			me.loadCode();
+			me.loadPlugin();
 		},		
 		componentDidUpdate:function(prevProps, prevState) {
 			var me = this;
