@@ -45,8 +45,10 @@ try {
 				return  (<span>Script Error: {me._asyncModuleErr}</span>)
 			} else if (me._asyncModule) {
 				try {
-					eval(decodeURIComponent(me._asyncModule.includes) + 
-					     '; var _asyncOBJ = ' + decodeURIComponent(me._asyncModule.master));
+					//eval(decodeURIComponent(me._asyncModule.includes) + 
+					//     '; var _asyncOBJ = ' + decodeURIComponent(me._asyncModule.master));
+					
+					eval(decodeURIComponent(me._asyncModule.code));
 					
 					return  (<span>
 							<_asyncOBJ parent={me}/>
