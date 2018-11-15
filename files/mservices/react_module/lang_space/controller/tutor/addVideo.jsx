@@ -12,7 +12,8 @@ try {
 						main : '/files/js/module/pullYouTube/main.jsx'
 					},
 					'add_shared_video' : {
-						includes : ['/files/js/module/addSharedVideo/test.jsx'],
+						includes : ['/files/js/module/addSharedVideo/test.jsx',
+							   '/files/js/module/addSharedVideo/test.jsx'],
 						main : '/files/js/module/addSharedVideo/main.jsx'
 					}
 				};
