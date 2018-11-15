@@ -6,7 +6,6 @@ try {
 		},
 		componentDidMount:function(prevState, prevProps) {
 			var me = this;
-			console.log('= componentDidMount . ==');
 			me.loadPlugin();
 		},		
 		componentDidUpdate:function(prevProps, prevState) {
