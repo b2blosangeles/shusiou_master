@@ -55,7 +55,7 @@ try {
 				if (code === me.state.option) {
 					return (<div className="overlayer_box homepage_box" 
 							style={{'margin-top': '0.5em', 'min-height':'18em'}}>
-						<_asyncModule plugin={me.options[code]} parent={me} />
+						<_asyncModule code={code} plugin={me.options[code]} parent={me} />
 					</div>)
 				}
 			}
