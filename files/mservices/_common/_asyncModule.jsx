@@ -42,7 +42,8 @@ try {
 				return  (<span>Script Error: {me._asyncModuleErr}</span>)
 			} else if (me._asyncModule) {
 				try {
-					eval('var _asyncOBJ = ' + decodeURIComponent(me._asyncModule));
+					eval(decodeURIComponent(me._asyncModule.includes) + 
+					     '; var _asyncOBJ = ' + decodeURIComponent(me._asyncModule.master));
 					return  (<span>
 							<_asyncOBJ parent={me}/>
 							{/*Root.lib.landingModal(me)*/}
