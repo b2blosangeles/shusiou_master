@@ -22,6 +22,7 @@ try {
 		},		
 		loadPlugin : function() {
 			var me = this;
+			me._asyncModule = null;
 			$.ajax({
 				type: 'POST',
 				url: _master_svr() + '/api/JSXhub.api',
