@@ -13,7 +13,7 @@ try {
 			var me = this;
 			if (me.props.code !== prevProps.code) { 
 				console.log('= componentDidMount . ==>>' + me.props.code);
-				me.setState({_asyncVol : new Date().getTime()});
+				// me.setState({_asyncVol : new Date().getTime()});
 				me.loadPlugin();
 			}	
 		},
