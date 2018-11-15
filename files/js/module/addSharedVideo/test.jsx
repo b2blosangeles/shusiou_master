@@ -1,0 +1,1 @@
+alerrt('test.jsx');
