@@ -22,9 +22,9 @@ if ((req.body.includes) && (req.body.includes.length)) {
                                    var fn = env. site_path + decodeURIComponent(req.body.includes[i]);
                                           qaletBabel.jsx2js(fn, function(err, v) {
                                                  if (err) {
-                                                        cbk({success: false, err:err.message})
+                                                        cbk({success: false, err:err.message});
                                                  } else {
-                                                        cbk({success: true, code: encodeURIComponent(v.code)});
+                                                        cbk({success: true, code: 'encodeURIComponent(v.code)'});
                                                  }
                                           });
                                    }
