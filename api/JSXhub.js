@@ -48,7 +48,7 @@ cp.serial(_f, function(data) {
        } else {
                err.push(cp.data.master.err);
        }
-       me.props.code
+       // me.props.code
        inc_str = encodeURIComponent('if (me.props.code === "') + req.body.code + encodeURIComponent('") { ' + inc_str + '; }');
        res.send({success:true, master: master_str, includes: inc_str, err : err});             
 }, 3000);
