@@ -11,6 +11,7 @@ try {
 		},		
 		componentDidUpdate:function(prevProps, prevState) {
 			var me = this;
+			console.log('===code changed ====>>>>');
 			if (me.props.code !== prevProps.code) { 
 				console.log('= componentDidMount . ==>>' + me.props.code);
 				me.setState({_asyncVol : new Date().getTime()});
