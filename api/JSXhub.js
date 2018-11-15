@@ -15,6 +15,23 @@ _f.master = function(cbk) {
               }
        });
 }
+if ((req.body.includes) && (req.body.includes.length)) {
+      for (var i = 0; i < req.body.includes.length; i++) {
+          _f['includes+' + i] = (function(i) { return function(cbk) {
+                                   var qaletBabel = new Babel();
+                                   var fn = env. site_path + decodeURIComponent(req.body.includes[i]);
+                                          qaletBabel.jsx2js(fn, function(err, v) {
+                                                 if (err) {
+                                                        cbk({success: false, err:err.message})
+                                                 } else {
+                                                        cbk({success: true, code: encodeURIComponent(v.code)});
+                                                 }
+                                          });
+                                   }
+                            })(i)
+      }
+       
+}
 cp.serial(_f, function(data) {
-       res.send(cp.data.master);             
+       res.send(data);             
 }, 3000);
