@@ -50,11 +50,11 @@ try {
 		},
 		showOptionBody : function() {
 			var me = this;
-			for (var i = 0; i < me.options.length; i++) {
-				if (me.options[i].code === me.state.option) {
+			for (var code in me.options) {
+				if (code === me.state.option) {
 					return (<div className="overlayer_box homepage_box" 
 							style={{'margin-top': '0.5em', 'min-height':'18em'}}>
-						<_asyncModule url={me.options[i].main} parent={me} />
+						<_asyncModule url={me.options[code].main} parent={me} />
 					</div>)
 				}
 			}
