@@ -4,15 +4,15 @@ try {
 			var me = this;
 			me.options = {
 					'upload_video' : {
-						include : [],
+						includes : [],
 						main : '/files/js/module/fileUpload/main.jsx'
 					},
 					'pull_youtube' : {
-						include : [],
+						includes : [],
 						main : '/files/js/module/pullYouTube/main.jsx'
 					},
 					'add_shared_video' : {
-						include : [],
+						includes : [],
 						main : '/files/js/module/addSharedVideo/main.jsx'
 					}
 				};
@@ -54,7 +54,7 @@ try {
 				if (code === me.state.option) {
 					return (<div className="overlayer_box homepage_box" 
 							style={{'margin-top': '0.5em', 'min-height':'18em'}}>
-						<_asyncModule url={me.options[code].main} parent={me} />
+						<_asyncModule url={me.options[code]} parent={me} />
 					</div>)
 				}
 			}
