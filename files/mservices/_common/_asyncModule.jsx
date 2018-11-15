@@ -54,7 +54,8 @@ try {
 							return (<span/>)
 						}
 					});
-					//eval(decodeURIComponent(me._asyncModule.code));
+					eval(decodeURIComponent(me._asyncModule.code));
+					
 					return  (<span>
 							<_asyncOBJ parent={me}/>
 							{/*Root.lib.landingModal(me)*/}
