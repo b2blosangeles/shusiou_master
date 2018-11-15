@@ -24,7 +24,7 @@ if ((req.body.includes) && (req.body.includes.length)) {
                                                  if (err) {
                                                         cbk({success: false, err:err.message});
                                                  } else {
-                                                        cbk({success: true, code: 'encodeURIComponent(v.code)'});
+                                                        cbk({success: true, code: encodeURIComponent(v.code)});
                                                  }
                                           });
                                    }
@@ -37,9 +37,9 @@ cp.serial(_f, function(data) {
        if ((req.body.includes) && (req.body.includes.length)) {
               for (var i = 0; i < req.body.includes.length; i++) {
                      if (cp.data['inc_' + i].success === true) {
-                            inc_str += p.data['inc_' + i].code;
+                            inc_str += cp.data['inc_' + i].code;
                      } else {
-                            err.push(p.data['inc_' + i].err);
+                            err.push(cp.data['inc_' + i].err);
                      }
               }
        }
