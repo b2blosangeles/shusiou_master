@@ -8,7 +8,7 @@ try {
 						main : '/files/js/module/fileUpload/main.jsx'
 					},
 					'pull_youtube' : {
-						includes : ['/files/js/module/pullYouTube/test.jsx'],
+						includes : ['/files/js/module/pullYouTube/master.jsx'],
 						main : '/files/js/module/pullYouTube/main.jsx'
 					},
 					'add_shared_video' : {
