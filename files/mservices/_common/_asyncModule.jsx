@@ -27,7 +27,7 @@ try {
 				dataType: 'JSON',
 				timeout: (2 * 1000),
 				success: function(resultData){
-					me._asyncModule = resultData.code;
+					me._asyncModule = resultData;
 					me.setState({success: true, update : new Date().getTime()});
 				},
 				error : function(xhr, textStatus, error) { 
