@@ -23,7 +23,7 @@ try {
 			$.ajax({
 				type: 'POST',
 				url: _master_svr() + '/api/JSXhub.api',
-				data: {url : me.props.plugin},
+				data: me.props.plugin,
 				dataType: 'JSON',
 				timeout: (2 * 1000),
 				success: function(resultData){
