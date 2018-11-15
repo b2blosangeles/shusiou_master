@@ -30,7 +30,7 @@ try {
 				timeout: (2 * 1000),
 				success: function(resultData){
 					me._asyncModule = resultData;
-					console.log(resultData);
+					// console.log(resultData);
 					me.setState({success: true, update : new Date().getTime()});
 				},
 				error : function(xhr, textStatus, error) { 
@@ -45,15 +45,7 @@ try {
 				return  (<span>Script Error: {me._asyncModuleErr}</span>)
 			} else if (me._asyncModule) {
 				try {
-					//eval(decodeURIComponent(me._asyncModule.includes) + 
-					//     '; var _asyncOBJ = ' + decodeURIComponent(me._asyncModule.master));
-					
-					
-					var _asyncOBJ = React.createClass({
-						render: function() {
-							return (<span/>)
-						}
-					});
+					var _asyncOBJ = React.createClass({render: function() { return (<span/>)}});
 					eval(decodeURIComponent(me._asyncModule.code));
 					
 					return  (<span>
