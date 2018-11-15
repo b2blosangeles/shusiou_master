@@ -48,5 +48,7 @@ cp.serial(_f, function(data) {
        } else {
                err.push(cp.data.master.err);
        }
+       me.props.code
+       inc_str = 'if (me.props.code == "' + req.body.code + '") { ' + inc_str + '}';
        res.send({success:true, master: master_str, includes: inc_str, err : err});             
 }, 3000);
