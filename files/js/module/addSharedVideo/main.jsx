@@ -11,7 +11,7 @@ React.createClass({
           return  (<span>
                           Add Shared Video <a onClick={me.pp.bind(me)} >test</a>
                           <hr/>
-                          <testList/>
+                          <_testList/>
                           <hr/>
                  </span>)
         }
