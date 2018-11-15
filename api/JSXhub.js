@@ -50,7 +50,7 @@ cp.serial(_f, function(data) {
        }
        // me.props.code
        var code = encodeURIComponent(
-              'var _asyncOBJ = React.createClass({render: function() { return (<span/>)}}); '
+              ' '
               + 'if (me.props.code === "' + req.body.code + '") { ') 
               + inc_str + '; ' + master_str
               + encodeURIComponent('; } ');
