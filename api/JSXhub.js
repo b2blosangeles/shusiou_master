@@ -42,10 +42,9 @@ cp.serial(_f, function(data) {
               }
        }
        if (cp.data.master.success === true) {
-           master_str += p.data.master.code
-              
+           master_str = p.data.master.code 
        } else {
-               error.push(p.data.master.err)
+               error.push(p.data.master.err);
        }
        res.send({master: master_str, includes: inc_str, err : error});             
 }, 3000);
