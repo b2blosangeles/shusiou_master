@@ -34,17 +34,19 @@ if ((req.body.includes) && (req.body.includes.length)) {
 }
 cp.serial(_f, function(data) {
        var inc_str = '', master_str = '', error = [];
-       for (var i = 0; i < req.body.includes.length; i++) {
-              if (cp.data['includes+' + i].success === true) {
-                     inc_str += p.data['includes+' + i].code;
-              } else {
-                     error.push(p.data['includes+' + i].err);
+       if ((req.body.includes) && (req.body.includes.length)) {
+              for (var i = 0; i < req.body.includes.length; i++) {
+                     if (cp.data['includes+' + i].success === true) {
+                            inc_str += p.data['includes+' + i].code;
+                     } else {
+                            error.push(p.data['includes+' + i].err);
+                     }
               }
        }
        if (cp.data.master.success === true) {
-           master_str = p.data.master.code 
+           master_str = cp.data.master.code 
        } else {
-               error.push(p.data.master.err);
+               error.push(cp.data.master.err);
        }
-       res.send({master: master_str, includes: inc_str, err : error});             
+       res.send({master: 'master_str', includes: 'inc_str', err : 'error'});             
 }, 3000);
