@@ -24,7 +24,7 @@ if ((req.body.includes) && (req.body.includes.length)) {
                                                  if (err) {
                                                         cbk({success: false, err:err.message})
                                                  } else {
-                                                        cbk({success: true, code: v.code});
+                                                        cbk({success: true, code: encodeURIComponent(v.code)});
                                                  }
                                           });
                                    }
