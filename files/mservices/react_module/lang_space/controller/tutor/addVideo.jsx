@@ -2,24 +2,34 @@ try {
 	var addVideo =  React.createClass({
 		getInitialState: function() {
 			var me = this;
-			me.options = [
-					{code: 'upload_video', url : '/files/js/module/fileUpload/main.jsx'},
-					{code: 'pull_youtube', url : '/files/js/module/pullYouTube/main.jsx'},
-					{code: 'add_shared_video', url : '/files/js/module/addSharedVideo/main.jsx'}
-				];
+			me.options = {
+					'upload_video' : {
+						include : [],
+						main : '/files/js/module/fileUpload/main.jsx'
+					},
+					'pull_youtube' : {
+						include : [],
+						main : '/files/js/module/pullYouTube/main.jsx'
+					},
+					'add_shared_video' : {
+						include : [],
+						main : '/files/js/module/addSharedVideo/main.jsx'
+					}
+				};
+			
 			return {option:''};
 		},
 		showMenu : function()  {
 			var me = this;
 			return (<span>
-					{me.options.map(function(m){ 
-						return  (m.code === me.state.option)? 
+					{Object.keys(me.options).map(function(m){ 
+						return  (m === me.state.option)? 
 							(<button className="btn btn-default" style={{'margin':'0.2em'}}>
-								{Root.lib.dictionary(m.code)}
+								{Root.lib.dictionary(m)}
 							</button>)
 							: (<button className="btn btn-success" style={{'margin':'0.2em'}}
-							       onClick={me.loadOption.bind(me, m.code) }>
-								{Root.lib.dictionary(m.code)}
+							       onClick={me.loadOption.bind(me, m) }>
+								{Root.lib.dictionary(m)}
 							</button>)
 					})}
 					<a className="btn btn-warning pull-right" 
@@ -44,7 +54,7 @@ try {
 				if (me.options[i].code === me.state.option) {
 					return (<div className="overlayer_box homepage_box" 
 							style={{'margin-top': '0.5em', 'min-height':'18em'}}>
-						<_asyncModule url={me.options[i].url} parent={me} />
+						<_asyncModule url={me.options[i].main} parent={me} />
 					</div>)
 				}
 			}
