@@ -50,12 +50,12 @@ try {
 			window.location.href = '#/tutor/my_videos';
 		},
 		showOptionBody : function() {
-			var me = this; // code={code} 
+			var me = this;  
 			for (var code in me.options) {
 				if (code === me.state.option) {
 					return (<div className="overlayer_box homepage_box" 
 							style={{'margin-top': '0.5em', 'min-height':'18em'}}>
-						<_asyncModule plugin={me.options[code]} parent={me} />
+						<_asyncModule plugin={me.options[code]}  code={code} parent={me} />
 					</div>)
 				}
 			}
