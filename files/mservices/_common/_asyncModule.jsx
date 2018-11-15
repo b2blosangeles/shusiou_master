@@ -48,8 +48,13 @@ try {
 					//eval(decodeURIComponent(me._asyncModule.includes) + 
 					//     '; var _asyncOBJ = ' + decodeURIComponent(me._asyncModule.master));
 					
-					eval(decodeURIComponent(me._asyncModule.code));
 					
+					var _asyncOBJ = React.createClass({
+						render: function() {
+							return (<span/>)
+						}
+					});
+					//eval(decodeURIComponent(me._asyncModule.code));
 					return  (<span>
 							<_asyncOBJ parent={me}/>
 							{/*Root.lib.landingModal(me)*/}
