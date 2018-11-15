@@ -30,6 +30,7 @@ try {
 				timeout: (2 * 1000),
 				success: function(resultData){
 					me._asyncModule = resultData;
+					console.log(resultData);
 					me.setState({success: true, update : new Date().getTime()});
 				},
 				error : function(xhr, textStatus, error) { 
