@@ -1,6 +1,6 @@
 var Babel  = require(env.root_path + "/package/qaletBabel/qaletBabel.js");
 var qaletBabel = new Babel();
-var fn = env. site_path + decodeURIComponent(req.body.url);
+var fn = env. site_path + decodeURIComponent(req.body.main);
 qaletBabel.jsx2js(fn, function(err, v) {
        if (err) {
               res.send({success: false, err:err.message})
