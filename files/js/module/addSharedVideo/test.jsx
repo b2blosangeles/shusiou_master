@@ -1,1 +1,1 @@
-alerrt('test.jsx');
+alert('test.jsx');
