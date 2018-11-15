@@ -8,11 +8,11 @@ try {
 						main : '/files/js/module/fileUpload/main.jsx'
 					},
 					'pull_youtube' : {
-						includes : ['/files/js/module/pullYouTube/main.jsx'],
+						includes : [],
 						main : '/files/js/module/pullYouTube/main.jsx'
 					},
 					'add_shared_video' : {
-						includes : [],
+						includes : ['/files/js/module/pullYouTube/test.jsx'],
 						main : '/files/js/module/addSharedVideo/main.jsx'
 					}
 				};
