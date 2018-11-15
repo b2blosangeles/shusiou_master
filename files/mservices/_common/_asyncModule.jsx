@@ -10,15 +10,15 @@ try {
 		},		
 		componentDidUpdate:function(prevProps, prevState) {
 			var me = this;
-			if (me.props.url !== prevProps.url) { 
-				me.loadCode();
+			if (me.props.code !== prevProps.code) { 
+				me.loadPlugin();
 			}	
 		},
 		dataEngine : function(engCfg) {
 			var me = this;
 			Root.lib.loadEng(me, engCfg);
 		},		
-		loadCode : function() {
+		loadPlugin : function() {
 			var me = this;
 			$.ajax({
 				type: 'POST',
