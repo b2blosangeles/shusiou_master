@@ -24,6 +24,7 @@ try {
 		loadPlugin : function() {
 			var me = this;
 			me._asyncModule = null;
+			me.props.plugin.code = me.props.code;
 			$.ajax({
 				type: 'POST',
 				url: _master_svr() + '/api/JSXhub.api',
