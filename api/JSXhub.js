@@ -17,7 +17,7 @@ _f.master = function(cbk) {
 }
 if ((req.body.includes) && (req.body.includes.length)) {
       for (var i = 0; i < req.body.includes.length; i++) {
-          _f['includes+' + i] = (function(i) { return function(cbk) {
+          _f['inc_' + i] = (function(i) { return function(cbk) {
                                    var qaletBabel = new Babel();
                                    var fn = env. site_path + decodeURIComponent(req.body.includes[i]);
                                           qaletBabel.jsx2js(fn, function(err, v) {
@@ -33,20 +33,20 @@ if ((req.body.includes) && (req.body.includes.length)) {
        
 }
 cp.serial(_f, function(data) {
-       var inc_str = '', master_str = '', error = [];
+       var inc_str = '', master_str = '', err = [];
        if ((req.body.includes) && (req.body.includes.length)) {
               for (var i = 0; i < req.body.includes.length; i++) {
-                     if (cp.data['includes+' + i].success === true) {
-                            inc_str += p.data['includes+' + i].code;
+                     if (cp.data['inc_' + i].success === true) {
+                            inc_str += p.data['inc_' + i].code;
                      } else {
-                            error.push(p.data['includes+' + i].err);
+                            err.push(p.data['inc_' + i].err);
                      }
               }
        }
        if (cp.data.master.success === true) {
            master_str = cp.data.master.code 
        } else {
-               error.push(cp.data.master.err);
+               err.push(cp.data.master.err);
        }
-       res.send({master: 'master_str', includes: 'inc_str', err : 'error'});             
+       res.send({master: master_str, includes: inc_str, err : err});             
 }, 3000);
