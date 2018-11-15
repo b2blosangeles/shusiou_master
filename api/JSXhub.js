@@ -51,6 +51,6 @@ cp.serial(_f, function(data) {
        // me.props.code
        inc_str = encodeURIComponent('if (me.props.code === "' + req.body.code + '") { ') 
               + inc_str 
-              + encodeURIComponent('; }'));
+              + encodeURIComponent('; }');
        res.send({success:true, master: master_str, includes: inc_str, err : err});             
 }, 3000);
