@@ -283,7 +283,7 @@ React.createClass({
 
                     });
                     D.init();
-                    console.log('===D222===');   
+                 //   console.log('===D222===');   
                 //}, 2000);  
 
              // =================   
