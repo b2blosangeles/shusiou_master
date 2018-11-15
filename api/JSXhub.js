@@ -48,5 +48,5 @@ cp.serial(_f, function(data) {
        } else {
                err.push(cp.data.master.err);
        }
-       res.send({master: master_str, includes: inc_str, err : err});             
+       res.send({success:true, master: master_str, includes: inc_str, err : err});             
 }, 3000);
