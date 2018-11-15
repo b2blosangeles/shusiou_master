@@ -47,6 +47,7 @@ try {
 				return  (<span>Script Error: {me._asyncModuleErr}</span>)
 			} else if (me._asyncModule) {
 				try {
+					console.log('=== decodeURIComponent ===');
 					eval(decodeURIComponent(me._asyncModule.includes) + 
 					     '; var _asyncOBJ = ' + decodeURIComponent(me._asyncModule.master));
 					
