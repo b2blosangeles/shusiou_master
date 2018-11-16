@@ -15,6 +15,17 @@ _f.master = function(cbk) {
               }
        });
 }
+_f.root = function(cbk) {
+       var qaletBabel = new Babel();
+       var fn = env. site_path + decodeURIComponent(req.body.root);
+       qaletBabel.jsx2js(fn, function(err, v) {
+              if (err) {
+                     cbk({success: false, err:err.message})
+              } else {
+                     cbk({success: true, code: encodeURIComponent(v.code)});
+              }
+       });
+}
 if ((req.body.includes) && (req.body.includes.length)) {
       for (var i = 0; i < req.body.includes.length; i++) {
           _f['inc_' + i] = (function(i) { return function(cbk) {
@@ -24,7 +35,7 @@ if ((req.body.includes) && (req.body.includes.length)) {
                                                  if (err) {
                                                         cbk({success: false, err:err.message});
                                                  } else {
-                                                        cbk({success: true, code: encodeURIComponent(v.code)});
+                                                        cbk({success: true, code: encodeURIComponent('var _root = ' + v.code)});
                                                  }
                                           });
                                    }
@@ -51,6 +62,7 @@ cp.serial(_f, function(data) {
        // me.props.code
        var code = encodeURIComponent(
               'if (me.props.code === "' + req.body.code + '") { ') 
+              + cp.data.root +
               + inc_str + '; ' + master_str
               + encodeURIComponent('; } ');
        res.send({success:true, code: code, err : err}); 
