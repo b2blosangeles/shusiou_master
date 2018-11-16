@@ -44,7 +44,7 @@ if ((req.body.includes) && (req.body.includes.length)) {
        
 }
 cp.serial(_f, function(data) {
-       var inc_str = '', master_str = '', err = [];
+       var inc_str = '', master_str = '', root_str = '', err = [];
        if ((req.body.includes) && (req.body.includes.length)) {
               for (var i = 0; i < req.body.includes.length; i++) {
                      if (cp.data['inc_' + i].success === true) {
@@ -59,10 +59,15 @@ cp.serial(_f, function(data) {
        } else {
                err.push(cp.data.master.err);
        }
+       if (cp.data.root.success === true) {
+           root_str = cp.data.root.code 
+       } else {
+               err.push(cp.data.root.err);
+       }       
        // me.props.code
        var code = encodeURIComponent(
               'if (me.props.code === "' + req.body.code + '") { ') 
-              + cp.data.root +
+              + root_str +
               + inc_str + '; ' + master_str
               + encodeURIComponent('; } ');
        res.send({success:true, code: code, err : err}); 
