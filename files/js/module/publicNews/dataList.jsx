@@ -1,4 +1,4 @@
-var dataList = React.createClass({
+var _dataList = React.createClass({
         getInitialState: function() {
           var me = this;
           return {}
