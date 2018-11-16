@@ -18,7 +18,7 @@ React.createClass({
           return  (<span>
                         Public News 
                           <hr/>
-                          <dataList/>
+                          <_dataList/>
                  </span>)
         }
 });
