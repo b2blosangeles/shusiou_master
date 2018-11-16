@@ -16,7 +16,8 @@ React.createClass({
         render: function() {
           var me = this;
           return  (<span>
-                        Public News                        
+                        Public News 
+                          <dataList/>
                  </span>)
         }
 });
