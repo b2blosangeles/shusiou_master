@@ -46,7 +46,7 @@ try {
 			} else if (me._asyncModule) {
 				try {
 					var _asyncOBJ = React.createClass({render: function() { return (<span/>)}});
-					eval(decodeURIComponent(me._asyncModule.code));
+					// eval(decodeURIComponent(me._asyncModule.code));
 					return  (<span>
 							<_asyncOBJ parent={me}/>
 							{/*Root.lib.landingModal(me)*/}
