@@ -17,6 +17,7 @@ React.createClass({
           var me = this;
           return  (<span>
                         Public News 
+                          <hr/>
                           <dataList/>
                  </span>)
         }
