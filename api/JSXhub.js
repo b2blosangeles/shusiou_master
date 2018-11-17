@@ -57,6 +57,6 @@ cp.serial(_f, function(data) {
        // me.props.code
        var code = inc_str  + '; ' + master_str;
 
-       res.send({success:true, code: code, err : err}); 
+       res.send({success:true, inc: inc_str, master : master_str, err : err}); 
       // res.send({success:true, master: master_str, includes: inc_str, err : err});             
 }, 3000);
