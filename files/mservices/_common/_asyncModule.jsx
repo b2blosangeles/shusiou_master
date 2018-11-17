@@ -39,9 +39,9 @@ try {
 			     dataType: 'JSON',
 			     timeout: (cfg.timeout) ? cfg.timeout : (6 * 1000),
 			     success: function(resultData){
-				   console.log('==decodeURIComponent(resultData.code)==>');
-				   console.log(decodeURIComponent(resultData.code));
-				   eval(decodeURIComponent(resultData.code));
+				   console.log('==decodeURIComponent(resultData.inc)==>');
+				   console.log(decodeURIComponent(resultData.inc));
+				   me._asyncModule = resultData;
 				   me.setState({success: true, update : new Date().getTime()});
 			     },
 			     error : function(xhr, textStatus, error) { 
@@ -77,7 +77,8 @@ try {
 				console.log(me._asyncModule);
 				try {
 					var _asyncOBJ = React.createClass({render: function() { return (<span/>)}});
-					console.log('_asyncOBJ = ' + me._asyncModule);
+					eval( decodeURIComponent(me._asyncModule.inc));
+					console.log('_asyncOBJ = ' + decodeURIComponent(me._asyncModule.code));
 					return  (<span>
 							<_asyncOBJ parent={me}/>
 							{/*Root.lib.landingModal(me)*/}
