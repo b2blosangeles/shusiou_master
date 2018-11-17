@@ -11,7 +11,9 @@ _f.pre = function(cbk) {
 	var patt = /^(http|https)\/\//ig;
 	for (var i = 0; i < _includes.length; i++) {
 		if (psatt.test(_includes[i])) {
-			var p = '/tmp/cache/'+ fn.replace(patt, '').replace(/\//g, '_')+'/';
+			var p = '/tmp/cache/'+ _includes[i].replace(patt, '').replace(/\//g, '_');
+			pkg.fs.exists(p, function(exists){
+			})
 		}
 	}
        cbk(true);
