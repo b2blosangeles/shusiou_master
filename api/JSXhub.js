@@ -8,7 +8,7 @@ var _includes = (req.body.includes) ? req.body.includes : [],
 
 _f.pre = function(cbk) {
     
-	var patt = new RegExp(/^(http|https)\/\//);
+	var patt = /^(http|https)\/\//);
 	for (var i = 0; i < _includes.length; i++) {
 		if (psatt.test(_includes[i])) {
 			var p = '/tmp/cache/'+ fn.replace(patt, '').replace(/\//g, '_')+'/';
