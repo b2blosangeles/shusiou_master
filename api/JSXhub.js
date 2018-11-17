@@ -37,8 +37,8 @@ _f.pre = function(cbk) {
 					
 					cache_request(_includes[i], p, 
 						function() {
-							_includes[i] = p;
-							cbk1(p);
+							//_includes[i] = p;
+							cbk1(_includes[i]);
 						}     
 					);
 				} else {
