@@ -50,24 +50,6 @@ try {
 			       me.setState({success: false, update : new Date().getTime()})
 			     }
 			  }); 			
-			/*
-			$.ajax({
-				type: 'POST',
-				url: _master_svr() + '/api/JSXhub.api',
-				data: me.props.plugin,
-				dataType: 'JSON',
-				timeout: (2 * 1000),
-				success: function(resultData){
-					me._asyncModule = resultData;
-					// console.log(resultData);
-					me.setState({success: true, update : new Date().getTime()});
-				},
-				error : function(xhr, textStatus, error) { 
-					me._asyncModuleErr = error;
-					me.setState({success: false, update : new Date().getTime()})
-				}
-			});
-			*/
 		},
 		render: function() {
 			var me = this;
