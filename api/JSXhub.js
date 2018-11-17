@@ -4,28 +4,21 @@ var CP  = require(env.root_path + "/package/crowdProcess/crowdProcess.js");
 function cache_request(url, fn, cbk) {
 	pkg.fs.stat(fn, function(err, stats) {
 		if (err) {
-			/*
 			let file = pkg.fs.createWriteStream(fn);
 			file.on('finish', function() {
 				cbk(fn);
-			});*/	
-			
+			});	
 			pkg.request(url, {rejectUnauthorized: false}, function (err, response, body) {
-				if (err) { cbk(err); return true; }
-				if (body) { cbk(body); return true; }
-				return true;
-				// cbk(fn + '--99009900--');
-				pkg.fs.writeFile(fn, 'response', (err) => {
-					cbk(fn + '--68889990--');
-				 // if (!err) {
-				 //   console.error(err)
-				 //   return
-				 // }
-				  //file written successfully
-				})				
+				/*
+				if (!err) { 
+					pkg.fs.writeFile(fn, body, (err) => {
+						cbk(fn + '--68889990--');
+					})
+				} else {
+					cbk({err:err});
+				}*/
 				
-			});
-			// .pipe(file);	
+			}).pipe(file);	
 		} else {
 			pkg.fs.utimes(fn, new Date(), stats.mtime, function() {
 				cbk(fn + '--88--88');
