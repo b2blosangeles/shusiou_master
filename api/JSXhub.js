@@ -35,9 +35,11 @@ _f.pre = function(cbk) {
 				if (patt.test(_includes[i])) {
 					var p = '/tmp/cache/'+ _includes[i].replace(patt, '').replace(/\//g, '_');
 					_includes[i] = p;
-					cbk1(p);
-					//pkg.fs.exists(p, function(exists){
-					//})
+					cache_request(_includes[i], p, 
+						function() {
+							cbk1(p);
+						}     
+					);
 				} else {
 					cbk1(_includes[i]);
 				}
