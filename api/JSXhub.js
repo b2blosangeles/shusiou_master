@@ -6,6 +6,14 @@ var _f = [];
 var _includes = (req.body.includes) ? req.body.includes : [], 
     _main = (req.body.main) ? req.body.main : '';
 
+_f.pre = function(cbk) {
+    
+	//var patt = new RegExp('^' + root_path + '/files/');
+	//		var p = '/tmp/cache/'+ fn.replace(patt, '').replace(/\//g, '_')+'/';    
+       cbk(true);
+}
+
+
 _f.master = function(cbk) {
        var qaletBabel = new Babel();
        var fn = env. site_path + decodeURIComponent(_main);
