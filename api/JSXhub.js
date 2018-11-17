@@ -6,29 +6,13 @@ function cache_request(url, fn, cbk) {
 		if (err) {
 			let file = pkg.fs.createWriteStream(fn);
 			file.on('finish', function() {
-				let c = '';
-				let rf = pkg.fs.createReadStream(fn, {start : 0, end: 4, encoding: 'utf8'});
-				rf.on('data', function (chunk) {
-					c += chunk;
-					rf.close();
-				}).on('close', function () {
-					if (c === '<?xml') {
-						pkg.fs.unlink(fn, function(error) {
-						    cbk(false);
-						});					
-					} else {
-						cbk(true);
-					}
-				})
-				.on('error', function (err) {
-					cbk(false);
-				});
+				cbk(fn);
 			});	
 			pkg.request(url, function (err1, response, body) {
 			}).pipe(file);			
 		} else {
 			pkg.fs.utimes(fn, new Date(), stats.mtime, function() {
-				cbk(true);
+				cbk(fn);
 			});
 		}
 	});
