@@ -31,14 +31,11 @@ try {
 			     dataType: 'JSON',
 			     timeout: (cfg.timeout) ? cfg.timeout : (6 * 1000),
 			     success: function(resultData){
-				   console.log('==decodeURIComponent(resultData.inc)==>');
-				   console.log(decodeURIComponent(resultData.inc));
 				   me._asyncModule = resultData;
 				   me.setState({success: true, update : new Date().getTime()});
 			     },
 			     error : function(xhr, textStatus, error) { 
-				console.log(error);
-			      // me._asyncModuleErr = error;
+			       me._asyncModuleErr = error;
 			       me.setState({success: false, update : new Date().getTime()})
 			     }
 			  }); 			
@@ -51,7 +48,6 @@ try {
 				console.log(me._asyncModule);
 				try {
 					var _asyncOBJ = React.createClass({render: function() { return (<span/>)}});
-					// me.props.plugin.code 
 					if (me._asyncCode === me.props.code) {
 						eval( decodeURIComponent(me._asyncModule.inc));
 						eval('_asyncOBJ = ' + decodeURIComponent(me._asyncModule.master));
