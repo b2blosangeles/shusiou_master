@@ -44,7 +44,7 @@ _f.pre = function(cbk) {
 		})
 	}*/
 	cp1.parallel(_f1, function(data) {
-		 cbk(data);
+		 cbk(data.results);
 	});
 	
 	/*
