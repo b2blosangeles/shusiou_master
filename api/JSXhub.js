@@ -11,11 +11,7 @@ _f.master = function(cbk) {
               if (err) {
                      cbk({success: false, err:err.message})
               } else {
-                     if (!req.body.parkReact) {
-                            cbk({success: true, code: encodeURIComponent('var _asyncOBJ = ' + v.code)});
-                     } else {
-                            cbk({success: true, code: encodeURIComponent('me._asyncModule = ' + v.code)});
-                     }
+                      cbk({success: true, code: encodeURIComponent(v.code)});
               }
        });
 }
