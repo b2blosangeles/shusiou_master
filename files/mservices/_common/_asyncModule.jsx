@@ -22,6 +22,33 @@ try {
 			var me = this;
 			me._asyncModule = null;
 			me.props.plugin.code = me.props.code;
+			
+			var cfg = {
+			  package:{
+				   includes : ['/files/js/module/publicNews/dataList.jsx'],
+				   main : '/files/js/module/publicNews/main.jsx',
+				   parkReact : true
+			   },
+			   master: '//master1_dev.shusiou.win/api/JSXhub.api', 
+		           	
+			   });
+			  $.ajax({
+			     type: 'POST',
+			     url: cfg.master,
+			     data: cfg.package,
+			     dataType: 'JSON',
+			     timeout: (cfg.timeout) ? cfg.timeout : (6 * 1000),
+			     success: function(resultData){
+				   console.log(decodeURIComponent(resultData.code));
+				   me.setState({success: true, update : new Date().getTime()});
+			     },
+			     error : function(xhr, textStatus, error) { 
+				console.log(error);
+			      // me._asyncModuleErr = error;
+			      // me.setState({success: false, update : new Date().getTime()})
+			     }
+			  }); 			
+			/*
 			$.ajax({
 				type: 'POST',
 				url: _master_svr() + '/api/JSXhub.api',
@@ -37,7 +64,8 @@ try {
 					me._asyncModuleErr = error;
 					me.setState({success: false, update : new Date().getTime()})
 				}
-			});		
+			});
+			*/
 		},
 		render: function() {
 			var me = this;
