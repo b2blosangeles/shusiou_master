@@ -38,7 +38,7 @@ _f.pre = function(cbk) {
 					var url = ((!m[1]) ? 'http://' : m[1]) + '' + _includes[i];
 					cache_request(_includes[i], p, function() {
 						_includes[i] = p;
-						cbk1(url);
+						cbk1(m);
 					});
 				} else {
 					_includes[i] = env. site_path + _includes[i];
