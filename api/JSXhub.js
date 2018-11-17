@@ -26,7 +26,14 @@ var _includes = (req.body.includes) ? req.body.includes : [],
     _main = (req.body.main) ? req.body.main : '';
 
 _f.pre = function(cbk) {
-    
+    	var cp1 = new CP();
+	var _f1 = [];
+	
+	cp1.parallel(_f1, function(data) {
+		 cbk(true);
+	});
+	
+	/*
 	var patt = /^(http|https)\/\//ig;
 	for (var i = 0; i < _includes.length; i++) {
 		if (patt.test(_includes[i])) {
@@ -35,7 +42,8 @@ _f.pre = function(cbk) {
 			})
 		}
 	}
-       cbk(true);
+	*/
+      // cbk(true);
 }
 
 
