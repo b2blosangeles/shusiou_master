@@ -68,7 +68,7 @@ cp.serial(_f, function(data) {
        // me.props.code
        var code = // encodeURIComponent(
             //  'if (me.props.code === "' + req.body.code + '") { ') 
-              inc_str // + '; ' + master_str 
+              inc_str  + '; ' + master_str 
           //    + encodeURIComponent('; } '
     //   );
        res.send({success:true, code: code, niu: root_str, err : err}); 
