@@ -24,15 +24,6 @@ try {
 			me._asyncCode = me.props.code;
 			
 			var cfg = me.props.plugin;
-			    /*
-			    {
-				  extend:{
-					   includes : ['/files/js/module/publicNews/dataList.jsx'],
-					   main : '/files/js/module/publicNews/main.jsx'
-				   },
-				   master: '//master1_dev.shusiou.win/api/JSXhub.api'
-
-				};*/
 			  $.ajax({
 			     type: 'POST',
 			     url: me.props.plugin.master,
