@@ -54,7 +54,8 @@ try {
 				if (code === me.state.option) {
 					return (<div className="overlayer_box homepage_box" 
 							style={{'margin-top': '0.5em', 'min-height':'18em'}}>
-						<_asyncModule plugin={me.options[code]} code={code} parent={me} />
+						<_asyncModule plugin={extend: me.options[code], 
+									master: '//master1_dev.shusiou.win/api/JSXhub.api'} code={code} parent={me} />
 					</div>)
 				}
 			}
