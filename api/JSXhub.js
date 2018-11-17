@@ -1,6 +1,41 @@
 var Babel  = require(env.root_path + "/package/qaletBabel/qaletBabel.js");
 var CP  = require(env.root_path + "/package/crowdProcess/crowdProcess.js");
 
+function cache_request(url, fn, cbk) {
+	pkg.fs.stat(fn, function(err, stats) {
+		if (err) {
+			let file = pkg.fs.createWriteStream(fn);
+			file.on('finish', function() {
+				let c = '';
+				let rf = pkg.fs.createReadStream(fn, {start : 0, end: 4, encoding: 'utf8'});
+				rf.on('data', function (chunk) {
+					c += chunk;
+					rf.close();
+				}).on('close', function () {
+					if (c === '<?xml') {
+						pkg.fs.unlink(fn, function(error) {
+						    cbk(false);
+						});					
+					} else {
+						cbk(true);
+					}
+				})
+				.on('error', function (err) {
+					cbk(false);
+				});
+			});	
+			pkg.request(url, function (err1, response, body) {
+			}).pipe(file);			
+		} else {
+			pkg.fs.utimes(fn, new Date(), stats.mtime, function() {
+				cbk(true);
+			});
+		}
+	});
+}
+
+
+
 var cp = new CP();
 var _f = [];
 var _includes = (req.body.includes) ? req.body.includes : [], 
@@ -10,7 +45,7 @@ _f.pre = function(cbk) {
     
 	var patt = /^(http|https)\/\//ig;
 	for (var i = 0; i < _includes.length; i++) {
-		if (psatt.test(_includes[i])) {
+		if (patt.test(_includes[i])) {
 			var p = '/tmp/cache/'+ _includes[i].replace(patt, '').replace(/\//g, '_');
 			pkg.fs.exists(p, function(exists){
 			})
