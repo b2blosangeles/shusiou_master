@@ -59,6 +59,7 @@ cp.serial(_f, function(data) {
        } else {
                err.push(cp.data.master.err);
        }
+       
        if (cp.data.root.success === true) {
            root_str = cp.data.root.code 
        } else {
@@ -68,7 +69,8 @@ cp.serial(_f, function(data) {
        var code = encodeURIComponent(
             //  'if (me.props.code === "' + req.body.code + '") { ') 
               inc_str + '; ' + master_str 
-          //    + encodeURIComponent('; } ');
+          //    + encodeURIComponent('; } '
+       );
        res.send({success:true, code: code, niu: root_str, err : err}); 
       // res.send({success:true, master: master_str, includes: inc_str, err : err});             
 }, 3000);
