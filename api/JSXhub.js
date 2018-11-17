@@ -15,7 +15,7 @@ function cache_request(url, fn, cbk) {
 			*/
 		} else {
 			pkg.fs.utimes(fn, new Date(), stats.mtime, function() {
-				cbk(fn);
+				cbk(fn + '--88--88');
 			});
 		}
 	});
