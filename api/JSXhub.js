@@ -9,7 +9,10 @@ function cache_request(url, fn, cbk) {
 			file.on('finish', function() {
 				cbk(fn);
 			});*/	
-			pkg.request(url, function (err1, response, body) {
+			pkg.request(url, function (err, response, body) {
+				if (err) { cbk('err'); return true; }
+				if (response) { cbk('response1'); return true; }
+				return true;
 				// cbk(fn + '--99009900--');
 				pkg.fs.writeFile(fn, 'response', (err) => {
 					cbk(fn + '--68889990--');
