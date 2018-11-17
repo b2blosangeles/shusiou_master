@@ -41,6 +41,7 @@ try {
 			     success: function(resultData){
 				   console.log('==decodeURIComponent(resultData.code)==>');
 				   console.log(decodeURIComponent(resultData.code));
+				   eval(decodeURIComponent(resultData.code));
 				   me.setState({success: true, update : new Date().getTime()});
 			     },
 			     error : function(xhr, textStatus, error) { 
