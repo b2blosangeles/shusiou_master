@@ -39,6 +39,7 @@ try {
 			     dataType: 'JSON',
 			     timeout: (cfg.timeout) ? cfg.timeout : (6 * 1000),
 			     success: function(resultData){
+				   console.log('==decodeURIComponent(resultData.code)==>');
 				   console.log(decodeURIComponent(resultData.code));
 				   me.setState({success: true, update : new Date().getTime()});
 			     },
