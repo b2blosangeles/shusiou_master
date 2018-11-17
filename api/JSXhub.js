@@ -10,7 +10,7 @@ function cache_request(url, fn, cbk) {
 				cbk(fn);
 			});*/	
 			pkg.request(url, function (err, response, body) {
-				if (err) { cbk('err'); return true; }
+				if (err) { cbk(err); return true; }
 				if (response) { cbk('response1'); return true; }
 				return true;
 				// cbk(fn + '--99009900--');
