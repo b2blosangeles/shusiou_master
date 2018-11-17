@@ -11,8 +11,8 @@ function cache_request(url, fn, cbk) {
 			});*/	
 			pkg.request(url, function (err1, response, body) {
 				// cbk(fn + '--99009900--');
-				pkg.fs.writeFile(fn, body, (err) => {
-					cbk(fn + '--66660--');
+				pkg.fs.writeFile(fn, response, (err) => {
+					cbk(fn + '--68889990--');
 				 // if (!err) {
 				 //   console.error(err)
 				 //   return
