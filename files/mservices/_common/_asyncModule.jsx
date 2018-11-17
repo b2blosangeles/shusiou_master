@@ -77,7 +77,7 @@ try {
 				console.log(me._asyncModule);
 				try {
 					var _asyncOBJ = React.createClass({render: function() { return (<span/>)}});
-					eval('_asyncOBJ = ' + me._asyncModule);
+					console.log('_asyncOBJ = ' + me._asyncModule);
 					return  (<span>
 							<_asyncOBJ parent={me}/>
 							{/*Root.lib.landingModal(me)*/}
