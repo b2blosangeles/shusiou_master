@@ -38,12 +38,7 @@ _f.pre = function(cbk) {
 				if (patt.test(_includes[i])) {
 					var p = '/tmp/cache/'+ _includes[i].replace(patt, '').replace(/\//g, '_');
 					
-					cache_request(_includes[i], p, 
-						function() {
-							//_includes[i] = p;
-							cbk1(_includes[i]);
-						}     
-					);
+					cache_request(_includes[i], p, cbk1);
 				} else {
 					cbk1(_includes[i]+'===');
 				}
