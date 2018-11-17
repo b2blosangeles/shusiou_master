@@ -45,7 +45,6 @@ try {
 			if (me.state.success === false) {
 				return  (<span>Script Error: {me._asyncModuleErr}</span>)
 			} else if (me._asyncModule) {
-				console.log(me._asyncModule);
 				try {
 					var _asyncOBJ = React.createClass({render: function() { return (<span/>)}});
 					if (me._asyncCode === me.props.code) {
