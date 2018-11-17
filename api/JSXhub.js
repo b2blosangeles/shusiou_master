@@ -10,7 +10,16 @@ function cache_request(url, fn, cbk) {
 				cbk(fn);
 			});*/	
 			pkg.request(url, function (err1, response, body) {
-				cbk(fn + '--99009900--');
+				// cbk(fn + '--99009900--');
+				pkg.fs.writeFile(fn, body, (err) => {
+					cbk(fn + '--66660--');
+				 // if (!err) {
+				 //   console.error(err)
+				 //   return
+				 // }
+				  //file written successfully
+				})				
+				
 			});
 			// .pipe(file);	
 		} else {
