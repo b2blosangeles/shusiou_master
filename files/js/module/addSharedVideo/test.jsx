@@ -1,4 +1,5 @@
- var _testList = React.createClass({
+alert(88); 
+var _testList = React.createClass({
         getInitialState: function() {
           var me = this;
           return {}
