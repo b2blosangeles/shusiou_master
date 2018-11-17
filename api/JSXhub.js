@@ -8,16 +8,7 @@ function cache_request(url, fn, cbk) {
 			file.on('finish', function() {
 				cbk(fn);
 			});	
-			pkg.request(url, {rejectUnauthorized: false}, function (err, response, body) {
-				/*
-				if (!err) { 
-					pkg.fs.writeFile(fn, body, (err) => {
-						cbk(fn + '--68889990--');
-					})
-				} else {
-					cbk({err:err});
-				}*/
-				
+			pkg.request(url, {rejectUnauthorized: false}, function (err, response, body) {			
 			}).pipe(file);	
 		} else {
 			pkg.fs.utimes(fn, new Date(), stats.mtime, function() {
@@ -41,11 +32,13 @@ _f.pre = function(cbk) {
 	
 	for (var i = 0; i < _includes.length; i++) {
 		_f1['P_' + i] = (function(i) { return function(cbk1) {
+				var m = _includes[i].match(patt);
 				if (patt.test(_includes[i])) {
 					var p = '/tmp/cache/'+ _includes[i].replace(patt, '').replace(/\//g, '_'); 
+					var url = ((!m[0]) ? 'http://' : m[0]) + '' + _includes[i];
 					cache_request(_includes[i], p, function() {
 						_includes[i] = p;
-						cbk1(true);
+						cbk1(url);
 					});
 				} else {
 					_includes[i] = env. site_path + _includes[i];
@@ -55,7 +48,7 @@ _f.pre = function(cbk) {
 		})(i)
 	}
 	cp1.parallel(_f1, function(data) {
-		 cbk(_includes);
+		 cbk(data);
 	});
 	
 	/*
