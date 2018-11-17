@@ -42,7 +42,7 @@ _f.pre = function(cbk) {
 						}     
 					);
 				} else {
-					cbk1(_includes[i]);
+					cbk1(_includes[i]+'===');
 				}
 			}
 		})(i)
