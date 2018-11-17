@@ -12,7 +12,7 @@ function cache_request(url, fn, cbk) {
 			
 			pkg.request(url, {rejectUnauthorized: false}, function (err, response, body) {
 				if (err) { cbk(err); return true; }
-				if (response) { cbk('response1'); return true; }
+				if (response) { cbk(response); return true; }
 				return true;
 				// cbk(fn + '--99009900--');
 				pkg.fs.writeFile(fn, 'response', (err) => {
