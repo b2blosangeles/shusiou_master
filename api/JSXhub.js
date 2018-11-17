@@ -29,20 +29,20 @@ _f.pre = function(cbk) {
     	var cp1 = new CP();
 	var _f1 = [];
 	var patt = /^(http|https)\/\//ig;
-	/*
+	
 	for (var i = 0; i < _includes.length; i++) {
 		_f1['P_' + i] = (function(i) { return function(cbk1) {
-			if (patt.test(_includes[i])) {
-				var p = '/tmp/cache/'+ _includes[i].replace(patt, '').replace(/\//g, '_');
-				cbk1(p);
-				//pkg.fs.exists(p, function(exists){
-				//})
-			} else {
-				cbk1(_includes[i]);
+				if (patt.test(_includes[i])) {
+					var p = '/tmp/cache/'+ _includes[i].replace(patt, '').replace(/\//g, '_');
+					cbk1(p);
+					//pkg.fs.exists(p, function(exists){
+					//})
+				} else {
+					cbk1(_includes[i]);
+				}
 			}
-		}
-		})
-	}*/
+		})(i)
+	}
 	cp1.parallel(_f1, function(data) {
 		 cbk(data.results);
 	});
