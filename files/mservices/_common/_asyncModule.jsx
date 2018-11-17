@@ -45,7 +45,7 @@ try {
 			     error : function(xhr, textStatus, error) { 
 				console.log(error);
 			      // me._asyncModuleErr = error;
-			      // me.setState({success: false, update : new Date().getTime()})
+			       me.setState({success: false, update : new Date().getTime()})
 			     }
 			  }); 			
 			/*
