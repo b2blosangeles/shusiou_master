@@ -21,7 +21,7 @@ try {
 		loadPlugin : function() {
 			var me = this;
 			me._asyncModule = null;
-			me.props.plugin.code = me.props.code;
+			me._asyncCode = me.props.code;
 			
 			var cfg = me.props.plugin;
 			    /*
@@ -60,7 +60,8 @@ try {
 				console.log(me._asyncModule);
 				try {
 					var _asyncOBJ = React.createClass({render: function() { return (<span/>)}});
-					if (me.props.plugin.code === me.props.code) {
+					// me.props.plugin.code 
+					if (me._asyncCode === me.props.code) {
 						eval( decodeURIComponent(me._asyncModule.inc));
 						eval('_asyncOBJ = ' + decodeURIComponent(me._asyncModule.master));
 					}
