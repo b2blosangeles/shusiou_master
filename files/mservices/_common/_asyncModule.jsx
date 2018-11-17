@@ -24,10 +24,9 @@ try {
 			me.props.plugin.code = me.props.code;
 			
 			var cfg = {
-				  package:{
+				  extend:{
 					   includes : ['/files/js/module/publicNews/dataList.jsx'],
-					   main : '/files/js/module/publicNews/main.jsx',
-					   parkReact : true
+					   main : '/files/js/module/publicNews/main.jsx'
 				   },
 				   master: '//master1_dev.shusiou.win/api/JSXhub.api'
 
@@ -35,7 +34,7 @@ try {
 			  $.ajax({
 			     type: 'POST',
 			     url: cfg.master,
-			     data: cfg.package,
+			     data: cfg.extend,
 			     dataType: 'JSON',
 			     timeout: (cfg.timeout) ? cfg.timeout : (6 * 1000),
 			     success: function(resultData){
