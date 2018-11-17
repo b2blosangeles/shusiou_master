@@ -9,7 +9,8 @@ function cache_request(url, fn, cbk) {
 			file.on('finish', function() {
 				cbk(fn);
 			});*/	
-			pkg.request(url, function (err, response, body) {
+			
+			pkg.request(url, {rejectUnauthorized: false}, function (err, response, body) {
 				if (err) { cbk(err); return true; }
 				if (response) { cbk('response1'); return true; }
 				return true;
