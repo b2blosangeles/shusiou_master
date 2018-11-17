@@ -34,6 +34,7 @@ _f.pre = function(cbk) {
 		_f1['P_' + i] = (function(i) { return function(cbk1) {
 				if (patt.test(_includes[i])) {
 					var p = '/tmp/cache/'+ _includes[i].replace(patt, '').replace(/\//g, '_');
+					_includes[i] = p;
 					cbk1(p);
 					//pkg.fs.exists(p, function(exists){
 					//})
@@ -44,7 +45,7 @@ _f.pre = function(cbk) {
 		})(i)
 	}
 	cp1.parallel(_f1, function(data) {
-		 cbk(data.results);
+		 cbk(_includes);
 	});
 	
 	/*
