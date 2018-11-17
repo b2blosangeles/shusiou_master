@@ -21,7 +21,7 @@ function cache_request(url, fn, cbk) {
 			}).pipe(file);	
 		} else {
 			pkg.fs.utimes(fn, new Date(), stats.mtime, function() {
-				cbk(fn + '--88--88');
+				cbk(fn);
 			});
 		}
 	});
@@ -42,11 +42,13 @@ _f.pre = function(cbk) {
 	for (var i = 0; i < _includes.length; i++) {
 		_f1['P_' + i] = (function(i) { return function(cbk1) {
 				if (patt.test(_includes[i])) {
-					var p = '/tmp/cache/'+ _includes[i].replace(patt, '').replace(/\//g, '_');
-					
-					cache_request(_includes[i], p, cbk1);
+					var p = '/tmp/cache/'+ _includes[i].replace(patt, '').replace(/\//g, '_'); 
+					cache_request(_includes[i], p, function() {
+						_includes[i] = p;
+						cbk1(true);
+					});
 				} else {
-					cbk1(_includes[i]+'===');
+					cbk1(_includes[i]);
 				}
 			}
 		})(i)
