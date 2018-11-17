@@ -35,8 +35,8 @@ try {
 				};*/
 			  $.ajax({
 			     type: 'POST',
-			     url: cfg.master,
-			     data: cfg.extend,
+			     url: me.props.plugin.master,
+			     data: me.props.plugin.extend,
 			     dataType: 'JSON',
 			     timeout: (cfg.timeout) ? cfg.timeout : (6 * 1000),
 			     success: function(resultData){
@@ -60,8 +60,10 @@ try {
 				console.log(me._asyncModule);
 				try {
 					var _asyncOBJ = React.createClass({render: function() { return (<span/>)}});
-					eval( decodeURIComponent(me._asyncModule.inc));
-					eval('_asyncOBJ = ' + decodeURIComponent(me._asyncModule.master));
+					if (me.props.plugin.code === me.props.code) {
+						eval( decodeURIComponent(me._asyncModule.inc));
+						eval('_asyncOBJ = ' + decodeURIComponent(me._asyncModule.master));
+					}
 					return  (<span>
 							<_asyncOBJ parent={me}/>
 							{/*Root.lib.landingModal(me)*/}
