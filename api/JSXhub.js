@@ -41,14 +41,14 @@ _f.pre = function(cbk) {
 					var p = '/tmp/cache/'+ _includes[i].replace(patt, '').replace(/\//g, '_'); 
 					var url = ((m[0] === '//') ? 'http://' : m[0]) +  _includes[i].replace(patt, '').replace(/\//g, '_');
 					cache_request(url, p, function(status) {
-						if (status) {
+						//if (status) {
 							_includes[i] = p;
-						} else {
-							 _error.push('Error on:' + _includes[i]);
-							_includes[i] =  null;
-						}
+						//} else {
+						//	 _error.push('Error on:' + _includes[i]);
+						//	_includes[i] =  null;
+						//}
 						
-						cbk1(url);
+						cbk1(status);
 					});
 				} else {
 					_includes[i] = env. site_path + _includes[i];
