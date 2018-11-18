@@ -37,10 +37,10 @@ _f.pre = function(cbk) {
 				return true;
 				if (patt.test(_includes[i])) {
 					var p = '/tmp/cache/'+ _includes[i].replace(patt, '').replace(/\//g, '_'); 
-					var url = ((!m[1]) ? 'http://' : m[1]) + '' + _includes[i];
+					var url = ((m[0] === '//') ? 'http://' : m[0]) +  _includes[i];
 					cache_request(_includes[i], p, function() {
 						_includes[i] = p;
-						cbk1(m);
+						cbk1(url);
 					});
 				} else {
 					_includes[i] = env. site_path + _includes[i];
