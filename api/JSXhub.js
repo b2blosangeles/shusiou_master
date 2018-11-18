@@ -4,7 +4,7 @@ var CP  = require(env.root_path + "/package/crowdProcess/crowdProcess.js");
 function cache_request(url, fn, cbk) {
 	pkg.fs.stat(fn, function(err, stats) {
 		if (err) {
-		
+			/*
 			let file = pkg.fs.createWriteStream(fn);
 			file.on('finish', function() {
 				cbk(true);
@@ -12,8 +12,11 @@ function cache_request(url, fn, cbk) {
 			file.on('error', function() {
 				cbk(false);
 			});
-			
-			pkg.request(url, {rejectUnauthorized: false}, function (err, response, body) {}).pipe(file);	
+			*/
+			pkg.request(url, {rejectUnauthorized: false}, function (err, response, body) {
+				cbk(body);
+			})
+				//.pipe(file);	
 		} else {
 			//pkg.fs.utimes(fn, new Date(), stats.mtime, function() {
 				cbk(true);
