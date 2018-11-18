@@ -25,7 +25,7 @@ _f.pre = function(cbk) {
     	var cp1 = new CP();
 	var _f1 = [];
 	var patt = /^(http\:|https\:|)\/\//ig;
-	/* 
+	
 	_f1['P_main'] = function(cbk1) {
 		var m = _main.match(patt);
 		if (patt.test(_main)) {
@@ -46,7 +46,7 @@ _f.pre = function(cbk) {
 			cbk1(_main);
 		}
 	}
-	*/
+	
 	for (var i = 0; i < _includes.length; i++) {
 		_f1['P_' + i] = (function(i) { return function(cbk1) {
 				var m = _includes[i].match(patt);
