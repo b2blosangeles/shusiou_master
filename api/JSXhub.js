@@ -3,7 +3,7 @@ var CP  = require(env.root_path + "/package/crowdProcess/crowdProcess.js");
 
 function cache_request(url, fn, cbk) {
 	pkg.fs.stat(fn, function(err, stats) {
-		if (err || new Date().getTime() - stats.mtime > 30000) {
+		if (err || (new Date().getTime() - stats.mtime) > ((req.body.timeout) ? req.body.timeout : 60000)) {
 			pkg.request(url, {rejectUnauthorized: false}, function (err, response, body) {
 				pkg.fs.writeFile(fn, body, function (err) {
 				  if (err) cbk(false);
@@ -15,8 +15,6 @@ function cache_request(url, fn, cbk) {
 		}
 	});
 }
-
-
 
 var cp = new CP();
 var _f = [];
