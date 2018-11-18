@@ -28,11 +28,13 @@ var _includes = (req.body.includes) ? req.body.includes : [],
 _f.pre = function(cbk) {
     	var cp1 = new CP();
 	var _f1 = [];
-	var patt = /^(http\:|https\:|)\/\/(*)/ig;
+	var patt = /^(http\:|https\:|)\/\//ig;
 	
 	for (var i = 0; i < _includes.length; i++) {
 		_f1['P_' + i] = (function(i) { return function(cbk1) {
 				var m = _includes[i].match(patt);
+				cbk1(m);
+				return true;
 				if (patt.test(_includes[i])) {
 					var p = '/tmp/cache/'+ _includes[i].replace(patt, '').replace(/\//g, '_'); 
 					var url = ((!m[1]) ? 'http://' : m[1]) + '' + _includes[i];
