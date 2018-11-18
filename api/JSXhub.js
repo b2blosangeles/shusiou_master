@@ -14,7 +14,7 @@ function cache_request(url, fn, cbk) {
 			});
 			*/
 			pkg.request(url, {rejectUnauthorized: false}, function (err, response, body) {
-				pkg.writeFile(fn, body, function (err) {
+				pkg.fs.writeFile(fn, body, function (err) {
 				  if (err) cbk(false);
 				  else  cbk(true);
 				})
