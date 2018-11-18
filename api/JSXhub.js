@@ -74,7 +74,8 @@ _f.pre = function(cbk) {
 			}
 		})(i)
 	}
-	cp1.parallel(_f1, function(data) {
+	//cp1.parallel
+	cp1.serial(_f1, function(data) {
 		 cbk(data);
 	},3000);
 }
