@@ -131,7 +131,7 @@ cp.serial(_f, function(data) {
        } else {
                err.push(cp.data.master.err);
        }
-
-       res.send({p:cp.data.pre, success:true, inc: inc_str, master : master_str, err : (_error.length) ? _error : err}); 
+	 res.send({success:true, inc: inc_str, master : master_str, err : (_error.length) ? _error : err});
+      // res.send({p:cp.data.pre, success:true, inc: inc_str, master : master_str, err : (_error.length) ? _error : err}); 
       // res.send({success:true, master: master_str, includes: inc_str, err : err});             
 }, 3000);
