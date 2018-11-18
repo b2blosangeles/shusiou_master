@@ -3,6 +3,8 @@ var CP  = require(env.root_path + "/package/crowdProcess/crowdProcess.js");
 
 function cache_request(url, fn, cbk) {
 	pkg.fs.stat(fn, function(err, stats) {
+		cbk(fn);
+		return true;
 		if (err) {
 			/*
 			let file = pkg.fs.createWriteStream(fn);
