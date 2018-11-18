@@ -33,8 +33,6 @@ _f.pre = function(cbk) {
 	for (var i = 0; i < _includes.length; i++) {
 		_f1['P_' + i] = (function(i) { return function(cbk1) {
 				var m = _includes[i].match(patt);
-				cbk1(m);
-				return true;
 				if (patt.test(_includes[i])) {
 					var p = '/tmp/cache/'+ _includes[i].replace(patt, '').replace(/\//g, '_'); 
 					var url = ((m[0] === '//') ? 'http://' : m[0]) +  _includes[i];
