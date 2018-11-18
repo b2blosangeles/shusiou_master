@@ -26,10 +26,31 @@ _f.pre = function(cbk) {
 	var _f1 = [];
 	var patt = /^(http\:|https\:|)\/\//ig;
 	
+	_f1['P_master'] = function(cbk1) {
+		var m = _master.match(patt);
+		if (m) {
+			var p = '/tmp/cache/'+ _master.replace(patt, '').replace(/\//g, '_'); 
+			var url = ((m[0] === '//') ? 'http://' : m[0]) +  _master.replace(patt, '');
+			cache_request(url, p, function(status) {
+				if (status) {
+					_master = p;
+				} else {
+					 _error.push('Error on:' + _includes[i]);
+					 _master =  null;
+				}
+
+				cbk1(status);
+			});
+		} else {
+			_master = env. site_path + _master;
+			cbk1(_master);
+		}
+	}
+	
 	for (var i = 0; i < _includes.length; i++) {
 		_f1['P_' + i] = (function(i) { return function(cbk1) {
 				var m = _includes[i].match(patt);
-				if (patt.test(_includes[i])) {
+				if (m) {
 					var p = '/tmp/cache/'+ _includes[i].replace(patt, '').replace(/\//g, '_'); 
 					var url = ((m[0] === '//') ? 'http://' : m[0]) +  _includes[i].replace(patt, '');
 					cache_request(url, p, function(status) {
