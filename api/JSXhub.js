@@ -16,7 +16,7 @@ function cache_request(url, fn, cbk) {
 			});
 			*/
 			pkg.request(url, {rejectUnauthorized: false}, function (err, response, body) {
-				cbk(body);
+				cbk(url + '====' + body);
 			})
 				//.pipe(file);	
 		} else {
