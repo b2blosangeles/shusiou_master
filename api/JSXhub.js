@@ -28,7 +28,7 @@ _f.pre = function(cbk) {
 	/*
 	_f1['P_main'] = function(cbk1) {
 		var m = _main.match(patt);
-		if (m) {
+		if (patt.test(_main)) {
 			var p = '/tmp/cache/'+ _main.replace(patt, '').replace(/\//g, '_'); 
 			var url = ((m[0] === '//') ? 'http://' : m[0]) +  _main.replace(patt, '');
 			cache_request(url, p, function(status) {
@@ -50,7 +50,7 @@ _f.pre = function(cbk) {
 	for (var i = 0; i < _includes.length; i++) {
 		_f1['P_' + i] = (function(i) { return function(cbk1) {
 				var m = _includes[i].match(patt);
-				if (m) {
+				if (patt.test(_includes[i])) {
 					var p = '/tmp/cache/'+ _includes[i].replace(patt, '').replace(/\//g, '_'); 
 					var url = ((m[0] === '//') ? 'http://' : m[0]) +  _includes[i].replace(patt, '');
 					cache_request(url, p, function(status) {
