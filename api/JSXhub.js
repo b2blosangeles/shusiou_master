@@ -78,6 +78,10 @@ _f.pre = function(cbk) {
 
 _f.master = function(cbk) {
        var qaletBabel = new Babel();
+	if (!_main) {
+		cbk({success: false, err:'Missing main'});
+		return true;
+	}
        var fn = decodeURIComponent(_main);
        qaletBabel.jsx2js(fn, function(err, v) {
               if (err) {
@@ -124,6 +128,6 @@ cp.serial(_f, function(data) {
                err.push(cp.data.master.err);
        }
 
-       res.send({p:cp.data.pre, success:true, inc: inc_str, master : master_str, err : err}); 
+       res.send({p:cp.data.pre, success:true, inc: inc_str, master : master_str, err : (_error.length) ? _error : err}); 
       // res.send({success:true, master: master_str, includes: inc_str, err : err});             
 }, 3000);
