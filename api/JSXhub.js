@@ -78,7 +78,7 @@ _f.pre = function(cbk) {
 
 _f.master = function(cbk) {
        var qaletBabel = new Babel();
-       var fn = env. site_path + decodeURIComponent(_main);
+       var fn = decodeURIComponent(_main);
        qaletBabel.jsx2js(fn, function(err, v) {
               if (err) {
                      cbk({success: false, err:err.message})
