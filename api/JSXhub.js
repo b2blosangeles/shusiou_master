@@ -9,7 +9,7 @@ function cache_request(url, fn, cbk) {
 				if (!err) {
 					pkg.fs.writeFile(fn, body, function (err) {
 					  if (err) cbk(false);
-					  else  cbk(true);
+					  else  cbk(response);
 					})
 				} else {
 					cbk(response);
