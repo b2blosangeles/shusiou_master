@@ -5,13 +5,14 @@ function cache_request(url, fn, cbk) {
 	pkg.fs.stat(fn, function(err, stats) {
 		if (err || (new Date().getTime() - stats.mtime) > ((req.body.timeout) ? req.body.timeout : 60000)) {
 			pkg.request(url, {rejectUnauthorized: false}, function (err, response, body) {
+				
 				if (!err) {
 					pkg.fs.writeFile(fn, body, function (err) {
 					  if (err) cbk(false);
 					  else  cbk(true);
 					})
 				} else {
-					cbk(false);
+					cbk(response);
 				}
 			})
 		} else {
