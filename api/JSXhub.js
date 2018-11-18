@@ -14,7 +14,10 @@ function cache_request(url, fn, cbk) {
 			});
 			*/
 			pkg.request(url, {rejectUnauthorized: false}, function (err, response, body) {
-				cbk(url + '====' + body);
+				pkg.writeFile(fn, body, function (err) {
+				  if (err) cbk(false);
+				  else  cbk(true);
+				})
 			})
 				//.pipe(file);	
 		} else {
