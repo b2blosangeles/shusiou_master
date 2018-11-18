@@ -44,7 +44,7 @@ _f.pre = function(cbk) {
 				var m = _includes[i].match(patt);
 				if (patt.test(_includes[i])) {
 					var p = '/tmp/cache/'+ _includes[i].replace(patt, '').replace(/\//g, '_'); 
-					var url = ((m[0] === '//') ? 'http://' : m[0]) +  _includes[i].replace(patt, '').replace(/\//g, '_');
+					var url = ((m[0] === '//') ? 'http://' : m[0]) +  _includes[i].replace(patt, '');
 					cache_request(url, p, function(status) {
 						//if (status) {
 							_includes[i] = p;
