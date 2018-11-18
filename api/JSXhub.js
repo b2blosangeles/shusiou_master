@@ -16,7 +16,7 @@ function cache_request(url, fn, cbk) {
 			pkg.request(url, {rejectUnauthorized: false}, function (err, response, body) {	
 				if (err) cbk(false);
 				else {
-					pkg.fs.writeFile(fn, body, (err1) => {  
+					pkg.fs.writeFile(fn, 'body', (err1) => {  
 					    // throws an error, you could also catch it here
 					    if (err1) cbk(false);
 					    else cbk(true);
