@@ -25,7 +25,7 @@ _f.pre = function(cbk) {
     	var cp1 = new CP();
 	var _f1 = [];
 	var patt = /^(http\:|https\:|)\/\//ig;
-	/*
+	/* 
 	_f1['P_main'] = function(cbk1) {
 		var m = _main.match(patt);
 		if (patt.test(_main)) {
