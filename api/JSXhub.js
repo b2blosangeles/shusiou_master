@@ -1,5 +1,6 @@
 var Babel  = require(env.root_path + "/package/qaletBabel/qaletBabel.js");
 var CP  = require(env.root_path + "/package/crowdProcess/crowdProcess.js");
+var FolderP  = require(env.root_path + "/package/folderP/folderP.js");
 
 function cache_request(url, fn, cbk) {
 	pkg.fs.stat(fn, function(err, stats) {
@@ -80,6 +81,11 @@ _f.pre = function(cbk) {
 	},3000);
 }
 
+_f.mkcachefolder = function(cbk) {
+	var me = this;
+	var fp = new FolderP();
+	fp.build('/tmp/cahce/', cbk);
+}
 
 _f.master = function(cbk) {
        var qaletBabel = new Babel();
