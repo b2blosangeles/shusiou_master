@@ -26,6 +26,12 @@ var _f = [];
 var _includes = (req.body.includes) ? req.body.includes : [], _error = [];
     _main = (req.body.main) ? req.body.main : '';
 
+_f.mkcachefolder = function(cbk) {
+	var me = this;
+	var fp = new FolderP();
+	fp.build('/tmp/cache/', cbk);
+}
+
 _f.pre = function(cbk) {
     	var cp1 = new CP();
 	var _f1 = [];
@@ -81,11 +87,7 @@ _f.pre = function(cbk) {
 	},3000);
 }
 
-_f.mkcachefolder = function(cbk) {
-	var me = this;
-	var fp = new FolderP();
-	fp.build('/tmp/cache/', cbk);
-}
+
 
 _f.master = function(cbk) {
        var qaletBabel = new Babel();
