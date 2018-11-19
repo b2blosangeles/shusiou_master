@@ -84,7 +84,7 @@ _f.pre = function(cbk) {
 _f.mkcachefolder = function(cbk) {
 	var me = this;
 	var fp = new FolderP();
-	fp.build('/tmp/cahce/', cbk);
+	fp.build('/tmp/cache/', cbk);
 }
 
 _f.master = function(cbk) {
