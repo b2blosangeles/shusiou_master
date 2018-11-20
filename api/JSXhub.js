@@ -26,6 +26,8 @@ var _f = [];
 var _includes = (req.body.includes) ? req.body.includes : [], _error = [];
     _main = (req.body.main) ? req.body.main : '';
 
+var uurl = '';
+
 _f.mkcachefolder = function(cbk) {
 	var me = this;
 	var fp = new FolderP();
@@ -42,6 +44,7 @@ _f.pre = function(cbk) {
 		if (patt.test(_main)) {
 			var p = '/tmp/cache/'+ _main.replace(patt, '').replace(/\//g, '_'); 
 			var url = ((m[0] === '//') ? 'http://' : m[0]) +  _main.replace(patt, '');
+			uurl = url;
 			cache_request(url, p, function(status) {
 				if (status) {
 					_main = p;
@@ -140,7 +143,7 @@ cp.serial(_f, function(data) {
        } else {
                err.push(cp.data.master.err);
        }
-	 res.send({success:true, masterUrl:_main, inc: inc_str, master : master_str, err : (_error.length) ? _error : err});
+	 res.send({success:true, masterUrl: 'uurl=='+uurl, inc: inc_str, master : master_str, err : (_error.length) ? _error : err});
       // res.send({p:cp.data.pre, success:true, inc: inc_str, master : master_str, err : (_error.length) ? _error : err}); 
       // res.send({success:true, master: master_str, includes: inc_str, err : err});             
 }, 6000);
