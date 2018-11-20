@@ -25,6 +25,7 @@ var cp = new CP();
 var _f = [];
 var _includes = (req.body.includes) ? req.body.includes : [], _error = [];
     _main = (req.body.main) ? req.body.main : '';
+	root_main = (req.body.main) ? req.body.main : '';
 
 var uurl = '';
 
@@ -143,7 +144,7 @@ cp.serial(_f, function(data) {
        } else {
                err.push(cp.data.master.err);
        }
-	 res.send({success:true, masterUrl: 'mian=='+_main + '::posted==' + req.body.main, inc: inc_str, master : master_str, err : (_error.length) ? _error : err});
+	 res.send({success:true, masterUrl: 'rootmain' + root_main + '::mian=='+_main + '::posted==' + req.body.main, inc: inc_str, master : master_str, err : (_error.length) ? _error : err});
       // res.send({p:cp.data.pre, success:true, inc: inc_str, master : master_str, err : (_error.length) ? _error : err}); 
       // res.send({success:true, master: master_str, includes: inc_str, err : err});             
 }, 6000);
