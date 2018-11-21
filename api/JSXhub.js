@@ -4,7 +4,7 @@ var FolderP  = require(env.root_path + "/package/folderP/folderP.js");
 
 function cache_request(url, fn, cbk) {
 	pkg.fs.stat(fn, function(err, stats) {
-		//if (err || (new Date().getTime() - stats.mtime) > ((req.body.timeout) ? req.body.timeout : 6000)) {
+		if (err || (new Date().getTime() - stats.mtime) > ((req.body.timeout) ? req.body.timeout : 6000)) {
 			pkg.request(url, {rejectUnauthorized: false}, function (err, response, body) {
 				if (!err) {
 					pkg.fs.writeFile(fn, body, function (err) {
@@ -15,17 +15,17 @@ function cache_request(url, fn, cbk) {
 					cbk(false);
 				}
 			})
-		//} else {
-		//	cbk(true);
-		//}
+		} else {
+			cbk(true);
+		}
 	});
 }
 
 var cp = new CP();
 var _f = [];
-var _includes = (req.body.includes) ? req.body.includes : [], _error = [],
-    _main = (req.body.main) ? req.body.main : '',
-	root_main =  _main + 'AAA';
+var _includes = (req.body.includes) ? req.body.includes : [],
+    _error = [],
+    _main = (req.body.main) ? req.body.main : '';
 
 var uurl = '';
 
@@ -144,7 +144,7 @@ cp.serial(_f, function(data) {
        } else {
                err.push(cp.data.master.err);
        }
-	 res.send({success:true, masterUrl: 'rootmain==' + root_main + '::mian=='+_main + '::posted==' + req.body.main, inc: inc_str, master : master_str, err : (_error.length) ? _error : err});
+	 res.send({success:true, inc: inc_str, master : master_str, err : (_error.length) ? _error : err});
       // res.send({p:cp.data.pre, success:true, inc: inc_str, master : master_str, err : (_error.length) ? _error : err}); 
       // res.send({success:true, master: master_str, includes: inc_str, err : err});             
 }, 6000);
