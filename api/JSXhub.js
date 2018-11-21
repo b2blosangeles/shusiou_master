@@ -23,8 +23,8 @@ function cache_request(url, fn, cbk) {
 
 var cp = new CP();
 var _f = [];
-var _includes = (req.body.includes) ? req.body.includes : [], _error = [];
-    _main = (req.body.main) ? req.body.main : '';
+var _includes = (req.body.includes) ? req.body.includes : [], _error = [],
+    _main = (req.body.main) ? req.body.main : '',
 	root_main =  _main + 'AAA';
 
 var uurl = '';
