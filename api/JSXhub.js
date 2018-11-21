@@ -25,7 +25,7 @@ var cp = new CP();
 var _f = [];
 var _includes = (req.body.includes) ? req.body.includes : [], _error = [];
     _main = (req.body.main) ? req.body.main : '';
-	root_main = (req.body.main) ? req.body.main : '';
+	root_main =  _main;
 
 var uurl = '';
 
