@@ -56,7 +56,7 @@ try {
 					var _asyncOBJ = new Function('_asyncOBJ', code)(_asyncOBJ); 
 		
 					return  (<span>
-							<_asyncOBJ parent={me}/>999 ==={vv}
+							<_asyncOBJ parent={me}/>999 ===
 							{/*Root.lib.landingModal(me)*/}
 						</span>)
 					
