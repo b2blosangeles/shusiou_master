@@ -55,7 +55,8 @@ try {
 					return (<div className="overlayer_box homepage_box" 
 							style={{'margin-top': '0.5em', 'min-height':'18em'}}>
 						<_asyncModule plugin={{extend: me.options[code], 
-								master: '//master1_dev.shusiou.win/api/JSXhub.api'}} code={code} parent={me} />
+								master: '//master1_dev.shusiou.win/api/JSXhub.api'}} 
+							code={code} parent={me} />
 					</div>)
 				}
 			}
