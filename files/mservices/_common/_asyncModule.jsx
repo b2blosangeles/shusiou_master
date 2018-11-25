@@ -48,9 +48,9 @@ try {
 				try {
 					var _asyncOBJ = React.createClass({render: function() { return (<span/>)}});
 					
-					var code =  decodeURIComponent(resultData.inc) + 
+					var code =  decodeURIComponent(me._asyncModule.inc) + 
 						   '_asyncOBJ =  React.createElement(' + 
-						   decodeURIComponent(resultData.master).replace(/(\s|\;)+$/g, '') + 
+						   decodeURIComponent(me._asyncModule.master).replace(/(\s|\;)+$/g, '') + 
 						   ');';
                               			
 					new Function(code)();   					
