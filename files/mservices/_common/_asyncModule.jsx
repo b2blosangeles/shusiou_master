@@ -52,15 +52,8 @@ try {
 						    decodeURIComponent(me._asyncModule.master).replace(/(\s|\;)+$/g, ''); 
 
 						_asyncOBJ = new Function(code)(); 
-
-						return  (<span>
-								<_asyncOBJ parent={me}/>
-							</span>)
-					} else { return  (<span>
-							<_asyncOBJ parent={me}/>
-						</span>)
-					       }	
-						
+					}
+					return  (<_asyncOBJ parent={me}/>)						
 				} catch (err) {
 					return  (<span>Script Error: {err.message}</span>)
 				}
