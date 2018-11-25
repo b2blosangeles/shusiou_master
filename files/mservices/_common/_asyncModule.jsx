@@ -47,31 +47,20 @@ try {
 			} else if (me._asyncModule) {
 				try {
 					var _asyncOBJ = React.createClass({render: function() { return (<span/>)}});
-					
-					var code =  decodeURIComponent(me._asyncModule.inc) + 
-						   // 'return React.createElement(' + 
-					    		'return ' + 
-						   decodeURIComponent(me._asyncModule.master).replace(/(\s|\;)+$/g, '') 
-						 //  ');';
-                              			
-					var _asyncOBJ = new Function(code)(); 
-		
-					return  (<span>
-							{/*_asyncOBJ*/}
-							<_asyncOBJ parent={me}/>
-							{/*Root.lib.landingModal(me)*/}
-						</span>)
-					
-					/*
-					
 					if (me._asyncCode === me.props.code) {
-						eval( decodeURIComponent(me._asyncModule.inc));
-						eval('_asyncOBJ = ' + decodeURIComponent(me._asyncModule.master));
-					}
-					return  (<span>
+						var code =  decodeURIComponent(me._asyncModule.inc) + 'return ' + 
+						    decodeURIComponent(me._asyncModule.master).replace(/(\s|\;)+$/g, ''); 
+
+						_asyncOBJ = new Function(code)(); 
+
+						return  (<span>
+								<_asyncOBJ parent={me}/>
+							</span>)
+					} else { return  (<span>
 							<_asyncOBJ parent={me}/>
 						</span>)
-						*/
+					       }	
+						
 				} catch (err) {
 					return  (<span>Script Error: {err.message}</span>)
 				}
