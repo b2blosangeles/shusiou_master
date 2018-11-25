@@ -49,14 +49,16 @@ try {
 					var _asyncOBJ = React.createClass({render: function() { return (<span/>)}});
 					
 					var code =  decodeURIComponent(me._asyncModule.inc) + 
-						   'return React.createElement(' + 
+						   'return 888;'
+							+'React.createElement(' + 
 						   decodeURIComponent(me._asyncModule.master).replace(/(\s|\;)+$/g, '') + 
 						   ');';
                               			
 					var _asyncOBJ = new Function('_asyncOBJ', code)(_asyncOBJ); 
 		
 					return  (<span>
-							<_asyncOBJ parent={me}/>999 ===
+							{_asyncOBJ}
+							{/*<_asyncOBJ parent={me}/>999 ===*/}
 							{/*Root.lib.landingModal(me)*/}
 						</span>)
 					
