@@ -54,7 +54,7 @@ try {
 						   decodeURIComponent(me._asyncModule.master).replace(/(\s|\;)+$/g, '') + 
 						   ');';
                               			
-					var _asyncOBJ = new Function('_asyncOBJ', code)(_asyncOBJ); 
+					var _asyncOBJ = new Function(code)(); 
 		
 					return  (<span>
 							{_asyncOBJ}
