@@ -49,8 +49,7 @@ try {
 					var _asyncOBJ = React.createClass({render: function() { return (<span/>)}});
 					
 					var code =  decodeURIComponent(me._asyncModule.inc) + 
-						   'return 888;'
-							+'React.createElement(' + 
+						   'return React.createElement(' + 
 						   decodeURIComponent(me._asyncModule.master).replace(/(\s|\;)+$/g, '') + 
 						   ');';
                               			
