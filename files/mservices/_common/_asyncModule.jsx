@@ -13,10 +13,6 @@ try {
 			if (me.props.code !== prevProps.code) { 
 				me.loadPlugin();
 			}	
-		},
-		dataEngine : function(engCfg) {
-			var me = this;
-			Root.lib.loadEng(me, engCfg);
 		},		
 		loadPlugin : function() {
 			var me = this;
