@@ -67,7 +67,6 @@ try {
 					}
 					return  (<span>
 							<_asyncOBJ parent={me}/>
-							{/*Root.lib.landingModal(me)*/}
 						</span>)
 						*/
 				} catch (err) {
