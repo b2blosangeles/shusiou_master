@@ -19,6 +19,10 @@ try {
 			
 			return {option:''};
 		},
+		dataEngine : function(engCfg) {
+			var me = this;
+			Root.lib.loadEng(me, engCfg);
+		},		
 		showMenu : function()  {
 			var me = this;
 			return (<span>
