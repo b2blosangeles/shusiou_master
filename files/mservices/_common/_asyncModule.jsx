@@ -47,6 +47,20 @@ try {
 			} else if (me._asyncModule) {
 				try {
 					var _asyncOBJ = React.createClass({render: function() { return (<span/>)}});
+					
+					var code =  decodeURIComponent(resultData.inc) + 
+						   '_asyncOBJ =  React.createElement(' + 
+						   decodeURIComponent(resultData.master).replace(/(\s|\;)+$/g, '') + 
+						   ');';
+                              			
+					new Function(code)();   					
+					return  (<span>
+							<_asyncOBJ parent={me}/>
+							{/*Root.lib.landingModal(me)*/}
+						</span>)
+					
+					/*
+					
 					if (me._asyncCode === me.props.code) {
 						eval( decodeURIComponent(me._asyncModule.inc));
 						eval('_asyncOBJ = ' + decodeURIComponent(me._asyncModule.master));
@@ -55,6 +69,7 @@ try {
 							<_asyncOBJ parent={me}/>
 							{/*Root.lib.landingModal(me)*/}
 						</span>)
+						*/
 				} catch (err) {
 					return  (<span>Script Error: {err.message}</span>)
 				}
