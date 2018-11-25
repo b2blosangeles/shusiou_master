@@ -53,7 +53,7 @@ try {
 
 						_asyncOBJ = new Function(code)(); 
 					}
-					return  (<_asyncOBJ parent={me}/>)						
+					return  (<_asyncOBJ parent={(me.props.parent) ? me.props.parent : me}/>)						
 				} catch (err) {
 					return  (<span>Script Error: {err.message}</span>)
 				}
