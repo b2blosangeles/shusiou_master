@@ -53,7 +53,7 @@ try {
 						   decodeURIComponent(me._asyncModule.master).replace(/(\s|\;)+$/g, '') + 
 						   ');';
                               			
-					new Function(code)();   					
+					new Function('_asyncOBJ', code)(_asyncOBJ);   					
 					return  (<span>
 							<_asyncOBJ parent={me}/>999
 							{/*Root.lib.landingModal(me)*/}
