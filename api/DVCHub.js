@@ -62,7 +62,7 @@ _f.pre = function(cbk) {
 			cbk1(_main);
 		}
 	}
-	/*
+	
 	for (var k in _consts) {
 		_f1['C_' + k] = (function(k) { return function(cbk1) {
 				var m = _consts[k].match(patt);
@@ -84,7 +84,7 @@ _f.pre = function(cbk) {
 				}
 			}
 		})(k)
-	}*/
+	}
 	
 	for (var i = 0; i < _includes.length; i++) {
 		_f1['P_' + i] = (function(i) { return function(cbk1) {
