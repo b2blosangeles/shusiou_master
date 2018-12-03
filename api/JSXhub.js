@@ -24,6 +24,7 @@ function cache_request(url, fn, cbk) {
 var cp = new CP();
 var _f = [];
 var _includes = (req.body.includes) ? req.body.includes : [],
+    _consts = (req.body.consts) ? req.body.consts : {},
     _error = [],
     _main = (req.body.main) ? req.body.main : '';
 
@@ -60,6 +61,29 @@ _f.pre = function(cbk) {
 			_main = env. site_path + _main;
 			cbk1(_main);
 		}
+	}
+
+	for (var k in  _consts) {
+		_f1['C_' + k] = (function(i) { return function(cbk1) {
+				var m = __consts[k].match(patt);
+				if (patt.test(_consts[k])) {
+					var p = '/tmp/cache/'+ patt.test(_consts[k].replace(patt, '').replace(/\//g, '_'); 
+					var url = ((m[0] === '//') ? 'http://' : m[0]) +  _includes[i].replace(patt, '');
+					cache_request(url, p, function(status) {
+						if (status) {
+							_consts[k] = p;
+						} else {
+							 _error.push('Error on:' + _consts[k]);
+							_consts[k] =  null;
+						}
+						
+						cbk1(status);
+					});
+				} else {
+					cbk1(_consts[k]);
+				}
+			}
+		})(k)
 	}
 	
 	for (var i = 0; i < _includes.length; i++) {
