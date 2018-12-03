@@ -62,29 +62,6 @@ _f.pre = function(cbk) {
 			cbk1(_main);
 		}
 	}
-
-	for (var k in  _consts) {
-		_f1['C_' + k] = (function(k) { return function(cbk1) {
-				var m = __consts[k].match(patt);
-				if (patt.test(_consts[k])) {
-					var p = '/tmp/cache/'+ patt.test(_consts[k].replace(patt, '').replace(/\//g, '_'); 
-					var url = ((m[0] === '//') ? 'http://' : m[0]) +  _consts[k].replace(patt, '');
-					cache_request(url, p, function(status) {
-						if (status) {
-							_consts[k] = p;
-						} else {
-							 _error.push('Error on:' + _consts[k]);
-							_consts[k] =  null;
-						}
-						
-						cbk1(status);
-					});
-				} else {
-					cbk1(_consts[k]);
-				}
-			}
-		})(k)
-	}
 	
 	for (var i = 0; i < _includes.length; i++) {
 		_f1['P_' + i] = (function(i) { return function(cbk1) {
@@ -114,6 +91,7 @@ _f.pre = function(cbk) {
 		 cbk(data);
 	},3000);
 }
+
 
 
 _f.master = function(cbk) {
@@ -152,16 +130,8 @@ for (var i = 0; i < _includes.length; i++) {
 
 cp.serial(_f, function(data) {
        var inc_str = '', master_str = '', err = (_error.length) ? _error : [];
-  	/*
-	for (var k in  _consts) {
-              if (cp.data['C_' + i].success === true) {
-                     inc_str += cp.data['inc_' + i].code;
-              } else {
-                     err.push(cp.data['inc_' + i].err);
-              }	
-	}
-	*/
-	for (var i = 0; i < _includes.length; i++) {
+  
+       for (var i = 0; i < _includes.length; i++) {
 	       if (!_includes[i])	continue;
               if (cp.data['inc_' + i].success === true) {
                      inc_str += cp.data['inc_' + i].code;
