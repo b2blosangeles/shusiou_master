@@ -24,7 +24,7 @@ function cache_request(url, fn, cbk) {
 var cp = new CP();
 var _f = [];
 var _includes = (req.body.includes) ? req.body.includes : [],
-    _consts = (req.body.consts) ? req.body.consts : {},
+    _consts = (!req.body.consts) ? {} : req.body.consts,
     _error = [],
     _main = (req.body.controller) ? req.body.controller : '';
 
@@ -151,7 +151,7 @@ for (var i = 0; i < _includes.length; i++) {
 }
 
 cp.serial(_f, function(data) {
-       var inc_str = '', master_str = '', consts_str = 'var _compConsts = {};', err = (_error.length) ? _error : [];
+       var inc_str = '', master_str = '', consts_str = 'var _compConsts = {};' , err = (_error.length) ? _error : [];
   
 	for (var i = 0; i < _includes.length; i++) {
 	       if (!_includes[i])	continue;
