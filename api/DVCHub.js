@@ -149,10 +149,9 @@ for (var i = 0; i < _includes.length; i++) {
               }
        })(i)
 }
-       
 
 cp.serial(_f, function(data) {
-       var inc_str = '', master_str = '', err = (_error.length) ? _error : [];
+       var inc_str = '', master_str = '', consts_str = '', err = (_error.length) ? _error : [];
   
        for (var i = 0; i < _includes.length; i++) {
 	       if (!_includes[i])	continue;
@@ -163,6 +162,15 @@ cp.serial(_f, function(data) {
               }
        }
 
+      for (var k in _consts.length) { {
+	       if (!_consts[k])	continue;
+              if (cp.data['C_' + k].success === true) {
+                     consts_str += consts_str += 'var ' + k + ' = decodeURIComponent("' encodeURIComponent(cp.data['inc_' + i].code) + '");';;
+              } else {
+                     err.push(cp.data['C_' + i].err);
+              }
+       }	
+	
        if (cp.data.master.success === true) {
            master_str = cp.data.master.code 
        } else {
