@@ -184,7 +184,7 @@ cp.serial(_f, function(data) {
 	for (var k in _consts) { 
 	      if (!_consts[k])	continue;
 	      if (cp.data['C_' + k].success === true) {
-		     consts_str += cp.data['C_' + k].code;
+		     consts_str += '_compConst["'+k+'"] = 'decodeURIComponent("' +cp.data['C_' + k].code + '")';
 	      } else {
 		     err.push(cp.data['C_' + k].err);
 	      }
