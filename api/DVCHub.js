@@ -185,11 +185,11 @@ cp.serial(_f, function(data) {
 	
 	for (var k in _consts) { 
 	      if (!_consts[k])	{
-		      consts_str += '_compConst["'+k+'"] = decodeURIComponent("' + _consts_countent[k] + '")';
+		      consts_str += '_compConst["'+k+'"] = "' + _consts_countent[k] + '"';
 		      continue;
 	      }
 	      if (cp.data['C_' + k].success === true) {
-		     consts_str += '_compConsts["'+k+'"] = decodeURIComponent("' +cp.data['C_' + k].code + '")';
+		     consts_str += '_compConsts["'+k+'"] = "' + _consts_countent[k] + '"';
 	      } else {
 		     err.push(cp.data['C_' + k].err);
 	      }
