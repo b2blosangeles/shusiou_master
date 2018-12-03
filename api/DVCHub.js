@@ -80,7 +80,8 @@ _f.pre = function(cbk) {
 						cbk1(status);
 					});
 				} else {
-					_consts[k] = env. site_path + _consts[k];
+					// _consts[k] = env. site_path + _consts[k];
+					_consts[k] = null;
 					cbk1(_consts[k]);
 				}
 			}
@@ -153,8 +154,8 @@ for (var i = 0; i < _includes.length; i++) {
 
 for (var k in _consts) { 
    if (!_consts[k]) continue;
-   _f['C_' + k] = (function(i) { return function(cbk) {
-              var fn = decodeURIComponent(_consts[i]);
+   _f['C_' + k] = (function(k) { return function(cbk) {
+              var fn = decodeURIComponent(_consts[k]);
 	   
 		pkg.fs.readFile(fn, 'utf8', function (err,data) {
 			if (err) {
@@ -164,7 +165,7 @@ for (var k in _consts) {
 			}
 		});
               }
-       })(i)
+       })(k)
 }
 
 cp.serial(_f, function(data) {
