@@ -62,7 +62,7 @@ _f.pre = function(cbk) {
 			cbk1(_main);
 		}
 	}
-	
+	/*
 	for (var k in _consts) {
 		_f1['C_' + k] = (function(k) { return function(cbk1) {
 				var m = _consts[k].match(patt);
@@ -84,7 +84,7 @@ _f.pre = function(cbk) {
 				}
 			}
 		})(k)
-	}
+	}*/
 	
 	for (var i = 0; i < _includes.length; i++) {
 		_f1['P_' + i] = (function(i) { return function(cbk1) {
@@ -161,13 +161,13 @@ cp.serial(_f, function(data) {
 		     err.push(cp.data['inc_' + i].err);
 	      }
 	}
-	
+	/*
 	for (var k in _consts) { 
 	       if (cp.data['C_' + k]) {
 		  //   consts_str += '_compConsts["' + k + '"] =  decodeURIComponent("yyy");';
 		  //   consts_str += '_compConsts["' + k + '"] = decodeURIComponent("' + encodeURIComponent(cp.data['C_' +k]) + '");';
 	       } 
-	}
+	}*/
 	
        if (cp.data.master.success === true) {
            master_str = cp.data.master.code 
