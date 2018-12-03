@@ -116,7 +116,6 @@ _f.pre = function(cbk) {
 }
 
 
-
 _f.master = function(cbk) {
        var qaletBabel = new Babel();
 	if (!_main) {
@@ -154,7 +153,15 @@ for (var i = 0; i < _includes.length; i++) {
 cp.serial(_f, function(data) {
        var inc_str = '', master_str = '', err = (_error.length) ? _error : [];
   
-       for (var i = 0; i < _includes.length; i++) {
+	for (var k in  _consts) {
+              if (cp.data['C_' + i].success === true) {
+                     inc_str += cp.data['inc_' + i].code;
+              } else {
+                     err.push(cp.data['inc_' + i].err);
+              }	
+	}
+	
+	for (var i = 0; i < _includes.length; i++) {
 	       if (!_includes[i])	continue;
               if (cp.data['inc_' + i].success === true) {
                      inc_str += cp.data['inc_' + i].code;
