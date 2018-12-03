@@ -165,7 +165,7 @@ cp.serial(_f, function(data) {
       for (var k in _consts.length) { {
 	       if (!_consts[k])	continue;
               if (cp.data['C_' + k].success === true) {
-                     consts_str += consts_str += 'var ' + k + ' = decodeURIComponent("' encodeURIComponent(cp.data['inc_' + i].code) + '");';;
+                     consts_str += consts_str += 'var ' + k + ' = decodeURIComponent("' + encodeURIComponent(cp.data['inc_' + i].code) + '");';;
               } else {
                      err.push(cp.data['C_' + i].err);
               }
