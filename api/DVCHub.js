@@ -154,9 +154,6 @@ for (var i = 0; i < _includes.length; i++) {
 for (var k in _consts) { 
    if (!_consts[k]) continue;
    _f['C_' + k] = (function(i) { return function(cbk) {
-	    cbk({success: true, code: encodeURIComponent(v.code)});
-	   
-              var qaletBabel = new Babel();
               var fn = decodeURIComponent(_consts[i]);
 	   
 		pkg.fs.readFile(fn, 'utf8', function (err,data) {
