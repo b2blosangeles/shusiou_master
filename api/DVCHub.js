@@ -181,7 +181,7 @@ cp.serial(_f, function(data) {
 	
 	
 	for (var k in _consts) { 
-	      if (!in _consts[k])	continue;
+	      if (!_consts[k])	continue;
 	      if (cp.data['C_' + i].success === true) {
 		     consts_str += cp.data['C_' + k].code;
 	      } else {
