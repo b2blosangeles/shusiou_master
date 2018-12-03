@@ -77,9 +77,10 @@ _f.pre = function(cbk) {
 							_consts[k] =  null;
 						}
 						
-						cbk1(_consts[k]);
+						cbk1(status);
 					});
 				} else {
+					_consts[k] = env. site_path + _consts[k];
 					cbk1(_consts[k]);
 				}
 			}
@@ -149,25 +150,25 @@ for (var i = 0; i < _includes.length; i++) {
               }
        })(i)
 }
-consts_str = cp.data.pre;
-/*
+
 for (var k in _consts) { 
-   if (!_consts[i])	continue;
-   _f['inc_' + i] = (function(i) { return function(cbk) {
+   if (!_consts[k]) continue;
+   _f['C_' + k] = (function(i) { return function(cbk) {
 	    cbk({success: true, code: encodeURIComponent(v.code)});
 	   
               var qaletBabel = new Babel();
-              var fn = decodeURIComponent(_includes[i]);
-                     qaletBabel.jsx2js(fn, function(err, v) {
-                            if (err) {
-                                   cbk({success: false, err:err.message});
-                            } else {
-                                   cbk({success: true, code: encodeURIComponent(v.code)});
-                            }
-                     });
+              var fn = decodeURIComponent(_consts[i]);
+	   
+		pkg.fs.readFile(fn, 'utf8', function (err,data) {
+			if (err) {
+			   cbk({success: false, err:err.message});
+			} else {
+			   cbk({success: true, code: encodeURIComponent(v.code)});
+			}
+		});
               }
        })(i)
-}*/
+}
 
 cp.serial(_f, function(data) {
        var inc_str = '', master_str = '', consts_str = 'var _compConsts = {};',  err = (_error.length) ? _error : [];
@@ -180,16 +181,17 @@ cp.serial(_f, function(data) {
 		     err.push(cp.data['inc_' + i].err);
 	      }
 	}
-	consts_str = cp.data.pre;
-	/*
+	
+	
 	for (var k in _consts) { 
-		consts_str +=k;
-	       if (cp.data['C_' + k]) {
-		   //  consts_str += '_compConsts["' + k + '"] =  decodeURIComponent("yyy");';
-		  //   consts_str += '_compConsts["' + k + '"] = decodeURIComponent("' + encodeURIComponent(cp.data['C_' +k]) + '");';
-	       } 
-	}
-	*/
+	      if (!in _consts[k])	continue;
+	      if (cp.data['C_' + i].success === true) {
+		     consts_str += cp.data['C_' + k].code;
+	      } else {
+		     err.push(cp.data['C_' + k].err);
+	      }
+	}	
+
        if (cp.data.master.success === true) {
            master_str = cp.data.master.code 
        } else {
