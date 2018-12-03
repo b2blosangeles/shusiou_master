@@ -84,7 +84,7 @@ _f.pre = function(cbk) {
 					// _consts[k] = env. site_path + _consts[k];
 					_consts_countent[k] = _consts[k];
 					_consts[k] = null;
-					cbk1(_consts[k]);
+					cbk1(null);
 				}
 			}
 		})(k)
@@ -175,6 +175,7 @@ cp.serial(_f, function(data) {
   
 	for (var i = 0; i < _includes.length; i++) {
 	       if (!_includes[i])	continue;
+		
 	      if (cp.data['inc_' + i].success === true) {
 		     inc_str += cp.data['inc_' + i].code;
 	      } else {
@@ -185,6 +186,7 @@ cp.serial(_f, function(data) {
 	
 	for (var k in _consts) { 
 	      if (!_consts[k])	continue;
+		// _consts_countent
 	      if (cp.data['C_' + k].success === true) {
 		     consts_str += '_compConst["'+k+'"] = 'decodeURIComponent("' +cp.data['C_' + k].code + '")';
 	      } else {
