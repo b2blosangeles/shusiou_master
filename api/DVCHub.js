@@ -26,7 +26,7 @@ var _f = [];
 var _includes = (req.body.includes) ? req.body.includes : [],
     _consts = (req.body.consts) ? req.body.consts : {},
     _error = [],
-    _main = (req.body.main) ? req.body.main : '';
+    _main = (req.body.controller) ? req.body.controller : '';
 
 var uurl = '';
 
