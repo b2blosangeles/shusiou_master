@@ -63,6 +63,29 @@ _f.pre = function(cbk) {
 		}
 	}
 	
+	for (var k in _consts.length) {
+		_f1['C_' + k] = (function(k) { return function(cbk1) {
+				var m = _includes[k].match(patt);
+				if (patt.test(_consts[k])) {
+					var p = '/tmp/cache/'+ _consts[k].replace(patt, '').replace(/\//g, '_'); 
+					var url = ((m[0] === '//') ? 'http://' : m[0]) +  _consts[k].replace(patt, '');
+					cache_request(url, p, function(status) {
+						if (status) {
+							_consts[k] = p;
+						} else {
+							 _error.push('Error on:' + _consts[k]);
+							_consts[k] =  null;
+						}
+						
+						cbk1(_consts[k]);
+					});
+				} else {
+					cbk1(_consts[k]);
+				}
+			}
+		})(i)
+	}
+	
 	for (var i = 0; i < _includes.length; i++) {
 		_f1['P_' + i] = (function(i) { return function(cbk1) {
 				var m = _includes[i].match(patt);
@@ -85,7 +108,7 @@ _f.pre = function(cbk) {
 				}
 			}
 		})(i)
-	}
+	}	
 	//cp1.serial cp1.parallel
 	cp1.parallel(_f1, function(data) {
 		 cbk(data);
