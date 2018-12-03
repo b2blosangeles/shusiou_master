@@ -25,6 +25,7 @@ var cp = new CP();
 var _f = [];
 var _includes = (req.body.includes) ? req.body.includes : [],
     _consts = (!req.body.consts) ? {} : req.body.consts,
+    _consts_countent = {},
     _error = [],
     _main = (req.body.controller) ? req.body.controller : '';
 
@@ -81,6 +82,7 @@ _f.pre = function(cbk) {
 					});
 				} else {
 					// _consts[k] = env. site_path + _consts[k];
+					_consts_countent[k] = _consts[k];
 					_consts[k] = null;
 					cbk1(_consts[k]);
 				}
