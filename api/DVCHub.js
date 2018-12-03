@@ -164,7 +164,7 @@ cp.serial(_f, function(data) {
 	
 	for (var k in _consts) { 
 	       if (cp.data['C_' + k]) {
-		     consts_str += '_compConsts["' + k + '"] =  decodeURIComponent("yyy");';
+		  //   consts_str += '_compConsts["' + k + '"] =  decodeURIComponent("yyy");';
 		  //   consts_str += '_compConsts["' + k + '"] = decodeURIComponent("' + encodeURIComponent(cp.data['C_' +k]) + '");';
 	       } 
 	}
