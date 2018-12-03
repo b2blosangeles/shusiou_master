@@ -161,13 +161,13 @@ cp.serial(_f, function(data) {
 		     err.push(cp.data['inc_' + i].err);
 	      }
 	}
-	/*
+	
 	for (var k in _consts) { 
 	       if (cp.data['C_' + k]) {
 		  //   consts_str += '_compConsts["' + k + '"] =  decodeURIComponent("yyy");';
 		  //   consts_str += '_compConsts["' + k + '"] = decodeURIComponent("' + encodeURIComponent(cp.data['C_' +k]) + '");';
 	       } 
-	}*/
+	}
 	
        if (cp.data.master.success === true) {
            master_str = cp.data.master.code 
