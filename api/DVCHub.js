@@ -65,7 +65,7 @@ _f.pre = function(cbk) {
 	
 	for (var k in _consts) {
 		_f1['C_' + k] = (function(k) { return function(cbk1) {
-				var m = _includes[k].match(patt);
+				var m = _consts[k].match(patt);
 				if (patt.test(_consts[k])) {
 					var p = '/tmp/cache/'+ _consts[k].replace(patt, '').replace(/\//g, '_'); 
 					var url = ((m[0] === '//') ? 'http://' : m[0]) +  _consts[k].replace(patt, '');
