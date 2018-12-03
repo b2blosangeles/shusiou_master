@@ -151,7 +151,7 @@ for (var i = 0; i < _includes.length; i++) {
 }
 
 cp.serial(_f, function(data) {
-       var inc_str = '', master_str = '', consts_str = 'var _compConsts = {};' , err = (_error.length) ? _error : [];
+       var inc_str = '', master_str = '', consts_str = _consts, /* 'var _compConsts = {};'*/ , err = (_error.length) ? _error : [];
   
 	for (var i = 0; i < _includes.length; i++) {
 	       if (!_includes[i])	continue;
@@ -165,7 +165,7 @@ cp.serial(_f, function(data) {
 	for (var k in _consts) { 
 	       if (cp.data['C_' + k]) {
 		  //   consts_str += '_compConsts["' + k + '"] =  decodeURIComponent("yyy");';
-		     consts_str += '_compConsts["' + k + '"] = decodeURIComponent("' + encodeURIComponent(cp.data['C_' +k]) + '");';
+		  //   consts_str += '_compConsts["' + k + '"] = decodeURIComponent("' + encodeURIComponent(cp.data['C_' +k]) + '");';
 	       } 
 	}
 	
