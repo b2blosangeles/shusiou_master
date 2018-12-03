@@ -160,7 +160,7 @@ for (var k in _consts) {
 			if (err) {
 			   cbk({success: false, err:err.message});
 			} else {
-			   cbk({success: true, code: encodeURIComponent(v.code)});
+			   cbk({success: true, code: encodeURIComponent(data)});
 			}
 		});
               }
