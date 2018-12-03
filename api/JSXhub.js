@@ -64,7 +64,7 @@ _f.pre = function(cbk) {
 	}
 
 	for (var k in  _consts) {
-		_f1['C_' + k] = (function(i) { return function(cbk1) {
+		_f1['C_' + k] = (function(k) { return function(cbk1) {
 				var m = __consts[k].match(patt);
 				if (patt.test(_consts[k])) {
 					var p = '/tmp/cache/'+ patt.test(_consts[k].replace(patt, '').replace(/\//g, '_'); 
