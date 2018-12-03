@@ -149,6 +149,25 @@ for (var i = 0; i < _includes.length; i++) {
               }
        })(i)
 }
+consts_str = cp.data.pre;
+/*
+for (var k in _consts) { 
+   if (!_consts[i])	continue;
+   _f['inc_' + i] = (function(i) { return function(cbk) {
+	    cbk({success: true, code: encodeURIComponent(v.code)});
+	   
+              var qaletBabel = new Babel();
+              var fn = decodeURIComponent(_includes[i]);
+                     qaletBabel.jsx2js(fn, function(err, v) {
+                            if (err) {
+                                   cbk({success: false, err:err.message});
+                            } else {
+                                   cbk({success: true, code: encodeURIComponent(v.code)});
+                            }
+                     });
+              }
+       })(i)
+}*/
 
 cp.serial(_f, function(data) {
        var inc_str = '', master_str = '', consts_str = 'var _compConsts = {};',  err = (_error.length) ? _error : [];
@@ -161,7 +180,8 @@ cp.serial(_f, function(data) {
 		     err.push(cp.data['inc_' + i].err);
 	      }
 	}
-	
+	consts_str = cp.data.pre;
+	/*
 	for (var k in _consts) { 
 		consts_str +=k;
 	       if (cp.data['C_' + k]) {
@@ -169,7 +189,7 @@ cp.serial(_f, function(data) {
 		  //   consts_str += '_compConsts["' + k + '"] = decodeURIComponent("' + encodeURIComponent(cp.data['C_' +k]) + '");';
 	       } 
 	}
-	
+	*/
        if (cp.data.master.success === true) {
            master_str = cp.data.master.code 
        } else {
