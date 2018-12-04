@@ -24,8 +24,8 @@ function cache_request(url, fn, cbk) {
 var cp = new CP();
 var _f = [];
 var _includes = (req.body.includes) ? req.body.includes : [],
-    _consts = (!req.body.consts) ? {} : req.body.consts,
-    _consts_countent = {},
+    _contents = (!req.body.contents) ? {} : req.body.contents,
+    _contents_org = {},
     _error = [],
     _main = (req.body.controller) ? req.body.controller : '';
 
@@ -64,25 +64,25 @@ _f.pre = function(cbk) {
 		}
 	}
 	
-	for (var k in _consts) {
+	for (var k in _contents) {
 		_f1['C_' + k] = (function(k) { return function(cbk1) {
-				var m = _consts[k].match(patt);
-				if (patt.test(_consts[k])) {
-					var p = '/tmp/cache/'+ _consts[k].replace(patt, '').replace(/\//g, '_'); 
-					var url = ((m[0] === '//') ? 'http://' : m[0]) +  _consts[k].replace(patt, '');
+				var m = _contents[k].match(patt);
+				if (patt.test(_contents[k])) {
+					var p = '/tmp/cache/'+ _contents[k].replace(patt, '').replace(/\//g, '_'); 
+					var url = ((m[0] === '//') ? 'http://' : m[0]) +  _contents[k].replace(patt, '');
 					cache_request(url, p, function(status) {
 						if (status) {
-							_consts[k] = p;
+							_contents[k] = p;
 						} else {
-							 _error.push('Error on:' + _consts[k]);
-							_consts[k] =  null;
+							 _error.push('Error on:' + _contents[k]);
+							_contents[k] =  null;
 						}
 						
 						cbk1(status);
 					});
 				} else {
-					_consts_countent[k] = encodeURIComponent(_consts[k]);
-					_consts[k] = null;
+					_contents_org[k] = encodeURIComponent(_contents[k]);
+					_contents[k] = null;
 					cbk1(null);
 				}
 			}
@@ -153,10 +153,10 @@ for (var i = 0; i < _includes.length; i++) {
        })(i)
 }
 
-for (var k in _consts) { 
-   if (!_consts[k]) continue;
+for (var k in _contents) { 
+   if (!_contents[k]) continue;
    _f['C_' + k] = (function(k) { return function(cbk) {
-              var fn = decodeURIComponent(_consts[k]);
+              var fn = decodeURIComponent(_contents[k]);
 	   
 		pkg.fs.readFile(fn, 'utf8', function (err,data) {
 			if (err) {
@@ -170,7 +170,7 @@ for (var k in _consts) {
 }
 
 cp.serial(_f, function(data) {
-       var inc_str = '', master_str = '', consts_str = 'var _compConsts = {};',  err = (_error.length) ? _error : [];
+       var inc_str = '', master_str = '', contents_str = 'var _compcontents = {};',  err = (_error.length) ? _error : [];
   
 	for (var i = 0; i < _includes.length; i++) {
 	       if (!_includes[i])	continue;
@@ -183,13 +183,13 @@ cp.serial(_f, function(data) {
 	}
 	
 	
-	for (var k in _consts) { 
-	      if (!_consts[k])	{
-		      consts_str += '_compConst["'+k+'"] = decodeURIComponent("' + _consts_countent[k] + '")';
+	for (var k in _contents) { 
+	      if (!_contents[k])	{
+		      contents_str += '_compConst["'+k+'"] = decodeURIComponent("' + _contents_org[k] + '")';
 		      continue;
 	      }
 	      if (cp.data['C_' + k].success === true) {
-		     consts_str += '_compConsts["'+k+'"] = decodeURIComponent("' + cp.data['C_' + k].code + '"); ';
+		     contents_str += '_compcontents["'+k+'"] = decodeURIComponent("' + cp.data['C_' + k].code + '"); ';
 	      } else {
 		     err.push(cp.data['C_' + k].err);
 	      }
@@ -200,5 +200,5 @@ cp.serial(_f, function(data) {
        } else {
                err.push(cp.data.master.err);
        }
-	res.send({success:true, consts: consts_str, inc: inc_str, master : master_str, err : err});             
+	res.send({success:true, contents: contents_str, inc: inc_str, master : master_str, err : err});             
 }, 6000);
