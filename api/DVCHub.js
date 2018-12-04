@@ -170,7 +170,7 @@ for (var k in _contents) {
 }
 
 cp.serial(_f, function(data) {
-       var inc_str = '', master_str = '', contents_str = 'var _compcontents = {};',  err = (_error.length) ? _error : [];
+       var inc_str = '', master_str = '', contents_str = 'var _compContents = {};',  err = (_error.length) ? _error : [];
   
 	for (var i = 0; i < _includes.length; i++) {
 	       if (!_includes[i])	continue;
@@ -185,11 +185,11 @@ cp.serial(_f, function(data) {
 	
 	for (var k in _contents) { 
 	      if (!_contents[k])	{
-		      contents_str += '_compConst["'+k+'"] = decodeURIComponent("' + _contents_org[k] + '")';
+		      contents_str += '_compContents["'+k+'"] = decodeURIComponent("' + _contents_org[k] + '")';
 		      continue;
 	      }
 	      if (cp.data['C_' + k].success === true) {
-		     contents_str += '_compcontents["'+k+'"] = decodeURIComponent("' + cp.data['C_' + k].code + '"); ';
+		     contents_str += '_compContents["'+k+'"] = decodeURIComponent("' + cp.data['C_' + k].code + '"); ';
 	      } else {
 		     err.push(cp.data['C_' + k].err);
 	      }
